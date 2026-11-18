@@ -1,5 +1,5 @@
 {
-  "state": "LOCAL_PREPRINT_CANDIDATE",
+  "state": "ZENODO_PUBLISHED_SSRN_REVISION_CONFIRMED",
   "title": "Near-Linear Preprocessing for Reachability After Two Vertex Failures in Directed Acyclic Graphs",
   "version": "1.2",
   "reviewed_baseline_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
@@ -9,7 +9,7 @@
   "zenodo_concept_doi": "10.5281/zenodo.24142495",
   "zenodo_licence_from_previous_version": "CC BY 4.0",
   "ssrn_abstract_id": "7692598",
-  "ssrn_current_public_status": "Unknown. Public URL returned HTTP 403. Original receipt confirmed submission.",
+  "ssrn_current_public_status": "Original record was approved. Revision confirmed in author portal. Revised public listing unverified.",
   "abstract_file": "abstract.txt",
   "checks": {
     "finite_replay": {
@@ -39,7 +39,7 @@
     "print-style.html": "42624b0a3d538b4580da6c393cfb58de4b1a5814201d03313459ed1e73a778c1",
     "README.md": "964e39ee47c674076557df81a0ef7141a0b590cfb4aad3b415924a0b6322c348"
   },
-  "platform_dates_and_receipts": "Pending publication.",
+  "platform_dates_and_receipts": "publication-receipt.json",
   "author": "Idris Ali Shaik",
   "resource_type": "Preprint",
   "abstract_sha256": "a7546d2499d5cb19d6267835bdcf13c7e2503ef9e4c9779ac193cea9d8a18a41",

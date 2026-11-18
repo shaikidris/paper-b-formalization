@@ -1,0 +1,26 @@
+{
+  "title": "Near-Linear Preprocessing for Reachability After Two Vertex Failures in Directed Acyclic Graphs",
+  "version": "1.2",
+  "artifact_commit": "87a46bd",
+  "recorded_at": "2026-11-18T16:42:21+05:30",
+  "zenodo": {
+    "status": "published",
+    "publication_date": "2026-11-18",
+    "version_doi": "10.5281/zenodo.24339761",
+    "concept_doi": "10.5281/zenodo.24142495",
+    "previous_version_doi": "10.5281/zenodo.24142496",
+    "url": "https://zenodo.org/records/24339761",
+    "verified_md5": {
+      "paper-b-v1.2.pdf": "8e28ecf51a7ed12ef140519acf417aec",
+      "paper-b-v1.2-source.zip": "fd3d0fc675d3335066c8ccadfb81e0ba"
+    }
+  },
+  "ssrn": {
+    "status": "revision confirmed by portal",
+    "abstract_id": "7692598",
+    "url": "https://papers.ssrn.com/abstract=7692598",
+    "portal_receipt": "Save successful. Your revision was successful.",
+    "uploaded_pdf_sha256": "a87dbbc308522cd2e96400e6cffa1c00f609685cc1e50bbcaeb0f4da3f2d9f8d",
+    "public_revision_readback": "Unverified"
+  }
+}
