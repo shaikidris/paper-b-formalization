@@ -1,0 +1,24 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 25,
+  "post_sha256": "f0a4b27384dbb80c8e83d881e0acf5af6ec833fa8db6acf868f4e921839f3eaf",
+  "declarations": [
+    "PaperB.LabelledQuotient.exists_properLossForest_lemma_3_1",
+    "PaperB.LabelledQuotient.buildProperLossForest_depth_real"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "paper_sha256": "86098c578c3297fc7952aa357bec9c0d80b9c6e854ce117622561cda7c276808",
+  "source_sha256": "2931e7c404d3b8285cc9a53232529100ee5e5794586c74a40e7e2772b9b4d596",
+  "check_output": "PaperB.LabelledQuotient.exists_properLossForest_lemma_3_1 {H : PaperB.LabelledQuotient} {rank : Fin H.vertexCount → Nat}\n  (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v)\n  (distinctRanks : ∀ (a b : Fin H.vertexCount), rank a = rank b → a = b) (flat : H.IsFlat) :\n  ∃ F,\n    (∀ (B : H.CutPair), B ∈ F.realKeys → B.fst < B.snd) ∧\n      List.Pairwise (fun x1 x2 => x1 ≠ x2) F.realKeys ∧\n        F.realNodeCount ≤ H.vertexCount ∧\n          F.nodeKey? F.rootNode = none ∧\n            F.parent F.rootNode = F.rootNode ∧\n              F.label H.root = F.rootNode ∧\n                (∀ (y : Fin H.vertexCount), H.HasQuotientArc H.root y → F.label y = F.rootNode) ∧\n                  (∀ (B : H.CutPair), (∃ u, F.nodeKey? u = some B) ↔ B.fst < B.snd ∧ ∃ y, H.ProperLoss B y) ∧\n                    (∀ (y : Fin H.vertexCount), H.sweepChain rank y = F.nodeChain (F.label y)) ∧\n                      (∀ (B : H.CutPair),\n                          B.fst < B.snd →\n                            ∀ (y : Fin H.vertexCount),\n                              H.ProperLoss B y ↔\n                                ∃ u,\n                                  F.nodeKey? u = some B ∧\n                                    PaperB.LabelledQuotient.IsForestAncestor F.parent u (F.label y)) ∧\n                        ∀ (uP : Fin (F.realNodeCount + 1)) (P B : H.CutPair),\n                          F.nodeKey? uP = some P →\n                            F.nodeKey? (F.parent uP) = some B →\n                              (∀ (p : Fin H.vertexCount), P.Mem p → H.Lost B p) ∧\n                                (∀ (y : Fin H.vertexCount), H.ProperLoss P y → H.ProperLoss B y) ∧\n                                  ∀ (p : Fin H.vertexCount),\n                                    PaperB.LabelledQuotient.IsFreshEndpoint B P p →\n                                      ∀ (b : Fin H.vertexCount), B.Mem b → rank b < rank p\n'PaperB.LabelledQuotient.exists_properLossForest_lemma_3_1' depends on axioms: [propext, Quot.sound]",
+  "axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "repairs": [
+    "Removed rewrites already discharged by definitional reduction.",
+    "Made the Fin branch type explicit.",
+    "Corrected the orientation of the depth contradiction."
+  ],
+  "scope": "Semantic Lemma 3.1 on a supplied flat quotient and injective topological rank. The formal theorem covers unique effective keys, root, inclusive ancestry, nesting, fresh endpoint order and the node bound. Acyclicity of the real parent relation also follows from depth_real. Construction resource bounds and formal tracker certification remain separate."
+}

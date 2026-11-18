@@ -1736,5 +1736,690 @@ theorem sweepChain_eq_parentKeyChain {H : LabelledQuotient}
   sweepChain_eq_parentKeyChain_bounded rankArc distinctRanks flat
     (rank y + 1) y (Nat.lt_succ_self (rank y))
 
+/-! ### Part 2b: Indexed `ProperLossForest`, `IsForestAncestor`, and Lemma 3.1 theorem suite -/
+
+def listGetFin {α : Type} : (l : List α) → Fin l.length → α
+  | x :: _, ⟨0, _⟩ => x
+  | _ :: xs, ⟨k + 1, hk⟩ => listGetFin xs ⟨k, Nat.le_of_succ_le_succ hk⟩
+
+theorem listGetFin_mem {α : Type} :
+    ∀ (l : List α) (i : Fin l.length), listGetFin l i ∈ l
+  | _ :: _, ⟨0, _⟩ => List.mem_cons.mpr (Or.inl rfl)
+  | _ :: xs, ⟨k + 1, hk⟩ =>
+      List.mem_cons.mpr (Or.inr (listGetFin_mem xs ⟨k, Nat.le_of_succ_le_succ hk⟩))
+
+def findFinIdx {α : Type} [DecidableEq α] (target : α) :
+    (l : List α) → Option (Fin l.length)
+  | [] => none
+  | x :: xs =>
+      if target = x then
+        some ⟨0, Nat.zero_lt_succ xs.length⟩
+      else
+        match findFinIdx target xs with
+        | none => none
+        | some i => some ⟨i.val + 1, Nat.succ_lt_succ i.isLt⟩
+
+theorem findFinIdx_of_mem {α : Type} [DecidableEq α] {target : α} :
+    ∀ {l : List α}, target ∈ l →
+      ∃ i : Fin l.length, findFinIdx target l = some i ∧ listGetFin l i = target
+  | [], hMem => False.elim (by nomatch hMem)
+  | x :: xs, hMem => by
+      dsimp [findFinIdx]
+      by_cases htx : target = x
+      · rw [ite_eq_left htx]
+        exact ⟨⟨0, Nat.zero_lt_succ xs.length⟩, rfl, htx.symm⟩
+      · rw [ite_eq_right htx]
+        cases List.mem_cons.mp hMem with
+        | inl hEq => exact False.elim (htx hEq)
+        | inr hTail =>
+            let ⟨i, hiFind, hiGet⟩ := findFinIdx_of_mem hTail
+            rw [hiFind]
+            refine ⟨⟨i.val + 1, Nat.succ_lt_succ i.isLt⟩, rfl, ?_⟩
+            dsimp [listGetFin]
+            exact hiGet
+
+theorem findFinIdx_listGetFin {α : Type} [DecidableEq α] :
+    ∀ {l : List α}, l.Pairwise (· ≠ ·) →
+      ∀ (i : Fin l.length), findFinIdx (listGetFin l i) l = some i
+  | [], _, ⟨_, isLt⟩ => False.elim (by nomatch isLt)
+  | x :: xs, _, ⟨0, h0⟩ => by
+      have hGet : listGetFin (x :: xs) ⟨0, h0⟩ = x := rfl
+      rw [hGet]
+      dsimp [findFinIdx]
+      rw [ite_eq_left rfl]
+  | x :: xs, hl, ⟨k + 1, hk⟩ => by
+      let ⟨hxNe, hxsNodup⟩ := List.pairwise_cons.mp hl
+      let i' : Fin xs.length := ⟨k, Nat.le_of_succ_le_succ hk⟩
+      have hTargetMem : listGetFin xs i' ∈ xs := listGetFin_mem xs i'
+      have hNeX : listGetFin xs i' ≠ x :=
+        (hxNe (listGetFin xs i') hTargetMem).symm
+      dsimp [listGetFin, findFinIdx]
+      rw [ite_eq_right hNeX, findFinIdx_listGetFin hxsNodup i']
+
+def nodeKeyOfList? {H : LabelledQuotient} (keys : List (CutPair H)) :
+    Fin (keys.length + 1) → Option (CutPair H)
+  | ⟨0, _⟩ => none
+  | ⟨k + 1, hk⟩ => some (listGetFin keys ⟨k, Nat.le_of_succ_le_succ hk⟩)
+
+def nodeOfOptKeyList {H : LabelledQuotient} (keys : List (CutPair H)) :
+    Option (CutPair H) → Fin (keys.length + 1)
+  | none => ⟨0, Nat.zero_lt_succ keys.length⟩
+  | some B =>
+      match findFinIdx B keys with
+      | none => ⟨0, Nat.zero_lt_succ keys.length⟩
+      | some i => ⟨i.val + 1, Nat.succ_lt_succ i.isLt⟩
+
+theorem nodeKeyOfList?_mem {H : LabelledQuotient} {keys : List (CutPair H)} :
+    ∀ {u : Fin (keys.length + 1)} {B : CutPair H},
+      nodeKeyOfList? keys u = some B → B ∈ keys
+  | ⟨0, _⟩, _, h => False.elim (by nomatch h)
+  | ⟨k + 1, hk⟩, _, h => by
+      have hEq := Option.some.inj h
+      rw [← hEq]
+      exact listGetFin_mem keys ⟨k, Nat.le_of_succ_le_succ hk⟩
+
+theorem nodeOfOptKeyList_nodeKeyOfList? {H : LabelledQuotient}
+    {keys : List (CutPair H)} (hNodup : keys.Pairwise (· ≠ ·)) :
+    ∀ (u : Fin (keys.length + 1)),
+      nodeOfOptKeyList keys (nodeKeyOfList? keys u) = u
+  | ⟨0, _⟩ => fin_eq_of_val_eq rfl
+  | ⟨k + 1, hk⟩ => by
+      let i : Fin keys.length := ⟨k, Nat.le_of_succ_le_succ hk⟩
+      dsimp [nodeKeyOfList?, nodeOfOptKeyList]
+      rw [findFinIdx_listGetFin hNodup i]
+
+theorem nodeKeyOfList?_inj {H : LabelledQuotient}
+    {keys : List (CutPair H)} (hNodup : keys.Pairwise (· ≠ ·))
+    {u v : Fin (keys.length + 1)}
+    (hEq : nodeKeyOfList? keys u = nodeKeyOfList? keys v) : u = v := by
+  have hNode := congrArg (nodeOfOptKeyList keys) hEq
+  rw [nodeOfOptKeyList_nodeKeyOfList? hNodup u,
+    nodeOfOptKeyList_nodeKeyOfList? hNodup v] at hNode
+  exact hNode
+
+theorem nodeKeyOfList?_nodeOfOptKeyList_some {H : LabelledQuotient}
+    {keys : List (CutPair H)} {B : CutPair H} (hMem : B ∈ keys) :
+    nodeKeyOfList? keys (nodeOfOptKeyList keys (some B)) = some B := by
+  let ⟨i, hiFind, hiGet⟩ := findFinIdx_of_mem hMem
+  dsimp [nodeOfOptKeyList]
+  rw [hiFind]
+  dsimp [nodeKeyOfList?]
+  exact congrArg some hiGet
+
+/-- Inclusive ancestry in a finite parent-pointer forest (`IsForestAncestor parent a u`
+    means `a` lies on the upward `parent` chain from `u`, including `a = u`). -/
+inductive IsForestAncestor {n : Nat} (parent : Fin n → Fin n) (a : Fin n) :
+    Fin n → Prop where
+  | refl : IsForestAncestor parent a a
+  | step (u : Fin n) (prev : IsForestAncestor parent a (parent u)) :
+      IsForestAncestor parent a u
+
+theorem IsForestAncestor.trans {n : Nat} {parent : Fin n → Fin n}
+    {a b c : Fin n} (h₁ : IsForestAncestor parent a b)
+    (h₂ : IsForestAncestor parent b c) : IsForestAncestor parent a c := by
+  induction h₂ with
+  | refl => exact h₁
+  | step u _ ih => exact IsForestAncestor.step u ih
+
+def iterParentFin {n : Nat} (parent : Fin n → Fin n) : Nat → Fin n → Fin n
+  | 0, u => u
+  | k + 1, u => iterParentFin parent k (parent u)
+
+theorem isForestAncestor_iff_iterParentFin {n : Nat} (parent : Fin n → Fin n)
+    (a u : Fin n) :
+    IsForestAncestor parent a u ↔ ∃ k : Nat, iterParentFin parent k u = a := by
+  constructor
+  · intro hAnc
+    induction hAnc with
+    | refl => exact ⟨0, rfl⟩
+    | step _ _ ih =>
+        let ⟨k, hk⟩ := ih
+        exact ⟨k + 1, hk⟩
+  · intro ⟨k, hk⟩
+    revert u
+    induction k with
+    | zero =>
+        intro u hk
+        change u = a at hk
+        rw [hk]
+        exact IsForestAncestor.refl
+    | succ _ ih =>
+        intro u hk
+        exact IsForestAncestor.step u (ih (parent u) hk)
+
+/-- Concrete proper-loss forest data structure of Lemma 3.1 on `H`:
+    node `0` (`rootNode`) is the artificial root, `1 .. realNodeCount` carry the
+    deduplicated canonical real `CutPair H` keys, `parent` stores the single parent
+    pointer per node, `depth` stores tree depth, and `label` is `c(y)`. -/
+structure ProperLossForest (H : LabelledQuotient) where
+  realKeys : List (CutPair H)
+  parent : Fin (realKeys.length + 1) → Fin (realKeys.length + 1)
+  depth : Fin (realKeys.length + 1) → Nat
+  label : Fin H.vertexCount → Fin (realKeys.length + 1)
+
+namespace ProperLossForest
+
+abbrev realNodeCount {H : LabelledQuotient} (F : ProperLossForest H) : Nat :=
+  F.realKeys.length
+
+def rootNode {H : LabelledQuotient} (F : ProperLossForest H) :
+    Fin (F.realNodeCount + 1) :=
+  ⟨0, Nat.zero_lt_succ F.realKeys.length⟩
+
+def nodeKey? {H : LabelledQuotient} (F : ProperLossForest H)
+    (u : Fin (F.realNodeCount + 1)) : Option (CutPair H) :=
+  nodeKeyOfList? F.realKeys u
+
+def keyOfReal {H : LabelledQuotient} (F : ProperLossForest H)
+    (i : Fin F.realNodeCount) : CutPair H :=
+  listGetFin F.realKeys i
+
+def lookupNode? {H : LabelledQuotient} (F : ProperLossForest H)
+    (B : CutPair H) : Option (Fin (F.realNodeCount + 1)) :=
+  match findFinIdx B F.realKeys with
+  | none => none
+  | some i => some ⟨i.val + 1, Nat.succ_lt_succ i.isLt⟩
+
+def nodeChainAux {H : LabelledQuotient} (F : ProperLossForest H) :
+    Nat → Fin (F.realNodeCount + 1) → List (CutPair H)
+  | 0, _ => []
+  | fuel + 1, u =>
+      match F.nodeKey? u with
+      | none => []
+      | some P => F.nodeChainAux fuel (F.parent u) ++ [P]
+
+def nodeChain {H : LabelledQuotient} (F : ProperLossForest H)
+    (u : Fin (F.realNodeCount + 1)) : List (CutPair H) :=
+  F.nodeChainAux (F.depth u + 1) u
+
+end ProperLossForest
+
+/-- Construct the finite proper-loss forest of Lemma 3.1 from `(H, rank)`. -/
+def buildProperLossForest (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) : ProperLossForest H :=
+  let keys := realKeys H rank
+  { realKeys := keys
+    parent := fun u =>
+      match nodeKeyOfList? keys u with
+      | none => ⟨0, Nat.zero_lt_succ keys.length⟩
+      | some P => nodeOfOptKeyList keys (storedParentKey? H rank P)
+    depth := fun u => (parentKeyChain H rank (nodeKeyOfList? keys u)).length
+    label := fun y => nodeOfOptKeyList keys (vertexLabelKey? H rank y) }
+
+/-! ### Complete Lemma 3.1 theorem suite for `buildProperLossForest` -/
+
+theorem buildProperLossForest_realKeys_canonical (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    ∀ B : CutPair H, B ∈ (buildProperLossForest H rank).realKeys → B.fst < B.snd :=
+  fun _ hMem => canonical_of_mem_realKeys hMem
+
+theorem buildProperLossForest_realKeys_nodup (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    (buildProperLossForest H rank).realKeys.Pairwise (· ≠ ·) :=
+  nodup_realKeys H rank
+
+theorem buildProperLossForest_realNodeCount_le (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    (buildProperLossForest H rank).realNodeCount ≤ H.vertexCount :=
+  length_realKeys_le H rank
+
+theorem buildProperLossForest_nodeKey?_root (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    (buildProperLossForest H rank).nodeKey?
+      (buildProperLossForest H rank).rootNode = none :=
+  rfl
+
+theorem buildProperLossForest_nodeKey?_inj (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat)
+    {u v : Fin ((buildProperLossForest H rank).realNodeCount + 1)}
+    (hEq : (buildProperLossForest H rank).nodeKey? u =
+      (buildProperLossForest H rank).nodeKey? v) : u = v :=
+  nodeKeyOfList?_inj (nodup_realKeys H rank) hEq
+
+theorem buildProperLossForest_parent_root (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    (buildProperLossForest H rank).parent
+      (buildProperLossForest H rank).rootNode =
+      (buildProperLossForest H rank).rootNode :=
+  rfl
+
+theorem buildProperLossForest_depth_root (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    (buildProperLossForest H rank).depth
+      (buildProperLossForest H rank).rootNode = 0 :=
+  rfl
+
+theorem buildProperLossForest_label_root (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) :
+    (buildProperLossForest H rank).label H.root =
+      (buildProperLossForest H rank).rootNode := by
+  dsimp [buildProperLossForest, ProperLossForest.rootNode]
+  unfold vertexLabelKey?
+  rw [sweepChain_eq_of_eq_root H rank rfl]
+  rfl
+
+theorem buildProperLossForest_label_of_root_arc (H : LabelledQuotient)
+    (rank : Fin H.vertexCount → Nat) {y : Fin H.vertexCount}
+    (hArc : H.HasQuotientArc H.root y) :
+    (buildProperLossForest H rank).label y =
+      (buildProperLossForest H rank).rootNode := by
+  dsimp [buildProperLossForest, ProperLossForest.rootNode]
+  unfold vertexLabelKey?
+  rw [sweepChain_eq_of_root_arc H rank hArc]
+  rfl
+
+theorem buildProperLossForest_mem_realKeys_iff {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (B : CutPair H) :
+    B ∈ (buildProperLossForest H rank).realKeys ↔
+      B.fst < B.snd ∧ ∃ y : Fin H.vertexCount, H.ProperLoss B y :=
+  mem_realKeys_iff rankArc flat B
+
+theorem buildProperLossForest_exists_node_iff {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (B : CutPair H) :
+    (∃ u : Fin ((buildProperLossForest H rank).realNodeCount + 1),
+      (buildProperLossForest H rank).nodeKey? u = some B) ↔
+      B.fst < B.snd ∧ ∃ y : Fin H.vertexCount, H.ProperLoss B y := by
+  rw [← buildProperLossForest_mem_realKeys_iff rankArc flat B]
+  constructor
+  · intro ⟨_, hu⟩
+    exact nodeKeyOfList?_mem hu
+  · intro hMem
+    exact ⟨nodeOfOptKeyList (realKeys H rank) (some B),
+      nodeKeyOfList?_nodeOfOptKeyList_some hMem⟩
+
+theorem buildProperLossForest_nodeKey?_parent {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {u : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {P : CutPair H}
+    (hu : (buildProperLossForest H rank).nodeKey? u = some P) :
+    (buildProperLossForest H rank).nodeKey?
+      ((buildProperLossForest H rank).parent u) = storedParentKey? H rank P := by
+  have hParDef :
+      (buildProperLossForest H rank).parent u =
+        nodeOfOptKeyList (realKeys H rank) (storedParentKey? H rank P) := by
+    change (match (buildProperLossForest H rank).nodeKey? u with
+      | none => (⟨0, Nat.zero_lt_succ (realKeys H rank).length⟩ : Fin ((realKeys H rank).length + 1))
+      | some P' => nodeOfOptKeyList (realKeys H rank) (storedParentKey? H rank P')) = _
+    rw [hu]
+  change nodeKeyOfList? (realKeys H rank)
+    ((buildProperLossForest H rank).parent u) = _
+  rw [hParDef]
+  cases hPar : storedParentKey? H rank P with
+  | none => rfl
+  | some B =>
+      have hBMem : B ∈ realKeys H rank :=
+        (storedParentKey?_some_props rankArc flat hPar).1
+      exact nodeKeyOfList?_nodeOfOptKeyList_some hBMem
+
+theorem buildProperLossForest_depth_real {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {u : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {P : CutPair H}
+    (hu : (buildProperLossForest H rank).nodeKey? u = some P) :
+    (buildProperLossForest H rank).depth u =
+      (buildProperLossForest H rank).depth
+        ((buildProperLossForest H rank).parent u) + 1 := by
+  have hParKey := buildProperLossForest_nodeKey?_parent rankArc flat hu
+  change (parentKeyChain H rank ((buildProperLossForest H rank).nodeKey? u)).length =
+    (parentKeyChain H rank
+      ((buildProperLossForest H rank).nodeKey?
+        ((buildProperLossForest H rank).parent u))).length + 1
+  rw [hu, hParKey, parentKeyChain_some_eq rankArc flat P, List.length_append]
+  rfl
+
+private theorem nodeChainAux_eq_parentKeyChain {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) :
+    ∀ (fuel : Nat) (u : Fin ((buildProperLossForest H rank).realNodeCount + 1)),
+      (buildProperLossForest H rank).depth u < fuel →
+      (buildProperLossForest H rank).nodeChainAux fuel u =
+        parentKeyChain H rank ((buildProperLossForest H rank).nodeKey? u)
+  | 0, _, hLt => False.elim (by nomatch hLt)
+  | fuel + 1, u, hLt => by
+      dsimp [ProperLossForest.nodeChainAux]
+      cases hu : (buildProperLossForest H rank).nodeKey? u with
+      | none => rfl
+      | some P =>
+          have hDepthEq := buildProperLossForest_depth_real rankArc flat hu
+          have hParDepthLt :
+              (buildProperLossForest H rank).depth
+                ((buildProperLossForest H rank).parent u) < fuel := by
+            rw [hDepthEq] at hLt
+            exact Nat.le_of_succ_le_succ hLt
+          have ihPar :=
+            nodeChainAux_eq_parentKeyChain rankArc flat fuel
+              ((buildProperLossForest H rank).parent u) hParDepthLt
+          rw [ihPar, buildProperLossForest_nodeKey?_parent rankArc flat hu,
+            parentKeyChain_some_eq rankArc flat P]
+
+theorem buildProperLossForest_nodeChain_eq_parentKeyChain {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    (u : Fin ((buildProperLossForest H rank).realNodeCount + 1)) :
+    (buildProperLossForest H rank).nodeChain u =
+      parentKeyChain H rank ((buildProperLossForest H rank).nodeKey? u) :=
+  nodeChainAux_eq_parentKeyChain rankArc flat
+    ((buildProperLossForest H rank).depth u + 1) u
+    (Nat.lt_succ_self ((buildProperLossForest H rank).depth u))
+
+theorem buildProperLossForest_nodeKey?_label {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (y : Fin H.vertexCount) :
+    (buildProperLossForest H rank).nodeKey?
+      ((buildProperLossForest H rank).label y) = vertexLabelKey? H rank y := by
+  dsimp [buildProperLossForest, ProperLossForest.nodeKey?]
+  cases hLab : vertexLabelKey? H rank y with
+  | none => rfl
+  | some B =>
+      have hBInChain : B ∈ sweepChain H rank y := mem_of_getLast?_eq_some hLab
+      have specY := sweepChain_spec rankArc flat y
+      have hBMem : B ∈ realKeys H rank :=
+        (mem_realKeys_iff rankArc flat B).mpr
+          ⟨specY.canonical B hBInChain, ⟨y, specY.sound B hBInChain⟩⟩
+      exact nodeKeyOfList?_nodeOfOptKeyList_some hBMem
+
+/-- Single stored `parent` consistency: every vertex's `sweepChain` equals its root-to-`label` `nodeChain`. -/
+theorem buildProperLossForest_sweepChain_eq_nodeChain {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat) (y : Fin H.vertexCount) :
+    sweepChain H rank y =
+      (buildProperLossForest H rank).nodeChain
+        ((buildProperLossForest H rank).label y) := by
+  rw [buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat,
+    buildProperLossForest_nodeKey?_label rankArc flat y]
+  exact sweepChain_eq_parentKeyChain rankArc distinctRanks flat y
+
+private theorem mem_nodeChain_imp_isForestAncestor_bounded {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {uB : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {B : CutPair H}
+    (huB : (buildProperLossForest H rank).nodeKey? uB = some B) :
+    ∀ (bound : Nat) (u : Fin ((buildProperLossForest H rank).realNodeCount + 1)),
+      (buildProperLossForest H rank).depth u < bound →
+      B ∈ (buildProperLossForest H rank).nodeChain u →
+      IsForestAncestor (buildProperLossForest H rank).parent uB u
+  | 0, _, hLt, _ => False.elim (by nomatch hLt)
+  | bound + 1, u, hLt, hMem => by
+      rw [buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat u] at hMem
+      cases hu : (buildProperLossForest H rank).nodeKey? u with
+      | none =>
+          rw [hu] at hMem
+          nomatch hMem
+      | some P =>
+          rw [hu, parentKeyChain_some_eq rankArc flat P] at hMem
+          cases List.mem_append.mp hMem with
+          | inr hTail =>
+              cases List.mem_cons.mp hTail with
+              | inr hNil => nomatch hNil
+              | inl hBPEq =>
+                  have hKeyEq :
+                      (buildProperLossForest H rank).nodeKey? uB =
+                        (buildProperLossForest H rank).nodeKey? u := by
+                    rw [huB, hu, hBPEq]
+                  have huEq : uB = u :=
+                    buildProperLossForest_nodeKey?_inj H rank hKeyEq
+                  rw [huEq]
+                  exact IsForestAncestor.refl
+          | inl hPref =>
+              have hDepthEq := buildProperLossForest_depth_real rankArc flat hu
+              have hParLt :
+                  (buildProperLossForest H rank).depth
+                    ((buildProperLossForest H rank).parent u) < bound := by
+                rw [hDepthEq] at hLt
+                exact Nat.le_of_succ_le_succ hLt
+              have hMemPar :
+                  B ∈ (buildProperLossForest H rank).nodeChain
+                    ((buildProperLossForest H rank).parent u) := by
+                rw [buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat
+                    ((buildProperLossForest H rank).parent u),
+                  buildProperLossForest_nodeKey?_parent rankArc flat hu]
+                exact hPref
+              exact IsForestAncestor.step u
+                (mem_nodeChain_imp_isForestAncestor_bounded rankArc flat huB
+                  bound ((buildProperLossForest H rank).parent u) hParLt hMemPar)
+
+theorem mem_nodeChain_iff_isForestAncestor {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {uB : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {B : CutPair H}
+    (huB : (buildProperLossForest H rank).nodeKey? uB = some B)
+    (u : Fin ((buildProperLossForest H rank).realNodeCount + 1)) :
+    B ∈ (buildProperLossForest H rank).nodeChain u ↔
+      IsForestAncestor (buildProperLossForest H rank).parent uB u := by
+  constructor
+  · intro hMem
+    exact mem_nodeChain_imp_isForestAncestor_bounded rankArc flat huB
+      ((buildProperLossForest H rank).depth u + 1) u
+      (Nat.lt_succ_self ((buildProperLossForest H rank).depth u)) hMem
+  · intro hAnc
+    induction hAnc with
+    | refl =>
+        rw [buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat uB, huB,
+          parentKeyChain_some_eq rankArc flat B]
+        exact List.mem_append.mpr (Or.inr (List.mem_cons.mpr (Or.inl rfl)))
+    | step w _ ih =>
+        rw [buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat w]
+        cases hw : (buildProperLossForest H rank).nodeKey? w with
+        | none =>
+            have hwRoot : w = (buildProperLossForest H rank).rootNode :=
+              buildProperLossForest_nodeKey?_inj H rank
+                (hw.trans (buildProperLossForest_nodeKey?_root H rank).symm)
+            rw [hwRoot, buildProperLossForest_parent_root H rank,
+              buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat,
+              buildProperLossForest_nodeKey?_root H rank] at ih
+            nomatch ih
+        | some P =>
+            rw [buildProperLossForest_nodeChain_eq_parentKeyChain rankArc flat
+                ((buildProperLossForest H rank).parent w),
+              buildProperLossForest_nodeKey?_parent rankArc flat hw] at ih
+            rw [parentKeyChain_some_eq rankArc flat P]
+            exact List.mem_append.mpr (Or.inl ih)
+
+theorem buildProperLossForest_properLoss_iff_of_node {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat)
+    {uB : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {B : CutPair H}
+    (huB : (buildProperLossForest H rank).nodeKey? uB = some B)
+    (y : Fin H.vertexCount) :
+    H.ProperLoss B y ↔
+      IsForestAncestor (buildProperLossForest H rank).parent uB
+        ((buildProperLossForest H rank).label y) := by
+  have hCan : B.fst < B.snd :=
+    canonical_of_mem_realKeys (nodeKeyOfList?_mem huB)
+  rw [← (sweepChain_spec rankArc flat y).complete_iff B hCan,
+    buildProperLossForest_sweepChain_eq_nodeChain rankArc distinctRanks flat y]
+  exact mem_nodeChain_iff_isForestAncestor rankArc flat huB
+    ((buildProperLossForest H rank).label y)
+
+/-- Inclusive ancestor correctness (Lemma 3.1): for every canonical `B` (`B.fst < B.snd`) and `y`,
+    `H.ProperLoss B y` iff `B` is a real forest node and an inclusive ancestor of `c(y)`. -/
+theorem buildProperLossForest_properLoss_iff_ancestor {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat) {B : CutPair H} (hOrder : B.fst < B.snd)
+    (y : Fin H.vertexCount) :
+    H.ProperLoss B y ↔
+      ∃ uB : Fin ((buildProperLossForest H rank).realNodeCount + 1),
+        (buildProperLossForest H rank).nodeKey? uB = some B ∧
+        IsForestAncestor (buildProperLossForest H rank).parent uB
+          ((buildProperLossForest H rank).label y) := by
+  constructor
+  · intro hProper
+    let ⟨uB, huB⟩ :=
+      (buildProperLossForest_exists_node_iff rankArc flat B).mpr ⟨hOrder, ⟨y, hProper⟩⟩
+    exact ⟨uB, huB,
+      (buildProperLossForest_properLoss_iff_of_node rankArc distinctRanks flat huB y).mp hProper⟩
+  · intro ⟨uB, huB, hAnc⟩
+    exact (buildProperLossForest_properLoss_iff_of_node rankArc distinctRanks flat huB y).mpr hAnc
+
+/-- Edge invariant 1 (`P ⊆ Z(B)`): both endpoints of a real child `P` are lost under its real parent `B`. -/
+theorem buildProperLossForest_edge_endpoints_lost {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {uP : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {P B : CutPair H}
+    (huP : (buildProperLossForest H rank).nodeKey? uP = some P)
+    (huB : (buildProperLossForest H rank).nodeKey?
+      ((buildProperLossForest H rank).parent uP) = some B) :
+    ∀ p : Fin H.vertexCount, P.Mem p → H.Lost B p := by
+  have hPar : storedParentKey? H rank P = some B := by
+    rw [← buildProperLossForest_nodeKey?_parent rankArc flat huP]
+    exact huB
+  exact (storedParentKey?_some_props rankArc flat hPar).2.2
+
+/-- Edge invariant 2 (`J(P) ⊆ J(B)`): proper losses of a real child `P` are proper losses of its real parent `B`. -/
+theorem buildProperLossForest_edge_properLoss_subset {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat)
+    {uP : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {P B : CutPair H}
+    (huP : (buildProperLossForest H rank).nodeKey? uP = some P)
+    (huB : (buildProperLossForest H rank).nodeKey?
+      ((buildProperLossForest H rank).parent uP) = some B) :
+    ∀ y : Fin H.vertexCount, H.ProperLoss P y → H.ProperLoss B y := by
+  intro y hProperP
+  have hAncP : IsForestAncestor (buildProperLossForest H rank).parent uP
+      ((buildProperLossForest H rank).label y) :=
+    (buildProperLossForest_properLoss_iff_of_node rankArc distinctRanks flat huP y).mp hProperP
+  have hEdgeAnc : IsForestAncestor (buildProperLossForest H rank).parent
+      ((buildProperLossForest H rank).parent uP) uP :=
+    IsForestAncestor.step uP IsForestAncestor.refl
+  have hAncB := IsForestAncestor.trans hEdgeAnc hAncP
+  exact (buildProperLossForest_properLoss_iff_of_node rankArc distinctRanks flat huB y).mpr hAncB
+
+/-- Edge invariant 3 (`P \ B` follows `B`): every fresh child endpoint strictly follows both parent endpoints. -/
+theorem buildProperLossForest_edge_fresh_follows_parent {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {uP : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {P B : CutPair H}
+    (huP : (buildProperLossForest H rank).nodeKey? uP = some P)
+    (huB : (buildProperLossForest H rank).nodeKey?
+      ((buildProperLossForest H rank).parent uP) = some B) :
+    ∀ p : Fin H.vertexCount, IsFreshEndpoint B P p →
+      ∀ b : Fin H.vertexCount, B.Mem b → rank b < rank p := by
+  have hLost := buildProperLossForest_edge_endpoints_lost rankArc flat huP huB
+  intro p hFresh b hb
+  exact properLoss_follows_endpoints rankArc flat ⟨hLost p hFresh.1, hFresh.2⟩ hb
+
+/-- Real parent and real child cuts are distinct as unordered pairs (`¬ ∀ z, B.Mem z ↔ P.Mem z`). -/
+theorem buildProperLossForest_edge_distinct_cuts {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat)
+    {uP : Fin ((buildProperLossForest H rank).realNodeCount + 1)} {P B : CutPair H}
+    (huP : (buildProperLossForest H rank).nodeKey? uP = some P)
+    (huB : (buildProperLossForest H rank).nodeKey?
+      ((buildProperLossForest H rank).parent uP) = some B) :
+    ¬ ∀ z : Fin H.vertexCount, B.Mem z ↔ P.Mem z := by
+  intro hSame
+  have hBCan : B.fst < B.snd := canonical_of_mem_realKeys (nodeKeyOfList?_mem huB)
+  have hPCan : P.fst < P.snd := canonical_of_mem_realKeys (nodeKeyOfList?_mem huP)
+  have hEqBP : B = P := CutPair.eq_of_canonical_mem_iff hBCan hPCan hSame
+  have hKeyEq :
+      (buildProperLossForest H rank).nodeKey?
+        ((buildProperLossForest H rank).parent uP) =
+        (buildProperLossForest H rank).nodeKey? uP := by
+    rw [huB, huP, hEqBP]
+  have hNodeEq : (buildProperLossForest H rank).parent uP = uP :=
+    buildProperLossForest_nodeKey?_inj H rank hKeyEq
+  have hDepth := buildProperLossForest_depth_real rankArc flat huP
+  rw [hNodeEq] at hDepth
+  exact Nat.ne_of_lt (Nat.lt_succ_self _) hDepth
+
+/-- Topological-list rank adapter: index of a vertex in an enumerated `topo` list. -/
+def indexInList {α : Type} [DecidableEq α] (x : α) : List α → Nat
+  | [] => 0
+  | y :: ys => if x = y then 0 else indexInList x ys + 1
+
+theorem indexInList_inj_of_mem {α : Type} [DecidableEq α] {l : List α} {a b : α}
+    (ha : a ∈ l) (hb : b ∈ l) (hEq : indexInList a l = indexInList b l) : a = b := by
+  induction l with
+  | nil => nomatch ha
+  | cons y ys ih =>
+      dsimp [indexInList] at hEq
+      by_cases hay : a = y
+      · rw [ite_eq_left hay] at hEq
+        by_cases hby : b = y
+        · exact hay.trans hby.symm
+        · rw [ite_eq_right hby] at hEq
+          nomatch hEq
+      · rw [ite_eq_right hay] at hEq
+        by_cases hby : b = y
+        · rw [ite_eq_left hby] at hEq
+          nomatch hEq
+        · rw [ite_eq_right hby] at hEq
+          have haYs : a ∈ ys :=
+            match List.mem_cons.mp ha with
+            | Or.inl h => False.elim (hay h)
+            | Or.inr h => h
+          have hbYs : b ∈ ys :=
+            match List.mem_cons.mp hb with
+            | Or.inl h => False.elim (hby h)
+            | Or.inr h => h
+          exact ih haYs hbYs (Nat.succ.inj hEq)
+
+/-- Complete Lemma 3.1 theorem bundle for a flat quotient DAG with injective topological rank. -/
+theorem exists_properLossForest_lemma_3_1 {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat) :
+    ∃ F : ProperLossForest H,
+      (∀ B : CutPair H, B ∈ F.realKeys → B.fst < B.snd) ∧
+      F.realKeys.Pairwise (· ≠ ·) ∧
+      F.realNodeCount ≤ H.vertexCount ∧
+      F.nodeKey? F.rootNode = none ∧
+      F.parent F.rootNode = F.rootNode ∧
+      F.label H.root = F.rootNode ∧
+      (∀ y : Fin H.vertexCount, H.HasQuotientArc H.root y → F.label y = F.rootNode) ∧
+      (∀ B : CutPair H,
+        (∃ u, F.nodeKey? u = some B) ↔
+          B.fst < B.snd ∧ ∃ y : Fin H.vertexCount, H.ProperLoss B y) ∧
+      (∀ y : Fin H.vertexCount, sweepChain H rank y = F.nodeChain (F.label y)) ∧
+      (∀ B : CutPair H, B.fst < B.snd → ∀ y : Fin H.vertexCount,
+        H.ProperLoss B y ↔
+          ∃ u, F.nodeKey? u = some B ∧ IsForestAncestor F.parent u (F.label y)) ∧
+      (∀ uP : Fin (F.realNodeCount + 1), ∀ P B : CutPair H,
+        F.nodeKey? uP = some P → F.nodeKey? (F.parent uP) = some B →
+          (∀ p : Fin H.vertexCount, P.Mem p → H.Lost B p) ∧
+          (∀ y : Fin H.vertexCount, H.ProperLoss P y → H.ProperLoss B y) ∧
+          (∀ p : Fin H.vertexCount, IsFreshEndpoint B P p →
+            ∀ b : Fin H.vertexCount, B.Mem b → rank b < rank p)) :=
+  ⟨buildProperLossForest H rank,
+    buildProperLossForest_realKeys_canonical H rank,
+    buildProperLossForest_realKeys_nodup H rank,
+    buildProperLossForest_realNodeCount_le H rank,
+    buildProperLossForest_nodeKey?_root H rank,
+    buildProperLossForest_parent_root H rank,
+    buildProperLossForest_label_root H rank,
+    fun _ hArc => buildProperLossForest_label_of_root_arc H rank hArc,
+    buildProperLossForest_exists_node_iff rankArc flat,
+    buildProperLossForest_sweepChain_eq_nodeChain rankArc distinctRanks flat,
+    fun _ hOrd y =>
+      buildProperLossForest_properLoss_iff_ancestor rankArc distinctRanks flat hOrd y,
+    fun _ _ _ huP huB =>
+      ⟨buildProperLossForest_edge_endpoints_lost rankArc flat huP huB,
+        buildProperLossForest_edge_properLoss_subset rankArc distinctRanks flat huP huB,
+        buildProperLossForest_edge_fresh_follows_parent rankArc flat huP huB⟩⟩
+
 end LabelledQuotient
+
 end PaperB

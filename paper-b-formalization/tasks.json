@@ -437,9 +437,10 @@
         "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json",
         "evidence/ex22-unattended/native-swarm-sweep-step.json",
         "evidence/ex22-unattended/native-swarm-global-sweep.json",
-        "evidence/ex22-unattended/native-swarm-forest-parents.json"
+        "evidence/ex22-unattended/native-swarm-forest-parents.json",
+        "evidence/ex22-unattended/native-swarm-lemma-3-1.json"
       ],
-      "progress": "Lean verified orbit membership via stored parent key chains, exact effective canonical keys and the bound by vertex count. The final bundled forest interface and fresh-endpoint order remain open.",
+      "progress": "Lean verified the bundled semantic Lemma 3.1 on a flat quotient with a supplied injective topological rank. The construction has exactly the canonical effective keys, a single artificial root, exact inclusive ancestor labels, nesting, fresh endpoint order and at most one real node per vertex in the count. Paper-level certification awaits the dependent input representation and statement audit.",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
@@ -478,7 +479,9 @@
           "global_sweep": "BUILT",
           "forest_post": 12,
           "parent_chain": "BUILT",
-          "parent_chain_post": 23
+          "parent_chain_post": 23,
+          "structural_forest": "BUILT",
+          "structural_forest_post": 25
         }
       }
     },
