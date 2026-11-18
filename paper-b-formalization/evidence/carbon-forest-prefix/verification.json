@@ -1,0 +1,21 @@
+{
+  "task": "EX2.2",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "declaration": "PaperB.LabelledQuotient.predecessor_losses_form_prefix",
+  "worker": "Gemini 4 Carbon Medium",
+  "run": "606e58cb-1025-40cb-9602-52a53db43d70",
+  "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/606e58cb-1025-40cb-9602-52a53db43d70/receipt.json",
+  "receipt_sha256": "8338d98f2c83f90a994c41fe8fc37cf47d237390bfd141d8af8450c5a43da2bd",
+  "checkpoint": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/606e58cb-1025-40cb-9602-52a53db43d70/checkpoints/0002.md",
+  "checkpoint_sha256": "406d98b990bd647d7cf01aa0f4363207dd8c56aff57ced7e2239d927d8a923a2",
+  "worker_note": "Tracker EX2.2 predecessor_losses_form_prefix: indentation-aligned tactic block superseding 0001.md (`cases` aligned with `intro` at col 13)",
+  "transport_status": "returned",
+  "report_state": "complete",
+  "codex_adjustment": "Replaced the two uses of List.mem_cons.mp with direct cases on List.Mem to remove propext.",
+  "build_command": "lake build PaperB.ExitPaths",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "axiom_free": true,
+  "source_sha256": "f7823e3e0354b05d266b6d130a07597edd2e18e7ba272352a7407dfa582e6e03",
+  "scope": "Prefix of a supplied nested list, under a supplied decidable predecessor-loss test.",
+  "next_obligation": "Use both predecessor cases and the prefix result in the actual sweep induction with pair-key reuse."
+}

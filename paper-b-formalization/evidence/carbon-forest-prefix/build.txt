@@ -1,0 +1,11 @@
+✔ [4/4] Built PaperB.ExitPaths (3.1s)
+Build completed successfully (4 jobs).
+PaperB.LabelledQuotient.predecessor_losses_form_prefix {H : PaperB.LabelledQuotient} {y : Fin H.vertexCount}
+  (chain : List H.CutPair)
+  (nested : List.Pairwise (fun ancestor child => ∀ (p : Fin H.vertexCount), child.Mem p → H.Lost ancestor p) chain)
+  (test : (B : H.CutPair) → Decidable (∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → H.Lost B u)) :
+  ∃ accepted rejected,
+    chain = accepted ++ rejected ∧
+      (∀ (B : H.CutPair), B ∈ accepted → ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → H.Lost B u) ∧
+        ∀ (B : H.CutPair), B ∈ rejected → ¬∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → H.Lost B u
+'PaperB.LabelledQuotient.predecessor_losses_form_prefix' does not depend on any axioms
