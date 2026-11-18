@@ -1,0 +1,14 @@
+{
+  "adjacent_real_pairs": 456,
+  "both_needed_same_coordinate": 256,
+  "disjoint_pairs": 8,
+  "omitting_fresh_changes_set": 900,
+  "omitting_inherited_changes_set": 332,
+  "ordered_flat_skeletons": 3374,
+  "physical_tail_set_equalities": 976,
+  "root_only_shortcut_disagrees": 126,
+  "shared_pairs": 448,
+  "skeletons_with_nested_cuts": 212,
+  "tested_physical_realizations": 424,
+  "two_failure_physical_dfs_comparisons": 4392
+}
