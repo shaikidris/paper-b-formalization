@@ -1,0 +1,27 @@
+{
+  "all_sources": {
+    "graph_source_pairs": 5405,
+    "graphs": 1099,
+    "singleton_answers": 421402
+  },
+  "distinct_tails": 5,
+  "expanded": {
+    "disjoint_endpoint_transfers": 118,
+    "exit_interval_comparisons": 50924,
+    "graphs": 21,
+    "nonempty_pair_regions": 520,
+    "rescued_targets": 451,
+    "shared_endpoint_transfers": 381,
+    "singleton_answers": 13800
+  },
+  "jumps": {
+    "additional_branch_insertions": 3807,
+    "chain_depth": 8192,
+    "chain_queries": 147714,
+    "max_moves": 31
+  },
+  "sample_lists": {
+    "graphs": 320,
+    "list_answers": 57600
+  }
+}

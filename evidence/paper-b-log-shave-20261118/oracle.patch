@@ -1,0 +1,85 @@
+--- antichain_time.py
++++ antichain_time.py
+@@ -35,2 +35,4 @@
+-        target = level - (level & -level)
+-        self.jump.append(self.at_depth(parent, target))
++        first = self.jump[parent]
++        second = self.jump[first]
++        merge = first != 0 and self.depth[parent] - self.depth[first] == self.depth[first] - self.depth[second]
++        self.jump.append(second if merge else parent)
+--- dag_exit_oracle.py
++++ dag_exit_oracle.py
+@@ -63,4 +63,11 @@
+-# Each output takes the LCA of a fixed original tail and at most one input component.
+-# A component index of -1 drops the input. A tail of -1 is empty support.
+-IDENTITY = ((-1, 0), (-1, 1))
+-EMPTY = ((-1, -1), (-1, -1))
++def interval_join(a, b):
++    if a is None:
++        return b
++    if b is None:
++        return a
++    return min(a[0], b[0]), max(a[1], b[1])
++
++
++# An output joins its constant interval with at most one input coordinate.
++IDENTITY = ((None, 0), (None, 1))
++EMPTY = ((None, -1), (None, -1))
+@@ -90 +97 @@
+-        self.base = [(-1, -1)] * len(pred)
++        self.base = [(None, None)] * len(pred)
+@@ -100 +107 @@
+-            support = [-1, -1]
++            support = [None, None]
+@@ -104 +111,2 @@
+-                    support[j] = dom.join(support[j], original_tail)
++                    rank = dom.first[original_tail]
++                    support[j] = interval_join(support[j], (rank, rank))
+@@ -107,3 +115,3 @@
+-                    support[0] = dom.join(support[0], left)
+-                    support[1] = dom.join(support[1], right)
+-            if min(support) < 0:
++                    support[0] = interval_join(support[0], left)
++                    support[1] = interval_join(support[1], right)
++            if any(x is None for x in support):
+@@ -119 +127 @@
+-                constant = self.dom.join(constant, other)
++                constant = interval_join(constant, other)
+@@ -142 +150 @@
+-        """Two LCA summaries for the exits of this event that can reach vertex."""
++        """Two preorder-span summaries for the exits of this event that can reach vertex."""
+@@ -145 +153 @@
+-        return tuple(self.dom.join(constant, base[slot]) if slot >= 0 else constant
++        return tuple(interval_join(constant, base[slot]) if slot >= 0 else constant
+@@ -156 +164 @@
+-            constants = [-1, -1]
++            constants = [None, None]
+@@ -160,2 +168,2 @@
+-                    constants[0] = self.dom.join(constants[0], left)
+-                    constants[1] = self.dom.join(constants[1], right)
++                    constants[0] = interval_join(constants[0], left)
++                    constants[1] = interval_join(constants[1], right)
+@@ -167 +175,6 @@
+-        self.jump_map[child] = self.compose(self.climb(parent, tree.jump[child]), step)
++        if tree.jump[child] == parent:
++            self.jump_map[child] = step
++        else:
++            first = tree.jump[parent]
++            self.jump_map[child] = self.compose(
++                self.jump_map[first], self.compose(self.jump_map[parent], step))
+@@ -228 +241,2 @@
+-            if not self.dom.dominates(a, left) or not self.dom.dominates(b, right):
++            if not (self.dom.first[a] <= left[0] <= left[1] < self.dom.end[a]
++                    and self.dom.first[b] <= right[0] <= right[1] < self.dom.end[b]):
+--- check_dag_exit.py
++++ check_dag_exit.py
+@@ -176,3 +176,3 @@
+-                        # Tails lie on a private chain, so their original LCA is
+-                        # the earliest tail in that chain, independently of the oracle.
+-                        expected = oracle.index[min(hits)]
++                        # Enumerate the original support and take both preorder extrema.
++                        ranks = [oracle.dom.first[oracle.index[x]] for x in hits]
++                        expected = (min(ranks), max(ranks))
+@@ -181 +181 @@
+-                        counts['exit_lca_comparisons'] += 1
++                        counts['exit_interval_comparisons'] += 1
