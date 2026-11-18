@@ -1,0 +1,8 @@
+Build completed successfully (4 jobs).
+PaperB.LabelledQuotient.exitTailMem_iff_of_nested_cuts {H : PaperB.LabelledQuotient} {B P : H.CutPair}
+  (acyclic : H.IsAcyclic) (flat : H.IsFlat) (childEndpointsLost : ∀ (p : Fin H.vertexCount), P.Mem p → H.Lost B p)
+  (distinctCuts : ¬∀ (z : Fin H.vertexCount), B.Mem z ↔ P.Mem z) {s y : Fin H.vertexCount} {x : Fin H.origVertexCount}
+  (hs : B.Mem s) (proper : H.ProperLoss P y) :
+  H.ExitTailMem B s y x ↔
+    (∃ p, PaperB.LabelledQuotient.IsFreshEndpoint B P p ∧ H.ExitTailMem B s p x) ∨ P.Mem s ∧ H.ExitTailMem P s y x
+'PaperB.LabelledQuotient.exitTailMem_iff_of_nested_cuts' does not depend on any axioms

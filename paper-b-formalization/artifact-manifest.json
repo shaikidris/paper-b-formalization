@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 1243,
-      "sha256": "c3f54e0c89e0ff1de7e431be9081d59e3b78638c2941fbbd436617fe95bf94d4"
+      "bytes": 1262,
+      "sha256": "ec74fe8ad51d9555aaf0037e69785e61103d7e8239b62a5528fe2fe4b325211f"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 20510,
-      "sha256": "3a754ce5dad9abf29e8fc02d0c221b9aec8703ae9430a740ceb37c9a507407f0"
+      "bytes": 20613,
+      "sha256": "6860a4ce9711cff4a544c649da41e3bd3ab653cc8d064ef7c5b3f5abab850507"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 2644,
-      "sha256": "0ff4fcc374e06fc6bd63a6d6d749c38df9d7a988650c17fd3ab2e8a327b1518e"
+      "bytes": 2954,
+      "sha256": "126d69deb81f6254479634dd74403e8b36e3245132f17f1abb337e35bf89d4bc"
     },
     {
       "path": "evidence/ex02-carbon-start/Audit.lean",
@@ -125,6 +125,21 @@
       "path": "evidence/ex02-carbon-start/verification.json",
       "bytes": 5088,
       "sha256": "685e21a2a3de9bd5dbcba6c51968490cdb0d5a0ea2f163b7e26f560a2e9d2c95"
+    },
+    {
+      "path": "evidence/exit-transfer-nested/build.txt",
+      "bytes": 670,
+      "sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599"
+    },
+    {
+      "path": "evidence/exit-transfer-nested/review.md",
+      "bytes": 1375,
+      "sha256": "55b528c32b6642b3f68173cf0372769a832a6c0461806acdee0af3dfd7794465"
+    },
+    {
+      "path": "evidence/exit-transfer-nested/verification.json",
+      "bytes": 1619,
+      "sha256": "06324a89f2c823ddd785af28959737e48a16ceb19e36315097bc559611143fc9"
     },
     {
       "path": "evidence/plan-validation.json",
@@ -168,8 +183,8 @@
     },
     {
       "path": "release-core/PaperB/ExitPaths.lean",
-      "bytes": 6439,
-      "sha256": "666a42848fec8c6f542220bb41f44b9cddf187e601e7da46aafaf7299ca4d5db"
+      "bytes": 15127,
+      "sha256": "e384344e19f1f3418f0537f05351a27c51d1012fad5cb1a198d5e11767878848"
     },
     {
       "path": "release-core/PaperB/Spec.lean",
@@ -288,8 +303,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 31067,
-      "sha256": "3286472e97518c905d43c82b359590e79b2c4ce3452f50e1963f41eaddbee274"
+      "bytes": 31582,
+      "sha256": "fa1197615cf87a4e2121d7ad7c7f7b106494986790d18e66c466d15086646d2d"
     },
     {
       "path": "test_plan.py",

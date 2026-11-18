@@ -1,0 +1,31 @@
+{
+  "task": "EX0.2",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "main_declaration": "PaperB.LabelledQuotient.exitTailMem_iff_of_nested_cuts",
+  "proof_author": "OpenAI Codex",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "scope": "Scoped build and elaborated statement and axiom check of the main declaration",
+  "took_prior_carbon_proofs_from": "26f4b96",
+  "source_sha256": "e384344e19f1f3418f0537f05351a27c51d1012fad5cb1a198d5e11767878848",
+  "build_log_sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599",
+  "result": "MAIN_DECLARATION_BUILDS_WITHOUT_AXIOMS",
+  "relay": [
+    {
+      "requested_declaration": "oldEndpoint_survives_of_rank",
+      "run": "d8ff1cd7-16b1-40b0-9347-450ce34961dd",
+      "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/d8ff1cd7-16b1-40b0-9347-450ce34961dd/receipt.json",
+      "receipt_sha256": "97edaaf58572344062e9db86cc08170d4dae788676dd3e81a39813e053424716",
+      "transport_status": "TIMED_OUT",
+      "checkpoint_files": 0
+    },
+    {
+      "requested_declaration": "freshEndpoint_onward_of_rank",
+      "run": "860c1ca7-cd2c-4061-836b-bdb2d0043862",
+      "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/860c1ca7-cd2c-4061-836b-bdb2d0043862/receipt.json",
+      "receipt_sha256": "cc5b42e1935687d979f8440b729ce716efbb3d61da33816e9819f35fd5c5fe21",
+      "transport_status": "TIMED_OUT",
+      "checkpoint_files": 0
+    }
+  ],
+  "next_obligation": "Derive distinctness and nesting from the constructed proper-loss forest of Lemma 3.1."
+}

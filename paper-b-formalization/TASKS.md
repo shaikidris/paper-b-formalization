@@ -37,9 +37,9 @@ Acceptance:
 - Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.
 - Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives.
 
-Lean checks the path and exit definitions and both sides of a conditional transfer identity. The public forest and costed oracle signatures still need elaboration.
+Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
 
-Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json).
+Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json), [evidence/exit-transfer-nested/review.md](evidence/exit-transfer-nested/review.md).
 
 <a id="ex03"></a>
 

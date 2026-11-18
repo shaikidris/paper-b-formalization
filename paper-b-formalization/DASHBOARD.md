@@ -12,7 +12,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX0.2](TASKS.md#ex02) — Lean checks the path and exit definitions and both sides of a conditional transfer identity. The public forest and costed oracle signatures still need elaboration.
+- [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

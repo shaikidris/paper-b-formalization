@@ -143,7 +143,8 @@
         "release-core/Challenge.lean",
         "release-core/PaperB/ExitPaths.lean",
         "evidence/ex02-carbon-start/review.md",
-        "evidence/ex02-carbon-start/verification.json"
+        "evidence/ex02-carbon-start/verification.json",
+        "evidence/exit-transfer-nested/review.md"
       ],
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
@@ -152,9 +153,21 @@
         "effort": "medium",
         "status": "CODE_DELIVERED_AND_LOCALLY_VERIFIED",
         "resumed_run": "37f77fd0-655f-4fd5-a459-3b39e81ecff6",
-        "interface_note": "MISSING_AFTER_RESUME"
+        "interface_note": "MISSING_AFTER_RESUME",
+        "later_single_declaration_runs": [
+          {
+            "declaration": "oldEndpoint_survives_of_rank",
+            "run": "d8ff1cd7-16b1-40b0-9347-450ce34961dd",
+            "status": "TIMED_OUT_WITHOUT_CHECKPOINT"
+          },
+          {
+            "declaration": "freshEndpoint_onward_of_rank",
+            "run": "860c1ca7-cd2c-4061-836b-bdb2d0043862",
+            "status": "TIMED_OUT_WITHOUT_CHECKPOINT"
+          }
+        ]
       },
-      "progress": "Lean checks the path and exit definitions and both sides of a conditional transfer identity. The public forest and costed oracle signatures still need elaboration."
+      "progress": "Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open."
     },
     {
       "id": "EX0.3",
