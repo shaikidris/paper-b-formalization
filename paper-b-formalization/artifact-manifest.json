@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 1627,
-      "sha256": "bfad3125ab768bd7f166184c6dfc3c8a1eaa3246d45dabaf85cea3b099a6914e"
+      "bytes": 1702,
+      "sha256": "53ebb15a784aeb276b1587a5da868d2601fe489115f248cb7c0fbfcbe45f318d"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 21260,
-      "sha256": "2cd4944ff81807b0f0262450a1569aee2d90f704834951fce4cd5821f6646638"
+      "bytes": 21335,
+      "sha256": "505b9cf9112aa31b9e6295fe14bc9d3118488c2e173ad298f2e888488fd84552"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 3928,
-      "sha256": "51375e9b0414982374e5fe28902d566d6fa9fd1d209448779d52b908e1505f5d"
+      "bytes": 4187,
+      "sha256": "9afe039722062d2be5ab0107304606ae81838a6b315db708ce42cd90d4349572"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -122,9 +122,14 @@
       "sha256": "bceb2793ecfbe52eaa3858e2c57ab034aec94a78e348040efd91d20cd761b823"
     },
     {
+      "path": "evidence/carbon-forest-sweep/build-0002.txt",
+      "bytes": 381,
+      "sha256": "36bc33c817ef1852856ba6e5d8312ff2c53ba34bd8ab039e8f2963d1f3b55abe"
+    },
+    {
       "path": "evidence/carbon-forest-sweep/progress.json",
-      "bytes": 950,
-      "sha256": "fdd33ef2cbaafb66668996804c2a6b5caed42229ed22bb74758e973ec12fdd96"
+      "bytes": 1535,
+      "sha256": "0563d2bf00f25b908e054941ff5414b6b1300ea322ac3cd933c520e08b2bcd6e"
     },
     {
       "path": "evidence/carbon-last-arc/build.txt",
@@ -223,8 +228,8 @@
     },
     {
       "path": "release-core/PaperB/ExitPaths.lean",
-      "bytes": 18902,
-      "sha256": "eca40b1d20969f550c67b7ff0ad441b8f54718e91f795a4ad2846a6013209f4b"
+      "bytes": 20170,
+      "sha256": "df0283b48169d6d02b6fe025afcc1f146b632e762b41a5c140a2cfea2ba6c74e"
     },
     {
       "path": "release-core/PaperB/Spec.lean",
@@ -343,8 +348,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 32392,
-      "sha256": "c33d1c861f83289018216b253f09f6c99a90d2e98bd7832f98632bdf4bf785a9"
+      "bytes": 32467,
+      "sha256": "68ad0535f7042d5c7ee2592c7b1ad77d8055b2382074788fd8415874f75a590d"
     },
     {
       "path": "test_plan.py",

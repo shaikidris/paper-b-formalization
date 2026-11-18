@@ -1,0 +1,5 @@
+✔ [4/4] Built PaperB.ExitPaths (1.2s)
+Build completed successfully (4 jobs).
+PaperB.LabelledQuotient.lost_of_nested_endpoints {H : PaperB.LabelledQuotient} {B P : H.CutPair}
+  (included : ∀ (p : Fin H.vertexCount), P.Mem p → H.Lost B p) {v : Fin H.vertexCount} (lost : H.Lost P v) : H.Lost B v
+'PaperB.LabelledQuotient.lost_of_nested_endpoints' does not depend on any axioms

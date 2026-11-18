@@ -14,6 +14,15 @@
       "status": "CHECKED_WITHOUT_AXIOMS",
       "build_log": "build-0001.txt",
       "source_sha256": "eca40b1d20969f550c67b7ff0ad441b8f54718e91f795a4ad2846a6013209f4b"
+    },
+    {
+      "name": "lost_of_nested_endpoints",
+      "checkpoint_sha256": "750d783b3a0b967f097092cc19aadaa98ea72f9ca1ed018fadb4bdaf751719cb",
+      "worker_note": "Tracker EX2.2 lost_of_nested_endpoints: proof written; next properLoss_iff_of_latest_predecessor_not_mem",
+      "path": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/56d1a609-3be1-4bd2-9002-10e831df0ce8/checkpoints/0002.md",
+      "status": "CHECKED_WITHOUT_AXIOMS",
+      "build_log": "build-0002.txt",
+      "source_sha256": "df0283b48169d6d02b6fe025afcc1f146b632e762b41a5c140a2cfea2ba6c74e"
     }
   ],
   "status": "CHECKPOINTS_IN_PROGRESS"

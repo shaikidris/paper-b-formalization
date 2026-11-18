@@ -402,6 +402,35 @@ theorem properLoss_iff_all_predecessors_lost
         let ⟨u, hPathU, hArcUY⟩ := hPred
         exact hAllLost u hArcUY hPathU
 
+/-- Losing both child endpoints implies losing every vertex the child cut loses. -/
+theorem lost_of_nested_endpoints
+    {H : LabelledQuotient} {B P : CutPair H}
+    (included : ∀ p, P.Mem p → H.Lost B p)
+    {v : Fin H.vertexCount} (lost : H.Lost P v) :
+    H.Lost B v := by
+  have rebuild : ∀ {u w : Fin H.vertexCount},
+      H.SurvivingPath B.Mem u w →
+      H.SurvivingPath B.Mem H.root u →
+      H.SurvivingPath P.Mem u w := by
+    intro u w hSuf
+    induction hSuf with
+    | refl z _ =>
+        intro hPref
+        exact AvoidPath.refl z (fun hzP => included z hzP hPref)
+    | step z next tgt aliveZ arc rest ih =>
+        intro hPref
+        have hzNotP : ¬ P.Mem z := fun hzP => included z hzP hPref
+        have hNextAliveB : ¬ B.Mem next := AvoidPath.source_alive rest
+        have hStepB : H.SurvivingPath B.Mem z next :=
+          AvoidPath.step z next next aliveZ arc (AvoidPath.refl next hNextAliveB)
+        have hPrefNext : H.SurvivingPath B.Mem H.root next :=
+          AvoidPath.trans hPref hStepB
+        exact AvoidPath.step z next tgt hzNotP arc (ih hPrefNext)
+  intro hPathB
+  have hRootPref : H.SurvivingPath B.Mem H.root H.root :=
+    AvoidPath.refl H.root (AvoidPath.source_alive hPathB)
+  exact lost (rebuild hPathB hRootPref)
+
 end LabelledQuotient
 
 end PaperB

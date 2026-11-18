@@ -432,13 +432,13 @@
       "evidence": [
         "evidence/carbon-forest-sweep/progress.json"
       ],
-      "progress": "Carbon's first checkpoint proves the predecessor-loss equivalence and builds. It is now working on cut nesting.",
+      "progress": "Carbon's first two checkpoints build. They prove the predecessor-loss equivalence and global loss nesting. It is now working on the case where an entering predecessor is outside the cut.",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
         "model": "gemini-4-carbon-medium",
         "status": "RUNNING_FILE_CHECKPOINTS",
-        "checked_checkpoints": 1
+        "checked_checkpoints": 2
       }
     },
     {
