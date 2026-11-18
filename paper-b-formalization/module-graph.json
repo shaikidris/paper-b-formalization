@@ -1,6 +1,6 @@
 {
-  "status": "PROPOSED_NOT_IMPLEMENTED",
-  "note": "Proposed architecture. The structural root imports mathematical graph, quotient and forest results. The executable oracle joins the costed forest, dominator construction, static tree data and exit maps.",
+  "status": "IMPLEMENTATION_STARTED",
+  "note": "Challenge, Spec and ExitPaths build on the pinned toolchain. The remaining modules describe the planned imports of the structural and executable theorems.",
   "first_roots": [
     "release-core/Challenge.lean",
     "release-core/Solution.lean",
@@ -19,6 +19,14 @@
         "release-core/Challenge.lean"
       ],
       "owner_role": "graph",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPaths.lean",
+      "local_imports": [
+        "release-core/PaperB/Spec.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     },
     {
@@ -65,7 +73,8 @@
       "path": "release-core/PaperB/Exit.lean",
       "local_imports": [
         "release-core/PaperB/Quotient.lean",
-        "release-core/PaperB/Forest.lean"
+        "release-core/PaperB/Forest.lean",
+        "release-core/PaperB/ExitPaths.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

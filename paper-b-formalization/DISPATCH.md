@@ -11,4 +11,4 @@ After EX1.1 the single-failure dominator facts and the abstract flat-DAG pair-fo
 3. Independent review checks the type against the deposited statement, the build, dependencies and `#print axioms`. Check production dependencies for placeholders or unsupported primitives and rerun the listed boundary case. An individual proof task and a complete paper statement have separate evidence rows.
 4. Update task status and the statement/obligation rows together when applicable. Regenerate the dashboard and record a validated checkpoint. The two main theorems and the two corollaries can earn acceptance independently in proof order.
 
-Use `plan.py ready` for the actual unblocked list, `plan.py show EX3.2` for one handoff, and the [coverage map](COVERAGE.md) for the full paper. No proof worker has been assigned at design freeze.
+Use `plan.py ready` for the actual unblocked list, `plan.py show EX3.2` for one handoff, and the [coverage map](COVERAGE.md) for the full paper. The [first EX0.2 handoff](evidence/ex02-carbon-start/review.md) records the code delivered by Gemini 4 Carbon Medium and the obligations still available to the next worker.

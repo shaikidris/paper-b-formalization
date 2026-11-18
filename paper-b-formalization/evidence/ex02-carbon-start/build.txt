@@ -1,0 +1,36 @@
+$ elan run leanprover/lean4:v4.35.0-rc3 lean --version
+Lean (version 4.35.0-rc3, arm64-apple-darwin24.6.0, commit 470d5ce1400764999581fd26d5d72b00d990b0f4, Release)
+$ elan run leanprover/lean4:v4.35.0-rc3 lake build
+✔ [2/5] Built Challenge (1.4s)
+✔ [3/5] Built PaperB.Spec (1.2s)
+✔ [4/5] Built PaperB.ExitPaths (1.0s)
+Build completed successfully (5 jobs).
+$ elan run leanprover/lean4:v4.35.0-rc3 lake env lean Audit.lean
+'PaperB.AvoidPath.source_alive' does not depend on any axioms
+'PaperB.AvoidPath.target_alive' does not depend on any axioms
+'PaperB.AvoidPath.mono' does not depend on any axioms
+'PaperB.AvoidPath.trans' does not depend on any axioms
+'PaperB.Digraph.survivingPath_source_alive' does not depend on any axioms
+'PaperB.Digraph.survivingPath_target_alive' does not depend on any axioms
+'PaperB.Digraph.survivingPath_mono' does not depend on any axioms
+'PaperB.Digraph.survivingPath_trans' does not depend on any axioms
+'PaperB.Digraph.reachableAvoiding_two_diag' does not depend on any axioms
+'PaperB.LabelledQuotient.mem_implies_lost' does not depend on any axioms
+'PaperB.LabelledQuotient.direct_arc_exitTailMem' does not depend on any axioms
+'PaperB.LabelledQuotient.exitTailMem_transfer_of_onwardPath' does not depend on any axioms
+'PaperB.LabelledQuotient.suffix_avoids_parent_of_shared' does not depend on any axioms
+'PaperB.LabelledQuotient.exitTailMem_transfer_inherited' does not depend on any axioms
+'PaperB.LabelledQuotient.split_at_fresh_or_avoid_child' does not depend on any axioms
+'PaperB.LabelledQuotient.exitTailMem_converse_split' does not depend on any axioms
+'PaperB.LabelledQuotient.exitTailMem_iff_of_paths' does not depend on any axioms
+$ elan run leanprover/lean4:v4.35.0-rc3 lake env leanchecker --verbose Challenge
+replaying Challenge
+$ elan run leanprover/lean4:v4.35.0-rc3 lake env leanchecker --verbose PaperB.Spec
+replaying PaperB.Spec
+$ elan run leanprover/lean4:v4.35.0-rc3 lake env leanchecker --verbose PaperB.ExitPaths
+replaying PaperB.ExitPaths
+$ elan run leanprover/lean4:v4.35.0-rc3 lean -o LegacyReachExcerpt.olean LegacyReachExcerpt.lean
+$ elan run leanprover/lean4:v4.35.0-rc3 lean LegacyAudit.lean
+'Controller.Graphs.FailureDAG.ReachAvoid.source_alive' does not depend on any axioms
+'Controller.Graphs.FailureDAG.ReachAvoid.target_alive' does not depend on any axioms
+'Controller.Graphs.FailureDAG.ReachAvoid.mono' does not depend on any axioms

@@ -1,0 +1,113 @@
+{
+  "task": "EX0.2",
+  "status": "PARTIAL_IMPLEMENTATION_VERIFIED",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "lean_commit": "470d5ce1400764999581fd26d5d72b00d990b0f4",
+  "imports": [
+    "Std"
+  ],
+  "relay": {
+    "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
+    "input_sha256": "eb7b56e9e8bd642f8d71e8fd26555eb6849447b48fc935dcf6be5335f93f9938",
+    "code_checkpoint": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/93c0a13a-3b22-4ed7-9093-55f355c33983/checkpoints/0001.md",
+    "checkpoint_sha256": "e2e1a7faad379411da72d5aa9fb525e8b5193e29ac80e90f5778f9577b6ad0ec",
+    "first_run": {
+      "run": "93c0a13a-3b22-4ed7-9093-55f355c33983",
+      "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/93c0a13a-3b22-4ed7-9093-55f355c33983/receipt.json",
+      "receipt_sha256": "d5b02bf8cb0ed2f6077aee371c8d305d96ea3da31b959636d294f027c19e956c",
+      "mode": "created",
+      "transport_status": "timed_out",
+      "report_state": "partial",
+      "provider_conversation_id": "3d729ac9-6887-4757-b9b8-920df3eb58dd",
+      "provider_reported_model": "gemini-4-carbon-medium",
+      "requested_effort": "medium",
+      "forbidden_tool_steps": 0,
+      "inputs_unchanged": true
+    },
+    "note_run": {
+      "run": "37f77fd0-655f-4fd5-a459-3b39e81ecff6",
+      "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/37f77fd0-655f-4fd5-a459-3b39e81ecff6/receipt.json",
+      "receipt_sha256": "ecfac8e824b15e9178537da9ab1feeb6e862d045ce0376f2c2bb21b995320892",
+      "mode": "resumed",
+      "transport_status": "timed_out",
+      "report_state": "missing",
+      "provider_conversation_id": "3d729ac9-6887-4757-b9b8-920df3eb58dd",
+      "provider_reported_model": "gemini-4-carbon-medium",
+      "requested_effort": "medium",
+      "forbidden_tool_steps": 0,
+      "inputs_unchanged": true
+    }
+  },
+  "carbon_declarations_preserved_verbatim": [
+    "source_alive",
+    "target_alive",
+    "mono",
+    "trans",
+    "survivingPath_source_alive",
+    "survivingPath_target_alive",
+    "survivingPath_mono",
+    "survivingPath_trans",
+    "reachableAvoiding_two_diag",
+    "mem_implies_lost",
+    "direct_arc_exitTailMem",
+    "exitTailMem_transfer_of_onwardPath",
+    "suffix_avoids_parent_of_shared",
+    "exitTailMem_transfer_inherited",
+    "split_at_fresh_or_avoid_child",
+    "exitTailMem_converse_split"
+  ],
+  "integrating_declaration": "PaperB.LabelledQuotient.exitTailMem_iff_of_paths",
+  "axiom_free_lean_declarations": [
+    "PaperB.AvoidPath.source_alive",
+    "PaperB.AvoidPath.target_alive",
+    "PaperB.AvoidPath.mono",
+    "PaperB.AvoidPath.trans",
+    "PaperB.Digraph.survivingPath_source_alive",
+    "PaperB.Digraph.survivingPath_target_alive",
+    "PaperB.Digraph.survivingPath_mono",
+    "PaperB.Digraph.survivingPath_trans",
+    "PaperB.Digraph.reachableAvoiding_two_diag",
+    "PaperB.LabelledQuotient.mem_implies_lost",
+    "PaperB.LabelledQuotient.direct_arc_exitTailMem",
+    "PaperB.LabelledQuotient.exitTailMem_transfer_of_onwardPath",
+    "PaperB.LabelledQuotient.suffix_avoids_parent_of_shared",
+    "PaperB.LabelledQuotient.exitTailMem_transfer_inherited",
+    "PaperB.LabelledQuotient.split_at_fresh_or_avoid_child",
+    "PaperB.LabelledQuotient.exitTailMem_converse_split",
+    "PaperB.LabelledQuotient.exitTailMem_iff_of_paths"
+  ],
+  "leanchecker_replays": [
+    "Challenge",
+    "PaperB.Spec",
+    "PaperB.ExitPaths"
+  ],
+  "regression_examples": 12,
+  "figure_1_reachability": {
+    "fail h and V": true,
+    "fail ell and V": true,
+    "fail U and V": false
+  },
+  "legacy": {
+    "source": "formalization/Controller/Graphs/FailureBatch.lean",
+    "excerpt_sha256": "f72dfe57ca64ebba26dd9188ae1610c390f27a88b2f9721d9667ecc63c7848f6",
+    "declarations": [
+      "Controller.Graphs.FailureDAG.ReachAvoid.source_alive",
+      "Controller.Graphs.FailureDAG.ReachAvoid.target_alive",
+      "Controller.Graphs.FailureDAG.ReachAvoid.mono"
+    ]
+  },
+  "files": {
+    "release-core/Challenge.lean": "a4a6ff72a648ceaa374840418995c3c9a11d0ab6d34f7c2d9296838e8d11a875",
+    "release-core/PaperB/Spec.lean": "76da3f301ee9698f1a1bcc61ff782dd015b339e6d27c1e2d8e1935b096e785b1",
+    "release-core/PaperB/ExitPaths.lean": "666a42848fec8c6f542220bb41f44b9cddf187e601e7da46aafaf7299ca4d5db",
+    "release-core/lakefile.toml": "4b22e43b50bcf06b52c661ffa77eedbaa0b53d3e5c3cc80ef70df6e6e93544f2",
+    "release-core/lake-manifest.json": "0b33d0a190491bbcb097037a504a4bd7d125b2062c8e83943ae8a8a2698f8a86",
+    "release-core/lean-toolchain": "bc84812c94489d1e3e191baa1dc10d5eb684382d7fe9d2a5ab085e72c1c67e47",
+    "evidence/ex02-carbon-start/Audit.lean": "7428e9066aeeec18c0ff870a4af89ccb2f73f6763575127d510d08b22c498dea",
+    "evidence/ex02-carbon-start/replay.py": "419d8201aa3f820ee61f0f9ddeb53e8099d94a107ddd1c501c1b155598b8b8a3",
+    "evidence/ex02-carbon-start/build.txt": "55fa6eeb1e08472ab38b94d9c4b6d2d56692b1fab8e2f3ecb182190f63c7c943"
+  },
+  "certified_numbered_statements": 0,
+  "certified_roots": 0
+}

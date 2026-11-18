@@ -6,13 +6,13 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - Work inventory: 27 packages in 7 milestones.
 - Completed planning audits: 1.
 - Certified main theorems: **0/2**. Certified numbered results: **0/9**.
-- Assigned workers: 0; execution: LEAN_IMPLEMENTATION_NOT_STARTED.
+- Assigned workers: 0; execution: LEAN_IMPLEMENTATION_IN_PROGRESS.
 - Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.
 - First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.
 
-## Next dependency-ready work
+## In progress
 
-- EX0.2: Pin the environment and elaborate candidate interfaces.
+- [EX0.2](TASKS.md#ex02) — Lean checks the path and exit definitions and both sides of a conditional transfer identity. The public forest and costed oracle signatures still need elaboration.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

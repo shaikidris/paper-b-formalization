@@ -9,8 +9,9 @@ From the project root:
 ```sh
 python3 -B paper-b-formalization/plan.py validate
 python3 -B paper-b-formalization/test_plan.py
+python3 -B paper-b-formalization/evidence/ex02-carbon-start/replay.py
 python3 -B paper-b-formalization/plan.py ready
 python3 -B paper-b-formalization/plan.py show EX3.2
 ```
 
-Edit [tasks](tasks.json), [coverage](coverage.json), [root obligations](obligations.json) and [module dependencies](module-graph.json). Run `plan.py render` after ledger changes. All formal statements await Lean implementation and independent replay.
+Edit [tasks](tasks.json), [coverage](coverage.json), [root obligations](obligations.json) and [module dependencies](module-graph.json). Run `plan.py render` after ledger changes. The [first Lean checkpoint](evidence/ex02-carbon-start/review.md) proves a conditional version of exit transfer and checks the three Figure 1 reachability answers. All nine numbered results await statement-level certification.

@@ -1,6 +1,6 @@
 # Reusable Lean declarations for the published theorem chain
 
-These are declarations inspected in the local Lean sources. EX0.2 will determine exact imports or ports on the chosen Lean/mathlib pin and record the resulting types, dependency hashes and replay output. The local controller project pins Lean 4.33.0. Its archived selected build is recorded in the [reuse inventory](reuse-audit.json). No new-edition Lean replay has run.
+These are declarations inspected in the local Lean sources. EX0.2 will determine exact imports or ports on the chosen Lean/mathlib pin and record the resulting types, dependency hashes and replay output. The local controller project pins Lean 4.33.0. Its archived selected build is recorded in the [reuse inventory](reuse-audit.json). Three path lemmas from `FailureBatch.lean` replayed on the new Lean 4.35.0-rc3 pin from a hash-checked excerpt. The new package uses `Std` and states paths on original vertex identifiers. The legacy topological renumbering and labelled-arc adapters remain open. [Replay and tests](evidence/ex02-carbon-start/review.md)
 
 | Existing source | Existing interface | Use in this plan | Required bridge |
 |---|---|---|---|

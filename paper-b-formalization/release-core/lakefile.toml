@@ -1,0 +1,14 @@
+name = "paperB"
+version = "0.1.0"
+defaultTargets = ["PaperB"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[lean_lib]]
+name = "PaperB"
+roots = ["PaperB.Spec", "PaperB.ExitPaths"]
+
+[[lean_lib]]
+name = "Challenge"

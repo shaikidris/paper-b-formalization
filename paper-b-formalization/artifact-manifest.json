@@ -1,5 +1,5 @@
 {
-  "scope": "Published Paper B v1.2 formalization plan and its retained historical records.",
+  "scope": "Published Paper B v1.2 formalization, replay evidence and retained planning records.",
   "files": [
     {
       "path": "COVERAGE.md",
@@ -8,13 +8,13 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 1130,
-      "sha256": "97e10feebb2dc2a123561c9c505a0ee24643fb3415593db5babc9960ee0d0720"
+      "bytes": 1243,
+      "sha256": "c3f54e0c89e0ff1de7e431be9081d59e3b78638c2941fbbd436617fe95bf94d4"
     },
     {
       "path": "DISPATCH.md",
-      "bytes": 2320,
-      "sha256": "f1a8c8a1006cc906a8cfc196f088c9954bf5dbb6d0c51bc541ddfdcd8c89ee0c"
+      "bytes": 2441,
+      "sha256": "2cd4191e64dcb0ad04218e34853c58745512912da18f5a0285897c39f0cd2c02"
     },
     {
       "path": "EXTERNAL-INPUTS.md",
@@ -28,8 +28,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5288,
-      "sha256": "4513c5b86b09dadf731c46fe5065727281b9b42513fa328ad541009462e1a233"
+      "bytes": 5294,
+      "sha256": "4b88332d71ead164d44d0a10d9302982b30e93aeac98a3c2f85d5892f3e4f0a9"
     },
     {
       "path": "PLAN.md",
@@ -38,18 +38,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 1381,
-      "sha256": "b5ddee966977ff32a4dad92e736c5bf75546884d3df4aef940c55d3e0a742508"
+      "bytes": 1606,
+      "sha256": "cb0fe46fb2540a274f1e4d28ddade3401f2c7d7e9d63952f11ea5d43a2238c12"
     },
     {
       "path": "REUSE.md",
-      "bytes": 3646,
-      "sha256": "6b1183b9e23092a4f6642473172c7220810ec08c4dcb11f0f5d4fd467952c59d"
+      "bytes": 3929,
+      "sha256": "00ef8c9073e4c23ed8402fbd3d065374534d08a148cf8630b8aeacfc7690ab7c"
     },
     {
       "path": "TASKS.md",
-      "bytes": 20002,
-      "sha256": "919ce30fbd99b4038f5f63c68e2f8783c8673d1fd02b3c02a51cffc9b2a0ee2c"
+      "bytes": 20510,
+      "sha256": "3a754ce5dad9abf29e8fc02d0c221b9aec8703ae9430a740ceb37c9a507407f0"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,33 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 1846,
-      "sha256": "530509cd90ea1ff0f6e49fe54868d9e11b4ad77d04c370e1aaa626a06a21d76b"
+      "bytes": 2644,
+      "sha256": "0ff4fcc374e06fc6bd63a6d6d749c38df9d7a988650c17fd3ab2e8a327b1518e"
+    },
+    {
+      "path": "evidence/ex02-carbon-start/Audit.lean",
+      "bytes": 3928,
+      "sha256": "7428e9066aeeec18c0ff870a4af89ccb2f73f6763575127d510d08b22c498dea"
+    },
+    {
+      "path": "evidence/ex02-carbon-start/build.txt",
+      "bytes": 2410,
+      "sha256": "55fa6eeb1e08472ab38b94d9c4b6d2d56692b1fab8e2f3ecb182190f63c7c943"
+    },
+    {
+      "path": "evidence/ex02-carbon-start/replay.py",
+      "bytes": 3362,
+      "sha256": "419d8201aa3f820ee61f0f9ddeb53e8099d94a107ddd1c501c1b155598b8b8a3"
+    },
+    {
+      "path": "evidence/ex02-carbon-start/review.md",
+      "bytes": 4108,
+      "sha256": "69abc631e0538747907247dc8bda8732cad766d8b019d6de22dd1ab0fab90353"
+    },
+    {
+      "path": "evidence/ex02-carbon-start/verification.json",
+      "bytes": 5088,
+      "sha256": "685e21a2a3de9bd5dbcba6c51968490cdb0d5a0ea2f163b7e26f560a2e9d2c95"
     },
     {
       "path": "evidence/plan-validation.json",
@@ -118,8 +143,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 4640,
-      "sha256": "f894a6e5cb87f59bb31de222f760beae37daf25ba4a7b47230901bce2bcc97ce"
+      "bytes": 4836,
+      "sha256": "0adbad03ef59b08de104503baf35b703f772a646a4e9793d50df64db04dac97e"
     },
     {
       "path": "obligations.json",
@@ -128,8 +153,43 @@
     },
     {
       "path": "plan.py",
-      "bytes": 25569,
-      "sha256": "3330498b1e18cc7354e726e2ea3fb748f12e16561a32f2fa7b98ec48dfec38e6"
+      "bytes": 26009,
+      "sha256": "2bfed1c729e5de4f22c3f8fdb6ac45b4ae499e8067012dd12a80b5abb59ef00e"
+    },
+    {
+      "path": "release-core/.gitignore",
+      "bytes": 7,
+      "sha256": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3"
+    },
+    {
+      "path": "release-core/Challenge.lean",
+      "bytes": 6969,
+      "sha256": "a4a6ff72a648ceaa374840418995c3c9a11d0ab6d34f7c2d9296838e8d11a875"
+    },
+    {
+      "path": "release-core/PaperB/ExitPaths.lean",
+      "bytes": 6439,
+      "sha256": "666a42848fec8c6f542220bb41f44b9cddf187e601e7da46aafaf7299ca4d5db"
+    },
+    {
+      "path": "release-core/PaperB/Spec.lean",
+      "bytes": 3489,
+      "sha256": "76da3f301ee9698f1a1bcc61ff782dd015b339e6d27c1e2d8e1935b096e785b1"
+    },
+    {
+      "path": "release-core/lake-manifest.json",
+      "bytes": 138,
+      "sha256": "0b33d0a190491bbcb097037a504a4bd7d125b2062c8e83943ae8a8a2698f8a86"
+    },
+    {
+      "path": "release-core/lakefile.toml",
+      "bytes": 233,
+      "sha256": "4b22e43b50bcf06b52c661ffa77eedbaa0b53d3e5c3cc80ef70df6e6e93544f2"
+    },
+    {
+      "path": "release-core/lean-toolchain",
+      "bytes": 29,
+      "sha256": "bc84812c94489d1e3e191baa1dc10d5eb684382d7fe9d2a5ab085e72c1c67e47"
     },
     {
       "path": "reuse-audit.json",
@@ -228,8 +288,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 30247,
-      "sha256": "0203c3e8f5e99f3f29e170e59d5c47cb772a146cfd48d9ca0a81763566140032"
+      "bytes": 31067,
+      "sha256": "3286472e97518c905d43c82b359590e79b2c4ce3452f50e1963f41eaddbee274"
     },
     {
       "path": "test_plan.py",

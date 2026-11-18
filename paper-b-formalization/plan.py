@@ -336,6 +336,8 @@ def render(data, coverage, obligations, external):
     for t in data["tasks"]:
         out += [f'<a id="{t["id"].lower().replace(".", "")}"></a>', "", f"## {t['id']} — {t['title']}", "", f"- Milestone: {t['milestone']}; status: **{t['status']}**; proof status: {t['proof_status']}.", f"- Owner: {t['owner_role']}; reviewers: {', '.join(t['reviewer_roles']) or 'to assign'}; assigned worker: {t['assigned_agent'] or 'unassigned'}.", f"- Dependencies: {', '.join(t['dependencies']) or 'none'}.", f"- Proposed owner module: `{t['planned_owner_module']}`.", f"- Paper consumers: {', '.join(t['paper_consumers'])}; risk: {t['risk']}.", "", t['obligation'], "", "Acceptance:", ""]
         out += [f"- {a}" for a in t["acceptance"]]
+        if t.get("progress"):
+            out += ["", t["progress"]]
         if t['evidence']:
             out += ["", "Planning/evidence references: " + ', '.join(f"[{x}]({x})" for x in t['evidence']) + '.']
         out += [""]
@@ -352,8 +354,17 @@ def render(data, coverage, obligations, external):
     for o in obligations.get("extension_obligations", []):
         out += [f"| {o['id']} — {cell(o['obligation'])} | {o['paper_root']} | {', '.join(o['tasks'])} | {o['status']} |"]
     (ROOT / "COVERAGE.md").write_text('\n'.join(out)+'\n')
-    out = ["# Paper B planning dashboard", "", "Snapshot generated from the editable JSON ledgers. This dashboard tracks work and proof scope; it is not a build or mathematical certificate.", "", f"- Published edition inventory: {s['paper_items']} items, including {s['proof_bearing_items']} proof-bearing statements and Question 6.2.", f"- Work inventory: {s['tasks']} packages in {s['milestones']} milestones.", f"- Completed planning audits: {s['task_status_counts'].get('DONE_PLAN',0)}.", f"- Certified main theorems: **{s['certified_new_roots']}/2**. Certified numbered results: **{s['certified_paper_statements']}/{s['proof_bearing_items']}**.", f"- Assigned workers: {s['assigned_workers']}; execution: {s['execution_status']}.", "- Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.", "- First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.", "", "## Next dependency-ready work", ""]
-    out += [f"- {t['id']}: {t['title']}." for t in task_ready(data)]
+    out = ["# Paper B planning dashboard", "", "Snapshot generated from the editable JSON ledgers. This dashboard tracks work and proof scope; it is not a build or mathematical certificate.", "", f"- Published edition inventory: {s['paper_items']} items, including {s['proof_bearing_items']} proof-bearing statements and Question 6.2.", f"- Work inventory: {s['tasks']} packages in {s['milestones']} milestones.", f"- Completed planning audits: {s['task_status_counts'].get('DONE_PLAN',0)}.", f"- Certified main theorems: **{s['certified_new_roots']}/2**. Certified numbered results: **{s['certified_paper_statements']}/{s['proof_bearing_items']}**.", f"- Assigned workers: {s['assigned_workers']}; execution: {s['execution_status']}.", "- Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.", "- First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression."]
+    ongoing = [t for t in data["tasks"] if t["status"] == "IN_PROGRESS"]
+    if ongoing:
+        out += ["", "## In progress", ""]
+        for t in ongoing:
+            anchor = t["id"].lower().replace(".", "")
+            out.append(f"- [{t['id']}](TASKS.md#{anchor}) — {t['progress'] if t.get('progress') else t['title']}")
+    ready = task_ready(data)
+    if ready:
+        out += ["", "## Ready to start", ""]
+        out += [f"- {t['id']} — {t['title']}." for t in ready]
     out += ["", "See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).", "", "See [milestones](MILESTONES.md), [tasks](TASKS.md), [coverage](COVERAGE.md), [interfaces](INTERFACES.md), and the [proposed contract](contracts/release-contract.md).", ""]
     (ROOT / "DASHBOARD.md").write_text('\n'.join(out)+'\n')
 

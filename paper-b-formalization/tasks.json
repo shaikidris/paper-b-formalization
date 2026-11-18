@@ -17,7 +17,7 @@
     "4.1"
   ],
   "plan_status": "MAPPED_TO_PUBLISHED_VERSION",
-  "execution_status": "LEAN_IMPLEMENTATION_NOT_STARTED",
+  "execution_status": "LEAN_IMPLEMENTATION_IN_PROGRESS",
   "formal_roots_accepted": 0,
   "module_owners": {
     "release-core/Challenge.lean": "contract",
@@ -38,14 +38,15 @@
     "extensions/Guarded.lean": "application",
     "release-core/PaperB/DomBuild.lean": "dominator",
     "release-core/PaperB/TreeIndex.lean": "dominator",
-    "release-core/PaperB/ForestBuild.lean": "cuts"
+    "release-core/PaperB/ForestBuild.lean": "cuts",
+    "release-core/PaperB/ExitPaths.lean": "cuts"
   },
   "milestones": [
     {
       "id": "EX0",
       "title": "Freeze the graph, algorithm and cost contracts",
       "exit_gate": "Pin the source and toolchain. Elaborate two candidate Lean types with their full quantifiers and cost units.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "EX1",
@@ -130,7 +131,7 @@
         "1.1",
         "4.1"
       ],
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Typecheck candidate signatures for a finite labelled DAG, tail sets, immutable index and costed programs.",
@@ -138,7 +139,22 @@
         "Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.",
         "Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives."
       ],
-      "evidence": []
+      "evidence": [
+        "release-core/Challenge.lean",
+        "release-core/PaperB/ExitPaths.lean",
+        "evidence/ex02-carbon-start/review.md",
+        "evidence/ex02-carbon-start/verification.json"
+      ],
+      "dispatch": {
+        "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
+        "run": "93c0a13a-3b22-4ed7-9093-55f355c33983",
+        "model": "gemini-4-carbon-medium",
+        "effort": "medium",
+        "status": "CODE_DELIVERED_AND_LOCALLY_VERIFIED",
+        "resumed_run": "37f77fd0-655f-4fd5-a459-3b39e81ecff6",
+        "interface_note": "MISSING_AFTER_RESUME"
+      },
+      "progress": "Lean checks the path and exit definitions and both sides of a conditional transfer identity. The public forest and costed oracle signatures still need elaboration."
     },
     {
       "id": "EX0.3",

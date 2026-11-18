@@ -24,7 +24,7 @@ Planning/evidence references: [sources/source-lock.json](sources/source-lock.jso
 
 ## EX0.2 — Pin the environment and elaborate candidate interfaces
 
-- Milestone: EX0; status: **READY**; proof status: NOT_CERTIFIED.
+- Milestone: EX0; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: contract; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.1.
 - Proposed owner module: `release-core/Challenge.lean`.
@@ -36,6 +36,10 @@ Acceptance:
 
 - Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.
 - Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives.
+
+Lean checks the path and exit definitions and both sides of a conditional transfer identity. The public forest and costed oracle signatures still need elaboration.
+
+Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json).
 
 <a id="ex03"></a>
 

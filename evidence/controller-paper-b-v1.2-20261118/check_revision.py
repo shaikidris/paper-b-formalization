@@ -84,7 +84,7 @@ def check_manifest():
     manifest = read_json(TRACKER / "artifact-manifest.json")
     found = {str(file.relative_to(TRACKER)):file for file in TRACKER.rglob("*")
              if file.is_file() and file.name not in {".DS_Store", "artifact-manifest.json"}
-             and not {".git","__pycache__"}.intersection(file.relative_to(TRACKER).parts)}
+             and not {".git", ".lake", "__pycache__"}.intersection(file.relative_to(TRACKER).parts)}
     expected = {row["path"]:row for row in manifest["files"]}
     require(len(expected) == len(manifest["files"]) and set(found) == set(expected), "Tracker manifest inventory mismatch")
     for name, path in found.items():
