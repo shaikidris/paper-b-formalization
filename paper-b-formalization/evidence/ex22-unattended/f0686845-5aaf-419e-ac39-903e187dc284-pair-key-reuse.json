@@ -1,0 +1,15 @@
+{
+  "run": "f0686845-5aaf-419e-ac39-903e187dc284",
+  "name": "PaperB.LabelledQuotient.sweep_parent_eq_for_reused_pair_key",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "worker": "Gemini 4 Carbon Medium",
+  "statement": "theorem sweep_parent_eq_for_reused_pair_key\n    {H : LabelledQuotient} {P : CutPair H}\n    {rank : Fin H.vertexCount → Nat}\n    (distinctRanks : ∀ a b, rank a = rank b → a = b)\n    (ancestors : Fin H.vertexCount → List (CutPair H))\n    {y z mY mZ : Fin H.vertexCount}\n    (keyY : ∀ u, H.HasQuotientArc u y ↔ P.Mem u)\n    (keyZ : ∀ u, H.HasQuotientArc u z ↔ P.Mem u)\n    (edgeY : H.HasQuotientArc mY y) (edgeZ : H.HasQuotientArc mZ z)\n    (latestY : ∀ u, H.HasQuotientArc u y → rank u ≤ rank mY)\n    (latestZ : ∀ u, H.HasQuotientArc u z → rank u ≤ rank mZ)\n    (passesY passesZ : CutPair H → Bool)\n    (correctY : ∀ B, passesY B = true ↔ ∀ u, H.HasQuotientArc u y → H.Lost B u)\n    (correctZ : ∀ B, passesZ B = true ↔ ∀ u, H.HasQuotientArc u z → H.Lost B u) :\n    ((ancestors mY).takeWhile passesY).getLast? =\n      ((ancestors mZ).takeWhile passesZ).getLast?",
+  "note": "Tracker EX2.2 sweep_parent_eq_for_reused_pair_key: proof written; next pair-key reuse complete",
+  "dependencies": "'PaperB.LabelledQuotient.sweep_parent_eq_for_reused_pair_key' depends on axioms: [Quot.sound]",
+  "checkpoint": ".collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/91aaeddc-819c-4274-9934-77917599c80d/checkpoints/0001.md",
+  "checkpoint_sha256": "3dfda472a5dde83ad4bc5106ef35a65376a47ec0efd625b7cddf747ae62c58ad",
+  "receipt": ".collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/91aaeddc-819c-4274-9934-77917599c80d/receipt.json",
+  "receipt_sha256": "047ff10f2ad20ec5b6f40c8b5a59ed30f349a2f1ec64a367c2ae7a04e07a6179",
+  "build_log": ".collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/pair-key-reuse-1.lean.txt",
+  "source_sha256": "861add74f3c351437bd61d41444ba9a1697acb8e5c3ad81f5a6e7fad3147b0e5"
+}

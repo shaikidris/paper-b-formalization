@@ -18,3 +18,4 @@
 {"date": "2026-11-19", "kind": "CARBON_FOREST_PREFIX_ASSIGNED", "task": "EX2.2", "relay_run": "606e58cb-1025-40cb-9602-52a53db43d70"}
 {"date": "2026-11-19", "kind": "CARBON_FOREST_PREFIX_CHECKED", "task": "EX2.2", "relay_run": "606e58cb-1025-40cb-9602-52a53db43d70", "declaration": "PaperB.LabelledQuotient.predecessor_losses_form_prefix", "evidence": "evidence/carbon-forest-prefix/verification.json"}
 {"at": "2026-11-18T20:00:49+00:00", "kind": "EX22_UNATTENDED", "task": "EX2.2", "run": "f0686845-5aaf-419e-ac39-903e187dc284", "state": "BUILT_CHECKPOINT", "detail": "1 of 3 unattended declarations build. Full finite-sweep construction and statement-level review remain open."}
+{"at": "2026-11-18T20:03:29+00:00", "kind": "EX22_UNATTENDED", "task": "EX2.2", "run": "f0686845-5aaf-419e-ac39-903e187dc284", "state": "BUILT_CHECKPOINT", "detail": "2 of 3 unattended declarations build. Full finite-sweep construction and statement-level review remain open."}

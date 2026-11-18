@@ -646,6 +646,54 @@ theorem takeWhile_predecessor_losses_iff
                 fun u hArc => lost_of_nested_endpoints hIncluded (hLostB u hArc)
               exact False.elim (hHeadNotLost hHeadLost)
 
+theorem sweep_parent_eq_for_reused_pair_key
+    {H : LabelledQuotient} {P : CutPair H}
+    {rank : Fin H.vertexCount → Nat}
+    (distinctRanks : ∀ a b, rank a = rank b → a = b)
+    (ancestors : Fin H.vertexCount → List (CutPair H))
+    {y z mY mZ : Fin H.vertexCount}
+    (keyY : ∀ u, H.HasQuotientArc u y ↔ P.Mem u)
+    (keyZ : ∀ u, H.HasQuotientArc u z ↔ P.Mem u)
+    (edgeY : H.HasQuotientArc mY y) (edgeZ : H.HasQuotientArc mZ z)
+    (latestY : ∀ u, H.HasQuotientArc u y → rank u ≤ rank mY)
+    (latestZ : ∀ u, H.HasQuotientArc u z → rank u ≤ rank mZ)
+    (passesY passesZ : CutPair H → Bool)
+    (correctY : ∀ B, passesY B = true ↔ ∀ u, H.HasQuotientArc u y → H.Lost B u)
+    (correctZ : ∀ B, passesZ B = true ↔ ∀ u, H.HasQuotientArc u z → H.Lost B u) :
+    ((ancestors mY).takeWhile passesY).getLast? =
+      ((ancestors mZ).takeWhile passesZ).getLast? := by
+  have hmYToZ : H.HasQuotientArc mY z := (keyZ mY).mpr ((keyY mY).mp edgeY)
+  have hmZToY : H.HasQuotientArc mZ y := (keyY mZ).mpr ((keyZ mZ).mp edgeZ)
+  have hRankEq : rank mY = rank mZ :=
+    Nat.le_antisymm (latestZ mY hmYToZ) (latestY mZ hmZToY)
+  have hMEq : mY = mZ := distinctRanks mY mZ hRankEq
+  have hPassesEq : passesY = passesZ := by
+    funext B
+    have hPropIff :
+        (∀ u : Fin H.vertexCount, H.HasQuotientArc u y → H.Lost B u) ↔
+        (∀ u : Fin H.vertexCount, H.HasQuotientArc u z → H.Lost B u) := by
+      constructor
+      · intro hLostY u hArcUZ
+        exact hLostY u ((keyY u).mpr ((keyZ u).mp hArcUZ))
+      · intro hLostZ u hArcUY
+        exact hLostZ u ((keyZ u).mpr ((keyY u).mp hArcUY))
+    cases hBY : passesY B with
+    | false =>
+        cases hBZ : passesZ B with
+        | false => exact rfl
+        | true =>
+            have hYTrue : passesY B = true :=
+              (correctY B).mpr (hPropIff.mpr ((correctZ B).mp hBZ))
+            exact Eq.trans hBY.symm hYTrue
+    | true =>
+        cases hBZ : passesZ B with
+        | false =>
+            have hZTrue : passesZ B = true :=
+              (correctZ B).mpr (hPropIff.mp ((correctY B).mp hBY))
+            exact Eq.trans hZTrue.symm hBZ
+        | true => exact rfl
+  rw [hMEq, hPassesEq]
+
 end LabelledQuotient
 
 end PaperB
