@@ -1,0 +1,27 @@
+# Verification of Carbon High's referee report
+
+Google Antigravity's Gemini 4 Carbon High received the complete frozen Paper B v1.2 and a short, page-specific paraphrase of the 2006 paper. The eight-page source was read locally. The provider returned a 3,393-word report with an explicit recommendation of minor revisions. The stream ended during the presentation section. Sections 1–4 of the report, including its case-by-case check of Theorem 4.1, are intact. [Exact returned text, including its cutoff](carbon-partial-report.md) · [Frozen manuscript](../../papers/controller/paper-b-two-failure-reachability-v1.2-draft.md)
+
+## Findings checked against the manuscript
+
+| Carbon's observation | Assessment |
+|---|---|
+| The fresh-endpoint and shared-endpoint terms preserve physical arc tails. | Confirmed independently for both inclusions. The chronological order of a fresh endpoint supplies the suffix in the forward direction and rules out an unshared parent endpoint in the reverse direction. A parallel arc retains its own original tail throughout. The seven-vertex example needs both terms in the same coordinate. [Local proof audit](local-review.md) |
+| A repeated predecessor pair reuses the same forest parent, and §5 can install maps before the new base. | Confirmed. Earlier labels stay fixed when the forest grows by adding leaves. Every fresh endpoint was processed earlier, and every traversed ancestor separating it has already appeared. |
+| Queries need a consistent order for the two coordinates. | Confirmed as an exposition issue. Lemma 5.1 orders the endpoints by topological number. The proof of Theorem 1.1 can make that order available by adding “topological numbers” to the retained-records list, or by specifying that translated identifiers are topological ranks. Either representation needs at most one extra word per vertex. In an implementation storing endpoint identifiers in each pair record, direct endpoint comparisons also identify the slots. The time and space bounds stand. |
+| The proof of Lemma 5.1 uses \(B\) first for the parent and then for \(c(y)\). | Confirmed in consecutive paragraphs. Using \(C=c(y)\) in the paragraph about entering arcs would distinguish the two roles. |
+| The quotient-arc tail, the zero-failure case, and the companion link could be clearer. | “Its tail” in Lemma 2.1 grammatically refers to the quotient arc. “Its quotient tail” would emphasize the distinction from the physical label. Section 5 explicitly handles zero failures. Section 2 could also state that every initially reachable target survives an empty failure set. The relative companion link resolves in this repository. A standalone PDF needs access to its companion in the posted package or a persistent public link. |
+| The preceding literature gives no derivation of the four resource bounds. | The inspected sources directly establish the prepared-chain and general-oracle bounds. The full-text comparison supports claiming the joint near-linear preprocessing, linear retained space and polylogarithmic queries for DAGs. The broad assertion in the peer's summary that no reduction could yield these bounds exceeds this source check. [Page-specific comparison](novelty.md) |
+| The paper's computations cover 191,294 flat seven-vertex DAGs and 1,099 five-vertex DAGs. | Both figures in the manuscript are cumulative, through seven and through five vertices respectively. The paper already states this correctly. |
+
+The peer's opening summary gives different counts of its proposed prose edits. The concrete observations above can be checked individually. We give its global endorsement of every theorem less weight than the supplied derivations and the stated scope of our own review. The abstract's cut-and-target dependence and the distinction between qualifying and surviving exit tails were independently identified by the sequential reader. [Suggested opening edits](local-review.md)
+
+## Provider record
+
+The request named gemini-4-carbon-high with effort high. Initialization confirmed the exact model. The provider exposed no separate runtime effort value. The native conversation identifier matched at initialization and termination, no tool steps were observed, and the stored request remained byte-identical. The report above exactly matches the final response field. The terminal status was ERROR with an idle-timeout message after the 1,800-second review allowance. Its finish reason was interrupted. This records a partial response from the requested model. The mathematical judgments above were checked independently.
+
+## Three-sentence follow-up
+
+The same native conversation returned all three requested conclusions. Its final response matches the [saved answer](carbon-conclusion.md) byte for byte. The CLI exited zero, while the provider labelled the result ERROR and repeated the stream-idle message. The relay therefore recorded a failed transport even though the three numbered sentences were recovered. Carbon explicitly recommended no mathematical change to Theorem 4.1.
+
+The peer's phrase “leaving all-target time and space quadratic” needs narrowing. The cited thesis gives quadratic total costs for its separate-chain construction. The 2006 paper supplies no joint all-target bound, and these sources establish no quadratic lower bound. The proposed manuscript wording uses the specific preparation and output assumptions verified from the original pages. [Primary-source comparison](novelty.md)

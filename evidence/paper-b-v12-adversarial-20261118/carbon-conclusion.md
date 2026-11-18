@@ -1,0 +1,3 @@
+1. From the paraphrases (original pages uninspected), [TDT06] truncates precomputed chains given as prepared inputs, leaving all-target time and space quadratic even with [Tes08, TD15], while Choudhary's linear-space, constant-query online oracle [Cho17] costs $O(mn)$ preprocessing.
+2. Relative to Choudhary's $O(mn)$-preprocessing oracle [Cho16, Cho17] and the per-target chain methods of [TDT06, Tes08, TD15], we build a deterministic linear-space DAG index in near-linear time and linear working space for polylogarithmic online two-failure reachability queries.
+3. Theorem 4.1 needs no mathematical repair: both inclusions hold for fresh, shared, disjoint, and parallel-tail exits.

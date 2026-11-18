@@ -11,6 +11,8 @@ The exit-transfer theorem supports the preprocessing claim for all directed acyc
 
 The reviewed [manuscript](../../papers/controller/paper-b-two-failure-reachability-v1.2-draft.md) is the 5,232-word edition at checkpoint `bcc6879`, SHA-256 `f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c`. The review covers the title through §4 and follows the theorem through its use in §5. The finite checks exercise the proof on small graphs. They do not certify the asymptotic running time or global priority.
 
+Carbon High checked both inclusions of Theorem 4.1 and recommended minor exposition repairs. Its most concrete addition is to specify how a query recovers the order of the two endpoints after the original graph is discarded. The first report was interrupted, and the follow-up returned the last three conclusions with a terminal error. Both responses and the checked findings are preserved. [Verified external report and conclusion](peer-verification.md)
+
 ## Replay
 
 From the project root, the following commands run the two independent checks and the edition replay.
