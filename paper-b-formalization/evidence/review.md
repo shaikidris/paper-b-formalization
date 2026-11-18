@@ -1,0 +1,11 @@
+# Formalization planning audit
+
+The active source is the unpublished Paper B v1.1 draft, with 32 numbered items, 31 proof-bearing statements and Question 6.2. The preserved public baseline is v1.0, DOI 10.5281/zenodo.24142496. The [source lock](../sources/source-lock.json) distinguishes the versions and their artifacts.
+
+The first acceptance unit is the complete original-index answer vector of Theorem 3.2, with actual time and peak working words for the same fixed program. Direct positives, both kernel retirement outcomes, final negatives and output/index storage have named obligations. Proposition 3.3 follows on a separate exact-sharing branch. Four new tasks, PB6.8–PB6.11, cover constructed-width discovery/composition and weighted-cover selection/composition; their four obligations remain outside the first-release proof cone.
+
+The [revision review](../../evidence/controller-paper-b-v1.1-20261112/review.md) records the scoped mathematical and plan audits. Its two stale plan-text findings are repaired. Current checks validate 60 task contracts in ten milestones, 32 literal statement/proof identities, the task DAG, proposed module DAG, ownership, source/authority pins and local links. Sixteen controls exercise the real validator: one valid snapshot and fifteen rejected invalid snapshots. Exact command results are in [plan-validation.json](plan-validation.json).
+
+Two source/reuse planning audits remain complete. No Lean proof module exists in the planned first core, no fresh Lean compilation was performed, and zero new Paper B roots are certified. All twelve primary and four structural-extension obligations remain open. The first proof cone still contains fifteen planned modules, under the eighteen-module review threshold. Approval of informal revision scope does not approve unelaborated Lean types; a supported environment and exact typed Challenge are the execution gates.
+
+Published v1.0 artifacts, Paper A/C, original assessment records and legacy Lean files remain unchanged. The complete prior planning package is archived in the revision's `formalization-plan-before/` directory. This audit is source/architecture validation, not a formal mathematical certificate or publication release.

@@ -1,0 +1,200 @@
+{
+  "scope": "Active Paper B v1.1 planning snapshot; zero new certified roots; not a proof release.",
+  "files": [
+    {
+      "path": "COVERAGE.md",
+      "bytes": 8383,
+      "sha256": "9d0ede4603e505fe5b1d594005adc8f3752883111fe4defa1a50bfbefc4497d2"
+    },
+    {
+      "path": "DASHBOARD.md",
+      "bytes": 1125,
+      "sha256": "c4219c31e43c01bc8b564979ae8f2963b8d3bee262428f8e2901809d811b44cc"
+    },
+    {
+      "path": "DISPATCH.md",
+      "bytes": 4540,
+      "sha256": "45e321ea76ca258ed3761bffb736039d1e04d49922236940afbe4d0834ceec02"
+    },
+    {
+      "path": "EXTERNAL-INPUTS.md",
+      "bytes": 3931,
+      "sha256": "204081f02d6908d024f548e7af7bcdde37c143d75e3421e85325ababe14d48ba"
+    },
+    {
+      "path": "INTERFACES.md",
+      "bytes": 12168,
+      "sha256": "fadc8af6ef8acff589de5351593f8c2a4c5c1b8414b554579d5fa3a5ba071c25"
+    },
+    {
+      "path": "MILESTONES.md",
+      "bytes": 10104,
+      "sha256": "aeceaa4f5d334b42e4a974c7c685989d2bc407e598cff9b093fc0b1b19363fc9"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 10966,
+      "sha256": "635cf1fb3b4dc8d1876208f6c9df41e5485f388b30bec6772ac4107da40fd4be"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5059,
+      "sha256": "c4f7c8dd2c7f2f3df0d10bf6532183858d92f9028c7a3c39e6e4149a59cec265"
+    },
+    {
+      "path": "REUSE.md",
+      "bytes": 4803,
+      "sha256": "e7df6b06289236c472db575d1c6bb49a5460ec2cb3fba07e77164f43da12e6cc"
+    },
+    {
+      "path": "TASKS.md",
+      "bytes": 41945,
+      "sha256": "e6287a330e2b50876aefefa3cb21a959a6111740eef95af14575fb02c05333e2"
+    },
+    {
+      "path": "contracts/release-contract.md",
+      "bytes": 8049,
+      "sha256": "3bcfc4d4be040502cd74848af4da4acd78e32d4af77b8a5f18091c1f8a46f413"
+    },
+    {
+      "path": "coverage.json",
+      "bytes": 45848,
+      "sha256": "90c143055c10a45e70357d5e11e5f3eda37feeddbfb1b1032bbaa6a83c1dfd96"
+    },
+    {
+      "path": "events.jsonl",
+      "bytes": 701,
+      "sha256": "0851f200ae8235a58c984e98bc31db6f2d184dd0b46011fe567a84c8e8f2d065"
+    },
+    {
+      "path": "evidence/plan-validation.json",
+      "bytes": 4278,
+      "sha256": "83d180ef0159b004194246394adc81b93c3d5e9aff5bad230145786e0fa1f4f1"
+    },
+    {
+      "path": "evidence/review.md",
+      "bytes": 2226,
+      "sha256": "d854fc536ae765a027fbced626d7aecb57e1f70c0119418d7ba64d1b54ac09a9"
+    },
+    {
+      "path": "external-inputs.json",
+      "bytes": 5455,
+      "sha256": "cf71ac3725a7058f8dc3d44f4b30fb2066f444cae16af8df5a08703ae76d54ae"
+    },
+    {
+      "path": "module-graph.json",
+      "bytes": 4974,
+      "sha256": "5f3f41b624f9eb601d869e21b0e70c627e55ae935140bcef5373a2f95ac1947c"
+    },
+    {
+      "path": "obligations.json",
+      "bytes": 6601,
+      "sha256": "f75ee1f8ce135951cca82f632e981f1d05e8544f2a80aab20890559e1a4ee50a"
+    },
+    {
+      "path": "plan.py",
+      "bytes": 18981,
+      "sha256": "ead7e412d3750d0102899c8b61574f6c9be5fe430a66614ced24c3d56260a618"
+    },
+    {
+      "path": "reuse-audit.json",
+      "bytes": 8963,
+      "sha256": "8485b0290c9ecc4c261890212d98d711174a04eb9f820ec4379f543605c3d49e"
+    },
+    {
+      "path": "sources/authority/palomar-contributing.md",
+      "bytes": 59486,
+      "sha256": "86865671b28515a9ba79202eec0c58dadd23dc6d832532bc01a8cdeb845ea401"
+    },
+    {
+      "path": "sources/authority/palomar-specification.md",
+      "bytes": 26555,
+      "sha256": "d12cb8fc10739bb5b76b7d04cac03daf868ecc3480bff95dae748db4292219d7"
+    },
+    {
+      "path": "sources/authority/palomar-toolchain.json",
+      "bytes": 54,
+      "sha256": "fd40347e4b586e7c42233b35f11efb006d25033b9a7ded9565719edf7aa98354"
+    },
+    {
+      "path": "sources/authority/paper-a-registry-guarded.json",
+      "bytes": 12850,
+      "sha256": "db5156d5c1a47bf45fd234da9a2d964a466e8ceaf8a7153ba655a88e2602f0c2"
+    },
+    {
+      "path": "sources/authority/paper-a-registry-horn.json",
+      "bytes": 12478,
+      "sha256": "16dbadf60b44f3dfeaad0a114f62e231f8069b4bbef620d309c69fdf47c3fab5"
+    },
+    {
+      "path": "sources/authority/paper-a-registry-image.json",
+      "bytes": 11613,
+      "sha256": "61996019ad85e5885ce5c4030da03f034050456c7e9fdfe0dbac848ed91330fb"
+    },
+    {
+      "path": "sources/authority/zenodo-paper-b.json",
+      "bytes": 6041,
+      "sha256": "fdbdf23e56b187db970aa8e218b3ad3096cb8ffec9630df7a981855af94d20dc"
+    },
+    {
+      "path": "sources/authority-retrieval.json",
+      "bytes": 4936,
+      "sha256": "d1a9143cc561070f4da6d3350a11b4eb3c74d244aef9d4f7c32439f49e08779d"
+    },
+    {
+      "path": "sources/paper-b-published-download.pdf",
+      "bytes": 310216,
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "sources/paper-b-v1.0.md",
+      "bytes": 150876,
+      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
+    },
+    {
+      "path": "sources/paper-b-v1.0.pdf",
+      "bytes": 310216,
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "sources/paper-b-v1.1-draft.md",
+      "bytes": 161264,
+      "sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada"
+    },
+    {
+      "path": "sources/published-v1.0-lock.json",
+      "bytes": 1809,
+      "sha256": "be41d2b8df905b35a03ff1bbddecf8d743930feb5734254a617d91fc24b96436"
+    },
+    {
+      "path": "sources/representation-examples-v1.1-draft.md",
+      "bytes": 4907,
+      "sha256": "c1cc8cc9c2781b9445e74be7e36c3d8c42e89f629bb40e81cebf8ae8f5956b2e"
+    },
+    {
+      "path": "sources/representation-examples.md",
+      "bytes": 4883,
+      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
+    },
+    {
+      "path": "sources/source-lock.json",
+      "bytes": 3077,
+      "sha256": "0263226cc677df26f1c6caaf6627c8e92f83cdb429d39dbddc9d06618319c63f"
+    },
+    {
+      "path": "sources/validation-v1.1-draft.md",
+      "bytes": 22161,
+      "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
+    },
+    {
+      "path": "tasks.json",
+      "bytes": 64596,
+      "sha256": "415800d0a210397d915cd5552a39454752c84d2e57adaf228f431fdc9e8e3580"
+    },
+    {
+      "path": "test_plan.py",
+      "bytes": 4662,
+      "sha256": "c9c2905d0f1da1e6be3b8b849c7d7ef1567453ba1012959c074ff97d8443bec1"
+    }
+  ]
+}

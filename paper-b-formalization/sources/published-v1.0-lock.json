@@ -1,0 +1,42 @@
+{
+  "paper_title": "Offline Reachability in Directed Acyclic Graphs under Vertex Failures",
+  "paper_version": "1.0",
+  "paper_doi": "10.5281/zenodo.24142496",
+  "published_pdf_sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6",
+  "local_markdown_sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9",
+  "representation_sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1",
+  "baseline_date": "2026-11-12",
+  "source_files": [
+    {
+      "path": "sources/paper-b-v1.0.md",
+      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
+    },
+    {
+      "path": "sources/paper-b-v1.0.pdf",
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "sources/paper-b-published-download.pdf",
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "sources/representation-examples.md",
+      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
+    }
+  ],
+  "boundaries": "Public PDF downloaded from Zenodo and matched byte-for-byte. Markdown is the local render source bound by the publication receipt; it was not itself deposited.",
+  "canonical_files": [
+    {
+      "path": "papers/controller/paper-b-guarded-reachability.md",
+      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
+    },
+    {
+      "path": "submissions/paper-b-preprint-20261111/offline-reachability-vertex-failures-v1.0.pdf",
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "papers/controller/paper-b-representation-examples.md",
+      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
+    }
+  ]
+}

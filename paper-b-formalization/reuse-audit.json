@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-12",
+  "legacy_root": "/Users/shaik.i/research/p-vs-np/formalization",
+  "legacy_git_head": "6c300f9c66bfe03db18bf966b16b5a37195a7f3e",
+  "legacy_board": {
+    "tasks": 103,
+    "VERIFIED": 72,
+    "IN_PROGRESS": 3,
+    "TODO": 28,
+    "old_paper_b_items": 16,
+    "old_combined_paper_items": 63,
+    "scope": "2026-10-10 baseline; not the published 30-item Paper B"
+  },
+  "legacy_git_status_observed": {
+    "modified_tracked": 55,
+    "untracked": 4220,
+    "note": "Preserve all existing work; no Git changes were made by this planning pass."
+  },
+  "legacy_environment": {
+    "lean": "leanprover/lean4:v4.33.0",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "package_cache_available": false,
+    "fresh_build_this_pass": false
+  },
+  "modules": [
+    {
+      "path": "formalization/Controller/Graphs/FailureBatch.lean",
+      "sha256": "e45a0258aa3a56f7d42203ba19c6c8e9eac819a81f583e47b0e4d93b69f3a213",
+      "lines": 770,
+      "theorem_declarations": 28,
+      "status": "REUSE_CANDIDATE_NOT_FRESHLY_REPLAYED"
+    },
+    {
+      "path": "formalization/Controller/Graphs/DecoderEquivalence.lean",
+      "sha256": "5c8c17dbae741e1fec0105b05904c3886f7e4fa390ac41dbf8c72652a394d4f9",
+      "lines": 3039,
+      "theorem_declarations": 164,
+      "status": "REUSE_CANDIDATE_NOT_FRESHLY_REPLAYED"
+    },
+    {
+      "path": "formalization/Controller/Decoder/Paths.lean",
+      "sha256": "b1e0f9b1c453916afd3fa09e12e13636df66685b6e1c3fa324e7f81efc53fcf1",
+      "lines": 188,
+      "theorem_declarations": 8,
+      "status": "REUSE_CANDIDATE_NOT_FRESHLY_REPLAYED"
+    }
+  ],
+  "historical_evidence": {
+    "accepted_run": "formalization/evidence/iteration-001/FailureBatch149-result.json",
+    "source_hashes_match_current_graph_modules": true,
+    "recorded_build_exit": 0,
+    "recorded_audit_exit": 0,
+    "audit_lines": 182,
+    "audit_observed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "audit_bad_trust_tokens_observed": false,
+    "scope": "Historical selected audit roots only; not an independent fresh whole-paper audit.",
+    "negative_control": "FailureBatch148-result.json has exit 1 and a different FailureBatch hash; it is not a successful current build."
+  },
+  "protected_files": [
+    {
+      "path": "formalization/tasks.json",
+      "sha256": "bea512c6307fb4aceca34c2104e8268eed394a515c6c39dfe6949e8ec3ca2e4c"
+    },
+    {
+      "path": "formalization/source-lock.json",
+      "sha256": "d9781dd80aee51764fd973e1c685e9e28e29e03f2f9f3fc0c565c8346eba3f11"
+    },
+    {
+      "path": "formalization/lean-toolchain",
+      "sha256": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+    },
+    {
+      "path": "formalization/lake-manifest.json",
+      "sha256": "6195cbf5c7a989fe6ca76e6f3c93109c67e57997ce8583f8700e4512d9bbd697"
+    },
+    {
+      "path": "formalization/Controller/Graphs/FailureBatch.lean",
+      "sha256": "e45a0258aa3a56f7d42203ba19c6c8e9eac819a81f583e47b0e4d93b69f3a213"
+    },
+    {
+      "path": "formalization/Controller/Graphs/DecoderEquivalence.lean",
+      "sha256": "5c8c17dbae741e1fec0105b05904c3886f7e4fa390ac41dbf8c72652a394d4f9"
+    },
+    {
+      "path": "formalization/Controller/Decoder/Paths.lean",
+      "sha256": "b1e0f9b1c453916afd3fa09e12e13636df66685b6e1c3fa324e7f81efc53fcf1"
+    },
+    {
+      "path": "formalization/evidence/iteration-001/FailureBatch149-result.json",
+      "sha256": "1b4666d57d7649ad40e38bdfc3ef0cf1a998aa0d5f4337c3908bf4a5e2258d6b"
+    },
+    {
+      "path": "formalization/evidence/iteration-001/FailureBatch149-build.log",
+      "sha256": "c887641d58aa813e5b894d2f0cfd88987d8d1103b4a0844d313271807571b250"
+    },
+    {
+      "path": "formalization/evidence/iteration-001/FailureBatch149-audit.log",
+      "sha256": "acc5518bcd6c45e8dea84f2056b14ddc4b2acd86b93c9890e5a381b9f90919c8"
+    },
+    {
+      "path": "formalization/evidence/iteration-001/FailureBatch148-result.json",
+      "sha256": "21ff94201de1e387220bb62d451c7e09e0db59fd48c945568a325e589262faf5"
+    }
+  ],
+  "registered_paper_a": [
+    {
+      "id": "PALOMAR-2026-10-19-000010",
+      "version": 1,
+      "source": {
+        "commit": "f4c18653ccc2590ff6d2fe7ca2ff1d904d62681d",
+        "license": {
+          "declared_identifier": "Apache-2.0",
+          "detected_identifier": "Apache-2.0",
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "repository": "shaikidris/priority-controller-phase1",
+        "repository_url": "https://github.com/shaikidris/priority-controller-phase1",
+        "tree_url": "https://github.com/shaikidris/priority-controller-phase1/tree/f4c18653ccc2590ff6d2fe7ca2ff1d904d62681d"
+      },
+      "challenge_path": "Phase1/P01/Challenge.lean",
+      "solution_path": "Phase1/P01/Solution.lean",
+      "theorems": [
+        "Controller.Physical.separated_drive_one_set_pair_image_iff",
+        "Controller.Physical.not_bridgeDetectable_drive_zero",
+        "Controller.Physical.bridge_detectable_iff_exists_output",
+        "Controller.Physical.proper_projection_full",
+        "Controller.Physical.valid_local_relations_accept_zero",
+        "Controller.Physical.stuck_detectable_iff"
+      ],
+      "definition_names": [],
+      "toolchain": "leanprover/lean4:v4.35.0-rc3",
+      "mathlib_sha": "c55e6e786f49471c72fbddbec5415808896aec1e",
+      "status": "LIVE_REGISTRY_RECORD_VERIFIED_SOURCE_NOT_FRESHLY_REPLAYED"
+    },
+    {
+      "id": "PALOMAR-2026-10-19-000014",
+      "version": 1,
+      "source": {
+        "commit": "fc703dd3415e3a892536c0b624bf65b1ade2871d",
+        "license": {
+          "declared_identifier": "Apache-2.0",
+          "detected_identifier": "Apache-2.0",
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "repository": "shaikidris/priority-controller-phase1",
+        "repository_url": "https://github.com/shaikidris/priority-controller-phase1",
+        "tree_url": "https://github.com/shaikidris/priority-controller-phase1/tree/fc703dd3415e3a892536c0b624bf65b1ade2871d"
+      },
+      "challenge_path": "Phase1/P02/Challenge.lean",
+      "solution_path": "Phase1/P02/Solution.lean",
+      "theorems": [
+        "Controller.Public.guarded_bridge_detector_correct",
+        "Controller.Public.guarded_bridge_detector_complete",
+        "Controller.Cost.SharedDetectorCold.execution",
+        "Controller.Decoder.DAG.extendSet_some",
+        "Controller.Decoder.DAG.extendSet_none_iff",
+        "Controller.Decoder.DAG.extendSet_exists_iff"
+      ],
+      "definition_names": [
+        "Controller.Cost.SharedDetectorCold.program"
+      ],
+      "toolchain": "leanprover/lean4:v4.35.0-rc3",
+      "mathlib_sha": "c55e6e786f49471c72fbddbec5415808896aec1e",
+      "status": "LIVE_REGISTRY_RECORD_VERIFIED_SOURCE_NOT_FRESHLY_REPLAYED"
+    },
+    {
+      "id": "PALOMAR-2026-10-20-000015",
+      "version": 1,
+      "source": {
+        "commit": "4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0",
+        "license": {
+          "declared_identifier": "Apache-2.0",
+          "detected_identifier": "Apache-2.0",
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "repository": "shaikidris/priority-controller-phase1",
+        "repository_url": "https://github.com/shaikidris/priority-controller-phase1",
+        "tree_url": "https://github.com/shaikidris/priority-controller-phase1/tree/4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0"
+      },
+      "challenge_path": "Phase1/P05/Challenge.lean",
+      "solution_path": "Phase1/P05/Solution.lean",
+      "theorems": [
+        "Controller.Reductions.DualHorn.model_bridge_detectable_iff",
+        "Controller.Reductions.DualHorn.decoder_size_linear",
+        "Controller.Reductions.DualHorn.decoder_formulaForest",
+        "Controller.Reductions.coverDAG_size_linear",
+        "Controller.Reductions.cover_detection_count",
+        "Controller.Reductions.cover_physical_detects_only_covers",
+        "Controller.Reductions.cover_realizer_detects_iff"
+      ],
+      "definition_names": [],
+      "toolchain": "leanprover/lean4:v4.35.0-rc3",
+      "mathlib_sha": "c55e6e786f49471c72fbddbec5415808896aec1e",
+      "status": "LIVE_REGISTRY_RECORD_VERIFIED_SOURCE_NOT_FRESHLY_REPLAYED"
+    }
+  ],
+  "public_context": {
+    "catalog": "/Users/shaik.i/research/idris-os/Publications/public-mathematics.json",
+    "catalog_sha256": "75bca80ba92796b0fbaeb34dc214a1d691c3fd02e52f15be30d1217c28e70a2c",
+    "discovery_url": "https://shaikidris.github.io/",
+    "publication_workflow": "/Users/shaik.i/research/codex-private-harness/harnesses/research/publication-context.md",
+    "live_public_main_head": "UNAVAILABLE_HTTP_403",
+    "rule": "Use each registry source pin for reuse; catalog pointers and a moving main branch do not replace it."
+  },
+  "new_campaign_certified_roots": 0
+}

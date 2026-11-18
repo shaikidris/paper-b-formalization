@@ -1,0 +1,109 @@
+{
+  "checked_at": "2026-11-11T19:19:53.570283+00:00",
+  "transport": "System curl with certificate verification; Python CA trust failed, no verification disabled.",
+  "records": [
+    {
+      "id": "zenodo-paper-b",
+      "url": "https://zenodo.org/api/records/24142496",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "fdbdf23e56b187db970aa8e218b3ad3096cb8ffec9630df7a981855af94d20dc",
+      "path": "sources/authority/zenodo-paper-b.json",
+      "files": [
+        {
+          "key": "offline-reachability-vertex-failures-v1.0.pdf",
+          "checksum": "md5:8f7ab7b72388474514c076983baccb80"
+        }
+      ],
+      "published_pdf_sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6",
+      "matches_local_source_render": true
+    },
+    {
+      "id": "paper-a-registry-guarded",
+      "url": "https://data.palomar-registry.org/entries/PALOMAR-2026-10-19-000014-v1.json",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "db5156d5c1a47bf45fd234da9a2d964a466e8ceaf8a7153ba655a88e2602f0c2",
+      "path": "sources/authority/paper-a-registry-guarded.json",
+      "source": {
+        "commit": "fc703dd3415e3a892536c0b624bf65b1ade2871d",
+        "license": {
+          "declared_identifier": "Apache-2.0",
+          "detected_identifier": "Apache-2.0",
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "repository": "shaikidris/priority-controller-phase1",
+        "repository_url": "https://github.com/shaikidris/priority-controller-phase1",
+        "tree_url": "https://github.com/shaikidris/priority-controller-phase1/tree/fc703dd3415e3a892536c0b624bf65b1ade2871d"
+      },
+      "declarations": null
+    },
+    {
+      "id": "paper-a-registry-horn",
+      "url": "https://data.palomar-registry.org/entries/PALOMAR-2026-10-20-000015-v1.json",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "16dbadf60b44f3dfeaad0a114f62e231f8069b4bbef620d309c69fdf47c3fab5",
+      "path": "sources/authority/paper-a-registry-horn.json",
+      "source": {
+        "commit": "4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0",
+        "license": {
+          "declared_identifier": "Apache-2.0",
+          "detected_identifier": "Apache-2.0",
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "repository": "shaikidris/priority-controller-phase1",
+        "repository_url": "https://github.com/shaikidris/priority-controller-phase1",
+        "tree_url": "https://github.com/shaikidris/priority-controller-phase1/tree/4defc1bfee6f82a50c5d48e6ad4fe6e01df73cc0"
+      },
+      "declarations": null
+    },
+    {
+      "id": "palomar-toolchain",
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarSubmission/main/toolchains.json",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "fd40347e4b586e7c42233b35f11efb006d25033b9a7ded9565719edf7aa98354",
+      "path": "sources/authority/palomar-toolchain.json",
+      "minimum": "v4.35.0-rc2"
+    },
+    {
+      "id": "paper-a-registry-image",
+      "url": "https://data.palomar-registry.org/entries/PALOMAR-2026-10-19-000010-v1.json",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "61996019ad85e5885ce5c4030da03f034050456c7e9fdfe0dbac848ed91330fb",
+      "path": "sources/authority/paper-a-registry-image.json",
+      "source": {
+        "commit": "f4c18653ccc2590ff6d2fe7ca2ff1d904d62681d",
+        "license": {
+          "declared_identifier": "Apache-2.0",
+          "detected_identifier": "Apache-2.0",
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "repository": "shaikidris/priority-controller-phase1",
+        "repository_url": "https://github.com/shaikidris/priority-controller-phase1",
+        "tree_url": "https://github.com/shaikidris/priority-controller-phase1/tree/f4c18653ccc2590ff6d2fe7ca2ff1d904d62681d"
+      },
+      "declarations": null
+    },
+    {
+      "id": "palomar-contributing",
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarPolicy/main/CONTRIBUTING.md",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "86865671b28515a9ba79202eec0c58dadd23dc6d832532bc01a8cdeb845ea401",
+      "path": "sources/authority/palomar-contributing.md"
+    },
+    {
+      "id": "palomar-specification",
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarPolicy/main/docs/specification.md",
+      "status": "RETRIEVED_SYSTEM_TLS",
+      "sha256": "d12cb8fc10739bb5b76b7d04cac03daf868ecc3480bff95dae748db4292219d7",
+      "path": "sources/authority/palomar-specification.md"
+    },
+    {
+      "id": "paper-a-head",
+      "url": "https://api.github.com/repos/shaikidris/priority-controller-phase1/commits/main",
+      "status": "UNAVAILABLE",
+      "error": "curl: (56) The requested URL returned error: 403\n"
+    }
+  ]
+}
