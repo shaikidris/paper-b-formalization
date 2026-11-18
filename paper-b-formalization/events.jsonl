@@ -11,3 +11,4 @@
 {"date": "2026-11-18", "kind": "CARBON_FOREST_SWEEP_ASSIGNED", "task": "EX2.2", "relay_run": "56d1a609-3be1-4bd2-9002-10e831df0ce8", "requested_declarations": 3}
 {"date": "2026-11-18", "kind": "CARBON_FOREST_CHECKPOINT_BUILDS", "task": "EX2.2", "relay_run": "56d1a609-3be1-4bd2-9002-10e831df0ce8", "section": "0001.md", "declaration": "properLoss_iff_all_predecessors_lost", "evidence": "evidence/carbon-forest-sweep/progress.json"}
 {"date": "2026-11-18", "kind": "CARBON_FOREST_CHECKPOINT_BUILDS", "task": "EX2.2", "relay_run": "56d1a609-3be1-4bd2-9002-10e831df0ce8", "section": "0002.md", "declaration": "lost_of_nested_endpoints", "evidence": "evidence/carbon-forest-sweep/progress.json"}
+{"date": "2026-11-18", "kind": "CARBON_FOREST_CHECKPOINT_BUILDS", "task": "EX2.2", "relay_run": "56d1a609-3be1-4bd2-9002-10e831df0ce8", "section": "0003.md", "declaration": "properLoss_iff_of_latest_predecessor_not_mem", "evidence": "evidence/carbon-forest-sweep/progress.json"}

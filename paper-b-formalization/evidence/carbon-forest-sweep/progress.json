@@ -23,6 +23,15 @@
       "status": "CHECKED_WITHOUT_AXIOMS",
       "build_log": "build-0002.txt",
       "source_sha256": "df0283b48169d6d02b6fe025afcc1f146b632e762b41a5c140a2cfea2ba6c74e"
+    },
+    {
+      "name": "properLoss_iff_of_latest_predecessor_not_mem",
+      "checkpoint_sha256": "a98835ee65ed95f95a1b216d898b094b1ead4895e120c4fefb9d8d1abe36b45e",
+      "worker_note": "Tracker EX2.2 properLoss_iff_of_latest_predecessor_not_mem: proof written; next complete",
+      "path": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/56d1a609-3be1-4bd2-9002-10e831df0ce8/checkpoints/0003.md",
+      "status": "CHECKED_WITHOUT_AXIOMS",
+      "build_log": "build-0003.txt",
+      "source_sha256": "b90199475ce20b74e89fb37ede951c16a67ac34a4374c03020041bf167c070a9"
     }
   ],
   "status": "CHECKPOINTS_IN_PROGRESS"

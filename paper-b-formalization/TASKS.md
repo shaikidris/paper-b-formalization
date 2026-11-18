@@ -197,7 +197,7 @@ Acceptance:
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 - Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
 
-Carbon's first two checkpoints build. They prove the predecessor-loss equivalence and global loss nesting. It is now working on the case where an entering predecessor is outside the cut.
+Carbon's three sweep lemmas build. The remaining EX2.2 work is the sweep induction, deterministic reuse of existing pair keys and the finite forest construction.
 
 Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json).
 

@@ -431,6 +431,29 @@ theorem lost_of_nested_endpoints
     AvoidPath.refl H.root (AvoidPath.source_alive hPathB)
   exact lost (rebuild hPathB hRootPref)
 
+/-- A pair omitting an entering predecessor can be tested from predecessor losses. -/
+theorem properLoss_iff_of_latest_predecessor_not_mem
+    {H : LabelledQuotient} {B : CutPair H}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) {m y : Fin H.vertexCount}
+    (notRoot : H.root ≠ y) (entering : H.HasQuotientArc m y)
+    (outside : ¬ B.Mem m) :
+    H.ProperLoss B y ↔ H.ProperLoss B m ∧ ∀ u, H.HasQuotientArc u y → H.Lost B u := by
+  constructor
+  · intro hProperY
+    let ⟨_, hAllLost⟩ := (properLoss_iff_all_predecessors_lost notRoot).mp hProperY
+    exact ⟨⟨hAllLost m entering, outside⟩, hAllLost⟩
+  · intro hRhs
+    let ⟨properM, hAllLost⟩ := hRhs
+    have hyNotB : ¬ B.Mem y := by
+      intro hyB
+      have hYBeforeM : rank y < rank m :=
+        properLoss_follows_endpoints rankArc flat properM hyB
+      have hMBeforeY : rank m < rank y := rankArc m y entering
+      exact Nat.lt_irrefl (rank y) (Nat.lt_trans hYBeforeM hMBeforeY)
+    exact (properLoss_iff_all_predecessors_lost notRoot).mpr ⟨hyNotB, hAllLost⟩
+
 end LabelledQuotient
 
 end PaperB

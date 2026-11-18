@@ -14,7 +14,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
-- [EX2.2](TASKS.md#ex22) — Carbon's first two checkpoints build. They prove the predecessor-loss equivalence and global loss nesting. It is now working on the case where an entering predecessor is outside the cut.
+- [EX2.2](TASKS.md#ex22) — Carbon's three sweep lemmas build. The remaining EX2.2 work is the sweep induction, deterministic reuse of existing pair keys and the finite forest construction.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 
