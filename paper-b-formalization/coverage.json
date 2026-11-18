@@ -1,740 +1,248 @@
 {
-  "paper_sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada",
+  "paper_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "paper_version": "1.2-draft",
+  "publication_status": "UNPUBLISHED_DRAFT",
+  "published_base_doi": "10.5281/zenodo.24142496",
   "entries": [
+    {
+      "id": "1.1",
+      "kind": "Theorem",
+      "title": "two-failure reachability oracle",
+      "statement": "**Theorem 1.1 (two-failure reachability oracle).** Every such \\(G,r\\) admits a deterministic combinatorial index constructible in \\(O((n+m)L^3)\\) time and \\(O(n+m)\\) working words. The completed index occupies \\(O(n)\\) words. Given \\(F\\) and \\(t\\) after construction, it decides reachability in \\(O(L^3)\\) time using only the index and the query.",
+      "source_line": 21,
+      "statement_sha256": "d59b69d1b12254e2bddeb05cda37d7548ec53fd200b107d12d658b63750e6492",
+      "proof_source_line": 146,
+      "proof_sha256": "db9212ac9d02cbda31ef28beaa8cc8261bb807dc2bb36b2fe9516cbbb2fad4a3",
+      "statement_and_proof_sha256": "7f33cb9eafc416c9f09361b02ba30e899f03941ac9850d9ed4e499cfc96a38f0",
+      "tasks": [
+        "EX0.1",
+        "EX0.2",
+        "EX0.3",
+        "EX1.1",
+        "EX1.2",
+        "EX1.3",
+        "EX1.4",
+        "EX2.1",
+        "EX2.2",
+        "EX2.3",
+        "EX2.4",
+        "EX4.1",
+        "EX4.2",
+        "EX4.3",
+        "EX4.4",
+        "EX5.1",
+        "EX5.2",
+        "EX5.3",
+        "EX5.4"
+      ],
+      "formal_status": "NOT_CERTIFIED",
+      "claim_facets": [
+        "same precomputed index",
+        "every later failure set and target",
+        "deterministic build",
+        "peak and retained words",
+        "query time"
+      ]
+    },
+    {
+      "id": "1.2",
+      "kind": "Corollary",
+      "title": "listed target sets",
+      "statement": "**Corollary 1.2 (listed target sets).** Let \\(q\\) queries specify failure sets \\(F_i\\) with \\(|F_i|\\le 2\\) and target lists \\(T_i\\). Put \\(M=\\sum_i|T_i|\\) and \\(S=n+m+q+M\\). The Boolean vector whose entry \\(i\\) says whether at least one target in \\(T_i\\) survives can be computed in \\(O(SL^3)\\) total time and \\(O(S)\\) working words, including construction. A single list presented later takes \\(O((1+|T_i|)L^3)\\) query time.",
+      "source_line": 27,
+      "statement_sha256": "3c521b470b015e178116ec574b7f3366202dbc9d50f0b381eae615cd8d9c9705",
+      "proof_source_line": 29,
+      "proof_sha256": "bd60005ba18cae9920ed0bd7962a7b7d4ceec5bea4a3a9d93bd9faa1b47b172b",
+      "statement_and_proof_sha256": "4ffc5acc3be02b2f506bce89d0d57239cb96c9d0686d988216c0de33ed520300",
+      "tasks": [
+        "EX5.5"
+      ],
+      "formal_status": "NOT_CERTIFIED",
+      "claim_facets": [
+        "target-list disjunction",
+        "input and output charges"
+      ]
+    },
     {
       "id": "2.1",
       "kind": "Lemma",
-      "title": "a positive terminal and its forbidden vertices",
-      "source_line": 326,
-      "statement": "**Lemma 2.1 (a positive terminal and its forbidden vertices).** A guarded\nroot is true on `K` exactly when some path from that root ends at a\nterminal `h_i` with `i in K` and every guard on the path has guard set\ndisjoint from `K`. If the root is healthy zero and `K in K_Q` makes it\ntrue, then some `i!=t` makes it true on `Q union {i}`. Equivalently, after\nthe common deletion, an `i`-terminal is reachable while avoiding every\nremaining guard containing `i`.",
-      "statement_sha256": "6bed97291df043eb9cb4fe847e443e91b7c54cf7d2ce1cfd70593a588f8f0402",
-      "statement_and_proof_sha256": "f72581315974dd4326f6329c05fd7cfe672840329b98e55dd4b82bd98253e118",
+      "title": "sibling quotients",
+      "statement": "**Lemma 2.1 (sibling quotients).** Each \\(H_d\\) is a rooted DAG in which deleting any nonroot vertex loses only that vertex. Paths through the blocks project to paths in \\(H_d\\), and a quotient path lifts through any chosen sequence of its labelled arcs. Across all \\(d\\) there are at most \\(2n\\) vertex copies and one quotient arc per retained original arc.",
+      "source_line": 43,
+      "statement_sha256": "f051854c0875298a8ed093969c7eb71475708707519a31a1fd187dbd8c081dbe",
+      "proof_source_line": 45,
+      "proof_sha256": "6fa340a0d6a72456958c645fc0556689752db1b8ec3a9a85a9e53e793fa4a55b",
+      "statement_and_proof_sha256": "a1e564d49c4b4695fbb75bfc08d366247a95eb339a1b2bd63b804c0f5ce18cbb",
       "tasks": [
-        "PB8.1"
+        "EX1.1",
+        "EX1.2",
+        "EX1.3"
       ],
-      "formal_status": "REUSE_CANDIDATE",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_STATED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
+        "flat siblings",
+        "labelled path lifting",
+        "global quotient size"
+      ]
     },
     {
       "id": "2.2",
-      "kind": "Proposition",
-      "title": "offline sensitivity reachability",
-      "source_line": 350,
-      "statement": "**Proposition 2.2 (offline sensitivity reachability).** Single-output healthy-zero\ndetection and OSR reduce to each other in linear time.\n\n1. A guarded DAG of size `G` with `n` labels and one healthy-zero root\n   gives an OSR instance\n   with `n-1` queries, size `O(G)`, and sensitivity equal to the maximum\n   residual guard multiplicity over candidate labels `i!=t`. When `Q={t}`, first remove every guard vertex containing `t` and its incident\n   edges. This common deletion is performed once, outside the query lists.\n2. An OSR instance of size `S` with `q_b` queries gives a one-output guarded DAG with `q_b+2` labels, size `O(S)`, and guard multiplicity equal to\n   the sensitivity. Its required set can be `Q={t}` or empty.\n\nIn both directions, query `i` succeeds exactly when the singleton (or\ntarget-plus-singleton) qualifier set of label `i` changes the root value.",
-      "statement_sha256": "8e88a9552efac976ae7ce5e7a2558d7caa6e00e1416bb460c76631b4dc5b0431",
-      "statement_and_proof_sha256": "a9df1ee2f8b40c1e2bfcf8e217e89443f0ed0cffa66832f6be13b125e40134e2",
+      "kind": "Lemma",
+      "title": "last-exit test",
+      "statement": "**Lemma 2.2 (last-exit test).** Every target outside \\(D(d)\\), and \\(d\\) itself, survives. A target in \\(D(u)\\) survives precisely when \\(a\\) does not dominate it, with the symmetric rule for \\(D(v)\\). For a target in a third block \\(D(y)\\), it survives if \\(y\\notin J(B)\\). If \\(y\\in J(B)\\), it survives precisely when\n\\[\n \\sigma^B_u(y)\\notin D(a)\\quad\\text{or}\\quad \\sigma^B_v(y)\\notin D(b).\n\\]",
+      "source_line": 57,
+      "statement_sha256": "30bde258e604212088cd0c45a8b376f0881ec81536dbfc154072db94eed0e83d",
+      "proof_source_line": 62,
+      "proof_sha256": "2a75651d72570525330bcaff04282a2e362813e52e1549dded02845b91ae65fa",
+      "statement_and_proof_sha256": "cbedfa6e2992cfc7cd8fdc768cd67f495b26a9a79d6ad0e6e50435e6e9612eb7",
       "tasks": [
-        "PB8.1",
-        "PB4.1"
+        "EX1.1",
+        "EX1.2",
+        "EX1.4"
       ],
-      "formal_status": "REUSE_CANDIDATE",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
+        "outside and within-block queries",
+        "last-exit equivalence"
+      ]
     },
     {
       "id": "3.1",
-      "kind": "Theorem",
-      "title": "recognized common-anchor batches",
-      "source_line": 430,
-      "statement": "**Theorem 3.1 (recognized common-anchor batches).** Let `D` be a rooted\nDAG whose `V` retained vertices are initially reachable, with `E` arcs.\nGiven a nonempty list of `q_b` pairs of distinct nonroot failures, one can\ndecide whether they have a proper common anchor in\n`O((V+E)log(V+2)+q_b log(q_b+2))` time. If they do, every listed target\nmembership, and hence every query answer, can be computed in total time\n\\[\n O((V+E)\\log(V+2)+q_b\\log(q_b+2)+M),\n\\]\nusing `O(S+V log(V+2))` working words. The bound includes discovery, all\ngraph passes and the `M` target incidences. No depth or chain-partition\nbound is required. Rejection certifies the absence of a proper common\nanchor; it gives no answer to the unresolved two-failure queries.",
-      "statement_sha256": "05eff3220f7baec4e0fcfba48291f13f474ddefff749145da9be980fa97dbf53",
-      "statement_and_proof_sha256": "9308c41bea4ff6b6c14c2d928550755965159f60a6ad7f9424dcc679efef9e74",
+      "kind": "Lemma",
+      "title": "forest of proper losses",
+      "statement": "**Lemma 3.1 (forest of proper losses).** There is a rooted forest with one node for each pair \\(B\\) with \\(J(B)\\ne\\varnothing\\), and a label \\(c(y)\\) for each vertex of \\(H\\). Adjoin an artificial root \\(0\\) above all forest roots, allowing \\(c(y)=0\\). For every real pair \\(B\\), \\(y\\in J(B)\\) precisely when \\(B\\) is an ancestor of \\(c(y)\\), with ancestry inclusive. A real child \\(P\\) of a real parent \\(B\\) satisfies \\(P\\subseteq Z(B)\\) and \\(J(P)\\subseteq J(B)\\). Every vertex in \\(P\\setminus B\\) follows both endpoints of \\(B\\) in topological order. There are at most \\(|V(H)|\\) real forest nodes.",
+      "source_line": 72,
+      "statement_sha256": "1400b83395f5a80fd421c9bc338a76c3684671ad7a518e813cb1127e806bd443",
+      "proof_source_line": 74,
+      "proof_sha256": "8d62d2de4c2856749b70ecba719676a3de6547e406014bec6d6077e153783a09",
+      "statement_and_proof_sha256": "2884a3319c217aee247527116961c41f0cb76fe444dcc6637167f32cbe563512",
       "tasks": [
-        "PB6.1",
-        "PB2.7"
+        "EX2.1",
+        "EX2.2"
       ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
+        "effective pairs",
+        "ancestor labels",
+        "nested proper losses"
+      ]
     },
     {
       "id": "3.2",
-      "kind": "Theorem",
-      "title": "threshold tradeoff for all-query batches",
-      "source_line": 620,
-      "statement": "**Theorem 3.2 (threshold tradeoff for all-query batches).** Let `D` be a\nrooted DAG with `V` vertices and `E` arcs. The input lists `q_b` queries\n`(F_i,T_i)`, where `|F_i|<=2`, and `M=sum_i |T_i|` target incidences.\nPut `S=V+E+q_b+M`. For every integer `tau>=1`, computing every query's\nBoolean answer takes\n\\[\n \\widetilde O\\bigl(S+E\\tau+(V+E)q_b/\\tau\\bigr)\n \\quad\\text{time},\\qquad\n \\widetilde O(S+V\\tau)\\quad\\text{working words}.       \\tag{3.2a}\n\\]\nThe algorithm is deterministic and combinatorial. Its output has one\nentry per original query, indicating whether any of that query's targets\nremains reachable. No depth, chain-partition or interval promise is required.\nThe bound includes kernel discovery and construction, all edge scans,\nand aggregation over the original target lists. Taking the OR also\nsolves the existential version within these bounds.",
-      "statement_sha256": "21a9d8e886f5840814c4e1d6fd92d4d95aa48fd3f10271fb1055401edb667a32",
-      "statement_and_proof_sha256": "c3247b1647321706e3bed85a6237fe6c5f8b797130be529b3c9ebeb3c89a4465",
+      "kind": "Lemma",
+      "title": "constructing the forest",
+      "statement": "**Lemma 3.2 (constructing the forest).** On a flat quotient with \\(n_H\\) vertices and \\(m_H\\) labelled arcs, the labels and pair forest can be built in \\(O((n_H+m_H)L^3)\\) time and \\(O(n_H+m_H)\\) working words. After construction, \\(O(n_H)\\) words suffice for pair lookup in \\(O(L)\\) time and, for a known pair node, proper-loss membership in \\(O(1)\\) time.",
+      "source_line": 86,
+      "statement_sha256": "772e7e20823934c231fa2c4f622c6cadcc17702d18d4e9a3368677aded537aa6",
+      "proof_source_line": 88,
+      "proof_sha256": "9ac8308dab1494b0ccd8d35a4ccd615198bb98281097904e68db363dead018cd",
+      "statement_and_proof_sha256": "bc72fc40fd0ebe9875c6ba7c406289587e7cea9260c35e9e476ba830e5b89923",
       "tasks": [
-        "PB4.5",
-        "PB4.6",
-        "PB9.1",
-        "PB9.2"
+        "EX0.3",
+        "EX2.3",
+        "EX2.4",
+        "EX5.1",
+        "EX5.2"
       ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists.",
-      "output_contract": "For every original query i, answer[i] iff its target set meets Reach(D-F_i); no global early exit."
-    },
-    {
-      "id": "3.3",
-      "kind": "Proposition",
-      "title": "exact sharing of historical query sets",
-      "source_line": 813,
-      "statement": "**Proposition 3.3 (exact sharing of historical query sets).** In the\nalgorithm of Theorem 3.2, sort each retained light set and store equal\nsets only once in a deterministic balanced dictionary. Let `Lambda`\nbe the sum of the cardinalities of all distinct nonempty sets retained\nduring that run. The time bound (3.2a) is preserved, with working space\n`Õ(S+Lambda)`. Universally, `Lambda<=V(tau-1)`; a near-linear bound on\n`Lambda` is not asserted.",
-      "statement_sha256": "9914dd30c24bd086915f37b7803b318bf91bc152a58dbf72e7fe800bae4a25fc",
-      "statement_and_proof_sha256": "04257171dce4e4f12697510e6ce4096fb7299612b3cddad38df6bb18a00054a3",
-      "tasks": [
-        "PB5.3"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
+        "first appearances",
+        "dynamic depth jumps",
+        "key lookup",
+        "scan and storage costs"
+      ]
     },
     {
       "id": "4.1",
-      "kind": "Proposition",
-      "title": "one guard occurrence per label",
-      "source_line": 863,
-      "statement": "**Proposition 4.1 (one guard occurrence per label).** For a\nhealthy-zero output, if every label other than `t` occurs in at most one\nremaining guard vertex after the common deletion, detection takes `O(G)` time and space. Together with the\nlinear healthy-one algorithm, this gives the same bound for either\nhealthy value under the stated guard condition.",
-      "statement_sha256": "8bd1a3a3c43cbec86e9a4d28d5d38f128b013a877a98a464334c94de11239932",
-      "statement_and_proof_sha256": "8c332997bff2d9a927958e381871381afa05db974699da8b43e781e44b1f6609",
-      "tasks": [
-        "PB6.2"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "4.2",
-      "kind": "Lemma",
-      "title": "localization after one deletion",
-      "source_line": 924,
-      "statement": "**Lemma 4.2 (localization after one deletion).** The three sets above\npartition the vertices. The dead set is exactly \\(\\mathcal D(u)\\), the\nvertices absent or unreachable after deleting `u`. Every other vertex\nremains reachable. If \\(z\\in\\operatorname{Fixed}(u)\\), then\n\\(\\operatorname{Dom}_{D-u}(z)=\\operatorname{Dom}_D(z)\\). The fixed set\nis ancestor-closed in both dominator trees.",
-      "statement_sha256": "e2daffe07a4a2f54925e442c48b9d06bbac2bade6a3b67d1f4e393e356a3b39e",
-      "statement_and_proof_sha256": "3bb22b5b0d85725cafe3c83a5a86f22c75ee5f31cefbb1a30681302e35c518de",
-      "tasks": [
-        "PB6.3"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_STATED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "4.3",
       "kind": "Theorem",
-      "title": "two-failure batch bound",
-      "source_line": 965,
-      "statement": "**Theorem 4.3 (two-failure batch bound).** All Boolean answers of a listed\nOSR batch of sensitivity at most two can be computed deterministically\nand combinatorially in\n\n\\[\nO\\bigl((S+\\Sigma(C))\\log(V+2)\\bigr)\n\\]\n\ntime and \\(O(S+V\\log(V+2))\\) words of space, including preprocessing.\nOne witness path for a successful query takes an additional `O(V+E)`\ntime. Moreover,\n\n\\[\n\\Sigma(C)\n=\\sum_v(1+\\deg^-_D(v))\n  |C\\cap(P_B(v)\\mathbin{\\triangle}P_R(v))|\n\\le (V+E)\\min\\{|C|,2h\\}.\n\\]\n\nConsequently the total time is \\(\\widetilde O(S+h(V+E))\\), and is\n\\(\\widetilde O(S)\\) when `h` is polylogarithmic in `S`. By Proposition 2.2 this also gives \\(\\widetilde O((h+1)G)\\) healthy-zero detection\nwhen the residual guard multiplicity is at most two. The RAM word size\nis logarithmic in the explicit input size.",
-      "statement_sha256": "167bed5db52d5549009e1ad446ac1c85afa0dc87bd07b44a9aae2af9bb2ad170",
-      "statement_and_proof_sha256": "36c937071c77115e47420f89dd18b0171c1d8813f1fcf4c6628f08473d471b60",
+      "title": "exit transfer",
+      "statement": "**Theorem 4.1 (exit transfer).** Let \\(P\\) be a real child of a real pair \\(B\\) in the forest of \\(H_d\\). For each \\(s\\in B\\) and \\(y\\in J(P)\\),\n\\[\n X^B_s(y)\n   = \\bigcup_{p\\in P\\setminus B} X^B_s(p)\n      \\ \\cup\\\n      \\begin{cases}\n        X^P_s(y), & s\\in P,\\\\\n        \\varnothing, & s\\notin P .\n      \\end{cases}\n\\]\nThe union over fresh endpoints is independent of \\(y\\).",
+      "source_line": 100,
+      "statement_sha256": "a04ea07f15804b718c9d1feaae9e04a06d89e3ba265d7cac48e7997d52a9f908",
+      "proof_source_line": 112,
+      "proof_sha256": "33cf6881aefdd44639aac3cbe6fbc8b1a66b3a320620e9a9d175d585a3b0841f",
+      "statement_and_proof_sha256": "4b23464fa00c4a027e2d0c2ee701e1d0359f36e8a1e79037a9ba985c7998c965",
       "tasks": [
-        "PB6.4"
+        "EX0.1",
+        "EX0.2",
+        "EX2.2",
+        "EX3.1",
+        "EX3.2",
+        "EX3.3"
       ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "4.4",
-      "kind": "Proposition",
-      "title": "quadratic explicit updates on an easy batch",
-      "source_line": 1150,
-      "statement": "**Proposition 4.4 (quadratic explicit updates on an easy batch).** For\nevery `V>=12`, there is a rooted DAG with `V` vertices and `2V-3` edges\nwith at least `(V-3)(V-2)/2` distinct changed vertex-parent pairs across\nsingle-vertex deletions. It admits a two-failure batch of size `S=Theta(V)`\nwith distinct singleton targets for which `Sigma(C)=Omega(V^2)` for every\ncover `C` of the failure pairs and every pair of independent spanning\ntrees. Nevertheless, on this DAG every query with at most two failed\nvertices is answered in constant time per target after linear\npreprocessing.",
-      "statement_sha256": "45b695d3c949a812b726b476df143e090f851f4ebdcc4b7988228bbd3dd5555b",
-      "statement_and_proof_sha256": "ab82a3cdac9800f9b4d65ca9a873e933e6149bd17116525e074002b9afa76058",
-      "tasks": [
-        "PB6.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "4.5",
-      "kind": "Theorem",
-      "title": "streamed two-failure batches",
-      "source_line": 1226,
-      "statement": "**Theorem 4.5 (streamed two-failure batches).** For a listed OSR batch of\nsensitivity at most two, normalized as in Section 4.1, suppose a\npartition of the retained DAG into \\(p\\) reachability chains is supplied.\nAll Boolean answers can be computed deterministically and\ncombinatorially in\n\n\\[\n O\\!\\left(S+(V+E)\\log(V+2)+p(V+E+R_*)\n             +q_{\\mathrm b}p\\log^2(V+2)\\right)\n\\]\n\ntime and\n\n\\[\n O\\!\\left(S+(V+E)\\log(V+2)\\right)\n\\]\n\nworking words, including validation of the partition. Here \\(R_*\\) is\nthe total number of retained targets after the direct cases below have\nbeen answered and at most one target per chain retained in each residual\nquery; in particular,\n\n\\[\n R_*\\le \\min\\left\\{\\sum_i |T_i|,\\ q_{\\mathrm b}p\\right\\}.\n\\]\n\nThus the total bounds are \\(\\widetilde O(pS)\\) time and\n\\(\\widetilde O(S)\\) space for every \\(p\\). A supplied partition with\n\\(p=\\log^{O(1)}S\\) gives near-linear time at arbitrary depth. One witness\npath for a successful query takes an additional \\(O(V+E)\\) time.\nThe value \\(p\\) is the size of the supplied partition; a greedy\nvertex-disjoint edge-path partition is available in \\(O(V+E)\\) time,\nwithout a minimum-partition computation.",
-      "statement_sha256": "dda695629bc1a76d99ee42c322ad6fba2d3b095ac72b16ac6357b6fac6056b77",
-      "statement_and_proof_sha256": "9df46529569f0af97f81625cab199f37ce3e3188f341005a65550eb672e48768",
-      "tasks": [
-        "PB6.7"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "4.6",
-      "kind": "Corollary",
-      "title": "Hamiltonian DAGs",
-      "source_line": 1405,
-      "statement": "**Corollary 4.6 (Hamiltonian DAGs).** On a DAG with a directed Hamiltonian\npath, a two-failure batch can be answered in\n`O((V+E) log(V+2)+q_b log^2(V+2)+S)` time and\n`O(S+(V+E) log(V+2))` words. The required path is recognizable in\n`O(V+E)` time. This gives a near-linear algorithm on the family of\nProposition 4.4, despite its quadratic explicit-update cost.",
-      "statement_sha256": "13b7420648139f4a0bb01f446a375273f9c8341adabfc01db5e5395e87bee1bf",
-      "statement_and_proof_sha256": "2f39159e9409cbe3ee09b0f67d10a1456c8b86432c4e829cd54072b26dbb5d85",
-      "tasks": [
-        "PB6.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "4.7",
-      "kind": "Corollary",
-      "title": "constructed width bound",
-      "tasks": [
-        "PB6.8",
-        "PB6.9"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "Construction, executable refinement and stated resources must all be proved; no supplied optimal structure or oracle cost.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not existing formal proof.",
-      "source_line": 1464,
-      "statement": "**Corollary 4.7 (constructed width bound).** For a listed failure batch\nof sensitivity at most two, let `kappa` be the reachability width of\nthe initially source-reachable retained DAG. All query answers can be\ncomputed deterministically and combinatorially in `Õ(kappa S)` total\ntime and `Õ(S)` working words, including construction of a qualifying\nchain partition. Neither `kappa` nor a partition is required as input.",
-      "statement_sha256": "bc427b322a1625d20bfb067e4dd3c1a167062093c3e4bfe2ac989239577a8c78",
-      "statement_and_proof_sha256": "05c6d3fefd4fd5ba97a50ea3cd77a287932b8e955013993211f44ede9a5a49d8"
-    },
-    {
-      "id": "4.8",
-      "kind": "Corollary",
-      "title": "weighted deletion-cover selection",
-      "tasks": [
-        "PB6.10",
-        "PB6.11"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "Construction, executable refinement and stated resources must all be proved; no supplied optimal structure or oracle cost.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not existing formal proof.",
-      "source_line": 1519,
-      "statement": "**Corollary 4.8 (weighted deletion-cover selection).** All query answers\nof the listed two-failure batch can be computed deterministically and\ncombinatorially in `O((S+OPT_c)log(V+2))` total time and\n`O(S+V log(V+2))` working words. The algorithm constructs a cover of\nweight at most `2 OPT_c` in `O(V+q_b)` additional time after the weights\nare available; it does not require an optimum cover as input.",
-      "statement_sha256": "aff461702bffff18fe6abe781d3208d44758f809a7f682d09ccd5f38f1762174",
-      "statement_and_proof_sha256": "ca6d035a87a123942b8aa1e215999685571d64b588124efd8e5920098a54ecec"
+        "fresh child endpoints",
+        "shared endpoint bypass",
+        "reverse inclusion",
+        "physical exit tails"
+      ]
     },
     {
       "id": "5.1",
-      "kind": "Theorem",
-      "title": "single-output triangle reduction",
-      "source_line": 1593,
-      "statement": "**Theorem 5.1 (single-output triangle reduction).** A tripartite graph with\n`p>=1` vertices in each part and `m` edges can be transformed in\n`O(m+p log(p+1))` time into a guarded DAG with one\nhealthy-zero output, `Q={t}`, `n=p+2` labels and\n`G=O(m+p log(p+1))`. Detection is possible exactly when the graph contains\na triangle. Consequently, under the combinatorial triangle conjecture,\nthere is no combinatorial `O(G^{3/2-epsilon})` detection algorithm for any\nfixed `epsilon>0`. In the regime `G=Theta(n^2)`, the exponent matches\nthe `O(nG)` upper bound.",
-      "statement_sha256": "d05d660d8648d8ad22a9ead9b2bbba7964eb485b5397f49c420890b303da4521",
-      "statement_and_proof_sha256": "f59dfe4bfb6f8c98b53e3a2054d2b5120081777f22ca4fe0e85b55eb06cb6494",
+      "kind": "Lemma",
+      "title": "compressed exit summaries",
+      "statement": "**Lemma 5.1 (compressed exit summaries).** Within \\(H_d\\), one can compute a base vector of two original-tree LCAs for each vertex with a real label and two constant-size maps for each real pair node. These records recover both values \\(\\sigma^B_s(y)\\), \\(s\\in B\\), for any \\(y\\in J(B)\\) in \\(O(L^3)\\) time. Building the records takes \\(O((n_H+m_H)L^3)\\) time and \\(O(n_H+m_H)\\) working words given the original-tree operations below. The retained records use \\(O(n_H)\\) words.",
+      "source_line": 132,
+      "statement_sha256": "4ed21139a77f11136d4453b2639187fb482925c4265535a1361d2c2e6fb21fba",
+      "proof_source_line": 134,
+      "proof_sha256": "4f0fead5c668088ff314647c40ba6c76d057cc2b6b80f76cc0d126c6e47ce399",
+      "statement_and_proof_sha256": "583610588a13eb9456b882f587d7eb86bc5deb6383da270d21633f69658475e4",
       "tasks": [
-        "PB7.1",
-        "PB7.5"
+        "EX0.3",
+        "EX1.2",
+        "EX2.3",
+        "EX4.1",
+        "EX4.2",
+        "EX4.3",
+        "EX5.1",
+        "EX5.2"
       ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.2",
-      "kind": "Theorem",
-      "title": "triangle-only bound when `n <= G <= n^2`",
-      "source_line": 1703,
-      "statement": "**Theorem 5.2 (triangle-only bound when `n <= G <= n^2`).** Under the\ncombinatorial triangle conjecture, for every fixed `epsilon>0` there is\nno combinatorial single-output detection algorithm with running time\n`O(G^{3/2-epsilon})` throughout the regime `n <= G <= n^2`.\nThe reduction uses one healthy-zero root and `Q={t}`; unused-label\npadding lets the label count range from `Theta(sqrt G)` to `Theta(G)`.",
-      "statement_sha256": "61d289abaef22f297a3ebef091bc06f20c148e6c3f69f3645e634b45282156f8",
-      "statement_and_proof_sha256": "e585f58ef0c02da450fd119e69aa1f74085b6030904cc2ec602b9b109dbbc91e",
-      "tasks": [
-        "PB7.1",
-        "PB7.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.3",
-      "kind": "Theorem",
-      "title": "fixed polynomial regimes",
-      "source_line": 1742,
-      "statement": "**Theorem 5.3 (fixed polynomial regimes).** Fix an integer `c>=1` and put\n`k=2c+1`. Consider a `k`-partite graph whose first `c` parts have `a`\nvertices and whose other `c+1` parts have `b>=a` vertices. In `O(b^{c+1})`\ntime it becomes a guarded DAG with:\n\n- one healthy-zero output with `Q={t}`;\n- `n=a^c+2` labels and `G=Theta(b^{c+1})`.\n\nDetection is possible exactly when the graph contains a `k`-clique.\n\nConsequently, fix `gamma` with `0<gamma<=c/(c+1)` and `epsilon>0`. Under\nthe combinatorial `k`-Clique hypothesis, no combinatorial algorithm decides\ndetection in `O((nG)^{1-epsilon})` time on instances with `n=Theta(G^gamma)`.\nTaking `c=ceil(gamma/(1-gamma))` covers every fixed `0<gamma<1`. Hence\n`O(nG)` is optimal up to `(nG)^{o(1)}` factors for combinatorial\nalgorithms in these fixed polynomial regimes.",
-      "statement_sha256": "c1d54e5be64c92713aede11f0e538f27e5752f63aba1582a530b7f4424c54338",
-      "statement_and_proof_sha256": "af2b93b7075b23243814b47469c4277c7d10890c78e1c12873aa12b27357de49",
-      "tasks": [
-        "PB7.2",
-        "PB7.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.4",
-      "kind": "Proposition",
-      "title": "balanced algebraic transfer",
-      "source_line": 1866,
-      "statement": "**Proposition 5.4 (balanced algebraic transfer).** Assume the\ndeterministic algebraic clique hypothesis `F=omega`. For every fixed\ninteger `c>=2` and every fixed `epsilon>0`, no deterministic word-RAM\nalgorithm with logarithmic word size decides single-output detection in\n`O((nG)^{omega/3-epsilon})` time on the balanced instances of Theorem 5.3\nwith `n=Theta(G^{c/(c+1)})`. These instances have one healthy-zero root\nand `Q={t}`.",
-      "statement_sha256": "803d868a13f7a6bf9e9459560a9558836f5fd3172701913fde6f9d99c3b3eb65",
-      "statement_and_proof_sha256": "54e946838a4dca01fdaaef259f588af38d85eed7a68be7e2f94ab81e2259937c",
-      "tasks": [
-        "PB7.6"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.5",
-      "kind": "Theorem",
-      "title": "quadratic exponent for general word-RAM algorithms",
-      "source_line": 1933,
-      "statement": "**Theorem 5.5 (quadratic exponent for general word-RAM algorithms).** Assume\nthe deterministic `k`-Cycle Hypothesis. Then for every fixed `epsilon>0`,\nno deterministic word-RAM algorithm with logarithmic word size decides\nsingle-output detection in `O(G^{2-epsilon})` time. This holds with `Q={t}`, one healthy-zero output,\nguard multiplicity `O(log n)`, and\n`n=Theta(G)` after adding unused labels. Consequently:\n\n1. on the padded promise `n=Theta(G)`, the worst-case exponent two is\n   optimal in this model; this promise lies within `n=G^{1-o(1)}`;\n2. no algorithm in this model runs in `O((nG)^{1-epsilon})` on all instances.\n   In particular there is no uniform algebraic saving of a fixed power\n   from `nG`. Logarithmic and other subpolynomial savings remain possible.",
-      "statement_sha256": "eae42082c288e1263622cf68c07b7dcf413a1944003f6a952b8324697b109d99",
-      "statement_and_proof_sha256": "e4ef917c714274e0bb2252a25a3dc095d31ed3798a5676e33b6ac6c9d9829a61",
-      "tasks": [
-        "PB7.4",
-        "PB7.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.6",
-      "kind": "Corollary",
-      "title": "essentiality on admissible sets",
-      "source_line": 1997,
-      "statement": "**Corollary 5.6 (essentiality on admissible sets).** Under the same\ndeterministic `k`-Cycle Hypothesis, no `O(G^{2-epsilon})` word-RAM detector\nexists even on the following two-sided promise: `n=Theta(G)`, and the\nguarded DAG is either undetectable or every non-target label coordinate\nis essential on `K_Q` with `Q={t}`. Guard multiplicity remains\n`O(log n)`.",
-      "statement_sha256": "2824940aa71fd21a54bd6b7ee5d827670aa0d1308791f99b60caef2e544d83c9",
-      "statement_and_proof_sha256": "2324dbb9e32783a65c5c310d5aceb57c160d6e19c9b44569d8331b69e68e3cc8",
-      "tasks": [
-        "PB7.4",
-        "PB7.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.7",
-      "kind": "Proposition",
-      "title": "multiplicity–size trade-off",
-      "source_line": 2055,
-      "statement": "**Proposition 5.7 (multiplicity–size trade-off).** Let `s>=0` and `0<=h<=s` be integers, and put `p=2^s`. A tripartite graph with `p` vertices per part becomes, in\n`O(2^h p^2)` time, a one-output guarded DAG with:\n\n- `n=p+2` labels;\n- every ordinary label in exactly `mu=s-h` guard vertices;\n- `G=Theta(2^h p^2)`.\n\nDetection is possible exactly when the graph contains a triangle.\nConsequently, fix `0<lambda<=1`. Under the combinatorial triangle\nconjecture, no combinatorial algorithm decides detection in\n`O((2^mu G)^{1-epsilon})` time on instances with guard multiplicity\n`mu=lambda log_2 n+O(1)`.",
-      "statement_sha256": "b31dc5fc4090a725ecd65db805a2f69b0f4d9883dae9fd179e3de54fd3835de2",
-      "statement_and_proof_sha256": "40e9cc8faeadd8c9e506e4d62889d3e40442fe04a36cdf08a61cb58cb81e3222",
-      "tasks": [
-        "PB7.3",
-        "PB7.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "5.8",
-      "kind": "Proposition",
-      "title": "exact selector capacity",
-      "source_line": 2123,
-      "statement": "**Proposition 5.8 (exact selector capacity).** For every integer `mu>=0`,\n\n\\[\n N(\\mu)=2^\\mu.\n\\]\n\nThe upper bound holds for arbitrary finite directed selectors, including\nselectors with cycles.",
-      "statement_sha256": "f06aa5c84c85150483fd10fbf4afb2f7facb84dc73a91c4cf2aa3f058e6a1d7f",
-      "statement_and_proof_sha256": "0be7d3273c0875c0c5a1905339fd64ebeb2d55ae8953eb5b3ad4cc7d6abeca96",
-      "tasks": [
-        "PB8.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_STATED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "proved_external_input",
-        "finite_size_arithmetic"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
+        "LCA join",
+        "two-coordinate composition",
+        "chronological availability",
+        "jump evaluations and costs"
+      ]
     },
     {
       "id": "6.1",
       "kind": "Corollary",
-      "title": "controller and native-encoding transfer",
-      "source_line": 2206,
-      "statement": "**Corollary 6.1 (controller and native-encoding transfer).** All graph\nalgorithms in this paper apply to supplied guarded controller outputs. The\ntriangle, clique, Hitting Set, multiplicity, and directed-cycle lower\nbounds hold with one bus, one driver, and the output polarity specified\nin each theorem. Their stated exponent exclusions also hold in native\nsize `N` with circuit roles supplied. The tuple and nearly linear label\npromises can be retained with `N=Theta(G)`.",
-      "statement_sha256": "d4957882335ac1c5f4497113493f6870f8df12ea38241614715c334adaf7dd7f",
-      "statement_and_proof_sha256": "f6a0c35c418b311b9a8c7350f4541513ab91b411afe967d38d914218564bfb5f",
+      "title": "a guarded output of residual multiplicity two",
+      "statement": "**Corollary 6.1 (a guarded output of residual multiplicity two).** For one supplied healthy-zero guarded output with \\(\\mu\\le2\\), the existence of an admissible detecting set is decidable in \\(O(G_{\\rm dec}\\log^3(G_{\\rm dec}+2))\\) time and \\(O(G_{\\rm dec})\\) working words. A positive answer identifies an admissible detecting set.",
+      "source_line": 160,
+      "statement_sha256": "ef194ca9ab2de34cc054e4d670cf4beb47eed1ae121e29c3901ea6bbccf4475d",
+      "proof_source_line": 162,
+      "proof_sha256": "1e08993c06f32608eec95cc02b354bc3e1f0b41e936353ec8cc348e63873f56a",
+      "statement_and_proof_sha256": "8d1257fa6944033d75cc316d372cc0f14079a4f1f1684350cd24da95be21dae7",
       "tasks": [
-        "PB8.8"
+        "EX6.1",
+        "EX6.2"
       ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
+      "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "pinned_application_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
+        "single healthy-zero output",
+        "test witness",
+        "incidence and list costs"
+      ]
     },
     {
       "id": "6.2",
       "kind": "Question",
-      "title": "sensitivity-parameterized detection",
-      "source_line": 2263,
-      "statement": "**Question 6.2 (sensitivity-parameterized detection).** Can healthy-zero\ndetection be solved combinatorially in `Õ(2^mu G)` total time, including\npreprocessing, where `mu` is the maximum candidate-label multiplicity\nafter the common forced-target deletion? Equivalently, can the\nexistential DAG batch problem be solved in `Õ(2^mu S)` time?",
-      "statement_sha256": "d47cbd7a76e4f38e4a569fe783668d63e59ae45937e09a2c973cbd7211506585",
-      "statement_and_proof_sha256": "d47cbd7a76e4f38e4a569fe783668d63e59ae45937e09a2c973cbd7211506585",
+      "title": "higher sensitivity",
+      "statement": "**Question 6.2 (higher sensitivity).** For arbitrary \\(\\mu\\ge3\\), can a deterministic combinatorial algorithm decide whether any listed target survives in any query on a DAG in \\(\\widetilde O(2^\\mu S_\\mu)\\) total time, where \\(S_\\mu=n+m+q+\\sum_i (|F_i|+|T_i|)\\) and \\(|F_i|\\le\\mu\\)?",
+      "source_line": 172,
+      "statement_sha256": "2987b5febf2627d969345de9f7245cef9c833888a128423117d4044327a658d2",
+      "proof_source_line": null,
+      "proof_sha256": null,
+      "statement_and_proof_sha256": "2987b5febf2627d969345de9f7245cef9c833888a128423117d4044327a658d2",
       "tasks": [],
       "formal_status": "OPEN_RESEARCH",
-      "semantic_status": "OPEN",
-      "resource_status": "NOT_APPLICABLE",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "A.1",
-      "kind": "Theorem",
-      "title": "baseline decision and witness",
-      "source_line": 2374,
-      "statement": "**Theorem A.1 (baseline decision and witness).** Algorithm 1 decides the\ndetection query and constructs a qualifier-set witness in `O((n+q)G)`\ntime and `O(G)` working words. A single healthy-one output takes `O(G)`\ntime.",
-      "statement_sha256": "d57210ba0fc18ed0121378fb71c519f7ca0542b6ca67d38d3d3adf3c5f8ea3e9",
-      "statement_and_proof_sha256": "d3127796983e419ca421925e1ad411887d4f35e6181f8f28492c54606e50fbea",
-      "tasks": [
-        "PB8.2"
-      ],
-      "formal_status": "REUSE_CANDIDATE",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "A.2",
-      "kind": "Proposition",
-      "title": "bitset supports",
-      "source_line": 2398,
-      "statement": "**Proposition A.2 (bitset supports).** For a shared guarded DAG, the\nhealthy-zero part of Algorithm 1 can be performed in\n`O(G ceil(n/w))` word operations and `O(G)` working words, where a\nmachine word contains `w` bits. The healthy-one part still costs at most\n`O(qG)` time and uses the same linear working space.",
-      "statement_sha256": "3accc24672881dd7bb1ef39cf93489afd45a0b296176517340eb0ad1f82c5991",
-      "statement_and_proof_sha256": "82c3eafcb312eea230733df7099d8ae27e52f3e4c2926c0b31038c1e5b4fa977",
-      "tasks": [
-        "PB8.2"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "A.3",
-      "kind": "Proposition",
-      "title": "algebraic healthy-zero algorithm",
-      "source_line": 2438,
-      "statement": "**Proposition A.3 (algebraic healthy-zero algorithm).** For one\nhealthy-zero output, delete guard vertices containing `t` when `Q={t}`, returning NO if the root is deleted. Let `V` be the remaining vertex\ncount, `k_i` the number of remaining guard vertices containing label `i`,\n`l_i` its number of terminals, and `kbar_i=max(1,k_i)`. Detection is decided\nby a Monte Carlo algorithm with one-sided error in\n\n\\[\n \\tilde O\\!\\Bigl(G+V^{\\omega}\n       +\\sum_{i\\ne t}\\min\\{G,\\;\\bar k_i^2+\\bar k_i l_i\\}\\Bigr)\n\\]\n\ntime and `O(G+V^2)` words of space. A positive answer is always correct\nand comes with a qualifier-set witness. A healthy-one output is handled\nseparately in `O(G)` time by its greatest-model computation.",
-      "statement_sha256": "9f42a872779213e634209278bea5b20c714c7efff38ded730508eb939b95f63a",
-      "statement_and_proof_sha256": "25b3cb3a6b19ea88ee969d73f490df3be66fbdd4cd01582c838c422426539fbc",
-      "tasks": [
-        "PB8.3"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "B.1",
-      "kind": "Lemma",
-      "title": "canonical two-vertex summary",
-      "source_line": 2558,
-      "statement": "**Lemma B.1 (canonical two-vertex summary).** Every `P` has a unique\nreduced summary `C(P)` satisfying \\(\\Phi_{C(P)}(F)=\\Phi_P(F)\\) for every\n`|F|<=2`. With the ordinary dominator tree available, it can be found\nin `O(V+E+|P|)` time using constant-time tree-LCA queries.",
-      "statement_sha256": "ef07fd5f0116244f2ab165467021bab20820a8fd347279f870a99cb915559912",
-      "statement_and_proof_sha256": "9087777c5b1f321d07637190c2aa4f04830416bed949b71deb3e4e8efab5281a",
-      "tasks": [
-        "PB8.4"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "B.2",
-      "kind": "Theorem",
-      "title": "same-vertex sparsification and a generic batch bound",
-      "source_line": 2618,
-      "statement": "**Theorem B.2 (same-vertex sparsification and a generic batch bound).**\nA rooted DAG has a DAG `H` on the same reachable vertices, with at most\ntwo incoming arcs per nonroot vertex, such that root reachability after\nevery set of at most two vertex failures agrees in `D` and `H`.\nThe arcs of `H` may be shortcuts. It can be constructed in\n`O(V^2+(V+E)log(V+2))` time and `O(S+V log(V+2))` working words.\nEvery query in a listed two-failure batch can then be answered in\n`Õ(S+V^2)` total time and `Õ(S)` working words, including all target\nincidences.",
-      "statement_sha256": "f7d9009480c5654d4878bbae2f9011590690ab98fba8f6020ad1aa878ca3b0fd",
-      "statement_and_proof_sha256": "e78fc654fcefc9625c951f4f8a368c5eab609e68a975522313f7d6e59530140d",
-      "tasks": [
-        "PB8.4"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "B.3",
-      "kind": "Proposition",
-      "title": "listed queries as summary equalities",
-      "source_line": 2679,
-      "statement": "**Proposition B.3 (listed queries as summary equalities).** Canonical\nsummaries satisfy, for vertex sets `P_1,P_2`,\n\\[\n C(P_1\\cup P_2)=C(C(P_1)\\cup C(P_2)).\n\\]\nFor every `|F|<=2` and target set `T`,\n\\[\n T\\cap\\operatorname{Reach}_{D-F}(r)=\\varnothing\n \\quad\\Longleftrightarrow\\quad C(F\\cup T)=C(F).\n\\]\nConsequently a listed batch reduces in `O(S)` bookkeeping to at most\n`M` nonadaptive summary computations on sets of at most three vertices,\nfollowed by `O(q_b+M)` comparisons and Boolean aggregation. Ordinary\ndominator preprocessing suffices to compute all the right-hand summaries\n`C(F)`.",
-      "statement_sha256": "05d36c55b507d7a0a3ad151129ff6ec6cbdb139d00ee12c7e29d75cef3442861",
-      "statement_and_proof_sha256": "95998ee902c7134fdd2d2a8df2507fc297d4dae61992970b73ed73b7d8526528",
-      "tasks": [
-        "PB8.4"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "C.1",
-      "kind": "Theorem",
-      "title": "Kraft inequality and optimal guard cost",
-      "source_line": 2731,
-      "statement": "**Theorem C.1 (Kraft inequality and optimal guard cost).** Every selector\nsatisfies\n\n\\[\n \\sum_{j=1}^{n}2^{-|C_j|}\\le 1.\n\\]\n\nThe minimum maximum multiplicity is `ceil(log_2 n)`. With\n`h=floor(log_2 n)`, the exact minimum total incidence cost is\n\n\\[\n \\min\\sum_j |C_j|=n(h+2)-2^{h+1}.\n\\]\n\nNonnegative integer budgets `c_1,...,c_n` are simultaneously achievable\nwith `|C_j|<=c_j` exactly when `sum_j 2^{-c_j}<=1`.",
-      "statement_sha256": "f0f4fe2b07e503a8c9a14666ccf4ebfa4f422bbd7452927ef85eec9f52bfd21a",
-      "statement_and_proof_sha256": "e0c5d9b6508f84c6d1efffe618701a150d5d4d7c1e3f28935890711c3f144aff",
-      "tasks": [
-        "PB8.5"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_STATED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "proved_external_input",
-        "finite_size_arithmetic"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "D.1",
-      "kind": "Theorem",
-      "title": "conditional quadratic exponent",
-      "source_line": 2820,
-      "statement": "**Theorem D.1 (conditional quadratic exponent).** Assuming the Hitting Set\nConjecture, for every fixed `epsilon>0` there is no `O(G^{2-epsilon})`-time\nalgorithm for detection on explicitly supplied guarded DAGs. This holds with `Q={t}` and only healthy-one outputs. Together with Theorem A.1,\nthe worst-case exponent in guarded DAG size is therefore two under this\nconjecture; the available upper bound uses `O(G)` working space.",
-      "statement_sha256": "3c81328f9f3f2fa0197b44acb87b9507a5a55760682388150c2163dfe15ff941",
-      "statement_and_proof_sha256": "38a1fd0929b4e218b3dafc6ce9c5f0d128b3883610f5773ceb17bc16098100cb",
-      "tasks": [
-        "PB8.6",
-        "PB8.7"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    },
-    {
-      "id": "D.2",
-      "kind": "Corollary",
-      "title": "joint bounds",
-      "source_line": 2887,
-      "statement": "**Corollary D.2 (joint bounds).** Fix reals `gamma,beta` in `(0,1)`.\nFix also `epsilon>0`. Consider shared guarded DAGs with `n=G^{gamma+o(1)}` labels and\n`q=G^{beta+o(1)}` outputs. Assume the combinatorial `k`-Clique hypothesis\nfor `k=2ceil(gamma/(1-gamma))+1` and the Hitting Set Conjecture. Then no\ncombinatorial algorithm decides detection in `O(((n+q)G)^{1-epsilon})`\ntime. Theorem A.1's `O((n+q)G)` is therefore combinatorially optimal up to\n`((n+q)G)^{o(1)}` factors in every such regime.",
-      "statement_sha256": "1224deb4e565d3f60d0c908df65838f6087e5ce1eca41067b931497a66b67bfb",
-      "statement_and_proof_sha256": "1664df023136a61d7b711dc7bdd060ecbd55d66c59e9dd55ac976c579e6fd2b2",
-      "tasks": [
-        "PB8.7"
-      ],
-      "formal_status": "NOT_YET_CERTIFIED",
-      "semantic_status": "PAPER_PROOF_PRESENT",
-      "resource_status": "NOT_YET_CERTIFIED",
-      "trust_rule": "External hypotheses and implementation prerequisites must remain literal; no blanket paper-level acceptance.",
-      "claim_facets": [
-        "semantic",
-        "operational",
-        "resources",
-        "conditional_model_transfer"
-      ],
-      "facet_note": "A facet is an obligation, not an assertion that its formal proof exists."
-    }
-  ],
-  "unnumbered_examples": [
-    {
-      "id": "E.1",
-      "task": "PB5.4"
-    },
-    {
-      "id": "E.2",
-      "task": "PB5.4"
+      "claim_facets": []
     }
   ],
   "open_boundaries": [
-    "Question 6.2: general sensitivity total-time bound, including unrestricted mu=2",
-    "Unrestricted near-linear workspace at the square-root-threshold time bound",
-    "All-algorithm fixed-interior-ratio exponents"
-  ],
-  "paper_version": "1.1-draft",
-  "publication_status": "UNPUBLISHED_DRAFT",
-  "published_base_doi": "10.5281/zenodo.24142496"
+    "Question 6.2 asks about deterministic total cost for arbitrary sensitivity at least three."
+  ]
 }

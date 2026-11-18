@@ -1,171 +1,142 @@
 {
   "status": "PROPOSED_NOT_IMPLEMENTED",
-  "note": "Only local imports shown. Standard imports must be pinned and audited. Task dependencies also include review gates and are not the Lean import graph.",
+  "note": "Local imports only. The two proposed core statements use one model. Batch and guarded application are downstream.",
   "first_roots": [
     "release-core/Challenge.lean",
     "release-core/Solution.lean",
     "release-core/Audit.lean"
   ],
-  "follow_on_additional_solution_imports": [
-    "release-core/PaperB/Interning.lean"
-  ],
   "modules": [
     {
       "path": "release-core/Challenge.lean",
       "local_imports": [],
-      "owner_role": "coordinator",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "contract",
+      "admission": "ORACLE_CORE"
     },
     {
       "path": "release-core/PaperB/Spec.lean",
       "local_imports": [],
       "owner_role": "graph",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/CostModel.lean",
-      "local_imports": [],
-      "owner_role": "resources",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
-    },
-    {
-      "path": "release-core/PaperB/Normalize.lean",
+      "path": "release-core/PaperB/Graph.lean",
       "local_imports": [
-        "release-core/PaperB/Spec.lean",
-        "release-core/PaperB/CostModel.lean"
+        "release-core/PaperB/Spec.lean"
       ],
       "owner_role": "graph",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/Primitives.lean",
+      "path": "release-core/PaperB/Dom.lean",
       "local_imports": [
-        "release-core/PaperB/Normalize.lean",
-        "release-core/PaperB/CostModel.lean"
+        "release-core/PaperB/Graph.lean",
+        "release-core/PaperB/Machine.lean"
       ],
-      "owner_role": "resources",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/Dominators.lean",
+      "path": "release-core/PaperB/Quotient.lean",
       "local_imports": [
-        "release-core/PaperB/Spec.lean",
-        "release-core/PaperB/Normalize.lean",
-        "release-core/PaperB/Primitives.lean"
+        "release-core/PaperB/Dom.lean"
       ],
-      "owner_role": "graph",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/SplitNetwork.lean",
+      "path": "release-core/PaperB/Forest.lean",
       "local_imports": [
-        "release-core/PaperB/Spec.lean",
-        "release-core/PaperB/Dominators.lean",
-        "release-core/PaperB/CostModel.lean"
+        "release-core/PaperB/Quotient.lean",
+        "release-core/PaperB/Jumps.lean"
       ],
-      "owner_role": "kernel",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/BoundedFlow.lean",
+      "path": "release-core/PaperB/Jumps.lean",
       "local_imports": [
-        "release-core/PaperB/SplitNetwork.lean",
-        "release-core/PaperB/Primitives.lean"
+        "release-core/PaperB/Graph.lean",
+        "release-core/PaperB/Machine.lean"
       ],
-      "owner_role": "kernel",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "data structures",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/PathRanks.lean",
+      "path": "release-core/PaperB/Exit.lean",
       "local_imports": [
-        "release-core/PaperB/BoundedFlow.lean",
-        "release-core/PaperB/CostModel.lean"
+        "release-core/PaperB/Forest.lean"
       ],
-      "owner_role": "kernel",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/Kernel.lean",
+      "path": "release-core/PaperB/Index.lean",
       "local_imports": [
-        "release-core/PaperB/Dominators.lean",
-        "release-core/PaperB/PathRanks.lean",
-        "release-core/PaperB/BoundedFlow.lean"
+        "release-core/PaperB/Exit.lean",
+        "release-core/PaperB/Jumps.lean"
       ],
-      "owner_role": "kernel",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/Scheduler.lean",
+      "path": "release-core/PaperB/Machine.lean",
       "local_imports": [
-        "release-core/PaperB/Normalize.lean",
-        "release-core/PaperB/Primitives.lean",
-        "release-core/PaperB/CostModel.lean"
+        "release-core/PaperB/Spec.lean"
       ],
-      "owner_role": "scheduler",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
-    },
-    {
-      "path": "release-core/PaperB/Amortization.lean",
-      "local_imports": [
-        "release-core/PaperB/Scheduler.lean",
-        "release-core/PaperB/Kernel.lean",
-        "release-core/PaperB/CostModel.lean"
-      ],
-      "owner_role": "resources",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
     },
     {
       "path": "release-core/PaperB/Resources.lean",
       "local_imports": [
-        "release-core/PaperB/Amortization.lean",
-        "release-core/PaperB/Dominators.lean"
+        "release-core/PaperB/Oracle.lean",
+        "release-core/PaperB/Machine.lean"
       ],
-      "owner_role": "resources",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
     },
     {
-      "path": "release-core/PaperB/Interning.lean",
+      "path": "release-core/PaperB/Oracle.lean",
       "local_imports": [
-        "release-core/PaperB/Scheduler.lean",
-        "release-core/PaperB/Resources.lean",
-        "release-core/PaperB/Primitives.lean"
+        "release-core/PaperB/Index.lean"
       ],
-      "owner_role": "sharing",
-      "admission": "FOLLOW_ON_3_3",
-      "selected_consumer": "3.3"
+      "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
     },
     {
       "path": "release-core/Solution.lean",
       "local_imports": [
-        "release-core/PaperB/Kernel.lean",
-        "release-core/PaperB/Scheduler.lean",
+        "release-core/Challenge.lean",
         "release-core/PaperB/Resources.lean"
       ],
-      "owner_role": "coordinator",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "integration",
+      "admission": "ORACLE_CORE"
     },
     {
       "path": "release-core/Audit.lean",
       "local_imports": [
+        "release-core/Challenge.lean",
         "release-core/Solution.lean"
       ],
-      "owner_role": "reviewer",
-      "admission": "FIRST_3_2",
-      "selected_consumer": "3.2"
+      "owner_role": "independent review",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "extensions/Batch.lean",
+      "local_imports": [
+        "release-core/Solution.lean"
+      ],
+      "owner_role": "application",
+      "admission": "DOWNSTREAM"
+    },
+    {
+      "path": "extensions/Guarded.lean",
+      "local_imports": [
+        "extensions/Batch.lean"
+      ],
+      "owner_role": "application",
+      "admission": "DOWNSTREAM"
     }
   ]
 }

@@ -1,0 +1,75 @@
+{
+  "paper_title": "Offline Reachability in Directed Acyclic Graphs under Vertex Failures",
+  "paper_version": "1.1-draft",
+  "publication_status": "UNPUBLISHED_DRAFT",
+  "active_source_path": "sources/paper-b-v1.1-draft.md",
+  "active_canonical_path": "papers/controller/paper-b-guarded-reachability-v1.1-draft.md",
+  "active_sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada",
+  "expected_numbered_items": 32,
+  "published_base": {
+    "version": "1.0",
+    "doi": "10.5281/zenodo.24142496",
+    "source_sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9",
+    "pdf_sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6",
+    "lock_path": "sources/published-v1.0-lock.json"
+  },
+  "baseline_date": "2026-11-12",
+  "source_files": [
+    {
+      "path": "sources/paper-b-v1.0.md",
+      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
+    },
+    {
+      "path": "sources/paper-b-v1.0.pdf",
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "sources/paper-b-published-download.pdf",
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "sources/representation-examples.md",
+      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
+    },
+    {
+      "path": "sources/paper-b-v1.1-draft.md",
+      "sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada"
+    },
+    {
+      "path": "sources/representation-examples-v1.1-draft.md",
+      "sha256": "c1cc8cc9c2781b9445e74be7e36c3d8c42e89f629bb40e81cebf8ae8f5956b2e"
+    },
+    {
+      "path": "sources/validation-v1.1-draft.md",
+      "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
+    }
+  ],
+  "canonical_files": [
+    {
+      "path": "papers/controller/paper-b-guarded-reachability.md",
+      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
+    },
+    {
+      "path": "submissions/paper-b-preprint-20261111/offline-reachability-vertex-failures-v1.0.pdf",
+      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+    },
+    {
+      "path": "papers/controller/paper-b-representation-examples.md",
+      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
+    },
+    {
+      "path": "papers/controller/paper-b-guarded-reachability-v1.1-draft.md",
+      "sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada"
+    },
+    {
+      "path": "papers/controller/paper-b-representation-examples-v1.1-draft.md",
+      "sha256": "c1cc8cc9c2781b9445e74be7e36c3d8c42e89f629bb40e81cebf8ae8f5956b2e"
+    },
+    {
+      "path": "papers/controller/paper-b-validation-v1.1-draft.md",
+      "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
+    }
+  ],
+  "rendered_pdf": null,
+  "boundaries": "Active local v1.1 source draft; the archived v1.0 PDF is not its render. No new DOI, public record or formal verification is claimed."
+}

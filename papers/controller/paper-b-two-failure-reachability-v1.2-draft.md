@@ -1,4 +1,4 @@
-# Near-Linear Preprocessing for Two-Failure Reachability in Directed Acyclic Graphs
+# Near-Linear Preprocessing for Reachability After Two Vertex Failures in Directed Acyclic Graphs
 
 Idris Ali Shaik\
 Independent researcher (unaffiliated)\
@@ -8,7 +8,7 @@ shaikidris@apache.org
 
 ## Abstract
 
-Given a directed acyclic graph and a fixed source, we construct a linear-space index that decides whether a target remains reachable after the deletion of two vertices. Both failures and the target may be chosen after preprocessing. For \(n\) vertices and \(m\) arcs, the deterministic construction takes \(O((n+m)\log^3(n+2))\) time and \(O(n+m)\) working words. The index retains \(O(n)\) words and answers a query in \(O(\log^3(n+2))\) time. The construction groups vertices by their ordinary dominators. Inside each group, the pairs that disconnect other vertices are the nodes of a forest ordered by containment of the sets they disconnect beyond their endpoints. Across two nested cuts we show how to recover the possible exits from a partially failed group using two lowest common ancestors. This permits one index to serve every target. For an explicitly listed batch with a separate set of targets for each failure pair, the total time is near-linear in the graph and the lists, including preprocessing.
+Given a directed acyclic graph and a fixed source, we construct a linear-space index that decides whether a target remains reachable after the deletion of two vertices. Both failures and the target may be chosen after preprocessing. For \(n\) vertices and \(m\) arcs, the deterministic construction takes \(O((n+m)\log^3(n+2))\) time and \(O(n+m)\) working words. The index retains \(O(n)\) words and answers a query in \(O(\log^3(n+2))\) time. The construction groups vertices by their ordinary dominators. Inside each group, the pairs that disconnect other vertices are the nodes of a forest ordered by containment of the sets they disconnect beyond their endpoints. Our exit-transfer theorem expresses the exit tails at a parent cut as the union of a target-independent contribution from the child’s new endpoints and a contribution inherited at a shared endpoint. For each target, two lowest common ancestors summarize these sets. For an explicitly listed batch with a separate set of targets for each failure pair, the total time is near-linear in the graph and the lists, including preprocessing.
 
 ## 1. The oracle
 
@@ -20,7 +20,7 @@ Throughout, the input is an adjacency-list DAG \(G\) with a specified vertex \(r
 
 **Theorem 1.1 (two-failure reachability oracle).** Every such \(G,r\) admits a deterministic combinatorial index constructible in \(O((n+m)L^3)\) time and \(O(n+m)\) working words. The completed index occupies \(O(n)\) words. Given \(F\) and \(t\) after construction, it decides reachability in \(O(L^3)\) time using only the index and the query.
 
-The construction keeps the tail of each arc that leaves a dominator subtree. This detail matters if a failure lies inside the subtree. Some exits can remain reachable while others are lost. For a given target, all the usable exit tails of one subtree can be summarized by their lowest common ancestor. The main identity, Theorem 4.1, transports these summaries across nested cuts. Sections 2–4 prove the path and cut statements. Section 5 constructs the index and proves Theorem 1.1.
+The construction keeps the tail of each arc that leaves a dominator subtree. This detail matters if a failure lies inside the subtree. Some exits can remain reachable while others are lost. For a given target, all the usable exit tails of one subtree can be summarized by their lowest common ancestor. Sections 2 and 3 identify the relevant cuts. The structural result, Theorem 4.1, expresses the parent cut’s exit tails using its child. Section 5 compresses these sets to prove Theorem 1.1.
 
 <a id="statement-1-2"></a>
 

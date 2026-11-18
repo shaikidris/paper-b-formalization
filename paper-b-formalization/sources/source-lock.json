@@ -1,11 +1,11 @@
 {
-  "paper_title": "Offline Reachability in Directed Acyclic Graphs under Vertex Failures",
-  "paper_version": "1.1-draft",
+  "paper_title": "Near-Linear Preprocessing for Reachability After Two Vertex Failures in Directed Acyclic Graphs",
+  "paper_version": "1.2-draft",
   "publication_status": "UNPUBLISHED_DRAFT",
-  "active_source_path": "sources/paper-b-v1.1-draft.md",
-  "active_canonical_path": "papers/controller/paper-b-guarded-reachability-v1.1-draft.md",
-  "active_sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada",
-  "expected_numbered_items": 32,
+  "active_source_path": "sources/paper-b-v1.2-draft.md",
+  "active_canonical_path": "papers/controller/paper-b-two-failure-reachability-v1.2-draft.md",
+  "active_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "expected_numbered_items": 10,
   "published_base": {
     "version": "1.0",
     "doi": "10.5281/zenodo.24142496",
@@ -13,7 +13,7 @@
     "pdf_sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6",
     "lock_path": "sources/published-v1.0-lock.json"
   },
-  "baseline_date": "2026-11-12",
+  "baseline_date": "2026-11-18",
   "source_files": [
     {
       "path": "sources/paper-b-v1.0.md",
@@ -42,6 +42,10 @@
     {
       "path": "sources/validation-v1.1-draft.md",
       "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
+    },
+    {
+      "path": "sources/paper-b-v1.2-draft.md",
+      "sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c"
     }
   ],
   "canonical_files": [
@@ -68,8 +72,52 @@
     {
       "path": "papers/controller/paper-b-validation-v1.1-draft.md",
       "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
+    },
+    {
+      "path": "papers/controller/paper-b-two-failure-reachability-v1.2-draft.md",
+      "sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c"
+    },
+    {
+      "path": "papers/controller/paper-b-threshold-companion-v1.2.md",
+      "sha256": "d19c0cd2c3ca5430b743370e807c04fdc660fe9ddc656c7f9e60a448c521dd03"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/antichain-proof.md",
+      "sha256": "a303d9143f030e3d11f98e8db47125140eb26978e4458533dabdf5c71f0dadfb"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/dag-exit-proof.md",
+      "sha256": "851bc30528acc2b050b2cdb03dcd2a2b346294861c3e87911b30a92735a30ff5"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/dag_exit_oracle.py",
+      "sha256": "7a66964bbc80de026e728b43ab049950844947d6ef987254853c25527b280a7e"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/check_exit_transfer_review.py",
+      "sha256": "add2eec4242ba58b36957641ddf3ee762c205b5e1e08633cc738a586eb6bf982"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/check_dag_exit.py",
+      "sha256": "af82c3b598aa00450fd9efb73c8afd6b1bd51d9ffedf588013e963bc71849e40"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/exit-transfer-review-checks.json",
+      "sha256": "7d640a17bc42dedeedce10e7eba3c47f7cc6673917b54ee71cbe1152bcbc59d3"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/dag-exit-checks.json",
+      "sha256": "35a420e3a0f9f238a65c15b55fdc2b3283e7aaff77d2c982001d69408a14bdc0"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/exit-transfer-adversarial-review.md",
+      "sha256": "583b479a8321579d2e1e4911043afd083417ca287bf22d1a1dfdbe245dd2a691"
+    },
+    {
+      "path": "evidence/paper-b-space-20261118/exit-transfer-literature-and-paper-b.md",
+      "sha256": "7df6ba4390035745d3104c5584844dc9b3430a60c8a94f31d01131c197ec1fb1"
     }
   ],
   "rendered_pdf": null,
-  "boundaries": "Active local v1.1 source draft; the archived v1.0 PDF is not its render. No new DOI, public record or formal verification is claimed."
+  "boundaries": "Local manuscript revision. The public DOI and PDF belong to v1.0. All v1.2 Lean targets are open."
 }

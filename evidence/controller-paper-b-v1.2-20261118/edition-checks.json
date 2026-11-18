@@ -1,0 +1,33 @@
+{
+  "main_words": 5232,
+  "previous_words": 23387,
+  "companion_words": 3845,
+  "abstract_words": 168,
+  "abstract_characters": 1102,
+  "threshold_blocks_byte_identical": [
+    "3.1",
+    "3.2",
+    "3.3"
+  ],
+  "main_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "companion_sha256": "d19c0cd2c3ca5430b743370e807c04fdc660fe9ddc656c7f9e60a448c521dd03",
+  "tracker_files_verified": 47,
+  "items": [
+    "1.1",
+    "1.2",
+    "2.1",
+    "2.2",
+    "3.1",
+    "3.2",
+    "4.1",
+    "5.1",
+    "6.1",
+    "6.2"
+  ],
+  "selected_lean_roots": [
+    "1.1",
+    "4.1"
+  ],
+  "certified_lean_roots": 0,
+  "finite_replay_this_run": true
+}

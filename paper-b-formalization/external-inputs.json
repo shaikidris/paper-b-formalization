@@ -1,169 +1,56 @@
 {
-  "date": "2026-11-12",
-  "rule": "No unproved imported input counts as full unconditional paper coverage. Availability not established is not a claim of absence.",
+  "date": "2026-11-18",
   "inputs": [
     {
-      "id": "X01",
-      "title": "Finite graph/path/set/arithmetic foundations",
+      "id": "X1",
+      "title": "Finite graph and tree library",
       "consumers": [
-        "PB1.1",
-        "PB2.1"
+        "EX0.2",
+        "EX1.1"
       ],
-      "scope": "core",
-      "status": "TO_SURVEY_SUPPORTED_LIBRARIES",
-      "acceptance": "Lean/Mathlib exact pinned declarations; do not assume matching representation or cost."
+      "acceptance": "Pin definitions of path, deletion, inclusive ancestry and finite sets.",
+      "status": "TO_VERIFY_FOR_FORMAL_USE"
     },
     {
-      "id": "X02",
-      "title": "Word-RAM or equivalent explicit operational and live-space model",
+      "id": "X2",
+      "title": "Dominator construction and cost",
       "consumers": [
-        "PB0.4",
-        "PB4.1"
+        "EX1.2",
+        "EX5.1"
       ],
-      "scope": "core",
-      "status": "MODEL_DESIGN_REQUIRED",
-      "acceptance": "Fixed program and charged primitives; no arbitrary cost oracle."
+      "acceptance": "Link or prove the algorithm and its time and space theorems on the same directed graph representation. The manuscript cites Lengauer and Tarjan.",
+      "status": "TO_VERIFY_FOR_FORMAL_USE"
     },
     {
-      "id": "X03",
-      "title": "Constructed DAG dominator tree, LCA and Euler index",
+      "id": "X3",
+      "title": "Word operations, arrays and sorting",
       "consumers": [
-        "PB1.4"
+        "EX0.3",
+        "EX2.4",
+        "EX5.2"
       ],
-      "scope": "core",
-      "status": "SURVEY_OR_LOCAL_PROOF",
-      "acceptance": "Soft-linear construction is sufficient for first release; existence is not construction cost."
+      "acceptance": "Give explicit word accounting, temporary lifetimes and justified deterministic sorting and searching costs.",
+      "status": "TO_VERIFY_FOR_FORMAL_USE"
     },
     {
-      "id": "X04",
-      "title": "Topological ordering, residual SCCs and rank propagation",
+      "id": "X4",
+      "title": "Supported build and independent replay",
       "consumers": [
-        "PB1.2",
-        "PB2.4"
+        "EX0.2",
+        "EX5.4"
       ],
-      "scope": "core",
-      "status": "SURVEY_OR_LOCAL_PROOF",
-      "acceptance": "General residual digraph may cycle; account for each original/residual arc."
+      "acceptance": "Pin the toolchain and environment and verify the supported challenge surface.",
+      "status": "TO_VERIFY_FOR_FORMAL_USE"
     },
     {
-      "id": "X05",
-      "title": "Bounded integral max flow, cut certificate and two-path decomposition",
+      "id": "X5",
+      "title": "Controller image interpretation",
       "consumers": [
-        "PB2.2",
-        "PB2.3"
+        "EX6.1",
+        "EX6.2"
       ],
-      "scope": "core",
-      "status": "SURVEY_OR_LOCAL_PROOF",
-      "acceptance": "Three searches, reverse arcs and protected capacity-three gates charged."
-    },
-    {
-      "id": "X06",
-      "title": "Deterministic immutable tuple balanced dictionary",
-      "consumers": [
-        "PB5.1",
-        "PB5.3"
-      ],
-      "scope": "sharing",
-      "status": "SURVEY_OR_LOCAL_PROOF",
-      "acceptance": "Comparison costs include tuple length; no expected hash-map bound."
-    },
-    {
-      "id": "X07",
-      "title": "Exact linear dominators BGK+08",
-      "consumers": [
-        "PB6.2"
-      ],
-      "scope": "extension",
-      "status": "FORMAL_AVAILABILITY_NOT_ESTABLISHED",
-      "acceptance": "Binary lifting or an abstract tree is insufficient for literal O(G)."
-    },
-    {
-      "id": "X08",
-      "title": "Constructed independent/divergent spanning trees GT15",
-      "consumers": [
-        "PB6.3",
-        "PB6.4"
-      ],
-      "scope": "extension",
-      "status": "FORMAL_AVAILABILITY_NOT_ESTABLISHED",
-      "acceptance": "Supplied-tree localization and constructed-tree algorithm are separate claims."
-    },
-    {
-      "id": "X09",
-      "title": "General directed k-failure preserver / improved anti-isolation BCR18 HSW25",
-      "consumers": [
-        "PB8.5"
-      ],
-      "scope": "extension",
-      "status": "FORMAL_AVAILABILITY_NOT_ESTABLISHED",
-      "acceptance": "Allow cycles; keep consequences conditional until the source theorem is proved/imported."
-    },
-    {
-      "id": "X10",
-      "title": "Finite-field polynomial zero test and matrix arithmetic model",
-      "consumers": [
-        "PB8.3",
-        "PB7.6"
-      ],
-      "scope": "extension",
-      "status": "SURVEY_OR_LOCAL_PROOF",
-      "acceptance": "One-sided total error and word/bit arithmetic costs explicit."
-    },
-    {
-      "id": "X11",
-      "title": "Literal conjectures and algorithm-class transfer contracts",
-      "consumers": [
-        "PB7.5",
-        "PB7.6",
-        "PB8.7"
-      ],
-      "scope": "extension",
-      "status": "HYPOTHESIS_MODELS_TO_FREEZE",
-      "acceptance": "Named assumptions may remain; construction/closure theorems must be proved, especially combinatorial class."
-    },
-    {
-      "id": "X12",
-      "title": "Paper A exact physical/detector/native interfaces",
-      "consumers": [
-        "PB8.2",
-        "PB8.8"
-      ],
-      "scope": "extension",
-      "status": "REGISTRY_IDENTITIES_CHECKED_NOT_FRESHLY_REPLAYED",
-      "acceptance": "Use each full pin and declaration list in reuse-audit.json; no moving head."
-    },
-    {
-      "id": "X13",
-      "title": "Range reporting, streaming chain validation and dynamic LCA primitives",
-      "consumers": [
-        "PB6.4",
-        "PB6.7"
-      ],
-      "scope": "extension",
-      "status": "SURVEY_OR_LOCAL_PROOF",
-      "acceptance": "Charge construction, p graph passes, retained targets and implicit fixed-parent queries."
-    },
-    {
-      "id": "X14",
-      "title": "Greedy overlapping path cover and chain-width equivalence",
-      "consumers": [
-        "PB6.8",
-        "PB6.9"
-      ],
-      "scope": "extension",
-      "status": "CLASSICAL_INPUT_LOCAL_PROOF_PLANNED",
-      "acceptance": "Re-derive maximum-uncovered-path DP, decay bound and linear-storage assigned subsequences; no supplied kappa or transitive-closure oracle."
-    },
-    {
-      "id": "X15",
-      "title": "Primal-dual weighted cover and resource composition",
-      "consumers": [
-        "PB6.10",
-        "PB6.11"
-      ],
-      "scope": "extension",
-      "status": "CLASSICAL_INPUT_LOCAL_PROOF_PLANNED",
-      "acceptance": "Prove residual-weight feasibility, tight selected vertices and factor two; charge graph/weight discovery for fixed independent trees."
+      "acceptance": "Paper A Theorem 4.1 interprets Q for physical controllers. The decoder-level Corollary 6.1 takes Q as supplied.",
+      "status": "TO_VERIFY_FOR_FORMAL_USE"
     }
   ]
 }

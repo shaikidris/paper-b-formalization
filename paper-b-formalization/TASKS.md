@@ -2,1076 +2,405 @@
 
 Generated from tasks.json. Owner roles are proposed responsibilities, not active agents. Acceptance means exact theorem fidelity and required evidence, not a file count.
 
-<a id="pb01"></a>
+<a id="ex01"></a>
 
-## PB0.1 — Pin the active draft and published baseline
+## EX0.1 — Freeze paper identities and statement locations
 
-- Milestone: PB0; status: **DONE_PLAN**; proof status: PLANNING_ONLY.
-- Owner: coordinator; reviewers: to assign; assigned worker: unassigned.
+- Milestone: EX0; status: **DONE_PLAN**; proof status: PLANNING_ONLY.
+- Owner: contract; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: none.
-- Proposed owner module: `sources/source-lock.json`.
-- Paper consumers: ; risk: S.
-
-Bind the v1.1 draft, its 32-entry statement inventory and companions, preserving the published v1.0 source/PDF lock.
-
-Acceptance:
-
-- Published v1.0 PDF/source identities remain protected.
-- The active v1.1 draft and 32 statement/proof blocks are hashed separately; no v1.1 PDF or DOI is asserted.
-
-Planning/evidence references: [sources/source-lock.json](sources/source-lock.json), [sources/authority-retrieval.json](sources/authority-retrieval.json).
-
-<a id="pb02"></a>
-
-## PB0.2 — Audit existing Lean and registry reuse
-
-- Milestone: PB0; status: **DONE_PLAN**; proof status: PLANNING_ONLY.
-- Owner: coordinator; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB0.1.
-- Proposed owner module: `reuse-audit.json`.
-- Paper consumers: ; risk: M.
-
-Separate local B01 evidence, registered Paper A inputs, obsolete board entries and missing replay environment.
-
-Acceptance:
-
-- Historical successful and failed runs distinguished.
-- No Paper B headline promoted from Paper A registration.
-
-Planning/evidence references: [reuse-audit.json](reuse-audit.json), [REUSE.md](REUSE.md).
-
-<a id="pb03"></a>
-
-## PB0.3 — Approve selected roots and module ownership
-
-- Milestone: PB0; status: **READY**; proof status: PLANNING_ONLY.
-- Owner: coordinator; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB0.1, PB0.2.
-- Proposed owner module: `contracts/release-contract.md`.
-- Paper consumers: 3.2, 3.3; risk: M.
-
-Approve the narrow first release, full-paper extension sequence and source-size review thresholds.
-
-Acceptance:
-
-- Selected root names, nonclaims, owners and zero-unreachable-module invariant approved as an architecture; exact typed signature approval follows PB0.4.
-- No implementation until this architecture decision is recorded.
-- The informal all-query/width/weighted scope is authorized; this does not substitute for approval of elaborated Lean signatures.
-
-<a id="pb04"></a>
-
-## PB0.4 — Elaborate a nonvacuous statement and cost surface
-
-- Milestone: PB0; status: **PLANNED**; proof status: PLANNING_ONLY.
-- Owner: coordinator; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB0.3, PB0.5.
 - Proposed owner module: `release-core/Challenge.lean`.
-- Paper consumers: 3.2, 3.3; risk: L.
+- Paper consumers: 1.1, 4.1; risk: ordinary.
 
-Type-check the actual graph, encoding, fixed solver/step and resource contracts before proving the headline.
-
-Acceptance:
-
-- Challenge uses only allowed imports and explicit definitions.
-- Reject per-input hardcoded solver, arbitrary zero work, uncharged oracle and hidden average-case interpretation.
-- Exact signatures replace the design sketches in INTERFACES.md.
-- Record author approval of the final elaborated Challenge/release contract before any theorem proof begins.
-- The Challenge requires a full original-index Boolean vector; the OR is a derived projection, not the advertised correctness claim.
-
-<a id="pb05"></a>
-
-## PB0.5 — Pin and rehearse the supported environment
-
-- Milestone: PB0; status: **PLANNED**; proof status: PLANNING_ONLY.
-- Owner: infrastructure; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB0.3.
-- Proposed owner module: `release-core/lake-manifest.json`.
-- Paper consumers: 3.2, 3.3; risk: L.
-
-Select a supported Lean/Mathlib pair and bounded graph/data-structure library reuse; run a small clean pilot.
+Bind the active article, prior editions and companion to their sources.
 
 Acceptance:
 
-- Full commits, licenses and trusted Challenge dependency ancestry pinned.
-- Current floor checked; local legacy 4.33 environment is not reused silently.
-- No whole historical Controller import.
+- Preserve content hashes, ten numbered statements, and the distinct proof location of Theorem 1.1.
 
-<a id="pb11"></a>
+Planning/evidence references: [sources/source-lock.json](sources/source-lock.json).
 
-## PB1.1 — Define per-query reachability and the answer vector
+<a id="ex02"></a>
 
-- Milestone: PB1; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: graph; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB0.4, PB0.5.
-- Proposed owner module: `release-core/PaperB/Spec.lean`.
-- Paper consumers: 3.1, 3.2, 3.3, 4.2, 4.3, 4.5, B.1, B.2, B.3; risk: M.
+## EX0.2 — Pin the environment and elaborate candidate interfaces
 
-Define valid inputs, per-query success and a complete vector indexed by original query IDs; define existential success as its OR.
+- Milestone: EX0; status: **READY**; proof status: NOT_CERTIFIED.
+- Owner: contract; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX0.1.
+- Proposed owner module: `release-core/Challenge.lean`.
+- Paper consumers: 1.1, 4.1; risk: ordinary.
 
-Acceptance:
-
-- Length-zero path is allowed exactly at a surviving vertex.
-- Failed root/target, empty batch and empty target list specified.
-- Count target occurrences and stored arcs; distinguish set sensitivity from raw list size.
-
-<a id="pb12"></a>
-
-## PB1.2 — Normalize input while preserving every query answer
-
-- Milestone: PB1; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: graph; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.1, PB4.1.
-- Proposed owner module: `release-core/PaperB/Normalize.lean`.
-- Paper consumers: 3.1, 3.2, 4.3, 4.5; risk: M.
-
-Return settled original-index answers plus an injectively mapped unresolved batch; positive normalization must continue.
+Typecheck candidate signatures for a finite labelled DAG, tail sets, immutable index and costed programs.
 
 Acceptance:
 
-- Both directions of answer equivalence and original-target correspondence.
-- All scans and reindexing charged to explicit input.
-- Legacy decreasing-rank edges are reindexed, not reversed.
+- Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.
 
-<a id="pb13"></a>
+<a id="ex03"></a>
 
-## PB1.3 — Prove single-failure and domination semantics
+## EX0.3 — Define execution and storage units
 
-- Milestone: PB1; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: graph; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.1.
-- Proposed owner module: `release-core/PaperB/Dominators.lean`.
-- Paper consumers: 3.1, 3.2, 4.1, 4.3, 4.5, B.1; risk: M.
+- Milestone: EX0; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX0.2.
+- Proposed owner module: `release-core/PaperB/Machine.lean`.
+- Paper consumers: 1.1, 3.2, 5.1; risk: ordinary.
 
-Connect path-based domination, reflexive ancestry, failed targets and dominance-comparable failure pairs.
+Specify word size, addressable arrays, peak live words, retained index size and the available query input.
 
 Acceptance:
 
-- Domination is restricted appropriately to initially reachable vertices.
-- Removing a dominated second failure changes no surviving answer.
+- Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.
 
-<a id="pb14"></a>
+<a id="ex11"></a>
 
-## PB1.4 — Construct the dominator tree and LCA index
+## EX1.1 — Normalize original vertices and failure sets
 
-- Milestone: PB1; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: graph; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.2, PB1.3, PB1.5.
-- Proposed owner module: `release-core/PaperB/Dominators.lean`.
-- Paper consumers: 3.1, 3.2, 4.3, 4.5, B.2; risk: L.
+- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: graph; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX0.2.
+- Proposed owner module: `release-core/PaperB/Graph.lean`.
+- Paper consumers: 1.1, 2.1, 2.2; risk: ordinary.
 
-Prove predecessor-LCA insertion on a DAG and binary-lifting/Euler query implementation.
-
-Acceptance:
-
-- Construction O((V+E) log(V+2)), O(V log(V+2)) words established in the cost model.
-- No assumed constant-time construction or free tree index.
-
-<a id="pb15"></a>
-
-## PB1.5 — Implement indices, answer maps and timestamp arrays
-
-- Milestone: PB1; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: resources; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.2, PB4.1.
-- Proposed owner module: `release-core/PaperB/Primitives.lean`.
-- Paper consumers: 3.2, 3.3, 4.5; risk: L.
-
-Implement target indexing, activity/deduplication arrays and original-index answer storage with charged initialization.
+Define reachability, source deletion, zero-length paths, repeated failures, unreachable vertices, and parallel input arcs.
 
 Acceptance:
 
-- Targets are indexed in O(q_b+M) work.
-- Array reset/epoch overflow and actual storage bounds are proved.
-- No search over all queries per vertex.
+- Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers.
 
-<a id="pb21"></a>
+<a id="ex12"></a>
 
-## PB2.1 — Vertex-split capacities and deletion correspondence
+## EX1.2 — Construct the original dominator tree
 
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.1, PB1.3.
-- Proposed owner module: `release-core/PaperB/SplitNetwork.lean`.
-- Paper consumers: 3.1, 3.2, B.1; risk: L.
+- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.1, EX0.3.
+- Proposed owner module: `release-core/PaperB/Dom.lean`.
+- Paper consumers: 1.1, 2.1, 2.2, 5.1; risk: ordinary.
 
-Build capacity-one gates and capacity-three transit/protected arcs with explicit reverse-arc identities.
+Realize dominators, interval ancestry, child location and lowest common ancestors on the same graph.
 
 Acceptance:
 
-- Original surviving paths correspond to split-network paths.
-- Parallel/reverse arcs cannot collapse identities.
-- At most O(V+E) network entries.
+- Provide algorithmic provenance and time and live-word bounds for the actual tree and query primitives.
 
-<a id="pb22"></a>
+<a id="ex13"></a>
 
-## PB2.2 — Bounded augmentation and max-cut certificate
+## EX1.3 — Project and lift labelled sibling paths
 
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB2.1, PB1.5.
-- Proposed owner module: `release-core/PaperB/BoundedFlow.lean`.
-- Paper consumers: 3.1, 3.2, B.1; risk: L.
+- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.2.
+- Proposed owner module: `release-core/PaperB/Quotient.lean`.
+- Paper consumers: 1.1, 2.1; risk: ordinary.
 
-Implement at most three unit augmenting searches and prove value-3 or maximum-value-2 alternatives.
+Assign each retained arc to its head parent, store its original tail, and prove flatness, projection and lifting.
 
 Acceptance:
 
-- Residual capacity, conservation and cut certificates proved.
-- Search/decomposition workspace and all failed scans counted.
-- No unproved max-flow oracle premise in selected roots.
+- Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.
 
-<a id="pb23"></a>
+<a id="ex14"></a>
 
-## PB2.3 — Decompose the two flow paths
+## EX1.4 — Characterize partial-block reachability
 
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB2.2.
-- Proposed owner module: `release-core/PaperB/BoundedFlow.lean`.
-- Paper consumers: 3.1, 3.2; risk: M.
+- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.3.
+- Proposed owner module: `release-core/PaperB/Quotient.lean`.
+- Paper consumers: 1.1, 2.2; risk: ordinary.
 
-Extract ordered paths and gate positions from the integral flow in the acyclic split network.
+Separate outside, own-block and third-block targets and translate the last usable exit into a subtree test.
 
 Acceptance:
 
-- Each unprotected unit gate is on at most one path.
-- Protected vertices may be shared; full vertex-disjointness is not assumed.
+- Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 
-<a id="pb24"></a>
+<a id="ex21"></a>
 
-## PB2.4 — Compute residual path-rank labels
+## EX2.1 — Identify the first proper loss
 
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB2.3.
-- Proposed owner module: `release-core/PaperB/PathRanks.lean`.
-- Paper consumers: 3.1, 3.2; risk: L.
+- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.3.
+- Proposed owner module: `release-core/PaperB/Forest.lean`.
+- Paper consumers: 1.1, 3.1; risk: ordinary.
 
-Construct SCC/condensation and propagate two minima to characterize residual reachability.
-
-Acceptance:
-
-- Residual graph may be cyclic even though the input is a DAG.
-- Infinity/sentinel cases and reverse-path monotonicity exact.
-- O(V+E) total work/space, not repeated per-target reachability.
-
-<a id="pb25"></a>
-
-## PB2.5 — Prove arbitrary-target residual membership
-
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB2.3, PB2.4.
-- Proposed owner module: `release-core/PaperB/Kernel.lean`.
-- Paper consumers: 3.1, 3.2; risk: L.
-
-Prove equation (3.1e) for every original target under a proper two-cut.
+Show the first strict loss follows both endpoints and has exactly those distinct predecessors.
 
 Acceptance:
 
-- Targets outside the anchor cone, the root, and failed vertices included.
-- Both directions of the union-of-residual-closures argument.
+- Handle parallel arcs, direct root edges and the absence of any proper loss.
 
-<a id="pb26"></a>
+<a id="ex22"></a>
 
-## PB2.6 — Recognize proper cuts at a proposed vertex
+## EX2.2 — Prove the topological forest invariant
 
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.4, PB2.5.
-- Proposed owner module: `release-core/PaperB/Kernel.lean`.
-- Paper consumers: 3.2; risk: L.
+- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX2.1.
+- Proposed owner module: `release-core/PaperB/Forest.lean`.
+- Paper consumers: 1.1, 3.1, 4.1; risk: ordinary.
 
-Prove necessity and sufficiency of all four inequalities (3.2b), including orientation rejection and flow-3 success.
-
-Acceptance:
-
-- Requires failures disjoint from the anchor dominators.
-- No-cut classification yields a surviving prefix, not a batch answer without a suffix.
-
-<a id="pb27"></a>
-
-## PB2.7 — Join kernel correctness and construction resources
-
-- Milestone: PB2; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: kernel; reviewers: resources; assigned worker: unassigned.
-- Dependencies: PB2.6, PB1.5.
-- Proposed owner module: `release-core/PaperB/Kernel.lean`.
-- Paper consumers: 3.1, 3.2; risk: L.
-
-Export one implemented kernel with correctness and counted construction/evaluation costs.
+Show raw predecessor losses form a prefix, and that each vertex label represents all its proper separating pairs.
 
 Acceptance:
 
-- Build O(V+E), evaluate O(1) per target after preprocessing.
-- Graph scanning, flow, SCC, labels and reusable scratch included.
-- No caller-supplied answer table or kernel-running-time assumption.
+- Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 
-<a id="pb31"></a>
+<a id="ex23"></a>
 
-## PB3.1 — Define the all-query reverse-topological scheduler
+## EX2.3 — Implement depth jumps under leaf insertion
 
-- Milestone: PB3; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: scheduler; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.2, PB1.5, PB0.4.
-- Proposed owner module: `release-core/PaperB/Scheduler.lean`.
-- Paper consumers: 3.2; risk: M.
+- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: data structures; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.1, EX0.3.
+- Proposed owner module: `release-core/PaperB/Jumps.lean`.
+- Paper consumers: 1.1, 3.2, 5.1; risk: ordinary.
 
-Implement vector answers, unknown/active state and historical light lists; record and retire positive and negative queries.
+Reach a prescribed ancestor depth by one low-bit pointer and a parent pointer per node.
 
 Acceptance:
 
-- Fixed program determined before individual inputs.
-- Effective threshold tau_eff=min(tau,q_prime+1); zero-query exits explicit.
-- Kernel interface may be a named provisional hypothesis only until PB4.5.
+- Bound the number of traversal steps by O(L²), including construction of each new jump and overshoots.
 
-<a id="pb32"></a>
+<a id="ex24"></a>
 
-## PB3.2 — Maintain the surviving-suffix invariant
+## EX2.4 — Charge forest construction and membership
 
-- Milestone: PB3; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: scheduler; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB3.1.
-- Proposed owner module: `release-core/PaperB/Scheduler.lean`.
-- Paper consumers: 3.2; risk: M.
+- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX2.2, EX2.3.
+- Proposed owner module: `release-core/PaperB/Forest.lean`.
+- Paper consumers: 1.1, 3.2; risk: resource bound.
 
-Each stored ID certifies a suffix to an original target avoiding its failures.
+Implement raw-predecessor tests, depth search, candidate key lookup and final ancestry intervals.
 
 Acceptance:
 
-- Pulling across original arcs preserves the invariant.
-- Duplicate and stale labels have defined filter behavior.
+- Prove per-quotient O((n_H+m_H)L³) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.
 
-<a id="pb33"></a>
+<a id="ex31"></a>
 
-## PB3.3 — Verify Resolve and positive/negative retirement
+## EX3.1 — Lift each fresh endpoint contribution
 
-- Milestone: PB3; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: scheduler; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB3.2, PB2.6.
-- Proposed owner module: `release-core/PaperB/Scheduler.lean`.
-- Paper consumers: 3.2; risk: L.
+- Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX2.2.
+- Proposed owner module: `release-core/PaperB/Exit.lean`.
+- Paper consumers: 4.1; risk: ordinary.
 
-Resolve records YES via a certified surviving prefix or target, otherwise scans the entire original target list before recording NO; either answer retires its own query.
-
-Acceptance:
-
-- Every call returns a definitive Boolean and retires only that query.
-- NO requires all original targets to fail; YES may use a surviving prefix and the certified suffix.
-- Record root arrivals and direct normalization positives without terminating the batch.
-- Every later candidate at one heavy vertex uses the same one live kernel.
-
-<a id="pb34"></a>
-
-## PB3.4 — Prove vector correctness, completeness and termination
-
-- Milestone: PB3; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: scheduler; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB3.3.
-- Proposed owner module: `release-core/PaperB/Scheduler.lean`.
-- Paper consumers: 3.2; risk: L.
-
-Every recorded Boolean matches its own original query; no successful query remains active at the end; final unknown entries are NO.
+Give the forward witness using topological order for each fresh child endpoint, for arbitrary parallel exit tails.
 
 Acceptance:
 
-- Prove forall original i, answer[i]=true iff Success(I,i).
-- Query-index map is injective and covers direct, resolved, root and final-negative cases exactly once.
-- No successful still-active query can survive the path-following completeness argument.
+- Prove inclusion for every output coordinate and target in the child proper-loss set.
 
-<a id="pb41"></a>
+<a id="ex32"></a>
 
-## PB4.1 — Ground the operational and live-space model
+## EX3.2 — Handle inherited tails and the reverse inclusion
 
-- Milestone: PB4; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: resources; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB0.4, PB0.5.
-- Proposed owner module: `release-core/PaperB/CostModel.lean`.
-- Paper consumers: 3.2, 3.3, 2.2; risk: L.
+- Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX3.1.
+- Proposed owner module: `release-core/PaperB/Exit.lean`.
+- Paper consumers: 4.1; risk: path semantics.
 
-Implement the frozen instruction, execution and live-storage semantics before algorithm proofs consume them; expose concrete primitive events and encoded-word constraints.
+Prove the bypass argument for a shared endpoint and the converse for each child visitation pattern.
 
 Acceptance:
 
-- The model cannot grant arbitrary answers, ticks or peak-space fields to a candidate program.
-- Instruction steps, array/word operations and memory lifetime are concrete; algorithm-specific refinements are proved in their owner modules.
-- A fixed program or uniform program family precedes the individual input quantifier.
-- The Proposition 2.2 construction counters require an actual primitive-refinement bridge before its linear-time claim is accepted.
+- Discharge disjoint pairs, inherited-only exits and exits through a fresh endpoint with exact tail identity.
 
-<a id="pb42"></a>
+<a id="ex33"></a>
 
-## PB4.2 — Amortize every completed kernel by retirement
+## EX3.3 — Certify the set-level transfer theorem
 
-- Milestone: PB4; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: resources; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB3.3, PB4.1.
-- Proposed owner module: `release-core/PaperB/Amortization.lean`.
-- Paper consumers: 3.2; risk: M.
+- Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX3.2.
+- Proposed owner module: `release-core/PaperB/Exit.lean`.
+- Paper consumers: 4.1; risk: ordinary.
 
-Prove K*tau_eff<=q_prime for the all-query schedule; every kernel completes and there is no final-positive-kernel slack.
+Assemble both inclusions as an equality of finite sets of physical tails before compression.
 
 Acceptance:
 
-- Initial tau_eff buffered IDs are distinct and active; each is retired by this kernel.
-- Retirement sets of all kernels are disjoint; K<=floor(q_prime/tau_eff).
-- If threshold is capped above q_prime, no kernel is constructed.
+- An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target.
 
-<a id="pb43"></a>
+<a id="ex41"></a>
 
-## PB4.3 — Charge stale positive/negative labels and original targets
+## EX4.1 — Implement the two-coordinate map algebra
 
-- Milestone: PB4; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: resources; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB3.4, PB4.1.
-- Proposed owner module: `release-core/PaperB/Amortization.lean`.
-- Paper consumers: 3.2; risk: L.
+- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX3.3, EX1.2.
+- Proposed owner module: `release-core/PaperB/Index.lean`.
+- Paper consumers: 1.1, 5.1; risk: ordinary.
 
-Prove every historical edge pull, including stale YES labels, is counted; a query enters Resolve at most once and all target scans total O(M).
+Formalize the LCA join with an empty sentinel and constant-plus-optional-coordinate maps.
 
 Acceptance:
 
-- Edge-induced entries <=E(tau_eff-1), including stale positives and negatives.
-- Full target scans occur at most once per query; seeding and normalization are charged separately.
-- Deduplication, resets and adjacency scans are not hidden.
+- Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage.
 
-<a id="pb44"></a>
+<a id="ex42"></a>
 
-## PB4.4 — Prove peak words including complete answer storage
+## EX4.2 — Install maps before bases in topological order
 
-- Milestone: PB4; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: resources; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB4.1, PB4.2, PB4.3, PB2.7.
+- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX4.1, EX2.4.
+- Proposed owner module: `release-core/PaperB/Index.lean`.
+- Paper consumers: 1.1, 5.1; risk: dependency order.
+
+Show every map and predecessor base read at installation already exists.
+
+Acceptance:
+
+- Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.
+
+<a id="ex43"></a>
+
+## EX4.3 — Build and evaluate composed jump maps
+
+- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX4.2, EX2.3.
+- Proposed owner module: `release-core/PaperB/Index.lean`.
+- Paper consumers: 1.1, 5.1; risk: ordinary.
+
+Construct one upward jump map per real pair and recover both summary coordinates from the vertex base.
+
+Acceptance:
+
+- Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
+
+<a id="ex44"></a>
+
+## EX4.4 — Decide arbitrary post-build queries
+
+- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.4, EX4.3.
+- Proposed owner module: `release-core/PaperB/Oracle.lean`.
+- Paper consumers: 1.1; risk: ordinary.
+
+Implement the full case split once on the retained index; include missing pair keys and comparable failures.
+
+Acceptance:
+
+- Prove output iff reachability after deletion for any subset of size at most two and any original target.
+
+<a id="ex51"></a>
+
+## EX5.1 — Account for discovery and every edge scan
+
+- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX0.3, EX2.4, EX4.3.
 - Proposed owner module: `release-core/PaperB/Resources.lean`.
-- Paper consumers: 3.2; risk: L.
+- Paper consumers: 1.1, 3.2, 5.1; risk: resource bound.
 
-Bound all historical lists, output/ID maps, preprocessing, scratch and one live kernel in the concrete live-space model.
+Sum all phases, including sorting, dominator construction, repeated predecessor scans and LCA operations.
 
 Acceptance:
 
-- Peak <= explicit C(S+V tau_eff) times a fixed polylog.
-- Workspace actually reused; no hidden list of all residual networks.
-- Integer counters, sentinels and allocations fit the chosen logarithmic word width.
-- Complete answer vector and original-index maps use O(q_b) words, absorbed by S; do not compute an individual-target table.
+- Prove deterministic O((n+m)L³) build time for the compiled data layout.
 
-<a id="pb45"></a>
+<a id="ex52"></a>
 
-## PB4.5 — Close all-query Theorem 3.2 on original inputs
+## EX5.2 — Bound peak workspace and the retained index
 
-- Milestone: PB4; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: coordinator; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.4, PB2.7, PB3.4, PB4.2, PB4.3, PB4.4.
+- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX5.1.
+- Proposed owner module: `release-core/PaperB/Resources.lean`.
+- Paper consumers: 1.1, 3.2, 5.1; risk: resource bound.
+
+Give allocation lifetimes and index serialization for the same construction.
+
+Acceptance:
+
+- Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
+
+<a id="ex53"></a>
+
+## EX5.3 — Bound each later query and exclude adjacency access
+
+- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX4.4, EX5.2.
+- Proposed owner module: `release-core/PaperB/Resources.lean`.
+- Paper consumers: 1.1; risk: ordinary.
+
+Run the fixed query program on only the stored index, failure set and one target.
+
+Acceptance:
+
+- Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
+
+<a id="ex54"></a>
+
+## EX5.4 — Join correctness and costs in the oracle theorem
+
+- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: integration; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX5.3.
 - Proposed owner module: `release-core/Solution.lean`.
-- Paper consumers: 3.2; risk: L.
+- Paper consumers: 1.1; risk: public theorem.
 
-Join one fixed implemented vector solver with every-index correctness, total time and peak workspace; derive the existential projection without extra asymptotic cost.
-
-Acceptance:
-
-- Uniform constants/polylog exponent independent of the input and tau.
-- Correct answer and both advertised total bounds in the same theorem cone.
-- No abstract kernel, dominator, SCC or primitive-cost premise remains.
-
-<a id="pb46"></a>
-
-## PB4.6 — Derive threshold corollaries and the existential projection
-
-- Milestone: PB4; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: coordinator; reviewers: resources, reviewer; assigned worker: unassigned.
-- Dependencies: PB4.5.
-- Proposed owner module: `release-core/Solution.lean`.
-- Paper consumers: 3.2; risk: M.
-
-Prove cap/ceil/empty-batch specializations and OR aggregation, with resource corollaries in Solution to avoid an import cycle.
+Bind one uniform build/query pair to correctness, preprocessing time, peak space, retained words and query time.
 
 Acceptance:
 
-- Sparse E,q_b,M=O(V) gives soft-O(V^(3/2)) time.
-- No claim of near-linear unrestricted time or all query answers from an OR solver.
-- Derived root corollaries stay in Solution; Resources must not import Solution.
+- Require exact paper-to-type correspondence, a pinned build, dependency and axiom audits, and independent replay of the closed root.
 
-<a id="pb51"></a>
+<a id="ex55"></a>
 
-## PB5.1 — Represent immutable exact historical sets
+## EX5.5 — Derive the listed-target Boolean vector
 
-- Milestone: PB5; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: sharing; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB3.1, PB4.1.
-- Proposed owner module: `release-core/PaperB/Interning.lean`.
-- Paper consumers: 3.3; risk: M.
+- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: application; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX5.4.
+- Proposed owner module: `extensions/Batch.lean`.
+- Paper consumers: 1.2; risk: ordinary.
 
-Sort and intern actual ID tuples; define Lambda from all distinct nonempty retained historical tuples.
+Aggregate online memberships as disjunctions while charging list accesses and explicit output writes.
 
 Acceptance:
 
-- Equality is deterministic exact comparison, not a hash-collision assumption.
-- Activity changes do not mutate shared tuples.
+- Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M.
 
-<a id="pb52"></a>
+<a id="ex61"></a>
 
-## PB5.2 — Refine the answer-vector scheduler through shared handles
+## EX6.1 — Prove the guarded-path and shrinking-witness equivalence
 
-- Milestone: PB5; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: sharing; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB5.1, PB3.4.
-- Proposed owner module: `release-core/PaperB/Interning.lean`.
-- Paper consumers: 3.3; risk: M.
+- Milestone: EX6; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: application; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX1.1.
+- Proposed owner module: `extensions/Guarded.lean`.
+- Paper consumers: 6.1; risk: ordinary.
 
-Preserve every recorded answer and both retirement outcomes under exact immutable historical-set interning.
-
-Acceptance:
-
-- Same complete original-index answer vector and per-query retirement decisions.
-- No assumption that overlapping sets are equal.
-
-<a id="pb53"></a>
-
-## PB5.3 — Close sharing time and space bounds
-
-- Milestone: PB5; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: sharing; reviewers: resources; assigned worker: unassigned.
-- Dependencies: PB5.2, PB4.5.
-- Proposed owner module: `release-core/PaperB/Interning.lean`.
-- Paper consumers: 3.3; risk: L.
-
-Prove dictionary/sort costs fit the original time bound and space is soft-O(S+Lambda).
+Relate truth of a supplied healthy-zero root to a surviving labelled terminal and shrink the witness to Q union a candidate singleton.
 
 Acceptance:
 
-- Lambda<=V(tau_eff-1), with all historically retained arrays counted.
-- Small graph/zero batch cases avoid invalid E>=V-1 absorption.
-- A balanced dictionary implementation or pinned proved realization supplies its costs.
-- Interning consumes generic Resources/Scheduler bounds, not Solution, avoiding a cycle when Solution later selects the sharing root.
+- Cover constant-zero terminals, repeated labels, forced guard deletions and both choices of Q.
 
-<a id="pb54"></a>
+<a id="ex62"></a>
 
-## PB5.4 — Formalize the two representation families
+## EX6.2 — Account for all label and terminal incidences
 
-- Milestone: PB5; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: sharing; assigned worker: unassigned.
-- Dependencies: PB5.3.
-- Proposed owner module: `research/Examples.lean`.
-- Paper consumers: E.1, E.2; risk: M.
+- Milestone: EX6; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: application; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Dependencies: EX6.1, EX5.5.
+- Proposed owner module: `extensions/Guarded.lean`.
+- Paper consumers: 6.1; risk: ordinary.
 
-Prove both all-m valid constructions and their V,E,q_b,M,S,Lambda formulas.
+Encode each candidate with at most two residual guard failures and its full terminal list.
 
 Acceptance:
 
-- Power-of-two and minimum-m assumptions literal.
-- Representation growth is not a universal space lower bound.
-- Example-only code stays outside the first release unless explicitly selected.
-
-<a id="pb61"></a>
-
-## PB6.1 — Sorted dead-region intersection and anchor recognition
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.4, PB2.7.
-- Proposed owner module: `research/CommonAnchor.lean`.
-- Paper consumers: 3.1; risk: L.
-
-Prove (3.1a)–(3.1c), shrinking seed-set updates, exact recognition and counted release queue.
-
-Acceptance:
-
-- New seeds flagged before removed seeds can be released.
-- Each vertex/arc released once; sorting and target aggregation charged.
-- Rejecting an anchor does not return UNSAT/NO for the original batch.
-
-<a id="pb62"></a>
-
-## PB6.2 — Single-occurrence linear theorem
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.3, PB8.1.
-- Proposed owner module: `research/SingleFailure.lean`.
-- Paper consumers: 4.1; risk: L.
-
-Implement candidate/terminal grouping and single-dominator ancestry queries.
-
-Acceptance:
-
-- Semantic result may use a supplied tree, but full O(G) needs a proved exact-linear dominator construction.
-- Do not replace BGK linear time by Lengauer–Tarjan or binary lifting without changing the advertised bound.
-
-<a id="pb63"></a>
-
-## PB6.3 — Independent trees and deletion localization
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.3.
-- Proposed owner module: `research/Localization.lean`.
-- Paper consumers: 4.2, 4.3; risk: M.
-
-Prove dead/fixed/symmetric-difference partition and unchanged dominators for fixed vertices, under the exact independent-tree hypothesis.
-
-Acceptance:
-
-- Lemma 4.2 conditional inputs match its paper setup.
-- Tree construction/cost is separately discharged for Theorem 4.3.
-
-<a id="pb64"></a>
-
-## PB6.4 — Output-sensitive dominator updates and Sigma charge
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB6.3, PB1.4, PB4.1.
-- Proposed owner module: `research/Localization.lean`.
-- Paper consumers: 4.3; risk: L.
-
-Report subtree differences, maintain implicit unchanged parents and binary-lifting LCAs, and sum weighted work over a pair cover.
-
-Acceptance:
-
-- Independent-tree construction is proved/imported at an audited pin.
-- Sigma identity and <=(V+E)min(|C|,2h) proved.
-- No all-vertex reset per deletion; all target costs charged.
-
-<a id="pb65"></a>
-
-## PB6.5 — Explicit-update obstruction and Hamiltonian cases
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB6.3, PB6.7.
-- Proposed owner module: `research/Examples.lean`.
-- Paper consumers: 4.4, 4.6; risk: M.
-
-Prove the skip-DAG idom changes, every-cover lower bound, easy batch rule and p=1 recognition corollary.
-
-Acceptance:
-
-- Every V>=12 and every independent-tree/cover choice quantified.
-- Obstruction concerns explicit updates only; no Boolean-batch lower bound.
-
-<a id="pb66"></a>
-
-## PB6.6 — Later-failure crossing and target compression
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.3.
-- Proposed owner module: `research/Chains.lean`.
-- Paper consumers: 4.5; risk: L.
-
-Prove the u<b<w crossing characterization and retain the last target per reachability chain.
-
-Acceptance:
-
-- Chain connecting paths may be nonedges.
-- Suffix is safe only after the later failure.
-- R_star<=min(M,q_b p) and compression work O(S).
-
-<a id="pb67"></a>
-
-## PB6.7 — Streamed columns and original-edge range indexes
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB6.6, PB1.4, PB4.1.
-- Proposed owner module: `research/Chains.lean`.
-- Paper consumers: 4.5, 4.6; risk: L.
-
-Implement one coordinate column and one edge index at a time, validate proposed chains and aggregate query extrema.
-
-Acceptance:
-
-- Prove the full p(V+E), pR_star and q_b p log^2 V charges.
-- Keep original transitive arcs; no contraction producing spurious paths.
-- Near-linear workspace for every p; no small-p assumption in space theorem.
-
-<a id="pb68"></a>
-
-## PB6.8 — Construct width-aware greedy reachability chains
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: resources, reviewer; assigned worker: unassigned.
-- Dependencies: PB1.2, PB4.1, PB6.6.
-- Proposed owner module: `research/Width.lean`.
-- Paper consumers: 4.7; risk: L.
-
-Define width as minimum reachability-chain partition size; prove the overlapping-cover equivalence, max-uncovered-path DP and discovery bounds.
-
-Acceptance:
-
-- Algorithm does not receive kappa or an optimal partition.
-- For remaining U vertices some fixed kappa-cover path contains at least U/kappa; prove termination and p=O(kappa log(V+2)), including kappa=1.
-- Assign each vertex once to a selected path subsequence; storage O(V+E), all scans/iterations charged.
-
-<a id="pb69"></a>
-
-## PB6.9 — Compose constructed-width all-query bound
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: resources, reviewer; assigned worker: unassigned.
-- Dependencies: PB6.8, PB6.7.
-- Proposed owner module: `research/Width.lean`.
-- Paper consumers: 4.7; risk: L.
-
-Feed the actually constructed partition to the streamed solver and close Corollary 4.7.
-
-Acceptance:
-
-- Discovery plus validation plus p(V+E), pR_star and q_b p log^2 V fit soft-O(kappa*S).
-- Peak working words stay soft-O(S), without storing every overlapping full path or all coordinate columns.
-- No assertion that minimum disjoint edge-path count equals reachability width.
-
-<a id="pb610"></a>
-
-## PB6.10 — Verify linear-time weighted cover selection
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: resources, reviewer; assigned worker: unassigned.
-- Dependencies: PB6.3, PB1.5, PB4.1.
-- Proposed owner module: `research/WeightedCover.lean`.
-- Paper consumers: 4.8; risk: L.
-
-Implement residual weights and one-pass primal-dual selection on the remaining pair graph.
-
-Acceptance:
-
-- Zero weights, ties, duplicate edges and empty graphs covered.
-- Maintain dual feasibility and selected-vertex tightness; prove cost(C)<=2 OPT_c without computing OPT_c.
-- O(V+q_b) time/words; bounded integer weights and sums fit logarithmic word width.
-
-<a id="pb611"></a>
-
-## PB6.11 — Compose weighted region optimum bound
-
-- Milestone: PB6; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: resources, reviewer; assigned worker: unassigned.
-- Dependencies: PB6.10, PB6.4.
-- Proposed owner module: `research/WeightedCover.lean`.
-- Paper consumers: 4.8; risk: L.
-
-Compute subtree costs, identify Sigma(C)=sum c(u), and close Corollary 4.8 under the same fixed independent trees.
-
-Acceptance:
-
-- Three bottom-up passes include weight discovery O(V+E).
-- For fixed B,R prove O((S+OPT_c)log(V+2)) time and O(S+Vlog(V+2)) space with all-query answers.
-- No exact optimum cover, global tree optimization, or free bipartite min-cut oracle is assumed.
-
-<a id="pb71"></a>
-
-## PB7.1 — Selectors, triangle and representation padding
-
-- Milestone: PB7; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reductions; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB8.2.
-- Proposed owner module: `research/Triangle.lean`.
-- Paper consumers: 5.1, 5.2; risk: L.
-
-Construct the shared-layer selector and triangle equivalence, with actual declared-label/incidence counts and padding.
-
-Acceptance:
-
-- Guard multiplicity and forced-target conventions exact.
-- Semantic equivalence, size and construction time exported separately.
-- No copied shared layers hiding nG overhead.
-
-<a id="pb72"></a>
-
-## PB7.2 — Clique windows and fixed polynomial ratios
-
-- Milestone: PB7; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reductions; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB7.1.
-- Proposed owner module: `research/Clique.lean`.
-- Paper consumers: 5.3; risk: L.
-
-Prove cyclic tuple consistency for k=2c+1, b>=a and all window-pair checks.
-
-Acceptance:
-
-- Every coordinate pair has cyclic distance <=c.
-- n=a^c+2, G=Theta(b^(c+1)) and construction time proved with fixed-c constants.
-- Integer rounding and every fixed gamma in (0,1) handled.
-
-<a id="pb73"></a>
-
-## PB7.3 — Copied-layer multiplicity tradeoff
-
-- Milestone: PB7; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reductions; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB7.1.
-- Proposed owner module: `research/Selectors.lean`.
-- Paper consumers: 5.7; risk: M.
-
-Prove mu=s-h and size Theta(2^h p^2) for p=2^s.
-
-Acceptance:
-
-- Endpoints h=0,h=s and s=0 are explicit.
-- No constant-mu superlinear lower bound inferred.
-
-<a id="pb74"></a>
-
-## PB7.4 — Directed-cycle reduction and essentiality
-
-- Milestone: PB7; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reductions; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB7.1.
-- Proposed owner module: `research/Cycles.lean`.
-- Paper consumers: 5.5, 5.6; risk: L.
-
-Build the layered cycle instance, preserve all incidences and prove its YES-essentiality/two-sided promise.
-
-Acceptance:
-
-- k-Cycle quantifier order is forall epsilon exists k, not one fixed k for every epsilon.
-- Unused-label and inaccessible padding is counted; NO instances remain in the promise.
-
-<a id="pb75"></a>
-
-## PB7.5 — Fix algorithm models and conditional transfers
-
-- Milestone: PB7; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: complexity; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB7.1, PB7.2, PB7.3, PB7.4, PB4.1.
-- Proposed owner module: `research/FineGrained.lean`.
-- Paper consumers: 5.1, 5.2, 5.3, 5.5, 5.6, 5.7, D.1, D.2; risk: L.
-
-Give exact deterministic/log-word-RAM and source-hypothesis contracts; prove reduction closure and exponent-transfer inequalities.
-
-Acceptance:
-
-- Combinatorial is not an unconstrained Boolean tag.
-- Conjectures are explicit hypotheses; proved construction inputs are not silently axiomatized.
-- Real asymptotic families, parameter promises and fixed constants preserve their quantifier order.
-
-<a id="pb76"></a>
-
-## PB7.6 — Balanced algebraic clique implication
-
-- Milestone: PB7; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: complexity; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB7.2, PB7.5.
-- Proposed owner module: `research/FineGrained.lean`.
-- Paper consumers: 5.4; risk: L.
-
-Prove the large-clique grouping, exponent slack and rounding under precisely the F=omega hypothesis.
-
-Acceptance:
-
-- Every fixed c>=2; no c=1 boundary claim.
-- Only deterministic conclusions unless randomized assumptions are independently supplied.
-
-<a id="pb81"></a>
-
-## PB8.1 — Guarded-path and linear OSR equivalence
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: adapters; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB1.1, PB0.2.
-- Proposed owner module: `research/Guarded.lean`.
-- Paper consumers: 2.1, 2.2; risk: L.
-
-Port the smallest B01 semantic cone, complete both explicit transformations, query counts and sensitivity equality.
-
-Acceptance:
-
-- Common forced deletion performed once.
-- Healthy-zero condition, root deletion and repeated target labels handled.
-- Linear operation counters are not called RAM time until their implementation bridge is proved.
-
-<a id="pb82"></a>
-
-## PB8.2 — Baseline detector, dual-Horn and blocked bitsets
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: adapters; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB8.1, PB4.1.
-- Proposed owner module: `research/Baselines.lean`.
-- Paper consumers: A.1, A.2; risk: L.
-
-Reuse audited Paper A detector ingredients and prove bitset block semantics and streaming storage.
-
-Acceptance:
-
-- Last partial word, unused labels and Q conventions exact.
-- Support masks are not incorrectly asserted nodewise truth on every forced-target input.
-- No all-block retention; no repeated scan hidden outside the bound.
-
-<a id="pb83"></a>
-
-## PB8.3 — Algebraic one-sided algorithm
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: algebra; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB8.1.
-- Proposed owner module: `research/Algebraic.lean`.
-- Paper consumers: A.3; risk: L.
-
-Prove path-generating matrix identities, deleted-vertex correction, randomized nonzero test and hybrid search/minimum cost.
-
-Acceptance:
-
-- Field size and total error bound over all terminal tests proved.
-- Matrix arithmetic cost and word/bit representation not conflated.
-- Algebraic matrix multiplication time requires a proved model interface, not only an identity.
-
-<a id="pb84"></a>
-
-## PB8.4 — Canonical summaries, shortcuts and equality queries
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: structural; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB2.2, PB1.4.
-- Proposed owner module: `research/Canonical.lean`.
-- Paper consumers: B.1, B.2, B.3; risk: L.
-
-Prove farthest-cut summary existence/uniqueness, same-vertex shortcut preservation and listed summary-equality reduction.
-
-Acceptance:
-
-- All failure sets of size <=2, including failed root and summary vertices.
-- Summary vertices may be outside the original port set.
-- Construction and streamed residual trees charged; summary discovery is not assumed near-linear.
-
-<a id="pb85"></a>
-
-## PB8.5 — Uniform capacity, Kraft and optimal budgets
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: selectors; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB2.1.
-- Proposed owner module: `research/SelectorCapacity.lean`.
-- Paper consumers: 5.8, C.1; risk: L.
-
-Prove/import the actual preserver/anti-isolation input, vertex splitting, private-tree amplification, Kraft converse and total incidence optimum.
-
-Acceptance:
-
-- Selectors may have cycles: do not apply a DAG-only theorem.
-- Until the external theorem is discharged, downstream results are explicitly conditional, not full formalization.
-- n=1, mu=0, zero budgets and non-power-of-two n covered; construction output size charged.
-
-<a id="pb86"></a>
-
-## PB8.6 — Shared Hitting Set reduction and construction cost
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: adapters; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB8.1, PB8.2, PB4.1.
-- Proposed owner module: `research/Applications.lean`.
-- Paper consumers: D.1, D.2; risk: L.
-
-Prove shared-U Hitting Set equivalence, exact incidence-size bounds and actual construction cost, before applying conditional algorithm-model transfers.
-
-Acceptance:
-
-- Empty requirements/candidates correct; shared U stored once.
-- Healthy-one falsification is distinct from the OSR path contract.
-- Explicit O_c(m log m) construction, not just semantic reduction.
-
-<a id="pb87"></a>
-
-## PB8.7 — Conditional Hitting Set and joint exponents
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: adapters; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB8.6, PB7.5, PB7.2.
-- Proposed owner module: `research/Applications.lean`.
-- Paper consumers: D.1, D.2; risk: L.
-
-Compose the fully charged Hitting Set and clique reductions under their separate literal hypotheses.
-
-Acceptance:
-
-- Preserve every epsilon, gamma and beta quantifier and size regime.
-- Match the O((n+q)G) upper bound using the same count conventions.
-
-<a id="pb88"></a>
-
-## PB8.8 — Physical and native-encoding application
-
-- Milestone: PB8; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: adapters; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB8.1, PB8.7, PB7.6, PB4.6, PB5.3, PB6.1, PB6.2, PB6.4, PB6.7, PB8.3, PB8.4, PB6.9, PB6.11.
-- Proposed owner module: `research/Applications.lean`.
-- Paper consumers: 6.1; risk: L.
-
-Compose the published Paper A fault-image and guarded-decision interfaces with Paper B algorithms/reductions and native-size accounting.
-
-Acceptance:
-
-- Source pins and selected Paper A declarations checked literally.
-- Supplied role annotations, one bus/one driver, native N=Theta(G), model lifting and physical witness output are separately charged.
-- No claim about arbitrary unannotated CNF or general 3-SAT.
-
-<a id="pb91"></a>
-
-## PB9.1 — Audit all-query statement fidelity and trust
-
-- Milestone: PB9; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reviewer; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB4.6.
-- Proposed owner module: `release-core/Audit.lean`.
-- Paper consumers: 3.2; risk: L.
-
-Compare the frozen v1.1 statement with every-index correctness, the same solver in resource declarations, and exact dependency/trust closure.
-
-Acceptance:
-
-- Correctness is per original index; time and space apply to the very same fixed vector program.
-- No sorryAx, native_decide trust extension, or project axiom in selected roots.
-- Paper all-size statement is not replaced by finite test evidence.
-
-<a id="pb92"></a>
-
-## PB9.2 — Clean replay, Comparator and negative controls
-
-- Milestone: PB9; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reviewer; reviewers: infrastructure; assigned worker: unassigned.
-- Dependencies: PB9.1.
-- Proposed owner module: `release-core/Audit.lean`.
-- Paper consumers: 3.2; risk: L.
-
-Build the immutable selected cone from a clean snapshot and run statement comparison and independent mandatory kernel rehearsals.
-
-Acceptance:
-
-- Positive and deliberately invalid comparator/control cases checked.
-- No stale oleans, missing manifest or invisible local dependency.
-- Source headers, licenses and all public theorem axioms audited.
-
-<a id="pb93"></a>
-
-## PB9.3 — Extension fidelity and exact coverage status
-
-- Milestone: PB9; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: reviewer; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB5.3, PB6.1, PB6.2, PB6.4, PB6.5, PB7.5, PB7.6, PB8.3, PB8.4, PB8.5, PB8.7, PB8.8, PB5.4, PB6.9, PB6.11.
-- Proposed owner module: `research/Audit.lean`.
-- Paper consumers: 2.1, 2.2, 3.1, 3.3, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.1, A.1, A.2, A.3, B.1, B.2, B.3, C.1, D.1, D.2, 4.7, 4.8; risk: L.
-
-Certify each additional paper claim only after its semantic, algorithmic and imported-input obligations close.
-
-Acceptance:
-
-- Never count Question 6.2 as a missing proof.
-- A supported partial release is distinguished from whole-paper coverage.
-- No registered Paper A declaration automatically counts as a Paper B theorem.
-
-<a id="pb94"></a>
-
-## PB9.4 — Prepare the selected release and manual registry packet
-
-- Milestone: PB9; status: **PLANNED**; proof status: NOT_YET_CERTIFIED.
-- Owner: coordinator; reviewers: to assign; assigned worker: unassigned.
-- Dependencies: PB9.2.
-- Proposed owner module: `release-core/formalization.yaml`.
-- Paper consumers: 3.2; risk: M.
-
-Freeze the narrow exact proof cone, provenance, license, declarations and user-controlled registration handoff.
-
-Acceptance:
-
-- No public push or registry state change without the applicable authorization.
-- Submission, kernel verification, registry review and registration have distinct statuses.
-- Adding 3.3 or other roots requires approved cone expansion and its own completed audit.
+- Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.
 

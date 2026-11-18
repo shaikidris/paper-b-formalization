@@ -1,0 +1,171 @@
+{
+  "status": "PROPOSED_NOT_IMPLEMENTED",
+  "note": "Only local imports shown. Standard imports must be pinned and audited. Task dependencies also include review gates and are not the Lean import graph.",
+  "first_roots": [
+    "release-core/Challenge.lean",
+    "release-core/Solution.lean",
+    "release-core/Audit.lean"
+  ],
+  "follow_on_additional_solution_imports": [
+    "release-core/PaperB/Interning.lean"
+  ],
+  "modules": [
+    {
+      "path": "release-core/Challenge.lean",
+      "local_imports": [],
+      "owner_role": "coordinator",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Spec.lean",
+      "local_imports": [],
+      "owner_role": "graph",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/CostModel.lean",
+      "local_imports": [],
+      "owner_role": "resources",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Normalize.lean",
+      "local_imports": [
+        "release-core/PaperB/Spec.lean",
+        "release-core/PaperB/CostModel.lean"
+      ],
+      "owner_role": "graph",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Primitives.lean",
+      "local_imports": [
+        "release-core/PaperB/Normalize.lean",
+        "release-core/PaperB/CostModel.lean"
+      ],
+      "owner_role": "resources",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Dominators.lean",
+      "local_imports": [
+        "release-core/PaperB/Spec.lean",
+        "release-core/PaperB/Normalize.lean",
+        "release-core/PaperB/Primitives.lean"
+      ],
+      "owner_role": "graph",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/SplitNetwork.lean",
+      "local_imports": [
+        "release-core/PaperB/Spec.lean",
+        "release-core/PaperB/Dominators.lean",
+        "release-core/PaperB/CostModel.lean"
+      ],
+      "owner_role": "kernel",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/BoundedFlow.lean",
+      "local_imports": [
+        "release-core/PaperB/SplitNetwork.lean",
+        "release-core/PaperB/Primitives.lean"
+      ],
+      "owner_role": "kernel",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/PathRanks.lean",
+      "local_imports": [
+        "release-core/PaperB/BoundedFlow.lean",
+        "release-core/PaperB/CostModel.lean"
+      ],
+      "owner_role": "kernel",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Kernel.lean",
+      "local_imports": [
+        "release-core/PaperB/Dominators.lean",
+        "release-core/PaperB/PathRanks.lean",
+        "release-core/PaperB/BoundedFlow.lean"
+      ],
+      "owner_role": "kernel",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Scheduler.lean",
+      "local_imports": [
+        "release-core/PaperB/Normalize.lean",
+        "release-core/PaperB/Primitives.lean",
+        "release-core/PaperB/CostModel.lean"
+      ],
+      "owner_role": "scheduler",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Amortization.lean",
+      "local_imports": [
+        "release-core/PaperB/Scheduler.lean",
+        "release-core/PaperB/Kernel.lean",
+        "release-core/PaperB/CostModel.lean"
+      ],
+      "owner_role": "resources",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Resources.lean",
+      "local_imports": [
+        "release-core/PaperB/Amortization.lean",
+        "release-core/PaperB/Dominators.lean"
+      ],
+      "owner_role": "resources",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/PaperB/Interning.lean",
+      "local_imports": [
+        "release-core/PaperB/Scheduler.lean",
+        "release-core/PaperB/Resources.lean",
+        "release-core/PaperB/Primitives.lean"
+      ],
+      "owner_role": "sharing",
+      "admission": "FOLLOW_ON_3_3",
+      "selected_consumer": "3.3"
+    },
+    {
+      "path": "release-core/Solution.lean",
+      "local_imports": [
+        "release-core/PaperB/Kernel.lean",
+        "release-core/PaperB/Scheduler.lean",
+        "release-core/PaperB/Resources.lean"
+      ],
+      "owner_role": "coordinator",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    },
+    {
+      "path": "release-core/Audit.lean",
+      "local_imports": [
+        "release-core/Solution.lean"
+      ],
+      "owner_role": "reviewer",
+      "admission": "FIRST_3_2",
+      "selected_consumer": "3.2"
+    }
+  ]
+}

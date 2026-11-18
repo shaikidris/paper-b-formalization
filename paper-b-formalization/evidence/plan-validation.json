@@ -1,74 +1,71 @@
 {
-  "checked_at": "2026-11-11T21:11:37.454059+00:00",
-  "scope": "Active v1.1 plan, dependency, coverage and provenance integrity; no Lean proof replay or publication.",
+  "date": "2026-11-18",
+  "scope": "v1.2 source, coverage, dependency and resource-contract planning controls.",
   "result": "PASS",
+  "active_article_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "summary": {
+    "result": "PASS",
+    "scope": "plan/source/coverage integrity only; no Lean proof replay",
+    "source": "Paper B 1.2-draft (unpublished draft; public base DOI 10.5281/zenodo.24142496)",
+    "milestones": 7,
+    "tasks": 25,
+    "task_status_counts": {
+      "DONE_PLAN": 1,
+      "PLANNED": 23,
+      "READY": 1
+    },
+    "paper_items": 10,
+    "proof_bearing_items": 9,
+    "open_questions": [
+      "6.2"
+    ],
+    "certified_new_roots": 0,
+    "selected_root_obligations": {
+      "OPEN": 9
+    },
+    "extension_obligations": {
+      "OPEN": 2
+    },
+    "assigned_workers": 0,
+    "dependency_ready": [
+      "EX0.2"
+    ],
+    "execution_status": "LEAN_IMPLEMENTATION_NOT_STARTED"
+  },
+  "module_graph": {
+    "planned_first_release_modules": 14,
+    "planned_unreachable_modules": 0,
+    "actual_proof_modules_created": 0
+  },
+  "consecutive_renders_identical": true,
+  "render_sha256": {
+    "COVERAGE.md": "0f713c2faca14e4812abdac8ac149937baa6142d6c76477366ab841c15923718",
+    "TASKS.md": "be73e1bb1d9e8fc5890f0e0e805fccedc33aa17e4576b7c9b42676361ca394a3",
+    "MILESTONES.md": "0b306585ea54b1896da2c0a1a1653f312aa729004a36745823a177e57175ff3d",
+    "DASHBOARD.md": "8a70656093195374d78d16768cf542066ac3b5bb4322fce9a30cef7fef41a6b4"
+  },
+  "archived_v11_ledgers_byte_identical": 6,
   "runs": [
     {
-      "cwd": "paper-b-formalization",
-      "command": [
+      "argv": [
         "python3",
         "-B",
         "plan.py",
         "validate"
       ],
       "exit_code": 0,
-      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"plan/source/coverage integrity only; no Lean proof replay\",\n  \"source\": \"Paper B 1.1-draft (unpublished draft; public base DOI 10.5281/zenodo.24142496)\",\n  \"milestones\": 10,\n  \"tasks\": 60,\n  \"task_status_counts\": {\n    \"DONE_PLAN\": 2,\n    \"PLANNED\": 57,\n    \"READY\": 1\n  },\n  \"paper_items\": 32,\n  \"proof_bearing_items\": 31,\n  \"open_questions\": [\n    \"6.2\"\n  ],\n  \"certified_new_roots\": 0,\n  \"selected_root_obligations\": {\n    \"OPEN\": 12\n  },\n  \"extension_obligations\": {\n    \"OPEN\": 4\n  },\n  \"assigned_workers\": 0,\n  \"dependency_ready\": [\n    \"PB0.3\"\n  ],\n  \"execution_status\": \"NOT_STARTED\"\n}\n",
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"plan/source/coverage integrity only; no Lean proof replay\",\n  \"source\": \"Paper B 1.2-draft (unpublished draft; public base DOI 10.5281/zenodo.24142496)\",\n  \"milestones\": 7,\n  \"tasks\": 25,\n  \"task_status_counts\": {\n    \"DONE_PLAN\": 1,\n    \"PLANNED\": 23,\n    \"READY\": 1\n  },\n  \"paper_items\": 10,\n  \"proof_bearing_items\": 9,\n  \"open_questions\": [\n    \"6.2\"\n  ],\n  \"certified_new_roots\": 0,\n  \"selected_root_obligations\": {\n    \"OPEN\": 9\n  },\n  \"extension_obligations\": {\n    \"OPEN\": 2\n  },\n  \"assigned_workers\": 0,\n  \"dependency_ready\": [\n    \"EX0.2\"\n  ],\n  \"execution_status\": \"LEAN_IMPLEMENTATION_NOT_STARTED\"\n}\n",
       "stderr": ""
     },
     {
-      "cwd": "paper-b-formalization",
-      "command": [
+      "argv": [
         "python3",
         "-B",
         "test_plan.py"
       ],
       "exit_code": 0,
       "stdout": "",
-      "stderr": "test_challenge_cannot_import_project (__main__.PlanControls.test_challenge_cannot_import_project) ... ok\ntest_dependency_cycle (__main__.PlanControls.test_dependency_cycle) ... ok\ntest_literal_statement_not_just_id (__main__.PlanControls.test_literal_statement_not_just_id) ... ok\ntest_missing_new_corollary (__main__.PlanControls.test_missing_new_corollary) ... ok\ntest_module_import_cycle (__main__.PlanControls.test_module_import_cycle) ... ok\ntest_one_writer_rule (__main__.PlanControls.test_one_writer_rule) ... ok\ntest_open_question_not_a_proof (__main__.PlanControls.test_open_question_not_a_proof) ... ok\ntest_premature_ready (__main__.PlanControls.test_premature_ready) ... ok\ntest_root_count_cannot_be_inflated (__main__.PlanControls.test_root_count_cannot_be_inflated) ... ok\ntest_tracker_active_source_identity (__main__.PlanControls.test_tracker_active_source_identity) ... ok\ntest_uncovered_statement (__main__.PlanControls.test_uncovered_statement) ... ok\ntest_unknown_dependency (__main__.PlanControls.test_unknown_dependency) ... ok\ntest_unreachable_release_module (__main__.PlanControls.test_unreachable_release_module) ... ok\ntest_unsupported_extension_closure (__main__.PlanControls.test_unsupported_extension_closure) ... ok\ntest_valid_snapshot (__main__.PlanControls.test_valid_snapshot) ... ok\ntest_verified_label_without_evidence (__main__.PlanControls.test_verified_label_without_evidence) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.028s\n\nOK\n"
+      "stderr": "test_certification_cannot_bypass_root_obligations (__main__.PlanControls.test_certification_cannot_bypass_root_obligations) ... ok\ntest_challenge_cannot_import_project (__main__.PlanControls.test_challenge_cannot_import_project) ... ok\ntest_deferred_proof_cannot_use_corollary_proof (__main__.PlanControls.test_deferred_proof_cannot_use_corollary_proof) ... ok\ntest_dependency_cycle (__main__.PlanControls.test_dependency_cycle) ... ok\ntest_duplicate_task_id (__main__.PlanControls.test_duplicate_task_id) ... ok\ntest_literal_statement_not_just_id (__main__.PlanControls.test_literal_statement_not_just_id) ... ok\ntest_missing_new_corollary (__main__.PlanControls.test_missing_new_corollary) ... ok\ntest_module_import_cycle (__main__.PlanControls.test_module_import_cycle) ... ok\ntest_obligation_must_have_the_right_consumer (__main__.PlanControls.test_obligation_must_have_the_right_consumer) ... ok\ntest_one_writer_rule (__main__.PlanControls.test_one_writer_rule) ... ok\ntest_open_question_has_no_proof_digest (__main__.PlanControls.test_open_question_has_no_proof_digest) ... ok\ntest_open_question_not_a_proof (__main__.PlanControls.test_open_question_not_a_proof) ... ok\ntest_premature_ready (__main__.PlanControls.test_premature_ready) ... ok\ntest_proof_cannot_cross_another_statement (__main__.PlanControls.test_proof_cannot_cross_another_statement) ... ok\ntest_proof_marker_must_be_unique (__main__.PlanControls.test_proof_marker_must_be_unique) ... ok\ntest_root_count_cannot_be_inflated (__main__.PlanControls.test_root_count_cannot_be_inflated) ... ok\ntest_threshold_is_no_longer_a_selected_root (__main__.PlanControls.test_threshold_is_no_longer_a_selected_root) ... ok\ntest_tracker_active_source_identity (__main__.PlanControls.test_tracker_active_source_identity) ... ok\ntest_uncovered_statement (__main__.PlanControls.test_uncovered_statement) ... ok\ntest_unknown_dependency (__main__.PlanControls.test_unknown_dependency) ... ok\ntest_unreachable_release_module (__main__.PlanControls.test_unreachable_release_module) ... ok\ntest_unsupported_extension_closure (__main__.PlanControls.test_unsupported_extension_closure) ... ok\ntest_valid_snapshot (__main__.PlanControls.test_valid_snapshot) ... ok\ntest_verified_label_without_evidence (__main__.PlanControls.test_verified_label_without_evidence) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.021s\n\nOK\n"
     }
-  ],
-  "negative_control_summary": {
-    "total_tests": 16,
-    "valid_controls": 1,
-    "rejection_controls": 15,
-    "implementation": "Actual validate_records/validate_files/validate_module_graph functions used by plan.py."
-  },
-  "source_code": [
-    {
-      "path": "plan.py",
-      "sha256": "ead7e412d3750d0102899c8b61574f6c9be5fe430a66614ced24c3d56260a618"
-    },
-    {
-      "path": "test_plan.py",
-      "sha256": "c9c2905d0f1da1e6be3b8b849c7d7ef1567453ba1012959c074ff97d8443bec1"
-    },
-    {
-      "path": "tasks.json",
-      "sha256": "415800d0a210397d915cd5552a39454752c84d2e57adaf228f431fdc9e8e3580"
-    },
-    {
-      "path": "coverage.json",
-      "sha256": "90c143055c10a45e70357d5e11e5f3eda37feeddbfb1b1032bbaa6a83c1dfd96"
-    },
-    {
-      "path": "module-graph.json",
-      "sha256": "5f3f41b624f9eb601d869e21b0e70c627e55ae935140bcef5373a2f95ac1947c"
-    },
-    {
-      "path": "obligations.json",
-      "sha256": "f75ee1f8ce135951cca82f632e981f1d05e8544f2a80aab20890559e1a4ee50a"
-    },
-    {
-      "path": "reuse-audit.json",
-      "sha256": "8485b0290c9ecc4c261890212d98d711174a04eb9f820ec4379f543605c3d49e"
-    },
-    {
-      "path": "sources/source-lock.json",
-      "sha256": "0263226cc677df26f1c6caaf6627c8e92f83cdb429d39dbddc9d06618319c63f"
-    }
-  ],
-  "new_lean_proof_modules": 0,
-  "new_paper_b_roots_certified": 0,
-  "primary_obligations_open": 12,
-  "extension_obligations_open": 4
+  ]
 }
