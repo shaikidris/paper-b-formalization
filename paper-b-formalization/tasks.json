@@ -515,9 +515,10 @@
         "evidence/ex22-unattended/native-swarm-jump-foundation.json",
         "evidence/ex22-unattended/native-swarm-jump-invariant.json",
         "evidence/ex22-unattended/native-swarm-jump-traversal.json",
-        "evidence/ex22-unattended/native-swarm-jump-move-bound.json"
+        "evidence/ex22-unattended/native-swarm-jump-move-bound.json",
+        "evidence/ex22-unattended/native-swarm-word-memory.json"
       ],
-      "progress": "Lean verified unique ancestor traversal, at most 3 ceil(log2(n+2)) moves, record-operation transcript bounds and field capacities. Physical word-operation correspondence remains conditional on EX0.3.",
+      "progress": "Lean verified the growing-tree invariant, unique depth-target traversal, the logarithmic move bound, and the array-backed jump implementation under a preallocated word layout. A leaf insertion uses 14 word accesses. The traversal and ancestry test have explicit logarithmic word-read bounds. The full EX0.3 package and end-to-end statement audit remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
@@ -529,7 +530,13 @@
           "traversal": "BUILT",
           "traversal_post": 19,
           "move_bound": "BUILT",
-          "move_bound_post": 24
+          "move_bound_post": 24,
+          "word_memory": "BUILT",
+          "word_memory_posts": [
+            31,
+            34
+          ],
+          "applied_model": "gemini-4-neon-medium"
         }
       }
     },
@@ -563,14 +570,23 @@
       "evidence": [
         "evidence/ex22-unattended/native-swarm-charging.json"
       ],
-      "progress": "Lean verified the interface-relative O((n_H+m_H)L²) charging theorem for specified preprocessing and dictionary budgets, per-head probe limits, degree sums, and per-probe work. The actual constructor, proof that its execution meets these hypotheses, and peak and retained space bounds remain open.",
+      "progress": "Lean verified the conditional charging theorem. The interval candidate from swarm post 33 is saved with Lean diagnostics and requires repairs. The executable topological constructor, dictionary and index operations, and full peak and retained space accounting are pending. Antigravity quota interrupted the switch to Neon Medium on the same swarm.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
           "model": "gemini-4-carbon-medium",
           "contract_post": 14,
           "charging": "BUILT",
-          "worker_post": 17
+          "worker_post": 17,
+          "switch_requested": "gemini-4-neon-medium",
+          "models_at_quota_block": {
+            "coordinator": "gemini-4-neon-medium",
+            "forest-build": "gemini-4-carbon-medium",
+            "membership": "gemini-4-neon-medium",
+            "nesting": "gemini-4-carbon-medium"
+          },
+          "status": "WAITING_FOR_QUOTA",
+          "intervals_post": 33
         }
       }
     },

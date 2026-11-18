@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2786,
-      "sha256": "6f8883e00ff83069072803557288d1bd7f94d5ab4f4105031ed44c4715b35d73"
+      "bytes": 2994,
+      "sha256": "328b551714f705a813a349b3997e40b5115399830e4cb1c3ebbe644f6b3219af"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 23893,
-      "sha256": "118d69f94136a4180e082db81db87ca0e62c3113b5f7fd4265c6c0c955b6c288"
+      "bytes": 24215,
+      "sha256": "e6dc8a718fa88486aa0192a5a77ec1f28d28906ae4321af6c2a08ba9ece82361"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 10732,
-      "sha256": "cb4d1d49be38577a98108dc25940101f17957678b9a32063e126454fae78b57d"
+      "bytes": 11967,
+      "sha256": "617911dcdb17fa77ce8a670a7e0f2dee40deac0a18108b220da9c6f466758246"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -252,6 +252,11 @@
       "sha256": "2991c5221df4c81d8113a4765a700552a2689df76a5fddf0ddf975ac172777ab"
     },
     {
+      "path": "evidence/ex22-unattended/native-swarm-word-memory.json",
+      "bytes": 3562,
+      "sha256": "89e473e095aa99e25d86958da34d373842859792995cc0dab6544ff477a73832"
+    },
+    {
       "path": "evidence/exit-transfer-nested/build.txt",
       "bytes": 670,
       "sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599"
@@ -323,8 +328,8 @@
     },
     {
       "path": "release-core/PaperB/Jumps.lean",
-      "bytes": 88274,
-      "sha256": "38dbf0a43ec2b8bc885553f2398d7133f91f832a82175945a08d82ae34457b74"
+      "bytes": 131997,
+      "sha256": "340d4e7dc93569424a0440b642d424da0443dcc973ff40aa981da43cc81e4c68"
     },
     {
       "path": "release-core/PaperB/Spec.lean",
@@ -443,8 +448,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 36352,
-      "sha256": "556b55c9b9c9a4ee0cc3da6ec2bd262cc00dd920e6fa8bcb4b0019bd9766c7b7"
+      "bytes": 37168,
+      "sha256": "c1f4cd4d7e9e275d0410ba4f194ca571fbdc40b71fe43aae60dead458e56995f"
     },
     {
       "path": "test_plan.py",

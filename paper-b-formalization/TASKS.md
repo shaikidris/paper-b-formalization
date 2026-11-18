@@ -217,9 +217,9 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified unique ancestor traversal, at most 3 ceil(log2(n+2)) moves, record-operation transcript bounds and field capacities. Physical word-operation correspondence remains conditional on EX0.3.
+Lean verified the growing-tree invariant, unique depth-target traversal, the logarithmic move bound, and the array-backed jump implementation under a preallocated word layout. A leaf insertion uses 14 word accesses. The traversal and ancestry test have explicit logarithmic word-read bounds. The full EX0.3 package and end-to-end statement audit remain open.
 
-Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json), [evidence/ex22-unattended/native-swarm-jump-move-bound.json](evidence/ex22-unattended/native-swarm-jump-move-bound.json).
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json), [evidence/ex22-unattended/native-swarm-jump-move-bound.json](evidence/ex22-unattended/native-swarm-jump-move-bound.json), [evidence/ex22-unattended/native-swarm-word-memory.json](evidence/ex22-unattended/native-swarm-word-memory.json).
 
 <a id="ex24"></a>
 
@@ -238,7 +238,7 @@ Acceptance:
 - For v1.3, prove per-quotient O((n_H+m_H)L²) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.
 - Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified the interface-relative O((n_H+m_H)L²) charging theorem for specified preprocessing and dictionary budgets, per-head probe limits, degree sums, and per-probe work. The actual constructor, proof that its execution meets these hypotheses, and peak and retained space bounds remain open.
+Lean verified the conditional charging theorem. The interval candidate from swarm post 33 is saved with Lean diagnostics and requires repairs. The executable topological constructor, dictionary and index operations, and full peak and retained space accounting are pending. Antigravity quota interrupted the switch to Neon Medium on the same swarm.
 
 Planning/evidence references: [evidence/ex22-unattended/native-swarm-charging.json](evidence/ex22-unattended/native-swarm-charging.json).
 

@@ -1,0 +1,33 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "checkpoints": [
+    {
+      "post": 31,
+      "model": "gemini-4-carbon-medium",
+      "sha256": "9e7044940ac18fc37b5dcaacbecdd2138add03c890b2cdc3652e0346a128c0a2"
+    },
+    {
+      "post": 34,
+      "model": "gemini-4-neon-medium",
+      "sha256": "1d36779dec4ae2f8c03120246656104232408140d0c5d788cc704c30657c952a"
+    }
+  ],
+  "declarations": [
+    "PaperB.jumpWordRamBridge_endToEnd",
+    "PaperB.ancestorAtDepthWords_spec",
+    "PaperB.execRecordOpsWords_appendLeafOps"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "340d4e7dc93569424a0440b642d424da0443dcc973ff40aa981da43cc81e4c68",
+  "check_output": "PaperB.jumpWordRamBridge_endToEnd {R : PaperB.JumpWordRegion} {F : PaperB.JumpForest} {mem : Array Nat}\n  (hLay : PaperB.JumpWordLayout R F mem) (hRoom : F.numInserted < R.maxNodes) {p a u : Nat} (hp : p < F.size)\n  (ha : a < F.size) (hu : u < F.size) (targetDepth : Nat) :\n  have B := PaperB.mkJumpWordRamBridge R;\n  have L := PaperB.ceilLog2 (B.maxNodes + 2);\n  PaperB.JumpWordLayout R (F.appendLeaf p) (PaperB.appendLeafWords R mem p).fst ∧\n    (PaperB.appendLeafWords R mem p).snd.length = 3 * B.costPerRead + B.costPerAppend ∧\n      R.endAddr = R.baseAddr + B.headerWords + B.wordsPerRecord * (B.maxNodes + 1) ∧\n        (PaperB.ancestorAtDepthWords R mem u targetDepth).fst = F.ancestorAtDepth u targetDepth ∧\n          (PaperB.ancestorAtDepthWords R mem u targetDepth).snd.length ≤ (6 * L + 1) * B.costPerRead ∧\n            (PaperB.decideAncestorWords R mem a u).fst = F.decideAncestor a u ∧\n              (PaperB.decideAncestorWords R mem a u).snd.length ≤ 1 + (6 * L + 1) * B.costPerRead\n'PaperB.jumpWordRamBridge_endToEnd' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaperB.ancestorAtDepthWords_spec {R : PaperB.JumpWordRegion} {F : PaperB.JumpForest} {mem : Array Nat}\n  (hLay : PaperB.JumpWordLayout R F mem) {u n L : Nat} (hu : u < F.size) (hInserted : F.numInserted ≤ n)\n  (hPow : n + 2 ≤ 2 ^ L) (targetDepth : Nat) :\n  (PaperB.ancestorAtDepthWords R mem u targetDepth).fst = F.ancestorAtDepth u targetDepth ∧\n    (PaperB.ancestorAtDepthWords R mem u targetDepth).snd.length = 3 * (F.traceReadOps u targetDepth).length ∧\n      (PaperB.ancestorAtDepthWords R mem u targetDepth).snd.length ≤ 1 + 3 * (6 * L + 1) ∧\n        PaperB.AllAccessesInRegion R.baseAddr R.endAddr (PaperB.ancestorAtDepthWords R mem u targetDepth).snd\n'PaperB.ancestorAtDepthWords_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaperB.execRecordOpsWords_appendLeafOps {R : PaperB.JumpWordRegion} {F : PaperB.JumpForest} {mem : Array Nat}\n  (hLay : PaperB.JumpWordLayout R F mem) {p : Nat} (hp : p < F.size) :\n  (PaperB.execRecordOpsWords R mem (F.appendLeafOps p)).fst = (PaperB.appendLeafWords R mem p).fst ∧\n    (PaperB.execRecordOpsWords R mem (F.appendLeafOps p)).snd.length = 14\n'PaperB.execRecordOpsWords_appendLeafOps' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "repairs": [
+    "Exposed address expressions and rewrote append associativity in the access-region proofs.",
+    "Reduced the capacity expression before arithmetic normalization."
+  ],
+  "scope": "Concrete array-backed refinement for the jump kernel under a preallocated, in-bounds word layout. Bounds are primitive word-access counts. The forest constructor, static ancestry index, and full word-machine package are separate."
+}

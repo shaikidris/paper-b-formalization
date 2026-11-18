@@ -2191,4 +2191,951 @@ theorem ram_cost_of_bridge (B : WordRamRecordBridge)
   exact ⟨hFields, appendLeafOps_length F p, retained_records_eq hF,
     nat_mul_le_mul_right2 B.costPerRead hReadLen⟩
 
+/-! ### `EX0.3` Concrete `Array Nat` Word-Address / Read / Write Realization (Part 1/2:
+    Flat Region Layout, `initWords`, `readRecordWords`, `appendLeafWords`, and Frame) -/
+
+private theorem dite_true {α : Type} {P : Prop} [inst : Decidable P]
+    (h : P) (t : P → α) (e : ¬ P → α) :
+    (if hp : P then t hp else e hp) = t h := by
+  cases inst with
+  | isFalse hNot => exact False.elim (hNot h)
+  | isTrue _ => rfl
+
+private theorem dite_false {α : Type} {P : Prop} [inst : Decidable P]
+    (h : ¬ P) (t : P → α) (e : ¬ P → α) :
+    (if hp : P then t hp else e hp) = e h := by
+  cases inst with
+  | isFalse _ => rfl
+  | isTrue hYes => exact False.elim (h hYes)
+
+private theorem jumpRecord_ext {r₁ r₂ : JumpRecord}
+    (hp : r₁.parent = r₂.parent) (hd : r₁.depth = r₂.depth) (hj : r₁.jump = r₂.jump) :
+    r₁ = r₂ := by
+  cases r₁ with
+  | mk p₁ d₁ j₁ =>
+      cases r₂ with
+      | mk p₂ d₂ j₂ =>
+          dsimp only at hp hd hj
+          rw [hp, hd, hj]
+
+private theorem array_size_set (mem : Array Nat) (addr val : Nat)
+    (h : addr < mem.size) :
+    (mem.set addr val h).size = mem.size := by
+  simp
+
+private theorem array_getElem_set_self (mem : Array Nat) (addr val : Nat)
+    (h : addr < mem.size) (h' : addr < (mem.set addr val h).size) :
+    (mem.set addr val h)[addr]'h' = val := by
+  simp
+
+private theorem array_getElem_set_ne (mem : Array Nat) (addr val j : Nat)
+    (h : addr < mem.size) (hj : j < mem.size)
+    (hj' : j < (mem.set addr val h).size) (hne : addr ≠ j) :
+    (mem.set addr val h)[j]'hj' = mem[j]'hj := by
+  simp [Array.getElem_set, hne]
+
+/-- Concrete word-memory read on `Array Nat` (in-bounds `mem[addr]`, `0` out-of-bounds). -/
+def readWord (mem : Array Nat) (addr : Nat) : Nat :=
+  if h : addr < mem.size then mem[addr]'h else 0
+
+/-- Concrete word-memory write on `Array Nat` (in-bounds `mem.set addr val h`). -/
+def writeWord (mem : Array Nat) (addr val : Nat) : Array Nat :=
+  if h : addr < mem.size then mem.set addr val h else mem
+
+theorem readWord_of_lt {mem : Array Nat} {addr : Nat} (h : addr < mem.size) :
+    readWord mem addr = mem[addr]'h :=
+  dite_true h _ _
+
+theorem readWord_of_ge {mem : Array Nat} {addr : Nat} (h : ¬ addr < mem.size) :
+    readWord mem addr = 0 :=
+  dite_false h _ _
+
+theorem writeWord_of_lt {mem : Array Nat} {addr val : Nat} (h : addr < mem.size) :
+    writeWord mem addr val = mem.set addr val h :=
+  dite_true h _ _
+
+theorem writeWord_of_ge {mem : Array Nat} {addr val : Nat} (h : ¬ addr < mem.size) :
+    writeWord mem addr val = mem :=
+  dite_false h _ _
+
+theorem writeWord_size (mem : Array Nat) (addr val : Nat) :
+    (writeWord mem addr val).size = mem.size := by
+  if h : addr < mem.size then
+    rw [writeWord_of_lt h]
+    exact array_size_set mem addr val h
+  else
+    rw [writeWord_of_ge h]
+
+theorem readWord_writeWord_self {mem : Array Nat} {addr val : Nat}
+    (h : addr < mem.size) :
+    readWord (writeWord mem addr val) addr = val := by
+  rw [writeWord_of_lt h]
+  have h' : addr < (mem.set addr val h).size := by
+    have hSz := array_size_set mem addr val h
+    omega
+  rw [readWord_of_lt h']
+  exact array_getElem_set_self mem addr val h h'
+
+theorem readWord_writeWord_ne (mem : Array Nat) (addr val j : Nat) (hne : addr ≠ j) :
+    readWord (writeWord mem addr val) j = readWord mem j := by
+  if h : addr < mem.size then
+    rw [writeWord_of_lt h]
+    if hj : j < mem.size then
+      have hj' : j < (mem.set addr val h).size := by
+        have hSz := array_size_set mem addr val h
+        omega
+      rw [readWord_of_lt hj', readWord_of_lt hj]
+      exact array_getElem_set_ne mem addr val j h hj hj' hne
+    else
+      have hj' : ¬ j < (mem.set addr val h).size := by
+        have hSz := array_size_set mem addr val h
+        omega
+      rw [readWord_of_ge hj', readWord_of_ge hj]
+  else
+    rw [writeWord_of_ge h]
+
+theorem getElem_writeWord_ne {mem : Array Nat} {addr val j : Nat}
+    (hj : j < mem.size) (hj' : j < (writeWord mem addr val).size) (hne : addr ≠ j) :
+    (writeWord mem addr val)[j]'hj' = mem[j]'hj := by
+  rw [← readWord_of_lt hj', ← readWord_of_lt hj]
+  exact readWord_writeWord_ne mem addr val j hne
+
+/-- Single word-level access event in flat `Array Nat` memory. -/
+inductive WordAccess where
+  | read (addr : Nat)
+  | write (addr val : Nat)
+  deriving DecidableEq, Repr
+
+def WordAccess.addr : WordAccess → Nat
+  | WordAccess.read a => a
+  | WordAccess.write a _ => a
+
+def AllAccessesInRegion (lo hi : Nat) : List WordAccess → Prop
+  | [] => True
+  | op :: ops => (lo ≤ op.addr ∧ op.addr < hi) ∧ AllAccessesInRegion lo hi ops
+
+theorem allAccessesInRegion_append {lo hi : Nat} {xs ys : List WordAccess}
+    (hx : AllAccessesInRegion lo hi xs) (hy : AllAccessesInRegion lo hi ys) :
+    AllAccessesInRegion lo hi (xs ++ ys) := by
+  induction xs with
+  | nil => exact hy
+  | cons _ _ ih => exact ⟨hx.1, ih hx.2⟩
+
+/-- `W`-bit Word-RAM fit predicate: `mem.size ≤ 2 ^ W` and every cell `< 2 ^ W`. -/
+structure WordMemFit (W : Nat) (mem : Array Nat) : Prop where
+  size_le : mem.size ≤ 2 ^ W
+  word_lt : ∀ (i : Nat) (hi : i < mem.size), mem[i]'hi < 2 ^ W
+
+theorem WordMemFit.writeWord {W : Nat} {mem : Array Nat}
+    (fit : WordMemFit W mem) {addr val : Nat}
+    (_hAddr : addr < mem.size) (hVal : val < 2 ^ W) :
+    WordMemFit W (PaperB.writeWord mem addr val) := by
+  refine ⟨?_, ?_⟩
+  · rw [writeWord_size]
+    exact fit.size_le
+  · intro i hi'
+    have hi : i < mem.size := by
+      have hSz := writeWord_size mem addr val
+      omega
+    rw [← readWord_of_lt hi']
+    if hEq : addr = i then
+      subst hEq
+      rw [readWord_writeWord_self hi]
+      exact hVal
+    else
+      rw [readWord_writeWord_ne mem addr val i hEq, readWord_of_lt hi]
+      exact fit.word_lt i hi
+
+/-- Reserved flat word region `[baseAddr, baseAddr + 1 + 3 * (maxNodes + 1))` for a
+    `JumpForest` of capacity `maxNodes` (`baseAddr` stores `size`; slot `u` occupies
+    `baseAddr + 1 + 3 * u + {0, 1, 2}` for `parent`, `depth`, `jump`). -/
+structure JumpWordRegion where
+  W : Nat
+  baseAddr : Nat
+  maxNodes : Nat
+  wordCapacity : maxNodes + 2 ≤ 2 ^ W
+
+namespace JumpWordRegion
+
+def endAddr (R : JumpWordRegion) : Nat :=
+  R.baseAddr + 1 + 3 * (R.maxNodes + 1)
+
+def slotAddr (R : JumpWordRegion) (u : Nat) : Nat :=
+  R.baseAddr + 1 + 3 * u
+
+def parentAddr (R : JumpWordRegion) (u : Nat) : Nat :=
+  R.slotAddr u
+
+def depthAddr (R : JumpWordRegion) (u : Nat) : Nat :=
+  R.slotAddr u + 1
+
+def jumpAddr (R : JumpWordRegion) (u : Nat) : Nat :=
+  R.slotAddr u + 2
+
+theorem slot_addrs_inRegion (R : JumpWordRegion) {u : Nat} (hu : u ≤ R.maxNodes) :
+    R.baseAddr < R.parentAddr u ∧
+      R.parentAddr u < R.depthAddr u ∧
+      R.depthAddr u < R.jumpAddr u ∧
+      R.jumpAddr u < R.endAddr := by
+  unfold parentAddr depthAddr jumpAddr slotAddr endAddr
+  omega
+
+end JumpWordRegion
+
+/-- Representation invariant linking an abstract `F : JumpForest` to flat word memory `mem`. -/
+structure JumpWordLayout (R : JumpWordRegion) (F : JumpForest) (mem : Array Nat) : Prop where
+  valid : ValidJumpForest F
+  inserted_le : F.numInserted ≤ R.maxNodes
+  region_inBounds : R.endAddr ≤ mem.size
+  mem_fit : WordMemFit R.W mem
+  size_word : readWord mem R.baseAddr = F.size
+  slot_parent : ∀ u : Nat, u < F.size → readWord mem (R.parentAddr u) = F.parentOf u
+  slot_depth : ∀ u : Nat, u < F.size → readWord mem (R.depthAddr u) = F.depthOf u
+  slot_jump : ∀ u : Nat, u < F.size → readWord mem (R.jumpAddr u) = F.jumpOf u
+
+/-- Write the three fields `(parent, depth, jump)` of `rec` at slot `u` (`3` word writes). -/
+def writeRecordWords (R : JumpWordRegion) (mem : Array Nat)
+    (u : Nat) (rec : JumpRecord) : Array Nat × List WordAccess :=
+  let aP := R.parentAddr u
+  let aD := R.depthAddr u
+  let aJ := R.jumpAddr u
+  let mem1 := writeWord mem aP rec.parent
+  let mem2 := writeWord mem1 aD rec.depth
+  let mem3 := writeWord mem2 aJ rec.jump
+  (mem3, [WordAccess.write aP rec.parent, WordAccess.write aD rec.depth,
+    WordAccess.write aJ rec.jump])
+
+theorem writeRecordWords_size (R : JumpWordRegion) (mem : Array Nat)
+    (u : Nat) (rec : JumpRecord) :
+    (writeRecordWords R mem u rec).1.size = mem.size := by
+  unfold writeRecordWords
+  dsimp only
+  rw [writeWord_size, writeWord_size, writeWord_size]
+
+theorem writeRecordWords_fit {R : JumpWordRegion} {mem : Array Nat}
+    (fit : WordMemFit R.W mem) (hReg : R.endAddr ≤ mem.size)
+    {u : Nat} (hu : u ≤ R.maxNodes) {rec : JumpRecord}
+    (hP : rec.parent < 2 ^ R.W) (hD : rec.depth < 2 ^ R.W) (hJ : rec.jump < 2 ^ R.W) :
+    WordMemFit R.W (writeRecordWords R mem u rec).1 := by
+  have hB := R.slot_addrs_inRegion hu
+  unfold writeRecordWords
+  dsimp only
+  have fit1 : WordMemFit R.W (writeWord mem (R.parentAddr u) rec.parent) :=
+    fit.writeWord (by omega) hP
+  have hSz1 : (writeWord mem (R.parentAddr u) rec.parent).size = mem.size :=
+    writeWord_size _ _ _
+  have fit2 : WordMemFit R.W
+      (writeWord (writeWord mem (R.parentAddr u) rec.parent) (R.depthAddr u) rec.depth) :=
+    fit1.writeWord (by omega) hD
+  have hSz2 :
+      (writeWord (writeWord mem (R.parentAddr u) rec.parent) (R.depthAddr u) rec.depth).size =
+        mem.size := by
+    rw [writeWord_size, hSz1]
+  exact fit2.writeWord (by omega) hJ
+
+theorem writeRecordWords_read_self {R : JumpWordRegion} {mem : Array Nat}
+    (hReg : R.endAddr ≤ mem.size) {u : Nat} (hu : u ≤ R.maxNodes) (rec : JumpRecord) :
+    readWord (writeRecordWords R mem u rec).1 (R.parentAddr u) = rec.parent ∧
+      readWord (writeRecordWords R mem u rec).1 (R.depthAddr u) = rec.depth ∧
+      readWord (writeRecordWords R mem u rec).1 (R.jumpAddr u) = rec.jump := by
+  have hB := R.slot_addrs_inRegion hu
+  unfold writeRecordWords
+  dsimp only
+  have hSz1 : (writeWord mem (R.parentAddr u) rec.parent).size = mem.size :=
+    writeWord_size _ _ _
+  have hSz2 :
+      (writeWord (writeWord mem (R.parentAddr u) rec.parent) (R.depthAddr u) rec.depth).size =
+        mem.size := by
+    rw [writeWord_size, hSz1]
+  refine ⟨?_, ?_, ?_⟩
+  · rw [readWord_writeWord_ne _ _ _ _ (by omega),
+      readWord_writeWord_ne _ _ _ _ (by omega),
+      readWord_writeWord_self (by omega)]
+  · rw [readWord_writeWord_ne _ _ _ _ (by omega),
+      readWord_writeWord_self (by omega)]
+  · exact readWord_writeWord_self (by omega)
+
+theorem writeRecordWords_read_other (R : JumpWordRegion) (mem : Array Nat)
+    (u : Nat) (rec : JumpRecord) {addr : Nat}
+    (h1 : R.parentAddr u ≠ addr) (h2 : R.depthAddr u ≠ addr) (h3 : R.jumpAddr u ≠ addr) :
+    readWord (writeRecordWords R mem u rec).1 addr = readWord mem addr := by
+  unfold writeRecordWords
+  dsimp only
+  rw [readWord_writeWord_ne _ _ _ _ h3,
+    readWord_writeWord_ne _ _ _ _ h2,
+    readWord_writeWord_ne _ _ _ _ h1]
+
+theorem writeRecordWords_inRegion (R : JumpWordRegion) (mem : Array Nat)
+    {u : Nat} (hu : u ≤ R.maxNodes) (rec : JumpRecord) :
+    AllAccessesInRegion R.baseAddr R.endAddr (writeRecordWords R mem u rec).2 := by
+  have hB := R.slot_addrs_inRegion hu
+  unfold writeRecordWords AllAccessesInRegion WordAccess.addr
+  dsimp only
+  change (R.baseAddr ≤ R.parentAddr u ∧ R.parentAddr u < R.endAddr) ∧
+    (R.baseAddr ≤ R.depthAddr u ∧ R.depthAddr u < R.endAddr) ∧
+    (R.baseAddr ≤ R.jumpAddr u ∧ R.jumpAddr u < R.endAddr) ∧ True
+  exact ⟨⟨by omega, by omega⟩, ⟨by omega, by omega⟩, ⟨by omega, by omega⟩, trivial⟩
+
+/-- Read the three fields `(parent, depth, jump)` at slot `u` (`3` word reads). -/
+def readRecordWords (R : JumpWordRegion) (mem : Array Nat)
+    (u : Nat) : JumpRecord × List WordAccess :=
+  let aP := R.parentAddr u
+  let aD := R.depthAddr u
+  let aJ := R.jumpAddr u
+  let p := readWord mem aP
+  let d := readWord mem aD
+  let j := readWord mem aJ
+  ({ parent := p, depth := d, jump := j },
+   [WordAccess.read aP, WordAccess.read aD, WordAccess.read aJ])
+
+theorem readRecordWords_spec {R : JumpWordRegion} {F : JumpForest} {mem : Array Nat}
+    (hLay : JumpWordLayout R F mem) {u : Nat} (hu : u < F.size) :
+    (readRecordWords R mem u).1 = F.recordAt u ∧
+      (readRecordWords R mem u).2.length = 3 ∧
+      AllAccessesInRegion R.baseAddr R.endAddr (readRecordWords R mem u).2 := by
+  let ⟨_, inv⟩ := hLay.valid.exists_forestInvariant
+  have hSzPos : 0 < F.size := inv.size_pos
+  have hNumEq : F.numInserted = F.size - 1 := rfl
+  have hInsLe := hLay.inserted_le
+  have huMax : u ≤ R.maxNodes := by omega
+  have hB := R.slot_addrs_inRegion huMax
+  refine ⟨?_, rfl, ?_⟩
+  · apply jumpRecord_ext
+    · exact hLay.slot_parent u hu
+    · exact hLay.slot_depth u hu
+    · exact hLay.slot_jump u hu
+  · unfold readRecordWords AllAccessesInRegion WordAccess.addr
+    dsimp only
+    change (R.baseAddr ≤ R.parentAddr u ∧ R.parentAddr u < R.endAddr) ∧
+      (R.baseAddr ≤ R.depthAddr u ∧ R.depthAddr u < R.endAddr) ∧
+      (R.baseAddr ≤ R.jumpAddr u ∧ R.jumpAddr u < R.endAddr) ∧ True
+    exact ⟨⟨by omega, by omega⟩, ⟨by omega, by omega⟩, ⟨by omega, by omega⟩, trivial⟩
+
+/-- Initialize `[R.baseAddr, R.endAddr)` to represent `JumpForest.init` (`4` word writes). -/
+def initWords (R : JumpWordRegion) (mem : Array Nat) : Array Nat × List WordAccess :=
+  let w0 := writeRecordWords R mem 0 rootRecord
+  let mem2 := writeWord w0.1 R.baseAddr 1
+  (mem2, w0.2 ++ [WordAccess.write R.baseAddr 1])
+
+theorem initWords_spec (R : JumpWordRegion) (mem : Array Nat)
+    (hReg : R.endAddr ≤ mem.size) (hFit : WordMemFit R.W mem) :
+    JumpWordLayout R JumpForest.init (initWords R mem).1 ∧
+      (initWords R mem).1.size = mem.size ∧
+      (initWords R mem).2.length = 4 ∧
+      AllAccessesInRegion R.baseAddr R.endAddr (initWords R mem).2 ∧
+      ∀ (j : Nat) (hj : j < mem.size) (hj' : j < (initWords R mem).1.size),
+        (j < R.baseAddr ∨ R.endAddr ≤ j) →
+        ((initWords R mem).1)[j]'hj' = mem[j]'hj := by
+  have hB0 := R.slot_addrs_inRegion (Nat.zero_le R.maxNodes)
+  have hCap := R.wordCapacity
+  have h0Lt : 0 < 2 ^ R.W := pow2_pos R.W
+  have h1Lt : 1 < 2 ^ R.W := by omega
+  have hSzW0 : (writeRecordWords R mem 0 rootRecord).1.size = mem.size :=
+    writeRecordWords_size R mem 0 rootRecord
+  have hSzInit : (initWords R mem).1.size = mem.size := by
+    unfold initWords
+    dsimp only
+    rw [writeWord_size, hSzW0]
+  have hFitW0 : WordMemFit R.W (writeRecordWords R mem 0 rootRecord).1 :=
+    writeRecordWords_fit hFit hReg (Nat.zero_le _) h0Lt h0Lt h0Lt
+  have hFitInit : WordMemFit R.W (initWords R mem).1 := by
+    unfold initWords
+    dsimp only
+    exact hFitW0.writeWord (by omega) h1Lt
+  let ⟨hReadP0, hReadD0, hReadJ0⟩ :=
+    writeRecordWords_read_self hReg (Nat.zero_le R.maxNodes) rootRecord
+  have hLay : JumpWordLayout R JumpForest.init (initWords R mem).1 :=
+    { valid := ValidJumpForest.init
+      inserted_le := Nat.zero_le R.maxNodes
+      region_inBounds := by rw [hSzInit]; exact hReg
+      mem_fit := hFitInit
+      size_word := by
+        unfold initWords
+        dsimp only
+        exact readWord_writeWord_self (by omega)
+      slot_parent := fun u hu => by
+        have hSzI : JumpForest.init.size = 1 := rfl
+        have hu0 : u = 0 := by omega
+        subst hu0
+        unfold initWords
+        dsimp only
+        rw [readWord_writeWord_ne _ _ _ _ (by omega), hReadP0]
+        rfl
+      slot_depth := fun u hu => by
+        have hSzI : JumpForest.init.size = 1 := rfl
+        have hu0 : u = 0 := by omega
+        subst hu0
+        unfold initWords
+        dsimp only
+        rw [readWord_writeWord_ne _ _ _ _ (by omega), hReadD0]
+        rfl
+      slot_jump := fun u hu => by
+        have hSzI : JumpForest.init.size = 1 := rfl
+        have hu0 : u = 0 := by omega
+        subst hu0
+        unfold initWords
+        dsimp only
+        rw [readWord_writeWord_ne _ _ _ _ (by omega), hReadJ0]
+        rfl }
+  have hInReg : AllAccessesInRegion R.baseAddr R.endAddr (initWords R mem).2 := by
+    unfold initWords
+    dsimp only
+    refine allAccessesInRegion_append
+      (writeRecordWords_inRegion R mem (Nat.zero_le _) rootRecord) ?_
+    unfold AllAccessesInRegion WordAccess.addr
+    have hBase : R.baseAddr < R.endAddr := by unfold JumpWordRegion.endAddr; omega
+    exact ⟨⟨Nat.le_refl _, hBase⟩, trivial⟩
+  refine ⟨hLay, hSzInit, rfl, hInReg, ?_⟩
+  intro j hj hj' hOut
+  rw [← readWord_of_lt hj', ← readWord_of_lt hj]
+  unfold initWords
+  dsimp only
+  rw [readWord_writeWord_ne _ _ _ _ (by omega)]
+  exact writeRecordWords_read_other R mem 0 rootRecord (by omega) (by omega) (by omega)
+
+/-- Concrete `Array Nat` implementation of `F.appendLeaf p` (`14` word accesses:
+    `1` size read + `9` field reads + `3` field writes + `1` size write). -/
+def appendLeafWords (R : JumpWordRegion) (mem : Array Nat)
+    (p : Nat) : Array Nat × List WordAccess :=
+  let sz := readWord mem R.baseAddr
+  let rP := readRecordWords R mem p
+  let recP := rP.1
+  let rA := readRecordWords R mem recP.jump
+  let recA := rA.1
+  let rB := readRecordWords R mem recA.jump
+  let recB := rB.1
+  let len1 := recP.depth - recA.depth
+  let len2 := recA.depth - recB.depth
+  let j := if 0 < len1 ∧ len1 = len2 then recA.jump else p
+  let newRec : JumpRecord := { parent := p, depth := recP.depth + 1, jump := j }
+  let wRec := writeRecordWords R mem sz newRec
+  let mem2 := writeWord wRec.1 R.baseAddr (sz + 1)
+  (mem2,
+   WordAccess.read R.baseAddr ::
+     (rP.2 ++ rA.2 ++ rB.2 ++ wRec.2 ++ [WordAccess.write R.baseAddr (sz + 1)]))
+
+/-- Full refinement, `< 2 ^ W` word-fit preservation, frame theorem, and `14`-access bound
+    for `appendLeafWords`. -/
+theorem appendLeafWords_spec {R : JumpWordRegion} {F : JumpForest} {mem : Array Nat}
+    (hLay : JumpWordLayout R F mem)
+    (hRoom : F.numInserted < R.maxNodes) {p : Nat} (hp : p < F.size) :
+    JumpWordLayout R (F.appendLeaf p) (appendLeafWords R mem p).1 ∧
+      (appendLeafWords R mem p).1.size = mem.size ∧
+      (appendLeafWords R mem p).2.length = 14 ∧
+      AllAccessesInRegion R.baseAddr R.endAddr (appendLeafWords R mem p).2 ∧
+      ∀ (j : Nat) (hj : j < mem.size) (hj' : j < (appendLeafWords R mem p).1.size),
+        (j < R.baseAddr ∨ R.endAddr ≤ j) →
+        ((appendLeafWords R mem p).1)[j]'hj' = mem[j]'hj := by
+  let ⟨_, inv⟩ := hLay.valid.exists_forestInvariant
+  have hSzPos : 0 < F.size := inv.size_pos
+  have hNumEq : F.numInserted = F.size - 1 := rfl
+  have hReg : R.endAddr ≤ mem.size := hLay.region_inBounds
+  have hSzMax : F.size ≤ R.maxNodes := by omega
+  have hBSz := R.slot_addrs_inRegion hSzMax
+  have hValid' : ValidJumpForest (F.appendLeaf p) :=
+    ValidJumpForest.appendLeaf hLay.valid hp
+  have hSize' : (F.appendLeaf p).size = F.size + 1 := F.size_appendLeaf p
+  have hIns' : (F.appendLeaf p).numInserted ≤ R.maxNodes := by
+    have hNum' : (F.appendLeaf p).numInserted = (F.appendLeaf p).size - 1 := rfl
+    omega
+  have ha : (F.recordAt p).jump < F.size := hLay.valid.jumpOf_lt_size hp
+  have hb : (F.recordAt (F.recordAt p).jump).jump < F.size :=
+    hLay.valid.jumpOf_lt_size ha
+  let ⟨hRecP, _, hInP⟩ := readRecordWords_spec hLay hp
+  let ⟨hRecA_raw, _, hInA_raw⟩ := readRecordWords_spec hLay ha
+  let ⟨hRecB_raw, _, hInB_raw⟩ := readRecordWords_spec hLay hb
+  have hSzRead : readWord mem R.baseAddr = F.size := hLay.size_word
+  have hNewRecEq :
+      (let recP := (readRecordWords R mem p).1
+       let recA := (readRecordWords R mem recP.jump).1
+       let recB := (readRecordWords R mem recA.jump).1
+       let len1 := recP.depth - recA.depth
+       let len2 := recA.depth - recB.depth
+       let j := if 0 < len1 ∧ len1 = len2 then recA.jump else p
+       ({ parent := p, depth := recP.depth + 1, jump := j } : JumpRecord)) =
+        F.mkAppendedRecord p := by
+    dsimp only
+    rw [hRecP, hRecA_raw, hRecB_raw]
+    rfl
+  have hMemEq :
+      (appendLeafWords R mem p).1 =
+        writeWord (writeRecordWords R mem F.size (F.mkAppendedRecord p)).1
+          R.baseAddr (F.size + 1) := by
+    unfold appendLeafWords
+    dsimp only
+    rw [hSzRead, hNewRecEq]
+  have hNewLtSz' : F.size < (F.appendLeaf p).size := by omega
+  let ⟨hSizeLtW, hParLtW_raw, hDepLtW_raw, hJmpLtW_raw⟩ :=
+    record_fields_lt_pow2 hValid' hNewLtSz' hIns' R.wordCapacity
+  have hRecNewF' : (F.appendLeaf p).recordAt F.size = F.mkAppendedRecord p :=
+    recordAt_appendLeaf_new F p
+  have hParLtW : (F.mkAppendedRecord p).parent < 2 ^ R.W := by
+    rw [← hRecNewF']; exact hParLtW_raw
+  have hDepLtW : (F.mkAppendedRecord p).depth < 2 ^ R.W := by
+    rw [← hRecNewF']; exact hDepLtW_raw
+  have hJmpLtW : (F.mkAppendedRecord p).jump < 2 ^ R.W := by
+    rw [← hRecNewF']; exact hJmpLtW_raw
+  have hSzPlusLtW : F.size + 1 < 2 ^ R.W := by
+    rw [← hSize']; exact hSizeLtW
+  have hSzWRec :
+      (writeRecordWords R mem F.size (F.mkAppendedRecord p)).1.size = mem.size :=
+    writeRecordWords_size R mem F.size (F.mkAppendedRecord p)
+  have hSzOut : (appendLeafWords R mem p).1.size = mem.size := by
+    rw [hMemEq, writeWord_size, hSzWRec]
+  have hFitWRec :
+      WordMemFit R.W (writeRecordWords R mem F.size (F.mkAppendedRecord p)).1 :=
+    writeRecordWords_fit hLay.mem_fit hReg hSzMax hParLtW hDepLtW hJmpLtW
+  have hFitOut : WordMemFit R.W (appendLeafWords R mem p).1 := by
+    rw [hMemEq]
+    exact hFitWRec.writeWord (by omega) hSzPlusLtW
+  let ⟨hSelfP, hSelfD, hSelfJ⟩ :=
+    writeRecordWords_read_self hReg hSzMax (F.mkAppendedRecord p)
+  have hLay' : JumpWordLayout R (F.appendLeaf p) (appendLeafWords R mem p).1 :=
+    { valid := hValid'
+      inserted_le := hIns'
+      region_inBounds := by rw [hSzOut]; exact hReg
+      mem_fit := hFitOut
+      size_word := by
+        rw [hMemEq, hSize']
+        exact readWord_writeWord_self (by omega)
+      slot_parent := fun u hu' => by
+        rw [hMemEq]
+        if huOld : u < F.size then
+          have hBOld := R.slot_addrs_inRegion (show u ≤ R.maxNodes by omega)
+          have hDiff : ∀ a b : Nat, a < b → R.parentAddr b ≠ R.parentAddr a ∧
+              R.depthAddr b ≠ R.parentAddr a ∧ R.jumpAddr b ≠ R.parentAddr a := by
+            intro a b hab
+            unfold JumpWordRegion.parentAddr JumpWordRegion.depthAddr JumpWordRegion.jumpAddr
+              JumpWordRegion.slotAddr
+            exact ⟨by omega, by omega, by omega⟩
+          let ⟨hd1, hd2, hd3⟩ := hDiff u F.size huOld
+          rw [readWord_writeWord_ne _ _ _ _ (by omega),
+            writeRecordWords_read_other R mem F.size _ hd1 hd2 hd3,
+            parentOf_appendLeaf_old F p huOld]
+          exact hLay.slot_parent u huOld
+        else
+          have huEq : u = F.size := by omega
+          subst huEq
+          rw [readWord_writeWord_ne _ _ _ _ (by omega), hSelfP]
+          unfold JumpForest.parentOf
+          rw [recordAt_appendLeaf_new]
+      slot_depth := fun u hu' => by
+        rw [hMemEq]
+        if huOld : u < F.size then
+          have hBOld := R.slot_addrs_inRegion (show u ≤ R.maxNodes by omega)
+          have hDiff : ∀ a b : Nat, a < b → R.parentAddr b ≠ R.depthAddr a ∧
+              R.depthAddr b ≠ R.depthAddr a ∧ R.jumpAddr b ≠ R.depthAddr a := by
+            intro a b hab
+            unfold JumpWordRegion.parentAddr JumpWordRegion.depthAddr JumpWordRegion.jumpAddr
+              JumpWordRegion.slotAddr
+            exact ⟨by omega, by omega, by omega⟩
+          let ⟨hd1, hd2, hd3⟩ := hDiff u F.size huOld
+          rw [readWord_writeWord_ne _ _ _ _ (by omega),
+            writeRecordWords_read_other R mem F.size _ hd1 hd2 hd3,
+            depthOf_appendLeaf_old F p huOld]
+          exact hLay.slot_depth u huOld
+        else
+          have huEq : u = F.size := by omega
+          subst huEq
+          rw [readWord_writeWord_ne _ _ _ _ (by omega), hSelfD]
+          unfold JumpForest.depthOf
+          rw [recordAt_appendLeaf_new]
+      slot_jump := fun u hu' => by
+        rw [hMemEq]
+        if huOld : u < F.size then
+          have hBOld := R.slot_addrs_inRegion (show u ≤ R.maxNodes by omega)
+          have hDiff : ∀ a b : Nat, a < b → R.parentAddr b ≠ R.jumpAddr a ∧
+              R.depthAddr b ≠ R.jumpAddr a ∧ R.jumpAddr b ≠ R.jumpAddr a := by
+            intro a b hab
+            unfold JumpWordRegion.parentAddr JumpWordRegion.depthAddr JumpWordRegion.jumpAddr
+              JumpWordRegion.slotAddr
+            exact ⟨by omega, by omega, by omega⟩
+          let ⟨hd1, hd2, hd3⟩ := hDiff u F.size huOld
+          rw [readWord_writeWord_ne _ _ _ _ (by omega),
+            writeRecordWords_read_other R mem F.size _ hd1 hd2 hd3,
+            jumpOf_appendLeaf_old F p huOld]
+          exact hLay.slot_jump u huOld
+        else
+          have huEq : u = F.size := by omega
+          subst huEq
+          rw [readWord_writeWord_ne _ _ _ _ (by omega), hSelfJ]
+          unfold JumpForest.jumpOf
+          rw [recordAt_appendLeaf_new] }
+  have hInReg : AllAccessesInRegion R.baseAddr R.endAddr (appendLeafWords R mem p).2 := by
+    unfold appendLeafWords
+    dsimp only
+    rw [hSzRead]
+    have hInA : AllAccessesInRegion R.baseAddr R.endAddr
+        (readRecordWords R mem (readRecordWords R mem p).1.jump).2 := by
+      rw [hRecP]
+      exact hInA_raw
+    have hInB : AllAccessesInRegion R.baseAddr R.endAddr
+        (readRecordWords R mem
+          (readRecordWords R mem (readRecordWords R mem p).1.jump).1.jump).2 := by
+      rw [hRecP, hRecA_raw]
+      exact hInB_raw
+    have hInW := writeRecordWords_inRegion R mem hSzMax
+      (let recP := (readRecordWords R mem p).1
+       let recA := (readRecordWords R mem recP.jump).1
+       let recB := (readRecordWords R mem recA.jump).1
+       let len1 := recP.depth - recA.depth
+       let len2 := recA.depth - recB.depth
+       let j := if 0 < len1 ∧ len1 = len2 then recA.jump else p
+       { parent := p, depth := recP.depth + 1, jump := j })
+    have hInBase : AllAccessesInRegion R.baseAddr R.endAddr
+        [WordAccess.write R.baseAddr (F.size + 1)] :=
+      ⟨⟨Nat.le_refl _, (show R.baseAddr < R.endAddr by unfold JumpWordRegion.endAddr; omega)⟩, trivial⟩
+    have hBase : R.baseAddr < R.endAddr := by unfold JumpWordRegion.endAddr; omega
+    refine ⟨⟨Nat.le_refl _, hBase⟩, ?_⟩
+    have hInTail := allAccessesInRegion_append hInP
+      (allAccessesInRegion_append hInA
+        (allAccessesInRegion_append hInB
+          (allAccessesInRegion_append hInW hInBase)))
+    simpa only [List.append_assoc] using hInTail
+  refine ⟨hLay', hSzOut, rfl, hInReg, ?_⟩
+  intro j hj hj' hOut
+  rw [← readWord_of_lt hj', ← readWord_of_lt hj, hMemEq,
+    readWord_writeWord_ne _ _ _ _ (by omega)]
+  exact writeRecordWords_read_other R mem F.size _ (by omega) (by omega) (by omega)
+
+/-! ### `EX0.3` Concrete `Array Nat` Word-Address / Read / Write Realization (Part 2/2:
+    `ancestorAtDepthWords`, `decideAncestorWords`, `RecordOp` Execution, and
+    Concrete `WordRamRecordBridge` Instantiation) -/
+
+private theorem wordAccess_length_append (xs ys : List WordAccess) :
+    (xs ++ ys).length = xs.length + ys.length := by
+  induction xs with
+  | nil =>
+      change ys.length = 0 + ys.length
+      omega
+  | cons _ tl ih =>
+      change (tl ++ ys).length + 1 = (tl.length + 1) + ys.length
+      omega
+
+/-- Concrete word-memory traversal loop matching `JumpForest.ancestorAtDepthAux`.
+    Takes the already-loaded record `recW` of `w` so each jump move performs `3` word reads
+    and each parent move performs `6` word reads (matching `3 * traceReadOps.length`). -/
+def ancestorAtDepthWordsAux (R : JumpWordRegion) (mem : Array Nat) :
+    Nat → Nat → JumpRecord → Nat → Nat × List WordAccess
+  | 0, w, _, _ => (w, [])
+  | fuel + 1, w, recW, targetDepth =>
+      if targetDepth < recW.depth then
+        let rJ := readRecordWords R mem recW.jump
+        if targetDepth ≤ rJ.1.depth then
+          let res := ancestorAtDepthWordsAux R mem fuel recW.jump rJ.1 targetDepth
+          (res.1, rJ.2 ++ res.2)
+        else
+          let rP := readRecordWords R mem recW.parent
+          let res := ancestorAtDepthWordsAux R mem fuel recW.parent rP.1 targetDepth
+          (res.1, rJ.2 ++ rP.2 ++ res.2)
+      else
+        (w, [])
+
+theorem ancestorAtDepthWordsAux_zero (R : JumpWordRegion) (mem : Array Nat)
+    (w : Nat) (recW : JumpRecord) (targetDepth : Nat) :
+    ancestorAtDepthWordsAux R mem 0 w recW targetDepth = (w, []) := rfl
+
+theorem ancestorAtDepthWordsAux_succ (R : JumpWordRegion) (mem : Array Nat)
+    (fuel w : Nat) (recW : JumpRecord) (targetDepth : Nat) :
+    ancestorAtDepthWordsAux R mem (fuel + 1) w recW targetDepth =
+      if targetDepth < recW.depth then
+        let rJ := readRecordWords R mem recW.jump
+        if targetDepth ≤ rJ.1.depth then
+          let res := ancestorAtDepthWordsAux R mem fuel recW.jump rJ.1 targetDepth
+          (res.1, rJ.2 ++ res.2)
+        else
+          let rP := readRecordWords R mem recW.parent
+          let res := ancestorAtDepthWordsAux R mem fuel recW.parent rP.1 targetDepth
+          (res.1, rJ.2 ++ rP.2 ++ res.2)
+      else
+        (w, []) := rfl
+
+/-- Concrete `Array Nat` implementation of `F.ancestorAtDepth u targetDepth`. -/
+def ancestorAtDepthWords (R : JumpWordRegion) (mem : Array Nat)
+    (u targetDepth : Nat) : Nat × List WordAccess :=
+  let rU := readRecordWords R mem u
+  let res := ancestorAtDepthWordsAux R mem (rU.1.depth - targetDepth) u rU.1 targetDepth
+  (res.1, rU.2 ++ res.2)
+
+/-- Concrete `Array Nat` implementation of `F.decideAncestor a u` (`1` depth read of `a`
+    plus at most one `ancestorAtDepthWords` traversal from `u`). -/
+def decideAncestorWords (R : JumpWordRegion) (mem : Array Nat)
+    (a u : Nat) : Bool × List WordAccess :=
+  let depthA := readWord mem (R.depthAddr a)
+  let rU := readRecordWords R mem u
+  if depthA ≤ rU.1.depth then
+    let res := ancestorAtDepthWordsAux R mem (rU.1.depth - depthA) u rU.1 depthA
+    (if res.1 = a then true else false, WordAccess.read (R.depthAddr a) :: (rU.2 ++ res.2))
+  else
+    (false, WordAccess.read (R.depthAddr a) :: rU.2)
+
+private theorem ancestorAtDepthWordsAux_spec {R : JumpWordRegion} {F : JumpForest}
+    {mem : Array Nat} (hLay : JumpWordLayout R F mem) (targetDepth : Nat) :
+    ∀ (fuel w : Nat), w < F.size →
+      (ancestorAtDepthWordsAux R mem fuel w (F.recordAt w) targetDepth).1 =
+        F.ancestorAtDepthAux fuel w targetDepth ∧
+      (ancestorAtDepthWordsAux R mem fuel w (F.recordAt w) targetDepth).2.length =
+        3 * (F.movesReadOps (F.traceMovesAux fuel w targetDepth)).length ∧
+      AllAccessesInRegion R.baseAddr R.endAddr
+        (ancestorAtDepthWordsAux R mem fuel w (F.recordAt w) targetDepth).2 := by
+  intro fuel
+  induction fuel with
+  | zero =>
+      intro w _
+      exact ⟨rfl, rfl, trivial⟩
+  | succ f ih =>
+      intro w hw
+      rw [ancestorAtDepthWordsAux_succ, JumpForest.ancestorAtDepthAux_succ,
+        JumpForest.traceMovesAux_succ]
+      have hDepEq : (F.recordAt w).depth = F.depthOf w := rfl
+      have hJmpEq : (F.recordAt w).jump = F.jumpOf w := rfl
+      have hParEq : (F.recordAt w).parent = F.parentOf w := rfl
+      if hLt : targetDepth < F.depthOf w then
+        rw [hDepEq, ite_eq_left hLt, ite_eq_left hLt, ite_eq_left hLt]
+        have hjSz : F.jumpOf w < F.size := hLay.valid.jumpOf_lt_size hw
+        have hpSz : F.parentOf w < F.size := hLay.valid.parentOf_lt_size hw
+        let ⟨hRecJ, hLenJ, hInJ⟩ := readRecordWords_spec hLay hjSz
+        let ⟨hRecP, hLenP, hInP⟩ := readRecordWords_spec hLay hpSz
+        dsimp only
+        rw [hJmpEq, hRecJ]
+        have hDepJ : (F.recordAt (F.jumpOf w)).depth = F.depthOf (F.jumpOf w) := rfl
+        rw [hDepJ]
+        if hJump : targetDepth ≤ F.depthOf (F.jumpOf w) then
+          rw [ite_eq_left hJump]
+          have hStepJ : F.stepToDepth w targetDepth = F.jumpOf w := by
+            unfold JumpForest.stepToDepth
+            dsimp only
+            exact ite_eq_left hJump
+          have hMoveJ : F.stepMoveToDepth w targetDepth = JumpMove.jump w (F.jumpOf w) := by
+            unfold JumpForest.stepMoveToDepth
+            dsimp only
+            exact ite_eq_left hJump
+          rw [hStepJ, hMoveJ, JumpForest.movesReadOps_cons]
+          let ⟨hRes, hLen, hIn⟩ := ih (F.jumpOf w) hjSz
+          refine ⟨hRes, ?_, ?_⟩
+          · dsimp only
+            rw [wordAccess_length_append, hLenJ, hLen]
+            change 3 + 3 * (F.movesReadOps (F.traceMovesAux f (F.jumpOf w) targetDepth)).length =
+              3 * (RecordOp.read (F.jumpOf w) ::
+                F.movesReadOps (F.traceMovesAux f (F.jumpOf w) targetDepth)).length
+            simp only [List.length_cons]
+            omega
+          · exact allAccessesInRegion_append hInJ hIn
+        else
+          rw [ite_eq_right hJump, hParEq, hRecP]
+          have hStepP : F.stepToDepth w targetDepth = F.parentOf w := by
+            unfold JumpForest.stepToDepth
+            dsimp only
+            exact ite_eq_right hJump
+          have hMoveP :
+              F.stepMoveToDepth w targetDepth = JumpMove.parent w (F.parentOf w) := by
+            unfold JumpForest.stepMoveToDepth
+            dsimp only
+            exact ite_eq_right hJump
+          rw [hStepP, hMoveP, JumpForest.movesReadOps_cons]
+          let ⟨hRes, hLen, hIn⟩ := ih (F.parentOf w) hpSz
+          refine ⟨hRes, ?_, ?_⟩
+          · dsimp only
+            rw [wordAccess_length_append, wordAccess_length_append, hLenJ, hLenP, hLen]
+            change 3 + 3 + 3 * (F.movesReadOps (F.traceMovesAux f (F.parentOf w) targetDepth)).length =
+              3 * (RecordOp.read (F.jumpOf w) :: RecordOp.read (F.parentOf w) ::
+                F.movesReadOps (F.traceMovesAux f (F.parentOf w) targetDepth)).length
+            simp only [List.length_cons]
+            omega
+          · exact allAccessesInRegion_append (allAccessesInRegion_append hInJ hInP) hIn
+      else
+        rw [hDepEq, ite_eq_right hLt, ite_eq_right hLt, ite_eq_right hLt]
+        exact ⟨rfl, rfl, trivial⟩
+
+/-- `ancestorAtDepthWords` refines `F.ancestorAtDepth u targetDepth`, stays strictly inside
+    `[R.baseAddr, R.endAddr)` (`< mem.size ≤ 2 ^ R.W`), and executes at most `3 * (6 * L + 1)`
+    (`≤ 1 + 3 * (6 * L + 1)`) word reads whenever `F.numInserted ≤ n` and `n + 2 ≤ 2 ^ L`. -/
+theorem ancestorAtDepthWords_spec {R : JumpWordRegion} {F : JumpForest} {mem : Array Nat}
+    (hLay : JumpWordLayout R F mem) {u n L : Nat} (hu : u < F.size)
+    (hInserted : F.numInserted ≤ n) (hPow : n + 2 ≤ 2 ^ L) (targetDepth : Nat) :
+    (ancestorAtDepthWords R mem u targetDepth).1 = F.ancestorAtDepth u targetDepth ∧
+      (ancestorAtDepthWords R mem u targetDepth).2.length =
+        3 * (F.traceReadOps u targetDepth).length ∧
+      (ancestorAtDepthWords R mem u targetDepth).2.length ≤ 1 + 3 * (6 * L + 1) ∧
+      AllAccessesInRegion R.baseAddr R.endAddr (ancestorAtDepthWords R mem u targetDepth).2 := by
+  let ⟨hRecU, hLenU, hInU⟩ := readRecordWords_spec hLay hu
+  let ⟨hRes, hAuxLen, hAuxIn⟩ :=
+    ancestorAtDepthWordsAux_spec hLay targetDepth (F.depthOf u - targetDepth) u hu
+  have hReadBound : (F.traceReadOps u targetDepth).length ≤ 6 * L + 1 :=
+    traceReadOps_length_le hLay.valid hu hInserted hPow targetDepth
+  have hExactLen :
+      (ancestorAtDepthWords R mem u targetDepth).2.length =
+        3 * (F.traceReadOps u targetDepth).length := by
+    unfold ancestorAtDepthWords
+    dsimp only
+    rw [hRecU, wordAccess_length_append, hLenU]
+    have hDepU : (F.recordAt u).depth = F.depthOf u := rfl
+    rw [hDepU, hAuxLen]
+    unfold JumpForest.traceReadOps JumpForest.traceMoves
+    simp only [List.length_cons]
+    omega
+  refine ⟨?_, hExactLen, by omega, ?_⟩
+  · unfold ancestorAtDepthWords JumpForest.ancestorAtDepth
+    dsimp only
+    rw [hRecU]
+    exact hRes
+  · unfold ancestorAtDepthWords
+    dsimp only
+    rw [hRecU]
+    exact allAccessesInRegion_append hInU hAuxIn
+
+/-- `decideAncestorWords` refines `F.decideAncestor a u`, stays strictly inside
+    `[R.baseAddr, R.endAddr)`, and executes at most `1 + 3 * (6 * L + 1)` word reads. -/
+theorem decideAncestorWords_spec {R : JumpWordRegion} {F : JumpForest} {mem : Array Nat}
+    (hLay : JumpWordLayout R F mem) {a u n L : Nat}
+    (ha : a < F.size) (hu : u < F.size)
+    (hInserted : F.numInserted ≤ n) (hPow : n + 2 ≤ 2 ^ L) :
+    (decideAncestorWords R mem a u).1 = F.decideAncestor a u ∧
+      (decideAncestorWords R mem a u).2.length ≤ 1 + 3 * (6 * L + 1) ∧
+      AllAccessesInRegion R.baseAddr R.endAddr (decideAncestorWords R mem a u).2 := by
+  let ⟨_, inv⟩ := hLay.valid.exists_forestInvariant
+  have hSzPos : 0 < F.size := inv.size_pos
+  have hNumEq : F.numInserted = F.size - 1 := rfl
+  have hInsLe := hLay.inserted_le
+  have haMax : a ≤ R.maxNodes := by omega
+  have hBa := R.slot_addrs_inRegion haMax
+  have hDepA : readWord mem (R.depthAddr a) = F.depthOf a := hLay.slot_depth a ha
+  let ⟨hRecU, hLenU, hInU⟩ := readRecordWords_spec hLay hu
+  let ⟨hRes, hAuxLen, hAuxIn⟩ :=
+    ancestorAtDepthWordsAux_spec hLay (F.depthOf a) (F.depthOf u - F.depthOf a) u hu
+  have hReadBound : (F.traceReadOps u (F.depthOf a)).length ≤ 6 * L + 1 :=
+    traceReadOps_length_le hLay.valid hu hInserted hPow (F.depthOf a)
+  unfold decideAncestorWords JumpForest.decideAncestor
+  dsimp only
+  rw [hDepA, hRecU]
+  have hDepU : (F.recordAt u).depth = F.depthOf u := rfl
+  rw [hDepU]
+  if hLe : F.depthOf a ≤ F.depthOf u then
+    rw [ite_eq_left hLe]
+    dsimp only
+    have hRes' :
+        (ancestorAtDepthWordsAux R mem (F.depthOf u - F.depthOf a) u (F.recordAt u)
+          (F.depthOf a)).1 = F.ancestorAtDepth u (F.depthOf a) := hRes
+    rw [hRes']
+    refine ⟨?_, ?_, ?_⟩
+    · if hEq : F.ancestorAtDepth u (F.depthOf a) = a then
+        rw [ite_eq_left hEq, ite_eq_left ⟨hLe, hEq⟩]
+      else
+        have hNotAnd : ¬ (F.depthOf a ≤ F.depthOf u ∧ F.ancestorAtDepth u (F.depthOf a) = a) :=
+          fun h => hEq h.2
+        rw [ite_eq_right hEq, ite_eq_right hNotAnd]
+    · simp only [List.length_cons]
+      rw [wordAccess_length_append, hLenU, hAuxLen]
+      unfold JumpForest.traceReadOps JumpForest.traceMoves at hReadBound
+      simp only [List.length_cons] at hReadBound
+      omega
+    · exact ⟨⟨(by change R.baseAddr ≤ R.depthAddr a; omega), (by change R.depthAddr a < R.endAddr; omega)⟩, allAccessesInRegion_append hInU hAuxIn⟩
+  else
+    have hNotAnd : ¬ (F.depthOf a ≤ F.depthOf u ∧ F.ancestorAtDepth u (F.depthOf a) = a) :=
+      fun h => hLe h.1
+    rw [ite_eq_right hLe, ite_eq_right hNotAnd]
+    refine ⟨rfl, ?_, ?_⟩
+    · simp only [List.length_cons]
+      rw [hLenU]
+      omega
+    · exact ⟨⟨(by change R.baseAddr ≤ R.depthAddr a; omega), (by change R.depthAddr a < R.endAddr; omega)⟩, hInU⟩
+
+/-- Concrete word-memory executor for abstract `RecordOp` transcripts. -/
+def execRecordOpWords (R : JumpWordRegion) (mem : Array Nat) :
+    RecordOp → Array Nat × List WordAccess
+  | RecordOp.read idx =>
+      (mem, (readRecordWords R mem idx).2)
+  | RecordOp.append rec =>
+      let sz := readWord mem R.baseAddr
+      let wRec := writeRecordWords R mem sz rec
+      let mem2 := writeWord wRec.1 R.baseAddr (sz + 1)
+      (mem2, WordAccess.read R.baseAddr :: (wRec.2 ++ [WordAccess.write R.baseAddr (sz + 1)]))
+
+def execRecordOpsWords (R : JumpWordRegion) (mem : Array Nat) :
+    List RecordOp → Array Nat × List WordAccess
+  | [] => (mem, [])
+  | op :: ops =>
+      let step := execRecordOpWords R mem op
+      let rest := execRecordOpsWords R step.1 ops
+      (rest.1, step.2 ++ rest.2)
+
+theorem execRecordOpsWords_nil (R : JumpWordRegion) (mem : Array Nat) :
+    execRecordOpsWords R mem [] = (mem, []) := rfl
+
+theorem execRecordOpsWords_cons (R : JumpWordRegion) (mem : Array Nat)
+    (op : RecordOp) (ops : List RecordOp) :
+    execRecordOpsWords R mem (op :: ops) =
+      let step := execRecordOpWords R mem op
+      let rest := execRecordOpsWords R step.1 ops
+      (rest.1, step.2 ++ rest.2) := rfl
+
+/-- Executing `F.appendLeafOps p` on `mem` produces the exact same memory as `appendLeafWords`
+    in `14` (`3 * 3 + 5`) word accesses. -/
+theorem execRecordOpsWords_appendLeafOps {R : JumpWordRegion} {F : JumpForest} {mem : Array Nat}
+    (hLay : JumpWordLayout R F mem) {p : Nat} (hp : p < F.size) :
+    (execRecordOpsWords R mem (F.appendLeafOps p)).1 = (appendLeafWords R mem p).1 ∧
+      (execRecordOpsWords R mem (F.appendLeafOps p)).2.length = 14 := by
+  have ha : (F.recordAt p).jump < F.size := hLay.valid.jumpOf_lt_size hp
+  have hb : (F.recordAt (F.recordAt p).jump).jump < F.size := hLay.valid.jumpOf_lt_size ha
+  let ⟨hRecP, _, _⟩ := readRecordWords_spec hLay hp
+  let ⟨hRecA, _, _⟩ := readRecordWords_spec hLay ha
+  let ⟨hRecB, _, _⟩ := readRecordWords_spec hLay hb
+  refine ⟨?_, rfl⟩
+  unfold JumpForest.appendLeafOps execRecordOpsWords execRecordOpWords appendLeafWords
+  dsimp only
+  rw [hRecP, hRecA, hRecB]
+  rfl
+
+/-- Concrete `EX0.3` instantiation of `WordRamRecordBridge` backed by `Array Nat`
+    (`wordsPerRecord := 3`, `headerWords := 1`, `costPerRead := 3`, `costPerAppend := 5`). -/
+def mkJumpWordRamBridge (R : JumpWordRegion) : WordRamRecordBridge :=
+  { wordWidth := R.W
+    maxNodes := R.maxNodes
+    wordCapacity := R.wordCapacity
+    costPerRead := 3
+    costPerAppend := 5
+    wordsPerRecord := 3
+    headerWords := 1 }
+
+/-- End-to-end concrete `Array Nat` bridge theorem instantiating `WordRamRecordBridge`
+    (`wordsPerRecord = 3`, `headerWords = 1`, `costPerRead = 3`, `costPerAppend = 5`):
+    - `appendLeafWords` refines `F.appendLeaf p`, preserves `< 2 ^ R.W` word-fit and frame,
+      and uses `3 * costPerRead + costPerAppend = 14` in-bounds word accesses;
+    - retained region occupies `headerWords + wordsPerRecord * (maxNodes + 1)` words
+      (`headerWords + wordsPerRecord * (F.numInserted + 1)` active words);
+    - `ancestorAtDepthWords` and `decideAncestorWords` refine `F.ancestorAtDepth` and
+      `F.decideAncestor` in `≤ 1 + (6 * ceilLog2 (R.maxNodes + 2) + 1) * costPerRead`
+      in-bounds word reads. -/
+theorem jumpWordRamBridge_endToEnd {R : JumpWordRegion} {F : JumpForest} {mem : Array Nat}
+    (hLay : JumpWordLayout R F mem) (hRoom : F.numInserted < R.maxNodes)
+    {p a u : Nat} (hp : p < F.size) (ha : a < F.size) (hu : u < F.size) (targetDepth : Nat) :
+    let B := mkJumpWordRamBridge R
+    let L := ceilLog2 (B.maxNodes + 2)
+    JumpWordLayout R (F.appendLeaf p) (appendLeafWords R mem p).1 ∧
+      (appendLeafWords R mem p).2.length = 3 * B.costPerRead + B.costPerAppend ∧
+      R.endAddr = R.baseAddr + B.headerWords + B.wordsPerRecord * (B.maxNodes + 1) ∧
+      (ancestorAtDepthWords R mem u targetDepth).1 = F.ancestorAtDepth u targetDepth ∧
+      (ancestorAtDepthWords R mem u targetDepth).2.length ≤
+        (6 * L + 1) * B.costPerRead ∧
+      (decideAncestorWords R mem a u).1 = F.decideAncestor a u ∧
+      (decideAncestorWords R mem a u).2.length ≤
+        1 + (6 * L + 1) * B.costPerRead := by
+  intro B L
+  let ⟨hLay', _, hAppLen, _, _⟩ := appendLeafWords_spec hLay hRoom hp
+  let ⟨hAncRes, hAncExact, _, _⟩ :=
+    ancestorAtDepthWords_spec hLay hu hLay.inserted_le (pow2_ceilLog2_ge (R.maxNodes + 2))
+      targetDepth
+  let ⟨hDecRes, hDecLen, _⟩ :=
+    decideAncestorWords_spec hLay ha hu hLay.inserted_le (pow2_ceilLog2_ge (R.maxNodes + 2))
+  have hReadBound : (F.traceReadOps u targetDepth).length ≤ 6 * L + 1 :=
+    traceReadOps_length_le hLay.valid hu hLay.inserted_le (pow2_ceilLog2_ge (R.maxNodes + 2))
+      targetDepth
+  refine ⟨hLay', ?_, rfl, hAncRes, ?_, hDecRes, ?_⟩
+  · change (appendLeafWords R mem p).2.length = 14
+    exact hAppLen
+  · change (ancestorAtDepthWords R mem u targetDepth).2.length ≤ (6 * L + 1) * 3
+    omega
+  · change (decideAncestorWords R mem a u).2.length ≤ 1 + (6 * ceilLog2 (R.maxNodes + 2) + 1) * 3
+    omega
+
 end PaperB
