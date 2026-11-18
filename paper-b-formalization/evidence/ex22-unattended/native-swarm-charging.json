@@ -1,0 +1,16 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 17,
+  "candidate_sha256": "a6b282f1b183a84067830e7c89209eff110199c46160960126456dfcb6e5f61b",
+  "theorem": "PaperB.ForestBuild.interface_charging_bigO_fin",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "181692cde143b70cad1824f5661931997106647f200e4078426c416e703e7966",
+  "axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "check_output": "PaperB.ForestBuild.interface_charging_bigO_fin (P : PaperB.ForestBuild.ChargingParams)\n  (n_H m_H L preWork dictWork : Nat) (deg probes headWork : Fin n_H → Nat)\n  (hDegSum : PaperB.ForestBuild.finNatSum n_H deg ≤ m_H) (hPow : n_H + 2 ≤ 2 ^ L)\n  (hPre : preWork ≤ P.cPre * (n_H + m_H)) (hDict : dictWork ≤ P.cDict * n_H * L)\n  (hProbes : ∀ (y : Fin n_H), probes y ≤ P.cProbe * L)\n  (hWork : ∀ (y : Fin n_H), headWork y ≤ probes y * (P.cJump * L + deg y * (P.cAnc * L))) :\n  preWork + dictWork + PaperB.ForestBuild.finNatSum n_H headWork ≤ P.totalConst * ((n_H + m_H) * L ^ 2)\n'PaperB.ForestBuild.interface_charging_bigO_fin' depends on axioms: [propext, Quot.sound]",
+  "repair": "Unfolded the common charge factor K in hTotalExpand before omega.",
+  "scope": "Conditional arithmetic aggregation. The inputs supply bounds on preprocessing, dictionary work, probes, degree sums, and per-probe cost. The constructor, proofs of those bounds for its execution, and space accounting are separate."
+}

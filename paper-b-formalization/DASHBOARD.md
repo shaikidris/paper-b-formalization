@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
 - [EX2.2](TASKS.md#ex22) — Lean verified the local sweep transition and the global sweepChain_spec for every vertex of a flat ranked quotient. The global result gives canonical, nested, duplicate-free labels with exact proper-loss membership. The shared parent forest and linear node bound remain open. The semantic sweep carries no executable resource claim.
 - [EX2.3](TASKS.md#ex23) — Lean verified the record-prefix persistence theorem and the skew-push block-sum and ordering invariants from the Carbon checkpoint. The complete growing-tree validity and traversal code requires further Lean repairs. Logarithmic traversal and the physical word-operation bounds remain open.
-- [EX2.4](TASKS.md#ex24) — The native Carbon Medium swarm started a dedicated constructor and accounting worker. The executable constructor and resource proof are pending.
+- [EX2.4](TASKS.md#ex24) — Lean verified the interface-relative O((n_H+m_H)L²) charging theorem for specified preprocessing and dictionary budgets, per-head probe limits, degree sums, and per-probe work. The actual constructor, proof that its execution meets these hypotheses, and peak and retained space bounds remain open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

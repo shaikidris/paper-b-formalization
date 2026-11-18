@@ -171,7 +171,8 @@
       "path": "release-core/PaperB/ForestBuild.lean",
       "local_imports": [
         "release-core/PaperB/Forest.lean",
-        "release-core/PaperB/Jumps.lean"
+        "release-core/PaperB/Jumps.lean",
+        "release-core/Challenge.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

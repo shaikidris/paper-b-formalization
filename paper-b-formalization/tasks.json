@@ -545,13 +545,17 @@
         "For v1.3, prove per-quotient O((n_H+m_H)L²) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.",
         "Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md)."
       ],
-      "evidence": [],
-      "progress": "The native Carbon Medium swarm started a dedicated constructor and accounting worker. The executable constructor and resource proof are pending.",
+      "evidence": [
+        "evidence/ex22-unattended/native-swarm-charging.json"
+      ],
+      "progress": "Lean verified the interface-relative O((n_H+m_H)L²) charging theorem for specified preprocessing and dictionary budgets, per-head probe limits, degree sums, and per-probe work. The actual constructor, proof that its execution meets these hypotheses, and peak and retained space bounds remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
           "model": "gemini-4-carbon-medium",
-          "contract_post": 14
+          "contract_post": 14,
+          "charging": "BUILT",
+          "worker_post": 17
         }
       }
     },
