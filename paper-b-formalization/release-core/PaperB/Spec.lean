@@ -45,6 +45,23 @@ theorem trans {V : Type} {edge : V → V → Prop} {failed : V → Prop}
       intro h₂
       exact AvoidPath.step a b v alive arc (ih h₂)
 
+/-- A path is either from a vertex to itself or has a final arc after a surviving prefix. -/
+theorem eq_or_exists_last_arc {V : Type} {edge : V → V → Prop} {failed : V → Prop}
+    {u v : V} (path : AvoidPath edge failed u v) :
+    u = v ∨ ∃ p, AvoidPath edge failed u p ∧ edge p v := by
+  induction path with
+  | refl _ _ =>
+      exact Or.inl rfl
+  | step a b c alive arc _ ih =>
+      cases ih with
+      | inl hEq =>
+          refine Or.inr ⟨a, AvoidPath.refl a alive, ?_⟩
+          rw [← hEq]
+          exact arc
+      | inr hLast =>
+          let ⟨p, hPrefix, hLastArc⟩ := hLast
+          exact Or.inr ⟨p, AvoidPath.step a b p alive arc hPrefix, hLastArc⟩
+
 end AvoidPath
 
 namespace Digraph

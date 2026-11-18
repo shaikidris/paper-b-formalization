@@ -396,7 +396,10 @@
       "acceptance": [
         "Handle parallel arcs, direct root edges and the absence of any proper loss."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/carbon-last-arc/review.md"
+      ],
+      "progress": "Carbon's final-arc decomposition builds in PaperB.Spec. The first-proper-loss characterization is the next declaration."
     },
     {
       "id": "EX2.2",

@@ -1,0 +1,3 @@
+PaperB.AvoidPath.eq_or_exists_last_arc {V : Type} {edge : V → V → Prop} {failed : V → Prop} {u v : V}
+  (path : PaperB.AvoidPath edge failed u v) : u = v ∨ ∃ p, PaperB.AvoidPath edge failed u p ∧ edge p v
+'PaperB.AvoidPath.eq_or_exists_last_arc' does not depend on any axioms

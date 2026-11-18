@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 20613,
-      "sha256": "6860a4ce9711cff4a544c649da41e3bd3ab653cc8d064ef7c5b3f5abab850507"
+      "bytes": 20839,
+      "sha256": "ca000b03971ca9fae8a4394200190421976b2ade9260693a0a675f5662097dc4"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,23 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 2954,
-      "sha256": "126d69deb81f6254479634dd74403e8b36e3245132f17f1abb337e35bf89d4bc"
+      "bytes": 3203,
+      "sha256": "e359bc8c7cdc773070f13cbf8360c5a449b1d0f3854609caf83947e779d6152e"
+    },
+    {
+      "path": "evidence/carbon-last-arc/build.txt",
+      "bytes": 288,
+      "sha256": "49d5913a6e7f384909f4af7d06c53d2aa0bb31e7181347167bb8488755d54fa4"
+    },
+    {
+      "path": "evidence/carbon-last-arc/review.md",
+      "bytes": 849,
+      "sha256": "80c1f40834d05e1b5cc327f534dd271712636306c9c8e9329f63c4b4c97fe390"
+    },
+    {
+      "path": "evidence/carbon-last-arc/verification.json",
+      "bytes": 976,
+      "sha256": "3669ae6936af0f10fc9e8f2ed40279dca9680e98c6c4d6f19cb0f0545d8b660c"
     },
     {
       "path": "evidence/ex02-carbon-start/Audit.lean",
@@ -188,8 +203,8 @@
     },
     {
       "path": "release-core/PaperB/Spec.lean",
-      "bytes": 3489,
-      "sha256": "76da3f301ee9698f1a1bcc61ff782dd015b339e6d27c1e2d8e1935b096e785b1"
+      "bytes": 4177,
+      "sha256": "8897e0eff16a6218cb3842b69d6d393fe4a54510beeea48f2bf9699c71b9e68f"
     },
     {
       "path": "release-core/lake-manifest.json",
@@ -303,8 +318,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 31582,
-      "sha256": "fa1197615cf87a4e2121d7ad7c7f7b106494986790d18e66c466d15086646d2d"
+      "bytes": 31775,
+      "sha256": "7ea27ee75b11c1fe7c211709325a3602f17e8ed4728bd0343b7e46027ce69105"
     },
     {
       "path": "test_plan.py",

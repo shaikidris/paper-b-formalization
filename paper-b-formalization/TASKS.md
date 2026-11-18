@@ -176,6 +176,10 @@ Acceptance:
 
 - Handle parallel arcs, direct root edges and the absence of any proper loss.
 
+Carbon's final-arc decomposition builds in PaperB.Spec. The first-proper-loss characterization is the next declaration.
+
+Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carbon-last-arc/review.md).
+
 <a id="ex22"></a>
 
 ## EX2.2 — Prove the topological forest invariant

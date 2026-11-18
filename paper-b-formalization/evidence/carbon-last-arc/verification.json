@@ -1,0 +1,17 @@
+{
+  "task": "EX2.1",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "declaration": "PaperB.AvoidPath.eq_or_exists_last_arc",
+  "worker": "Gemini 4 Carbon Medium",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "run": "50a29a56-02a6-498b-8edb-880068c55129",
+  "elapsed_seconds": 69.104,
+  "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/50a29a56-02a6-498b-8edb-880068c55129/receipt.json",
+  "receipt_sha256": "44c27c10046c6368c319127db04fb7075f08b2133119421cfeffea3a4fd441d6",
+  "checkpoint": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/50a29a56-02a6-498b-8edb-880068c55129/checkpoints/0001.md",
+  "checkpoint_sha256": "97fa39d36a78bf0e6f7a54a2e5558cebc04fc28c60d615ca33f4c998d5e7f31d",
+  "source_sha256": "8897e0eff16a6218cb3842b69d6d393fe4a54510beeea48f2bf9699c71b9e68f",
+  "scoped_build_command": "lake build PaperB.Spec",
+  "scoped_build_passed": true,
+  "axiom_free": true
+}
