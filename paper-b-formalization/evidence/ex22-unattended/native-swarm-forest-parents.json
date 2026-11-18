@@ -1,0 +1,21 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 23,
+  "post_sha256": "d0b895f1b6a86d845550216cf7b17588a025ded8ddc37720849430b843772b20",
+  "declarations": [
+    "PaperB.LabelledQuotient.mem_realKeys_iff",
+    "PaperB.LabelledQuotient.length_realKeys_le",
+    "PaperB.LabelledQuotient.sweepChain_eq_parentKeyChain"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "5a320fa3d141ca04fe64f14fba01151994a2076e7492220b89ee98bf04013d56",
+  "axiom_audit": [
+    "'PaperB.LabelledQuotient.mem_realKeys_iff' depends on axioms: [propext, Quot.sound]",
+    "'PaperB.LabelledQuotient.length_realKeys_le' depends on axioms: [propext]",
+    "'PaperB.LabelledQuotient.sweepChain_eq_parentKeyChain' depends on axioms: [propext, Quot.sound]"
+  ],
+  "check_output": "PaperB.LabelledQuotient.mem_realKeys_iff {H : PaperB.LabelledQuotient} {rank : Fin H.vertexCount → Nat}\n  (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) (flat : H.IsFlat) (B : H.CutPair) :\n  B ∈ H.realKeys rank ↔ B.fst < B.snd ∧ ∃ y, H.ProperLoss B y\n'PaperB.LabelledQuotient.mem_realKeys_iff' depends on axioms: [propext, Quot.sound]\nPaperB.LabelledQuotient.length_realKeys_le (H : PaperB.LabelledQuotient) (rank : Fin H.vertexCount → Nat) :\n  (H.realKeys rank).length ≤ H.vertexCount\n'PaperB.LabelledQuotient.length_realKeys_le' depends on axioms: [propext]\nPaperB.LabelledQuotient.sweepChain_eq_parentKeyChain {H : PaperB.LabelledQuotient} {rank : Fin H.vertexCount → Nat}\n  (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v)\n  (distinctRanks : ∀ (a b : Fin H.vertexCount), rank a = rank b → a = b) (flat : H.IsFlat) (y : Fin H.vertexCount) :\n  H.sweepChain rank y = H.parentKeyChain rank (H.vertexLabelKey? rank y)\n'PaperB.LabelledQuotient.sweepChain_eq_parentKeyChain' depends on axioms: [propext, Quot.sound]",
+  "repair": "Adjusted definitional reductions, rewrite targets after case splits and the inferred search predicate.",
+  "scope": "Semantic finite forest keys, node bound and correspondence of stored parent chains with sweep labels. The final forest interface and endpoint-order bundle are pending."
+}

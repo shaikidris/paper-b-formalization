@@ -21,8 +21,8 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
-- [EX2.2](TASKS.md#ex22) — Lean verified the local sweep transition and the global sweepChain_spec for every vertex of a flat ranked quotient. The global result gives canonical, nested, duplicate-free labels with exact proper-loss membership. The shared parent forest and linear node bound remain open. The semantic sweep carries no executable resource claim.
-- [EX2.3](TASKS.md#ex23) — Lean verified the growing skew-binary tree invariant, depth-target traversal, unique ancestor at the requested depth, ancestry recognition and persistence under insertion. The logarithmic trace bound and word-operation implementation are open.
+- [EX2.2](TASKS.md#ex22) — Lean verified orbit membership via stored parent key chains, exact effective canonical keys and the bound by vertex count. The final bundled forest interface and fresh-endpoint order remain open.
+- [EX2.3](TASKS.md#ex23) — Lean verified unique ancestor traversal, at most 3 ceil(log2(n+2)) moves, record-operation transcript bounds and field capacities. Physical word-operation correspondence remains conditional on EX0.3.
 - [EX2.4](TASKS.md#ex24) — Lean verified the interface-relative O((n_H+m_H)L²) charging theorem for specified preprocessing and dictionary budgets, per-head probe limits, degree sums, and per-probe work. The actual constructor, proof that its execution meets these hypotheses, and peak and retained space bounds remain open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).

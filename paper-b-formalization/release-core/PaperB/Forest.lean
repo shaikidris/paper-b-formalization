@@ -914,5 +914,827 @@ theorem sweepChain_spec {H : LabelledQuotient}
     SweepChainSpec H (sweepChain H rank y) y :=
   sweepChain_spec_bounded rankArc flat (rank y + 1) y (Nat.lt_succ_self (rank y))
 
+/-! ### Part 2a: Deduplicated effective keys, single stored parent key, and chain consistency -/
+
+theorem length_keepBool_le {α : Type} (p : α → Bool) (l : List α) :
+    (keepBool p l).length ≤ l.length := by
+  induction l with
+  | nil => exact Nat.le_refl 0
+  | cons x xs ih =>
+      dsimp [keepBool]
+      cases p x with
+      | false =>
+          simp only [Bool.false_eq_true, ↓reduceIte]
+          exact Nat.le_trans ih (Nat.le_succ xs.length)
+      | true =>
+          simp only [↓reduceIte]
+          exact Nat.succ_le_succ ih
+
+theorem getLast?_concat {α : Type} :
+    ∀ (l : List α) (x : α), (l ++ [x]).getLast? = some x
+  | [], _ => rfl
+  | [_], _ => rfl
+  | _ :: b :: cs, x => getLast?_concat (b :: cs) x
+
+theorem mem_of_getLast?_eq_some {α : Type} :
+    ∀ {l : List α} {x : α}, l.getLast? = some x → x ∈ l
+  | [], _, h => False.elim (by nomatch h)
+  | [_], _, h => List.mem_cons.mpr (Or.inl (Option.some.inj h).symm)
+  | _ :: b :: cs, x, h => by
+      have hSub : (b :: cs).getLast? = some x := h
+      exact List.mem_cons.mpr (Or.inr (mem_of_getLast?_eq_some hSub))
+
+theorem mem_of_mem_takeWhile {α : Type} {p : α → Bool} {l : List α} {x : α}
+    (h : x ∈ l.takeWhile p) : x ∈ l := by
+  induction l with
+  | nil => nomatch h
+  | cons a _ ih =>
+      by_cases ha : p a = true
+      · rw [List.takeWhile_cons_of_pos ha] at h
+        cases List.mem_cons.mp h with
+        | inl hEq => exact List.mem_cons.mpr (Or.inl hEq)
+        | inr hTail => exact List.mem_cons.mpr (Or.inr (ih hTail))
+      · rw [List.takeWhile_cons_of_neg ha] at h
+        nomatch h
+
+theorem takeWhile_append_singleton {α : Type} (p : α → Bool) (l : List α) (x : α) :
+    (l ++ [x]).takeWhile p = l.takeWhile p ∨
+      (l ++ [x]).takeWhile p = l ++ [x] := by
+  induction l with
+  | nil =>
+      change ([x]).takeWhile p = [].takeWhile p ∨ ([x]).takeWhile p = [x]
+      by_cases hx : p x = true
+      · rw [List.takeWhile_cons_of_pos hx]
+        exact Or.inr rfl
+      · rw [List.takeWhile_cons_of_neg hx]
+        exact Or.inl rfl
+  | cons a as ih =>
+      change (a :: (as ++ [x])).takeWhile p = (a :: as).takeWhile p ∨
+        (a :: (as ++ [x])).takeWhile p = a :: (as ++ [x])
+      by_cases ha : p a = true
+      · rw [List.takeWhile_cons_of_pos ha, List.takeWhile_cons_of_pos ha]
+        cases ih with
+        | inl h₁ => exact Or.inl (congrArg (List.cons a) h₁)
+        | inr h₂ => exact Or.inr (congrArg (List.cons a) h₂)
+      · rw [List.takeWhile_cons_of_neg ha, List.takeWhile_cons_of_neg ha]
+        exact Or.inl rfl
+
+def findOpt {α : Type} (p : α → Bool) : List α → Option α
+  | [] => none
+  | x :: xs => if p x then some x else findOpt p xs
+
+theorem findOpt_some_spec {α : Type} {p : α → Bool} {l : List α} {x : α}
+    (h : findOpt p l = some x) : x ∈ l ∧ p x = true := by
+  induction l with
+  | nil => nomatch h
+  | cons y _ ih =>
+      dsimp [findOpt] at h
+      cases hpy : p y with
+      | true =>
+          rw [hpy] at h
+          simp only [↓reduceIte] at h
+          have hEq : y = x := Option.some.inj h
+          rw [← hEq]
+          exact ⟨List.mem_cons.mpr (Or.inl rfl), hpy⟩
+      | false =>
+          rw [hpy] at h
+          simp only [Bool.false_eq_true, ↓reduceIte] at h
+          let ⟨hMem, hpx⟩ := ih h
+          exact ⟨List.mem_cons.mpr (Or.inr hMem), hpx⟩
+
+theorem findOpt_is_some_of_mem {α : Type} {p : α → Bool} {l : List α} {y : α}
+    (hyMem : y ∈ l) (hpy : p y = true) : ∃ x : α, findOpt p l = some x := by
+  induction l with
+  | nil => nomatch hyMem
+  | cons z _ ih =>
+      dsimp [findOpt]
+      cases hpz : p z with
+      | true =>
+          simp only [↓reduceIte]
+          exact ⟨z, rfl⟩
+      | false =>
+          simp only [Bool.false_eq_true, ↓reduceIte]
+          cases List.mem_cons.mp hyMem with
+          | inl hEq =>
+              rw [hEq, hpz] at hpy
+              nomatch hpy
+          | inr hTail =>
+              exact ih hTail
+
+def filterMapOpt {α β : Type} (f : α → Option β) : List α → List β
+  | [] => []
+  | x :: xs =>
+      match f x with
+      | none => filterMapOpt f xs
+      | some b => b :: filterMapOpt f xs
+
+theorem mem_filterMapOpt_iff {α β : Type} (f : α → Option β) (l : List α) (b : β) :
+    b ∈ filterMapOpt f l ↔ ∃ x : α, x ∈ l ∧ f x = some b := by
+  induction l with
+  | nil =>
+      constructor
+      · intro h; nomatch h
+      · intro ⟨_, hMem, _⟩; nomatch hMem
+  | cons x _ ih =>
+      dsimp [filterMapOpt]
+      cases hfx : f x with
+      | none =>
+          constructor
+          · intro hTail
+            let ⟨z, hzMem, hfz⟩ := ih.mp hTail
+            exact ⟨z, List.mem_cons.mpr (Or.inr hzMem), hfz⟩
+          · intro ⟨z, hzMem, hfz⟩
+            cases List.mem_cons.mp hzMem with
+            | inl hEq =>
+                rw [hEq, hfx] at hfz
+                nomatch hfz
+            | inr hzTail =>
+                exact ih.mpr ⟨z, hzTail, hfz⟩
+      | some _ =>
+          constructor
+          · intro hMem
+            cases List.mem_cons.mp hMem with
+            | inl hEq =>
+                rw [hEq]
+                exact ⟨x, List.mem_cons.mpr (Or.inl rfl), hfx⟩
+            | inr hTail =>
+                let ⟨z, hzMem, hfz⟩ := ih.mp hTail
+                exact ⟨z, List.mem_cons.mpr (Or.inr hzMem), hfz⟩
+          · intro ⟨z, hzMem, hfz⟩
+            cases List.mem_cons.mp hzMem with
+            | inl hEq =>
+                rw [hEq, hfx] at hfz
+                exact List.mem_cons.mpr (Or.inl (Option.some.inj hfz).symm)
+            | inr hzTail =>
+                exact List.mem_cons.mpr (Or.inr (ih.mpr ⟨z, hzTail, hfz⟩))
+
+theorem length_filterMapOpt_le {α β : Type} (f : α → Option β) (l : List α) :
+    (filterMapOpt f l).length ≤ l.length := by
+  induction l with
+  | nil => exact Nat.le_refl 0
+  | cons x xs ih =>
+      dsimp [filterMapOpt]
+      cases f x with
+      | none => exact Nat.le_trans ih (Nat.le_succ xs.length)
+      | some _ => exact Nat.succ_le_succ ih
+
+def dedupFirst {α : Type} [DecidableEq α] : List α → List α
+  | [] => []
+  | x :: xs => x :: keepBool (fun y => decide (y ≠ x)) (dedupFirst xs)
+
+theorem mem_dedupFirst_iff {α : Type} [DecidableEq α] (l : List α) (a : α) :
+    a ∈ dedupFirst l ↔ a ∈ l := by
+  induction l with
+  | nil => exact Iff.rfl
+  | cons x xs ih =>
+      dsimp [dedupFirst]
+      constructor
+      · intro hMem
+        cases List.mem_cons.mp hMem with
+        | inl hEq => exact List.mem_cons.mpr (Or.inl hEq)
+        | inr hKeep =>
+            have hInDedup : a ∈ dedupFirst xs :=
+              ((mem_keepBool_iff (fun y => decide (y ≠ x)) (dedupFirst xs) a).mp hKeep).1
+            exact List.mem_cons.mpr (Or.inr (ih.mp hInDedup))
+      · intro hMem
+        by_cases hax : a = x
+        · exact List.mem_cons.mpr (Or.inl hax)
+        · cases List.mem_cons.mp hMem with
+          | inl hEq => exact False.elim (hax hEq)
+          | inr hTail =>
+              have hKeep : a ∈ keepBool (fun y => decide (y ≠ x)) (dedupFirst xs) :=
+                (mem_keepBool_iff (fun y => decide (y ≠ x)) (dedupFirst xs) a).mpr
+                  ⟨ih.mpr hTail, decide_eq_true hax⟩
+              exact List.mem_cons.mpr (Or.inr hKeep)
+
+theorem nodup_dedupFirst {α : Type} [DecidableEq α] (l : List α) :
+    (dedupFirst l).Pairwise (· ≠ ·) := by
+  induction l with
+  | nil => exact List.Pairwise.nil
+  | cons x xs ih =>
+      dsimp [dedupFirst]
+      refine List.pairwise_cons.mpr ⟨?_, pairwise_keepBool _ ih⟩
+      intro y hy
+      have hDec : decide (y ≠ x) = true :=
+        ((mem_keepBool_iff (fun z => decide (z ≠ x)) (dedupFirst xs) y).mp hy).2
+      exact (of_decide_eq_true hDec).symm
+
+theorem length_dedupFirst_le {α : Type} [DecidableEq α] (l : List α) :
+    (dedupFirst l).length ≤ l.length := by
+  induction l with
+  | nil => exact Nat.le_refl 0
+  | cons x xs ih =>
+      dsimp [dedupFirst]
+      have hKeep :
+          (keepBool (fun y => decide (y ≠ x)) (dedupFirst xs)).length ≤
+            (dedupFirst xs).length :=
+        length_keepBool_le _ (dedupFirst xs)
+      exact Nat.succ_le_succ (Nat.le_trans hKeep ih)
+
+/-! ### Topological vertex ordering and deduplicated effective keys -/
+
+def insertByRank {n : Nat} (rank : Fin n → Nat) (x : Fin n) :
+    List (Fin n) → List (Fin n)
+  | [] => [x]
+  | y :: ys =>
+      if rank x ≤ rank y then
+        x :: y :: ys
+      else
+        y :: insertByRank rank x ys
+
+def sortByRank {n : Nat} (rank : Fin n → Nat) : List (Fin n) → List (Fin n)
+  | [] => []
+  | x :: xs => insertByRank rank x (sortByRank rank xs)
+
+theorem length_insertByRank {n : Nat} (rank : Fin n → Nat) (x : Fin n)
+    (l : List (Fin n)) :
+    (insertByRank rank x l).length = l.length + 1 := by
+  induction l with
+  | nil => rfl
+  | cons y _ ih =>
+      dsimp [insertByRank]
+      by_cases hle : rank x ≤ rank y
+      · rw [ite_eq_left hle]
+        rfl
+      · rw [ite_eq_right hle]
+        exact congrArg Nat.succ ih
+
+theorem length_sortByRank {n : Nat} (rank : Fin n → Nat) (l : List (Fin n)) :
+    (sortByRank rank l).length = l.length := by
+  induction l with
+  | nil => rfl
+  | cons _ _ ih =>
+      dsimp [sortByRank]
+      rw [length_insertByRank, ih]
+
+theorem mem_insertByRank_iff {n : Nat} (rank : Fin n → Nat) (x : Fin n)
+    (l : List (Fin n)) (u : Fin n) :
+    u ∈ insertByRank rank x l ↔ u = x ∨ u ∈ l := by
+  induction l with
+  | nil =>
+      dsimp [insertByRank]
+      exact List.mem_cons
+  | cons y _ ih =>
+      dsimp [insertByRank]
+      by_cases hle : rank x ≤ rank y
+      · rw [ite_eq_left hle]
+        exact List.mem_cons
+      · rw [ite_eq_right hle]
+        constructor
+        · intro hMem
+          cases List.mem_cons.mp hMem with
+          | inl hEq => exact Or.inr (List.mem_cons.mpr (Or.inl hEq))
+          | inr hTail =>
+              cases ih.mp hTail with
+              | inl hux => exact Or.inl hux
+              | inr hInYs => exact Or.inr (List.mem_cons.mpr (Or.inr hInYs))
+        · intro hOr
+          cases hOr with
+          | inl hux =>
+              exact List.mem_cons.mpr (Or.inr (ih.mpr (Or.inl hux)))
+          | inr hInCons =>
+              cases List.mem_cons.mp hInCons with
+              | inl huy => exact List.mem_cons.mpr (Or.inl huy)
+              | inr hInYs =>
+                  exact List.mem_cons.mpr (Or.inr (ih.mpr (Or.inr hInYs)))
+
+theorem mem_sortByRank_iff {n : Nat} (rank : Fin n → Nat) (l : List (Fin n))
+    (u : Fin n) : u ∈ sortByRank rank l ↔ u ∈ l := by
+  induction l with
+  | nil => exact Iff.rfl
+  | cons _ _ ih =>
+      dsimp [sortByRank]
+      rw [mem_insertByRank_iff, ih]
+      exact List.mem_cons.symm
+
+theorem pairwise_le_insertByRank {n : Nat} (rank : Fin n → Nat) (x : Fin n)
+    {l : List (Fin n)} (hl : l.Pairwise (fun a b => rank a ≤ rank b)) :
+    (insertByRank rank x l).Pairwise (fun a b => rank a ≤ rank b) := by
+  revert hl
+  induction l with
+  | nil =>
+      intro _
+      exact List.pairwise_cons.mpr ⟨(fun _ h => by nomatch h), List.Pairwise.nil⟩
+  | cons y ys ih =>
+      intro hl
+      let ⟨hyLe, hysSort⟩ := List.pairwise_cons.mp hl
+      dsimp [insertByRank]
+      by_cases hle : rank x ≤ rank y
+      · rw [ite_eq_left hle]
+        refine List.pairwise_cons.mpr ⟨?_, hl⟩
+        intro z hz
+        cases List.mem_cons.mp hz with
+        | inl hzy => rw [hzy]; exact hle
+        | inr hzYs => exact Nat.le_trans hle (hyLe z hzYs)
+      · rw [ite_eq_right hle]
+        have hyx : rank y ≤ rank x := nat_le_of_not_le hle
+        refine List.pairwise_cons.mpr ⟨?_, ih hysSort⟩
+        intro z hz
+        cases (mem_insertByRank_iff rank x ys z).mp hz with
+        | inl hzx => rw [hzx]; exact hyx
+        | inr hzYs => exact hyLe z hzYs
+
+theorem pairwise_le_sortByRank {n : Nat} (rank : Fin n → Nat) (l : List (Fin n)) :
+    (sortByRank rank l).Pairwise (fun a b => rank a ≤ rank b) := by
+  induction l with
+  | nil => exact List.Pairwise.nil
+  | cons x _ ih => exact pairwise_le_insertByRank rank x ih
+
+/-- Vertices of `H` sorted in nondecreasing `rank` order. -/
+def topoVertices (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    List (Fin H.vertexCount) :=
+  sortByRank rank (finElems H.vertexCount)
+
+theorem mem_topoVertices (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat)
+    (v : Fin H.vertexCount) : v ∈ topoVertices H rank :=
+  (mem_sortByRank_iff rank (finElems H.vertexCount) v).mpr (mem_finElems v)
+
+theorem length_topoVertices (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    (topoVertices H rank).length = H.vertexCount := by
+  unfold topoVertices
+  rw [length_sortByRank, length_finElems]
+
+theorem pairwise_le_topoVertices (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    (topoVertices H rank).Pairwise (fun a b => rank a ≤ rank b) :=
+  pairwise_le_sortByRank rank (finElems H.vertexCount)
+
+/-- Raw candidate canonical two-predecessor keys emitted across `topoVertices`. -/
+def rawCandidatePairs (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    List (CutPair H) :=
+  filterMapOpt (sweepCandidate H) (topoVertices H rank)
+
+/-- Deduplicated canonical real forest keys in topological encounter order. -/
+def realKeys (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    List (CutPair H) :=
+  dedupFirst (rawCandidatePairs H rank)
+
+theorem nodup_realKeys (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    (realKeys H rank).Pairwise (· ≠ ·) :=
+  nodup_dedupFirst (rawCandidatePairs H rank)
+
+theorem length_realKeys_le (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    (realKeys H rank).length ≤ H.vertexCount := by
+  have h₁ : (realKeys H rank).length ≤ (rawCandidatePairs H rank).length :=
+    length_dedupFirst_le (rawCandidatePairs H rank)
+  have h₂ : (rawCandidatePairs H rank).length ≤ (topoVertices H rank).length :=
+    length_filterMapOpt_le (sweepCandidate H) (topoVertices H rank)
+  rw [length_topoVertices H rank] at h₂
+  exact Nat.le_trans h₁ h₂
+
+theorem sweepCandidate_some_elim {H : LabelledQuotient} {y : Fin H.vertexCount}
+    {B : CutPair H} (h : sweepCandidate H y = some B) :
+    y ≠ H.root ∧
+      H.hasQuotientArcBool H.root y = false ∧
+      candidatePairOfPreds H (preds H y) = some B := by
+  unfold sweepCandidate at h
+  by_cases hy : y = H.root
+  · rw [ite_eq_left hy] at h
+    nomatch h
+  · rw [ite_eq_right hy] at h
+    cases hArc : H.hasQuotientArcBool H.root y with
+    | true =>
+        rw [hArc] at h
+        simp only [↓reduceIte] at h
+        nomatch h
+    | false =>
+        rw [hArc] at h
+        simp only [Bool.false_eq_true, ↓reduceIte] at h
+        exact ⟨hy, rfl, h⟩
+
+theorem sweepCandidate_eq_some_of_endpoints {H : LabelledQuotient}
+    {y : Fin H.vertexCount} {B : CutPair H}
+    (hy : y ≠ H.root) (hOrder : B.fst < B.snd)
+    (hArcIff : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y ↔ B.Mem u) :
+    sweepCandidate H y = some B := by
+  have hNoRootArc : H.hasQuotientArcBool H.root y = false := by
+    cases hBool : H.hasQuotientArcBool H.root y with
+    | false => rfl
+    | true =>
+        have hRootMem : B.Mem H.root :=
+          (hArcIff H.root).mp ((hasQuotientArcBool_eq_true_iff H H.root y).mp hBool)
+        cases hRootMem with
+        | inl h₁ => exact False.elim (B.fst_ne_root h₁.symm)
+        | inr h₂ => exact False.elim (B.snd_ne_root h₂.symm)
+  unfold sweepCandidate
+  rw [ite_eq_right hy, hNoRootArc]
+  simp only [Bool.false_eq_true, ↓reduceIte]
+  exact (candidatePairOfPreds_preds_iff H y B).mpr ⟨hOrder, hArcIff⟩
+
+theorem canonical_of_mem_realKeys {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat} {B : CutPair H}
+    (hMem : B ∈ realKeys H rank) : B.fst < B.snd := by
+  have hRaw : B ∈ rawCandidatePairs H rank :=
+    (mem_dedupFirst_iff (rawCandidatePairs H rank) B).mp hMem
+  let ⟨y, _, hCandY⟩ :=
+    (mem_filterMapOpt_iff (sweepCandidate H) (topoVertices H rank) B).mp hRaw
+  let ⟨_, _, hPredCand⟩ := sweepCandidate_some_elim hCandY
+  exact ((candidatePairOfPreds_preds_iff H y B).mp hPredCand).1
+
+/-- Exact correspondence between `realKeys` and canonical pairs `B` with `J(B) ≠ ∅`. -/
+theorem mem_realKeys_iff {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (B : CutPair H) :
+    B ∈ realKeys H rank ↔
+      B.fst < B.snd ∧ ∃ y : Fin H.vertexCount, H.ProperLoss B y := by
+  constructor
+  · intro hMem
+    have hRaw : B ∈ rawCandidatePairs H rank :=
+      (mem_dedupFirst_iff (rawCandidatePairs H rank) B).mp hMem
+    let ⟨y, _, hCandY⟩ :=
+      (mem_filterMapOpt_iff (sweepCandidate H) (topoVertices H rank) B).mp hRaw
+    let ⟨hy, hNoRootArc, hPredCand⟩ := sweepCandidate_some_elim hCandY
+    have hOrder : B.fst < B.snd :=
+      ((candidatePairOfPreds_preds_iff H y B).mp hPredCand).1
+    let ⟨m, hMax, hEntering, _⟩ :=
+      maxByRank_preds_of_flat rank flat (fun hEq => hy hEq.symm)
+    have hStep := sweepChain_eq_step rankArc hy hNoRootArc hMax hEntering
+    have hInChain : B ∈ sweepChain H rank y := by
+      rw [hStep, hPredCand]
+      exact List.mem_append.mpr (Or.inr (List.mem_cons.mpr (Or.inl rfl)))
+    exact ⟨hOrder, ⟨y, (sweepChain_spec rankArc flat y).sound B hInChain⟩⟩
+  · intro ⟨hOrder, ⟨y₀, hProper₀⟩⟩
+    have hy₀InLosses :
+        y₀ ∈ keepBool (fun v => memCutPairBool B (sweepChain H rank v))
+          (topoVertices H rank) := by
+      refine (mem_keepBool_iff _ (topoVertices H rank) y₀).mpr ⟨mem_topoVertices H rank y₀, ?_⟩
+      exact (memCutPairBool_eq_true_iff B (sweepChain H rank y₀)).mpr
+        (((sweepChain_spec rankArc flat y₀).complete_iff B hOrder).mpr hProper₀)
+    have hLossesSort :
+        (keepBool (fun v => memCutPairBool B (sweepChain H rank v))
+          (topoVertices H rank)).Pairwise (fun a b => rank a ≤ rank b) :=
+      pairwise_keepBool _ (pairwise_le_topoVertices H rank)
+    cases hEqLosses :
+        keepBool (fun v => memCutPairBool B (sweepChain H rank v)) (topoVertices H rank) with
+    | nil =>
+        rw [hEqLosses] at hy₀InLosses
+        nomatch hy₀InLosses
+    | cons yStar rest =>
+        rw [hEqLosses] at hLossesSort
+        let ⟨hStarLeRest, _⟩ := List.pairwise_cons.mp hLossesSort
+        have hyStarMem :
+            yStar ∈ keepBool (fun v => memCutPairBool B (sweepChain H rank v))
+              (topoVertices H rank) := by
+          rw [hEqLosses]
+          exact List.mem_cons.mpr (Or.inl rfl)
+        have hBInStar : B ∈ sweepChain H rank yStar :=
+          (memCutPairBool_eq_true_iff B (sweepChain H rank yStar)).mp
+            ((mem_keepBool_iff _ (topoVertices H rank) yStar).mp hyStarMem).2
+        have hProperStar : H.ProperLoss B yStar :=
+          (sweepChain_spec rankArc flat yStar).sound B hBInStar
+        have hFirst : ∀ v : Fin H.vertexCount, H.ProperLoss B v → rank yStar ≤ rank v := by
+          intro v hProperV
+          have hvInLosses :
+              v ∈ keepBool (fun w => memCutPairBool B (sweepChain H rank w))
+                (topoVertices H rank) := by
+            refine (mem_keepBool_iff _ (topoVertices H rank) v).mpr ⟨mem_topoVertices H rank v, ?_⟩
+            exact (memCutPairBool_eq_true_iff B (sweepChain H rank v)).mpr
+              (((sweepChain_spec rankArc flat v).complete_iff B hOrder).mpr hProperV)
+          rw [hEqLosses] at hvInLosses
+          cases List.mem_cons.mp hvInLosses with
+          | inl hvEq => rw [hvEq]; exact Nat.le_refl _
+          | inr hvRest => exact hStarLeRest v hvRest
+        have hArcIff : ∀ u : Fin H.vertexCount, H.HasQuotientArc u yStar ↔ B.Mem u :=
+          predecessors_iff_endpoints_of_first_properLoss rankArc flat hProperStar hFirst
+        have hyStarNeRoot : yStar ≠ H.root := fun hEq => by
+          rw [hEq] at hProperStar
+          exact not_properLoss_root H B hProperStar
+        have hCandStar : sweepCandidate H yStar = some B :=
+          sweepCandidate_eq_some_of_endpoints hyStarNeRoot hOrder hArcIff
+        have hRaw : B ∈ rawCandidatePairs H rank :=
+          (mem_filterMapOpt_iff (sweepCandidate H) (topoVertices H rank) B).mpr
+            ⟨yStar, mem_topoVertices H rank yStar, hCandStar⟩
+        exact (mem_dedupFirst_iff (rawCandidatePairs H rank) B).mpr hRaw
+
+/-! ### Single stored parent on pair keys and pair-key reuse consistency -/
+
+def witnessVertex? (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat)
+    (P : CutPair H) : Option (Fin H.vertexCount) :=
+  findOpt (fun y => decide (sweepCandidate H y = some P)) (topoVertices H rank)
+
+def parentOfWitness (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat)
+    (z : Fin H.vertexCount) : Option (CutPair H) :=
+  match maxByRank rank (preds H z) with
+  | none => none
+  | some m => ((sweepChain H rank m).takeWhile (sweepPasses H rank z)).getLast?
+
+def storedParentKey? (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat)
+    (P : CutPair H) : Option (CutPair H) :=
+  match witnessVertex? H rank P with
+  | none => none
+  | some z => parentOfWitness H rank z
+
+def pairMaxRank {H : LabelledQuotient} (rank : Fin H.vertexCount → Nat)
+    (B : CutPair H) : Nat :=
+  if rank B.fst ≤ rank B.snd then rank B.snd else rank B.fst
+
+theorem rank_le_pairMaxRank_of_mem {H : LabelledQuotient}
+    (rank : Fin H.vertexCount → Nat) {B : CutPair H} {u : Fin H.vertexCount}
+    (hu : B.Mem u) : rank u ≤ pairMaxRank rank B := by
+  unfold pairMaxRank
+  by_cases hle : rank B.fst ≤ rank B.snd
+  · rw [ite_eq_left hle]
+    cases hu with
+    | inl h₁ => rw [h₁]; exact hle
+    | inr h₂ => rw [h₂]; exact Nat.le_refl _
+  · rw [ite_eq_right hle]
+    cases hu with
+    | inl h₁ => rw [h₁]; exact Nat.le_refl _
+    | inr h₂ => rw [h₂]; exact nat_le_of_not_le hle
+
+theorem pairMaxRank_lt_of_endpoints_lt {H : LabelledQuotient}
+    (rank : Fin H.vertexCount → Nat) {B : CutPair H} {r : Nat}
+    (h₁ : rank B.fst < r) (h₂ : rank B.snd < r) :
+    pairMaxRank rank B < r := by
+  unfold pairMaxRank
+  by_cases hle : rank B.fst ≤ rank B.snd
+  · rw [ite_eq_left hle]; exact h₂
+  · rw [ite_eq_right hle]; exact h₁
+
+theorem storedParentKey?_some_props {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) {P B : CutPair H}
+    (hPar : storedParentKey? H rank P = some B) :
+    B ∈ realKeys H rank ∧
+      pairMaxRank rank B < pairMaxRank rank P ∧
+      (∀ p : Fin H.vertexCount, P.Mem p → H.Lost B p) := by
+  unfold storedParentKey? at hPar
+  cases hw : witnessVertex? H rank P with
+  | none =>
+      rw [hw] at hPar
+      nomatch hPar
+  | some z =>
+      rw [hw] at hPar
+      have hCandZ : sweepCandidate H z = some P :=
+        of_decide_eq_true (findOpt_some_spec hw).2
+      let ⟨hzNeRoot, hNoRootArcZ, hPredCandZ⟩ := sweepCandidate_some_elim hCandZ
+      have hKeyZ : ∀ u : Fin H.vertexCount, H.HasQuotientArc u z ↔ P.Mem u :=
+        ((candidatePairOfPreds_preds_iff H z P).mp hPredCandZ).2
+      unfold parentOfWitness at hPar
+      dsimp only at hPar
+      cases hMaxZ : maxByRank rank (preds H z) with
+      | none =>
+          rw [hMaxZ] at hPar
+          nomatch hPar
+      | some m =>
+          rw [hMaxZ] at hPar
+          let ⟨m', hMaxZ', hEnteringZ', _⟩ :=
+            maxByRank_preds_of_flat rank flat (fun hEq => hzNeRoot hEq.symm)
+          have hmEq : m = m' := Option.some.inj (hMaxZ.symm.trans hMaxZ')
+          have hEnteringZ : H.HasQuotientArc m z := by rw [hmEq]; exact hEnteringZ'
+          have hBInPref : B ∈ (sweepChain H rank m).takeWhile (sweepPasses H rank z) :=
+            mem_of_getLast?_eq_some hPar
+          have hBInM : B ∈ sweepChain H rank m := mem_of_mem_takeWhile hBInPref
+          have specM := sweepChain_spec rankArc flat m
+          have hBCan : B.fst < B.snd := specM.canonical B hBInM
+          have hProperBM : H.ProperLoss B m := specM.sound B hBInM
+          have hBReal : B ∈ realKeys H rank :=
+            (mem_realKeys_iff rankArc flat B).mpr ⟨hBCan, ⟨m, hProperBM⟩⟩
+          have hRankFst : rank B.fst < rank m :=
+            properLoss_follows_endpoints rankArc flat hProperBM (Or.inl rfl)
+          have hRankSnd : rank B.snd < rank m :=
+            properLoss_follows_endpoints rankArc flat hProperBM (Or.inr rfl)
+          have hmMemP : P.Mem m := (hKeyZ m).mp hEnteringZ
+          have hMaxLt : pairMaxRank rank B < pairMaxRank rank P :=
+            Nat.lt_of_lt_of_le
+              (pairMaxRank_lt_of_endpoints_lt rank hRankFst hRankSnd)
+              (rank_le_pairMaxRank_of_mem rank hmMemP)
+          have hStepZ := sweepChain_eq_step rankArc hzNeRoot hNoRootArcZ hMaxZ hEnteringZ
+          have hNestedZ := (sweepChain_spec rankArc flat z).nested
+          rw [hStepZ, hPredCandZ] at hNestedZ
+          have hCross := (List.pairwise_append.mp hNestedZ).2.2
+          have hEndpointsLost : ∀ p : Fin H.vertexCount, P.Mem p → H.Lost B p :=
+            hCross B hBInPref P (List.mem_cons.mpr (Or.inl rfl))
+          exact ⟨hBReal, hMaxLt, hEndpointsLost⟩
+
+/-- Reused-key parent agreement: every vertex emitting `some P` computes the same immediate parent. -/
+theorem storedParentKey?_eq_at_candidate {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat) {y mY : Fin H.vertexCount} {P : CutPair H}
+    (hCandY : sweepCandidate H y = some P)
+    (hMaxY : maxByRank rank (preds H y) = some mY) :
+    ((sweepChain H rank mY).takeWhile (sweepPasses H rank y)).getLast? =
+      storedParentKey? H rank P := by
+  let ⟨z, hzFind⟩ :=
+    findOpt_is_some_of_mem (p := fun w => decide (sweepCandidate H w = some P))
+      (mem_topoVertices H rank y) (decide_eq_true hCandY)
+  have hCandZ : sweepCandidate H z = some P :=
+    of_decide_eq_true (findOpt_some_spec hzFind).2
+  let ⟨hyNeRoot, _, hPredCandY⟩ := sweepCandidate_some_elim hCandY
+  let ⟨hzNeRoot, _, hPredCandZ⟩ := sweepCandidate_some_elim hCandZ
+  have keyY : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y ↔ P.Mem u :=
+    ((candidatePairOfPreds_preds_iff H y P).mp hPredCandY).2
+  have keyZ : ∀ u : Fin H.vertexCount, H.HasQuotientArc u z ↔ P.Mem u :=
+    ((candidatePairOfPreds_preds_iff H z P).mp hPredCandZ).2
+  let ⟨mY', hMaxY', hEdgeY', hLatestY'⟩ :=
+    maxByRank_preds_of_flat rank flat (fun hEq => hyNeRoot hEq.symm)
+  have hmYEq : mY = mY' := Option.some.inj (hMaxY.symm.trans hMaxY')
+  have hEdgeY : H.HasQuotientArc mY y := by rw [hmYEq]; exact hEdgeY'
+  have hLatestY : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → rank u ≤ rank mY := by
+    rw [hmYEq]; exact hLatestY'
+  let ⟨mZ, hMaxZ, hEdgeZ, hLatestZ⟩ :=
+    maxByRank_preds_of_flat rank flat (fun hEq => hzNeRoot hEq.symm)
+  have correctY : ∀ B : CutPair H, sweepPasses H rank y B = true ↔
+      ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → H.Lost B u :=
+    sweepPasses_correct_of_preds_spec (fun u _ => sweepChain_spec rankArc flat u)
+  have correctZ : ∀ B : CutPair H, sweepPasses H rank z B = true ↔
+      ∀ u : Fin H.vertexCount, H.HasQuotientArc u z → H.Lost B u :=
+    sweepPasses_correct_of_preds_spec (fun u _ => sweepChain_spec rankArc flat u)
+  change witnessVertex? H rank P = some z at hzFind
+  unfold storedParentKey?
+  rw [hzFind]
+  unfold parentOfWitness
+  dsimp only
+  rw [hMaxZ]
+  exact sweep_parent_eq_for_reused_pair_key distinctRanks (sweepChain H rank)
+    keyY keyZ hEdgeY hEdgeZ hLatestY hLatestZ
+    (sweepPasses H rank y) (sweepPasses H rank z) correctY correctZ
+
+/-! ### Root-to-node key chains under `storedParentKey?` -/
+
+def parentKeyChainAux (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    Nat → Option (CutPair H) → List (CutPair H)
+  | _, none => []
+  | 0, some _ => []
+  | fuel + 1, some P =>
+      parentKeyChainAux H rank fuel (storedParentKey? H rank P) ++ [P]
+
+def parentKeyChain (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat) :
+    Option (CutPair H) → List (CutPair H)
+  | none => []
+  | some P => parentKeyChainAux H rank (pairMaxRank rank P + 1) (some P)
+
+theorem parentKeyChainAux_eq_of_gt {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) :
+    ∀ {f₁ f₂ : Nat} {P : CutPair H},
+      pairMaxRank rank P < f₁ → pairMaxRank rank P < f₂ →
+      parentKeyChainAux H rank f₁ (some P) = parentKeyChainAux H rank f₂ (some P)
+  | 0, _, _, h₁, _ => False.elim (by nomatch h₁)
+  | _ + 1, 0, _, _, h₂ => False.elim (by nomatch h₂)
+  | f₁ + 1, f₂ + 1, P, h₁, h₂ => by
+      dsimp [parentKeyChainAux]
+      cases hPar : storedParentKey? H rank P with
+      | none => cases f₁ <;> cases f₂ <;> rfl
+      | some B =>
+          have hBLt : pairMaxRank rank B < pairMaxRank rank P :=
+            (storedParentKey?_some_props rankArc flat hPar).2.1
+          have hB₁ : pairMaxRank rank B < f₁ :=
+            Nat.lt_of_lt_of_le hBLt (Nat.le_of_succ_le_succ h₁)
+          have hB₂ : pairMaxRank rank B < f₂ :=
+            Nat.lt_of_lt_of_le hBLt (Nat.le_of_succ_le_succ h₂)
+          rw [parentKeyChainAux_eq_of_gt rankArc flat hB₁ hB₂]
+
+theorem parentKeyChain_some_eq {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (P : CutPair H) :
+    parentKeyChain H rank (some P) =
+      parentKeyChain H rank (storedParentKey? H rank P) ++ [P] := by
+  change parentKeyChainAux H rank (pairMaxRank rank P + 1) (some P) = _
+  dsimp [parentKeyChainAux]
+  cases hPar : storedParentKey? H rank P with
+  | none => cases pairMaxRank rank P <;> rfl
+  | some B =>
+      dsimp [parentKeyChain]
+      have hBLt : pairMaxRank rank B < pairMaxRank rank P :=
+        (storedParentKey?_some_props rankArc flat hPar).2.1
+      rw [parentKeyChainAux_eq_of_gt rankArc flat hBLt (Nat.lt_succ_self (pairMaxRank rank B))]
+
+theorem getLast?_parentKeyChain {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (opt : Option (CutPair H)) :
+    (parentKeyChain H rank opt).getLast? = opt := by
+  cases opt with
+  | none => rfl
+  | some P =>
+      rw [parentKeyChain_some_eq rankArc flat P, getLast?_concat]
+
+private theorem takeWhile_parentKeyChain_bounded {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (p : CutPair H → Bool) :
+    ∀ (bound : Nat) (P : CutPair H),
+      pairMaxRank rank P < bound →
+      (parentKeyChain H rank (some P)).takeWhile p =
+        parentKeyChain H rank ((parentKeyChain H rank (some P)).takeWhile p).getLast?
+  | 0, _, hLt => False.elim (by nomatch hLt)
+  | bound + 1, P, hLt => by
+      have hUnfold := parentKeyChain_some_eq rankArc flat P
+      cases takeWhile_append_singleton p
+          (parentKeyChain H rank (storedParentKey? H rank P)) P with
+      | inl hPref =>
+          rw [hUnfold, hPref]
+          cases hPar : storedParentKey? H rank P with
+          | none =>
+              rfl
+          | some B =>
+              have hBLt : pairMaxRank rank B < bound :=
+                Nat.lt_of_lt_of_le
+                  (storedParentKey?_some_props rankArc flat hPar).2.1
+                  (Nat.le_of_succ_le_succ hLt)
+              exact takeWhile_parentKeyChain_bounded rankArc flat p bound B hBLt
+      | inr hFull =>
+          have hTwEq : (parentKeyChain H rank (some P)).takeWhile p =
+              parentKeyChain H rank (some P) := by
+            rw [hUnfold]
+            exact hFull
+          rw [hTwEq, getLast?_parentKeyChain rankArc flat (some P)]
+
+theorem takeWhile_parentKeyChain {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) (p : CutPair H → Bool) (opt : Option (CutPair H)) :
+    (parentKeyChain H rank opt).takeWhile p =
+      parentKeyChain H rank ((parentKeyChain H rank opt).takeWhile p).getLast? := by
+  cases opt with
+  | none => rfl
+  | some P =>
+      exact takeWhile_parentKeyChain_bounded rankArc flat p
+        (pairMaxRank rank P + 1) P (Nat.lt_succ_self (pairMaxRank rank P))
+
+def vertexLabelKey? (H : LabelledQuotient) (rank : Fin H.vertexCount → Nat)
+    (y : Fin H.vertexCount) : Option (CutPair H) :=
+  (sweepChain H rank y).getLast?
+
+private theorem sweepChain_eq_parentKeyChain_bounded {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat) :
+    ∀ (bound : Nat) (y : Fin H.vertexCount),
+      rank y < bound →
+      sweepChain H rank y = parentKeyChain H rank (vertexLabelKey? H rank y)
+  | 0, _, hLt => False.elim (by nomatch hLt)
+  | bound + 1, y, hLt => by
+      by_cases hy : y = H.root
+      · unfold vertexLabelKey?
+        rw [sweepChain_eq_of_eq_root H rank hy]
+        rfl
+      · cases hRootArc : H.hasQuotientArcBool H.root y with
+        | true =>
+            have hArc : H.HasQuotientArc H.root y :=
+              (hasQuotientArcBool_eq_true_iff H H.root y).mp hRootArc
+            unfold vertexLabelKey?
+            rw [sweepChain_eq_of_root_arc H rank hArc]
+            rfl
+        | false =>
+            let ⟨m, hMax, hEntering, _⟩ :=
+              maxByRank_preds_of_flat rank flat (fun hEq => hy hEq.symm)
+            have hmLt : rank m < bound :=
+              Nat.lt_of_lt_of_le (rankArc m y hEntering) (Nat.le_of_succ_le_succ hLt)
+            have ihM : sweepChain H rank m = parentKeyChain H rank (vertexLabelKey? H rank m) :=
+              sweepChain_eq_parentKeyChain_bounded rankArc distinctRanks flat bound m hmLt
+            have hStep := sweepChain_eq_step rankArc hy hRootArc hMax hEntering
+            have hCandEq : candidatePairOfPreds H (preds H y) = sweepCandidate H y := by
+              unfold sweepCandidate
+              rw [ite_eq_right hy, hRootArc]
+              simp only [Bool.false_eq_true, ↓reduceIte]
+            rw [hCandEq] at hStep
+            cases hCand : sweepCandidate H y with
+            | none =>
+                rw [hCand] at hStep
+                have hStepNil :
+                    sweepChain H rank y =
+                      (sweepChain H rank m).takeWhile (sweepPasses H rank y) := by
+                  rw [hStep]
+                  exact List.append_nil _
+                unfold vertexLabelKey?
+                rw [hStepNil, ihM]
+                exact takeWhile_parentKeyChain rankArc flat
+                  (sweepPasses H rank y) (vertexLabelKey? H rank m)
+            | some P =>
+                have hParEq :
+                    ((sweepChain H rank m).takeWhile (sweepPasses H rank y)).getLast? =
+                      storedParentKey? H rank P :=
+                  storedParentKey?_eq_at_candidate rankArc distinctRanks flat hCand hMax
+                have hPrefChain :
+                    (sweepChain H rank m).takeWhile (sweepPasses H rank y) =
+                      parentKeyChain H rank (storedParentKey? H rank P) := by
+                  rw [← hParEq, ihM]
+                  exact takeWhile_parentKeyChain rankArc flat
+                    (sweepPasses H rank y) (vertexLabelKey? H rank m)
+                rw [hCand] at hStep
+                have hLabelP : vertexLabelKey? H rank y = some P := by
+                  unfold vertexLabelKey?
+                  rw [hStep]
+                  exact getLast?_concat _ P
+                rw [hLabelP, hStep, hPrefChain, parentKeyChain_some_eq rankArc flat P]
+                rfl
+
+theorem sweepChain_eq_parentKeyChain {H : LabelledQuotient}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v : Fin H.vertexCount, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Fin H.vertexCount, rank a = rank b → a = b)
+    (flat : H.IsFlat) (y : Fin H.vertexCount) :
+    sweepChain H rank y = parentKeyChain H rank (vertexLabelKey? H rank y) :=
+  sweepChain_eq_parentKeyChain_bounded rankArc distinctRanks flat
+    (rank y + 1) y (Nat.lt_succ_self (rank y))
+
 end LabelledQuotient
 end PaperB

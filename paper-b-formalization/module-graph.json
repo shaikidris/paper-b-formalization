@@ -64,7 +64,7 @@
     {
       "path": "release-core/PaperB/Jumps.lean",
       "local_imports": [
-        "release-core/Challenge.lean"
+        "release-core/PaperB/ExitPaths.lean"
       ],
       "owner_role": "data structures",
       "admission": "ORACLE_CORE"

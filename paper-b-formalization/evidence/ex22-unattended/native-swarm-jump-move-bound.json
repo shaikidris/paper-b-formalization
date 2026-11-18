@@ -1,0 +1,21 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 24,
+  "post_sha256": "ba846eb134c698d41284776d1c621c922de1902007b749053587a4c2c1b02ca2",
+  "declarations": [
+    "PaperB.traceMoves_length_le_ceilLog2",
+    "PaperB.ram_cost_of_bridge",
+    "PaperB.record_fields_lt_pow2"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "38dbf0a43ec2b8bc885553f2398d7133f91f832a82175945a08d82ae34457b74",
+  "axiom_audit": [
+    "'PaperB.traceMoves_length_le_ceilLog2' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'PaperB.ram_cost_of_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'PaperB.record_fields_lt_pow2' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "check_output": "PaperB.traceMoves_length_le_ceilLog2 {F : PaperB.JumpForest} (hF : PaperB.ValidJumpForest F) {u n : Nat}\n  (hu : u < F.size) (hInserted : F.numInserted ≤ n) (targetDepth : Nat) :\n  (F.traceMoves u targetDepth).length ≤ 3 * PaperB.ceilLog2 (n + 2)\n'PaperB.traceMoves_length_le_ceilLog2' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaperB.ram_cost_of_bridge (B : PaperB.WordRamRecordBridge) {F : PaperB.JumpForest} (hF : PaperB.ValidJumpForest F)\n  (hCap : F.numInserted ≤ B.maxNodes) {u : Nat} (hu : u < F.size) (p targetDepth : Nat) :\n  have L := PaperB.ceilLog2 (B.maxNodes + 2);\n  (F.size < 2 ^ B.wordWidth ∧\n      (F.recordAt u).parent < 2 ^ B.wordWidth ∧\n        (F.recordAt u).depth < 2 ^ B.wordWidth ∧ (F.recordAt u).jump < 2 ^ B.wordWidth) ∧\n    (F.appendLeafOps p).length = 4 ∧\n      F.records.length = F.numInserted + 1 ∧\n        (F.traceReadOps u targetDepth).length * B.costPerRead ≤ (6 * L + 1) * B.costPerRead\n'PaperB.ram_cost_of_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaperB.record_fields_lt_pow2 {F : PaperB.JumpForest} (hF : PaperB.ValidJumpForest F) {u n W : Nat} (hu : u < F.size)\n  (hInserted : F.numInserted ≤ n) (hWord : n + 2 ≤ 2 ^ W) :\n  F.size < 2 ^ W ∧ (F.recordAt u).parent < 2 ^ W ∧ (F.recordAt u).depth < 2 ^ W ∧ (F.recordAt u).jump < 2 ^ W\n'PaperB.record_fields_lt_pow2' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "repair": "Imported the quotient context and replaced references to case-eliminated move binders by the definitionally equal list length.",
+  "scope": "At most 3 ceil(log2(n+2)) moves. Record transcript size and field capacity are verified, with physical word operations conditional on the EX0.3 bridge."
+}

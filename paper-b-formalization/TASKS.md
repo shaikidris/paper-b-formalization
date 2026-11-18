@@ -197,9 +197,9 @@ Acceptance:
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 - Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
 
-Lean verified the local sweep transition and the global sweepChain_spec for every vertex of a flat ranked quotient. The global result gives canonical, nested, duplicate-free labels with exact proper-loss membership. The shared parent forest and linear node bound remain open. The semantic sweep carries no executable resource claim.
+Lean verified orbit membership via stored parent key chains, exact effective canonical keys and the bound by vertex count. The final bundled forest interface and fresh-endpoint order remain open.
 
-Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json), [evidence/carbon-forest-prefix/verification.json](evidence/carbon-forest-prefix/verification.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json), [evidence/ex22-unattended/native-swarm-sweep-step.json](evidence/ex22-unattended/native-swarm-sweep-step.json), [evidence/ex22-unattended/native-swarm-global-sweep.json](evidence/ex22-unattended/native-swarm-global-sweep.json).
+Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json), [evidence/carbon-forest-prefix/verification.json](evidence/carbon-forest-prefix/verification.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json), [evidence/ex22-unattended/native-swarm-sweep-step.json](evidence/ex22-unattended/native-swarm-sweep-step.json), [evidence/ex22-unattended/native-swarm-global-sweep.json](evidence/ex22-unattended/native-swarm-global-sweep.json), [evidence/ex22-unattended/native-swarm-forest-parents.json](evidence/ex22-unattended/native-swarm-forest-parents.json).
 
 <a id="ex23"></a>
 
@@ -217,9 +217,9 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified the growing skew-binary tree invariant, depth-target traversal, unique ancestor at the requested depth, ancestry recognition and persistence under insertion. The logarithmic trace bound and word-operation implementation are open.
+Lean verified unique ancestor traversal, at most 3 ceil(log2(n+2)) moves, record-operation transcript bounds and field capacities. Physical word-operation correspondence remains conditional on EX0.3.
 
-Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json).
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json), [evidence/ex22-unattended/native-swarm-jump-move-bound.json](evidence/ex22-unattended/native-swarm-jump-move-bound.json).
 
 <a id="ex24"></a>
 

@@ -1,4 +1,4 @@
-import Challenge
+import PaperB.ExitPaths
 
 /-! Growing-tree skew-binary `parent` / `depth` / `jump` kernel (Paper B v1.3, Lemma 3.2, EX2.3):
     part 1 — store, persistence, skew-block forest invariant, depth-target traversal, and
@@ -1571,5 +1571,624 @@ theorem decideAncestor_appendLeaf_old {F : JumpForest} (hF : ValidJumpForest F)
     {p a u : Nat} (hp : p < F.size) (ha : a < F.size) (hu : u < F.size) :
     (F.appendLeaf p).decideAncestor a u = F.decideAncestor a u :=
   (JumpForest.Extends.step (JumpForest.Extends.refl F) hp).decideAncestor_eq hF ha hu
+
+/-! ### Checkpoint 2/2: Half-Block Descent, `ceilLog2`, Uniform `3 * L` Move Bound,
+    `RecordOp` Cost Transcripts, and Explicit `EX0.3` Word-RAM Bridge -/
+
+private theorem ite_true2 {α : Type} {P : Prop} [inst : Decidable P] (h : P) (a b : α) :
+    (if P then a else b) = a := by
+  cases inst with
+  | isFalse hNot => exact False.elim (hNot h)
+  | isTrue _ => rfl
+
+private theorem ite_false2 {α : Type} {P : Prop} [inst : Decidable P] (h : ¬ P) (a b : α) :
+    (if P then a else b) = b := by
+  cases inst with
+  | isFalse _ => rfl
+  | isTrue hYes => exact False.elim (h hYes)
+
+private theorem nat_mul_le_mul_right2 (c : Nat) {a b : Nat} (h : a ≤ b) :
+    a * c ≤ b * c := by
+  induction c with
+  | zero =>
+      change 0 ≤ 0
+      exact Nat.le_refl 0
+  | succ k ih =>
+      change a * k + a ≤ b * k + b
+      omega
+
+/-- Stepping to `parentOf u` from the head of a compound block `(k' + 1) :: rest` (`1 ≤ k'`)
+    exposes two equal child blocks `k' :: k' :: rest` of size `2^k' - 1`. -/
+theorem ForestInvariant.parent_exps_of_succ {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) {u k' : Nat} {rest : List Nat}
+    (hu : u < F.size) (hk' : 1 ≤ k') (hExpsU : exps u = (k' + 1) :: rest) :
+    exps (F.parentOf u) = k' :: k' :: rest := by
+  have hPos : 0 < u := by
+    if hP : 0 < u then exact hP
+    else
+      have hu0 : u = 0 := by omega
+      have hRoot0 : exps 0 = [] := ((inv.nodes 0 inv.size_pos).root_spec rfl).2
+      rw [hu0, hRoot0] at hExpsU
+      cases hExpsU
+  have hPush : skewPush (exps (F.parentOf u)) = (k' + 1) :: rest := by
+    rw [← (inv.nodes u hu).pos_exps_eq hPos]
+    exact hExpsU
+  cases hExpsP : exps (F.parentOf u) with
+  | nil =>
+      rw [hExpsP] at hPush
+      dsimp only [skewPush] at hPush
+      have hHead : 1 = k' + 1 := (List.cons.inj hPush).1
+      omega
+  | cons x₁ tl1 =>
+      cases tl1 with
+      | nil =>
+          rw [hExpsP] at hPush
+          dsimp only [skewPush] at hPush
+          have hHead : 1 = k' + 1 := (List.cons.inj hPush).1
+          omega
+      | cons x₂ tl2 =>
+          rw [hExpsP] at hPush
+          dsimp only [skewPush] at hPush
+          if hEqX : x₁ = x₂ then
+            rw [ite_true2 hEqX] at hPush
+            have hHead : x₁ + 1 = k' + 1 := (List.cons.inj hPush).1
+            have hTail : tl2 = rest := (List.cons.inj hPush).2
+            have hx₁ : x₁ = k' := by omega
+            have hx₂ : x₂ = k' := by omega
+            rw [hx₁, hx₂, hTail]
+          else
+            rw [ite_false2 hEqX] at hPush
+            have hHead : 1 = k' + 1 := (List.cons.inj hPush).1
+            omega
+
+/-- Within a single block of size `2^k - 1` (`blockSum rest < targetDepth`), one `parent`
+    step plus at most one child-block `jump` halves the remaining block size, using at most
+    `2 * (k - 1)` moves in total. -/
+theorem ForestInvariant.within_block_moves_le {F : JumpForest} {exps : Nat → List Nat}
+    (hF : ValidJumpForest F) (inv : ForestInvariant F exps) {targetDepth : Nat} :
+    ∀ (k u : Nat) (rest : List Nat),
+      1 ≤ k → u < F.size → exps u = k :: rest →
+      blockSum rest < targetDepth →
+      (F.traceMoves u targetDepth).length ≤ 2 * (k - 1) := by
+  intro k
+  induction k with
+  | zero =>
+      intro _ _ hk
+      omega
+  | succ k' ih =>
+      intro u rest _ hu hExpsU hAbove
+      if hGe : F.depthOf u ≤ targetDepth then
+        rw [traceMoves_of_ge F hGe]
+        simp only [List.length_nil]
+        omega
+      else
+        have hLt : targetDepth < F.depthOf u := by omega
+        if hk'Pos : 1 ≤ k' then
+          have specU := inv.nodes u hu
+          have hExpsJ : exps (F.jumpOf u) = rest :=
+            specU.jump_exps (k' + 1) rest hExpsU
+          have specJ := inv.nodes (F.jumpOf u) specU.jump_lt_size
+          have hDJ : F.depthOf (F.jumpOf u) = blockSum rest := by
+            rw [specJ.depth_eq_blockSum, hExpsJ]
+          have hNotJump : ¬ (targetDepth ≤ F.depthOf (F.jumpOf u)) := by omega
+          have hStepP : F.stepToDepth u targetDepth = F.parentOf u := by
+            unfold JumpForest.stepToDepth
+            dsimp only
+            exact ite_false2 hNotJump _ _
+          have hTraceU := hF.traceMoves_of_lt hu hLt
+          rw [hStepP] at hTraceU
+          have hp : F.parentOf u < F.size := specU.parent_lt_size
+          have hExpsP : exps (F.parentOf u) = k' :: k' :: rest :=
+            inv.parent_exps_of_succ hu hk'Pos hExpsU
+          if hAboveLeft : blockSum (k' :: rest) < targetDepth then
+            have hIH := ih (F.parentOf u) (k' :: rest) hk'Pos hp hExpsP hAboveLeft
+            rw [hTraceU]
+            simp only [List.length_cons]
+            omega
+          else
+            have specP := inv.nodes (F.parentOf u) hp
+            have ha : F.jumpOf (F.parentOf u) < F.size := specP.jump_lt_size
+            have hExpsA : exps (F.jumpOf (F.parentOf u)) = k' :: rest :=
+              specP.jump_exps k' (k' :: rest) hExpsP
+            have specA := inv.nodes (F.jumpOf (F.parentOf u)) ha
+            have hDA : F.depthOf (F.jumpOf (F.parentOf u)) = blockSum (k' :: rest) := by
+              rw [specA.depth_eq_blockSum, hExpsA]
+            have hDP : F.depthOf (F.parentOf u) =
+                blockSize k' + blockSum (k' :: rest) := by
+              rw [specP.depth_eq_blockSum, hExpsP]
+              rfl
+            have hBPos : 0 < blockSize k' := blockSize_pos hk'Pos
+            have hJumpP : targetDepth ≤ F.depthOf (F.jumpOf (F.parentOf u)) := by omega
+            have hLtP : targetDepth < F.depthOf (F.parentOf u) := by omega
+            have hStepA : F.stepToDepth (F.parentOf u) targetDepth =
+                F.jumpOf (F.parentOf u) := by
+              unfold JumpForest.stepToDepth
+              dsimp only
+              exact ite_true2 hJumpP _ _
+            have hTraceP := hF.traceMoves_of_lt hp hLtP
+            rw [hStepA] at hTraceP
+            have hIH := ih (F.jumpOf (F.parentOf u)) rest hk'Pos ha hExpsA hAbove
+            rw [hTraceU, hTraceP]
+            simp only [List.length_cons]
+            omega
+        else
+          have hk'0 : k' = 0 := by omega
+          subst hk'0
+          have hDU : F.depthOf u = 1 + blockSum rest := by
+            rw [(inv.nodes u hu).depth_eq_blockSum, hExpsU]
+            rfl
+          omega
+
+/-- Combining whole-block jumps along `ks = exps u` with at most one within-block descent. -/
+theorem ForestInvariant.traceMoves_le_length_plus {F : JumpForest} {exps : Nat → List Nat}
+    (hF : ValidJumpForest F) (inv : ForestInvariant F exps) (M targetDepth : Nat) :
+    ∀ (ks : List Nat) (u : Nat),
+      u < F.size → exps u = ks →
+      AllList (fun k => k ≤ M + 1) ks →
+      (F.traceMoves u targetDepth).length ≤ ks.length + 2 * M := by
+  intro ks
+  induction ks with
+  | nil =>
+      intro u hu hExpsU _
+      have hD0 : F.depthOf u = 0 := by
+        rw [(inv.nodes u hu).depth_eq_blockSum, hExpsU]
+        rfl
+      rw [traceMoves_of_ge F (by omega)]
+      simp only [List.length_nil]
+      omega
+  | cons k rest ih =>
+      intro u hu hExpsU hBound
+      if hGe : F.depthOf u ≤ targetDepth then
+        rw [traceMoves_of_ge F hGe]
+        simp only [List.length_nil]
+        omega
+      else
+        have hLt : targetDepth < F.depthOf u := by omega
+        have specU := inv.nodes u hu
+        have hkPos : 1 ≤ k := by
+          have hAllPos := specU.exps_pos
+          rw [hExpsU] at hAllPos
+          exact hAllPos.1
+        have hkBound : k ≤ M + 1 := hBound.1
+        have hRestBound : AllList (fun x => x ≤ M + 1) rest := hBound.2
+        have hExpsJ : exps (F.jumpOf u) = rest := specU.jump_exps k rest hExpsU
+        have hjSz : F.jumpOf u < F.size := specU.jump_lt_size
+        if hJump : targetDepth ≤ F.depthOf (F.jumpOf u) then
+          have hStepJ : F.stepToDepth u targetDepth = F.jumpOf u := by
+            unfold JumpForest.stepToDepth
+            dsimp only
+            exact ite_true2 hJump _ _
+          have hTraceU := hF.traceMoves_of_lt hu hLt
+          rw [hStepJ] at hTraceU
+          have hIH := ih (F.jumpOf u) hjSz hExpsJ hRestBound
+          rw [hTraceU]
+          simp only [List.length_cons]
+          omega
+        else
+          have hDJ : F.depthOf (F.jumpOf u) = blockSum rest := by
+            rw [(inv.nodes (F.jumpOf u) hjSz).depth_eq_blockSum, hExpsJ]
+          have hAbove : blockSum rest < targetDepth := by omega
+          have hWithin :=
+            inv.within_block_moves_le hF k u rest hkPos hu hExpsU hAbove
+          simp only [List.length_cons]
+          omega
+
+private theorem allList_ge_mono {a b : Nat} (hab : a ≤ b) :
+    ∀ {ks : List Nat}, AllList (fun x => b ≤ x) ks → AllList (fun x => a ≤ x) ks
+  | [], _ => trivial
+  | _ :: _, h => ⟨Nat.le_trans hab h.1, allList_ge_mono hab h.2⟩
+
+private theorem strictlyIncreasing_ge_head :
+    ∀ (y : Nat) (rest : List Nat),
+      StrictlyIncreasing (y :: rest) → AllList (fun z => y ≤ z) (y :: rest)
+  | y, [], _ => ⟨Nat.le_refl y, trivial⟩
+  | y, z :: tl, hS => by
+      have hyz : y ≤ z := Nat.le_of_lt hS.1
+      have hTail : AllList (fun w => z ≤ w) (z :: tl) :=
+        strictlyIncreasing_ge_head z tl hS.2
+      exact ⟨Nat.le_refl y, allList_ge_mono hyz hTail⟩
+
+theorem strictlyIncreasing_length_le_sub {hi : Nat} :
+    ∀ (ks : List Nat) (lo : Nat),
+      StrictlyIncreasing ks →
+      AllList (fun x => lo ≤ x) ks →
+      AllList (fun x => x < hi) ks →
+      ks.length ≤ hi - lo
+  | [], _, _, _, _ => by
+      simp only [List.length_nil]
+      omega
+  | [x], lo, _, hLo, hHi => by
+      have h1 : lo ≤ x := hLo.1
+      have h2 : x < hi := hHi.1
+      simp only [List.length_cons, List.length_nil]
+      omega
+  | x :: y :: rest, lo, hS, hLo, hHi => by
+      have hxLo : lo ≤ x := hLo.1
+      have hxy : x < y := hS.1
+      have hSuccLe : x + 1 ≤ y := by omega
+      have hTailS : StrictlyIncreasing (y :: rest) := hS.2
+      have hYHi : y < hi := hHi.2.1
+      have hTailHi : AllList (fun z => z < hi) (y :: rest) := hHi.2
+      have hGeY : AllList (fun z => y ≤ z) (y :: rest) :=
+        strictlyIncreasing_ge_head y rest hTailS
+      have hGeSuccX : AllList (fun z => x + 1 ≤ z) (y :: rest) :=
+        allList_ge_mono hSuccLe hGeY
+      have hIH : (y :: rest).length ≤ hi - (x + 1) :=
+        strictlyIncreasing_length_le_sub (y :: rest) (x + 1) hTailS hGeSuccX hTailHi
+      simp only [List.length_cons] at hIH ⊢
+      omega
+
+theorem skewIncreasing_length_le {ks : List Nat} {L : Nat}
+    (hL : 1 ≤ L)
+    (hSkew : SkewIncreasing ks)
+    (hPos : AllList (fun x => 1 ≤ x) ks)
+    (hLt : AllList (fun x => x < L) ks) :
+    ks.length ≤ L := by
+  cases hSkew with
+  | inl hS =>
+      have hSub := strictlyIncreasing_length_le_sub ks 1 hS hPos hLt
+      omega
+  | inr hTie =>
+      let ⟨k, rest, hEq, hST⟩ := hTie
+      rw [hEq] at hPos hLt ⊢
+      have hTailPos : AllList (fun x => 1 ≤ x) (k :: rest) := hPos.2
+      have hTailLt : AllList (fun x => x < L) (k :: rest) := hLt.2
+      have hSub := strictlyIncreasing_length_le_sub (k :: rest) 1 hST hTailPos hTailLt
+      simp only [List.length_cons] at hSub ⊢
+      omega
+
+theorem allList_lt_of_blockSum_le {n L : Nat} (hPow : n + 2 ≤ 2 ^ L) :
+    ∀ (ks : List Nat), blockSum ks ≤ n → AllList (fun k => k < L) ks
+  | [], _ => trivial
+  | k :: rest, hSum => by
+      dsimp only [blockSum] at hSum
+      have hBk : blockSize k ≤ n := by omega
+      have hRest : blockSum rest ≤ n := by omega
+      have hPosPow : 0 < 2 ^ k := pow2_pos k
+      have hPowK : 2 ^ k < 2 ^ L := by
+        unfold blockSize at hBk
+        omega
+      exact ⟨lt_of_pow2_lt hPowK, allList_lt_of_blockSum_le hPow rest hRest⟩
+
+private theorem allList_le_of_lt {L : Nat} (hL2 : 2 ≤ L) :
+    ∀ {ks : List Nat},
+      AllList (fun k => k < L) ks → AllList (fun k => k ≤ (L - 2) + 1) ks
+  | [], _ => trivial
+  | _ :: _, h => by
+      have hk := h.1
+      exact ⟨by omega, allList_le_of_lt hL2 h.2⟩
+
+/-- Ceiling base-2 logarithm helper loop with structural fuel. -/
+def ceilLog2Loop : Nat → Nat → Nat → Nat
+  | 0, _, acc => acc
+  | fuel + 1, m, acc =>
+      if m ≤ 2 ^ acc then acc else ceilLog2Loop fuel m (acc + 1)
+
+theorem ceilLog2Loop_zero (m acc : Nat) :
+    ceilLog2Loop 0 m acc = acc := rfl
+
+theorem ceilLog2Loop_succ (fuel m acc : Nat) :
+    ceilLog2Loop (fuel + 1) m acc =
+      if m ≤ 2 ^ acc then acc else ceilLog2Loop fuel m (acc + 1) := rfl
+
+/-- Exact ceiling base-2 logarithm `⌈log₂ m⌉` (`0` for `m ≤ 1`, least `L` with `m ≤ 2 ^ L`). -/
+def ceilLog2 (m : Nat) : Nat :=
+  ceilLog2Loop m m 0
+
+private theorem id_le_pow2 (k : Nat) : k ≤ 2 ^ k := by
+  induction k with
+  | zero => decide
+  | succ k ih =>
+      have hPos := pow2_pos k
+      have hStep := pow2_succ k
+      omega
+
+theorem pow2_ceilLog2_ge (m : Nat) : m ≤ 2 ^ ceilLog2 m := by
+  have aux : ∀ (fuel acc : Nat), m ≤ acc + fuel →
+      m ≤ 2 ^ ceilLog2Loop fuel m acc := by
+    intro fuel
+    induction fuel with
+    | zero =>
+        intro acc hB
+        rw [ceilLog2Loop_zero]
+        have hLe : m ≤ acc := by omega
+        exact Nat.le_trans hLe (id_le_pow2 acc)
+    | succ f ih =>
+        intro acc hB
+        rw [ceilLog2Loop_succ]
+        if hLe : m ≤ 2 ^ acc then
+          rw [ite_true2 hLe]
+          exact hLe
+        else
+          rw [ite_false2 hLe]
+          exact ih (acc + 1) (by omega)
+  exact aux m 0 (by omega)
+
+theorem ceilLog2_le_of_pow2_ge {m L : Nat} (hPow : m ≤ 2 ^ L) :
+    ceilLog2 m ≤ L := by
+  have aux : ∀ (fuel acc : Nat), acc ≤ L →
+      ceilLog2Loop fuel m acc ≤ L := by
+    intro fuel
+    induction fuel with
+    | zero =>
+        intro acc hAcc
+        rw [ceilLog2Loop_zero]
+        exact hAcc
+    | succ f ih =>
+        intro acc hAcc
+        rw [ceilLog2Loop_succ]
+        if hLe : m ≤ 2 ^ acc then
+          rw [ite_true2 hLe]
+          exact hAcc
+        else
+          rw [ite_false2 hLe]
+          have hAccLt : acc < L := by
+            if hEq : acc = L then
+              rw [hEq] at hLe
+              exact False.elim (hLe hPow)
+            else
+              omega
+          exact ih (acc + 1) (by omega)
+  exact aux m 0 (Nat.zero_le L)
+
+theorem ceilLog2_le_iff {m L : Nat} : ceilLog2 m ≤ L ↔ m ≤ 2 ^ L := by
+  constructor
+  · intro hLe
+    have hBase := pow2_ceilLog2_ge m
+    if hEq : ceilLog2 m = L then
+      rw [← hEq]
+      exact hBase
+    else
+      have hLt : ceilLog2 m < L := by omega
+      exact Nat.le_trans hBase (Nat.le_of_lt (pow2_strictMono hLt))
+  · exact ceilLog2_le_of_pow2_ge
+
+/-- Uniform `O(L)` move bound (Paper B v1.3, Lemma 3.2): whenever `F.numInserted ≤ n` and
+    `n + 2 ≤ 2 ^ L`, every depth-target traversal from `u < F.size` uses at most `3 * L` moves. -/
+theorem traceMoves_length_le_of_bound {F : JumpForest} (hF : ValidJumpForest F)
+    {u n L : Nat} (hu : u < F.size)
+    (hInserted : F.numInserted ≤ n) (hPow : n + 2 ≤ 2 ^ L)
+    (targetDepth : Nat) :
+    (F.traceMoves u targetDepth).length ≤ 3 * L := by
+  let ⟨exps, inv⟩ := hF.exists_forestInvariant
+  if hL0 : L = 0 then
+    rw [hL0] at hPow
+    change n + 2 ≤ 1 at hPow
+    omega
+  else if hL1 : L = 1 then
+    rw [hL1] at hPow ⊢
+    change n + 2 ≤ 2 at hPow
+    have hn0 : n = 0 := by omega
+    have hSzPos : 0 < F.size := inv.size_pos
+    have hNumEq : F.numInserted = F.size - 1 := rfl
+    have hSz1 : F.size = 1 := by omega
+    have hu0 : u = 0 := by omega
+    rw [hu0]
+    have hD0 : F.depthOf 0 = 0 := inv.root_depth
+    rw [traceMoves_of_ge F (by omega)]
+    simp only [List.length_nil]
+    omega
+  else
+    have hL2 : 2 ≤ L := by omega
+    have hDepLeSelf : F.depthOf u ≤ u := inv.depthOf_le_self hu
+    have hNumEq : F.numInserted = F.size - 1 := rfl
+    have hDepLeN : F.depthOf u ≤ n := by omega
+    have specU := inv.nodes u hu
+    have hSumLeN : blockSum (exps u) ≤ n := by
+      rw [← specU.depth_eq_blockSum]
+      exact hDepLeN
+    have hLtL : AllList (fun k => k < L) (exps u) :=
+      allList_lt_of_blockSum_le hPow (exps u) hSumLeN
+    have hBoundM : AllList (fun k => k ≤ (L - 2) + 1) (exps u) :=
+      allList_le_of_lt hL2 hLtL
+    have hLenLe : (exps u).length ≤ L :=
+      skewIncreasing_length_le (by omega) specU.exps_skew specU.exps_pos hLtL
+    have hMoves :=
+      inv.traceMoves_le_length_plus hF (L - 2) targetDepth (exps u) u hu rfl hBoundM
+    omega
+
+/-- Concrete `ceilLog2` specialization: `≤ 3 * ceilLog2 (n + 2)` moves for `F.numInserted ≤ n`. -/
+theorem traceMoves_length_le_ceilLog2 {F : JumpForest} (hF : ValidJumpForest F)
+    {u n : Nat} (hu : u < F.size) (hInserted : F.numInserted ≤ n)
+    (targetDepth : Nat) :
+    (F.traceMoves u targetDepth).length ≤ 3 * ceilLog2 (n + 2) :=
+  traceMoves_length_le_of_bound hF hu hInserted (pow2_ceilLog2_ge (n + 2)) targetDepth
+
+/-- Quotient specialization for `H : LabelledQuotient` (`F.numInserted ≤ H.vertexCount`). -/
+theorem traceMoves_length_le_for_quotient (H : LabelledQuotient)
+    {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) (hNodes : F.numInserted ≤ H.vertexCount)
+    (targetDepth : Nat) :
+    (F.traceMoves u targetDepth).length ≤ 3 * ceilLog2 (H.vertexCount + 2) :=
+  traceMoves_length_le_ceilLog2 hF hu hNodes targetDepth
+
+theorem traceVertices_length (F : JumpForest) (u targetDepth : Nat) :
+    (F.traceVertices u targetDepth).length =
+      (F.traceMoves u targetDepth).length + 1 := by
+  have aux : ∀ (fuel w : Nat),
+      (F.traceVerticesAux fuel w targetDepth).length =
+        (F.traceMovesAux fuel w targetDepth).length + 1 := by
+    intro fuel
+    induction fuel with
+    | zero => intro _; rfl
+    | succ _ ih =>
+        intro w
+        rw [JumpForest.traceVerticesAux_succ, JumpForest.traceMovesAux_succ]
+        if hLt : targetDepth < F.depthOf w then
+          rw [ite_true2 hLt, ite_true2 hLt]
+          simp only [List.length_cons]
+          exact congrArg (· + 1) (ih (F.stepToDepth w targetDepth))
+        else
+          rw [ite_false2 hLt, ite_false2 hLt]
+          rfl
+  exact aux (F.depthOf u - targetDepth) u
+
+/-! ### Record-Operation Transcripts, Word-Range Bounds, and `EX0.3` Word-RAM Bridge -/
+
+/-- Primitive indexed record-store operation (`O(1)` slot read or end-of-array append). -/
+inductive RecordOp where
+  | read (idx : Nat)
+  | append (rec : JumpRecord)
+  deriving DecidableEq, Repr
+
+namespace JumpForest
+
+/-- Exact `4`-operation `RecordOp` transcript of `F.appendLeaf p`:
+    `3` record reads (`p`, `a = jump(p)`, `b = jump(a)`) and `1` record append. -/
+def appendLeafOps (F : JumpForest) (p : Nat) : List RecordOp :=
+  let recP := F.recordAt p
+  let a := recP.jump
+  let recA := F.recordAt a
+  let b := recA.jump
+  [RecordOp.read p, RecordOp.read a, RecordOp.read b,
+   RecordOp.append (F.mkAppendedRecord p)]
+
+/-- Record reads performed during a single `JumpMove`. -/
+def stepReadOps (F : JumpForest) : JumpMove → List RecordOp
+  | JumpMove.jump _ dst => [RecordOp.read dst]
+  | JumpMove.parent src dst => [RecordOp.read (F.jumpOf src), RecordOp.read dst]
+
+def movesReadOps (F : JumpForest) : List JumpMove → List RecordOp
+  | [] => []
+  | m :: ms => F.stepReadOps m ++ F.movesReadOps ms
+
+theorem movesReadOps_nil (F : JumpForest) :
+    F.movesReadOps [] = [] := rfl
+
+theorem movesReadOps_cons (F : JumpForest) (m : JumpMove) (ms : List JumpMove) :
+    F.movesReadOps (m :: ms) = F.stepReadOps m ++ F.movesReadOps ms := rfl
+
+/-- Record-read transcript for `F.ancestorAtDepth u targetDepth`:
+    initial read of `u` plus at most two reads per move along `traceMoves`. -/
+def traceReadOps (F : JumpForest) (u targetDepth : Nat) : List RecordOp :=
+  RecordOp.read u :: F.movesReadOps (F.traceMoves u targetDepth)
+
+end JumpForest
+
+/-- Every `appendLeaf` insertion performs exactly `4` primitive record operations. -/
+theorem appendLeafOps_length (F : JumpForest) (p : Nat) :
+    (F.appendLeafOps p).length = 4 := rfl
+
+/-- Retained record count is linear: `n + 1` triples (`JumpRecord`s) after `n` insertions. -/
+theorem retained_records_eq {F : JumpForest} (hF : ValidJumpForest F) :
+    F.records.length = F.numInserted + 1 := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  have hPos : 0 < F.records.length := inv.size_pos
+  have hNum : F.numInserted = F.records.length - 1 := rfl
+  omega
+
+private theorem movesReadOps_length_le (F : JumpForest) :
+    ∀ (ms : List JumpMove), (F.movesReadOps ms).length ≤ 2 * ms.length
+  | [] => by
+      rw [JumpForest.movesReadOps_nil]
+      simp only [List.length_nil]
+      omega
+  | m :: ms => by
+      rw [JumpForest.movesReadOps_cons]
+      have hIH := movesReadOps_length_le F ms
+      cases m with
+      | jump _ dst =>
+          change (RecordOp.read dst :: F.movesReadOps ms).length ≤ 2 * (ms.length + 1)
+          simp only [List.length_cons]
+          omega
+      | parent src dst =>
+          change (RecordOp.read (F.jumpOf src) :: RecordOp.read dst ::
+            F.movesReadOps ms).length ≤ 2 * (ms.length + 1)
+          simp only [List.length_cons]
+          omega
+
+/-- Every depth-target traversal reads at most `6 * L + 1` records when `n + 2 ≤ 2 ^ L`. -/
+theorem traceReadOps_length_le {F : JumpForest} (hF : ValidJumpForest F)
+    {u n L : Nat} (hu : u < F.size)
+    (hInserted : F.numInserted ≤ n) (hPow : n + 2 ≤ 2 ^ L)
+    (targetDepth : Nat) :
+    (F.traceReadOps u targetDepth).length ≤ 6 * L + 1 := by
+  unfold JumpForest.traceReadOps
+  simp only [List.length_cons]
+  have hM := movesReadOps_length_le F (F.traceMoves u targetDepth)
+  have hT := traceMoves_length_le_of_bound hF hu hInserted hPow targetDepth
+  omega
+
+/-- All stored scalar fields (`parent`, `depth`, `jump`) are bounded by `F.numInserted`,
+    and `depthOf (jumpOf u) ≤ depthOf u` ensures non-underflowing depth subtractions. -/
+theorem record_fields_bounded {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) :
+    (F.recordAt u).parent ≤ F.numInserted ∧
+      (F.recordAt u).depth ≤ F.numInserted ∧
+      (F.recordAt u).jump ≤ F.numInserted ∧
+      F.depthOf (F.jumpOf u) ≤ F.depthOf u := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  have specU := inv.nodes u hu
+  have hParSz : F.parentOf u < F.size := specU.parent_lt_size
+  have hJmpSz : F.jumpOf u < F.size := specU.jump_lt_size
+  have hDepLe : F.depthOf u ≤ u := inv.depthOf_le_self hu
+  have hNumEq : F.numInserted = F.size - 1 := rfl
+  have hDJLe : F.depthOf (F.jumpOf u) ≤ F.depthOf u := by
+    if hPos : 0 < u then
+      exact Nat.le_of_lt (inv.depth_jump_lt hPos hu)
+    else
+      have hu0 : u = 0 := by omega
+      rw [hu0, inv.root_jump]
+      exact Nat.le_refl _
+  have hParEq : (F.recordAt u).parent = F.parentOf u := rfl
+  have hDepEq : (F.recordAt u).depth = F.depthOf u := rfl
+  have hJmpEq : (F.recordAt u).jump = F.jumpOf u := rfl
+  rw [hParEq, hDepEq, hJmpEq]
+  exact ⟨by omega, by omega, by omega, hDJLe⟩
+
+theorem record_fields_lt_pow2 {F : JumpForest} (hF : ValidJumpForest F)
+    {u n W : Nat} (hu : u < F.size)
+    (hInserted : F.numInserted ≤ n) (hWord : n + 2 ≤ 2 ^ W) :
+    F.size < 2 ^ W ∧
+      (F.recordAt u).parent < 2 ^ W ∧
+      (F.recordAt u).depth < 2 ^ W ∧
+      (F.recordAt u).jump < 2 ^ W := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  have hPos : 0 < F.size := inv.size_pos
+  have hNumEq : F.numInserted = F.size - 1 := rfl
+  let ⟨hP, hD, hJ, _⟩ := record_fields_bounded hF hu
+  exact ⟨by omega, by omega, by omega, by omega⟩
+
+/-- Explicit `EX0.3` (`PaperB.Machine`) Word-RAM bridge contract required to translate
+    abstract `RecordOp` counts and bounded `Nat` arithmetic (`< 2 ^ wordWidth`) on
+    `JumpForest` into physical Word-RAM instruction and word counts:
+    1. Flat preallocated/resizable array layout of `JumpRecord` triples (`wordsPerRecord`
+       words per slot plus `headerWords` header words) up to `maxNodes + 1` records.
+    2. `O(1)` (`costPerRead`) `wordWidth`-bit Word-RAM instructions per in-bounds record read.
+    3. `O(1)` (`costPerAppend`) `wordWidth`-bit Word-RAM instructions per leaf-record
+       computation (two non-underflowing subtractions, comparisons, increment) and slot write. -/
+structure WordRamRecordBridge where
+  wordWidth : Nat
+  maxNodes : Nat
+  wordCapacity : maxNodes + 2 ≤ 2 ^ wordWidth
+  costPerRead : Nat
+  costPerAppend : Nat
+  wordsPerRecord : Nat
+  headerWords : Nat
+
+/-- Conditional Word-RAM cost theorem given an `EX0.3` `WordRamRecordBridge`:
+    every stored field fits strictly in `wordWidth` bits (`< 2 ^ wordWidth`), each
+    `appendLeaf` costs `3 * costPerRead + costPerAppend` (`O(1)`), retained storage is
+    `headerWords + wordsPerRecord * (F.numInserted + 1)` words (`O(n)`), and every
+    depth-target query costs at most `(6 * L + 1) * costPerRead` (`O(L)`). -/
+theorem ram_cost_of_bridge (B : WordRamRecordBridge)
+    {F : JumpForest} (hF : ValidJumpForest F)
+    (hCap : F.numInserted ≤ B.maxNodes)
+    {u : Nat} (hu : u < F.size) (p targetDepth : Nat) :
+    let L := ceilLog2 (B.maxNodes + 2)
+    (F.size < 2 ^ B.wordWidth ∧
+      (F.recordAt u).parent < 2 ^ B.wordWidth ∧
+      (F.recordAt u).depth < 2 ^ B.wordWidth ∧
+      (F.recordAt u).jump < 2 ^ B.wordWidth) ∧
+    (F.appendLeafOps p).length = 4 ∧
+    F.records.length = F.numInserted + 1 ∧
+    (F.traceReadOps u targetDepth).length * B.costPerRead ≤
+      (6 * L + 1) * B.costPerRead := by
+  intro L
+  have hFields := record_fields_lt_pow2 hF hu hCap B.wordCapacity
+  have hReadLen : (F.traceReadOps u targetDepth).length ≤ 6 * L + 1 :=
+    traceReadOps_length_le hF hu hCap (pow2_ceilLog2_ge (B.maxNodes + 2)) targetDepth
+  exact ⟨hFields, appendLeafOps_length F p, retained_records_eq hF,
+    nat_mul_le_mul_right2 B.costPerRead hReadLen⟩
 
 end PaperB
