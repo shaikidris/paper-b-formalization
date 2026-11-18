@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
-- [EX2.2](TASKS.md#ex22) — 2 of 3 unattended declarations build. Full finite-sweep construction and statement-level review remain open.
+- [EX2.2](TASKS.md#ex22) — Stopped at sweep-induction-step after 2 of 3 declarations. Carbon ended without saving proof files. See .collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/daab58ca-2a4b-4c9e-9b78-64b00da83f67/receipt.json
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

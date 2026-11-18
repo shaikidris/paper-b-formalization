@@ -436,7 +436,7 @@
         "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json",
         "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json"
       ],
-      "progress": "2 of 3 unattended declarations build. Full finite-sweep construction and statement-level review remain open.",
+      "progress": "Stopped at sweep-induction-step after 2 of 3 declarations. Carbon ended without saving proof files. See .collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/daab58ca-2a4b-4c9e-9b78-64b00da83f67/receipt.json",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
@@ -461,7 +461,7 @@
         },
         "unattended": {
           "run": "f0686845-5aaf-419e-ac39-903e187dc284",
-          "state": "BUILT_CHECKPOINT",
+          "state": "BLOCKED",
           "checked": [
             "prefix",
             "pair-key-reuse"
