@@ -9,6 +9,7 @@ from collections import Counter
 from pathlib import Path
 import re
 import sys
+from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parent
 PROJECT = ROOT.parent
@@ -38,6 +39,44 @@ def load():
     return tuple(read_json(ROOT / n) for n in ("tasks.json", "coverage.json", "obligations.json", "external-inputs.json"))
 
 
+def validate_statement_graph(entries):
+    """Check mathematical dependencies separately from the worker schedule."""
+    visiting, complete = set(), set()
+
+    def visit(item):
+        need(item not in visiting, f"paper dependency cycle at {item}")
+        if item in complete:
+            return
+        visiting.add(item)
+        for dep in entries[item]["depends_on_items"]:
+            need(dep in entries and entries[dep]["kind"] != "Question", f"{item}: invalid paper prerequisite {dep}")
+            visit(dep)
+        visiting.remove(item)
+        complete.add(item)
+
+    declarations = []
+    for item, entry in entries.items():
+        if entry["kind"] == "Question":
+            need(not entry["proposed_declaration"] and not entry["depends_on_items"], f"{item}: open question has a formal target")
+        else:
+            need(entry["proposed_declaration"], f"{item}: missing planned declaration")
+            declarations.append(entry["proposed_declaration"])
+        visit(item)
+    need(len(declarations) == len(set(declarations)), "duplicate proposed paper declaration")
+
+
+STATEMENT_EVIDENCE = ("fidelity", "build", "axioms", "dependencies", "independent_replay")
+
+
+def validate_statement_receipt(entry, entries):
+    receipt = entry.get("verification", {})
+    need(receipt.get("declaration") == entry["proposed_declaration"], f"{entry['id']}: missing statement-level declaration")
+    for key in STATEMENT_EVIDENCE:
+        need(receipt.get(key), f"{entry['id']}: missing statement-level {key}")
+    need(all(entries[dep]["formal_status"] == "CERTIFIED" for dep in entry["depends_on_items"]),
+         f"{entry['id']}: paper premise not certified")
+
+
 def validate_records(data, coverage, obligations, external):
     """Validate one supplied snapshot, also used unchanged by negative controls."""
     tasks = data["tasks"]
@@ -49,6 +88,7 @@ def validate_records(data, coverage, obligations, external):
     entries = {e["id"]: e for e in coverage["entries"]}
     need(len(entries) == len(coverage["entries"]) == data["manuscript"]["expected_numbered_items"], "wrong active manuscript inventory size")
     need(sum(e["kind"] == "Question" for e in entries.values()) == 1, "expected one open question")
+    validate_statement_graph(entries)
     for t in tasks:
         tid = t["id"]
         need(t["milestone"] in mids, f"{tid}: unknown milestone")
@@ -94,6 +134,7 @@ def validate_records(data, coverage, obligations, external):
         if e["formal_status"] == "CERTIFIED":
             proof_tasks = [index[x] for x in e["tasks"] if index[x]["proof_status"] != "PLANNING_ONLY"]
             need(proof_tasks and all(t["status"] == "VERIFIED" for t in proof_tasks) and all(index[x]["status"] in CLOSED for x in e["tasks"]), f"{e['id']}: certification without verified tasks")
+            validate_statement_receipt(e, entries)
     roots = set(data["selected_roots"])
     need(roots == {"1.1", "4.1"} and roots == {o["paper_root"] for o in obligations["obligations"]}, "incorrect selected roots")
     oids = [o["id"] for o in obligations["obligations"] + obligations.get("extension_obligations", [])]
@@ -112,9 +153,12 @@ def validate_records(data, coverage, obligations, external):
     for root in roots:
         if entries[root]["formal_status"] == "CERTIFIED":
             need(all(o["status"] == "CLOSED" for o in obligations["obligations"] if o["paper_root"] == root), f"{root}: open root obligation")
+    for record in obligations.get("extension_obligations", []):
+        if entries[record["paper_root"]]["formal_status"] == "CERTIFIED":
+            need(record["status"] == "CLOSED", f"{record['paper_root']}: downstream obligation open")
     for x in external["inputs"]:
         need(x["consumers"] and all(tid in index for tid in x["consumers"]), f"{x['id']}: unknown external-input consumer")
-    need(data["formal_roots_accepted"] == sum(e["formal_status"] == "CERTIFIED" for e in entries.values()), "certified root count does not match coverage")
+    need(data["formal_roots_accepted"] == sum(entries[root]["formal_status"] == "CERTIFIED" for root in roots), "certified root count does not match coverage")
     return index
 
 
@@ -150,6 +194,21 @@ def validate_module_graph(data, graph):
     for root in graph["first_roots"]:
         reach(root)
     need(first == reachable, "unreachable planned first-release module")
+    structural = graph["structural_root"]
+    need(structural in first, "missing structural proof module")
+    ancestors = set()
+
+    def structural_imports(path):
+        if path in ancestors:
+            return
+        ancestors.add(path)
+        for dep in modules[path]["local_imports"]:
+            structural_imports(dep)
+
+    structural_imports(structural)
+    executable = {"Machine.lean", "Jumps.lean", "DomBuild.lean", "TreeIndex.lean",
+                  "ForestBuild.lean", "Index.lean", "Resources.lean", "Oracle.lean"}
+    need(not any(Path(path).name in executable for path in ancestors), "structural proof imports executable infrastructure")
     return {"planned_first_release_modules":len(first), "planned_unreachable_modules":len(first-reachable), "actual_proof_modules_created":sum((ROOT/p).exists() for p in modules)}
 
 
@@ -173,22 +232,39 @@ def statement_proof(source, match):
     return statement, source[start:end+1], source.count("\n", 0, start) + 1
 
 
+def validate_deposit(manuscript, coverage, lock):
+    """Match the formalization source and figure to the published archive preserved locally."""
+    release = lock["release"]
+    receipt = read_json(PROJECT / release["receipt"])
+    checks = read_json(PROJECT / release["release_check"])
+    doi = receipt["zenodo"]["version_doi"]
+    need(receipt["zenodo"]["status"] == "published" and lock["publication_status"] == coverage["publication_status"] == "PUBLISHED", "published edition required")
+    need(manuscript["revision"] == receipt["version"] and receipt["artifact_commit"] == release["artifact_commit"], "publication receipt version mismatch")
+    need(doi == lock["version_doi"] == manuscript["version_doi"] == coverage["version_doi"], "published version DOI mismatch")
+    with ZipFile(PROJECT / release["source_archive"]) as archive:
+        for key in (lock["active_canonical_path"], release["figure"]):
+            file = PROJECT / key
+            payload = archive.read(file.name)
+            need(payload == file.read_bytes() and digest(payload) == checks["source_sha256"][file.name], f"deposit member mismatch: {file.name}")
+    for key in ("pdf", "source_archive"):
+        file = PROJECT / release[key]
+        need(digest(file.read_bytes()) == checks["deposit_files"][file.name], f"release digest mismatch: {file.name}")
+
+
 def validate_files(data, coverage):
     validate_module_graph(data, read_json(ROOT / "module-graph.json"))
     lock = read_json(ROOT / "sources/source-lock.json")
-    for item in lock["source_files"]:
-        file = ROOT / item["path"]
-        need(file.is_file() and digest(file.read_bytes()) == item["sha256"], f"pinned source mismatch: {item['path']}")
     for item in lock.get("canonical_files", []):
         file = PROJECT / item["path"]
         need(file.is_file() and digest(file.read_bytes()) == item["sha256"], f"canonical source mismatch: {item['path']}")
     need(data["manuscript"]["sha256"] == lock["active_sha256"], "tracker active-source identity mismatch")
     need(data["manuscript"]["revision"] == lock["paper_version"] and data["manuscript"]["canonical_path"] == lock["active_canonical_path"] and data["manuscript"]["status"] == lock["publication_status"] and coverage["paper_version"] == lock["paper_version"], "tracker active-source version/status mismatch")
+    validate_deposit(data["manuscript"], coverage, lock)
     source = (ROOT / lock["active_source_path"]).read_text()
     need(digest(source.encode()) == lock["active_sha256"], "active source identity mismatch")
     need(digest(source.encode()) == coverage["paper_sha256"], "coverage paper identity mismatch")
     canonical = PROJECT / lock["active_canonical_path"]
-    need(canonical.read_bytes() == source.encode(), "canonical active draft differs from pinned copy")
+    need(canonical.read_bytes() == source.encode(), "canonical manuscript differs from pinned source")
     matches = list(PATTERN.finditer(source))
     need([m.group(2) for m in matches] == [e["id"] for e in coverage["entries"]], "paper statement order or inventory mismatch")
     for m, e in zip(matches, coverage["entries"]):
@@ -201,11 +277,10 @@ def validate_files(data, coverage):
         need(line == e["proof_source_line"] and (digest(proof.encode()) if proof else None) == e["proof_sha256"], f"{item}: proof binding mismatch")
         combined = statement + ("\n\n" + proof if proof else "")
         need(digest(combined.encode()) == e["statement_and_proof_sha256"], f"{item}: statement/proof hash mismatch")
-    for item in read_json(ROOT / "sources/authority-retrieval.json")["records"]:
-        if "path" in item:
-            need(digest((ROOT / item["path"]).read_bytes()) == item["sha256"], f"authority record identity mismatch: {item['id']}")
-    for item in read_json(ROOT / "reuse-audit.json")["protected_files"]:
-        need(digest((PROJECT / item["path"]).read_bytes()) == item["sha256"], f"legacy source changed since audit: {item['path']}")
+    for entry in coverage["entries"]:
+        if entry["formal_status"] == "CERTIFIED":
+            for key in STATEMENT_EVIDENCE:
+                need((ROOT / entry["verification"][key]).is_file(), f"{entry['id']}: missing statement file {key}")
     for t in data["tasks"]:
         for path in t["evidence"]:
             need((ROOT / path).is_file(), f"{t['id']}: missing evidence file {path}")
@@ -224,8 +299,9 @@ def task_ready(data):
 
 
 def summary(data, coverage, obligations):
+    manuscript = data["manuscript"]
     return {
-        "source": f"Paper B {data['manuscript']['revision']} (unpublished draft; public base DOI 10.5281/zenodo.24142496)",
+        "source": f"Published Paper B {manuscript['revision']} (DOI {manuscript['version_doi']})",
         "milestones": len(data["milestones"]),
         "tasks": len(data["tasks"]),
         "task_status_counts": dict(sorted(Counter(t["status"] for t in data["tasks"]).items())),
@@ -233,6 +309,8 @@ def summary(data, coverage, obligations):
         "proof_bearing_items": sum(e["kind"] != "Question" for e in coverage["entries"]),
         "open_questions": [e["id"] for e in coverage["entries"] if e["kind"] == "Question"],
         "certified_new_roots": data["formal_roots_accepted"],
+        "certified_paper_statements": sum(e["formal_status"] == "CERTIFIED" for e in coverage["entries"]),
+        "paper_status": {e["id"]: e["formal_status"] for e in coverage["entries"]},
         "selected_root_obligations": dict(sorted(Counter(o["status"] for o in obligations["obligations"]).items())),
         "extension_obligations": dict(sorted(Counter(o["status"] for o in obligations.get("extension_obligations",[])).items())),
         "assigned_workers": sum(t["assigned_agent"] is not None for t in data["tasks"]),
@@ -247,14 +325,14 @@ def cell(value):
 
 def render(data, coverage, obligations, external):
     s = summary(data, coverage, obligations)
-    out = ["# Paper B formalization milestones", "", "Generated from tasks.json. Milestone numbers group work; dependencies determine order. Planning completion is separate from proof acceptance.", ""]
+    out = ["# Paper B formalization milestones", "", "The work packages come from tasks.json. Use their dependencies to schedule parallel work. The counts distinguish planning from proof acceptance.", ""]
     for m in data["milestones"]:
         ts = [t for t in data["tasks"] if t["milestone"] == m["id"]]
         out += [f"## {m['id']} — {m['title']}", "", m["exit_gate"], "", f"Work packages: {len(ts)}; planning audits complete: {sum(t['status']=='DONE_PLAN' for t in ts)}; verified proof packages: {sum(t['status']=='VERIFIED' for t in ts)}.", "", "| Task | Owner | Status | Prerequisites |", "|---|---|---|---|"]
         out += [f"| [{t['id']}](TASKS.md#{t['id'].lower().replace('.', '')}) — {cell(t['title'])} | {t['owner_role']} | {t['status']} | {', '.join(t['dependencies']) or 'none'} |" for t in ts]
         out += [""]
     (ROOT / "MILESTONES.md").write_text('\n'.join(out)+'\n')
-    out = ["# Paper B task tracker", "", "Generated from tasks.json. Owner roles are proposed responsibilities, not active agents. Acceptance means exact theorem fidelity and required evidence, not a file count.", ""]
+    out = ["# Paper B task tracker", "", "Each handoff has a proposed owner, prerequisites and acceptance evidence. Worker assignments and verified proof status are recorded separately.", ""]
     for t in data["tasks"]:
         out += [f'<a id="{t["id"].lower().replace(".", "")}"></a>', "", f"## {t['id']} — {t['title']}", "", f"- Milestone: {t['milestone']}; status: **{t['status']}**; proof status: {t['proof_status']}.", f"- Owner: {t['owner_role']}; reviewers: {', '.join(t['reviewer_roles']) or 'to assign'}; assigned worker: {t['assigned_agent'] or 'unassigned'}.", f"- Dependencies: {', '.join(t['dependencies']) or 'none'}.", f"- Proposed owner module: `{t['planned_owner_module']}`.", f"- Paper consumers: {', '.join(t['paper_consumers'])}; risk: {t['risk']}.", "", t['obligation'], "", "Acceptance:", ""]
         out += [f"- {a}" for a in t["acceptance"]]
@@ -262,11 +340,11 @@ def render(data, coverage, obligations, external):
             out += ["", "Planning/evidence references: " + ', '.join(f"[{x}]({x})" for x in t['evidence']) + '.']
         out += [""]
     (ROOT / "TASKS.md").write_text('\n'.join(out)+'\n')
-    out = ["# Paper B draft coverage", "", "The source lock binds the active v1.2 manuscript and its preserved public v1.0 base (DOI 10.5281/zenodo.24142496). Each row records the scope of a planned Lean statement.", "", "| Item | Statement | Formal status | Work packages | Claim facets |", "|---|---|---|---|---|"]
+    out = ["# Published Paper B statement map", "", "Each row binds a paper statement to its proposed Lean declaration, immediate paper inputs and work packages. Independent acceptance uses the elaborated type and replay evidence.", "", "| Item | Statement | Proposed declaration | Paper inputs | Formal status | Work packages |", "|---|---|---|---|---|---|"]
     for e in coverage['entries']:
         anchor = e["id"].replace(".", "-")
         link = f"[statement](../{data['manuscript']['canonical_path']}#statement-{anchor})"
-        out += [f"| {e['id']} | {cell(e['title'])} ({link}) | {e['formal_status']} | {', '.join(e['tasks']) or 'open research'} | {cell(', '.join(e['claim_facets'])) or 'open question'} |"]
+        out += [f"| {e['id']} | {cell(e['title'])} ({link}) | {e['proposed_declaration'] or '—'} | {', '.join(e['depends_on_items']) or '—'} | {e['formal_status']} | {', '.join(e['tasks']) or '—'} |"]
     out += ["", "Theorem 1.1 is proved in Section 5. The ledger records a separate hash for its deferred proof. Question 6.2 concerns three or more failures.", "", "## Root obligations", "", "The first two formal targets are the oracle theorem and its exit-set transfer identity. These obligations specify what each formal statement must capture.", "", "| Obligation | Paper root | Owner | Status | Consumer |", "|---|---|---|---|---|"]
     for o in obligations['obligations']:
         out += [f"| {o['id']} — {cell(o['obligation'])} | {o['paper_root']} | {o['owner_role']} | {o['status']} | {cell(o['immediate_consumer'])} |"]
@@ -274,9 +352,9 @@ def render(data, coverage, obligations, external):
     for o in obligations.get("extension_obligations", []):
         out += [f"| {o['id']} — {cell(o['obligation'])} | {o['paper_root']} | {', '.join(o['tasks'])} | {o['status']} |"]
     (ROOT / "COVERAGE.md").write_text('\n'.join(out)+'\n')
-    out = ["# Paper B planning dashboard", "", "Snapshot generated from the editable JSON ledgers. This dashboard tracks work and proof scope; it is not a build or mathematical certificate.", "", f"- Active draft inventory: {s['paper_items']} items, including {s['proof_bearing_items']} proof-bearing statements and Question 6.2.", f"- Work inventory: {s['tasks']} packages in {s['milestones']} milestones.", f"- Completed planning audits: {s['task_status_counts'].get('DONE_PLAN',0)}.", f"- Newly certified Paper B roots: **{s['certified_new_roots']}**.", f"- Assigned workers: {s['assigned_workers']}; execution: {s['execution_status']}.", "- First delivery: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.", "- Structural proof target: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.", "", "## Next dependency-ready work", ""]
+    out = ["# Paper B planning dashboard", "", "Snapshot generated from the editable JSON ledgers. This dashboard tracks work and proof scope; it is not a build or mathematical certificate.", "", f"- Published edition inventory: {s['paper_items']} items, including {s['proof_bearing_items']} proof-bearing statements and Question 6.2.", f"- Work inventory: {s['tasks']} packages in {s['milestones']} milestones.", f"- Completed planning audits: {s['task_status_counts'].get('DONE_PLAN',0)}.", f"- Certified main theorems: **{s['certified_new_roots']}/2**. Certified numbered results: **{s['certified_paper_statements']}/{s['proof_bearing_items']}**.", f"- Assigned workers: {s['assigned_workers']}; execution: {s['execution_status']}.", "- Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.", "- First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.", "", "## Next dependency-ready work", ""]
     out += [f"- {t['id']}: {t['title']}." for t in task_ready(data)]
-    out += ["", "The historical threshold and structural plan is in [the v1.1 archive](archive/v1.1/README.md).", "", "See [milestones](MILESTONES.md), [tasks](TASKS.md), [coverage](COVERAGE.md), [interfaces](INTERFACES.md), and the [proposed contract](contracts/release-contract.md).", ""]
+    out += ["", "See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).", "", "See [milestones](MILESTONES.md), [tasks](TASKS.md), [coverage](COVERAGE.md), [interfaces](INTERFACES.md), and the [proposed contract](contracts/release-contract.md).", ""]
     (ROOT / "DASHBOARD.md").write_text('\n'.join(out)+'\n')
 
 

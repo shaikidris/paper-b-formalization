@@ -108,7 +108,8 @@ def main():
     plan.validate_records(data, coverage, obligations, external)
     plan.validate_files(data, coverage)
     plan.validate_links()
-    article = PROJECT / data["manuscript"]["canonical_path"]
+    # Replay the specific pre-publication edition audited by this historical check.
+    article = PROJECT / "papers/controller/paper-b-two-failure-reachability-v1.2-draft.md"
     companion = article.with_name("paper-b-threshold-companion-v1.2.md")
     older = article.with_name("paper-b-guarded-reachability-v1.1-draft.md")
     report = check_manuscripts(article, companion, older)

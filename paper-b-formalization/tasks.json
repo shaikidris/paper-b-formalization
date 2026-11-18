@@ -4,19 +4,19 @@
   "date": "2026-11-18",
   "manuscript": {
     "title": "Near-Linear Preprocessing for Reachability After Two Vertex Failures in Directed Acyclic Graphs",
-    "revision": "1.2-draft",
-    "status": "UNPUBLISHED_DRAFT",
-    "canonical_path": "papers/controller/paper-b-two-failure-reachability-v1.2-draft.md",
-    "sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+    "revision": "1.2",
+    "status": "PUBLISHED",
+    "canonical_path": "submissions/paper-b-v1.2-20261118/paper-b-v1.2.md",
+    "sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
     "expected_numbered_items": 10,
-    "published_base_doi": "10.5281/zenodo.24142496"
+    "version_doi": "10.5281/zenodo.24339761"
   },
   "scope": "Static two-failure DAG oracle, exact set transfer, batch and guarded consequences.",
   "selected_roots": [
     "1.1",
     "4.1"
   ],
-  "plan_status": "MAPPED_TO_DRAFT",
+  "plan_status": "MAPPED_TO_PUBLISHED_VERSION",
   "execution_status": "LEAN_IMPLEMENTATION_NOT_STARTED",
   "formal_roots_accepted": 0,
   "module_owners": {
@@ -35,7 +35,10 @@
     "release-core/Solution.lean": "integration",
     "release-core/Audit.lean": "independent review",
     "extensions/Batch.lean": "application",
-    "extensions/Guarded.lean": "application"
+    "extensions/Guarded.lean": "application",
+    "release-core/PaperB/DomBuild.lean": "dominator",
+    "release-core/PaperB/TreeIndex.lean": "dominator",
+    "release-core/PaperB/ForestBuild.lean": "cuts"
   },
   "milestones": [
     {
@@ -47,7 +50,7 @@
     {
       "id": "EX1",
       "title": "Build the dominator and labelled quotient interface",
-      "exit_gate": "Prove the quotient lifts each chosen physical arc and the last-exit test handles every query location.",
+      "exit_gate": "Prove the semantic quotient and last-exit results. Supply costed dominator and static tree indices for the executable branch.",
       "status": "PLANNED"
     },
     {
@@ -59,7 +62,7 @@
     {
       "id": "EX3",
       "title": "Prove the exit-set transfer identity",
-      "exit_gate": "Prove both inclusions for distinct adjacent real cuts, including disjoint pairs, with each original tail preserved.",
+      "exit_gate": "Independently replay Theorem 4.1 on the constructed forest, including disjoint pairs. Preserve original tails and check Figure 1.",
       "status": "PLANNED"
     },
     {
@@ -101,9 +104,9 @@
       "status": "DONE_PLAN",
       "proof_status": "PLANNING_ONLY",
       "risk": "ordinary",
-      "obligation": "Bind the active article, prior editions and companion to their sources.",
+      "obligation": "Bind the deposited ten-page source, Figure 1 and the separate proof location of Theorem 1.1.",
       "acceptance": [
-        "Preserve content hashes, ten numbered statements, and the distinct proof location of Theorem 1.1."
+        "Match the ten numbered items and nine proofs to the source in the deposit ZIP. Check the PDF and figure hashes against the publication packet."
       ],
       "evidence": [
         "sources/source-lock.json"
@@ -132,7 +135,8 @@
       "risk": "ordinary",
       "obligation": "Typecheck candidate signatures for a finite labelled DAG, tail sets, immutable index and costed programs.",
       "acceptance": [
-        "Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order."
+        "Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.",
+        "Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives."
       ],
       "evidence": []
     },
@@ -160,7 +164,8 @@
       "risk": "ordinary",
       "obligation": "Specify word size, addressable arrays, peak live words, retained index size and the available query input.",
       "acceptance": [
-        "Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs."
+        "Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.",
+        "Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation."
       ],
       "evidence": []
     },
@@ -188,14 +193,15 @@
       "risk": "ordinary",
       "obligation": "Define reachability, source deletion, zero-length paths, repeated failures, unreachable vertices, and parallel input arcs.",
       "acceptance": [
-        "Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers."
+        "Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers.",
+        "Relate arbitrary IDs and counted parallel input entries to the existing decreasing-index ReachAvoid specification. Charge constructing the ordering and reachability mask in the executable branch."
       ],
       "evidence": []
     },
     {
       "id": "EX1.2",
       "milestone": "EX1",
-      "title": "Construct the original dominator tree",
+      "title": "Characterize the ordinary dominator tree",
       "planned_owner_module": "release-core/PaperB/Dom.lean",
       "owner_role": "dominator",
       "reviewer_roles": [
@@ -204,8 +210,7 @@
       ],
       "assigned_agent": null,
       "dependencies": [
-        "EX1.1",
-        "EX0.3"
+        "EX1.1"
       ],
       "paper_consumers": [
         "1.1",
@@ -216,9 +221,10 @@
       "status": "PLANNED",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
-      "obligation": "Realize dominators, interval ancestry, child location and lowest common ancestors on the same graph.",
+      "obligation": "Prove inclusive ancestor iff ordinary domination on the reachable DAG, with LCA, child subtrees and prefix/suffix facts.",
       "acceptance": [
-        "Provide algorithmic provenance and time and live-word bounds for the actual tree and query primitives."
+        "Give a tree construction or existence proof on all retained DAGs and characterize single deletion. Justify the root, singleton, and reachable nonroot predecessor cases.",
+        "This semantic result supplies the labelled quotient independently of machine code."
       ],
       "evidence": []
     },
@@ -245,7 +251,8 @@
       "risk": "ordinary",
       "obligation": "Assign each retained arc to its head parent, store its original tail, and prove flatness, projection and lifting.",
       "acceptance": [
-        "Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc."
+        "Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.",
+        "Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator."
       ],
       "evidence": []
     },
@@ -272,7 +279,66 @@
       "risk": "ordinary",
       "obligation": "Separate outside, own-block and third-block targets and translate the last usable exit into a subtree test.",
       "acceptance": [
-        "Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails."
+        "Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.",
+        "Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "EX1.5",
+      "milestone": "EX1",
+      "title": "Construct the ordinary dominator tree within the oracle budget",
+      "planned_owner_module": "release-core/PaperB/DomBuild.lean",
+      "owner_role": "dominator",
+      "reviewer_roles": [
+        "statement fidelity",
+        "cost model"
+      ],
+      "assigned_agent": null,
+      "dependencies": [
+        "EX1.2",
+        "EX0.3",
+        "EX2.3"
+      ],
+      "paper_consumers": [
+        "1.1"
+      ],
+      "status": "PLANNED",
+      "proof_status": "NOT_CERTIFIED",
+      "risk": "resource bound",
+      "obligation": "Implement a checked constructor for the semantic tree on explicit DAG input. The proposed DAG route uses growing-tree LCAs of predecessors.",
+      "acceptance": [
+        "Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.",
+        "For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "EX1.6",
+      "milestone": "EX1",
+      "title": "Implement static tree intervals, child lookup and LCA",
+      "planned_owner_module": "release-core/PaperB/TreeIndex.lean",
+      "owner_role": "dominator",
+      "reviewer_roles": [
+        "statement fidelity",
+        "cost model"
+      ],
+      "assigned_agent": null,
+      "dependencies": [
+        "EX1.2",
+        "EX0.3"
+      ],
+      "paper_consumers": [
+        "1.1",
+        "5.1"
+      ],
+      "status": "PLANNED",
+      "proof_status": "NOT_CERTIFIED",
+      "risk": "resource bound",
+      "obligation": "Construct inclusive subtree intervals, ordered child ranges and a heavy-path index on the actual ordinary tree.",
+      "acceptance": [
+        "Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.",
+        "Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget."
       ],
       "evidence": []
     },
@@ -288,7 +354,7 @@
       ],
       "assigned_agent": null,
       "dependencies": [
-        "EX1.3"
+        "EX1.1"
       ],
       "paper_consumers": [
         "1.1",
@@ -327,7 +393,8 @@
       "risk": "ordinary",
       "obligation": "Show raw predecessor losses form a prefix, and that each vertex label represents all its proper separating pairs.",
       "acceptance": [
-        "Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count."
+        "Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.",
+        "Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent."
       ],
       "evidence": []
     },
@@ -343,7 +410,6 @@
       ],
       "assigned_agent": null,
       "dependencies": [
-        "EX1.1",
         "EX0.3"
       ],
       "paper_consumers": [
@@ -364,7 +430,7 @@
       "id": "EX2.4",
       "milestone": "EX2",
       "title": "Charge forest construction and membership",
-      "planned_owner_module": "release-core/PaperB/Forest.lean",
+      "planned_owner_module": "release-core/PaperB/ForestBuild.lean",
       "owner_role": "cuts",
       "reviewer_roles": [
         "statement fidelity",
@@ -384,7 +450,8 @@
       "risk": "resource bound",
       "obligation": "Implement raw-predecessor tests, depth search, candidate key lookup and final ancestry intervals.",
       "acceptance": [
-        "Prove per-quotient O((n_H+m_H)L³) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test."
+        "Prove per-quotient O((n_H+m_H)L³) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.",
+        "Deduplicate only for predecessor tests. Charge O(L) prefix tests per scanned distinct predecessor and O(L²) moves per ancestor probe. Include deterministic dictionary construction, query and final intervals."
       ],
       "evidence": []
     },
@@ -400,7 +467,8 @@
       ],
       "assigned_agent": null,
       "dependencies": [
-        "EX2.2"
+        "EX2.2",
+        "EX1.3"
       ],
       "paper_consumers": [
         "4.1"
@@ -462,7 +530,8 @@
       "risk": "ordinary",
       "obligation": "Assemble both inclusions as an equality of finite sets of physical tails before compression.",
       "acceptance": [
-        "An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target."
+        "An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target.",
+        "Instantiate the structural identity on the actual constructed forest and the original-tail labels. Figure 1 checks both exact contributions and all three failure outcomes as a regression control."
       ],
       "evidence": []
     },
@@ -518,7 +587,8 @@
       "risk": "dependency order",
       "obligation": "Show every map and predecessor base read at installation already exists.",
       "acceptance": [
-        "Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs."
+        "Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.",
+        "The path above the already processed fresh endpoint has maps installed. For an earlier off-endpoint predecessor, propagate its base; for an endpoint arc add its own physical tail."
       ],
       "evidence": []
     },
@@ -535,7 +605,8 @@
       "assigned_agent": null,
       "dependencies": [
         "EX4.2",
-        "EX2.3"
+        "EX2.3",
+        "EX1.6"
       ],
       "paper_consumers": [
         "1.1",
@@ -546,7 +617,8 @@
       "risk": "ordinary",
       "obligation": "Construct one upward jump map per real pair and recover both summary coordinates from the vertex base.",
       "acceptance": [
-        "Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations."
+        "Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.",
+        "Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation."
       ],
       "evidence": []
     },
@@ -563,7 +635,8 @@
       "assigned_agent": null,
       "dependencies": [
         "EX1.4",
-        "EX4.3"
+        "EX4.3",
+        "EX1.5"
       ],
       "paper_consumers": [
         "1.1"
@@ -573,7 +646,8 @@
       "risk": "ordinary",
       "obligation": "Implement the full case split once on the retained index; include missing pair keys and comparable failures.",
       "acceptance": [
-        "Prove output iff reachability after deletion for any subset of size at most two and any original target."
+        "Prove output iff reachability after deletion for any subset of size at most two and any original target.",
+        "Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths."
       ],
       "evidence": []
     },
@@ -591,12 +665,12 @@
       "dependencies": [
         "EX0.3",
         "EX2.4",
-        "EX4.3"
+        "EX4.3",
+        "EX1.5",
+        "EX1.6"
       ],
       "paper_consumers": [
-        "1.1",
-        "3.2",
-        "5.1"
+        "1.1"
       ],
       "status": "PLANNED",
       "proof_status": "NOT_CERTIFIED",
@@ -622,16 +696,15 @@
         "EX5.1"
       ],
       "paper_consumers": [
-        "1.1",
-        "3.2",
-        "5.1"
+        "1.1"
       ],
       "status": "PLANNED",
       "proof_status": "NOT_CERTIFIED",
       "risk": "resource bound",
       "obligation": "Give allocation lifetimes and index serialization for the same construction.",
       "acceptance": [
-        "Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency."
+        "Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.",
+        "Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs."
       ],
       "evidence": []
     },
@@ -684,7 +757,8 @@
       "risk": "public theorem",
       "obligation": "Bind one uniform build/query pair to correctness, preprocessing time, peak space, retained words and query time.",
       "acceptance": [
-        "Require exact paper-to-type correspondence, a pinned build, dependency and axiom audits, and independent replay of the closed root."
+        "Require exact paper-to-type correspondence, a pinned build, dependency and axiom audits, and independent replay of the closed root.",
+        "Discharge all imported constructor, tree and RAM assumptions. A proved functional query or a theorem conditional on a supplied index is recorded at its own scope."
       ],
       "evidence": []
     },
@@ -710,7 +784,8 @@
       "risk": "ordinary",
       "obligation": "Aggregate online memberships as disjunctions while charging list accesses and explicit output writes.",
       "acceptance": [
-        "Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M."
+        "Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M.",
+        "Produce one Boolean per original list in order, prove the later-single-list bound, and allow logarithmic words in S+2."
       ],
       "evidence": []
     },
@@ -763,7 +838,8 @@
       "risk": "ordinary",
       "obligation": "Encode each candidate with at most two residual guard failures and its full terminal list.",
       "acceptance": [
-        "Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words."
+        "Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.",
+        "Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion."
       ],
       "evidence": []
     }

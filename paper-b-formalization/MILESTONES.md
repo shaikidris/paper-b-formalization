@@ -1,6 +1,6 @@
 # Paper B formalization milestones
 
-Generated from tasks.json. Milestone numbers group work; dependencies determine order. Planning completion is separate from proof acceptance.
+The work packages come from tasks.json. Use their dependencies to schedule parallel work. The counts distinguish planning from proof acceptance.
 
 ## EX0 — Freeze the graph, algorithm and cost contracts
 
@@ -16,16 +16,18 @@ Work packages: 3; planning audits complete: 1; verified proof packages: 0.
 
 ## EX1 — Build the dominator and labelled quotient interface
 
-Prove the quotient lifts each chosen physical arc and the last-exit test handles every query location.
+Prove the semantic quotient and last-exit results. Supply costed dominator and static tree indices for the executable branch.
 
-Work packages: 4; planning audits complete: 0; verified proof packages: 0.
+Work packages: 6; planning audits complete: 0; verified proof packages: 0.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
 | [EX1.1](TASKS.md#ex11) — Normalize original vertices and failure sets | graph | PLANNED | EX0.2 |
-| [EX1.2](TASKS.md#ex12) — Construct the original dominator tree | dominator | PLANNED | EX1.1, EX0.3 |
+| [EX1.2](TASKS.md#ex12) — Characterize the ordinary dominator tree | dominator | PLANNED | EX1.1 |
 | [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | PLANNED | EX1.2 |
 | [EX1.4](TASKS.md#ex14) — Characterize partial-block reachability | dominator | PLANNED | EX1.3 |
+| [EX1.5](TASKS.md#ex15) — Construct the ordinary dominator tree within the oracle budget | dominator | PLANNED | EX1.2, EX0.3, EX2.3 |
+| [EX1.6](TASKS.md#ex16) — Implement static tree intervals, child lookup and LCA | dominator | PLANNED | EX1.2, EX0.3 |
 
 ## EX2 — Build the forest of effective separating pairs
 
@@ -35,20 +37,20 @@ Work packages: 4; planning audits complete: 0; verified proof packages: 0.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
-| [EX2.1](TASKS.md#ex21) — Identify the first proper loss | cuts | PLANNED | EX1.3 |
+| [EX2.1](TASKS.md#ex21) — Identify the first proper loss | cuts | PLANNED | EX1.1 |
 | [EX2.2](TASKS.md#ex22) — Prove the topological forest invariant | cuts | PLANNED | EX2.1 |
-| [EX2.3](TASKS.md#ex23) — Implement depth jumps under leaf insertion | data structures | PLANNED | EX1.1, EX0.3 |
+| [EX2.3](TASKS.md#ex23) — Implement depth jumps under leaf insertion | data structures | PLANNED | EX0.3 |
 | [EX2.4](TASKS.md#ex24) — Charge forest construction and membership | cuts | PLANNED | EX2.2, EX2.3 |
 
 ## EX3 — Prove the exit-set transfer identity
 
-Prove both inclusions for distinct adjacent real cuts, including disjoint pairs, with each original tail preserved.
+Independently replay Theorem 4.1 on the constructed forest, including disjoint pairs. Preserve original tails and check Figure 1.
 
 Work packages: 3; planning audits complete: 0; verified proof packages: 0.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
-| [EX3.1](TASKS.md#ex31) — Lift each fresh endpoint contribution | cuts | PLANNED | EX2.2 |
+| [EX3.1](TASKS.md#ex31) — Lift each fresh endpoint contribution | cuts | PLANNED | EX2.2, EX1.3 |
 | [EX3.2](TASKS.md#ex32) — Handle inherited tails and the reverse inclusion | cuts | PLANNED | EX3.1 |
 | [EX3.3](TASKS.md#ex33) — Certify the set-level transfer theorem | cuts | PLANNED | EX3.2 |
 
@@ -62,8 +64,8 @@ Work packages: 4; planning audits complete: 0; verified proof packages: 0.
 |---|---|---|---|
 | [EX4.1](TASKS.md#ex41) — Implement the two-coordinate map algebra | oracle | PLANNED | EX3.3, EX1.2 |
 | [EX4.2](TASKS.md#ex42) — Install maps before bases in topological order | oracle | PLANNED | EX4.1, EX2.4 |
-| [EX4.3](TASKS.md#ex43) — Build and evaluate composed jump maps | oracle | PLANNED | EX4.2, EX2.3 |
-| [EX4.4](TASKS.md#ex44) — Decide arbitrary post-build queries | oracle | PLANNED | EX1.4, EX4.3 |
+| [EX4.3](TASKS.md#ex43) — Build and evaluate composed jump maps | oracle | PLANNED | EX4.2, EX2.3, EX1.6 |
+| [EX4.4](TASKS.md#ex44) — Decide arbitrary post-build queries | oracle | PLANNED | EX1.4, EX4.3, EX1.5 |
 
 ## EX5 — Certify a single oracle and its resource bounds
 
@@ -73,7 +75,7 @@ Work packages: 5; planning audits complete: 0; verified proof packages: 0.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
-| [EX5.1](TASKS.md#ex51) — Account for discovery and every edge scan | cost model | PLANNED | EX0.3, EX2.4, EX4.3 |
+| [EX5.1](TASKS.md#ex51) — Account for discovery and every edge scan | cost model | PLANNED | EX0.3, EX2.4, EX4.3, EX1.5, EX1.6 |
 | [EX5.2](TASKS.md#ex52) — Bound peak workspace and the retained index | cost model | PLANNED | EX5.1 |
 | [EX5.3](TASKS.md#ex53) — Bound each later query and exclude adjacency access | cost model | PLANNED | EX4.4, EX5.2 |
 | [EX5.4](TASKS.md#ex54) — Join correctness and costs in the oracle theorem | integration | PLANNED | EX5.3 |

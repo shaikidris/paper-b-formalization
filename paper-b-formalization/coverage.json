@@ -1,8 +1,7 @@
 {
-  "paper_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
-  "paper_version": "1.2-draft",
-  "publication_status": "UNPUBLISHED_DRAFT",
-  "published_base_doi": "10.5281/zenodo.24142496",
+  "paper_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "paper_version": "1.2",
+  "publication_status": "PUBLISHED",
   "entries": [
     {
       "id": "1.1",
@@ -11,9 +10,9 @@
       "statement": "**Theorem 1.1 (two-failure reachability oracle).** Every such \\(G,r\\) admits a deterministic combinatorial index constructible in \\(O((n+m)L^3)\\) time and \\(O(n+m)\\) working words. The completed index occupies \\(O(n)\\) words. Given \\(F\\) and \\(t\\) after construction, it decides reachability in \\(O(L^3)\\) time using only the index and the query.",
       "source_line": 21,
       "statement_sha256": "d59b69d1b12254e2bddeb05cda37d7548ec53fd200b107d12d658b63750e6492",
-      "proof_source_line": 146,
-      "proof_sha256": "db9212ac9d02cbda31ef28beaa8cc8261bb807dc2bb36b2fe9516cbbb2fad4a3",
-      "statement_and_proof_sha256": "7f33cb9eafc416c9f09361b02ba30e899f03941ac9850d9ed4e499cfc96a38f0",
+      "proof_source_line": 150,
+      "proof_sha256": "e705209e50e706b51e5653051b86a296f623df4cc96272eae1c072ec6828359e",
+      "statement_and_proof_sha256": "2f8244ee9f89f35c0b3ef0ac506bebe13e34c59d2cb16a75e7f3243589e6a4c6",
       "tasks": [
         "EX0.1",
         "EX0.2",
@@ -22,6 +21,8 @@
         "EX1.2",
         "EX1.3",
         "EX1.4",
+        "EX1.5",
+        "EX1.6",
         "EX2.1",
         "EX2.2",
         "EX2.3",
@@ -42,6 +43,13 @@
         "deterministic build",
         "peak and retained words",
         "query time"
+      ],
+      "proposed_declaration": "PaperB.two_failure_dag_oracle",
+      "depends_on_items": [
+        "2.1",
+        "2.2",
+        "3.2",
+        "5.1"
       ]
     },
     {
@@ -61,6 +69,10 @@
       "claim_facets": [
         "target-list disjunction",
         "input and output charges"
+      ],
+      "proposed_declaration": "PaperB.listed_target_sets",
+      "depends_on_items": [
+        "1.1"
       ]
     },
     {
@@ -83,7 +95,9 @@
         "flat siblings",
         "labelled path lifting",
         "global quotient size"
-      ]
+      ],
+      "proposed_declaration": "PaperB.sibling_quotients",
+      "depends_on_items": []
     },
     {
       "id": "2.2",
@@ -104,6 +118,10 @@
       "claim_facets": [
         "outside and within-block queries",
         "last-exit equivalence"
+      ],
+      "proposed_declaration": "PaperB.last_exit_test",
+      "depends_on_items": [
+        "2.1"
       ]
     },
     {
@@ -125,7 +143,9 @@
         "effective pairs",
         "ancestor labels",
         "nested proper losses"
-      ]
+      ],
+      "proposed_declaration": "PaperB.proper_loss_forest",
+      "depends_on_items": []
     },
     {
       "id": "3.2",
@@ -140,9 +160,7 @@
       "tasks": [
         "EX0.3",
         "EX2.3",
-        "EX2.4",
-        "EX5.1",
-        "EX5.2"
+        "EX2.4"
       ],
       "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
@@ -150,6 +168,10 @@
         "dynamic depth jumps",
         "key lookup",
         "scan and storage costs"
+      ],
+      "proposed_declaration": "PaperB.build_proper_loss_forest",
+      "depends_on_items": [
+        "3.1"
       ]
     },
     {
@@ -176,6 +198,11 @@
         "shared endpoint bypass",
         "reverse inclusion",
         "physical exit tails"
+      ],
+      "proposed_declaration": "PaperB.exit_set_transfer",
+      "depends_on_items": [
+        "2.1",
+        "3.1"
       ]
     },
     {
@@ -183,20 +210,19 @@
       "kind": "Lemma",
       "title": "compressed exit summaries",
       "statement": "**Lemma 5.1 (compressed exit summaries).** Within \\(H_d\\), one can compute a base vector of two original-tree LCAs for each vertex with a real label and two constant-size maps for each real pair node. These records recover both values \\(\\sigma^B_s(y)\\), \\(s\\in B\\), for any \\(y\\in J(B)\\) in \\(O(L^3)\\) time. Building the records takes \\(O((n_H+m_H)L^3)\\) time and \\(O(n_H+m_H)\\) working words given the original-tree operations below. The retained records use \\(O(n_H)\\) words.",
-      "source_line": 132,
+      "source_line": 136,
       "statement_sha256": "4ed21139a77f11136d4453b2639187fb482925c4265535a1361d2c2e6fb21fba",
-      "proof_source_line": 134,
+      "proof_source_line": 138,
       "proof_sha256": "4f0fead5c668088ff314647c40ba6c76d057cc2b6b80f76cc0d126c6e47ce399",
       "statement_and_proof_sha256": "583610588a13eb9456b882f587d7eb86bc5deb6383da270d21633f69658475e4",
       "tasks": [
         "EX0.3",
         "EX1.2",
+        "EX1.6",
         "EX2.3",
         "EX4.1",
         "EX4.2",
-        "EX4.3",
-        "EX5.1",
-        "EX5.2"
+        "EX4.3"
       ],
       "formal_status": "NOT_CERTIFIED",
       "claim_facets": [
@@ -204,18 +230,23 @@
         "two-coordinate composition",
         "chronological availability",
         "jump evaluations and costs"
+      ],
+      "proposed_declaration": "PaperB.compressed_exit_summaries",
+      "depends_on_items": [
+        "3.2",
+        "4.1"
       ]
     },
     {
       "id": "6.1",
       "kind": "Corollary",
       "title": "a guarded output of residual multiplicity two",
-      "statement": "**Corollary 6.1 (a guarded output of residual multiplicity two).** For one supplied healthy-zero guarded output with \\(\\mu\\le2\\), the existence of an admissible detecting set is decidable in \\(O(G_{\\rm dec}\\log^3(G_{\\rm dec}+2))\\) time and \\(O(G_{\\rm dec})\\) working words. A positive answer identifies an admissible detecting set.",
-      "source_line": 160,
-      "statement_sha256": "ef194ca9ab2de34cc054e4d670cf4beb47eed1ae121e29c3901ea6bbccf4475d",
-      "proof_source_line": 162,
-      "proof_sha256": "1e08993c06f32608eec95cc02b354bc3e1f0b41e936353ec8cc348e63873f56a",
-      "statement_and_proof_sha256": "8d1257fa6944033d75cc316d372cc0f14079a4f1f1684350cd24da95be21dae7",
+      "statement": "**Corollary 6.1 (a guarded output of residual multiplicity two).** For one supplied healthy-zero guarded output with \\(\\mu\\le2\\), the existence of an admissible detecting set is decidable in \\(O(G_{\\mathrm{dec}}\\log^3(G_{\\mathrm{dec}}+2))\\) time and \\(O(G_{\\mathrm{dec}})\\) working words. A positive answer identifies an admissible detecting set.",
+      "source_line": 164,
+      "statement_sha256": "0d7ede4c321fd11365485b37d9001e3f8bcd8f3fa3922e8e9c340025998d3567",
+      "proof_source_line": 166,
+      "proof_sha256": "44730b514883d2d721bc7b73c1b04aed909e3098a76befaec50a788676c72c71",
+      "statement_and_proof_sha256": "1ce055d1759ec9cc8b66fb5dc27c7bed463cfce18b435d4bafb36dfa0fa79c88",
       "tasks": [
         "EX6.1",
         "EX6.2"
@@ -225,6 +256,10 @@
         "single healthy-zero output",
         "test witness",
         "incidence and list costs"
+      ],
+      "proposed_declaration": "PaperB.healthy_zero_detection",
+      "depends_on_items": [
+        "1.2"
       ]
     },
     {
@@ -232,17 +267,20 @@
       "kind": "Question",
       "title": "higher sensitivity",
       "statement": "**Question 6.2 (higher sensitivity).** For arbitrary \\(\\mu\\ge3\\), can a deterministic combinatorial algorithm decide whether any listed target survives in any query on a DAG in \\(\\widetilde O(2^\\mu S_\\mu)\\) total time, where \\(S_\\mu=n+m+q+\\sum_i (|F_i|+|T_i|)\\) and \\(|F_i|\\le\\mu\\)?",
-      "source_line": 172,
+      "source_line": 176,
       "statement_sha256": "2987b5febf2627d969345de9f7245cef9c833888a128423117d4044327a658d2",
       "proof_source_line": null,
       "proof_sha256": null,
       "statement_and_proof_sha256": "2987b5febf2627d969345de9f7245cef9c833888a128423117d4044327a658d2",
       "tasks": [],
       "formal_status": "OPEN_RESEARCH",
-      "claim_facets": []
+      "claim_facets": [],
+      "proposed_declaration": null,
+      "depends_on_items": []
     }
   ],
   "open_boundaries": [
     "Question 6.2 asks about deterministic total cost for arbitrary sensitivity at least three."
-  ]
+  ],
+  "version_doi": "10.5281/zenodo.24339761"
 }

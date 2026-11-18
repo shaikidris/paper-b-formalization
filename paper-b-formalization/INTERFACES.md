@@ -2,7 +2,7 @@
 
 ## Static index
 
-Choose one pair of deterministic programs build and query, with uniform constants. For every finite explicitly represented DAG \(G\) and every specified original source \(r\), build takes only \(G,r\). Its result \(I\) must answer every subsequently supplied \(F,t\) on original vertex identifiers, for \(|F|\le2\), without consulting adjacency lists. The Boolean answer is true exactly when \(t\) is reachable from \(r\) in \(G-F\). An empty path counts. Queries are independent. Parallel arcs count toward \(m\).
+Choose one pair of deterministic programs build and query, with uniform constants. For every finite explicitly represented DAG \(G\) and every specified original source \(r\), build takes only \(G,r\). Its result \(I\) must answer every subsequently supplied \(F,t\) on original vertex identifiers, for \(|F|\le2\), without consulting adjacency lists. The Boolean answer is true exactly when \(t\) is reachable from \(r\) in \(G-F\). An empty path counts. Use zero, one or two failure slots, with two equal IDs denoting a singleton. A representation with arbitrarily many repeated failure occurrences would also require time to read them. Queries are independent. Parallel arcs count toward \(m\).
 
 Put \(n=|V|,\ m=|E|,\ L=\lceil\log_2(n+2)\rceil\). For that very implementation require four bounds.
 
@@ -17,7 +17,7 @@ Words have logarithmic bit length in the explicit input. Resource accounting inc
 
 ## Structural target
 
-In one flat sibling quotient, take a real child pair \(P\) and real parent \(B\), a coordinate \(s\in B\) and a target \(y\in J(P)\). An exit is identified by its original tail. The theorem equates \(X_s^B(y)\) with the union of \(X_s^B(p)\) for all \(p\in P\setminus B\), together with \(X_s^P(y)\) if \(s\in P\). The inherited contribution is empty otherwise. Pairs may be disjoint. The fresh-endpoint sets do not depend on the target. This identity precedes any quotient by common ancestors and any per-coordinate Boolean test. [Theorem 4.1](sources/paper-b-v1.2-draft.md#statement-4-1)
+In one flat sibling quotient, take a real child pair \(P\) and real parent \(B\), a coordinate \(s\in B\) and a target \(y\in J(P)\). An exit is identified by its original tail. The theorem equates \(X_s^B(y)\) with the union of \(X_s^B(p)\) for all \(p\in P\setminus B\), together with \(X_s^P(y)\) if \(s\in P\). The inherited contribution is empty otherwise. Pairs may be disjoint. The fresh-endpoint sets do not depend on the target. This identity precedes any quotient by common ancestors and any per-coordinate Boolean test. [Theorem 4.1](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-4-1)
 
 ## Downstream outputs
 

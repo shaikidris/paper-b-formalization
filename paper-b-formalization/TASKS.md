@@ -1,6 +1,6 @@
 # Paper B task tracker
 
-Generated from tasks.json. Owner roles are proposed responsibilities, not active agents. Acceptance means exact theorem fidelity and required evidence, not a file count.
+Each handoff has a proposed owner, prerequisites and acceptance evidence. Worker assignments and verified proof status are recorded separately.
 
 <a id="ex01"></a>
 
@@ -12,11 +12,11 @@ Generated from tasks.json. Owner roles are proposed responsibilities, not active
 - Proposed owner module: `release-core/Challenge.lean`.
 - Paper consumers: 1.1, 4.1; risk: ordinary.
 
-Bind the active article, prior editions and companion to their sources.
+Bind the deposited ten-page source, Figure 1 and the separate proof location of Theorem 1.1.
 
 Acceptance:
 
-- Preserve content hashes, ten numbered statements, and the distinct proof location of Theorem 1.1.
+- Match the ten numbered items and nine proofs to the source in the deposit ZIP. Check the PDF and figure hashes against the publication packet.
 
 Planning/evidence references: [sources/source-lock.json](sources/source-lock.json).
 
@@ -35,6 +35,7 @@ Typecheck candidate signatures for a finite labelled DAG, tail sets, immutable i
 Acceptance:
 
 - Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.
+- Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives.
 
 <a id="ex03"></a>
 
@@ -51,6 +52,7 @@ Specify word size, addressable arrays, peak live words, retained index size and 
 Acceptance:
 
 - Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.
+- Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation.
 
 <a id="ex11"></a>
 
@@ -67,22 +69,24 @@ Define reachability, source deletion, zero-length paths, repeated failures, unre
 Acceptance:
 
 - Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers.
+- Relate arbitrary IDs and counted parallel input entries to the existing decreasing-index ReachAvoid specification. Charge constructing the ordering and reachability mask in the executable branch.
 
 <a id="ex12"></a>
 
-## EX1.2 — Construct the original dominator tree
+## EX1.2 — Characterize the ordinary dominator tree
 
 - Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX1.1, EX0.3.
+- Dependencies: EX1.1.
 - Proposed owner module: `release-core/PaperB/Dom.lean`.
 - Paper consumers: 1.1, 2.1, 2.2, 5.1; risk: ordinary.
 
-Realize dominators, interval ancestry, child location and lowest common ancestors on the same graph.
+Prove inclusive ancestor iff ordinary domination on the reachable DAG, with LCA, child subtrees and prefix/suffix facts.
 
 Acceptance:
 
-- Provide algorithmic provenance and time and live-word bounds for the actual tree and query primitives.
+- Give a tree construction or existence proof on all retained DAGs and characterize single deletion. Justify the root, singleton, and reachable nonroot predecessor cases.
+- This semantic result supplies the labelled quotient independently of machine code.
 
 <a id="ex13"></a>
 
@@ -99,6 +103,7 @@ Assign each retained arc to its head parent, store its original tail, and prove 
 Acceptance:
 
 - Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.
+- Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator.
 
 <a id="ex14"></a>
 
@@ -115,6 +120,41 @@ Separate outside, own-block and third-block targets and translate the last usabl
 Acceptance:
 
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
+- Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
+
+<a id="ex15"></a>
+
+## EX1.5 — Construct the ordinary dominator tree within the oracle budget
+
+- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: dominator; reviewers: statement fidelity, cost model; assigned worker: unassigned.
+- Dependencies: EX1.2, EX0.3, EX2.3.
+- Proposed owner module: `release-core/PaperB/DomBuild.lean`.
+- Paper consumers: 1.1; risk: resource bound.
+
+Implement a checked constructor for the semantic tree on explicit DAG input. The proposed DAG route uses growing-tree LCAs of predecessors.
+
+Acceptance:
+
+- Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.
+- For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established.
+
+<a id="ex16"></a>
+
+## EX1.6 — Implement static tree intervals, child lookup and LCA
+
+- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Owner: dominator; reviewers: statement fidelity, cost model; assigned worker: unassigned.
+- Dependencies: EX1.2, EX0.3.
+- Proposed owner module: `release-core/PaperB/TreeIndex.lean`.
+- Paper consumers: 1.1, 5.1; risk: resource bound.
+
+Construct inclusive subtree intervals, ordered child ranges and a heavy-path index on the actual ordinary tree.
+
+Acceptance:
+
+- Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.
+- Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget.
 
 <a id="ex21"></a>
 
@@ -122,7 +162,7 @@ Acceptance:
 
 - Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX1.3.
+- Dependencies: EX1.1.
 - Proposed owner module: `release-core/PaperB/Forest.lean`.
 - Paper consumers: 1.1, 3.1; risk: ordinary.
 
@@ -147,6 +187,7 @@ Show raw predecessor losses form a prefix, and that each vertex label represents
 Acceptance:
 
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
+- Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
 
 <a id="ex23"></a>
 
@@ -154,7 +195,7 @@ Acceptance:
 
 - Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: data structures; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX1.1, EX0.3.
+- Dependencies: EX0.3.
 - Proposed owner module: `release-core/PaperB/Jumps.lean`.
 - Paper consumers: 1.1, 3.2, 5.1; risk: ordinary.
 
@@ -171,7 +212,7 @@ Acceptance:
 - Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX2.2, EX2.3.
-- Proposed owner module: `release-core/PaperB/Forest.lean`.
+- Proposed owner module: `release-core/PaperB/ForestBuild.lean`.
 - Paper consumers: 1.1, 3.2; risk: resource bound.
 
 Implement raw-predecessor tests, depth search, candidate key lookup and final ancestry intervals.
@@ -179,6 +220,7 @@ Implement raw-predecessor tests, depth search, candidate key lookup and final an
 Acceptance:
 
 - Prove per-quotient O((n_H+m_H)L³) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.
+- Deduplicate only for predecessor tests. Charge O(L) prefix tests per scanned distinct predecessor and O(L²) moves per ancestor probe. Include deterministic dictionary construction, query and final intervals.
 
 <a id="ex31"></a>
 
@@ -186,7 +228,7 @@ Acceptance:
 
 - Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX2.2.
+- Dependencies: EX2.2, EX1.3.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
 - Paper consumers: 4.1; risk: ordinary.
 
@@ -227,6 +269,7 @@ Assemble both inclusions as an equality of finite sets of physical tails before 
 Acceptance:
 
 - An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target.
+- Instantiate the structural identity on the actual constructed forest and the original-tail labels. Figure 1 checks both exact contributions and all three failure outcomes as a regression control.
 
 <a id="ex41"></a>
 
@@ -259,6 +302,7 @@ Show every map and predecessor base read at installation already exists.
 Acceptance:
 
 - Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.
+- The path above the already processed fresh endpoint has maps installed. For an earlier off-endpoint predecessor, propagate its base; for an endpoint arc add its own physical tail.
 
 <a id="ex43"></a>
 
@@ -266,7 +310,7 @@ Acceptance:
 
 - Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX4.2, EX2.3.
+- Dependencies: EX4.2, EX2.3, EX1.6.
 - Proposed owner module: `release-core/PaperB/Index.lean`.
 - Paper consumers: 1.1, 5.1; risk: ordinary.
 
@@ -275,6 +319,7 @@ Construct one upward jump map per real pair and recover both summary coordinates
 Acceptance:
 
 - Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
+- Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation.
 
 <a id="ex44"></a>
 
@@ -282,7 +327,7 @@ Acceptance:
 
 - Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX1.4, EX4.3.
+- Dependencies: EX1.4, EX4.3, EX1.5.
 - Proposed owner module: `release-core/PaperB/Oracle.lean`.
 - Paper consumers: 1.1; risk: ordinary.
 
@@ -291,6 +336,7 @@ Implement the full case split once on the retained index; include missing pair k
 Acceptance:
 
 - Prove output iff reachability after deletion for any subset of size at most two and any original target.
+- Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths.
 
 <a id="ex51"></a>
 
@@ -298,9 +344,9 @@ Acceptance:
 
 - Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
-- Dependencies: EX0.3, EX2.4, EX4.3.
+- Dependencies: EX0.3, EX2.4, EX4.3, EX1.5, EX1.6.
 - Proposed owner module: `release-core/PaperB/Resources.lean`.
-- Paper consumers: 1.1, 3.2, 5.1; risk: resource bound.
+- Paper consumers: 1.1; risk: resource bound.
 
 Sum all phases, including sorting, dominator construction, repeated predecessor scans and LCA operations.
 
@@ -316,13 +362,14 @@ Acceptance:
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX5.1.
 - Proposed owner module: `release-core/PaperB/Resources.lean`.
-- Paper consumers: 1.1, 3.2, 5.1; risk: resource bound.
+- Paper consumers: 1.1; risk: resource bound.
 
 Give allocation lifetimes and index serialization for the same construction.
 
 Acceptance:
 
 - Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
+- Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs.
 
 <a id="ex53"></a>
 
@@ -355,6 +402,7 @@ Bind one uniform build/query pair to correctness, preprocessing time, peak space
 Acceptance:
 
 - Require exact paper-to-type correspondence, a pinned build, dependency and axiom audits, and independent replay of the closed root.
+- Discharge all imported constructor, tree and RAM assumptions. A proved functional query or a theorem conditional on a supplied index is recorded at its own scope.
 
 <a id="ex55"></a>
 
@@ -371,6 +419,7 @@ Aggregate online memberships as disjunctions while charging list accesses and ex
 Acceptance:
 
 - Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M.
+- Produce one Boolean per original list in order, prove the later-single-list bound, and allow logarithmic words in S+2.
 
 <a id="ex61"></a>
 
@@ -403,4 +452,5 @@ Encode each candidate with at most two residual guard failures and its full term
 Acceptance:
 
 - Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.
+- Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion.
 

@@ -1,123 +1,46 @@
 {
   "paper_title": "Near-Linear Preprocessing for Reachability After Two Vertex Failures in Directed Acyclic Graphs",
-  "paper_version": "1.2-draft",
-  "publication_status": "UNPUBLISHED_DRAFT",
-  "active_source_path": "sources/paper-b-v1.2-draft.md",
-  "active_canonical_path": "papers/controller/paper-b-two-failure-reachability-v1.2-draft.md",
-  "active_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "paper_version": "1.2",
+  "publication_status": "PUBLISHED",
+  "version_doi": "10.5281/zenodo.24339761",
+  "active_source_path": "../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md",
+  "active_canonical_path": "submissions/paper-b-v1.2-20261118/paper-b-v1.2.md",
+  "active_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
   "expected_numbered_items": 10,
-  "published_base": {
-    "version": "1.0",
-    "doi": "10.5281/zenodo.24142496",
-    "source_sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9",
-    "pdf_sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6",
-    "lock_path": "sources/published-v1.0-lock.json"
-  },
   "baseline_date": "2026-11-18",
-  "source_files": [
-    {
-      "path": "sources/paper-b-v1.0.md",
-      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
-    },
-    {
-      "path": "sources/paper-b-v1.0.pdf",
-      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
-    },
-    {
-      "path": "sources/paper-b-published-download.pdf",
-      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
-    },
-    {
-      "path": "sources/representation-examples.md",
-      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
-    },
-    {
-      "path": "sources/paper-b-v1.1-draft.md",
-      "sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada"
-    },
-    {
-      "path": "sources/representation-examples-v1.1-draft.md",
-      "sha256": "c1cc8cc9c2781b9445e74be7e36c3d8c42e89f629bb40e81cebf8ae8f5956b2e"
-    },
-    {
-      "path": "sources/validation-v1.1-draft.md",
-      "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
-    },
-    {
-      "path": "sources/paper-b-v1.2-draft.md",
-      "sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c"
-    }
-  ],
   "canonical_files": [
     {
-      "path": "papers/controller/paper-b-guarded-reachability.md",
-      "sha256": "fe01af9246ee49db05cb471a5305987fb8fd3665a94c869ba3388e45c2c488b9"
+      "path": "submissions/paper-b-v1.2-20261118/paper-b-v1.2.md",
+      "sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3"
     },
     {
-      "path": "submissions/paper-b-preprint-20261111/offline-reachability-vertex-failures-v1.0.pdf",
-      "sha256": "88094f3d8aadb7fbca837dacd991a54483b466cd588c4a90896e5c26960ddea6"
+      "path": "submissions/paper-b-v1.2-20261118/paper-b-v1.2.pdf",
+      "sha256": "a87dbbc308522cd2e96400e6cffa1c00f609685cc1e50bbcaeb0f4da3f2d9f8d"
     },
     {
-      "path": "papers/controller/paper-b-representation-examples.md",
-      "sha256": "f7577a5c4b32542f429ddc901b903a6656bdcc67ce74569a53501907ac1cc0e1"
+      "path": "submissions/paper-b-v1.2-20261118/paper-b-v1.2-source.zip",
+      "sha256": "fb3bc576ae291d7cc303bd27e0d6ff09df371bfd894b977ce9b26eeaa449465a"
     },
     {
-      "path": "papers/controller/paper-b-guarded-reachability-v1.1-draft.md",
-      "sha256": "957acfa0914524ab7e6501d90b3da09cf9babf1901b3cdddac09d52f6205fada"
+      "path": "submissions/paper-b-v1.2-20261118/exit-transfer-example.svg",
+      "sha256": "49d9bf7df07134e55837636851dfbf0a4adddfeaa5f22842b3df621b2928bdfc"
     },
     {
-      "path": "papers/controller/paper-b-representation-examples-v1.1-draft.md",
-      "sha256": "c1cc8cc9c2781b9445e74be7e36c3d8c42e89f629bb40e81cebf8ae8f5956b2e"
+      "path": "submissions/paper-b-v1.2-20261118/publication-receipt.json",
+      "sha256": "1ec85757154c0271a83eccda172594a6505f2e68e9e186ce2ea76791110c7906"
     },
     {
-      "path": "papers/controller/paper-b-validation-v1.1-draft.md",
-      "sha256": "3053d09ed0dc342e74e7a073ec4084c71d8c0eb92d5b5f1647ebb20b3cda5854"
-    },
-    {
-      "path": "papers/controller/paper-b-two-failure-reachability-v1.2-draft.md",
-      "sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c"
-    },
-    {
-      "path": "papers/controller/paper-b-threshold-companion-v1.2.md",
-      "sha256": "d19c0cd2c3ca5430b743370e807c04fdc660fe9ddc656c7f9e60a448c521dd03"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/antichain-proof.md",
-      "sha256": "a303d9143f030e3d11f98e8db47125140eb26978e4458533dabdf5c71f0dadfb"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/dag-exit-proof.md",
-      "sha256": "851bc30528acc2b050b2cdb03dcd2a2b346294861c3e87911b30a92735a30ff5"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/dag_exit_oracle.py",
-      "sha256": "7a66964bbc80de026e728b43ab049950844947d6ef987254853c25527b280a7e"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/check_exit_transfer_review.py",
-      "sha256": "add2eec4242ba58b36957641ddf3ee762c205b5e1e08633cc738a586eb6bf982"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/check_dag_exit.py",
-      "sha256": "af82c3b598aa00450fd9efb73c8afd6b1bd51d9ffedf588013e963bc71849e40"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/exit-transfer-review-checks.json",
-      "sha256": "7d640a17bc42dedeedce10e7eba3c47f7cc6673917b54ee71cbe1152bcbc59d3"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/dag-exit-checks.json",
-      "sha256": "35a420e3a0f9f238a65c15b55fdc2b3283e7aaff77d2c982001d69408a14bdc0"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/exit-transfer-adversarial-review.md",
-      "sha256": "583b479a8321579d2e1e4911043afd083417ca287bf22d1a1dfdbe245dd2a691"
-    },
-    {
-      "path": "evidence/paper-b-space-20261118/exit-transfer-literature-and-paper-b.md",
-      "sha256": "7df6ba4390035745d3104c5584844dc9b3430a60c8a94f31d01131c197ec1fb1"
+      "path": "submissions/paper-b-v1.2-20261118/release-check.json",
+      "sha256": "e0f8b04e1ab39e43ed8f3f5660e596c5132e3125ec01dacadb2c9f1a5dc84257"
     }
   ],
-  "rendered_pdf": null,
-  "boundaries": "Local manuscript revision. The public DOI and PDF belong to v1.0. All v1.2 Lean targets are open."
+  "release": {
+    "pdf": "submissions/paper-b-v1.2-20261118/paper-b-v1.2.pdf",
+    "source_archive": "submissions/paper-b-v1.2-20261118/paper-b-v1.2-source.zip",
+    "figure": "submissions/paper-b-v1.2-20261118/exit-transfer-example.svg",
+    "receipt": "submissions/paper-b-v1.2-20261118/publication-receipt.json",
+    "release_check": "submissions/paper-b-v1.2-20261118/release-check.json",
+    "artifact_commit": "87a46bd"
+  },
+  "boundaries": "Published ten-page article, including Figure 1. Question 6.2 is open."
 }

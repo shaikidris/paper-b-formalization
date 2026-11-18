@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "source_revision": "1.2-draft",
+  "source_revision": "1.2",
   "status": "EXACT_TYPES_PENDING",
   "note": "Each root closes against the manuscript only after independent type and replay checks.",
   "obligations": [
@@ -39,6 +39,8 @@
       "paper_root": "1.1",
       "obligation": "Construction and charged discovery on all sibling quotients",
       "tasks": [
+        "EX1.5",
+        "EX1.6",
         "EX2.4",
         "EX4.3",
         "EX5.1"

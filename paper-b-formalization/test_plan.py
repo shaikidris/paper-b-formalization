@@ -16,6 +16,33 @@ class PlanControls(unittest.TestCase):
         self.validate()
         plan.validate_files(self.data, self.coverage)
 
+    def test_published_version_doi(self):
+        self.coverage["version_doi"] = "10.5281/zenodo.wrong-version"
+        with self.assertRaisesRegex(plan.PlanError, "published version DOI mismatch"):
+            plan.validate_files(self.data, self.coverage)
+
+    def test_paper_dependency_cycle(self):
+        self.coverage["entries"][0]["depends_on_items"].append("1.2")
+        with self.assertRaisesRegex(plan.PlanError, "paper dependency cycle"):
+            self.validate()
+
+    def test_structural_proof_independent_of_machine(self):
+        graph = plan.read_json(plan.ROOT / "module-graph.json")
+        forest = next(m for m in graph["modules"] if m["path"].endswith("/Forest.lean"))
+        forest["local_imports"].append("release-core/PaperB/Jumps.lean")
+        with self.assertRaisesRegex(plan.PlanError, "structural proof imports executable infrastructure"):
+            plan.validate_module_graph(self.data, graph)
+
+    def test_per_statement_fidelity_required(self):
+        entry = self.coverage["entries"][0]
+        with self.assertRaisesRegex(plan.PlanError, "missing statement-level declaration"):
+            plan.validate_statement_receipt(entry, {e["id"]: e for e in self.coverage["entries"]})
+
+    def test_open_question_cannot_be_a_prerequisite(self):
+        self.coverage["entries"][0]["depends_on_items"].append("6.2")
+        with self.assertRaisesRegex(plan.PlanError, "invalid paper prerequisite"):
+            self.validate()
+
     def test_unknown_dependency(self):
         self.tasks['EX1.1']['dependencies'].append('EX999.1')
         with self.assertRaisesRegex(plan.PlanError, 'unknown dependency EX999.1'):
@@ -109,7 +136,7 @@ class PlanControls(unittest.TestCase):
             plan.validate_files(self.data, self.coverage)
 
     def test_proof_marker_must_be_unique(self):
-        source = (plan.ROOT / 'sources/paper-b-v1.2-draft.md').read_text()
+        source = (plan.PROJECT / self.data['manuscript']['canonical_path']).read_text()
         source += '\n*Proof of Theorem 1.1.* Duplicate. ∎'
         with self.assertRaisesRegex(plan.PlanError, 'ambiguous deferred proof'):
             plan.statement_proof(source, plan.PATTERN.search(source))

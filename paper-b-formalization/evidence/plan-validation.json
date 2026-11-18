@@ -1,17 +1,16 @@
 {
   "date": "2026-11-18",
-  "scope": "v1.2 source, coverage, dependency and resource-contract planning controls.",
-  "result": "PASS",
-  "active_article_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "scope": "Published Paper B v1.2 project plan, task graph, reuse inventory and source fidelity. Planning validation only.",
+  "source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
   "summary": {
     "result": "PASS",
     "scope": "plan/source/coverage integrity only; no Lean proof replay",
-    "source": "Paper B 1.2-draft (unpublished draft; public base DOI 10.5281/zenodo.24142496)",
+    "source": "Published Paper B 1.2 (DOI 10.5281/zenodo.24339761)",
     "milestones": 7,
-    "tasks": 25,
+    "tasks": 27,
     "task_status_counts": {
       "DONE_PLAN": 1,
-      "PLANNED": 23,
+      "PLANNED": 25,
       "READY": 1
     },
     "paper_items": 10,
@@ -20,6 +19,19 @@
       "6.2"
     ],
     "certified_new_roots": 0,
+    "certified_paper_statements": 0,
+    "paper_status": {
+      "1.1": "NOT_CERTIFIED",
+      "1.2": "NOT_CERTIFIED",
+      "2.1": "NOT_CERTIFIED",
+      "2.2": "NOT_CERTIFIED",
+      "3.1": "NOT_CERTIFIED",
+      "3.2": "NOT_CERTIFIED",
+      "4.1": "NOT_CERTIFIED",
+      "5.1": "NOT_CERTIFIED",
+      "6.1": "NOT_CERTIFIED",
+      "6.2": "OPEN_RESEARCH"
+    },
     "selected_root_obligations": {
       "OPEN": 9
     },
@@ -32,40 +44,75 @@
     ],
     "execution_status": "LEAN_IMPLEMENTATION_NOT_STARTED"
   },
+  "commands": [
+    "python3 -B paper-b-formalization/plan.py validate",
+    "python3 -B paper-b-formalization/test_plan.py",
+    "python3 -B paper-b-formalization/plan.py render",
+    "python3 -B paper-b-formalization/plan.py ready"
+  ],
+  "ready": "EX0.2: Pin the environment and elaborate candidate interfaces (owner: contract)",
   "module_graph": {
-    "planned_first_release_modules": 14,
+    "planned_first_release_modules": 17,
     "planned_unreachable_modules": 0,
     "actual_proof_modules_created": 0
   },
-  "consecutive_renders_identical": true,
-  "render_sha256": {
-    "COVERAGE.md": "0f713c2faca14e4812abdac8ac149937baa6142d6c76477366ab841c15923718",
-    "TASKS.md": "be73e1bb1d9e8fc5890f0e0e805fccedc33aa17e4576b7c9b42676361ca394a3",
-    "MILESTONES.md": "0b306585ea54b1896da2c0a1a1653f312aa729004a36745823a177e57175ff3d",
-    "DASHBOARD.md": "8a70656093195374d78d16768cf542066ac3b5bb4322fce9a30cef7fef41a6b4"
+  "identical_render_sha256": {
+    "MILESTONES.md": "4513c5b86b09dadf731c46fe5065727281b9b42513fa328ad541009462e1a233",
+    "TASKS.md": "919ce30fbd99b4038f5f63c68e2f8783c8673d1fd02b3c02a51cffc9b2a0ee2c",
+    "COVERAGE.md": "215a6f24098d0c4661ca7c1845f8887a962cebab7a5b2a8c0622aa3b5f9eb95f",
+    "DASHBOARD.md": "97e10feebb2dc2a123561c9c505a0ee24643fb3415593db5babc9960ee0d0720"
   },
-  "archived_v11_ledgers_byte_identical": 6,
-  "runs": [
+  "planning_controls": {
+    "passed": 29,
+    "tests": [
+      "certification_cannot_bypass_root_obligations",
+      "challenge_cannot_import_project",
+      "deferred_proof_cannot_use_corollary_proof",
+      "dependency_cycle",
+      "duplicate_task_id",
+      "literal_statement_not_just_id",
+      "missing_new_corollary",
+      "module_import_cycle",
+      "obligation_must_have_the_right_consumer",
+      "one_writer_rule",
+      "open_question_cannot_be_a_prerequisite",
+      "open_question_has_no_proof_digest",
+      "open_question_not_a_proof",
+      "paper_dependency_cycle",
+      "per_statement_fidelity_required",
+      "premature_ready",
+      "proof_cannot_cross_another_statement",
+      "proof_marker_must_be_unique",
+      "published_version_doi",
+      "root_count_cannot_be_inflated",
+      "structural_proof_independent_of_machine",
+      "threshold_is_no_longer_a_selected_root",
+      "tracker_active_source_identity",
+      "uncovered_statement",
+      "unknown_dependency",
+      "unreachable_release_module",
+      "unsupported_extension_closure",
+      "valid_snapshot",
+      "verified_label_without_evidence"
+    ]
+  },
+  "inspected_reuse_inputs": [
     {
-      "argv": [
-        "python3",
-        "-B",
-        "plan.py",
-        "validate"
-      ],
-      "exit_code": 0,
-      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"plan/source/coverage integrity only; no Lean proof replay\",\n  \"source\": \"Paper B 1.2-draft (unpublished draft; public base DOI 10.5281/zenodo.24142496)\",\n  \"milestones\": 7,\n  \"tasks\": 25,\n  \"task_status_counts\": {\n    \"DONE_PLAN\": 1,\n    \"PLANNED\": 23,\n    \"READY\": 1\n  },\n  \"paper_items\": 10,\n  \"proof_bearing_items\": 9,\n  \"open_questions\": [\n    \"6.2\"\n  ],\n  \"certified_new_roots\": 0,\n  \"selected_root_obligations\": {\n    \"OPEN\": 9\n  },\n  \"extension_obligations\": {\n    \"OPEN\": 2\n  },\n  \"assigned_workers\": 0,\n  \"dependency_ready\": [\n    \"EX0.2\"\n  ],\n  \"execution_status\": \"LEAN_IMPLEMENTATION_NOT_STARTED\"\n}\n",
-      "stderr": ""
+      "path": "formalization/Controller/Graphs/FailureBatch.lean",
+      "sha256": "e45a0258aa3a56f7d42203ba19c6c8e9eac819a81f583e47b0e4d93b69f3a213"
     },
     {
-      "argv": [
-        "python3",
-        "-B",
-        "test_plan.py"
-      ],
-      "exit_code": 0,
-      "stdout": "",
-      "stderr": "test_certification_cannot_bypass_root_obligations (__main__.PlanControls.test_certification_cannot_bypass_root_obligations) ... ok\ntest_challenge_cannot_import_project (__main__.PlanControls.test_challenge_cannot_import_project) ... ok\ntest_deferred_proof_cannot_use_corollary_proof (__main__.PlanControls.test_deferred_proof_cannot_use_corollary_proof) ... ok\ntest_dependency_cycle (__main__.PlanControls.test_dependency_cycle) ... ok\ntest_duplicate_task_id (__main__.PlanControls.test_duplicate_task_id) ... ok\ntest_literal_statement_not_just_id (__main__.PlanControls.test_literal_statement_not_just_id) ... ok\ntest_missing_new_corollary (__main__.PlanControls.test_missing_new_corollary) ... ok\ntest_module_import_cycle (__main__.PlanControls.test_module_import_cycle) ... ok\ntest_obligation_must_have_the_right_consumer (__main__.PlanControls.test_obligation_must_have_the_right_consumer) ... ok\ntest_one_writer_rule (__main__.PlanControls.test_one_writer_rule) ... ok\ntest_open_question_has_no_proof_digest (__main__.PlanControls.test_open_question_has_no_proof_digest) ... ok\ntest_open_question_not_a_proof (__main__.PlanControls.test_open_question_not_a_proof) ... ok\ntest_premature_ready (__main__.PlanControls.test_premature_ready) ... ok\ntest_proof_cannot_cross_another_statement (__main__.PlanControls.test_proof_cannot_cross_another_statement) ... ok\ntest_proof_marker_must_be_unique (__main__.PlanControls.test_proof_marker_must_be_unique) ... ok\ntest_root_count_cannot_be_inflated (__main__.PlanControls.test_root_count_cannot_be_inflated) ... ok\ntest_threshold_is_no_longer_a_selected_root (__main__.PlanControls.test_threshold_is_no_longer_a_selected_root) ... ok\ntest_tracker_active_source_identity (__main__.PlanControls.test_tracker_active_source_identity) ... ok\ntest_uncovered_statement (__main__.PlanControls.test_uncovered_statement) ... ok\ntest_unknown_dependency (__main__.PlanControls.test_unknown_dependency) ... ok\ntest_unreachable_release_module (__main__.PlanControls.test_unreachable_release_module) ... ok\ntest_unsupported_extension_closure (__main__.PlanControls.test_unsupported_extension_closure) ... ok\ntest_valid_snapshot (__main__.PlanControls.test_valid_snapshot) ... ok\ntest_verified_label_without_evidence (__main__.PlanControls.test_verified_label_without_evidence) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.021s\n\nOK\n"
+      "path": "formalization/Controller/Graphs/DecoderEquivalence.lean",
+      "sha256": "5c8c17dbae741e1fec0105b05904c3886f7e4fa390ac41dbf8c72652a394d4f9"
+    },
+    {
+      "path": "formalization/Controller/Decoder/Paths.lean",
+      "sha256": "b1e0f9b1c453916afd3fa09e12e13636df66685b6e1c3fa324e7f81efc53fcf1"
+    },
+    {
+      "path": "formalization/Controller/Cost/Model.lean",
+      "sha256": "7b6ba5b455adede80e2a3c4b332fe034dd6d22051cb8ca162e87d4be0888cff8"
     }
-  ]
+  ],
+  "lean_execution": "Deferred to implementation. No Lean source or build added."
 }

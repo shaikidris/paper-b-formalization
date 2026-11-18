@@ -16,9 +16,11 @@
       "title": "Dominator construction and cost",
       "consumers": [
         "EX1.2",
+        "EX1.5",
+        "EX1.6",
         "EX5.1"
       ],
-      "acceptance": "Link or prove the algorithm and its time and space theorems on the same directed graph representation. The manuscript cites Lengauer and Tarjan.",
+      "acceptance": "Identify a literal correctness and cost bridge for a constructor on raw DAG input and separate static heavy-path operations. Review the paper's Lengauer–Tarjan route and the DAG alternative in PLAN.md.",
       "status": "TO_VERIFY_FOR_FORMAL_USE"
     },
     {
@@ -26,6 +28,8 @@
       "title": "Word operations, arrays and sorting",
       "consumers": [
         "EX0.3",
+        "EX1.5",
+        "EX1.6",
         "EX2.4",
         "EX5.2"
       ],
@@ -44,13 +48,13 @@
     },
     {
       "id": "X5",
-      "title": "Controller image interpretation",
+      "title": "Optional physical interpretation of the guarded corollary",
       "consumers": [
         "EX6.1",
         "EX6.2"
       ],
-      "acceptance": "Paper A Theorem 4.1 interprets Q for physical controllers. The decoder-level Corollary 6.1 takes Q as supplied.",
-      "status": "TO_VERIFY_FOR_FORMAL_USE"
+      "acceptance": "Both allowed Q are supplied to the decoder theorem. A physical input realization from Paper A would be a distinct downstream interpretation.",
+      "status": "CONTEXT_ONLY"
     }
   ]
 }
