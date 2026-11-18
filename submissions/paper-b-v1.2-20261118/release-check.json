@@ -4,7 +4,7 @@
   "version": "1.2",
   "reviewed_baseline_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
   "reviewed_baseline_commit": "bcc6879",
-  "changes": "Review clarifications on exit-tail summaries, endpoint order and cited prior work. Public companion references are by title. The numbered statements, exit-transfer proof and all three threshold proofs match the reviewed source.",
+  "changes": "Review clarifications on exit-tail summaries, endpoint order and cited prior work. Figure 1 depicts the existing worked example. Sections 2\u20135 give the full proof of the oracle, and the batch and decoder results are proved in the article.",
   "previous_zenodo_version": "10.5281/zenodo.24142496",
   "zenodo_concept_doi": "10.5281/zenodo.24142495",
   "zenodo_licence_from_previous_version": "CC BY 4.0",
@@ -16,26 +16,35 @@
       "exit_transfer_identities": 42232,
       "reachability_queries": 421402
     },
-    "article_pages": 9,
+    "article_pages": 10,
     "companion_pages": 7,
-    "article_math_elements": 425,
+    "article_math_elements": 433,
     "companion_math_elements": 11,
     "formal_verification_claim": false,
-    "journal_human_cold_read": "PENDING"
+    "journal_human_cold_read": "PENDING",
+    "figure_1": {
+      "page": 6,
+      "verified_original_edges": 8,
+      "verified_quotient_edges": 6,
+      "color_and_grayscale_review": "passed"
+    }
   },
   "deposit_files": {
-    "paper-b-v1.2.pdf": "d747c703228658860a800d6a029502683aa56a926ac9d1f226ca8dcdd5102e31",
-    "paper-b-threshold-companion-v1.2.pdf": "ff435eb2419bcd9d5b934196836c7342ff51f13dbc304cb7da4999e2e5f015fa",
-    "paper-b-v1.2-source.zip": "923a1f7cd66e98809be8e6da4b28fafa4f92ab087065c68b7516f0ab7634669c"
+    "paper-b-v1.2.pdf": "a87dbbc308522cd2e96400e6cffa1c00f609685cc1e50bbcaeb0f4da3f2d9f8d",
+    "paper-b-v1.2-source.zip": "fb3bc576ae291d7cc303bd27e0d6ff09df371bfd894b977ce9b26eeaa449465a"
   },
   "source_sha256": {
-    "paper-b-v1.2.md": "6f80b50dbcd01d3a33fedd08e33c56c5af553e65a29b6ffdbfa3e8ae669a3d3f",
-    "paper-b-threshold-companion-v1.2.md": "9df18cb00f71e185dc5e185d6cfd36fb0aa5fab2360d57c4a7ba66e81f941673",
+    "paper-b-v1.2.md": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+    "exit-transfer-example.svg": "49d9bf7df07134e55837636851dfbf0a4adddfeaa5f22842b3df621b2928bdfc",
     "print-style.html": "42624b0a3d538b4580da6c393cfb58de4b1a5814201d03313459ed1e73a778c1",
-    "README.md": "faf3807681f0df00891257b5fac28c23c4f112d59acb88baee91da2ac997dec9"
+    "README.md": "964e39ee47c674076557df81a0ef7141a0b590cfb4aad3b415924a0b6322c348"
   },
   "platform_dates_and_receipts": "Pending publication.",
   "author": "Idris Ali Shaik",
   "resource_type": "Preprint",
-  "abstract_sha256": "a7546d2499d5cb19d6267835bdcf13c7e2503ef9e4c9779ac193cea9d8a18a41"
+  "abstract_sha256": "a7546d2499d5cb19d6267835bdcf13c7e2503ef9e4c9779ac193cea9d8a18a41",
+  "local_companion_files": {
+    "paper-b-threshold-companion-v1.2.md": "9df18cb00f71e185dc5e185d6cfd36fb0aa5fab2360d57c4a7ba66e81f941673",
+    "paper-b-threshold-companion-v1.2.pdf": "ff435eb2419bcd9d5b934196836c7342ff51f13dbc304cb7da4999e2e5f015fa"
+  }
 }

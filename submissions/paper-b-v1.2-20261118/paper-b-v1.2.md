@@ -30,7 +30,7 @@ The construction keeps the tail of each arc that leaves a dominator subtree. Thi
 
 **Related work.** Theorem 1.1 trades query time for construction time on DAGs relative to Choudhary's general-digraph oracle [Cho16, Theorem 13; Cho17, Theorem 3.2]. Teslenko and Dubrova represent all double dominators of a given vertex in linear space and construct its representation in linear time [TD15]. In our path orientation that fixes the target. Teslenko describes the quadratic cost of building separate chain representations across all vertices [Tes08, §3.9]. Teslenko, Dubrova and Tenhunen report \(O(k\log n)\) time to combine the prepared dominator chains of \(k\) supplied circuit vertices [TDT06, §§5–6]. Here one index is built from the input DAG in \(O((n+m)L^3)\) time and retains \(O(n)\) words for any later target and failure pair.
 
-The graph on siblings in the dominator tree is Tarjan's derived graph [GT15, §3]. For binary decision diagrams, Karplus represents two-cuts by child pairs linked to the next cut and gives a quadratic-time construction for that representation [Kar88, §§2.3–2.4]. We use the sibling graph with original arc tails, construct the cut forest for arbitrary indegrees in a DAG whose nonroot vertices all have the root as immediate dominator, and compose the exit information up that forest. A separate offline approach uses a common cut and a threshold on the number of queries stored at each vertex. Its construction and tradeoffs appear in the accompanying note *Offline Threshold Algorithms for Two-Failure Reachability*.
+The graph on siblings in the dominator tree is Tarjan's derived graph [GT15, §3]. For binary decision diagrams, Karplus represents two-cuts by child pairs linked to the next cut and gives a quadratic-time construction for that representation [Kar88, §§2.3–2.4]. We use the sibling graph with original arc tails, construct the cut forest for arbitrary indegrees in a DAG whose nonroot vertices all have the root as immediate dominator, and compose the exit information up that forest.
 
 ## 2. Where a surviving path can leave a block
 
@@ -121,6 +121,10 @@ Conversely, take an arc witnessing \(X^B_s(y)\). If its continuation visits a fr
  \qquad r\longrightarrow V\longrightarrow p,
  \qquad U\longrightarrow h\longrightarrow y .
 \]
+Figure 1 pairs the original DAG with its quotient \(H_r\). The arcs from \(U\) in the quotient carry their original tail labels.
+
+![**Figure 1.** The original DAG and its quotient at \(r\). The exit labelled \(\ell\) reaches the fresh endpoint \(p\). The exit labelled \(h\) reaches \(y\) directly and contributes through the shared endpoint \(U\).](exit-transfer-example.svg){#fig-exit-transfer width=94%}
+
 The block \(D(U)\) contains \(\ell\) and \(h\). In \(H_r\), the pair \(B=\{U,V\}\) properly loses \(p\) and \(y\). Its child \(P=\{U,p\}\) properly loses \(y\). For the shared endpoint \(U\), the first term of the identity contributes the physical tail \(\ell\) on the exit to \(p\). The inherited term contributes \(h\) on the direct exit to \(y\). Deleting \(h,V\) leaves the route through \(\ell\), whereas deleting \(\ell,V\) leaves the route through \(h\). Deleting \(U,V\) removes both. This is why storing only the separating pair, or keeping only one of the two terms, loses information about the original target.
 
 ## 5. Building and querying the index
