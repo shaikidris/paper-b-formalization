@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 1677,
-      "sha256": "d21a383ce022a8e10e21ef9ff51b84e52fd3cb76a8b0f349b7a33fc6016c1e3d"
+      "bytes": 1721,
+      "sha256": "dd23a53c22e76c064918d191a9d82a59d4a4d74ba5ccc43e1db4e33e75844a5c"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 21310,
-      "sha256": "fd9903d183d4a7e504fc436fbdeff8410cf499fef04e175232306123e65ee7c7"
+      "bytes": 21342,
+      "sha256": "5f67907efc92e93e1e1800525bcca59c707e3feea172ddc0a8ec3c017221242e"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 4466,
-      "sha256": "6bbd3bea0873b534e3fdc1ebdca989dede21a6db878fcd38f5b8d26b4f5fc322"
+      "bytes": 4693,
+      "sha256": "9c5335cbf07d5d5e9280cbc85826e90d9dc2190e3f4a5397863c452d3b2a34f4"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -133,8 +133,8 @@
     },
     {
       "path": "evidence/carbon-forest-sweep/progress.json",
-      "bytes": 2124,
-      "sha256": "c2978c41686c5d5af4a4904f25293be7a002f696f61197b9a3557d3a3bd4b1f7"
+      "bytes": 2687,
+      "sha256": "e4d0f89bc7595bde0e16dddea7d03eb93fb8c0367162727adbc29fc9c641a30e"
     },
     {
       "path": "evidence/carbon-last-arc/build.txt",
@@ -353,8 +353,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 32442,
-      "sha256": "2ff1389eb7153434d2ca008bea0e3ad0fe2fca7a8d9647f087955e4d4ff09b6a"
+      "bytes": 32547,
+      "sha256": "f01c59aa150ea004e7261186db4e361821bb88150226f05308a353c16d860cf1"
     },
     {
       "path": "test_plan.py",

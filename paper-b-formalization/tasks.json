@@ -412,7 +412,7 @@
         "statement fidelity",
         "independent replay"
       ],
-      "assigned_agent": "Gemini 4 Carbon Medium",
+      "assigned_agent": null,
       "dependencies": [
         "EX2.1"
       ],
@@ -432,13 +432,15 @@
       "evidence": [
         "evidence/carbon-forest-sweep/progress.json"
       ],
-      "progress": "Carbon's three sweep lemmas build. The remaining EX2.2 work is the sweep induction, deterministic reuse of existing pair keys and the finite forest construction.",
+      "progress": "Three sweep lemmas from Carbon build verbatim without axioms. The next declaration handles a latest predecessor that belongs to the cut. The sweep induction, pair reuse and forest construction remain open.",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
         "model": "gemini-4-carbon-medium",
-        "status": "RUNNING_FILE_CHECKPOINTS",
-        "checked_checkpoints": 3
+        "status": "SEMANTIC_CHECKPOINTS_CHECKED",
+        "checked_checkpoints": 3,
+        "transport_status": "cancelled",
+        "report_state": "complete"
       }
     },
     {

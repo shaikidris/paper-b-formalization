@@ -34,5 +34,11 @@
       "source_sha256": "b90199475ce20b74e89fb37ede951c16a67ac34a4374c03020041bf167c070a9"
     }
   ],
-  "status": "CHECKPOINTS_IN_PROGRESS"
+  "status": "SEALED_AND_CHECKED",
+  "transport_status": "cancelled",
+  "report_state": "complete",
+  "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/56d1a609-3be1-4bd2-9002-10e831df0ce8/receipt.json",
+  "receipt_sha256": "0665a2a302b996d7e94239da9c7245e5703e0852152c7ed1bab813fc8371698e",
+  "transport_close": "Codex interrupted the remaining chat stream after the worker sealed all three proof files.",
+  "next_declaration": "Prove that, when a latest predecessor belongs to the cut, proper loss is equivalent to having exactly the cut endpoints as distinct predecessors."
 }
