@@ -355,6 +355,21 @@ def render(data, coverage, obligations, external):
         out += [f"| {o['id']} — {cell(o['obligation'])} | {o['paper_root']} | {', '.join(o['tasks'])} | {o['status']} |"]
     (ROOT / "COVERAGE.md").write_text('\n'.join(out)+'\n')
     out = ["# Paper B planning dashboard", "", "Snapshot generated from the editable JSON ledgers. This dashboard tracks work and proof scope; it is not a build or mathematical certificate.", "", f"- Published edition inventory: {s['paper_items']} items, including {s['proof_bearing_items']} proof-bearing statements and Question 6.2.", f"- Work inventory: {s['tasks']} packages in {s['milestones']} milestones.", f"- Completed planning audits: {s['task_status_counts'].get('DONE_PLAN',0)}.", f"- Certified main theorems: **{s['certified_new_roots']}/2**. Certified numbered results: **{s['certified_paper_statements']}/{s['proof_bearing_items']}**.", f"- Assigned workers: {s['assigned_workers']}; execution: {s['execution_status']}.", "- Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.", "- First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression."]
+    counts = s["task_status_counts"]
+    verified = counts.get("VERIFIED", 0)
+    planning = counts.get("DONE_PLAN", 0)
+    milestone_counts = Counter(m["status"] for m in data["milestones"])
+    out += [
+        "", "## Completed and remaining", "",
+        f"- Completed work packages **{verified + planning}/{s['tasks']}**. "
+        f"Planning audits **{planning}** and verified proof packages **{verified}**.",
+        f"- Remaining work packages **{s['tasks'] - verified - planning}**. "
+        + ", ".join(f"{n} {state.lower().replace('_', ' ')}"
+                    for state, n in counts.items() if state not in CLOSED) + ".",
+        "- Milestones " + ", ".join(f"{n} {state.lower().replace('_', ' ')}"
+                                   for state, n in sorted(milestone_counts.items())) + ".",
+        "- [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.",
+    ]
     ongoing = [t for t in data["tasks"] if t["status"] == "IN_PROGRESS"]
     if ongoing:
         out += ["", "## In progress", ""]

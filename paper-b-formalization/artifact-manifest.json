@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 1680,
-      "sha256": "140e28cbae7b61460cc4ae842f73d8fcaba343d4e4af4703bf802c26a6167659"
+      "bytes": 1998,
+      "sha256": "bb26d4ec619cc7092641ecff8c8bea473b3359c4b7f99f549cbf385e61a91c49"
     },
     {
       "path": "DISPATCH.md",
@@ -238,8 +238,8 @@
     },
     {
       "path": "plan.py",
-      "bytes": 26009,
-      "sha256": "2bfed1c729e5de4f22c3f8fdb6ac45b4ae499e8067012dd12a80b5abb59ef00e"
+      "bytes": 26928,
+      "sha256": "fc01f9fe1f5919c71a9dc78b9e982fe55e31f8813348e0d0aae39f89314f29c2"
     },
     {
       "path": "release-core/.gitignore",
@@ -380,6 +380,21 @@
       "path": "test_plan.py",
       "bytes": 8530,
       "sha256": "f039110f92e0884858eaf482459f8db0762d3ec6402f9e0575bb89efa52eee4a"
+    },
+    {
+      "path": "unattended/README.md",
+      "bytes": 2282,
+      "sha256": "59781182e184a180d0649e99df6b8620c98df2382cd19a05effbd9c3e8bd62c1"
+    },
+    {
+      "path": "unattended/ex22-contracts.json",
+      "bytes": 5019,
+      "sha256": "1f16909bcedcebf7837cbf033e88fb5d45ac5b126171055a642e589c2413308d"
+    },
+    {
+      "path": "unattended/run_ex22.py",
+      "bytes": 18946,
+      "sha256": "485bcc6b12da85f05d9695a832842ce858dac968eb4b94da4dbdb8eea6ecdfc0"
     }
   ]
 }

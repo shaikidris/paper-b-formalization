@@ -10,6 +10,13 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.
 - First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.
 
+## Completed and remaining
+
+- Completed work packages **1/27**. Planning audits **1** and verified proof packages **0**.
+- Remaining work packages **26**. 3 in progress, 23 planned.
+- Milestones 2 in progress, 5 planned.
+- [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
+
 ## In progress
 
 - [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
