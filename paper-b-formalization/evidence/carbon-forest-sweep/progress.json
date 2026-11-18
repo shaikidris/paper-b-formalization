@@ -1,0 +1,20 @@
+{
+  "task": "EX2.2",
+  "worker": "Gemini 4 Carbon Medium",
+  "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "build_command": "lake build PaperB.ExitPaths",
+  "checkpoints": [
+    {
+      "name": "properLoss_iff_all_predecessors_lost",
+      "checkpoint_sha256": "da4de915f57ba5076acaf0ff53bfd414307350abda3e91d10c7d05577876c09a",
+      "worker_note": "Tracker EX2.2 properLoss_iff_all_predecessors_lost: proof written; next lost_of_nested_endpoints",
+      "path": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/56d1a609-3be1-4bd2-9002-10e831df0ce8/checkpoints/0001.md",
+      "status": "CHECKED_WITHOUT_AXIOMS",
+      "build_log": "build-0001.txt",
+      "source_sha256": "eca40b1d20969f550c67b7ff0ad441b8f54718e91f795a4ad2846a6013209f4b"
+    }
+  ],
+  "status": "CHECKPOINTS_IN_PROGRESS"
+}

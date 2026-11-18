@@ -184,8 +184,8 @@ Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carb
 
 ## EX2.2 — Prove the topological forest invariant
 
-- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
-- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
+- Milestone: EX2; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: Gemini 4 Carbon Medium.
 - Dependencies: EX2.1.
 - Proposed owner module: `release-core/PaperB/Forest.lean`.
 - Paper consumers: 1.1, 3.1, 4.1; risk: ordinary.
@@ -196,6 +196,10 @@ Acceptance:
 
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 - Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
+
+Carbon's first checkpoint proves the predecessor-loss equivalence and builds. It is now working on cut nesting.
+
+Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json).
 
 <a id="ex23"></a>
 

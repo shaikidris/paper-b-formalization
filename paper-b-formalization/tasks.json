@@ -412,7 +412,7 @@
         "statement fidelity",
         "independent replay"
       ],
-      "assigned_agent": null,
+      "assigned_agent": "Gemini 4 Carbon Medium",
       "dependencies": [
         "EX2.1"
       ],
@@ -421,7 +421,7 @@
         "3.1",
         "4.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Show raw predecessor losses form a prefix, and that each vertex label represents all its proper separating pairs.",
@@ -429,7 +429,17 @@
         "Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.",
         "Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/carbon-forest-sweep/progress.json"
+      ],
+      "progress": "Carbon's first checkpoint proves the predecessor-loss equivalence and builds. It is now working on cut nesting.",
+      "dispatch": {
+        "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
+        "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
+        "model": "gemini-4-carbon-medium",
+        "status": "RUNNING_FILE_CHECKPOINTS",
+        "checked_checkpoints": 1
+      }
     },
     {
       "id": "EX2.3",

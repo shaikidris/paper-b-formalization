@@ -1,0 +1,6 @@
+✔ [4/4] Built PaperB.ExitPaths (1.5s)
+Build completed successfully (4 jobs).
+PaperB.LabelledQuotient.properLoss_iff_all_predecessors_lost {H : PaperB.LabelledQuotient} {B : H.CutPair}
+  {y : Fin H.vertexCount} (notRoot : H.root ≠ y) :
+  H.ProperLoss B y ↔ ¬B.Mem y ∧ ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → H.Lost B u
+'PaperB.LabelledQuotient.properLoss_iff_all_predecessors_lost' does not depend on any axioms

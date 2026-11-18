@@ -379,6 +379,29 @@ theorem predecessors_iff_endpoints_of_first_properLoss
             | Or.inl hpFst => False.elim (hpNeFst hpFst)
             | Or.inr hpSnd => hpSnd)
 
+/-- A live nonroot vertex is lost exactly when all entering predecessors are lost. -/
+theorem properLoss_iff_all_predecessors_lost
+    {H : LabelledQuotient} {B : CutPair H} {y : Fin H.vertexCount}
+    (notRoot : H.root ≠ y) :
+    H.ProperLoss B y ↔ ¬ B.Mem y ∧ ∀ u, H.HasQuotientArc u y → H.Lost B u := by
+  constructor
+  · intro hProper
+    let ⟨hLostY, hyNotB⟩ := hProper
+    refine ⟨hyNotB, fun u hArc hPathU => ?_⟩
+    have huAlive : ¬ B.Mem u := AvoidPath.target_alive hPathU
+    have hStep : H.SurvivingPath B.Mem u y :=
+      AvoidPath.step u y y huAlive hArc (AvoidPath.refl y hyNotB)
+    exact hLostY (AvoidPath.trans hPathU hStep)
+  · intro hRhs
+    let ⟨hyNotB, hAllLost⟩ := hRhs
+    refine ⟨fun hPathY => ?_, hyNotB⟩
+    cases AvoidPath.eq_or_exists_last_arc hPathY with
+    | inl hEq =>
+        exact notRoot hEq
+    | inr hPred =>
+        let ⟨u, hPathU, hArcUY⟩ := hPred
+        exact hAllLost u hArcUY hPathU
+
 end LabelledQuotient
 
 end PaperB
