@@ -1,0 +1,20 @@
+{
+  "task": "EX2.2",
+  "worker": "Gemini 4 Carbon Medium",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "declaration": "PaperB.LabelledQuotient.properLoss_iff_predecessors_are_endpoints_of_latest_mem",
+  "source_sha256": "732dc334d5e41b81188cd290d1a2795de10928ad56800ce7d505a807990ce557",
+  "proof_preserved_verbatim": true,
+  "build_command": "lake build PaperB.ExitPaths",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "axiom_free": true,
+  "run": "99e1a5cd-7fce-448a-aff6-4ea5b50a2875",
+  "checkpoint": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/99e1a5cd-7fce-448a-aff6-4ea5b50a2875/checkpoints/0001.md",
+  "checkpoint_sha256": "6abc3583b111710cc78154e2521fc2432d8c5562abfe9f2dcdd3654778f72327",
+  "worker_note": "Tracker EX2.2 properLoss_iff_predecessors_are_endpoints_of_latest_mem: proof written; next EX2.2 sweep branches complete",
+  "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/99e1a5cd-7fce-448a-aff6-4ea5b50a2875/receipt.json",
+  "receipt_sha256": "22d571a2c61ecac83bd45174f73f356fa68b831515110a8457625072702df32f",
+  "elapsed_seconds": 134.469,
+  "transport_status": "returned",
+  "report_state": "complete"
+}

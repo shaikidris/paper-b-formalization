@@ -454,6 +454,76 @@ theorem properLoss_iff_of_latest_predecessor_not_mem
       exact Nat.lt_irrefl (rank y) (Nat.lt_trans hYBeforeM hMBeforeY)
     exact (properLoss_iff_all_predecessors_lost notRoot).mpr ⟨hyNotB, hAllLost⟩
 
+/-- If a latest predecessor belongs to the cut, proper loss occurs exactly at the vertices with both endpoints as their distinct predecessors. -/
+theorem properLoss_iff_predecessors_are_endpoints_of_latest_mem
+    {H : LabelledQuotient} {B : CutPair H}
+    {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) {m y : Fin H.vertexCount}
+    (notRoot : H.root ≠ y) (_entering : H.HasQuotientArc m y)
+    (latest : ∀ u, H.HasQuotientArc u y → rank u ≤ rank m)
+    (isEndpoint : B.Mem m) :
+    H.ProperLoss B y ↔ ∀ u, H.HasQuotientArc u y ↔ B.Mem u := by
+  constructor
+  · intro hProperY
+    let ⟨hyNotB, hAllLost⟩ := (properLoss_iff_all_predecessors_lost notRoot).mp hProperY
+    have fwd : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → B.Mem u := by
+      intro u hArcUY
+      if huB : B.Mem u then
+        exact huB
+      else
+        have hProperU : H.ProperLoss B u := ⟨hAllLost u hArcUY, huB⟩
+        have hMBeforeU : rank m < rank u :=
+          properLoss_follows_endpoints rankArc flat hProperU isEndpoint
+        have hULeM : rank u ≤ rank m := latest u hArcUY
+        exact False.elim (Nat.lt_irrefl (rank m) (Nat.lt_of_lt_of_le hMBeforeU hULeM))
+    have endpointArc : ∀ (keep other : Fin H.vertexCount),
+        other ≠ H.root → y ≠ other →
+        (∀ p : Fin H.vertexCount, B.Mem p → p ≠ other → p = keep) →
+        H.HasQuotientArc keep y := by
+      intro keep other hOtherNeRoot hyNeOther hDisj
+      have hPath : H.SurvivingPath (fun z => z = other) H.root y :=
+        flat.2 other y hOtherNeRoot hyNeOther
+      cases AvoidPath.eq_or_exists_last_arc hPath with
+      | inl hRootEqY =>
+          exact False.elim (notRoot hRootEqY)
+      | inr hPred =>
+          let ⟨p, hPrefix, hArcPY⟩ := hPred
+          have hpNeOther : p ≠ other :=
+            fun equal => AvoidPath.target_alive hPrefix equal
+          have hpEqKeep : p = keep := hDisj p (fwd p hArcPY) hpNeOther
+          rw [← hpEqKeep]
+          exact hArcPY
+    intro u
+    constructor
+    · exact fwd u
+    · intro huB
+      cases huB with
+      | inl huFst =>
+          rw [huFst]
+          exact endpointArc B.fst B.snd B.snd_ne_root
+            (fun hEq => hyNotB (Or.inr hEq))
+            (fun p hpB hpNeSnd =>
+              match hpB with
+              | Or.inl hpFst => hpFst
+              | Or.inr hpSnd => False.elim (hpNeSnd hpSnd))
+      | inr huSnd =>
+          rw [huSnd]
+          exact endpointArc B.snd B.fst B.fst_ne_root
+            (fun hEq => hyNotB (Or.inl hEq))
+            (fun p hpB hpNeFst =>
+              match hpB with
+              | Or.inl hpFst => False.elim (hpNeFst hpFst)
+              | Or.inr hpSnd => hpSnd)
+  · intro hIff
+    have hyNotB : ¬ B.Mem y := by
+      intro hyB
+      have hSelfArc : H.HasQuotientArc y y := (hIff y).mpr hyB
+      exact Nat.lt_irrefl (rank y) (rankArc y y hSelfArc)
+    have hAllLost : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → H.Lost B u :=
+      fun u hArcUY hPathU => AvoidPath.target_alive hPathU ((hIff u).mp hArcUY)
+    exact (properLoss_iff_all_predecessors_lost notRoot).mpr ⟨hyNotB, hAllLost⟩
+
 end LabelledQuotient
 
 end PaperB

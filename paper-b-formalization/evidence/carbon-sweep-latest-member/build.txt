@@ -1,0 +1,9 @@
+✔ [4/4] Built PaperB.ExitPaths (3.0s)
+Build completed successfully (4 jobs).
+PaperB.LabelledQuotient.properLoss_iff_predecessors_are_endpoints_of_latest_mem {H : PaperB.LabelledQuotient}
+  {B : H.CutPair} {rank : Fin H.vertexCount → Nat}
+  (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) (flat : H.IsFlat)
+  {m y : Fin H.vertexCount} (notRoot : H.root ≠ y) (_entering : H.HasQuotientArc m y)
+  (latest : ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → rank u ≤ rank m) (isEndpoint : B.Mem m) :
+  H.ProperLoss B y ↔ ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y ↔ B.Mem u
+'PaperB.LabelledQuotient.properLoss_iff_predecessors_are_endpoints_of_latest_mem' does not depend on any axioms

@@ -197,9 +197,9 @@ Acceptance:
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 - Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
 
-Three sweep lemmas from Carbon build verbatim without axioms. The next declaration handles a latest predecessor that belongs to the cut. The sweep induction, pair reuse and forest construction remain open.
+Both predecessor cases now build. Next prove the prefix property along the ancestor chain and preserve labels and pair keys through the topological sweep.
 
-Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json).
+Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json).
 
 <a id="ex23"></a>
 
