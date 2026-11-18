@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 1998,
-      "sha256": "bb26d4ec619cc7092641ecff8c8bea473b3359c4b7f99f549cbf385e61a91c49"
+      "bytes": 1942,
+      "sha256": "f8b936bddbc94d426b7577edbbfb8221f66ac28531ef4ec64b6155785eb2ce1e"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 21513,
-      "sha256": "386ec35f6e3dd8909ebafc32be5fb2fb1bc9c8dc17de1f450901830f7ef53350"
+      "bytes": 21609,
+      "sha256": "219f16302c714837dbec6ac2dba38909a86d220c25d522c1bfd85378cf8a78a1"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 5614,
-      "sha256": "04d6d0c5747b8c06e7134cd934367d018ab520a0eead7ff3460d9ca47eff697e"
+      "bytes": 5892,
+      "sha256": "96d15e0c88342f9a0f6dd55c782c0cb5110cdcdacd5769abefab1b123e473ab9"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -197,6 +197,11 @@
       "sha256": "685e21a2a3de9bd5dbcba6c51968490cdb0d5a0ea2f163b7e26f560a2e9d2c95"
     },
     {
+      "path": "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json",
+      "bytes": 1579,
+      "sha256": "41c252bd1a81e68f6cf574db1944fabe201697d950549d6c4d20dd8b1dbd08c2"
+    },
+    {
       "path": "evidence/exit-transfer-nested/build.txt",
       "bytes": 670,
       "sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599"
@@ -253,8 +258,8 @@
     },
     {
       "path": "release-core/PaperB/ExitPaths.lean",
-      "bytes": 26955,
-      "sha256": "f7823e3e0354b05d266b6d130a07597edd2e18e7ba272352a7407dfa582e6e03"
+      "bytes": 29553,
+      "sha256": "793727432c1c3afad0cc92e20546ff1884234a61cdf7ff0032d0593864ba707d"
     },
     {
       "path": "release-core/PaperB/Spec.lean",
@@ -373,8 +378,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 33235,
-      "sha256": "2e0a7fbcd732026c01e21c1c01a7affec51badcac329fad77042891d1de7aaaf"
+      "bytes": 33451,
+      "sha256": "b03c8a8c50778c08bad9a6e5a55149befdc01827acc499508a00fd40a8c3d0ef"
     },
     {
       "path": "test_plan.py",

@@ -1,0 +1,15 @@
+{
+  "run": "f0686845-5aaf-419e-ac39-903e187dc284",
+  "name": "PaperB.LabelledQuotient.takeWhile_predecessor_losses_iff",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "worker": "Gemini 4 Carbon Medium",
+  "statement": "theorem takeWhile_predecessor_losses_iff\n    {H : LabelledQuotient} {y : Fin H.vertexCount}\n    (chain : List (CutPair H))\n    (nested : chain.Pairwise\n      (fun ancestor child => ∀ p, child.Mem p → H.Lost ancestor p))\n    (passes : CutPair H → Bool)\n    (correct : ∀ B, passes B = true ↔ ∀ u, H.HasQuotientArc u y → H.Lost B u)\n    (B : CutPair H) :\n    B ∈ chain.takeWhile passes ↔\n      B ∈ chain ∧ ∀ u, H.HasQuotientArc u y → H.Lost B u",
+  "note": "Tracker EX2.2 takeWhile_predecessor_losses_iff: proof written; next executable prefix complete",
+  "dependencies": "'PaperB.LabelledQuotient.takeWhile_predecessor_losses_iff' depends on axioms: [propext]",
+  "checkpoint": ".collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/ddb48f89-1d71-4142-950a-d36ed32e5101/checkpoints/0001.md",
+  "checkpoint_sha256": "fc0ffa6f4f4e7f51348fa7e7f7c47c84d48b067e0551c762218b6408f2a12917",
+  "receipt": ".collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/ddb48f89-1d71-4142-950a-d36ed32e5101/receipt.json",
+  "receipt_sha256": "e65d0b99fdccbd57d89c083333997b2b5166601d6446d7df9c7add64f32099b8",
+  "build_log": ".collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/prefix-1.lean.txt",
+  "source_sha256": "793727432c1c3afad0cc92e20546ff1884234a61cdf7ff0032d0593864ba707d"
+}

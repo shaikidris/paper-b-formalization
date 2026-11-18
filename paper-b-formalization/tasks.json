@@ -432,9 +432,10 @@
       "evidence": [
         "evidence/carbon-forest-sweep/progress.json",
         "evidence/carbon-sweep-latest-member/verification.json",
-        "evidence/carbon-forest-prefix/verification.json"
+        "evidence/carbon-forest-prefix/verification.json",
+        "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json"
       ],
-      "progress": "Both local predecessor cases and the ancestor-chain prefix lemma build. Next use these declarations in the sweep induction, including reuse of an existing pair key.",
+      "progress": "1 of 3 unattended declarations build. Full finite-sweep construction and statement-level review remain open.",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
@@ -456,6 +457,13 @@
           "status": "CHECKED_WITHOUT_AXIOMS",
           "transport_status": "returned",
           "report_state": "complete"
+        },
+        "unattended": {
+          "run": "f0686845-5aaf-419e-ac39-903e187dc284",
+          "state": "BUILT_CHECKPOINT",
+          "checked": [
+            "prefix"
+          ]
         }
       }
     },

@@ -582,6 +582,70 @@ theorem predecessor_losses_form_prefix
                   fun u hArc => lost_of_nested_endpoints hIncluded (hPassB u hArc)
                 exact hHeadFail hHeadPass
 
+theorem takeWhile_predecessor_losses_iff
+    {H : LabelledQuotient} {y : Fin H.vertexCount}
+    (chain : List (CutPair H))
+    (nested : chain.Pairwise
+      (fun ancestor child => ∀ p, child.Mem p → H.Lost ancestor p))
+    (passes : CutPair H → Bool)
+    (correct : ∀ B, passes B = true ↔ ∀ u, H.HasQuotientArc u y → H.Lost B u)
+    (B : CutPair H) :
+    B ∈ chain.takeWhile passes ↔
+      B ∈ chain ∧ ∀ u, H.HasQuotientArc u y → H.Lost B u := by
+  revert nested
+  induction chain with
+  | nil =>
+      intro _nested
+      constructor
+      · intro hMem
+        change B ∈ [] at hMem
+        nomatch hMem
+      · intro hRhs
+        nomatch hRhs.1
+  | cons head tail ih =>
+      intro nested
+      let ⟨headNested, tailNested⟩ := List.pairwise_cons.mp nested
+      if hHead : passes head = true then
+        rw [List.takeWhile_cons_of_pos hHead]
+        constructor
+        · intro hMem
+          cases List.mem_cons.mp hMem with
+          | inl hEq =>
+              refine ⟨List.mem_cons.mpr (Or.inl hEq), ?_⟩
+              rw [hEq]
+              exact (correct head).mp hHead
+          | inr hInTailTake =>
+              let ⟨hInTail, hLostB⟩ := (ih tailNested).mp hInTailTake
+              exact ⟨List.mem_cons.mpr (Or.inr hInTail), hLostB⟩
+        · intro hRhs
+          let ⟨hInCons, hLostB⟩ := hRhs
+          cases List.mem_cons.mp hInCons with
+          | inl hEq =>
+              exact List.mem_cons.mpr (Or.inl hEq)
+          | inr hInTail =>
+              exact List.mem_cons.mpr (Or.inr ((ih tailNested).mpr ⟨hInTail, hLostB⟩))
+      else
+        rw [List.takeWhile_cons_of_neg hHead]
+        constructor
+        · intro hMem
+          nomatch hMem
+        · intro hRhs
+          let ⟨hInCons, hLostB⟩ := hRhs
+          have hHeadNotLost : ¬ (∀ u, H.HasQuotientArc u y → H.Lost head u) :=
+            fun hAll => hHead ((correct head).mpr hAll)
+          cases List.mem_cons.mp hInCons with
+          | inl hEq =>
+              have hHeadLost : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → H.Lost head u := by
+                rw [← hEq]
+                exact hLostB
+              exact False.elim (hHeadNotLost hHeadLost)
+          | inr hInTail =>
+              have hIncluded : ∀ p : Fin H.vertexCount, B.Mem p → H.Lost head p :=
+                headNested B hInTail
+              have hHeadLost : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → H.Lost head u :=
+                fun u hArc => lost_of_nested_endpoints hIncluded (hLostB u hArc)
+              exact False.elim (hHeadNotLost hHeadLost)
+
 end LabelledQuotient
 
 end PaperB
