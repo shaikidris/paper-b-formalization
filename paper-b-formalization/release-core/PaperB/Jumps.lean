@@ -477,4 +477,408 @@ theorem skewIncreasing_skewPush {ks : List Nat}
           have hLt1 : 1 < k₁ := by omega
           exact Or.inl ⟨hLt1, hStrictKs⟩
 
+/-- Per-node structural and skew-binary invariant relative to ghost exponent map `exps`. -/
+structure NodeSpec (F : JumpForest) (exps : Nat → List Nat) (u : Nat) : Prop where
+  parent_lt_size : F.parentOf u < F.size
+  jump_lt_size : F.jumpOf u < F.size
+  root_spec : u = 0 → F.recordAt 0 = rootRecord ∧ exps 0 = []
+  pos_parent_lt : 0 < u → F.parentOf u < u
+  pos_jump_le_parent : 0 < u → F.jumpOf u ≤ F.parentOf u
+  pos_jump_cases : 0 < u →
+    F.jumpOf u = F.parentOf u ∨ F.jumpOf u = F.jumpOf (F.jumpOf (F.parentOf u))
+  pos_depth : 0 < u → F.depthOf u = F.depthOf (F.parentOf u) + 1
+  pos_exps_eq : 0 < u → exps u = skewPush (exps (F.parentOf u))
+  depth_eq_blockSum : F.depthOf u = blockSum (exps u)
+  exps_pos : AllList (fun k => 1 ≤ k) (exps u)
+  exps_skew : SkewIncreasing (exps u)
+  jump_exps : ∀ k rest, exps u = k :: rest → exps (F.jumpOf u) = rest
+  jump_eq_parent_of_one : ∀ rest, exps u = 1 :: rest → F.jumpOf u = F.parentOf u
+
+/-- Global skew-binary forest invariant across all `u < F.size`. -/
+structure ForestInvariant (F : JumpForest) (exps : Nat → List Nat) : Prop where
+  size_pos : 0 < F.size
+  nodes : ∀ u : Nat, u < F.size → NodeSpec F exps u
+
+namespace ForestInvariant
+
+theorem root_record {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) :
+    F.recordAt 0 = rootRecord :=
+  ((inv.nodes 0 inv.size_pos).root_spec rfl).1
+
+theorem root_parent {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) : F.parentOf 0 = 0 := by
+  unfold JumpForest.parentOf
+  rw [inv.root_record]
+  rfl
+
+theorem root_depth {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) : F.depthOf 0 = 0 := by
+  unfold JumpForest.depthOf
+  rw [inv.root_record]
+  rfl
+
+theorem root_jump {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) : F.jumpOf 0 = 0 := by
+  unfold JumpForest.jumpOf
+  rw [inv.root_record]
+  rfl
+
+theorem jump_le_self {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) {u : Nat} (hu : u < F.size) :
+    F.jumpOf u ≤ u := by
+  if hPos : 0 < u then
+    have spec := inv.nodes u hu
+    have h1 := spec.pos_jump_le_parent hPos
+    have h2 := spec.pos_parent_lt hPos
+    omega
+  else
+    have hu0 : u = 0 := by omega
+    rw [hu0, inv.root_jump]
+    exact Nat.le_refl 0
+
+theorem jump_lt_self {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) {u : Nat} (hPos : 0 < u) (hu : u < F.size) :
+    F.jumpOf u < u := by
+  have spec := inv.nodes u hu
+  have h1 := spec.pos_jump_le_parent hPos
+  have h2 := spec.pos_parent_lt hPos
+  omega
+
+theorem depth_eq_zero_iff {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) {u : Nat} (hu : u < F.size) :
+    F.depthOf u = 0 ↔ u = 0 := by
+  constructor
+  · intro hD
+    if hPos : 0 < u then
+      have hStep := (inv.nodes u hu).pos_depth hPos
+      omega
+    else
+      omega
+  · intro hEq
+    rw [hEq]
+    exact inv.root_depth
+
+theorem depth_jump_lt {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) {u : Nat} (hPos : 0 < u) (hu : u < F.size) :
+    F.depthOf (F.jumpOf u) < F.depthOf u := by
+  have specU := inv.nodes u hu
+  let ⟨k, rest, hPush⟩ := skewPush_ne_nil (exps (F.parentOf u))
+  have hExpsU : exps u = k :: rest := Eq.trans (specU.pos_exps_eq hPos) hPush
+  have hkPos : 1 ≤ k := by
+    have hAll := specU.exps_pos
+    rw [hExpsU] at hAll
+    exact hAll.1
+  have hBPos : 0 < blockSize k := blockSize_pos hkPos
+  have hExpsJ : exps (F.jumpOf u) = rest := specU.jump_exps k rest hExpsU
+  have specJ := inv.nodes (F.jumpOf u) specU.jump_lt_size
+  have hDU : F.depthOf u = blockSize k + blockSum rest := by
+    rw [specU.depth_eq_blockSum, hExpsU]
+    rfl
+  have hDJ : F.depthOf (F.jumpOf u) = blockSum rest := by
+    rw [specJ.depth_eq_blockSum, hExpsJ]
+  omega
+
+theorem depthOf_le_self {F : JumpForest} {exps : Nat → List Nat}
+    (inv : ForestInvariant F exps) {u : Nat} (hu : u < F.size) :
+    F.depthOf u ≤ u := by
+  refine nat_strong_ind (P := fun w => w < F.size → F.depthOf w ≤ w) ?_ u hu
+  intro w ih hw
+  if hPos : 0 < w then
+    have specW := inv.nodes w hw
+    have hpLt : F.parentOf w < w := specW.pos_parent_lt hPos
+    have hpSz : F.parentOf w < F.size := specW.parent_lt_size
+    have hIH : F.depthOf (F.parentOf w) ≤ F.parentOf w := ih (F.parentOf w) hpLt hpSz
+    have hStep := specW.pos_depth hPos
+    omega
+  else
+    have hw0 : w = 0 := by omega
+    rw [hw0, inv.root_depth]
+    exact Nat.le_refl 0
+
+end ForestInvariant
+
+theorem ValidJumpForest.exists_forestInvariant {F : JumpForest}
+    (hF : ValidJumpForest F) :
+    ∃ exps : Nat → List Nat, ForestInvariant F exps := by
+  induction hF with
+  | init =>
+      refine ⟨fun _ => [], ⟨by decide, ?_⟩⟩
+      intro u hu
+      have hSz : JumpForest.init.size = 1 := rfl
+      have hu0 : u = 0 := by omega
+      subst hu0
+      refine
+        { parent_lt_size := by decide
+          jump_lt_size := by decide
+          root_spec := fun _ => ⟨rfl, rfl⟩
+          pos_parent_lt := fun hPos => by omega
+          pos_jump_le_parent := fun hPos => by omega
+          pos_jump_cases := fun hPos => by omega
+          pos_depth := fun hPos => by omega
+          pos_exps_eq := fun hPos => by omega
+          depth_eq_blockSum := rfl
+          exps_pos := trivial
+          exps_skew := Or.inl trivial
+          jump_exps := fun _ _ hEq => by cases hEq
+          jump_eq_parent_of_one := fun _ hEq => by cases hEq }
+  | @appendLeaf F p _ hp ih =>
+      let ⟨exps, inv⟩ := ih
+      let exps' : Nat → List Nat :=
+        fun u => if u = F.size then skewPush (exps p) else exps u
+      have hF'Size : (F.appendLeaf p).size = F.size + 1 := F.size_appendLeaf p
+      have hExpsOld : ∀ w : Nat, w < F.size → exps' w = exps w := by
+        intro w hw
+        have hNe : w ≠ F.size := by omega
+        exact ite_eq_right hNe
+      have hExpsNew : exps' F.size = skewPush (exps p) :=
+        ite_eq_left rfl
+      refine ⟨exps', ⟨by omega, ?_⟩⟩
+      intro u hu'
+      if huOld : u < F.size then
+        have specU := inv.nodes u huOld
+        have hpOld : F.parentOf u < F.size := specU.parent_lt_size
+        have hjOld : F.jumpOf u < F.size := specU.jump_lt_size
+        have haOld : F.jumpOf (F.parentOf u) < F.size := (inv.nodes _ hpOld).jump_lt_size
+        have hParEq : (F.appendLeaf p).parentOf u = F.parentOf u :=
+          parentOf_appendLeaf_old F p huOld
+        have hDepEq : (F.appendLeaf p).depthOf u = F.depthOf u :=
+          depthOf_appendLeaf_old F p huOld
+        have hJmpEq : (F.appendLeaf p).jumpOf u = F.jumpOf u :=
+          jumpOf_appendLeaf_old F p huOld
+        have hDepParEq :
+            (F.appendLeaf p).depthOf ((F.appendLeaf p).parentOf u) =
+              F.depthOf (F.parentOf u) := by
+          rw [hParEq]
+          exact depthOf_appendLeaf_old F p hpOld
+        have hJmpParEq :
+            (F.appendLeaf p).jumpOf ((F.appendLeaf p).parentOf u) =
+              F.jumpOf (F.parentOf u) := by
+          rw [hParEq]
+          exact jumpOf_appendLeaf_old F p hpOld
+        have hJmp2Eq :
+            (F.appendLeaf p).jumpOf (F.jumpOf (F.parentOf u)) =
+              F.jumpOf (F.jumpOf (F.parentOf u)) :=
+          jumpOf_appendLeaf_old F p haOld
+        refine
+          { parent_lt_size := by rw [hParEq]; omega
+            jump_lt_size := by rw [hJmpEq]; omega
+            root_spec := fun hu0 => by
+              subst hu0
+              rw [recordAt_appendLeaf_old F p inv.size_pos, hExpsOld 0 inv.size_pos]
+              exact specU.root_spec rfl
+            pos_parent_lt := fun hPos => by rw [hParEq]; exact specU.pos_parent_lt hPos
+            pos_jump_le_parent := fun hPos => by
+              rw [hJmpEq, hParEq]
+              exact specU.pos_jump_le_parent hPos
+            pos_jump_cases := fun hPos => by
+              rw [hJmpEq, hParEq, jumpOf_appendLeaf_old F p hpOld, hJmp2Eq]
+              exact specU.pos_jump_cases hPos
+            pos_depth := fun hPos => by
+              rw [hDepEq, hDepParEq]
+              exact specU.pos_depth hPos
+            pos_exps_eq := fun hPos => by
+              rw [hExpsOld u huOld, hParEq, hExpsOld (F.parentOf u) hpOld]
+              exact specU.pos_exps_eq hPos
+            depth_eq_blockSum := by
+              rw [hDepEq, hExpsOld u huOld]
+              exact specU.depth_eq_blockSum
+            exps_pos := by rw [hExpsOld u huOld]; exact specU.exps_pos
+            exps_skew := by rw [hExpsOld u huOld]; exact specU.exps_skew
+            jump_exps := fun k rest hEq => by
+              rw [hJmpEq, hExpsOld (F.jumpOf u) hjOld]
+              rw [hExpsOld u huOld] at hEq
+              exact specU.jump_exps k rest hEq
+            jump_eq_parent_of_one := fun rest hEq => by
+              rw [hJmpEq, hParEq]
+              rw [hExpsOld u huOld] at hEq
+              exact specU.jump_eq_parent_of_one rest hEq }
+      else
+        have huEq : u = F.size := by omega
+        subst huEq
+        have specP := inv.nodes p hp
+        let a := F.jumpOf p
+        have ha : a < F.size := specP.jump_lt_size
+        have haLeP : a ≤ p := inv.jump_le_self hp
+        have specA := inv.nodes a ha
+        let b := F.jumpOf a
+        have hb : b < F.size := specA.jump_lt_size
+        have hbLeA : b ≤ a := inv.jump_le_self ha
+        have specB := inv.nodes b hb
+        have hRecNew : (F.appendLeaf p).recordAt F.size = F.mkAppendedRecord p :=
+          recordAt_appendLeaf_new F p
+        have hParNew : (F.appendLeaf p).parentOf F.size = p := by
+          unfold JumpForest.parentOf
+          rw [hRecNew]
+          rfl
+        have hDepNew : (F.appendLeaf p).depthOf F.size = F.depthOf p + 1 := by
+          unfold JumpForest.depthOf
+          rw [hRecNew]
+          rfl
+        let len1 := F.depthOf p - F.depthOf a
+        let len2 := F.depthOf a - F.depthOf b
+        have hJmpNew : (F.appendLeaf p).jumpOf F.size =
+            if 0 < len1 ∧ len1 = len2 then b else p := by
+          unfold JumpForest.jumpOf
+          rw [hRecNew]
+          rfl
+        have hJmpA_F' : (F.appendLeaf p).jumpOf p = a := jumpOf_appendLeaf_old F p hp
+        have hJmpB_F' : (F.appendLeaf p).jumpOf a = b := jumpOf_appendLeaf_old F p ha
+        have hStepInvs :
+            (∀ k rest, exps' F.size = k :: rest →
+                exps' ((F.appendLeaf p).jumpOf F.size) = rest) ∧
+              (∀ rest, exps' F.size = 1 :: rest →
+                (F.appendLeaf p).jumpOf F.size = (F.appendLeaf p).parentOf F.size) := by
+          rw [hExpsNew, hParNew]
+          cases hExpsP : exps p with
+          | nil =>
+              have hDP0 : F.depthOf p = 0 := by
+                rw [specP.depth_eq_blockSum, hExpsP]
+                rfl
+              have hNotCond : ¬ (0 < len1 ∧ len1 = len2) := by
+                change ¬ (0 < F.depthOf p - F.depthOf a ∧ _)
+                omega
+              have hJ : (F.appendLeaf p).jumpOf F.size = p := by
+                rw [hJmpNew, ite_eq_right hNotCond]
+              rw [hJ, hExpsOld p hp, hExpsP]
+              dsimp only [skewPush]
+              refine ⟨?_, fun _ _ => rfl⟩
+              intro _ _ hEq
+              exact (List.cons.inj hEq).2
+          | cons k₁ tail1 =>
+              cases tail1 with
+              | nil =>
+                  have hExpsA : exps a = [] := specP.jump_exps k₁ [] hExpsP
+                  have hDA0 : F.depthOf a = 0 := by
+                    rw [specA.depth_eq_blockSum, hExpsA]
+                    rfl
+                  have ha0 : a = 0 := (inv.depth_eq_zero_iff ha).mp hDA0
+                  have hb0 : b = 0 := by
+                    change F.jumpOf a = 0
+                    rw [ha0]
+                    exact inv.root_jump
+                  have hDB0 : F.depthOf b = 0 := by
+                    rw [hb0]
+                    exact inv.root_depth
+                  have hk₁Pos : 1 ≤ k₁ := by
+                    have hAll := specP.exps_pos
+                    rw [hExpsP] at hAll
+                    exact hAll.1
+                  have hDPPos : 0 < F.depthOf p := by
+                    rw [specP.depth_eq_blockSum, hExpsP]
+                    have hBP := blockSize_pos hk₁Pos
+                    dsimp only [blockSum]
+                    omega
+                  have hNotCond : ¬ (0 < len1 ∧ len1 = len2) := by
+                    change ¬ (0 < F.depthOf p - F.depthOf a ∧
+                      F.depthOf p - F.depthOf a = F.depthOf a - F.depthOf b)
+                    omega
+                  have hJ : (F.appendLeaf p).jumpOf F.size = p := by
+                    rw [hJmpNew, ite_eq_right hNotCond]
+                  rw [hJ, hExpsOld p hp, hExpsP]
+                  dsimp only [skewPush]
+                  refine ⟨?_, fun _ _ => rfl⟩
+                  intro _ _ hEq
+                  exact (List.cons.inj hEq).2
+              | cons k₂ tl =>
+                  have hAllP := specP.exps_pos
+                  rw [hExpsP] at hAllP
+                  have hk₁Pos : 1 ≤ k₁ := hAllP.1
+                  have hk₂Pos : 1 ≤ k₂ := hAllP.2.1
+                  have hExpsA : exps a = k₂ :: tl := specP.jump_exps k₁ (k₂ :: tl) hExpsP
+                  have hExpsB : exps b = tl := specA.jump_exps k₂ tl hExpsA
+                  have hDP : F.depthOf p = blockSize k₁ + (blockSize k₂ + blockSum tl) := by
+                    rw [specP.depth_eq_blockSum, hExpsP]
+                    rfl
+                  have hDA : F.depthOf a = blockSize k₂ + blockSum tl := by
+                    rw [specA.depth_eq_blockSum, hExpsA]
+                    rfl
+                  have hDB : F.depthOf b = blockSum tl := by
+                    rw [specB.depth_eq_blockSum, hExpsB]
+                  have hLen1 : len1 = blockSize k₁ := by
+                    change F.depthOf p - F.depthOf a = blockSize k₁
+                    omega
+                  have hLen2 : len2 = blockSize k₂ := by
+                    change F.depthOf a - F.depthOf b = blockSize k₂
+                    omega
+                  if hEqK : k₁ = k₂ then
+                    have hCond : 0 < len1 ∧ len1 = len2 := by
+                      rw [hLen1, hLen2, hEqK]
+                      exact ⟨blockSize_pos hk₂Pos, rfl⟩
+                    have hJ : (F.appendLeaf p).jumpOf F.size = b := by
+                      rw [hJmpNew, ite_eq_left hCond]
+                    have hPushEq : skewPush (k₁ :: k₂ :: tl) = (k₁ + 1) :: tl := by
+                      dsimp only [skewPush]
+                      exact ite_eq_left hEqK
+                    rw [hJ, hExpsOld b hb, hExpsB, hPushEq]
+                    refine ⟨?_, ?_⟩
+                    · intro _ _ hEq
+                      exact (List.cons.inj hEq).2
+                    · intro _ hEq
+                      have hk1Eq : k₁ + 1 = 1 := (List.cons.inj hEq).1
+                      omega
+                  else
+                    have hSkewP := specP.exps_skew
+                    rw [hExpsP] at hSkewP
+                    have hLtK : k₁ < k₂ := by
+                      cases hSkewP with
+                      | inl hS => exact hS.1
+                      | inr hTie =>
+                          let ⟨k, _, hListEq, _⟩ := hTie
+                          have hk₁Eq : k₁ = k := (List.cons.inj hListEq).1
+                          have hTail1 := (List.cons.inj hListEq).2
+                          have hk₂Eq : k₂ = k := (List.cons.inj hTail1).1
+                          omega
+                    have hBLt : blockSize k₁ < blockSize k₂ := blockSize_strictMono hLtK
+                    have hNotCond : ¬ (0 < len1 ∧ len1 = len2) := by
+                      rw [hLen1, hLen2]
+                      omega
+                    have hJ : (F.appendLeaf p).jumpOf F.size = p := by
+                      rw [hJmpNew, ite_eq_right hNotCond]
+                    have hPushEq : skewPush (k₁ :: k₂ :: tl) = 1 :: k₁ :: k₂ :: tl := by
+                      dsimp only [skewPush]
+                      exact ite_eq_right hEqK
+                    rw [hJ, hExpsOld p hp, hExpsP, hPushEq]
+                    refine ⟨?_, fun _ _ => rfl⟩
+                    intro _ _ hEq
+                    exact (List.cons.inj hEq).2
+        refine
+          { parent_lt_size := by rw [hParNew]; omega
+            jump_lt_size := by
+              rw [hJmpNew]
+              if hC : 0 < len1 ∧ len1 = len2 then
+                rw [ite_eq_left hC]; omega
+              else
+                rw [ite_eq_right hC]; omega
+            root_spec := fun _ => by
+              have hPosSz := inv.size_pos
+              omega
+            pos_parent_lt := fun _ => by rw [hParNew]; exact hp
+            pos_jump_le_parent := fun _ => by
+              rw [hJmpNew, hParNew]
+              if hC : 0 < len1 ∧ len1 = len2 then
+                rw [ite_eq_left hC]; omega
+              else
+                rw [ite_eq_right hC]; omega
+            pos_jump_cases := fun _ => by
+              rw [hJmpNew, hParNew, hJmpA_F', hJmpB_F']
+              if hC : 0 < len1 ∧ len1 = len2 then
+                rw [ite_eq_left hC]; exact Or.inr rfl
+              else
+                rw [ite_eq_right hC]; exact Or.inl rfl
+            pos_depth := fun _ => by
+              rw [hDepNew, hParNew, depthOf_appendLeaf_old F p hp]
+            pos_exps_eq := fun _ => by
+              rw [hExpsNew, hParNew, hExpsOld p hp]
+            depth_eq_blockSum := by
+              rw [hDepNew, hExpsNew, blockSum_skewPush, specP.depth_eq_blockSum]
+            exps_pos := by
+              rw [hExpsNew]
+              exact allList_pos_skewPush specP.exps_pos
+            exps_skew := by
+              rw [hExpsNew]
+              exact skewIncreasing_skewPush specP.exps_pos specP.exps_skew
+            jump_exps := hStepInvs.1
+            jump_eq_parent_of_one := hStepInvs.2 }
+
 end PaperB

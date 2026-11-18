@@ -1,0 +1,20 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 18,
+  "post_sha256": "a3f5f5d549541a33a063b7aee699f2856b9ded7def6a1148ad73cd6ce3b0b3bd",
+  "theorem": "PaperB.ValidJumpForest.exists_forestInvariant",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "8953a01f2b316f1323d546f096c36862a6e250bf809331210e3a202a6ec5a7c1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "check_output": "PaperB.ValidJumpForest.exists_forestInvariant {F : PaperB.JumpForest} (hF : PaperB.ValidJumpForest F) :\n  ∃ exps, PaperB.ForestInvariant F exps\n'PaperB.ValidJumpForest.exists_forestInvariant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "repairs": [
+    "Use core conditional rewrite lemmas without explicit branch arguments.",
+    "Append the repaired invariant to the verified foundation."
+  ],
+  "scope": "Inductive semantic forest invariant for skew-binary growing-tree insertion. Traversal correctness, logarithmic move count and physical storage cost remain open."
+}

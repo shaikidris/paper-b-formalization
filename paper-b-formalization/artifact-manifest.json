@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2814,
-      "sha256": "59b2cef93be05394f2274044a4759f0e2c67c7e481def8fcf43ee0d2e29720df"
+      "bytes": 2741,
+      "sha256": "706dafbbac9bb7325678e498f8ff67a11380085eccde8bd316155143b5eaa69b"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 23329,
-      "sha256": "d472f846b456f8d98a866e955cfe33111738f8b98e3091c55f5e7ab5eab1848e"
+      "bytes": 23376,
+      "sha256": "bed1fc4c5d0e430bdf901546145614b0aeba514b22ecadf4d819888aeba3e35a"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 8565,
-      "sha256": "6924853c87e66a3450b3f83c65b57378ae008cbcf4c5974b49a3e247285b22d1"
+      "bytes": 8966,
+      "sha256": "7f2151c1625c2d52c59ecfc81492715d60616faefad26f9c0c552d2b13f79f64"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -222,6 +222,11 @@
       "sha256": "4fd7d9ec79ba875dd297dfdcba2d9422147aabccc51be8974cd0605e5854dfde"
     },
     {
+      "path": "evidence/ex22-unattended/native-swarm-jump-invariant.json",
+      "bytes": 1082,
+      "sha256": "5276624f38b1f5bd21e29738e092f95101edc1a62f99e590dddc17e066128b77"
+    },
+    {
       "path": "evidence/ex22-unattended/native-swarm-sweep-step.json",
       "bytes": 3220,
       "sha256": "2991c5221df4c81d8113a4765a700552a2689df76a5fddf0ddf975ac172777ab"
@@ -298,8 +303,8 @@
     },
     {
       "path": "release-core/PaperB/Jumps.lean",
-      "bytes": 16100,
-      "sha256": "7f811821dea2b07273b407202ccaeb32786d97d4dcf9e5135565160db7ee6714"
+      "bytes": 33878,
+      "sha256": "8953a01f2b316f1323d546f096c36862a6e250bf809331210e3a202a6ec5a7c1"
     },
     {
       "path": "release-core/PaperB/Spec.lean",
@@ -418,8 +423,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 35695,
-      "sha256": "93fb682dce501184115a3438d0b96c27341b5eb8608367aeb6ca6651fa8f29fd"
+      "bytes": 35755,
+      "sha256": "cfcee3125d98bb0100d96c95415dad0ba5e1ffb6b63beec8baad552aacbfaca8"
     },
     {
       "path": "test_plan.py",

@@ -217,9 +217,9 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified the record-prefix persistence theorem and the skew-push block-sum and ordering invariants from the Carbon checkpoint. The complete growing-tree validity and traversal code requires further Lean repairs. Logarithmic traversal and the physical word-operation bounds remain open.
+Lean verified the record-prefix persistence lemmas and the full per-node skew-binary invariant for valid leaf insertions. Level-search correctness, logarithmic traversal and physical word-operation bounds remain open.
 
-Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json).
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json).
 
 <a id="ex24"></a>
 
