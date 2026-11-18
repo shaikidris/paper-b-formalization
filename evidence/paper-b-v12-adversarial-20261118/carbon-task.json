@@ -1,0 +1,17 @@
+{
+  "task_id": "82a1c800-e255-4ae8-99dc-b7867fc88a7c",
+  "run_id": "547cbd23-691a-4638-b095-d9e8a186d223",
+  "requested_model": "gemini-4-carbon-high",
+  "requested_effort": "high",
+  "blind_timeout_seconds": 1800,
+  "follow_up_budget_seconds": 900,
+  "prompt_path": ".collaboration/tasks/82a1c800-e255-4ae8-99dc-b7867fc88a7c/prompt.md",
+  "prompt_sha256": "ba11553e871756a5116d9558e30cb140403d497addb3f2c08604adbf10863271",
+  "output_dir": ".collaboration/tasks/82a1c800-e255-4ae8-99dc-b7867fc88a7c/547cbd23-691a-4638-b095-d9e8a186d223",
+  "manuscript_sha256": "f62cda3d37658f5158bda908c03518fae5f04f59fa1a68b14cb4f312878d4d0c",
+  "submitted_at_utc": "2026-11-18T08:14:13.618237+00:00",
+  "payload": "Complete frozen 5,232-word manuscript and page-specific source paraphrases. The 2006 PDF was excluded.",
+  "input_acknowledged": true,
+  "runtime_model_at_initialization": "gemini-4-carbon-high",
+  "previous_brief": "A separately authorized 469-word preliminary brief reached an API idle timeout and returned zero words. Its initial and final conversation IDs matched; the complete manuscript was sent as a new turn in that same conversation."
+}
