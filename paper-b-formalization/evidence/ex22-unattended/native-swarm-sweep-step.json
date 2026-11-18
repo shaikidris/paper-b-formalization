@@ -1,0 +1,20 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "posts": [
+    5,
+    6,
+    7
+  ],
+  "coordinator": "Gemini 4 Carbon Medium",
+  "theorem": "PaperB.LabelledQuotient.sweep_step_preserves_proper_loss_labels",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "statement": "theorem sweep_step_preserves_proper_loss_labels\n    {H : LabelledQuotient} {rank : Fin H.vertexCount → Nat}\n    (rankArc : ∀ u v, H.HasQuotientArc u v → rank u < rank v)\n    (flat : H.IsFlat) {m y : Fin H.vertexCount}\n    (notRoot : H.root ≠ y) (entering : H.HasQuotientArc m y)\n    (latest : ∀ u, H.HasQuotientArc u y → rank u ≤ rank m)\n    (chain : List (CutPair H))\n    (nested : chain.Pairwise\n      (fun ancestor child => ∀ p, child.Mem p → H.Lost ancestor p))\n    (priorSound : ∀ B, B ∈ chain → H.ProperLoss B m)\n    (priorComplete : ∀ B : CutPair H, B.fst < B.snd → H.ProperLoss B m → B ∈ chain)\n    (passes : CutPair H → Bool)\n    (correct : ∀ B, passes B = true ↔ ∀ u, H.HasQuotientArc u y → H.Lost B u)\n    (candidate : Option (CutPair H))\n    (candidateExact : ∀ B : CutPair H, candidate = some B ↔\n      B.fst < B.snd ∧ ∀ u, H.HasQuotientArc u y ↔ B.Mem u) :\n    let next := chain.takeWhile passes ++ candidate.toList\n    next.Pairwise (fun ancestor child => ∀ p, child.Mem p → H.Lost ancestor p) ∧\n      ∀ B : CutPair H, B.fst < B.snd → (B ∈ next ↔ H.ProperLoss B y)",
+  "checkpoint_sha256": "e6618eeec57d400713a53c09050118865386c617f460170d801f7bea3d017474",
+  "axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "check_output": "PaperB.LabelledQuotient.sweep_step_preserves_proper_loss_labels {H : PaperB.LabelledQuotient}\n  {rank : Fin H.vertexCount → Nat} (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v)\n  (flat : H.IsFlat) {m y : Fin H.vertexCount} (notRoot : H.root ≠ y) (entering : H.HasQuotientArc m y)\n  (latest : ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → rank u ≤ rank m) (chain : List H.CutPair)\n  (nested : List.Pairwise (fun ancestor child => ∀ (p : Fin H.vertexCount), child.Mem p → H.Lost ancestor p) chain)\n  (priorSound : ∀ (B : H.CutPair), B ∈ chain → H.ProperLoss B m)\n  (priorComplete : ∀ (B : H.CutPair), B.fst < B.snd → H.ProperLoss B m → B ∈ chain) (passes : H.CutPair → Bool)\n  (correct : ∀ (B : H.CutPair), passes B = true ↔ ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y → H.Lost B u)\n  (candidate : Option H.CutPair)\n  (candidateExact :\n    ∀ (B : H.CutPair), candidate = some B ↔ B.fst < B.snd ∧ ∀ (u : Fin H.vertexCount), H.HasQuotientArc u y ↔ B.Mem u) :\n  have next := List.takeWhile passes chain ++ candidate.toList;\n  List.Pairwise (fun ancestor child => ∀ (p : Fin H.vertexCount), child.Mem p → H.Lost ancestor p) next ∧\n    ∀ (B : H.CutPair), B.fst < B.snd → (B ∈ next ↔ H.ProperLoss B y)\n'PaperB.LabelledQuotient.sweep_step_preserves_proper_loss_labels' depends on axioms: [propext, Quot.sound]",
+  "scope": "Local sweep transition. Finite iteration and forest representation remain separate.",
+  "source_sha256": "2f9f593d08544f43817cfcf5af48bb51d4af67570ae22e874b09aef2432a0237"
+}

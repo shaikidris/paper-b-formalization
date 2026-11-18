@@ -434,9 +434,10 @@
         "evidence/carbon-sweep-latest-member/verification.json",
         "evidence/carbon-forest-prefix/verification.json",
         "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json",
-        "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json"
+        "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json",
+        "evidence/ex22-unattended/native-swarm-sweep-step.json"
       ],
-      "progress": "Stopped at sweep-induction-step after 2 of 3 declarations. Carbon ended without saving proof files. See .collaboration/unattended-ex22/f0686845-5aaf-419e-ac39-903e187dc284/relay/daab58ca-2a4b-4c9e-9b78-64b00da83f67/receipt.json",
+      "progress": "Lean checked the exact local sweep transition, including membership and nesting of the next label, with only propext and Quot.sound. The prefix and repeated-key parent lemmas also build. The same Carbon Medium swarm has been asked to construct the finite sweep and forest. That global construction and statement-level certification remain open.",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
@@ -466,6 +467,12 @@
             "prefix",
             "pair-key-reuse"
           ]
+        },
+        "native_swarm": {
+          "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+          "model": "gemini-4-carbon-medium",
+          "local_sweep": "BUILT",
+          "coordinator_post": 7
         }
       }
     },
@@ -488,14 +495,15 @@
         "3.2",
         "5.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
-      "obligation": "Reach a prescribed ancestor depth by one low-bit pointer and a parent pointer per node.",
+      "obligation": "Use the v1.3 skew-binary parent, depth and jump records to reach a prescribed ancestor depth.",
       "acceptance": [
-        "Bound the number of traversal steps by O(L²), including construction of each new jump and overshoots."
+        "Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md)."
       ],
-      "evidence": []
+      "evidence": [],
+      "progress": "The first two Carbon checkpoints built together in Lean 4.35.0-rc3. They define a list-backed record model and skew-block operations. The three lookup lemmas depend only on propext. Executable growing-tree updates, level-search correctness and operation bounds remain open."
     },
     {
       "id": "EX2.4",
@@ -521,10 +529,11 @@
       "risk": "resource bound",
       "obligation": "Implement raw-predecessor tests, depth search, candidate key lookup and final ancestry intervals.",
       "acceptance": [
-        "Prove per-quotient O((n_H+m_H)L³) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.",
-        "Deduplicate only for predecessor tests. Charge O(L) prefix tests per scanned distinct predecessor and O(L²) moves per ancestor probe. Include deterministic dictionary construction, query and final intervals."
+        "For v1.3, prove per-quotient O((n_H+m_H)L²) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.",
+        "Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md)."
       ],
-      "evidence": []
+      "evidence": [],
+      "progress": "The first Carbon checkpoint sketches the charging argument. The executable constructor and resource proof are pending."
     },
     {
       "id": "EX3.1",

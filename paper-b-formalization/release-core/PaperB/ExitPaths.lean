@@ -694,6 +694,69 @@ theorem sweep_parent_eq_for_reused_pair_key
         | true => exact rfl
   rw [hMEq, hPassesEq]
 
+theorem sweep_step_preserves_proper_loss_labels
+    {H : LabelledQuotient} {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) {m y : Fin H.vertexCount}
+    (notRoot : H.root ≠ y) (entering : H.HasQuotientArc m y)
+    (latest : ∀ u, H.HasQuotientArc u y → rank u ≤ rank m)
+    (chain : List (CutPair H))
+    (nested : chain.Pairwise
+      (fun ancestor child => ∀ p, child.Mem p → H.Lost ancestor p))
+    (priorSound : ∀ B, B ∈ chain → H.ProperLoss B m)
+    (priorComplete : ∀ B : CutPair H, B.fst < B.snd → H.ProperLoss B m → B ∈ chain)
+    (passes : CutPair H → Bool)
+    (correct : ∀ B, passes B = true ↔ ∀ u, H.HasQuotientArc u y → H.Lost B u)
+    (candidate : Option (CutPair H))
+    (candidateExact : ∀ B : CutPair H, candidate = some B ↔
+      B.fst < B.snd ∧ ∀ u, H.HasQuotientArc u y ↔ B.Mem u) :
+    let next := chain.takeWhile passes ++ candidate.toList
+    next.Pairwise (fun ancestor child => ∀ p, child.Mem p → H.Lost ancestor p) ∧
+      ∀ B : CutPair H, B.fst < B.snd → (B ∈ next ↔ H.ProperLoss B y) := by
+  refine ⟨?_, ?_⟩
+  · refine List.pairwise_append.mpr ⟨?_, ?_, ?_⟩
+    · exact nested.sublist (by apply List.takeWhile_sublist)
+    · cases candidate <;> simp
+    · intro ancestor hAncestor child hChild p hp
+      have hLost :=
+        ((takeWhile_predecessor_losses_iff chain nested passes correct ancestor).mp hAncestor).2
+      rw [Option.mem_toList] at hChild
+      have hArc : H.HasQuotientArc p y :=
+        (((candidateExact child).mp hChild).2 p).mpr hp
+      exact hLost p hArc
+  · intro B hOrder
+    change B ∈ chain.takeWhile passes ++ candidate.toList ↔ H.ProperLoss B y
+    rw [List.mem_append, Option.mem_toList]
+    constructor
+    · intro hMem
+      cases hMem with
+      | inl hPrefix =>
+          have ⟨hInChain, hAllLost⟩ :=
+            (takeWhile_predecessor_losses_iff chain nested passes correct B).mp hPrefix
+          have hProperM : H.ProperLoss B m := priorSound B hInChain
+          have hmNotMem : ¬ B.Mem m := hProperM.2
+          exact (properLoss_iff_of_latest_predecessor_not_mem
+            rankArc flat notRoot entering hmNotMem).mpr ⟨hProperM, hAllLost⟩
+      | inr hCand =>
+          have ⟨_, hEndpoints⟩ := (candidateExact B).mp hCand
+          have hmMem : B.Mem m := (hEndpoints m).mp entering
+          exact (properLoss_iff_predecessors_are_endpoints_of_latest_mem
+            rankArc flat notRoot entering latest hmMem).mpr hEndpoints
+    · intro hProperY
+      by_cases hm : B.Mem m
+      · have hEndpoints : ∀ u, H.HasQuotientArc u y ↔ B.Mem u :=
+          (properLoss_iff_predecessors_are_endpoints_of_latest_mem
+            rankArc flat notRoot entering latest hm).mp hProperY
+        have hSome : candidate = some B := (candidateExact B).mpr ⟨hOrder, hEndpoints⟩
+        exact Or.inr hSome
+      · have ⟨hProperM, hAllLost⟩ :=
+          (properLoss_iff_of_latest_predecessor_not_mem
+            rankArc flat notRoot entering hm).mp hProperY
+        have hInChain : B ∈ chain := priorComplete B hOrder hProperM
+        exact Or.inl
+          ((takeWhile_predecessor_losses_iff chain nested passes correct B).mpr
+            ⟨hInChain, hAllLost⟩)
+
 end LabelledQuotient
 
 end PaperB

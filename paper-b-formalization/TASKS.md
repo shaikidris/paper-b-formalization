@@ -197,9 +197,9 @@ Acceptance:
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 - Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
 
-The earlier unattended run built the prefix and pair-key reuse declarations. The native Carbon Medium swarm then started two workers for the membership and nesting parts of `sweep_step_preserves_proper_loss_labels`. Both posted start notices. The board had no proof checkpoint at the 19 November 2026 status check. The local sweep transition and its extension to a finite forest remain open. The [coordinator log](../.collaboration/native-ex2-swarm/fb0308f4-c25f-4595-a96f-cbc62f351993/interactive/cli-scoped-resume.log) records worker creation.
+Lean checked the exact local sweep transition, including membership and nesting of the next label, with only propext and Quot.sound. The prefix and repeated-key parent lemmas also build. The same Carbon Medium swarm has been asked to construct the finite sweep and forest. That global construction and statement-level certification remain open.
 
-Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json), [evidence/carbon-forest-prefix/verification.json](evidence/carbon-forest-prefix/verification.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json).
+Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json), [evidence/carbon-forest-prefix/verification.json](evidence/carbon-forest-prefix/verification.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json), [evidence/ex22-unattended/native-swarm-sweep-step.json](evidence/ex22-unattended/native-swarm-sweep-step.json).
 
 <a id="ex23"></a>
 
@@ -217,7 +217,7 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-The first two Carbon checkpoints built together in Lean 4.35.0-rc3. They define a list-backed record model and skew-block operations. The three lookup lemmas depend only on `propext`. The executable growing-tree updates, level-search proof and operation bounds remain open. [Saved checkpoints](../.collaboration/unattended-ex2-swarm/cd5395aa-d1b9-41df-a733-f3fc86afe4a5/jumps/delivery/43d7c1cf-6fc6-476d-ad05-57f55cbd7302/checkpoints)
+The first two Carbon checkpoints built together in Lean 4.35.0-rc3. They define a list-backed record model and skew-block operations. The three lookup lemmas depend only on propext. Executable growing-tree updates, level-search correctness and operation bounds remain open.
 
 <a id="ex24"></a>
 
@@ -236,7 +236,7 @@ Acceptance:
 - For v1.3, prove per-quotient O((n_H+m_H)L²) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.
 - Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-The [first Carbon checkpoint](../.collaboration/unattended-ex2-swarm/cd5395aa-d1b9-41df-a733-f3fc86afe4a5/forest-build/delivery/c25a7b62-ee57-470f-abef-0f374d3fa850/checkpoints/0001.md) sketches the charging argument. The executable constructor and resource proof are pending.
+The first Carbon checkpoint sketches the charging argument. The executable constructor and resource proof are pending.
 
 <a id="ex31"></a>
 
