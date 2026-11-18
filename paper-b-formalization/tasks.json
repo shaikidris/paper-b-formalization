@@ -505,8 +505,18 @@
       "acceptance": [
         "Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md)."
       ],
-      "evidence": [],
-      "progress": "The first two Carbon checkpoints built together in Lean 4.35.0-rc3. They define a list-backed record model and skew-block operations. The three lookup lemmas depend only on propext. Executable growing-tree updates, level-search correctness and operation bounds remain open."
+      "evidence": [
+        "evidence/ex22-unattended/native-swarm-jump-foundation.json"
+      ],
+      "progress": "Lean verified the record-prefix persistence theorem and the skew-push block-sum and ordering invariants from the Carbon checkpoint. The complete growing-tree validity and traversal code requires further Lean repairs. Logarithmic traversal and the physical word-operation bounds remain open.",
+      "dispatch": {
+        "native_swarm": {
+          "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+          "model": "gemini-4-carbon-medium",
+          "foundation": "BUILT",
+          "worker_post": 15
+        }
+      }
     },
     {
       "id": "EX2.4",
@@ -527,7 +537,7 @@
         "1.1",
         "3.2"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "resource bound",
       "obligation": "Implement raw-predecessor tests, depth search, candidate key lookup and final ancestry intervals.",
@@ -536,7 +546,14 @@
         "Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md)."
       ],
       "evidence": [],
-      "progress": "The first Carbon checkpoint sketches the charging argument. The executable constructor and resource proof are pending."
+      "progress": "The native Carbon Medium swarm started a dedicated constructor and accounting worker. The executable constructor and resource proof are pending.",
+      "dispatch": {
+        "native_swarm": {
+          "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+          "model": "gemini-4-carbon-medium",
+          "contract_post": 14
+        }
+      }
     },
     {
       "id": "EX3.1",

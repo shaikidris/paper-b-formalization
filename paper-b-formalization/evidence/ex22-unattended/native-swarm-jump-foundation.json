@@ -1,0 +1,20 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 15,
+  "candidate_sha256": "ad5c48e445e2c4c2994a4c481c7b69bdb4c93324098f728a846e94ef1c7a9e99",
+  "declarations": [
+    "PaperB.JumpForest.Extends.recordAt_eq",
+    "PaperB.blockSum_skewPush",
+    "PaperB.skewIncreasing_skewPush"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "7f811821dea2b07273b407202ccaeb32786d97d4dcf9e5135565160db7ee6714",
+  "check_output": "'PaperB.JumpForest.Extends.recordAt_eq' depends on axioms: [propext, Quot.sound]\n'PaperB.blockSum_skewPush' depends on axioms: [propext, Quot.sound]\n'PaperB.skewIncreasing_skewPush' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "repairs": [
+    "Indexed Extends induction constructor binders.",
+    "Skew-push and block-sum reduction.",
+    "Updated deprecated conditional lemmas."
+  ],
+  "scope": "Checked initial record and skew-block prefix only. List-backed semantics does not establish constant-time physical access, traversal correctness, or logarithmic bounds."
+}

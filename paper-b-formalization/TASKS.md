@@ -217,13 +217,15 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-The first two Carbon checkpoints built together in Lean 4.35.0-rc3. They define a list-backed record model and skew-block operations. The three lookup lemmas depend only on propext. Executable growing-tree updates, level-search correctness and operation bounds remain open.
+Lean verified the record-prefix persistence theorem and the skew-push block-sum and ordering invariants from the Carbon checkpoint. The complete growing-tree validity and traversal code requires further Lean repairs. Logarithmic traversal and the physical word-operation bounds remain open.
+
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json).
 
 <a id="ex24"></a>
 
 ## EX2.4 — Charge forest construction and membership
 
-- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX2; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX2.2, EX2.3.
 - Proposed owner module: `release-core/PaperB/ForestBuild.lean`.
@@ -236,7 +238,7 @@ Acceptance:
 - For v1.3, prove per-quotient O((n_H+m_H)L²) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.
 - Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-The first Carbon checkpoint sketches the charging argument. The executable constructor and resource proof are pending.
+The native Carbon Medium swarm started a dedicated constructor and accounting worker. The executable constructor and resource proof are pending.
 
 <a id="ex31"></a>
 

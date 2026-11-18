@@ -40,7 +40,7 @@ Work packages: 4; planning audits complete: 0; verified proof packages: 0.
 | [EX2.1](TASKS.md#ex21) — Identify the first proper loss | cuts | IN_PROGRESS | EX1.1 |
 | [EX2.2](TASKS.md#ex22) — Prove the topological forest invariant | cuts | IN_PROGRESS | EX2.1 |
 | [EX2.3](TASKS.md#ex23) — Implement depth jumps under leaf insertion | data structures | IN_PROGRESS | EX0.3 |
-| [EX2.4](TASKS.md#ex24) — Charge forest construction and membership | cuts | PLANNED | EX2.2, EX2.3 |
+| [EX2.4](TASKS.md#ex24) — Charge forest construction and membership | cuts | IN_PROGRESS | EX2.2, EX2.3 |
 
 ## EX3 — Prove the exit-set transfer identity
 
