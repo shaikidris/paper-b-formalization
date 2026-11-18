@@ -1,0 +1,23 @@
+{
+  "task": "EX2.1",
+  "declaration": "PaperB.LabelledQuotient.predecessors_iff_endpoints_of_first_properLoss",
+  "worker": "Gemini 4 Carbon Medium",
+  "paper_source_sha256": "8597535619facebfb2be1950573f370cb6aa0015c927c108fdd9cbbc529e1bf3",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "run": "64df1cf1-8729-424b-8cf4-3096463b4976",
+  "receipt": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/64df1cf1-8729-424b-8cf4-3096463b4976/receipt.json",
+  "receipt_sha256": "8615113c11d734750170a566da56e43e6f76ccc312359daa5fce07ac0ee09d20",
+  "checkpoint": ".collaboration/tasks/e51e83fa-618f-44e4-aa31-95b046b72a67/runs/64df1cf1-8729-424b-8cf4-3096463b4976/checkpoints/0001.md",
+  "checkpoint_sha256": "b0b3b343961bafa1a7e76c8df825a074cc3d727c7d09fc253c4c5ac79bb4e662",
+  "transport_status": "cancelled",
+  "report_state": "partial",
+  "elapsed_seconds": 344.761,
+  "codex_elaboration_repair": {
+    "before": "have hpNeOther : p ≠ other := AvoidPath.target_alive hPrefix",
+    "after": "have hpNeOther : p ≠ other := fun equal => AvoidPath.target_alive hPrefix equal"
+  },
+  "source_sha256": "eab74c9f88d4896874a1bcffa82e466630e1e4fb44585348f7205337a0645327",
+  "scoped_build_command": "lake build PaperB.ExitPaths",
+  "scoped_build_passed": true,
+  "axiom_free": true
+}

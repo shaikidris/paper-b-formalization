@@ -164,7 +164,7 @@ Acceptance:
 
 ## EX2.1 — Identify the first proper loss
 
-- Milestone: EX2; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX2; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.1.
 - Proposed owner module: `release-core/PaperB/Forest.lean`.
@@ -176,9 +176,9 @@ Acceptance:
 
 - Handle parallel arcs, direct root edges and the absence of any proper loss.
 
-Carbon's final-arc decomposition builds in PaperB.Spec. The first-proper-loss characterization is the next declaration.
+Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
 
-Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carbon-last-arc/review.md).
+Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carbon-last-arc/review.md), [evidence/carbon-first-proper-loss/review.md](evidence/carbon-first-proper-loss/review.md).
 
 <a id="ex22"></a>
 

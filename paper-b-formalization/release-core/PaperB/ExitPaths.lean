@@ -310,6 +310,75 @@ theorem exitTailMem_iff_of_nested_cuts
   intro p hFresh b hb
   exact properLoss_follows_endpoints rankArc flat ⟨childEndpointsLost p hFresh.1, hFresh.2⟩ hb
 
+/-- The first proper loss of a pair has precisely the two cut endpoints as its distinct predecessors. -/
+theorem predecessors_iff_endpoints_of_first_properLoss
+    {H : LabelledQuotient} {B : CutPair H} {rank : Fin H.vertexCount → Nat}
+    (rankArc : ∀ u v, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) {y : Fin H.vertexCount}
+    (proper : H.ProperLoss B y)
+    (first : ∀ v, H.ProperLoss B v → rank y ≤ rank v) :
+    ∀ u, H.HasQuotientArc u y ↔ B.Mem u := by
+  let ⟨hLostY, hyNotB⟩ := proper
+  have fwd : ∀ u : Fin H.vertexCount, H.HasQuotientArc u y → B.Mem u := by
+    intro u hArc
+    if huB : B.Mem u then
+      exact huB
+    else
+      have hLostU : H.Lost B u := fun hPathU =>
+        hLostY (AvoidPath.trans hPathU
+          (AvoidPath.step u y y huB hArc (AvoidPath.refl y hyNotB)))
+      have hLt : rank u < rank y := rankArc u y hArc
+      have hLe : rank y ≤ rank u := first u ⟨hLostU, huB⟩
+      exact False.elim (Nat.lt_irrefl (rank u) (Nat.lt_of_lt_of_le hLt hLe))
+  have hRootAlive : ¬ B.Mem H.root := by
+    intro hMem
+    cases hMem with
+    | inl hFst => exact B.fst_ne_root hFst.symm
+    | inr hSnd => exact B.snd_ne_root hSnd.symm
+  have hyNeRoot : H.root ≠ y := by
+    intro hEq
+    have hRootPath : H.SurvivingPath B.Mem H.root y := by
+      rw [← hEq]
+      exact AvoidPath.refl H.root hRootAlive
+    exact hLostY hRootPath
+  have endpointArc : ∀ (keep other : Fin H.vertexCount),
+      other ≠ H.root → y ≠ other →
+      (∀ p : Fin H.vertexCount, B.Mem p → p ≠ other → p = keep) →
+      H.HasQuotientArc keep y := by
+    intro keep other hOtherNeRoot hyNeOther hDisj
+    have hPath : H.SurvivingPath (fun z => z = other) H.root y :=
+      flat.2 other y hOtherNeRoot hyNeOther
+    cases AvoidPath.eq_or_exists_last_arc hPath with
+    | inl hRootEqY =>
+        exact False.elim (hyNeRoot hRootEqY)
+    | inr hPred =>
+        let ⟨p, hPrefix, hArcPY⟩ := hPred
+        have hpNeOther : p ≠ other := fun equal => AvoidPath.target_alive hPrefix equal
+        have hpEqKeep : p = keep := hDisj p (fwd p hArcPY) hpNeOther
+        rw [← hpEqKeep]
+        exact hArcPY
+  intro u
+  constructor
+  · exact fwd u
+  · intro huB
+    cases huB with
+    | inl huFst =>
+        rw [huFst]
+        exact endpointArc B.fst B.snd B.snd_ne_root
+          (fun hEq => hyNotB (Or.inr hEq))
+          (fun p hpB hpNeSnd =>
+            match hpB with
+            | Or.inl hpFst => hpFst
+            | Or.inr hpSnd => False.elim (hpNeSnd hpSnd))
+    | inr huSnd =>
+        rw [huSnd]
+        exact endpointArc B.snd B.fst B.fst_ne_root
+          (fun hEq => hyNotB (Or.inl hEq))
+          (fun p hpB hpNeFst =>
+            match hpB with
+            | Or.inl hpFst => False.elim (hpNeFst hpFst)
+            | Or.inr hpSnd => hpSnd)
+
 end LabelledQuotient
 
 end PaperB

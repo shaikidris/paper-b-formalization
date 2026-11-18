@@ -1,0 +1,6 @@
+PaperB.LabelledQuotient.predecessors_iff_endpoints_of_first_properLoss {H : PaperB.LabelledQuotient} {B : H.CutPair}
+  {rank : Fin H.vertexCount → Nat} (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v)
+  (flat : H.IsFlat) {y : Fin H.vertexCount} (proper : H.ProperLoss B y)
+  (first : ∀ (v : Fin H.vertexCount), H.ProperLoss B v → rank y ≤ rank v) (u : Fin H.vertexCount) :
+  H.HasQuotientArc u y ↔ B.Mem u
+'PaperB.LabelledQuotient.predecessors_iff_endpoints_of_first_properLoss' does not depend on any axioms

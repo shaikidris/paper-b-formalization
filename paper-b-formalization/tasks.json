@@ -58,7 +58,7 @@
       "id": "EX2",
       "title": "Build the forest of effective separating pairs",
       "exit_gate": "Construct one record per effective pair, prove membership by ancestry and bound the charged predecessor scans.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "EX3",
@@ -389,7 +389,7 @@
         "1.1",
         "3.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Show the first strict loss follows both endpoints and has exactly those distinct predecessors.",
@@ -397,9 +397,10 @@
         "Handle parallel arcs, direct root edges and the absence of any proper loss."
       ],
       "evidence": [
-        "evidence/carbon-last-arc/review.md"
+        "evidence/carbon-last-arc/review.md",
+        "evidence/carbon-first-proper-loss/review.md"
       ],
-      "progress": "Carbon's final-arc decomposition builds in PaperB.Spec. The first-proper-loss characterization is the next declaration."
+      "progress": "Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending."
     },
     {
       "id": "EX2.2",
