@@ -217,9 +217,9 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified the record-prefix persistence lemmas and the full per-node skew-binary invariant for valid leaf insertions. Level-search correctness, logarithmic traversal and physical word-operation bounds remain open.
+Lean verified the growing skew-binary tree invariant, depth-target traversal, unique ancestor at the requested depth, ancestry recognition and persistence under insertion. The logarithmic trace bound and word-operation implementation are open.
 
-Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json).
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json).
 
 <a id="ex24"></a>
 

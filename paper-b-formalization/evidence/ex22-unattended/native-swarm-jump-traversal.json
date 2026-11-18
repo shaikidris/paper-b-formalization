@@ -1,0 +1,17 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 19,
+  "post_sha256": "d7439e68ca3529cf72af93eb64cffe8e722ce2789373d844ceb8c5d2f0e606a4",
+  "declarations": [
+    "PaperB.ValidJumpForest.ancestorAtDepth_spec",
+    "PaperB.ValidJumpForest.ancestorAtDepth_unique",
+    "PaperB.ValidJumpForest.decideAncestor_eq_true_iff",
+    "PaperB.ancestorAtDepth_appendLeaf_old"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "9644feae62e2198a10899789d1a603b496afd6d4aceeb00d49ce25b45453e708",
+  "check_output": "'PaperB.ValidJumpForest.ancestorAtDepth_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'PaperB.ValidJumpForest.ancestorAtDepth_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'PaperB.ValidJumpForest.decideAncestor_eq_true_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'PaperB.ancestorAtDepth_appendLeaf_old' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "repair": "Use core conditional lemmas ite_eq_left/ite_eq_right.",
+  "scope": "Depth-target correctness, unique ancestor and persistence for the growing list-backed reference tree. Move-count and machine-cost proofs are separate."
+}

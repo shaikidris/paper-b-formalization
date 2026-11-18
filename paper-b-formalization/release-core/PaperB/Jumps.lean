@@ -881,4 +881,695 @@ theorem ValidJumpForest.exists_forestInvariant {F : JumpForest}
             jump_exps := hStepInvs.1
             jump_eq_parent_of_one := hStepInvs.2 }
 
+/-! ### Depth-Target Traversal, Ancestry, Persistence, and Unique Ancestor-at-Depth -/
+
+/-- Single move executed during depth-target traversal. -/
+inductive JumpMove where
+  | jump (src dst : Nat)
+  | parent (src dst : Nat)
+  deriving DecidableEq, Repr
+
+namespace JumpForest
+
+/-- One step from `u` toward `targetDepth`: jump if `targetDepth ≤ depthOf(jumpOf u)`, else parent. -/
+def stepToDepth (F : JumpForest) (u targetDepth : Nat) : Nat :=
+  let j := F.jumpOf u
+  if targetDepth ≤ F.depthOf j then j else F.parentOf u
+
+/-- Explicit move tag for one step from `u` toward `targetDepth`. -/
+def stepMoveToDepth (F : JumpForest) (u targetDepth : Nat) : JumpMove :=
+  let j := F.jumpOf u
+  if targetDepth ≤ F.depthOf j then
+    JumpMove.jump u j
+  else
+    JumpMove.parent u (F.parentOf u)
+
+def traceMovesAux (F : JumpForest) : Nat → Nat → Nat → List JumpMove
+  | 0, _, _ => []
+  | fuel + 1, u, targetDepth =>
+      if targetDepth < F.depthOf u then
+        F.stepMoveToDepth u targetDepth ::
+          F.traceMovesAux fuel (F.stepToDepth u targetDepth) targetDepth
+      else
+        []
+
+theorem traceMovesAux_zero (F : JumpForest) (u targetDepth : Nat) :
+    F.traceMovesAux 0 u targetDepth = [] := rfl
+
+theorem traceMovesAux_succ (F : JumpForest) (fuel u targetDepth : Nat) :
+    F.traceMovesAux (fuel + 1) u targetDepth =
+      if targetDepth < F.depthOf u then
+        F.stepMoveToDepth u targetDepth ::
+          F.traceMovesAux fuel (F.stepToDepth u targetDepth) targetDepth
+      else
+        [] := rfl
+
+/-- Exact sequence of `jump` / `parent` moves from `u` down to `targetDepth`. -/
+def traceMoves (F : JumpForest) (u targetDepth : Nat) : List JumpMove :=
+  F.traceMovesAux (F.depthOf u - targetDepth) u targetDepth
+
+def traceVerticesAux (F : JumpForest) : Nat → Nat → Nat → List Nat
+  | 0, u, _ => [u]
+  | fuel + 1, u, targetDepth =>
+      if targetDepth < F.depthOf u then
+        u :: F.traceVerticesAux fuel (F.stepToDepth u targetDepth) targetDepth
+      else
+        [u]
+
+theorem traceVerticesAux_zero (F : JumpForest) (u targetDepth : Nat) :
+    F.traceVerticesAux 0 u targetDepth = [u] := rfl
+
+theorem traceVerticesAux_succ (F : JumpForest) (fuel u targetDepth : Nat) :
+    F.traceVerticesAux (fuel + 1) u targetDepth =
+      if targetDepth < F.depthOf u then
+        u :: F.traceVerticesAux fuel (F.stepToDepth u targetDepth) targetDepth
+      else
+        [u] := rfl
+
+/-- Sequence of visited vertices along the depth-target traversal from `u`. -/
+def traceVertices (F : JumpForest) (u targetDepth : Nat) : List Nat :=
+  F.traceVerticesAux (F.depthOf u - targetDepth) u targetDepth
+
+def ancestorAtDepthAux (F : JumpForest) : Nat → Nat → Nat → Nat
+  | 0, u, _ => u
+  | fuel + 1, u, targetDepth =>
+      if targetDepth < F.depthOf u then
+        F.ancestorAtDepthAux fuel (F.stepToDepth u targetDepth) targetDepth
+      else
+        u
+
+theorem ancestorAtDepthAux_zero (F : JumpForest) (u targetDepth : Nat) :
+    F.ancestorAtDepthAux 0 u targetDepth = u := rfl
+
+theorem ancestorAtDepthAux_succ (F : JumpForest) (fuel u targetDepth : Nat) :
+    F.ancestorAtDepthAux (fuel + 1) u targetDepth =
+      if targetDepth < F.depthOf u then
+        F.ancestorAtDepthAux fuel (F.stepToDepth u targetDepth) targetDepth
+      else
+        u := rfl
+
+/-- Depth-target traversal returning the unique ancestor of `u` at `targetDepth`. -/
+def ancestorAtDepth (F : JumpForest) (u targetDepth : Nat) : Nat :=
+  F.ancestorAtDepthAux (F.depthOf u - targetDepth) u targetDepth
+
+/-- `O(L)` ancestry test in the growing forest. -/
+def decideAncestor (F : JumpForest) (a u : Nat) : Bool :=
+  if F.depthOf a ≤ F.depthOf u ∧ F.ancestorAtDepth u (F.depthOf a) = a then
+    true
+  else
+    false
+
+/-- Iterated `parentOf` steps from `u`. -/
+def iterParent (F : JumpForest) : Nat → Nat → Nat
+  | 0, u => u
+  | k + 1, u => F.iterParent k (F.parentOf u)
+
+def realAncestorChainAux (F : JumpForest) : Nat → Nat → List Nat
+  | 0, _ => []
+  | fuel + 1, u =>
+      if u = 0 then [] else u :: F.realAncestorChainAux fuel (F.parentOf u)
+
+theorem realAncestorChainAux_zero (F : JumpForest) (u : Nat) :
+    F.realAncestorChainAux 0 u = [] := rfl
+
+theorem realAncestorChainAux_succ (F : JumpForest) (fuel u : Nat) :
+    F.realAncestorChainAux (fuel + 1) u =
+      if u = 0 then [] else u :: F.realAncestorChainAux fuel (F.parentOf u) := rfl
+
+/-- Real (positive) ancestors of `u` from `u` upwards, excluding artificial root `0`. -/
+def realAncestorChain (F : JumpForest) (u : Nat) : List Nat :=
+  F.realAncestorChainAux (F.depthOf u) u
+
+end JumpForest
+
+/-- Inclusive tree ancestry in `F`: reachable by zero or more `parentOf` steps. -/
+def IsAncestor (F : JumpForest) (a u : Nat) : Prop :=
+  ∃ k : Nat, F.iterParent k u = a
+
+theorem IsAncestor.refl (F : JumpForest) (u : Nat) : IsAncestor F u u :=
+  ⟨0, rfl⟩
+
+theorem IsAncestor.parent (F : JumpForest) (u : Nat) : IsAncestor F (F.parentOf u) u :=
+  ⟨1, rfl⟩
+
+theorem iterParent_add (F : JumpForest) (k₁ k₂ u : Nat) :
+    F.iterParent (k₁ + k₂) u = F.iterParent k₂ (F.iterParent k₁ u) := by
+  induction k₁ generalizing u with
+  | zero =>
+      have h0 : 0 + k₂ = k₂ := by omega
+      rw [h0]
+      rfl
+  | succ k₁ ih =>
+      have hS : (k₁ + 1) + k₂ = (k₁ + k₂) + 1 := by omega
+      rw [hS]
+      exact ih (F.parentOf u)
+
+theorem IsAncestor.trans {F : JumpForest} {a b c : Nat}
+    (hab : IsAncestor F a b) (hbc : IsAncestor F b c) :
+    IsAncestor F a c := by
+  let ⟨k₂, hk₂⟩ := hab
+  let ⟨k₁, hk₁⟩ := hbc
+  refine ⟨k₁ + k₂, ?_⟩
+  rw [iterParent_add, hk₁, hk₂]
+
+theorem ValidJumpForest.parentOf_lt_size {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) : F.parentOf u < F.size := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  exact (inv.nodes u hu).parent_lt_size
+
+theorem ValidJumpForest.jumpOf_lt_size {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) : F.jumpOf u < F.size := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  exact (inv.nodes u hu).jump_lt_size
+
+theorem ValidJumpForest.stepToDepth_lt_size {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) (targetDepth : Nat) :
+    F.stepToDepth u targetDepth < F.size := by
+  unfold JumpForest.stepToDepth
+  dsimp only
+  if hJ : targetDepth ≤ F.depthOf (F.jumpOf u) then
+    rw [ite_eq_left hJ]
+    exact hF.jumpOf_lt_size hu
+  else
+    rw [ite_eq_right hJ]
+    exact hF.parentOf_lt_size hu
+
+theorem ValidJumpForest.iterParent_lt_size {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) (k : Nat) :
+    F.iterParent k u < F.size := by
+  induction k generalizing u with
+  | zero => exact hu
+  | succ _ ih => exact ih (hF.parentOf_lt_size hu)
+
+theorem ValidJumpForest.depth_iterParent {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) (k : Nat) :
+    F.depthOf (F.iterParent k u) = F.depthOf u - k := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  induction k generalizing u with
+  | zero =>
+      dsimp only [JumpForest.iterParent]
+      omega
+  | succ k ih =>
+      have hIH := ih (hF.parentOf_lt_size hu)
+      change F.depthOf (F.iterParent k (F.parentOf u)) = F.depthOf u - (k + 1)
+      rw [hIH]
+      if hPos : 0 < u then
+        have hStep := (inv.nodes u hu).pos_depth hPos
+        omega
+      else
+        have hu0 : u = 0 := by omega
+        rw [hu0, inv.root_parent, inv.root_depth]
+        omega
+
+theorem ValidJumpForest.iterParent_depthOf_eq_zero {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) :
+    F.iterParent (F.depthOf u) u = 0 := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  have hSz := hF.iterParent_lt_size hu (F.depthOf u)
+  have hD := hF.depth_iterParent hu (F.depthOf u)
+  exact (inv.depth_eq_zero_iff hSz).mp (by omega)
+
+theorem ValidJumpForest.zero_isAncestor {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) :
+    IsAncestor F 0 u :=
+  ⟨F.depthOf u, hF.iterParent_depthOf_eq_zero hu⟩
+
+theorem ValidJumpForest.jumpOf_isAncestor {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) :
+    IsAncestor F (F.jumpOf u) u := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  refine nat_strong_ind
+    (P := fun w => w < F.size → IsAncestor F (F.jumpOf w) w) ?_ u hu
+  intro w ih hw
+  if hPos : 0 < w then
+    have specW := inv.nodes w hw
+    cases specW.pos_jump_cases hPos with
+    | inl hPar =>
+        rw [hPar]
+        exact IsAncestor.parent F w
+    | inr hTwo =>
+        let p := F.parentOf w
+        have hpLt : p < w := specW.pos_parent_lt hPos
+        have hpSz : p < F.size := specW.parent_lt_size
+        let a := F.jumpOf p
+        have haLeP : a ≤ p := inv.jump_le_self hpSz
+        have haLt : a < w := Nat.lt_of_le_of_lt haLeP hpLt
+        have haSz : a < F.size := (inv.nodes p hpSz).jump_lt_size
+        have hBA : IsAncestor F (F.jumpOf a) a := ih a haLt haSz
+        have hAP : IsAncestor F a p := ih p hpLt hpSz
+        have hPW : IsAncestor F p w := IsAncestor.parent F w
+        rw [hTwo]
+        exact IsAncestor.trans hBA (IsAncestor.trans hAP hPW)
+  else
+    have hw0 : w = 0 := by omega
+    rw [hw0, inv.root_jump]
+    exact IsAncestor.refl F 0
+
+theorem ValidJumpForest.stepToDepth_isAncestor {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hu : u < F.size) (targetDepth : Nat) :
+    IsAncestor F (F.stepToDepth u targetDepth) u := by
+  unfold JumpForest.stepToDepth
+  dsimp only
+  if hJ : targetDepth ≤ F.depthOf (F.jumpOf u) then
+    rw [ite_eq_left hJ]
+    exact hF.jumpOf_isAncestor hu
+  else
+    rw [ite_eq_right hJ]
+    exact IsAncestor.parent F u
+
+theorem ValidJumpForest.stepToDepth_lt_self {F : JumpForest} (hF : ValidJumpForest F)
+    {u : Nat} (hPos : 0 < u) (hu : u < F.size) (targetDepth : Nat) :
+    F.stepToDepth u targetDepth < u := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  unfold JumpForest.stepToDepth
+  dsimp only
+  if hJ : targetDepth ≤ F.depthOf (F.jumpOf u) then
+    rw [ite_eq_left hJ]
+    exact inv.jump_lt_self hPos hu
+  else
+    rw [ite_eq_right hJ]
+    exact (inv.nodes u hu).pos_parent_lt hPos
+
+theorem ValidJumpForest.depth_stepToDepth_ge {F : JumpForest} (hF : ValidJumpForest F)
+    {u targetDepth : Nat} (hu : u < F.size) (hLt : targetDepth < F.depthOf u) :
+    targetDepth ≤ F.depthOf (F.stepToDepth u targetDepth) := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  have hPos : 0 < u := by
+    if hP : 0 < u then exact hP
+    else
+      have hu0 : u = 0 := by omega
+      rw [hu0, inv.root_depth] at hLt
+      omega
+  unfold JumpForest.stepToDepth
+  dsimp only
+  if hJ : targetDepth ≤ F.depthOf (F.jumpOf u) then
+    rw [ite_eq_left hJ]
+    exact hJ
+  else
+    rw [ite_eq_right hJ]
+    have hStep := (inv.nodes u hu).pos_depth hPos
+    omega
+
+theorem ValidJumpForest.depth_stepToDepth_lt {F : JumpForest} (hF : ValidJumpForest F)
+    {u targetDepth : Nat} (hu : u < F.size) (hLt : targetDepth < F.depthOf u) :
+    F.depthOf (F.stepToDepth u targetDepth) < F.depthOf u := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  have hPos : 0 < u := by
+    if hP : 0 < u then exact hP
+    else
+      have hu0 : u = 0 := by omega
+      rw [hu0, inv.root_depth] at hLt
+      omega
+  unfold JumpForest.stepToDepth
+  dsimp only
+  if hJ : targetDepth ≤ F.depthOf (F.jumpOf u) then
+    rw [ite_eq_left hJ]
+    exact inv.depth_jump_lt hPos hu
+  else
+    rw [ite_eq_right hJ]
+    have hStep := (inv.nodes u hu).pos_depth hPos
+    omega
+
+theorem ValidJumpForest.ancestorAtDepthAux_fuel_irrel {F : JumpForest} (hF : ValidJumpForest F) :
+    ∀ (fuel₁ fuel₂ u d : Nat), u < F.size →
+      F.depthOf u - d ≤ fuel₁ → F.depthOf u - d ≤ fuel₂ →
+      F.ancestorAtDepthAux fuel₁ u d = F.ancestorAtDepthAux fuel₂ u d := by
+  intro fuel₁
+  induction fuel₁ with
+  | zero =>
+      intro fuel₂ u d _ h1 _
+      have hNotLt : ¬ (d < F.depthOf u) := by omega
+      rw [JumpForest.ancestorAtDepthAux_zero]
+      cases fuel₂ with
+      | zero => rw [JumpForest.ancestorAtDepthAux_zero]
+      | succ f₂ => rw [JumpForest.ancestorAtDepthAux_succ, ite_eq_right hNotLt]
+  | succ f₁ ih =>
+      intro fuel₂ u d hu h1 h2
+      rw [JumpForest.ancestorAtDepthAux_succ]
+      if hLt : d < F.depthOf u then
+        rw [ite_eq_left hLt]
+        cases fuel₂ with
+        | zero => omega
+        | succ f₂ =>
+            rw [JumpForest.ancestorAtDepthAux_succ, ite_eq_left hLt]
+            have hNextSz := hF.stepToDepth_lt_size hu d
+            have hNextLt := hF.depth_stepToDepth_lt hu hLt
+            exact ih f₂ (F.stepToDepth u d) d hNextSz (by omega) (by omega)
+      else
+        rw [ite_eq_right hLt]
+        cases fuel₂ with
+        | zero => rw [JumpForest.ancestorAtDepthAux_zero]
+        | succ f₂ => rw [JumpForest.ancestorAtDepthAux_succ, ite_eq_right hLt]
+
+theorem ValidJumpForest.traceMovesAux_fuel_irrel {F : JumpForest} (hF : ValidJumpForest F) :
+    ∀ (fuel₁ fuel₂ u d : Nat), u < F.size →
+      F.depthOf u - d ≤ fuel₁ → F.depthOf u - d ≤ fuel₂ →
+      F.traceMovesAux fuel₁ u d = F.traceMovesAux fuel₂ u d := by
+  intro fuel₁
+  induction fuel₁ with
+  | zero =>
+      intro fuel₂ u d _ h1 _
+      have hNotLt : ¬ (d < F.depthOf u) := by omega
+      rw [JumpForest.traceMovesAux_zero]
+      cases fuel₂ with
+      | zero => rw [JumpForest.traceMovesAux_zero]
+      | succ f₂ => rw [JumpForest.traceMovesAux_succ, ite_eq_right hNotLt]
+  | succ f₁ ih =>
+      intro fuel₂ u d hu h1 h2
+      rw [JumpForest.traceMovesAux_succ]
+      if hLt : d < F.depthOf u then
+        rw [ite_eq_left hLt]
+        cases fuel₂ with
+        | zero => omega
+        | succ f₂ =>
+            rw [JumpForest.traceMovesAux_succ, ite_eq_left hLt]
+            have hNextSz := hF.stepToDepth_lt_size hu d
+            have hNextLt := hF.depth_stepToDepth_lt hu hLt
+            exact congrArg (List.cons (F.stepMoveToDepth u d))
+              (ih f₂ (F.stepToDepth u d) d hNextSz (by omega) (by omega))
+      else
+        rw [ite_eq_right hLt]
+        cases fuel₂ with
+        | zero => rw [JumpForest.traceMovesAux_zero]
+        | succ f₂ => rw [JumpForest.traceMovesAux_succ, ite_eq_right hLt]
+
+theorem ancestorAtDepth_of_ge (F : JumpForest) {u d : Nat} (hGe : F.depthOf u ≤ d) :
+    F.ancestorAtDepth u d = u := by
+  unfold JumpForest.ancestorAtDepth
+  have h0 : F.depthOf u - d = 0 := by omega
+  rw [h0]
+  rfl
+
+theorem traceMoves_of_ge (F : JumpForest) {u d : Nat} (hGe : F.depthOf u ≤ d) :
+    F.traceMoves u d = [] := by
+  unfold JumpForest.traceMoves
+  have h0 : F.depthOf u - d = 0 := by omega
+  rw [h0]
+  rfl
+
+theorem ValidJumpForest.ancestorAtDepth_of_lt {F : JumpForest} (hF : ValidJumpForest F)
+    {u d : Nat} (hu : u < F.size) (hLt : d < F.depthOf u) :
+    F.ancestorAtDepth u d = F.ancestorAtDepth (F.stepToDepth u d) d := by
+  have hFuel : F.depthOf u - d = (F.depthOf u - d - 1) + 1 := by omega
+  have hLHS : F.ancestorAtDepth u d =
+      F.ancestorAtDepthAux ((F.depthOf u - d - 1) + 1) u d :=
+    congrArg (fun k => F.ancestorAtDepthAux k u d) hFuel
+  rw [hLHS, JumpForest.ancestorAtDepthAux_succ, ite_eq_left hLt]
+  have hNextSz := hF.stepToDepth_lt_size hu d
+  have hNextLt := hF.depth_stepToDepth_lt hu hLt
+  change F.ancestorAtDepthAux (F.depthOf u - d - 1) (F.stepToDepth u d) d =
+    F.ancestorAtDepthAux (F.depthOf (F.stepToDepth u d) - d) (F.stepToDepth u d) d
+  exact hF.ancestorAtDepthAux_fuel_irrel
+    (F.depthOf u - d - 1) (F.depthOf (F.stepToDepth u d) - d)
+    (F.stepToDepth u d) d hNextSz (by omega) (Nat.le_refl _)
+
+theorem ValidJumpForest.traceMoves_of_lt {F : JumpForest} (hF : ValidJumpForest F)
+    {u d : Nat} (hu : u < F.size) (hLt : d < F.depthOf u) :
+    F.traceMoves u d =
+      F.stepMoveToDepth u d :: F.traceMoves (F.stepToDepth u d) d := by
+  have hFuel : F.depthOf u - d = (F.depthOf u - d - 1) + 1 := by omega
+  have hLHS : F.traceMoves u d =
+      F.traceMovesAux ((F.depthOf u - d - 1) + 1) u d :=
+    congrArg (fun k => F.traceMovesAux k u d) hFuel
+  rw [hLHS, JumpForest.traceMovesAux_succ, ite_eq_left hLt]
+  have hNextSz := hF.stepToDepth_lt_size hu d
+  have hNextLt := hF.depth_stepToDepth_lt hu hLt
+  change F.stepMoveToDepth u d ::
+      F.traceMovesAux (F.depthOf u - d - 1) (F.stepToDepth u d) d =
+    F.stepMoveToDepth u d ::
+      F.traceMovesAux (F.depthOf (F.stepToDepth u d) - d) (F.stepToDepth u d) d
+  exact congrArg (List.cons (F.stepMoveToDepth u d))
+    (hF.traceMovesAux_fuel_irrel
+      (F.depthOf u - d - 1) (F.depthOf (F.stepToDepth u d) - d)
+      (F.stepToDepth u d) d hNextSz (by omega) (Nat.le_refl _))
+
+/-- Exactness of `ancestorAtDepth`: returns an inclusive tree ancestor of `u` in `< F.size`
+    whose depth is `targetDepth` whenever `targetDepth ≤ F.depthOf u`. -/
+theorem ValidJumpForest.ancestorAtDepth_spec {F : JumpForest} (hF : ValidJumpForest F)
+    {u targetDepth : Nat} (hu : u < F.size) (hLe : targetDepth ≤ F.depthOf u) :
+    F.ancestorAtDepth u targetDepth < F.size ∧
+      IsAncestor F (F.ancestorAtDepth u targetDepth) u ∧
+      F.depthOf (F.ancestorAtDepth u targetDepth) = targetDepth := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  refine nat_strong_ind
+    (P := fun w => w < F.size → targetDepth ≤ F.depthOf w →
+      F.ancestorAtDepth w targetDepth < F.size ∧
+        IsAncestor F (F.ancestorAtDepth w targetDepth) w ∧
+        F.depthOf (F.ancestorAtDepth w targetDepth) = targetDepth)
+    ?_ u hu hLe
+  intro w ih hw hLeW
+  if hLt : targetDepth < F.depthOf w then
+    have hPos : 0 < w := by
+      if hP : 0 < w then exact hP
+      else
+        have hw0 : w = 0 := by omega
+        rw [hw0, inv.root_depth] at hLt
+        omega
+    let next := F.stepToDepth w targetDepth
+    have hNextLt : next < w := hF.stepToDepth_lt_self hPos hw targetDepth
+    have hNextSz : next < F.size := hF.stepToDepth_lt_size hw targetDepth
+    have hNextGe : targetDepth ≤ F.depthOf next := hF.depth_stepToDepth_ge hw hLt
+    have hStepAnc : IsAncestor F next w := hF.stepToDepth_isAncestor hw targetDepth
+    have hEq := hF.ancestorAtDepth_of_lt hw hLt
+    let ⟨hAncSz, hAncNext, hAncDep⟩ := ih next hNextLt hNextSz hNextGe
+    rw [hEq]
+    exact ⟨hAncSz, IsAncestor.trans hAncNext hStepAnc, hAncDep⟩
+  else
+    have hEqD : F.depthOf w = targetDepth := by omega
+    rw [ancestorAtDepth_of_ge F (by omega)]
+    exact ⟨hw, IsAncestor.refl F w, hEqD⟩
+
+/-- Uniqueness of tree ancestor at any `targetDepth ≤ F.depthOf u`. -/
+theorem ValidJumpForest.ancestor_eq_iterParent_of_depth {F : JumpForest}
+    (hF : ValidJumpForest F) {a u targetDepth : Nat}
+    (hu : u < F.size) (hAnc : IsAncestor F a u)
+    (hLe : targetDepth ≤ F.depthOf u) (hDepth : F.depthOf a = targetDepth) :
+    a = F.iterParent (F.depthOf u - targetDepth) u := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  let ⟨k, hk⟩ := hAnc
+  have haSz : a < F.size := by
+    rw [← hk]
+    exact hF.iterParent_lt_size hu k
+  have hDk : F.depthOf a = F.depthOf u - k := by
+    rw [← hk]
+    exact hF.depth_iterParent hu k
+  if hPosD : 0 < targetDepth then
+    have hkEq : k = F.depthOf u - targetDepth := by omega
+    rw [← hkEq, hk]
+  else
+    have ha0 : a = 0 := (inv.depth_eq_zero_iff haSz).mp (by omega)
+    have hSub : F.depthOf u - targetDepth = F.depthOf u := by omega
+    rw [ha0, hSub, hF.iterParent_depthOf_eq_zero hu]
+
+theorem ValidJumpForest.ancestorAtDepth_unique {F : JumpForest}
+    (hF : ValidJumpForest F) {a u targetDepth : Nat}
+    (hu : u < F.size) (hLe : targetDepth ≤ F.depthOf u) :
+    (IsAncestor F a u ∧ F.depthOf a = targetDepth) ↔
+      a = F.ancestorAtDepth u targetDepth := by
+  let ⟨_, hAncRes, hDepRes⟩ := hF.ancestorAtDepth_spec hu hLe
+  constructor
+  · intro ⟨hAncA, hDepA⟩
+    have h1 := hF.ancestor_eq_iterParent_of_depth hu hAncA hLe hDepA
+    have h2 := hF.ancestor_eq_iterParent_of_depth hu hAncRes hLe hDepRes
+    exact Eq.trans h1 h2.symm
+  · intro hEq
+    rw [hEq]
+    exact ⟨hAncRes, hDepRes⟩
+
+/-- Requesting `targetDepth = 0` from any valid node `u < F.size` returns the artificial root `0`. -/
+theorem ValidJumpForest.ancestorAtDepth_zero {F : JumpForest}
+    (hF : ValidJumpForest F) {u : Nat} (hu : u < F.size) :
+    F.ancestorAtDepth u 0 = 0 := by
+  let ⟨_, inv⟩ := hF.exists_forestInvariant
+  exact ((hF.ancestorAtDepth_unique hu (Nat.zero_le _)).mp
+    ⟨hF.zero_isAncestor hu, inv.root_depth⟩).symm
+
+/-- `decideAncestor a u` returns `true` iff `a` is an inclusive tree ancestor of `u`. -/
+theorem ValidJumpForest.decideAncestor_eq_true_iff {F : JumpForest}
+    (hF : ValidJumpForest F) {a u : Nat} (_ha : a < F.size) (hu : u < F.size) :
+    F.decideAncestor a u = true ↔ IsAncestor F a u := by
+  unfold JumpForest.decideAncestor
+  constructor
+  · intro hTrue
+    if hCond : F.depthOf a ≤ F.depthOf u ∧ F.ancestorAtDepth u (F.depthOf a) = a then
+      let ⟨hLe, hEq⟩ := hCond
+      let ⟨_, hAnc, _⟩ := hF.ancestorAtDepth_spec hu hLe
+      rw [hEq] at hAnc
+      exact hAnc
+    else
+      rw [ite_eq_right hCond] at hTrue
+      cases hTrue
+  · intro hAnc
+    let ⟨k, hk⟩ := hAnc
+    have hDepA : F.depthOf a = F.depthOf u - k := by
+      rw [← hk]
+      exact hF.depth_iterParent hu k
+    have hLe : F.depthOf a ≤ F.depthOf u := by omega
+    have hEqA : a = F.ancestorAtDepth u (F.depthOf a) :=
+      (hF.ancestorAtDepth_unique hu hLe).mp ⟨⟨k, hk⟩, rfl⟩
+    rw [ite_eq_left ⟨hLe, hEqA.symm⟩]
+
+/-! ### Persistence of Ancestry and Traversal Across `Extends` and `appendLeaf` -/
+
+namespace JumpForest.Extends
+
+theorem stepToDepth_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) (targetDepth : Nat) :
+    F₂.stepToDepth u targetDepth = F₁.stepToDepth u targetDepth := by
+  have hjSz : F₁.jumpOf u < F₁.size := hValid₁.jumpOf_lt_size hu
+  unfold JumpForest.stepToDepth
+  dsimp only
+  rw [hExt.jumpOf_eq hu, hExt.depthOf_eq hjSz, hExt.parentOf_eq hu]
+
+theorem stepMoveToDepth_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) (targetDepth : Nat) :
+    F₂.stepMoveToDepth u targetDepth = F₁.stepMoveToDepth u targetDepth := by
+  have hjSz : F₁.jumpOf u < F₁.size := hValid₁.jumpOf_lt_size hu
+  unfold JumpForest.stepMoveToDepth
+  dsimp only
+  rw [hExt.jumpOf_eq hu, hExt.depthOf_eq hjSz, hExt.parentOf_eq hu]
+
+theorem traceMoves_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) (targetDepth : Nat) :
+    F₂.traceMoves u targetDepth = F₁.traceMoves u targetDepth := by
+  have aux : ∀ (fuel w : Nat), w < F₁.size →
+      F₂.traceMovesAux fuel w targetDepth = F₁.traceMovesAux fuel w targetDepth := by
+    intro fuel
+    induction fuel with
+    | zero => intro _ _; rfl
+    | succ _ ih =>
+        intro w hw
+        rw [JumpForest.traceMovesAux_succ, JumpForest.traceMovesAux_succ,
+          hExt.depthOf_eq hw, hExt.stepMoveToDepth_eq hValid₁ hw targetDepth,
+          hExt.stepToDepth_eq hValid₁ hw targetDepth]
+        if hLt : targetDepth < F₁.depthOf w then
+          rw [ite_eq_left hLt, ite_eq_left hLt]
+          exact congrArg (List.cons _) (ih _ (hValid₁.stepToDepth_lt_size hw targetDepth))
+        else
+          rw [ite_eq_right hLt, ite_eq_right hLt]
+  unfold JumpForest.traceMoves
+  rw [hExt.depthOf_eq hu]
+  exact aux (F₁.depthOf u - targetDepth) u hu
+
+theorem traceVertices_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) (targetDepth : Nat) :
+    F₂.traceVertices u targetDepth = F₁.traceVertices u targetDepth := by
+  have aux : ∀ (fuel w : Nat), w < F₁.size →
+      F₂.traceVerticesAux fuel w targetDepth = F₁.traceVerticesAux fuel w targetDepth := by
+    intro fuel
+    induction fuel with
+    | zero => intro _ _; rfl
+    | succ _ ih =>
+        intro w hw
+        rw [JumpForest.traceVerticesAux_succ, JumpForest.traceVerticesAux_succ,
+          hExt.depthOf_eq hw, hExt.stepToDepth_eq hValid₁ hw targetDepth]
+        if hLt : targetDepth < F₁.depthOf w then
+          rw [ite_eq_left hLt, ite_eq_left hLt]
+          exact congrArg (List.cons w) (ih _ (hValid₁.stepToDepth_lt_size hw targetDepth))
+        else
+          rw [ite_eq_right hLt, ite_eq_right hLt]
+  unfold JumpForest.traceVertices
+  rw [hExt.depthOf_eq hu]
+  exact aux (F₁.depthOf u - targetDepth) u hu
+
+theorem ancestorAtDepth_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) (targetDepth : Nat) :
+    F₂.ancestorAtDepth u targetDepth = F₁.ancestorAtDepth u targetDepth := by
+  have aux : ∀ (fuel w : Nat), w < F₁.size →
+      F₂.ancestorAtDepthAux fuel w targetDepth = F₁.ancestorAtDepthAux fuel w targetDepth := by
+    intro fuel
+    induction fuel with
+    | zero => intro _ _; rfl
+    | succ _ ih =>
+        intro w hw
+        rw [JumpForest.ancestorAtDepthAux_succ, JumpForest.ancestorAtDepthAux_succ,
+          hExt.depthOf_eq hw, hExt.stepToDepth_eq hValid₁ hw targetDepth]
+        if hLt : targetDepth < F₁.depthOf w then
+          rw [ite_eq_left hLt, ite_eq_left hLt]
+          exact ih _ (hValid₁.stepToDepth_lt_size hw targetDepth)
+        else
+          rw [ite_eq_right hLt, ite_eq_right hLt]
+  unfold JumpForest.ancestorAtDepth
+  rw [hExt.depthOf_eq hu]
+  exact aux (F₁.depthOf u - targetDepth) u hu
+
+theorem iterParent_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) (k : Nat) :
+    F₂.iterParent k u = F₁.iterParent k u := by
+  induction k generalizing u with
+  | zero => rfl
+  | succ _ ih =>
+      unfold JumpForest.iterParent
+      rw [hExt.parentOf_eq hu]
+      exact ih (hValid₁.parentOf_lt_size hu)
+
+theorem isAncestor_iff {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {a u : Nat} (hu : u < F₁.size) :
+    IsAncestor F₂ a u ↔ IsAncestor F₁ a u := by
+  constructor
+  · intro ⟨k, hk⟩
+    rw [hExt.iterParent_eq hValid₁ hu k] at hk
+    exact ⟨k, hk⟩
+  · intro ⟨k, hk⟩
+    refine ⟨k, ?_⟩
+    rw [hExt.iterParent_eq hValid₁ hu k]
+    exact hk
+
+theorem decideAncestor_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {a u : Nat} (ha : a < F₁.size) (hu : u < F₁.size) :
+    F₂.decideAncestor a u = F₁.decideAncestor a u := by
+  unfold JumpForest.decideAncestor
+  rw [hExt.depthOf_eq ha, hExt.depthOf_eq hu, hExt.ancestorAtDepth_eq hValid₁ hu]
+
+theorem realAncestorChain_eq {F₁ F₂ : JumpForest}
+    (hValid₁ : ValidJumpForest F₁) (hExt : F₁.Extends F₂)
+    {u : Nat} (hu : u < F₁.size) :
+    F₂.realAncestorChain u = F₁.realAncestorChain u := by
+  have aux : ∀ (fuel w : Nat), w < F₁.size →
+      F₂.realAncestorChainAux fuel w = F₁.realAncestorChainAux fuel w := by
+    intro fuel
+    induction fuel with
+    | zero => intro _ _; rfl
+    | succ _ ih =>
+        intro w hw
+        rw [JumpForest.realAncestorChainAux_succ, JumpForest.realAncestorChainAux_succ]
+        if hw0 : w = 0 then
+          rw [ite_eq_left hw0, ite_eq_left hw0]
+        else
+          rw [ite_eq_right hw0, ite_eq_right hw0, hExt.parentOf_eq hw]
+          exact congrArg (List.cons w) (ih _ (hValid₁.parentOf_lt_size hw))
+  unfold JumpForest.realAncestorChain
+  rw [hExt.depthOf_eq hu]
+  exact aux (F₁.depthOf u) u hu
+
+end JumpForest.Extends
+
+theorem traceMoves_appendLeaf_old {F : JumpForest} (hF : ValidJumpForest F)
+    {p u : Nat} (hp : p < F.size) (hu : u < F.size) (targetDepth : Nat) :
+    (F.appendLeaf p).traceMoves u targetDepth = F.traceMoves u targetDepth :=
+  (JumpForest.Extends.step (JumpForest.Extends.refl F) hp).traceMoves_eq hF hu targetDepth
+
+theorem ancestorAtDepth_appendLeaf_old {F : JumpForest} (hF : ValidJumpForest F)
+    {p u : Nat} (hp : p < F.size) (hu : u < F.size) (targetDepth : Nat) :
+    (F.appendLeaf p).ancestorAtDepth u targetDepth = F.ancestorAtDepth u targetDepth :=
+  (JumpForest.Extends.step (JumpForest.Extends.refl F) hp).ancestorAtDepth_eq hF hu targetDepth
+
+theorem isAncestor_appendLeaf_old {F : JumpForest} (hF : ValidJumpForest F)
+    {p a u : Nat} (hp : p < F.size) (hu : u < F.size) :
+    IsAncestor (F.appendLeaf p) a u ↔ IsAncestor F a u :=
+  (JumpForest.Extends.step (JumpForest.Extends.refl F) hp).isAncestor_iff hF hu
+
+theorem decideAncestor_appendLeaf_old {F : JumpForest} (hF : ValidJumpForest F)
+    {p a u : Nat} (hp : p < F.size) (ha : a < F.size) (hu : u < F.size) :
+    (F.appendLeaf p).decideAncestor a u = F.decideAncestor a u :=
+  (JumpForest.Extends.step (JumpForest.Extends.refl F) hp).decideAncestor_eq hF ha hu
+
 end PaperB

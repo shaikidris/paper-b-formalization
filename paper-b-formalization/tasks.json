@@ -507,9 +507,10 @@
       ],
       "evidence": [
         "evidence/ex22-unattended/native-swarm-jump-foundation.json",
-        "evidence/ex22-unattended/native-swarm-jump-invariant.json"
+        "evidence/ex22-unattended/native-swarm-jump-invariant.json",
+        "evidence/ex22-unattended/native-swarm-jump-traversal.json"
       ],
-      "progress": "Lean verified the record-prefix persistence lemmas and the full per-node skew-binary invariant for valid leaf insertions. Level-search correctness, logarithmic traversal and physical word-operation bounds remain open.",
+      "progress": "Lean verified the growing skew-binary tree invariant, depth-target traversal, unique ancestor at the requested depth, ancestry recognition and persistence under insertion. The logarithmic trace bound and word-operation implementation are open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
@@ -517,7 +518,9 @@
           "foundation": "BUILT",
           "worker_post": 15,
           "invariant": "BUILT",
-          "invariant_post": 18
+          "invariant_post": 18,
+          "traversal": "BUILT",
+          "traversal_post": 19
         }
       }
     },
