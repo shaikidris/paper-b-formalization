@@ -8,7 +8,7 @@ relaxedAutoImplicit = false
 
 [[lean_lib]]
 name = "PaperB"
-roots = ["PaperB.Spec", "PaperB.ExitPaths"]
+roots = ["PaperB.Spec", "PaperB.ExitPaths", "PaperB.Forest"]
 
 [[lean_lib]]
 name = "Challenge"

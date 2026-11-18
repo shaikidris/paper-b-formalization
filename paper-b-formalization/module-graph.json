@@ -56,7 +56,7 @@
     {
       "path": "release-core/PaperB/Forest.lean",
       "local_imports": [
-        "release-core/PaperB/Graph.lean"
+        "release-core/PaperB/ExitPaths.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

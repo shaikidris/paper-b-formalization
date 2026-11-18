@@ -435,9 +435,10 @@
         "evidence/carbon-forest-prefix/verification.json",
         "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json",
         "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json",
-        "evidence/ex22-unattended/native-swarm-sweep-step.json"
+        "evidence/ex22-unattended/native-swarm-sweep-step.json",
+        "evidence/ex22-unattended/native-swarm-global-sweep.json"
       ],
-      "progress": "Lean checked the exact local sweep transition, including membership and nesting of the next label, with only propext and Quot.sound. The prefix and repeated-key parent lemmas also build. The same Carbon Medium swarm has been asked to construct the finite sweep and forest. That global construction and statement-level certification remain open.",
+      "progress": "Lean verified the local sweep transition and the global sweepChain_spec for every vertex of a flat ranked quotient. The global result gives canonical, nested, duplicate-free labels with exact proper-loss membership. The shared parent forest and linear node bound remain open. The semantic sweep carries no executable resource claim.",
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
         "run": "56d1a609-3be1-4bd2-9002-10e831df0ce8",
@@ -472,7 +473,9 @@
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
           "model": "gemini-4-carbon-medium",
           "local_sweep": "BUILT",
-          "coordinator_post": 7
+          "coordinator_post": 7,
+          "global_sweep": "BUILT",
+          "forest_post": 12
         }
       }
     },

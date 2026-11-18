@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
-- [EX2.2](TASKS.md#ex22) — Lean checked the exact local sweep transition, including membership and nesting of the next label, with only propext and Quot.sound. The prefix and repeated-key parent lemmas also build. The same Carbon Medium swarm has been asked to construct the finite sweep and forest. That global construction and statement-level certification remain open.
+- [EX2.2](TASKS.md#ex22) — Lean verified the local sweep transition and the global sweepChain_spec for every vertex of a flat ranked quotient. The global result gives canonical, nested, duplicate-free labels with exact proper-loss membership. The shared parent forest and linear node bound remain open. The semantic sweep carries no executable resource claim.
 - [EX2.3](TASKS.md#ex23) — The first two Carbon checkpoints built together in Lean 4.35.0-rc3. They define a list-backed record model and skew-block operations. The three lookup lemmas depend only on propext. Executable growing-tree updates, level-search correctness and operation bounds remain open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).

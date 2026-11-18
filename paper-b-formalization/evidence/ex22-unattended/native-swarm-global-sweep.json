@@ -1,0 +1,20 @@
+{
+  "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
+  "worker": "Gemini 4 Carbon Medium",
+  "post": 12,
+  "post_sha256": "cf02a0e53dd36e44b7d7c995ce954b9cfad9f8d65aae89d2d57d8e2431a4dd24",
+  "theorem": "PaperB.LabelledQuotient.sweepChain_spec",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "82da824d9ba80eb925137d1db45785514d742b1294dbb745f2f5fbd76f230338",
+  "axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "check_output": "PaperB.LabelledQuotient.sweepChain_spec {H : PaperB.LabelledQuotient} {rank : Fin H.vertexCount → Nat}\n  (rankArc : ∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) (flat : H.IsFlat)\n  (y : Fin H.vertexCount) : H.SweepChainSpec (H.sweepChain rank y) y\n'PaperB.LabelledQuotient.sweepChain_spec' depends on axioms: [propext, Quot.sound]",
+  "repairs": [
+    "Adjusted list length reduction and equality-rewrite targets.",
+    "Removed already discharged tactics and parenthesized tactic terms.",
+    "Updated deprecated conditional lemmas and unused binders."
+  ],
+  "scope": "Constructive semantic sweep across all quotient vertices. Repeated scans and recursive recomputation in this specification carry no resource bound. The shared parent relation, forest representation, and node bound are separate."
+}
