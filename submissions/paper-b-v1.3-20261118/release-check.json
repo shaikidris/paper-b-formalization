@@ -1,0 +1,20 @@
+{
+  "source_commit": "2a2fbc9",
+  "source_preparation": "Removed the draft label from the version line.",
+  "pdf_pages": 10,
+  "figure_1_page": 6,
+  "finite_checks": {
+    "singleton_answers": 421402,
+    "list_answers": 57600,
+    "exit_interval_comparisons": 50924
+  },
+  "sha256": {
+    "README.md": "aed6f753cb85eee0b942134f95a8b488248d27a1e792a5777a5f6f8275dfddbc",
+    "abstract.txt": "d274521f405ee2e4aced8da1c588479c1864fd885cdc9345a62cffe51ea59550",
+    "figures/exit-transfer-example.svg": "49d9bf7df07134e55837636851dfbf0a4adddfeaa5f22842b3df621b2928bdfc",
+    "paper-b-v1.3.md": "86098c578c3297fc7952aa357bec9c0d80b9c6e854ce117622561cda7c276808",
+    "paper-b-v1.3.pdf": "d8cfacd9de508fbd16e6080701765ff4d60debbbd7092a91165a76e9a35e0a88",
+    "paper-b-v1.3-source.zip": "874375ecacb0edcec370dc1becfce76a8b739e061323a199cd5ec50d55439367",
+    "print-style.html": "42624b0a3d538b4580da6c393cfb58de4b1a5814201d03313459ed1e73a778c1"
+  }
+}

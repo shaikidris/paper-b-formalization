@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 354" role="img" aria-labelledby="title description">
+<title id="title">Original directed acyclic graph and sibling quotient</title>
+<desc id="description">The original graph has directed paths r to U to ell to p to y, r to V to p, and U to h to y. The quotient contracts U, ell, and h into U and labels its outgoing arcs by ell and h.</desc>
+<rect width="620" height="354" fill="white"/>
+<defs>
+<marker id="arrow-base" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#323b46"/></marker>
+<marker id="arrow-fresh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#185f8e"/></marker>
+<marker id="arrow-inherited" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a54e24"/></marker>
+</defs>
+<rect x="21" y="95" width="142" height="112" rx="10" fill="#f0f5f7" stroke="#556470" stroke-width="1.3" stroke-dasharray="5 3"/>
+<path d="M 309 40 V 335" stroke="#c7cdd2" stroke-width="1"/>
+<g fill="#202a33" font-family="Georgia, Times New Roman, serif" font-size="18">
+<text x="26" y="25">(a) Original DAG</text>
+<text x="337" y="25">(b) Quotient at <tspan font-style="italic">r</tspan></text>
+<text x="27" y="144" font-size="15" font-style="italic">D(U)</text>
+</g>
+<path id="G-r-U" data-from="r" data-to="U" d="M156.88 65.51 L99.71 109.27" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="G-r-V" data-from="r" data-to="V" d="M179.26 65.31 L239.13 109.50" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="G-U-ℓ" data-from="U" data-to="ℓ" d="M95.02 130.48 L121.84 168.88" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="G-U-h" data-from="U" data-to="h" d="M79.77 130.99 L57.26 168.30" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="G-ℓ-p" data-from="ℓ" data-to="p" d="M141.43 191.34 L196.08 240.32" fill="none" stroke="#185f8e" stroke-width="2.2" marker-end="url(#arrow-fresh)"/>
+<path id="G-V-p" data-from="V" data-to="p" d="M247.57 132.28 L213.06 235.82" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="G-p-y" data-from="p" data-to="y" d="M196.62 259.15 L126.01 309.69" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="G-h-y" data-from="h" data-to="y" d="M54.93 194.68 L106.23 304.50" fill="none" stroke="#a54e24" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#arrow-inherited)"/>
+<path id="H-r-U" data-from="r" data-to="U" data-original-tail="r" d="M461.39 66.14 L412.12 108.56" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="H-r-V" data-from="r" data-to="V" data-original-tail="r" d="M483.72 64.65 L553.60 110.26" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="H-U-p" data-from="U" data-to="p" data-original-tail="ℓ" d="M409.39 129.38 L503.27 233.14" fill="none" stroke="#185f8e" stroke-width="2.2" marker-end="url(#arrow-fresh)"/>
+<path id="H-U-y" data-from="U" data-to="y" data-original-tail="h" d="M402.48 132.78 L433.17 303.25" fill="none" stroke="#a54e24" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#arrow-inherited)"/>
+<path id="H-V-p" data-from="V" data-to="p" data-original-tail="V" d="M561.57 131.90 L520.20 230.25" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<path id="H-p-y" data-from="p" data-to="y" data-original-tail="p" d="M503.84 254.64 L447.61 307.99" fill="none" stroke="#323b46" stroke-width="1.55" marker-end="url(#arrow-base)"/>
+<circle id="G-vertex-r" cx="168" cy="57" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="168" y="62" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">r</text>
+<circle id="G-vertex-U" cx="87" cy="119" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="87" y="124" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">U</text>
+<circle id="G-vertex-V" cx="252" cy="119" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="252" y="124" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">V</text>
+<circle id="G-vertex-ℓ" cx="131" cy="182" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="131" y="187" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">ℓ</text>
+<circle id="G-vertex-h" cx="49" cy="182" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="49" y="187" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">h</text>
+<circle id="G-vertex-p" cx="208" cy="251" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="208" y="256" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">p</text>
+<circle id="G-vertex-y" cx="113" cy="319" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="113" y="324" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">y</text>
+<circle id="H-vertex-r" cx="472" cy="57" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="472" y="62" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">r</text>
+<circle id="H-vertex-U" cx="400" cy="119" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="400" y="124" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">U</text>
+<circle id="H-vertex-V" cx="567" cy="119" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="567" y="124" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">V</text>
+<circle id="H-vertex-p" cx="514" cy="245" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="514" y="250" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">p</text>
+<circle id="H-vertex-y" cx="436" cy="319" r="13" fill="white" stroke="#323b46" stroke-width="1.35"/>
+<text x="436" y="324" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="16" font-style="italic" fill="#141920">y</text>
+<g font-family="Georgia, Times New Roman, serif" font-size="19" font-style="italic" text-anchor="middle">
+<text x="469" y="168" fill="#185f8e">ℓ</text>
+<text x="400" y="221" fill="#a54e24">h</text>
+</g>
+</svg>
