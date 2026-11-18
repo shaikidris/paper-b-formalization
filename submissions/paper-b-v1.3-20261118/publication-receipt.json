@@ -18,6 +18,11 @@
   "ssrn": {
     "abstract_id": "7692598",
     "url": "https://papers.ssrn.com/abstract=7692598",
-    "status": "awaiting author-portal reauthentication"
+    "status": "public revision verified",
+    "revision_confirmed_at": "2026-11-18T23:19:55+05:30",
+    "portal_receipt": "Save successful. Your revision was successful.",
+    "public_revision_readback": "Updated abstract and byte-identical v1.3 PDF verified.",
+    "uploaded_pdf_sha256": "d8cfacd9de508fbd16e6080701765ff4d60debbbd7092a91165a76e9a35e0a88",
+    "public_pdf_sha256": "d8cfacd9de508fbd16e6080701765ff4d60debbbd7092a91165a76e9a35e0a88"
   }
 }
