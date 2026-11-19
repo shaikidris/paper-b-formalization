@@ -1,0 +1,11 @@
+{
+  "base_commit": "b0c75f1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingVertexBudget.lean",
+  "sha256": "d3f0f2ee7731eff48e02de863e575efec28f6076b0f7c64253ddaefff4da6073",
+  "scope": "The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs.",
+  "remaining": "Discharge the predecessor task certificates before closing EX1.3."
+}

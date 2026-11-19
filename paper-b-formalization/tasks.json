@@ -79,7 +79,8 @@
     "release-core/PaperB/CompactGraph.lean": "graph",
     "release-core/PaperB/FiniteSiblingBudget.lean": "dominator",
     "release-core/PaperB/ForestLayout.lean": "cuts",
-    "release-core/PaperB/CompactPaths.lean": "graph"
+    "release-core/PaperB/CompactPaths.lean": "graph",
+    "release-core/PaperB/SiblingVertexBudget.lean": "dominator"
   },
   "milestones": [
     {
@@ -389,9 +390,10 @@
         "evidence/ex13-finite-flatness/verification.json",
         "evidence/ex13-quotient-array-counts/verification.json",
         "evidence/ex13-unique-arc-budget/verification.json",
-        "evidence/ex13-actual-arc-budget/verification.json"
+        "evidence/ex13-actual-arc-budget/verification.json",
+        "evidence/ex13-vertex-budget/verification.json"
       ],
-      "progress": "Lean verifies the actual finite quotient’s path equivalence and flatness. Across all distinct reachable roots the emitted adjacency arrays contain at most m original arc occurrences. The actual vertex-copy bound and formal task closure remain open."
+      "progress": "The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3."
     },
     {
       "id": "EX1.4",
