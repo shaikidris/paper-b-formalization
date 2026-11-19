@@ -146,7 +146,8 @@
     "release-core/PaperB/DomFromOriginal.lean": "dominator",
     "release-core/PaperB/StaticLinearHead.lean": "dominator",
     "release-core/PaperB/ForestCanonicalLaws.lean": "cuts",
-    "release-core/PaperB/ForestWordLaws.lean": "cuts"
+    "release-core/PaperB/ForestWordLaws.lean": "cuts",
+    "release-core/PaperB/BothReachableRoute.lean": "oracle"
   },
   "milestones": [
     {
@@ -1145,9 +1146,10 @@
         "evidence/ex44-early-query-cases/verification.json",
         "evidence/ex44-retained-query-runtime/verification.json",
         "evidence/ex44-query-leaf-proofs/verification.json",
-        "evidence/retained-early-audit/verification.json"
+        "evidence/retained-early-audit/verification.json",
+        "evidence/both-reachable-audit/verification.json"
       ],
-      "progress": "With at least one failure outside the reachable subgraph, the actual runtime route chooses the correct survival leaf for an originally incomparable pair under exact ID and subtree index lookups. Both retained failures and final reader assembly remain in progress."
+      "progress": "The actual route split is verified for two reachable incomparable failures under exact static table contracts. It checks failed targets, outside and own-block branches and identifies the exact semantic witness in the third block. Third-block lookup and packed access remain in progress."
     },
     {
       "id": "EX5.1",

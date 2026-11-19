@@ -1,0 +1,11 @@
+{
+  "base_commit": "efaacca",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/BothReachableRoute.lean",
+  "sha256": "fc15ab320bed36f104cab300baa2e74242ed566db7a1d7c427c7583954fd4b26",
+  "scope": "For two initially reachable, incomparable original failures, the exact static fields identify the paper LCA and child blocks. Lean proves the failed-target, outside, and own-block branches, and exposes the exact semantic witness for third-block routing.",
+  "remaining": "Refine third-block key and membership reads and summary spans, and combine with the comparable-case normalization and actual static lookup records."
+}

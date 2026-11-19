@@ -410,9 +410,9 @@ Acceptance:
 - Prove output iff reachability after deletion for any subset of size at most two and any original target.
 - Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths.
 
-With at least one failure outside the reachable subgraph, the actual runtime route chooses the correct survival leaf for an originally incomparable pair under exact ID and subtree index lookups. Both retained failures and final reader assembly remain in progress.
+The actual route split is verified for two reachable incomparable failures under exact static table contracts. It checks failed targets, outside and own-block branches and identifies the exact semantic witness in the third block. Third-block lookup and packed access remain in progress.
 
-Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json), [evidence/ex44-query-leaf-proofs/verification.json](evidence/ex44-query-leaf-proofs/verification.json), [evidence/retained-early-audit/verification.json](evidence/retained-early-audit/verification.json).
+Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json), [evidence/ex44-query-leaf-proofs/verification.json](evidence/ex44-query-leaf-proofs/verification.json), [evidence/retained-early-audit/verification.json](evidence/retained-early-audit/verification.json), [evidence/both-reachable-audit/verification.json](evidence/both-reachable-audit/verification.json).
 
 <a id="ex51"></a>
 

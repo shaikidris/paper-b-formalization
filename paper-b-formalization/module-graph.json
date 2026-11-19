@@ -135,7 +135,8 @@
         "release-core/PaperB/ExitKernels.lean",
         "release-core/PaperB/FusedJumpMaps.lean",
         "release-core/PaperB/GlobalSiblingEmitter.lean",
-        "release-core/PaperB/RetainedRouteProof.lean"
+        "release-core/PaperB/RetainedRouteProof.lean",
+        "release-core/PaperB/BothReachableRoute.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1182,6 +1183,14 @@
         "release-core/PaperB/ForestReady.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/BothReachableRoute.lean",
+      "local_imports": [
+        "release-core/PaperB/RetainedRouteProof.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],
