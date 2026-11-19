@@ -1,0 +1,11 @@
+{
+  "base_commit": "7029c62",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseArcRecode.lean",
+  "sha256": "505e4c26ddea73c69da36eea654d5f91b5efde8a438e762560bc369d79ca9afc",
+  "scope": "The two contiguous global block-code ranges have a checked constant-column lookup into existing root-local dense rows. Successful codes round-trip exactly and invalid codes fail.",
+  "remaining": "Use these exact translations to materialize one local labelled quotient row per root and verify the complete emitted arc fold."
+}

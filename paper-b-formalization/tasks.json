@@ -175,7 +175,8 @@
     "release-core/PaperB/ForestEventChronology.lean": "exit",
     "release-core/PaperB/ForestSiteDepth.lean": "cuts",
     "release-core/PaperB/ActualSiblingEmitter.lean": "quotient",
-    "release-core/PaperB/ForestOrderedReader.lean": "cuts"
+    "release-core/PaperB/ForestOrderedReader.lean": "cuts",
+    "release-core/PaperB/DenseArcRecode.lean": "quotient"
   },
   "milestones": [
     {
@@ -1253,9 +1254,10 @@
         "evidence/global-sibling-audit/verification.json",
         "evidence/ram-midpoint-audit/verification.json",
         "evidence/dense-quotient-audit/verification.json",
-        "evidence/actual-sibling-emitter-audit/verification.json"
+        "evidence/actual-sibling-emitter-audit/verification.json",
+        "evidence/dense-arc-local-slot-audit/verification.json"
       ],
-      "progress": "The actual ordinary static index now supplies provably correct sibling quotient buckets directly from original-graph arc occurrences, with one checked child lookup charge per retained arc. Local dense rows and whole-arena accounting remain open."
+      "progress": "A checked inverse translates the actual two-range global block code into a local quotient slot without scanning the child row or allocating a table per root. The dense arc fold and whole-arena proof remain open."
     },
     {
       "id": "EX5.2",

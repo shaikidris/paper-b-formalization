@@ -209,3 +209,4 @@
 {"at": "2026-11-19T23:48:06+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ActualSiblingEmitter", "tasks": ["EX5.1"], "evidence": "evidence/actual-sibling-emitter-audit/verification.json"}
 {"at": "2026-11-19T23:52:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestTopologicalTotal", "tasks": ["EX2.4"], "evidence": "evidence/forest-real-prefix-audit/verification.json"}
 {"at": "2026-11-19T23:52:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestOrderedReader", "tasks": ["EX2.4"], "evidence": "evidence/forest-ordered-reader-audit/verification.json"}
+{"at": "2026-11-19T23:52:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseArcRecode", "tasks": ["EX5.1"], "evidence": "evidence/dense-arc-local-slot-audit/verification.json"}
