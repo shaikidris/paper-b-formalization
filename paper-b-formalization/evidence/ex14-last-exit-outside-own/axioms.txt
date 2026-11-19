@@ -1,0 +1,4 @@
+'PaperB.Digraph.lemma22_outside' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_at_d' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_own' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_own_right' depends on axioms: [propext, Classical.choice, Quot.sound]

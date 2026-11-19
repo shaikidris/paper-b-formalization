@@ -61,7 +61,8 @@
         "release-core/PaperB/QuotientArrays.lean",
         "release-core/PaperB/SiblingEmissions.lean",
         "release-core/PaperB/FiniteSiblingQuotient.lean",
-        "release-core/PaperB/QuotientArrayCounts.lean"
+        "release-core/PaperB/QuotientArrayCounts.lean",
+        "release-core/PaperB/PartialBlock.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -590,6 +591,15 @@
         "release-core/PaperB/ForestLayoutCost.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PartialBlock.lean",
+      "local_imports": [
+        "release-core/PaperB/SiblingBlocks.lean",
+        "release-core/PaperB/DominatorBoundary.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

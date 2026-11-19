@@ -84,7 +84,8 @@
     "release-core/PaperB/ForestLayoutCost.lean": "cuts",
     "release-core/PaperB/CompactFailures.lean": "graph",
     "release-core/PaperB/CompactCounts.lean": "graph",
-    "release-core/PaperB/ForestLayoutTreeCost.lean": "cuts"
+    "release-core/PaperB/ForestLayoutTreeCost.lean": "cuts",
+    "release-core/PaperB/PartialBlock.lean": "dominator"
   },
   "milestones": [
     {
@@ -419,7 +420,7 @@
         "1.1",
         "2.2"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Separate outside, own-block and third-block targets and translate the last usable exit into a subtree test.",
@@ -427,7 +428,10 @@
         "Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.",
         "Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex14-last-exit-outside-own/verification.json"
+      ],
+      "progress": "Lean verifies the last-exit test for outside targets, the common dominator itself, and each of the two failure blocks. Third-block and two nonempty exit-tail sets remain open."
     },
     {
       "id": "EX1.5",

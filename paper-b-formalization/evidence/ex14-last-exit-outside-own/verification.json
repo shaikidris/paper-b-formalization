@@ -1,0 +1,11 @@
+{
+  "base_commit": "7b15f71",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PartialBlock.lean",
+  "sha256": "6bb98469806b3cc282bf12bcc4c7737091b1ef669a85f74e7470bebe71b3612a",
+  "scope": "On the actual original DAG, both incomparable failures preserve targets outside their common dominator subtree and its root. In each failure block, a surviving path exists precisely when its own failure does not dominate the target.",
+  "remaining": "Prove the third-block transfer and connect each endpoint summary."
+}

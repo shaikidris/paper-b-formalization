@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **3/27**. Planning audits **1** and verified proof packages **2**.
-- Remaining work packages **24**. 12 in progress, 12 planned.
+- Remaining work packages **24**. 13 in progress, 11 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -22,6 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX1.1](TASKS.md#ex11) — The compact graph contains at most the original vertex and arc counts. Traversal of retained adjacency charges at most one original row occurrence per copy, preserving parallel entries. Compose executable normalization and its phase counts.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
+- [EX1.4](TASKS.md#ex14) — Lean verifies the last-exit test for outside targets, the common dominator itself, and each of the two failure blocks. Third-block and two nonempty exit-tail sets remain open.
 - [EX1.5](TASKS.md#ex15) — Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
 - [EX2.2](TASKS.md#ex22) — Lean verified the bundled semantic Lemma 3.1 on a flat quotient with a supplied injective topological rank. The construction has exactly the canonical effective keys, a single artificial root, exact inclusive ancestor labels, nesting, fresh endpoint order and at most one real node per vertex in the count. Paper-level certification awaits the dependent input representation and statement audit.

@@ -129,7 +129,7 @@ Planning/evidence references: [evidence/ex13-dominator-boundary/verification.jso
 
 ## EX1.4 — Characterize partial-block reachability
 
-- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.3.
 - Proposed owner module: `release-core/PaperB/Quotient.lean`.
@@ -141,6 +141,10 @@ Acceptance:
 
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 - Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
+
+Lean verifies the last-exit test for outside targets, the common dominator itself, and each of the two failure blocks. Third-block and two nonempty exit-tail sets remain open.
+
+Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json).
 
 <a id="ex15"></a>
 
