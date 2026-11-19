@@ -1,0 +1,11 @@
+{
+  "base_commit": "07171a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ActualChildRanges.lean",
+  "sha256": "6ff565a837cb1921ea6d8148ad0ebde557f0f4e0877ff7a406e13dc4df360390",
+  "scope": "The actual ordinary-tree layout yields exact ordered child intervals, with each child emitted once. The packed records give the binary child search its required order and interval validity.",
+  "remaining": "Wire the ordinary dominator scan to the packed layout and replace the reference head sweep input with a linearly generated packed preorder."
+}

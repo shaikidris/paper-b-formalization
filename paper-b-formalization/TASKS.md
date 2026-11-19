@@ -184,9 +184,9 @@ Acceptance:
 - Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.
 - Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget.
 
-The executable static layout constructs exact inclusive subtree interval tests, sizes from exclusive stops, valid heavy children and head arrays, and cached child interval records from packed parent/depth arrays. Prove ordering and total charges for the actual ordinary-tree buckets and wire the bounded child lookup.
+The actual ordinary-tree layout yields exact ordered child intervals, with each child emitted once. The packed records give the binary child search its required order and interval validity. The linear executable head input remains in progress.
 
-Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json), [evidence/ex16-child-interval-search/verification.json](evidence/ex16-child-interval-search/verification.json), [evidence/ex16-packed-static-layout/verification.json](evidence/ex16-packed-static-layout/verification.json).
+Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json), [evidence/ex16-child-interval-search/verification.json](evidence/ex16-child-interval-search/verification.json), [evidence/ex16-packed-static-layout/verification.json](evidence/ex16-packed-static-layout/verification.json), [evidence/actual-child-audit/verification.json](evidence/actual-child-audit/verification.json).
 
 <a id="ex21"></a>
 
