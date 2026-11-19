@@ -1,0 +1,11 @@
+{
+  "base_commit": "954ac2b",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPredecessorWorker.lean",
+  "sha256": "c46c0b44021f352997a92ef2927eb233d92df41bf73f86421035709665346362",
+  "scope": "The fixed immutable-input binary-search worker computes and probes the midpoint, then updates the correct interval endpoint in exactly nine RAM instructions. A crossed interval halts in two instructions and no write arena is used.",
+  "remaining": "Compose the verified loop with the sorted prefix invariant and logarithmic stopping count, then link the full query."
+}

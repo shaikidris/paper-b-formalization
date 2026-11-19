@@ -1,0 +1,2 @@
+'PaperB.RamProgram.Predecessor.worker_iteration' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.Predecessor.worker_crossed' depends on axioms: [propext, Quot.sound]

@@ -195,7 +195,8 @@
         "release-core/PaperB/OracleContract.lean",
         "release-core/PaperB/ActualSiblingEmitter.lean",
         "release-core/PaperB/DenseArcRecode.lean",
-        "release-core/PaperB/ExitGroupedFresh.lean"
+        "release-core/PaperB/ExitGroupedFresh.lean",
+        "release-core/PaperB/RamPredecessorWorker.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1499,6 +1500,14 @@
         "release-core/PaperB/ArcBuckets.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamPredecessorWorker.lean",
+      "local_imports": [
+        "release-core/PaperB/RamProgram.lean"
+      ],
+      "owner_role": "cost model",
       "admission": "ORACLE_CORE"
     }
   ],

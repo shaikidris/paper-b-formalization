@@ -471,9 +471,9 @@ Acceptance:
 
 - Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
 
-Lean checks that fixed RAM code blocks can be placed at new addresses without changing any successful execution or its exact instruction count. Whole-query linking remains open.
+The fixed read-only RAM binary-search worker's two branches are exact in nine steps per iteration and two for the final halt. The logarithmic run and top-level query composition remain in progress.
 
-Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json).
+Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json).
 
 <a id="ex54"></a>
 
