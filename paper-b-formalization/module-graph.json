@@ -221,7 +221,8 @@
         "release-core/PaperB/PrefixProbe.lean",
         "release-core/PaperB/PredecessorSearch.lean",
         "release-core/PaperB/PairLookup.lean",
-        "release-core/PaperB/ForestLayout.lean"
+        "release-core/PaperB/ForestLayout.lean",
+        "release-core/PaperB/ForestLayoutCost.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -552,6 +553,14 @@
         "release-core/PaperB/QuotientBudget.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestLayoutCost.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestLayout.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "base_commit": "b0c75f1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLayoutCost.lean",
+  "sha256": "43e69d05d058aaa881e03c440bfc937e2db2cb0e7b8f526628a1047826769d32",
+  "scope": "Under the child weight recurrence, a stack command removes one unit of potential. Sufficient fuel therefore drains the stack and executes exactly the initial potential on the existing executable traversal.",
+  "remaining": "Instantiate the recurrence on actual child buckets and prove the table contents."
+}

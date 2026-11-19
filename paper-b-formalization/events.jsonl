@@ -92,3 +92,4 @@
 {"at": "2026-11-19T21:05:17+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLayout", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dfs-array-builder/verification.json"}
 {"at": "2026-11-19T21:08:08+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CompactPaths", "tasks": ["EX1.1"], "evidence": "evidence/ex11-compact-paths/verification.json"}
 {"at": "2026-11-19T21:08:10+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingVertexBudget", "tasks": ["EX1.3"], "evidence": "evidence/ex13-vertex-budget/verification.json"}
+{"at": "2026-11-19T21:08:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLayoutCost", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dfs-stack-potential/verification.json"}

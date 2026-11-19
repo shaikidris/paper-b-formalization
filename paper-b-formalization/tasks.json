@@ -80,7 +80,8 @@
     "release-core/PaperB/FiniteSiblingBudget.lean": "dominator",
     "release-core/PaperB/ForestLayout.lean": "cuts",
     "release-core/PaperB/CompactPaths.lean": "graph",
-    "release-core/PaperB/SiblingVertexBudget.lean": "dominator"
+    "release-core/PaperB/SiblingVertexBudget.lean": "dominator",
+    "release-core/PaperB/ForestLayoutCost.lean": "cuts"
   },
   "milestones": [
     {
@@ -690,9 +691,10 @@
         "evidence/ex24-array-interval/verification.json",
         "evidence/ex24-predecessor-search/verification.json",
         "evidence/ex24-pair-lookup/verification.json",
-        "evidence/ex24-dfs-array-builder/verification.json"
+        "evidence/ex24-dfs-array-builder/verification.json",
+        "evidence/ex24-dfs-stack-potential/verification.json"
       ],
-      "progress": "Lean verifies exact predecessor cutoff, pair lookup and proper-loss query on a correct layout. A new executable DFS stack writes entry and exit arrays with verified per-step counts and sizes. Establish complete traversal and exact table values, then wire the sweep and costs.",
+      "progress": "Under the child weight recurrence, a stack command removes one unit of potential. Sufficient fuel therefore drains the stack and executes exactly the initial potential on the existing executable traversal. Instantiate the recurrence on actual child buckets and prove the table contents.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
