@@ -1,0 +1,11 @@
+{
+  "base_commit": "ad4253a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/CompactIds.lean",
+  "sha256": "322d7caaae95174d6a0305921a1ab228dfcda5f6286e89fbfb520e0a6f38c635",
+  "scope": "One-pass executable compact tables preserve order and are mutually inverse on precisely the marked IDs. The array size and candidate operation counts follow from the same scan.",
+  "remaining": "Translate and charge compact adjacency lists and all original failure/query cases."
+}

@@ -1,0 +1,11 @@
+'PaperB.CompactIds.scan_spec' depends on axioms: [propext]
+'PaperB.CompactIds.compact_spec' depends on axioms: [propext]
+'PaperB.CompactIds.compact_push_count' depends on axioms: [propext]
+'PaperB.CompactIds.scan_reciprocal' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactIds.compact_reciprocal' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactIds.scan_lookup_unmarked' depends on axioms: [propext]
+'PaperB.CompactIds.lookup_none_of_unmarked' depends on axioms: [propext]
+'PaperB.CompactIds.lookup_some_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactIds.lookup_exists_iff_marked' depends on axioms: [propext, Quot.sound]
+PaperB.CompactIds.lookup_exists_iff_marked : ∀ (marks : Array Bool) (i : Fin marks.size),
+  (∃ k, PaperB.CompactIds.lookup (PaperB.CompactIds.compact marks) i = some k) ↔ PaperB.CompactIds.marked marks i = true

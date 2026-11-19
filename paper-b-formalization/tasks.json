@@ -72,7 +72,8 @@
     "release-core/PaperB/QuotientArrays.lean": "dominator",
     "release-core/PaperB/SiblingEmissions.lean": "dominator",
     "release-core/PaperB/FiniteSiblingQuotient.lean": "dominator",
-    "release-core/PaperB/PairLookup.lean": "cuts"
+    "release-core/PaperB/PairLookup.lean": "cuts",
+    "release-core/PaperB/CompactIds.lean": "graph"
   },
   "milestones": [
     {
@@ -293,9 +294,10 @@
         "evidence/ex11-kahn-prefix/verification.json",
         "evidence/ex11-kahn-residual-graph/verification.json",
         "evidence/ex11-kahn-topological/verification.json",
-        "evidence/ex11-kahn-exact-counts/verification.json"
+        "evidence/ex11-kahn-exact-counts/verification.json",
+        "evidence/ex11-compact-id-maps/verification.json"
       ],
-      "progress": "The verified Kahn run produces the full topological order with n queue slots and exact n and m traversal counts. The checked reachability scan produces the exact marks. Complete compact IDs, compact adjacency and their operational bounds."
+      "progress": "Lean verifies the complete Kahn and reachability passes, plus the executable compact original-ID scan with inverse tables exactly on marked vertices. Compact adjacency and its query translation and costs remain open."
     },
     {
       "id": "EX1.2",

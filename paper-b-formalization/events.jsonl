@@ -83,3 +83,4 @@
 {"at": "2026-11-19T20:53:21+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FiniteSiblingQuotient", "tasks": ["EX1.3"], "evidence": "evidence/ex13-finite-sibling/verification.json"}
 {"at": "2026-11-19T20:53:24+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PairLookup", "tasks": ["EX2.4"], "evidence": "evidence/ex24-pair-lookup/verification.json"}
 {"at": "2026-11-19T20:58:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Kahn", "tasks": ["EX1.1"], "evidence": "evidence/ex11-kahn-exact-counts/verification.json"}
+{"at": "2026-11-19T20:58:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CompactIds", "tasks": ["EX1.1"], "evidence": "evidence/ex11-compact-id-maps/verification.json"}

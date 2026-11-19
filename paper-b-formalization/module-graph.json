@@ -191,7 +191,8 @@
         "release-core/PaperB/ReachScan.lean",
         "release-core/PaperB/Indegrees.lean",
         "release-core/PaperB/Kahn.lean",
-        "release-core/PaperB/PredecessorLCA.lean"
+        "release-core/PaperB/PredecessorLCA.lean",
+        "release-core/PaperB/CompactIds.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -473,6 +474,14 @@
         "release-core/PaperB/PrefixProbe.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/CompactIds.lean",
+      "local_imports": [
+        "release-core/PaperB/ReachScan.lean"
+      ],
+      "owner_role": "graph",
       "admission": "ORACLE_CORE"
     }
   ],
