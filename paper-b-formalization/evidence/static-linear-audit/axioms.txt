@@ -1,0 +1,4 @@
+'PaperB.StaticLinearHead.inverse_scatter_writes' depends on axioms: [propext, Quot.sound]
+'PaperB.StaticLinearHead.inverseOrder_eq_preorder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticLinearHead.head_writes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticLinearHead.valid' depends on axioms: [propext, Classical.choice, Quot.sound]

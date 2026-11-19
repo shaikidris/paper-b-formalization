@@ -143,7 +143,8 @@
     "release-core/PaperB/FusedJumpMaps.lean": "exit",
     "release-core/PaperB/GlobalSiblingEmitter.lean": "quotient",
     "release-core/PaperB/RetainedRouteProof.lean": "oracle",
-    "release-core/PaperB/DomFromOriginal.lean": "dominator"
+    "release-core/PaperB/DomFromOriginal.lean": "dominator",
+    "release-core/PaperB/StaticLinearHead.lean": "dominator"
   },
   "milestones": [
     {
@@ -612,9 +613,10 @@
         "evidence/ex16-static-head-words/verification.json",
         "evidence/ex16-child-interval-search/verification.json",
         "evidence/ex16-packed-static-layout/verification.json",
-        "evidence/actual-child-audit/verification.json"
+        "evidence/actual-child-audit/verification.json",
+        "evidence/static-linear-audit/verification.json"
       ],
-      "progress": "The actual ordinary-tree layout yields exact ordered child intervals, with each child emitted once. The packed records give the binary child search its required order and interval validity. The linear executable head input remains in progress."
+      "progress": "The actual static head sweep obtains its DFS order by scanning vertices and scattering once to their already computed entry ranks. Lean verifies exactly one scatter and one head write per vertex and exact static LCA input semantics. The actual ordinary record adapter is in progress."
     },
     {
       "id": "EX2.1",

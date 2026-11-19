@@ -257,7 +257,8 @@
         "release-core/PaperB/StaticChildLookup.lean",
         "release-core/PaperB/PackedStaticLayout.lean",
         "release-core/PaperB/ActualChildRanges.lean",
-        "release-core/PaperB/DomFromOriginal.lean"
+        "release-core/PaperB/DomFromOriginal.lean",
+        "release-core/PaperB/StaticLinearHead.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -1153,6 +1154,14 @@
         "release-core/PaperB/ArcBuckets.lean",
         "release-core/PaperB/Kahn.lean",
         "release-core/PaperB/JumpRegionInit.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticLinearHead.lean",
+      "local_imports": [
+        "release-core/PaperB/PackedStaticLayout.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

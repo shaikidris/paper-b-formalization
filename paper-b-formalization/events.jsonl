@@ -165,3 +165,4 @@
 {"at": "2026-11-19T22:38:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GlobalSiblingEmitter", "tasks": ["EX5.1"], "evidence": "evidence/global-sibling-audit/verification.json"}
 {"at": "2026-11-19T22:38:38+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RetainedRouteProof", "tasks": ["EX4.4"], "evidence": "evidence/retained-early-audit/verification.json"}
 {"at": "2026-11-19T22:41:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DomFromOriginal", "tasks": ["EX1.5"], "evidence": "evidence/dom-from-original-audit/verification.json"}
+{"at": "2026-11-19T22:41:20+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticLinearHead", "tasks": ["EX1.6"], "evidence": "evidence/static-linear-audit/verification.json"}

@@ -1,0 +1,11 @@
+{
+  "base_commit": "b95f68f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticLinearHead.lean",
+  "sha256": "bb18c020580aea28e284374bb5ba6a3c5ba8d896f4a0d23c3dc4a82bea9b1225",
+  "scope": "The static heavy-head sweep derives its order from the actual packed DFS entry column. One inverse scatter and one forward sweep each perform exactly one write per vertex, with one transient array and one list, and the resulting topology is exact.",
+  "remaining": "Wire the ordinary dominator records to this exact static phase and discharge the overall allocation and fixed-word accounting in EX5."
+}

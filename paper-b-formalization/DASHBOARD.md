@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.6](TASKS.md#ex16) — The actual ordinary-tree layout yields exact ordered child intervals, with each child emitted once. The packed records give the binary child search its required order and interval validity. The linear executable head input remains in progress.
+- [EX1.6](TASKS.md#ex16) — The actual static head sweep obtains its DFS order by scanning vertices and scattering once to their already computed entry ranks. Lean verifies exactly one scatter and one head write per vertex and exact static LCA input semantics. The actual ordinary record adapter is in progress.
 - [EX2.4](TASKS.md#ex24) — One actual forest insertion or reuse preserves the canonical embedding of occupied slots under exact local endpoint and allocation contracts. The executable sweep and concrete contracts remain in progress.
 - [EX4.2](TASKS.md#ex42) — The executable exit-map and target-base kernels account for at most two fresh-endpoint path reads per coordinate and every entering arc. Under valid earlier reads they compute the exact extrema of the set recurrence. Instantiate the typed action and read contracts on the actual forest, composed jump records and prior array entries.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.

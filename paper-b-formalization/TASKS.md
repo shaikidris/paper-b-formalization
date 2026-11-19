@@ -184,9 +184,9 @@ Acceptance:
 - Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.
 - Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget.
 
-The actual ordinary-tree layout yields exact ordered child intervals, with each child emitted once. The packed records give the binary child search its required order and interval validity. The linear executable head input remains in progress.
+The actual static head sweep obtains its DFS order by scanning vertices and scattering once to their already computed entry ranks. Lean verifies exactly one scatter and one head write per vertex and exact static LCA input semantics. The actual ordinary record adapter is in progress.
 
-Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json), [evidence/ex16-child-interval-search/verification.json](evidence/ex16-child-interval-search/verification.json), [evidence/ex16-packed-static-layout/verification.json](evidence/ex16-packed-static-layout/verification.json), [evidence/actual-child-audit/verification.json](evidence/actual-child-audit/verification.json).
+Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json), [evidence/ex16-child-interval-search/verification.json](evidence/ex16-child-interval-search/verification.json), [evidence/ex16-packed-static-layout/verification.json](evidence/ex16-packed-static-layout/verification.json), [evidence/actual-child-audit/verification.json](evidence/actual-child-audit/verification.json), [evidence/static-linear-audit/verification.json](evidence/static-linear-audit/verification.json).
 
 <a id="ex21"></a>
 
