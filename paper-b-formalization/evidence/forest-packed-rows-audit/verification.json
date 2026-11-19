@@ -1,0 +1,11 @@
+{
+  "base_commit": "8a975a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedRows.lean",
+  "sha256": "f2f79c09ff48efdd3d0444a624be709178d0930e5b4d6f498916198a5614710b",
+  "scope": "Convert the original occurrence row table and its stamped predecessor rows to arrays in linear work. Lean proves exact constant-index row contents and original occurrence multiplicities.",
+  "remaining": "Bind the packed row tables to the finite quotient builds and the executable sweep."
+}

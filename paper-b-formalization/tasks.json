@@ -149,7 +149,8 @@
     "release-core/PaperB/ForestWordLaws.lean": "cuts",
     "release-core/PaperB/BothReachableRoute.lean": "oracle",
     "release-core/PaperB/StaticFromDominators.lean": "dominator",
-    "release-core/PaperB/PhysicalExitModel.lean": "exit"
+    "release-core/PaperB/PhysicalExitModel.lean": "exit",
+    "release-core/PaperB/ForestPackedRows.lean": "cuts"
   },
   "milestones": [
     {
@@ -870,9 +871,10 @@
         "evidence/forest-embedding-step-audit/verification.json",
         "evidence/forest-canonical-audit/verification.json",
         "evidence/forest-word-audit/verification.json",
-        "evidence/forest-rank-members-audit/verification.json"
+        "evidence/forest-rank-members-audit/verification.json",
+        "evidence/forest-packed-rows-audit/verification.json"
       ],
-      "progress": "Lean checks the membership-only maximum predecessor and two-endpoint normalization identities needed to run the prepared head on stamped input rows.",
+      "progress": "Packed arrays supply constant-index access to exact stamped predecessor and raw occurrence rows after one linear conversion of each outer table.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

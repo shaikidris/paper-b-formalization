@@ -290,7 +290,8 @@
         "release-core/PaperB/ForestReady.lean",
         "release-core/PaperB/ForestEmbeddingStep.lean",
         "release-core/PaperB/ForestCanonicalLaws.lean",
-        "release-core/PaperB/ForestWordLaws.lean"
+        "release-core/PaperB/ForestWordLaws.lean",
+        "release-core/PaperB/ForestPackedRows.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1211,6 +1212,14 @@
         "release-core/PaperB/ExitKernels.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestPackedRows.lean",
+      "local_imports": [
+        "release-core/PaperB/DistinctPredecessors.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],
