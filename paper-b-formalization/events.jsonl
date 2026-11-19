@@ -192,3 +192,4 @@
 {"at": "2026-11-19T23:21:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticFromDominators", "tasks": ["EX4.4"], "evidence": "evidence/held-id-audit/verification.json"}
 {"at": "2026-11-19T23:21:18+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "MeasuredCutRange", "tasks": ["EX2.4"], "evidence": "evidence/measured-cut-audit/verification.json"}
 {"at": "2026-11-19T23:28:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticOracleTree", "tasks": ["EX4.4"], "evidence": "evidence/static-tree-held-audit/verification.json"}
+{"at": "2026-11-19T23:28:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestCompactFold", "tasks": ["EX2.4"], "evidence": "evidence/compact-loop-public-audit/verification.json"}

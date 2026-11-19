@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3542,
-      "sha256": "6585538ab367915dd9998b0ca752007d389645308a05557171aa1bb764e1bb06"
+      "bytes": 3475,
+      "sha256": "8d97ef60df84cf52e27291fb8b141521c3d38713539055732dd718be97a3cd11"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 45002,
-      "sha256": "2ee29bcf3619ff51e925431e59e80b4b225ee6b2e2d35305a69cd4da16cef501"
+      "bytes": 45045,
+      "sha256": "e3b28a4f4260307df44ddc51ebf1d16d6911868767b6460e33ab107100b92238"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 42410,
-      "sha256": "b7a90d8256ce4cf8c812eac2a43215eec42db2f3d379b4a6e69e04961862e0ad"
+      "bytes": 42607,
+      "sha256": "37f5f813c19260fbdb94db1ea0d3240d324a7261f72c9e436341307bf463d2da"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -220,6 +220,21 @@
       "path": "evidence/carbon-sweep-latest-member/verification.json",
       "bytes": 1226,
       "sha256": "00c00f11f7bdcb829f048ee613f5cdfe2e457683263f545b7fbb55e5652e4b18"
+    },
+    {
+      "path": "evidence/compact-loop-public-audit/Audit.lean",
+      "bytes": 122,
+      "sha256": "4d64b6f626f607e80efdc4552901fc732fb5ac300cd4600d72a6af8812510783"
+    },
+    {
+      "path": "evidence/compact-loop-public-audit/axioms.txt",
+      "bytes": 124,
+      "sha256": "4041dc9f9e9874e064155ec4722a47e4e8dd0758711bdfa59aac5f64e3348cd8"
+    },
+    {
+      "path": "evidence/compact-loop-public-audit/verification.json",
+      "bytes": 596,
+      "sha256": "73f87e7de20f7c985cf8c662be201c67533c2580107cdbaa5e81d5ee7da44545"
     },
     {
       "path": "evidence/dom-from-original-audit/Audit.lean",
@@ -3128,8 +3143,8 @@
     },
     {
       "path": "release-core/PaperB/ForestCompactFold.lean",
-      "bytes": 11600,
-      "sha256": "f2c63bc203f90b51fd088260aa489dcea83dc2d5c6b3c6098eb289c1f4988fb0"
+      "bytes": 11592,
+      "sha256": "3c53f529601144d21b63aa260a68b417aafb2dc04b638add9e51f756b9a238b9"
     },
     {
       "path": "release-core/PaperB/ForestEmbeddingStep.lean",
@@ -3673,8 +3688,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 63650,
-      "sha256": "2ea165f279f7927fadb8d1fbcb36dc195f7e535ce5ba1b51c3bd6c1bb51176f8"
+      "bytes": 63647,
+      "sha256": "89e3dce68f55f2cd111b3f576674d9ced93e1a0634d8a44d54ab7b9810b8c067"
     },
     {
       "path": "test_plan.py",

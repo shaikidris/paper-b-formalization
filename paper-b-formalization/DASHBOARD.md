@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Lean checks that the actual measured binary search returns a cut below its upper sentinel for any test predicate. This supplies the final pre-installation selected-depth range.
+- [EX2.4](TASKS.md#ex24) — The existing verified compact fold is exposed to the whole-run proof without duplicating the executable loop.
 - [EX4.2](TASKS.md#ex42) — The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The original static build now stores both ID directions as part of one reader and verifies translated physical dominance on that same stored tree.

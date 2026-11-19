@@ -38,7 +38,7 @@ abbrev Log (H : LabelledQuotient) := List (Event H)
 
 /-- The recursive call carries only the next state and the reversed event
 log. The final reversal restores the input row order. -/
-private def foldRowsAux {H : LabelledQuotient} (c : Config H)
+def foldRowsAux {H : LabelledQuotient} (c : Config H)
     (rank : Vertex H → Nat) :
     List (Row H) → State H → Log H → Option (State H × Log H)
   | [], s, rev => some (s, rev.reverse)
