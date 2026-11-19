@@ -133,7 +133,8 @@
         "release-core/PaperB/ActualJumpMaps.lean",
         "release-core/PaperB/LastExitPaper.lean",
         "release-core/PaperB/ExitKernels.lean",
-        "release-core/PaperB/FusedJumpMaps.lean"
+        "release-core/PaperB/FusedJumpMaps.lean",
+        "release-core/PaperB/GlobalSiblingEmitter.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1124,6 +1125,15 @@
         "release-core/PaperB/ActualJumpMaps.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/GlobalSiblingEmitter.lean",
+      "local_imports": [
+        "release-core/PaperB/ArcBuckets.lean",
+        "release-core/PaperB/ArcOwnerTotal.lean"
+      ],
+      "owner_role": "quotient",
       "admission": "ORACLE_CORE"
     }
   ],

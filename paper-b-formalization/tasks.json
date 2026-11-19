@@ -140,7 +140,8 @@
     "release-core/PaperB/OracleRuntimeProof.lean": "oracle",
     "release-core/PaperB/ActualChildRanges.lean": "dominator",
     "release-core/PaperB/ForestEmbeddingStep.lean": "cuts",
-    "release-core/PaperB/FusedJumpMaps.lean": "exit"
+    "release-core/PaperB/FusedJumpMaps.lean": "exit",
+    "release-core/PaperB/GlobalSiblingEmitter.lean": "quotient"
   },
   "milestones": [
     {
@@ -1162,9 +1163,10 @@
       "evidence": [
         "evidence/ex51-ram-trace-composition/verification.json",
         "evidence/ex51-linear-occurrence-buckets/verification.json",
-        "evidence/ex51-one-word-midpoint/verification.json"
+        "evidence/ex51-one-word-midpoint/verification.json",
+        "evidence/global-sibling-audit/verification.json"
       ],
-      "progress": "One standard right shift computes an unsigned half in the fixed word machine. Lean verifies the exact register, preserved fields and one-instruction trace. Use this in the fixed binary search and packed query lowering."
+      "progress": "The global sibling quotient emitter groups all retained original occurrences in one stable scan. Lean confirms exact row contents and lookup charges, without a graph scan per quotient. Wire the ordinary packed tree and fixed machine layouts."
     },
     {
       "id": "EX5.2",

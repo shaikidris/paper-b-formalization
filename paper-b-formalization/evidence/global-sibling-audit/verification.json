@@ -1,0 +1,11 @@
+{
+  "base_commit": "db2f100",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/GlobalSiblingEmitter.lean",
+  "sha256": "6b3cea50b2b24db44d732c2181eff3ac7cedf92e53ac45039d828d244f472956",
+  "scope": "One sweep of original retained arc occurrences computes all sibling quotient buckets, preserving their exact original-tail labels, multiplicities and row order, with a bounded number of static child lookups per occurrence.",
+  "remaining": "Provide actual packed ordinary-tree getters, combine vertex and edge tables, and lower all allocation and lookup charges to the fixed arena machine."
+}
