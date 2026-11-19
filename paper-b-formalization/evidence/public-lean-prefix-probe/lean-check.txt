@@ -1,0 +1,2 @@
+PrefixProbe.search_count_le (p : Nat → Bool) (fuel lo hi : Nat) : (PrefixProbe.search p fuel lo hi).snd ≤ fuel
+'PrefixProbe.search_count_le' depends on axioms: [propext, Quot.sound]
