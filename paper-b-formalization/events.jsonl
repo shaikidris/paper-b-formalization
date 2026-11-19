@@ -101,3 +101,4 @@
 {"at": "2026-11-19T21:13:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitNonempty", "tasks": ["EX1.4"], "evidence": "evidence/ex14-both-exits/verification.json"}
 {"at": "2026-11-19T21:13:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DecreasingDAG", "tasks": ["EX1.1"], "evidence": "evidence/ex11-decreasing-paths/verification.json"}
 {"at": "2026-11-19T21:13:17+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Jumps", "tasks": ["EX2.3"], "evidence": "evidence/ex23-jump-kernel-audit/verification.json"}
+{"at": "2026-11-19T21:19:09+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "KahnDecreasing", "tasks": ["EX1.1"], "evidence": "evidence/ex11-accept-normalization/verification.json"}

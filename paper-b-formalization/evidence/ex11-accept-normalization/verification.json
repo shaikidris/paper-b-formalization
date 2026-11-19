@@ -1,0 +1,11 @@
+{
+  "base_commit": "54bd61e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/KahnDecreasing.lean",
+  "sha256": "3535852233ab3da9738ece65e5ea01b667b5f1987838811c3dc9319f0c7b68cd",
+  "scope": "Actual Kahn-order inversion validates the decreasing-index graph adapter and charges one order read and rank write per vertex, preserving parallel occurrence counts.",
+  "remaining": "The normalized graph and its exact semantics are accepted. The later machine compilation and oracle-wide resource accounting remain separate."
+}

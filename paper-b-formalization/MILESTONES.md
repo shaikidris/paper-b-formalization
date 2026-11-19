@@ -18,11 +18,11 @@ Work packages: 3; planning audits complete: 1; verified proof packages: 2.
 
 Prove the semantic quotient and last-exit results. Supply costed dominator and static tree indices for the executable branch.
 
-Work packages: 6; planning audits complete: 0; verified proof packages: 0.
+Work packages: 6; planning audits complete: 0; verified proof packages: 1.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
-| [EX1.1](TASKS.md#ex11) — Normalize original vertices and failure sets | graph | IN_PROGRESS | EX0.2 |
+| [EX1.1](TASKS.md#ex11) — Normalize original vertices and failure sets | graph | VERIFIED | EX0.2 |
 | [EX1.2](TASKS.md#ex12) — Characterize the ordinary dominator tree | dominator | IN_PROGRESS | EX1.1 |
 | [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | IN_PROGRESS | EX1.2 |
 | [EX1.4](TASKS.md#ex14) — Characterize partial-block reachability | dominator | IN_PROGRESS | EX1.3 |

@@ -89,14 +89,31 @@ def validate_records(data, coverage, obligations, external):
     need(len(entries) == len(coverage["entries"]) == data["manuscript"]["expected_numbered_items"], "wrong active manuscript inventory size")
     need(sum(e["kind"] == "Question" for e in entries.values()) == 1, "expected one open question")
     validate_statement_graph(entries)
+    for tid in ids:
+        for dep in index[tid]["dependencies"]:
+            need(dep in index, f"{tid}: unknown dependency {dep}")
+
+    visiting, visited = set(), set()
+
+    def visit(tid):
+        need(tid not in visiting, f"dependency cycle at {tid}")
+        if tid in visited:
+            return
+        visiting.add(tid)
+        for dep in index[tid]["dependencies"]:
+            visit(dep)
+        visiting.remove(tid)
+        visited.add(tid)
+
+    for tid in ids:
+        visit(tid)
+
     for t in tasks:
         tid = t["id"]
         need(t["milestone"] in mids, f"{tid}: unknown milestone")
         need(t["status"] in STATUSES, f"{tid}: unknown task status")
         need(t["acceptance"] and t["obligation"], f"{tid}: missing acceptance contract")
         need(t["owner_role"] == data["module_owners"].get(t["planned_owner_module"]), f"{tid}: module owner conflict")
-        for dep in t["dependencies"]:
-            need(dep in index, f"{tid}: unknown dependency {dep}")
         for consumer in t["paper_consumers"]:
             need(consumer in entries and tid in entries[consumer]["tasks"], f"{tid}: unknown paper consumer {consumer}")
             need(consumer != "6.2", f"{tid}: open question must not be a proof consumer")
@@ -110,19 +127,6 @@ def validate_records(data, coverage, obligations, external):
             need(t["proof_status"] == "CERTIFIED", f"{tid}: verified proof status mismatch")
         if t["status"] in {"READY", "VERIFIED", "DONE_PLAN"}:
             need(all(index[d]["status"] in CLOSED for d in t["dependencies"]), f"{tid}: incomplete dependencies for {t['status']}")
-    visiting, visited = set(), set()
-
-    def visit(tid):
-        need(tid not in visiting, f"dependency cycle at {tid}")
-        if tid in visited:
-            return
-        visiting.add(tid)
-        for dep in index[tid]["dependencies"]:
-            visit(dep)
-        visiting.remove(tid)
-        visited.add(tid)
-    for tid in ids:
-        visit(tid)
     for e in entries.values():
         need(e["formal_status"] in {"OPEN_RESEARCH", "NOT_CERTIFIED", "CERTIFIED"}, f"{e['id']}: unknown formal status")
         if e["kind"] == "Question":

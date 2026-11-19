@@ -1,0 +1,6 @@
+'PaperB.KahnDecreasing.kahn_inverse_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.KahnDecreasing.kahn_path_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.KahnDecreasing.kahn_parallel_child_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Decreasing.ValidOrder.survivingPath_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Normalization.normalized_survivingPath_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Normalization.normalization_counts' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -12,14 +12,13 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Completed and remaining
 
-- Completed work packages **4/27**. Planning audits **1** and verified proof packages **3**.
-- Remaining work packages **23**. 12 in progress, 11 planned.
+- Completed work packages **5/27**. Planning audits **1** and verified proof packages **4**.
+- Remaining work packages **22**. 11 in progress, 11 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — Lean verifies end-to-end compact query normalization and phase counts. The standalone decreasing-index ReachAvoid representation has exact path and row equivalence for supplied Kahn-order maps. Actual map construction awaits verification.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case.
@@ -31,6 +30,10 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX3.2](TASKS.md#ex32) — Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
 - [EX3.3](TASKS.md#ex33) — Lean now instantiates exit transfer on the actual Fin-labelled sibling quotient built from original DAG arcs. It carries the exact physical tail. Figure 1 replays. Whole task and paper-statement acceptance await EX1.3 and EX2 evidence and the dependent task checklist.
 - [EX4.1](TASKS.md#ex41) — Lean verifies two-coordinate map composition and interval joins. Computed rank summaries compose over concatenation, and their endpoint test is equivalent to all listed tail ranks lying in the half-open subtree interval, with an explicit empty case. Integration with stored exit tails and bounded word accounting remain open.
+
+## Ready to start
+
+- EX6.1 — Prove the guarded-path and shrinking-witness equivalence.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

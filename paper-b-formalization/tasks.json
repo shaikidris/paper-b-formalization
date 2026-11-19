@@ -88,7 +88,8 @@
     "release-core/PaperB/PartialBlock.lean": "dominator",
     "release-core/PaperB/Normalization.lean": "graph",
     "release-core/PaperB/ExitNonempty.lean": "dominator",
-    "release-core/PaperB/DecreasingDAG.lean": "graph"
+    "release-core/PaperB/DecreasingDAG.lean": "graph",
+    "release-core/PaperB/KahnDecreasing.lean": "graph"
   },
   "milestones": [
     {
@@ -290,8 +291,8 @@
         "2.1",
         "2.2"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Define reachability, source deletion, zero-length paths, repeated failures, unreachable vertices, and parallel input arcs.",
       "acceptance": [
@@ -316,9 +317,17 @@
         "evidence/ex11-compact-failures/verification.json",
         "evidence/ex11-compact-counts/verification.json",
         "evidence/ex11-query-normalization/verification.json",
-        "evidence/ex11-decreasing-paths/verification.json"
+        "evidence/ex11-decreasing-paths/verification.json",
+        "evidence/ex11-accept-normalization/verification.json"
       ],
-      "progress": "Lean verifies end-to-end compact query normalization and phase counts. The standalone decreasing-index ReachAvoid representation has exact path and row equivalence for supplied Kahn-order maps. Actual map construction awaits verification."
+      "progress": "Actual Kahn-order inversion validates the decreasing-index graph adapter and charges one order read and rank write per vertex, preserving parallel occurrence counts. The normalized graph and its exact semantics are accepted. The later machine compilation and oracle-wide resource accounting remain separate.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex11-accept-normalization/verification.json",
+        "axioms": "evidence/ex11-accept-normalization/axioms.txt",
+        "fidelity": "evidence/ex11-accept-normalization/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX1.2",
