@@ -1,0 +1,11 @@
+{
+  "base_commit": "8a975a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PhysicalExitModel.lean",
+  "sha256": "32f8ce37d8132189e9a44a2c51ebfadf413e94faa2981ee83ad00e96374a22e5",
+  "scope": "The exact physical sibling occurrences and the certified real-edge transfer instantiate the exit-kernel model. Its incoming reader has a row-wise occurrence contract so the executable path can use the global packed rows without reference scans.",
+  "remaining": "Instantiate the actual incoming row membership and real-edge identities, then connect typed earlier base/map readers and indexed chronology."
+}

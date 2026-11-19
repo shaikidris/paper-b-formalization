@@ -148,7 +148,8 @@
     "release-core/PaperB/ForestCanonicalLaws.lean": "cuts",
     "release-core/PaperB/ForestWordLaws.lean": "cuts",
     "release-core/PaperB/BothReachableRoute.lean": "oracle",
-    "release-core/PaperB/StaticFromDominators.lean": "dominator"
+    "release-core/PaperB/StaticFromDominators.lean": "dominator",
+    "release-core/PaperB/PhysicalExitModel.lean": "exit"
   },
   "milestones": [
     {
@@ -1078,9 +1079,10 @@
         "evidence/ex42-actual-seeds/verification.json",
         "evidence/ex42-incoming-tails/verification.json",
         "evidence/ex42-topological-array-sweep/verification.json",
-        "evidence/ex42-exact-exit-kernels/verification.json"
+        "evidence/ex42-exact-exit-kernels/verification.json",
+        "evidence/physical-exit-audit/verification.json"
       ],
-      "progress": "The executable exit-map and target-base kernels account for at most two fresh-endpoint path reads per coordinate and every entering arc. Under valid earlier reads they compute the exact extrema of the set recurrence. Instantiate the typed action and read contracts on the actual forest, composed jump records and prior array entries."
+      "progress": "The physical sibling quotient and certified real-edge transfer now instantiate the exit-kernel model. Exact incoming and installed-edge array refinements and indexed chronology remain in progress."
     },
     {
       "id": "EX4.3",

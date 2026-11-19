@@ -136,7 +136,8 @@
         "release-core/PaperB/FusedJumpMaps.lean",
         "release-core/PaperB/GlobalSiblingEmitter.lean",
         "release-core/PaperB/RetainedRouteProof.lean",
-        "release-core/PaperB/BothReachableRoute.lean"
+        "release-core/PaperB/BothReachableRoute.lean",
+        "release-core/PaperB/PhysicalExitModel.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1201,6 +1202,15 @@
         "release-core/PaperB/PackedStaticLayout.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PhysicalExitModel.lean",
+      "local_imports": [
+        "release-core/PaperB/FiniteSiblingFlat.lean",
+        "release-core/PaperB/ExitKernels.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],
