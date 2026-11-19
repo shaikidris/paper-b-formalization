@@ -1,0 +1,9 @@
+'PaperB.Digraph.initiallyReachable_of_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.rank_lt_of_strict_dominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.dominates_of_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.dominators_comparable' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.dominators_comparable : ∀ {g : PaperB.Digraph} {r a b v : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat},
+  (∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y) →
+    (∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) →
+      g.InitiallyReachable r v → g.Dominates r a v → g.Dominates r b v → g.Dominates r a b ∨ g.Dominates r b a

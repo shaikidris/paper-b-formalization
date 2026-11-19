@@ -43,7 +43,8 @@
     "release-core/PaperB/ForestIntervals.lean": "cuts",
     "release-core/PaperB/PrefixProbe.lean": "cuts",
     "release-core/PaperB/ForestIntervalQuery.lean": "cuts",
-    "release-core/PaperB/OracleContract.lean": "contract"
+    "release-core/PaperB/OracleContract.lean": "contract",
+    "release-core/PaperB/DominatorChain.lean": "dominator"
   },
   "milestones": [
     {
@@ -274,9 +275,10 @@
         "This semantic result supplies the labelled quotient independently of machine code."
       ],
       "evidence": [
-        "evidence/ex12-dominator-predecessors/verification.json"
+        "evidence/ex12-dominator-predecessors/verification.json",
+        "evidence/ex12-dominator-chain/verification.json"
       ],
-      "progress": "Lean verifies the semantic dominance laws and its exact recurrence at a nonsource, nonfailed endpoint over initially reachable predecessors. The immediate-dominator tree construction and coincident ancestry relation remain open."
+      "progress": "Lean verifies the reachable-predecessor recurrence, reachability of every dominator of a reachable vertex, strict rank separation, and comparability under an injective topological rank. Immediate-dominator existence and tree ancestry equivalence remain open."
     },
     {
       "id": "EX1.3",

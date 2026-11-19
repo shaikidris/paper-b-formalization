@@ -1,0 +1,11 @@
+{
+  "base_commit": "99d426a995f94d11e04b08992ecb36ad6edf1313",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DominatorChain.lean",
+  "sha256": "8980f20d8ddc4fb48a16dd333655b152035ded69b8c36d6f46b8722d461150ad",
+  "scope": "On a reachable vertex of a topologically ranked DAG, every dominator is reachable, strict dominance implies strict rank order, and the dominators are comparable under injective rank.",
+  "remaining": "Establish a unique strongest strict dominator and prove that semantic dominance equals ancestry in the resulting tree."
+}

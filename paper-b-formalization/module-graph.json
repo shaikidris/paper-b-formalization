@@ -164,7 +164,8 @@
       "path": "release-core/PaperB/DomBuild.lean",
       "local_imports": [
         "release-core/PaperB/Dom.lean",
-        "release-core/PaperB/Jumps.lean"
+        "release-core/PaperB/Jumps.lean",
+        "release-core/PaperB/DominatorChain.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -209,6 +210,14 @@
         "release-core/Challenge.lean"
       ],
       "owner_role": "contract",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DominatorChain.lean",
+      "local_imports": [
+        "release-core/PaperB/Dom.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],
