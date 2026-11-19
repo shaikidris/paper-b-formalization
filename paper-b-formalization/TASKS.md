@@ -171,7 +171,7 @@ Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](
 
 ## EX1.6 — Implement static tree intervals, child lookup and LCA
 
-- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, cost model; assigned worker: unassigned.
 - Dependencies: EX1.2, EX0.3.
 - Proposed owner module: `release-core/PaperB/TreeIndex.lean`.
@@ -183,6 +183,10 @@ Acceptance:
 
 - Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.
 - Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget.
+
+The executable heavy-child scan selects the first maximum under a supplied constant-time subtree-size getter. Lean verifies exact comparison and read counts, disjoint child subtrees, and the strict halving bound for every light edge. Build the actual heavy-path index and connect its scan and query charges.
+
+Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json).
 
 <a id="ex21"></a>
 

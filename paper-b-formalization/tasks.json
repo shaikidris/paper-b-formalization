@@ -95,7 +95,8 @@
     "release-core/PaperB/ThirdBlockForward.lean": "dominator",
     "release-core/PaperB/JumpLCA.lean": "dominator",
     "release-core/PaperB/ThirdBlockLift.lean": "dominator",
-    "release-core/PaperB/SemanticLCA.lean": "dominator"
+    "release-core/PaperB/SemanticLCA.lean": "dominator",
+    "release-core/PaperB/HeavyChild.lean": "dominator"
   },
   "milestones": [
     {
@@ -517,7 +518,7 @@
         "1.1",
         "5.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "resource bound",
       "obligation": "Construct inclusive subtree intervals, ordered child ranges and a heavy-path index on the actual ordinary tree.",
@@ -525,7 +526,10 @@
         "Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.",
         "Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex16-heavy-child/verification.json"
+      ],
+      "progress": "The executable heavy-child scan selects the first maximum under a supplied constant-time subtree-size getter. Lean verifies exact comparison and read counts, disjoint child subtrees, and the strict halving bound for every light edge. Build the actual heavy-path index and connect its scan and query charges."
     },
     {
       "id": "EX2.1",

@@ -219,7 +219,8 @@
       "path": "release-core/PaperB/TreeIndex.lean",
       "local_imports": [
         "release-core/PaperB/Dom.lean",
-        "release-core/PaperB/Machine.lean"
+        "release-core/PaperB/Machine.lean",
+        "release-core/PaperB/HeavyChild.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -694,6 +695,14 @@
       "path": "release-core/PaperB/SemanticLCA.lean",
       "local_imports": [
         "release-core/PaperB/TopologicalRank.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/HeavyChild.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestIntervals.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

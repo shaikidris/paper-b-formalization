@@ -27,7 +27,7 @@ Work packages: 6; planning audits complete: 0; verified proof packages: 2.
 | [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | IN_PROGRESS | EX1.2 |
 | [EX1.4](TASKS.md#ex14) — Characterize partial-block reachability | dominator | IN_PROGRESS | EX1.3 |
 | [EX1.5](TASKS.md#ex15) — Construct the ordinary dominator tree within the oracle budget | dominator | IN_PROGRESS | EX1.2, EX0.3, EX2.3 |
-| [EX1.6](TASKS.md#ex16) — Implement static tree intervals, child lookup and LCA | dominator | PLANNED | EX1.2, EX0.3 |
+| [EX1.6](TASKS.md#ex16) — Implement static tree intervals, child lookup and LCA | dominator | IN_PROGRESS | EX1.2, EX0.3 |
 
 ## EX2 — Build the forest of effective separating pairs
 

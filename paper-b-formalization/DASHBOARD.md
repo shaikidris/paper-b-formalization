@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **8/27**. Planning audits **1** and verified proof packages **7**.
-- Remaining work packages **19**. 8 in progress, 11 planned.
+- Remaining work packages **19**. 9 in progress, 10 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -22,6 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — Actual finite sibling quotient paths avoiding both failure blocks lift to original surviving paths. A reachable labelled exit tail with a clean continuation also lifts, including a direct last exit. Specialize the forward path decomposition on the same encoded quotient and pass the selected tails to the LCA test.
 - [EX1.5](TASKS.md#ex15) — The executable growing-tree LCA query refines the greatest common ancestor of any two existing nodes, preserves answers after leaf insertion, and charges the probes, records and word reads. Build the actual topological predecessor fold and lower its whole execution to the sealed machine.
+- [EX1.6](TASKS.md#ex16) — The executable heavy-child scan selects the first maximum under a supplied constant-time subtree-size getter. Lean verifies exact comparison and read counts, disjoint child subtrees, and the strict halving bound for every light edge. Build the actual heavy-path index and connect its scan and query charges.
 - [EX2.4](TASKS.md#ex24) — The executable DFS run pops exactly its complete event list when fuel suffices. The actual array entries agree with their last stamped trace event. Instantiate a complete ordered DFS trace with the exact preorder and subtree intervals.
 - [EX3.1](TASKS.md#ex31) — Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.
 - [EX3.2](TASKS.md#ex32) — Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
@@ -30,7 +31,6 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Ready to start
 
-- EX1.6 — Implement static tree intervals, child lookup and LCA.
 - EX6.1 — Prove the guarded-path and shrinking-witness equivalence.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).

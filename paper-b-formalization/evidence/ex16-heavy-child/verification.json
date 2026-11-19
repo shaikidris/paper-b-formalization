@@ -1,0 +1,11 @@
+{
+  "base_commit": "f574c96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/HeavyChild.lean",
+  "sha256": "93d402de2cc9ae1986160040d502355e233b79aa600ef3e10336336a6292a080",
+  "scope": "The executable heavy-child scan selects the first maximum under a supplied constant-time subtree-size getter. Lean verifies exact comparison and read counts, disjoint child subtrees, and the strict halving bound for every light edge.",
+  "remaining": "Build the actual heavy-path index and connect its scan and query charges."
+}

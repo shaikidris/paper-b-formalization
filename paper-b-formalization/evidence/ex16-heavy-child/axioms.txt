@@ -1,0 +1,4 @@
+'ForestHeavyPath.heavyScan_counts' depends on axioms: [propext, Quot.sound]
+'ForestHeavyPath.heavyScan_best_spec' depends on axioms: [propext, Quot.sound]
+'ForestHeavyPath.light_edge_subtree_halves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ForestHeavyPath.light_edge_measure' depends on axioms: [propext, Classical.choice, Quot.sound]
