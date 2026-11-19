@@ -92,7 +92,8 @@
     "release-core/PaperB/KahnDecreasing.lean": "graph",
     "release-core/PaperB/CommonAncestorSearch.lean": "dominator",
     "release-core/PaperB/ForestLayoutTrace.lean": "cuts",
-    "release-core/PaperB/ThirdBlockForward.lean": "dominator"
+    "release-core/PaperB/ThirdBlockForward.lean": "dominator",
+    "release-core/PaperB/JumpLCA.lean": "dominator"
   },
   "milestones": [
     {
@@ -481,9 +482,10 @@
       ],
       "evidence": [
         "evidence/ex15-predecessor-lca/verification.json",
-        "evidence/ex15-common-depth-search/verification.json"
+        "evidence/ex15-common-depth-search/verification.json",
+        "evidence/ex15-growing-lca/verification.json"
       ],
-      "progress": "Lean verifies the predecessor-LCA characterization and the logarithmic deepest-common-depth search. Jump getter instantiation, topological fold and whole-constructor costs remain open."
+      "progress": "The executable growing-tree LCA query refines the greatest common ancestor of any two existing nodes, preserves answers after leaf insertion, and charges the probes, records and word reads. Build the actual topological predecessor fold and lower its whole execution to the sealed machine."
     },
     {
       "id": "EX1.6",

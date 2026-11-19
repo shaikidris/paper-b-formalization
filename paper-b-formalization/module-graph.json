@@ -207,7 +207,8 @@
         "release-core/PaperB/Normalization.lean",
         "release-core/PaperB/DecreasingDAG.lean",
         "release-core/PaperB/KahnDecreasing.lean",
-        "release-core/PaperB/CommonAncestorSearch.lean"
+        "release-core/PaperB/CommonAncestorSearch.lean",
+        "release-core/PaperB/JumpLCA.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -666,6 +667,15 @@
       "path": "release-core/PaperB/ThirdBlockForward.lean",
       "local_imports": [
         "release-core/PaperB/BlockProjection.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/JumpLCA.lean",
+      "local_imports": [
+        "release-core/PaperB/CommonAncestorSearch.lean",
+        "release-core/PaperB/Jumps.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

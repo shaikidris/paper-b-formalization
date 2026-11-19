@@ -107,3 +107,4 @@
 {"at": "2026-11-19T21:21:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Forest", "tasks": ["EX2.2"], "evidence": "evidence/ex22-forest-invariant-audit/verification.json"}
 {"at": "2026-11-19T21:22:01+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLayoutTrace", "tasks": ["EX2.4"], "evidence": "evidence/ex24-actual-trace-refinement/verification.json"}
 {"at": "2026-11-19T21:22:03+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ThirdBlockForward", "tasks": ["EX1.4"], "evidence": "evidence/ex14-forward-last-exit/verification.json"}
+{"at": "2026-11-19T21:23:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "JumpLCA", "tasks": ["EX1.5"], "evidence": "evidence/ex15-growing-lca/verification.json"}

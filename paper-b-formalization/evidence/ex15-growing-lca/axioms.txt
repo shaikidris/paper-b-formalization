@@ -1,0 +1,4 @@
+'PaperB.JumpForestCommonAncestor.query_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.JumpForestCommonAncestor.old_wordQuery' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.JumpForestCommonAncestor.wordQuery_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.JumpForestCommonAncestor.word_query_charges' depends on axioms: [propext, Classical.choice, Quot.sound]

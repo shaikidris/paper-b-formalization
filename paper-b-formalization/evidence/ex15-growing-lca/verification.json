@@ -1,0 +1,11 @@
+{
+  "base_commit": "9f25e91",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/JumpLCA.lean",
+  "sha256": "6c958e759d24d147a7268a18edc9aa902ff22a896ab76bd7ba12ae1aa0c0ac03",
+  "scope": "The executable growing-tree LCA query refines the greatest common ancestor of any two existing nodes, preserves answers after leaf insertion, and charges the probes, records and word reads.",
+  "remaining": "Build the actual topological predecessor fold and lower its whole execution to the sealed machine."
+}
