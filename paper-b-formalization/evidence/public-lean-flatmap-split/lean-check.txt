@@ -1,0 +1,3 @@
+flatMap_split_at_mem {α β : Type} (f : α → List β) {xs : List α} {x : α} (hx : x ∈ xs) :
+  ∃ before after, List.flatMap f xs = before ++ f x ++ after
+'flatMap_split_at_mem' depends on axioms: [propext]

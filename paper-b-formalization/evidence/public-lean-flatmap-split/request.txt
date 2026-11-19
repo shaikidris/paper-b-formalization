@@ -1,0 +1,5 @@
+Write one standalone Lean 4.35.0-rc3 file importing Std. Prove this standard list fact with core/Std lemmas and no Mathlib, sorry, axioms or execution commands. Return only the Lean file. Prefer a short proof using decomposition of a list at a member and List.flatMap_append.
+
+theorem flatMap_split_at_mem {α β : Type} (f : α → List β)
+    {xs : List α} {x : α} (hx : x ∈ xs) :
+    ∃ before after : List β, xs.flatMap f = before ++ f x ++ after := by
