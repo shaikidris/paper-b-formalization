@@ -1,0 +1,11 @@
+{
+  "base_commit": "7029c62",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestOrderedReader.lean",
+  "sha256": "4dbe511388e018d86c77b49e119a8f11c02d25e375a538e338d2e8cdc39206bb",
+  "scope": "The executable packed sweep now builds its final DFS index. For every quotient target and cut key, its actual Boolean lookup is true exactly for ordered cuts that cause proper loss.",
+  "remaining": "Finish exact local dictionary/build/workspace charges and assemble the complete quotient and top-level oracle."
+}

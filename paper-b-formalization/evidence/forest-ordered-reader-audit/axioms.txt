@@ -1,0 +1,2 @@
+'PaperB.runOrderedReader' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.OrderedReaderResult.contains_true_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

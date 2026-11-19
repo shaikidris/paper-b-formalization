@@ -174,7 +174,8 @@
     "release-core/PaperB/ForestPhysicalIntervals.lean": "cuts",
     "release-core/PaperB/ForestEventChronology.lean": "exit",
     "release-core/PaperB/ForestSiteDepth.lean": "cuts",
-    "release-core/PaperB/ActualSiblingEmitter.lean": "quotient"
+    "release-core/PaperB/ActualSiblingEmitter.lean": "quotient",
+    "release-core/PaperB/ForestOrderedReader.lean": "cuts"
   },
   "milestones": [
     {
@@ -920,9 +921,10 @@
         "evidence/forest-measured-work-audit/verification.json",
         "evidence/forest-physical-intervals-audit/verification.json",
         "evidence/forest-site-depth-audit/verification.json",
-        "evidence/forest-real-prefix-audit/verification.json"
+        "evidence/forest-real-prefix-audit/verification.json",
+        "evidence/forest-ordered-reader-audit/verification.json"
       ],
-      "progress": "The proof now exposes the exact physical prefix invariant and predecessor-test specification at every step of the successful packed sweep. The next resource proof can use these without an external per-head assumption.",
+      "progress": "The actual ordered packed sweep now builds the exact physical DFS reader and proves membership for every ordered pair and target. Verified local prefix premises support the remaining exact word-time and workspace proof.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
