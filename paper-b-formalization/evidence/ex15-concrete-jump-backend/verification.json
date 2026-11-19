@@ -1,0 +1,11 @@
+{
+  "base_commit": "2928b5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ConcreteDomOps.lean",
+  "sha256": "f832daf25e2cae650f613dd410515a6255682067828b8b0f59f0f3217df1ab08",
+  "scope": "The executable dominator step uses the actual packed jump-region implementation. Lean verifies correct prefix ancestry, the fresh leaf ancestor law and array-backed folding and insertion.",
+  "remaining": "Build the initialized word region and run the concrete step over the full Kahn order."
+}

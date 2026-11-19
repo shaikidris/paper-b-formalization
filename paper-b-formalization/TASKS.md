@@ -163,9 +163,9 @@ Acceptance:
 - Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.
 - For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established.
 
-Lean verifies the actual dominator construction step using the previously checked predecessor-fold semantics. The concrete JumpOps backend and end-to-end scan remain.
+The executable dominator step uses the actual packed jump-region implementation. Lean verifies correct prefix ancestry, the fresh leaf ancestor law and array-backed folding and insertion. Build the initialized word region and run the concrete step over the full Kahn order.
 
-Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json), [evidence/ex15-growing-lca/verification.json](evidence/ex15-growing-lca/verification.json), [evidence/ex15-predecessor-fold/verification.json](evidence/ex15-predecessor-fold/verification.json), [evidence/ex15-dominator-step/verification.json](evidence/ex15-dominator-step/verification.json).
+Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json), [evidence/ex15-growing-lca/verification.json](evidence/ex15-growing-lca/verification.json), [evidence/ex15-predecessor-fold/verification.json](evidence/ex15-predecessor-fold/verification.json), [evidence/ex15-dominator-step/verification.json](evidence/ex15-dominator-step/verification.json), [evidence/ex15-concrete-jump-backend/verification.json](evidence/ex15-concrete-jump-backend/verification.json).
 
 <a id="ex16"></a>
 

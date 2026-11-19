@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX1.4](TASKS.md#ex14) — At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks. Bundle these facts with the branch lemmas over all original targets.
-- [EX1.5](TASKS.md#ex15) — Lean verifies the actual dominator construction step using the previously checked predecessor-fold semantics. The concrete JumpOps backend and end-to-end scan remain.
+- [EX1.5](TASKS.md#ex15) — The executable dominator step uses the actual packed jump-region implementation. Lean verifies correct prefix ancestry, the fresh leaf ancestor law and array-backed folding and insertion. Build the initialized word region and run the concrete step over the full Kahn order.
 - [EX1.6](TASKS.md#ex16) — The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings. Construct and verify the actual head table and static child interval lookup.
 - [EX2.4](TASKS.md#ex24) — The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.
 - [EX4.2](TASKS.md#ex42) — Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant.

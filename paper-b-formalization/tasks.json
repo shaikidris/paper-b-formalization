@@ -118,7 +118,8 @@
     "release-core/PaperB/ForestHead.lean": "cuts",
     "extensions/GuardedWitness.lean": "application",
     "release-core/PaperB/ExitMapRetention.lean": "oracle",
-    "release-core/PaperB/JumpMapFold.lean": "oracle"
+    "release-core/PaperB/JumpMapFold.lean": "oracle",
+    "release-core/PaperB/ConcreteDomOps.lean": "dominator"
   },
   "milestones": [
     {
@@ -530,9 +531,10 @@
         "evidence/ex15-common-depth-search/verification.json",
         "evidence/ex15-growing-lca/verification.json",
         "evidence/ex15-predecessor-fold/verification.json",
-        "evidence/ex15-dominator-step/verification.json"
+        "evidence/ex15-dominator-step/verification.json",
+        "evidence/ex15-concrete-jump-backend/verification.json"
       ],
-      "progress": "Lean verifies the actual dominator construction step using the previously checked predecessor-fold semantics. The concrete JumpOps backend and end-to-end scan remain."
+      "progress": "The executable dominator step uses the actual packed jump-region implementation. Lean verifies correct prefix ancestry, the fresh leaf ancestor law and array-backed folding and insertion. Build the initialized word region and run the concrete step over the full Kahn order."
     },
     {
       "id": "EX1.6",
