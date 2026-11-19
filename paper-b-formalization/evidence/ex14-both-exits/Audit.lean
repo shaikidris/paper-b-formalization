@@ -1,0 +1,3 @@
+import PaperB.ExitNonempty
+
+#print axioms PaperB.LabelledQuotient.properLoss_both_exitTailMem_nonempty_of_flat_acyclic

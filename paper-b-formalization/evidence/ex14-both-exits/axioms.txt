@@ -1,0 +1,1 @@
+'PaperB.LabelledQuotient.properLoss_both_exitTailMem_nonempty_of_flat_acyclic' does not depend on any axioms

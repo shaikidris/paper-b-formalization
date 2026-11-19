@@ -113,7 +113,8 @@
         "release-core/PaperB/ExitSummary.lean",
         "release-core/PaperB/FiniteSiblingFlat.lean",
         "release-core/PaperB/FiniteSiblingBudget.lean",
-        "release-core/PaperB/SiblingVertexBudget.lean"
+        "release-core/PaperB/SiblingVertexBudget.lean",
+        "release-core/PaperB/ExitNonempty.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -613,6 +614,14 @@
         "release-core/PaperB/ReachScan.lean"
       ],
       "owner_role": "graph",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitNonempty.lean",
+      "local_imports": [
+        "release-core/PaperB/Forest.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

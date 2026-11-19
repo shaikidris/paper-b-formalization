@@ -142,9 +142,9 @@ Acceptance:
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 - Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
 
-Lean verifies the last-exit test for outside targets, the common dominator itself, and each of the two failure blocks. Third-block and two nonempty exit-tail sets remain open.
+For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case.
 
-Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json).
+Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json).
 
 <a id="ex15"></a>
 

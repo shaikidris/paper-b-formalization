@@ -86,7 +86,8 @@
     "release-core/PaperB/CompactCounts.lean": "graph",
     "release-core/PaperB/ForestLayoutTreeCost.lean": "cuts",
     "release-core/PaperB/PartialBlock.lean": "dominator",
-    "release-core/PaperB/Normalization.lean": "graph"
+    "release-core/PaperB/Normalization.lean": "graph",
+    "release-core/PaperB/ExitNonempty.lean": "dominator"
   },
   "milestones": [
     {
@@ -431,9 +432,10 @@
         "Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block."
       ],
       "evidence": [
-        "evidence/ex14-last-exit-outside-own/verification.json"
+        "evidence/ex14-last-exit-outside-own/verification.json",
+        "evidence/ex14-both-exits/verification.json"
       ],
-      "progress": "Lean verifies the last-exit test for outside targets, the common dominator itself, and each of the two failure blocks. Third-block and two nonempty exit-tail sets remain open."
+      "progress": "For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case."
     },
     {
       "id": "EX1.5",

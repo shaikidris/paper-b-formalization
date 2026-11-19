@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a5a602",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitNonempty.lean",
+  "sha256": "368b681d2ea38bd626df2d8a5f4a66f6453bebdc23498d4ecfb18992952876e7",
+  "scope": "For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target.",
+  "remaining": "Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case."
+}
