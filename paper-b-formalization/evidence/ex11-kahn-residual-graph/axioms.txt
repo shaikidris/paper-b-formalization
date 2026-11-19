@@ -1,0 +1,9 @@
+'PaperB.Kahn.State.mem_unfinished' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.State.processedPrefix_append_unfinished_perm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.State.degree_eq_unfinished_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.countOccurrence_pos_iff_row_mem' depends on axioms: [propext]
+'PaperB.Kahn.State.degree_eq_zero_iff_no_unprocessed_arc' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperB.Kahn.State.degree_eq_zero_iff_no_unprocessed_arc : ∀ (g : PaperB.Digraph) (s : PaperB.Kahn.State g.vertexCount),
+  s.QueueInv →
+    PaperB.Kahn.State.DegreeInv g s →
+      ∀ (v : Fin g.vertexCount), s.degree v = 0 ↔ ¬∃ u, ¬u ∈ s.processedPrefix ∧ v ∈ g.outArcs u

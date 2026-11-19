@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — Lean verifies Kahn queue uniqueness and exact zero-degree membership, plus the exact processed-prefix update and residual-degree invariant for each step. Full output ordering and charged ID compaction remain open.
+- [EX1.1](TASKS.md#ex11) — Lean proves the actual Kahn queue and processed-prefix accounting, including exact residual indegrees on all unprocessed original arc occurrences. Termination and topological output certification and compact IDs remain open.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — Lean verifies semantic sibling flatness, unique crossing ownership, reversible IDs and the generic aggregate occurrence bound allowing repeats. Apply the accounting to the concrete labelled quotient arrays and implement the charged collector.
 - [EX1.5](TASKS.md#ex15) — Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.

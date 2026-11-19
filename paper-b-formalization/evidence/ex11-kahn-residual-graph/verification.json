@@ -1,0 +1,11 @@
+{
+  "base_commit": "f9d1ec2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Kahn.lean",
+  "sha256": "78514cd0a84cb86c06ee710f9bc19138a84f69d97e72a9ec34b5b83b5e9f43ce",
+  "scope": "The actual residual indegree is exactly the incoming count from unprocessed vertices. A zero entry is equivalent to absence of any unprocessed in-arc.",
+  "remaining": "Use this equality for the finished-order and DAG-completeness theorems."
+}

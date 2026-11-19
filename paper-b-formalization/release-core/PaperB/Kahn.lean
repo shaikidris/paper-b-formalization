@@ -496,5 +496,149 @@ theorem seed_degreeInv (g : Digraph) :
   change initialIndegree g v = initialIndegree g v - 0
   exact (Nat.sub_zero _).symm
 
+/-- The original vertex IDs not yet consumed from the queue. -/
+def State.unfinished {n : Nat} (s : State n) : List (Fin n) :=
+  (List.ofFn (fun u : Fin n => u)).filter
+    (fun u => decide (u ∉ s.processedPrefix))
+
+private theorem ex11_mem_allIDs {n : Nat} (u : Fin n) :
+    u ∈ List.ofFn (fun w : Fin n => w) := by
+  rw [List.mem_ofFn]
+  exact ⟨u, rfl⟩
+
+theorem State.mem_unfinished {n : Nat} (s : State n) (u : Fin n) :
+    u ∈ s.unfinished ↔ u ∉ s.processedPrefix := by
+  simp only [State.unfinished, List.mem_filter, decide_eq_true_eq,
+    ex11_mem_allIDs, true_and]
+
+private theorem ex11_nodup_append {α : Type _} {xs ys : List α}
+    (hx : xs.Nodup) (hy : ys.Nodup)
+    (hxy : ∀ a, a ∈ xs → a ∉ ys) : (xs ++ ys).Nodup := by
+  induction xs with
+  | nil => simpa using hy
+  | cons a xs ih =>
+      obtain ⟨ha, ht⟩ := List.nodup_cons.mp hx
+      change (a :: (xs ++ ys)).Nodup
+      refine List.nodup_cons.mpr ⟨?_, ?_⟩
+      · intro hm
+        rcases List.mem_append.mp hm with hm | hm
+        · exact ha hm
+        · exact hxy a (by simp) hm
+      · exact ih ht (fun b hb => hxy b (List.mem_cons_of_mem _ hb))
+
+theorem State.processedPrefix_append_unfinished_perm {n : Nat}
+    (s : State n) (hq : s.QueueInv) :
+    (s.processedPrefix ++ s.unfinished).Perm (List.ofFn (fun u : Fin n => u)) := by
+  have hpre : s.processedPrefix.Nodup := by
+    unfold State.processedPrefix
+    exact List.Pairwise.sublist (by apply List.take_sublist) hq.1
+  have hall : (List.ofFn (fun u : Fin n => u)).Nodup :=
+    queue_nodup_ofFn (fun u : Fin n => u) (fun _ _ h => h)
+  have hun : s.unfinished.Nodup := by
+    unfold State.unfinished
+    exact List.Pairwise.sublist (by apply List.filter_sublist) hall
+  have hcat : (s.processedPrefix ++ s.unfinished).Nodup :=
+    ex11_nodup_append hpre hun
+      (fun u hu hf => ((State.mem_unfinished s u).mp hf) hu)
+  apply (List.perm_ext_iff_of_nodup hcat hall).mpr
+  intro u
+  rw [List.mem_append, State.mem_unfinished]
+  exact ⟨fun _ => ex11_mem_allIDs u, fun _ => Classical.em _⟩
+
+private theorem ex11_map_ofFn {α β : Type _} (f : α → β)
+    {n : Nat} (a : Fin n → α) :
+    (List.ofFn a).map f = List.ofFn (fun i => f (a i)) := by
+  induction n with
+  | zero => simp
+  | succ n ih => simp only [List.ofFn_succ, List.map_cons, ih]
+
+private theorem ex11_sum_map_perm {α : Type _} (f : α → Nat)
+    {xs ys : List α} (h : xs.Perm ys) :
+    (xs.map f).sum = (ys.map f).sum := by
+  induction h with
+  | nil => rfl
+  | cons a _ ih => simp only [List.map_cons, List.sum_cons, ih]
+  | swap a b xs =>
+      simp only [List.map_cons, List.sum_cons]
+      exact Nat.add_left_comm _ _ _
+  | trans _ _ ih₁ ih₂ => exact ih₁.trans ih₂
+
+private theorem ex11_sum_append (xs ys : List Nat) :
+    (xs ++ ys).sum = xs.sum + ys.sum := by
+  induction xs with
+  | nil => simp
+  | cons a xs ih =>
+      simp only [List.cons_append, List.sum_cons, ih, Nat.add_assoc]
+
+/-- The remaining degree counts occurrences from exactly the unprocessed tails. -/
+theorem State.degree_eq_unfinished_sum (g : Digraph) (s : State g.vertexCount)
+    (hq : s.QueueInv) (hd : State.DegreeInv g s) (v : Fin g.vertexCount) :
+    s.degree v =
+      (s.unfinished.map (fun u => countOccurrence v (g.outArcs u))).sum := by
+  let f : Fin g.vertexCount → Nat := fun u => countOccurrence v (g.outArcs u)
+  have hi : initialIndegree g v =
+      ((List.ofFn (fun u : Fin g.vertexCount => u)).map f).sum := by
+    calc
+      initialIndegree g v =
+          ((List.ofFn g.outArcs).map (countOccurrence v)).sum :=
+        Digraph.indegrees_getElem g v
+      _ = _ := by simp only [ex11_map_ofFn, f]
+  have hp := ex11_sum_map_perm f (State.processedPrefix_append_unfinished_perm s hq)
+  rw [List.map_append, ex11_sum_append] at hp
+  have htotal : initialIndegree g v =
+      processedIncoming g s v + (s.unfinished.map f).sum :=
+    hi.trans hp.symm
+  change s.degree v = (s.unfinished.map f).sum
+  rw [hd v, htotal, Nat.add_sub_cancel_left]
+
+theorem countOccurrence_pos_iff_row_mem {n : Nat} (v : Fin n)
+    (row : List (Fin n)) :
+    0 < countOccurrence v row ↔ v ∈ row := by
+  induction row with
+  | nil => simp [countOccurrence]
+  | cons w ws ih =>
+      by_cases h : w = v
+      · subst w
+        have hpos : 0 < 1 + countOccurrence v ws := by
+          rw [Nat.add_comm]
+          exact Nat.zero_lt_succ _
+        exact ⟨fun _ => by simp, fun _ => by simpa [countOccurrence] using hpos⟩
+      · simpa [countOccurrence, h, Ne.symm h] using ih
+
+private theorem ex11_sum_map_eq_zero_iff {α : Type _} (f : α → Nat)
+    (xs : List α) :
+    (xs.map f).sum = 0 ↔ ∀ a ∈ xs, f a = 0 := by
+  induction xs with
+  | nil => simp
+  | cons a xs ih =>
+      simp only [List.map_cons, List.sum_cons, Nat.add_eq_zero_iff, ih]
+      constructor
+      · intro ⟨ha, ht⟩ b hb
+        rcases List.mem_cons.mp hb with he | hm
+        · subst b
+          exact ha
+        · exact ht b hm
+      · intro h
+        exact ⟨h a (by simp), fun b hb => h b (List.mem_cons_of_mem _ hb)⟩
+
+/-- A vertex has degree zero exactly when no unprocessed tail has an arc to it. -/
+theorem State.degree_eq_zero_iff_no_unprocessed_arc
+    (g : Digraph) (s : State g.vertexCount)
+    (hq : s.QueueInv) (hd : State.DegreeInv g s) (v : Fin g.vertexCount) :
+    s.degree v = 0 ↔
+      ¬ ∃ u : Fin g.vertexCount, u ∉ s.processedPrefix ∧ v ∈ g.outArcs u := by
+  rw [State.degree_eq_unfinished_sum g s hq hd v, ex11_sum_map_eq_zero_iff]
+  constructor
+  · intro h hex
+    obtain ⟨u, hu, ha⟩ := hex
+    have hc := h u ((State.mem_unfinished s u).mpr hu)
+    have hp := (countOccurrence_pos_iff_row_mem v (g.outArcs u)).mpr ha
+    exact (Nat.lt_irrefl 0) (by simpa only [hc] using hp)
+  · intro h u hu
+    apply Nat.eq_zero_of_not_pos
+    intro hp
+    exact h ⟨u, (State.mem_unfinished s u).mp hu,
+      (countOccurrence_pos_iff_row_mem v (g.outArcs u)).mp hp⟩
+
 end Kahn
 end PaperB

@@ -286,9 +286,10 @@
         "evidence/ex11-indegree-prepass/verification.json",
         "evidence/ex11-kahn-loop/verification.json",
         "evidence/ex11-kahn-row/verification.json",
-        "evidence/ex11-kahn-prefix/verification.json"
+        "evidence/ex11-kahn-prefix/verification.json",
+        "evidence/ex11-kahn-residual-graph/verification.json"
       ],
-      "progress": "Lean verifies Kahn queue uniqueness and exact zero-degree membership, plus the exact processed-prefix update and residual-degree invariant for each step. Full output ordering and charged ID compaction remain open."
+      "progress": "Lean proves the actual Kahn queue and processed-prefix accounting, including exact residual indegrees on all unprocessed original arc occurrences. Termination and topological output certification and compact IDs remain open."
     },
     {
       "id": "EX1.2",
