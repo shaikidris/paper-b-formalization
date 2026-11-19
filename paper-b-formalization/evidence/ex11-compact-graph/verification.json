@@ -1,0 +1,11 @@
+{
+  "base_commit": "d62a60a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/CompactGraph.lean",
+  "sha256": "43685c27944be19317b319f09cd9ae232c44727610e0f53392bc1f9eb6629a1c",
+  "scope": "Executable compact adjacency maps every retained row and preserves exact original arc order and multiplicity under decoding.",
+  "remaining": "Transport the two-failure query, including discarded endpoints, and compose the graph scan and size accounting."
+}

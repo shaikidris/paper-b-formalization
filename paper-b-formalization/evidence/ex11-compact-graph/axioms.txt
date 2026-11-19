@@ -1,0 +1,16 @@
+'PaperB.CompactGraph.encode_eq_some_iff_lookup' depends on axioms: [propext]
+'PaperB.CompactGraph.encode_eq_some_iff_decode' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.decode_encode' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.encode_decode' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.encode_exists_iff_marked' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.decode_encode_marked' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.marked_decode' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.encode_head' depends on axioms: [propext, Quot.sound]
+'PaperB.CompactGraph.outArcs_build' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.CompactGraph.map_decode_outArcs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.CompactGraph.hasArc_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.CompactGraph.hasArc_iff : ∀ {g : PaperB.Digraph} {marks : Array Bool} (idx : PaperB.CompactGraph.Index g marks),
+  PaperB.CompactGraph.OutgoingClosed idx →
+    ∀ (u v : PaperB.CompactGraph.Vertex idx),
+      (PaperB.CompactGraph.build idx).HasArc u v ↔
+        g.HasArc (PaperB.CompactGraph.decode idx u) (PaperB.CompactGraph.decode idx v)
