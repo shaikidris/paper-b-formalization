@@ -211,7 +211,8 @@
         "release-core/PaperB/DecreasingDAG.lean",
         "release-core/PaperB/KahnDecreasing.lean",
         "release-core/PaperB/CommonAncestorSearch.lean",
-        "release-core/PaperB/JumpLCA.lean"
+        "release-core/PaperB/JumpLCA.lean",
+        "release-core/PaperB/DomPredecessorFold.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -734,6 +735,15 @@
         "release-core/PaperB/ForestLayoutTreeCost.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DomPredecessorFold.lean",
+      "local_imports": [
+        "release-core/PaperB/JumpLCA.lean",
+        "release-core/PaperB/Graph.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

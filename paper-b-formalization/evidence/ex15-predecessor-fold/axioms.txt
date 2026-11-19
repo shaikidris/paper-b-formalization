@@ -1,0 +1,3 @@
+'PaperB.JumpForestPredecessorFold.fold_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.JumpForestPredecessorFold.wordFold_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.JumpForestPredecessorFold.wordFold_charges' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -163,9 +163,9 @@ Acceptance:
 - Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.
 - For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established.
 
-The executable growing-tree LCA query refines the greatest common ancestor of any two existing nodes, preserves answers after leaf insertion, and charges the probes, records and word reads. Build the actual topological predecessor fold and lower its whole execution to the sealed machine.
+Executable LCA folding over nonempty reachable predecessor slots computes the greatest common ancestor and charges each predecessor occurrence once. The word version refines the semantic fold with aggregated probe and record charges. Run the fold on each topologically processed vertex; prove that the prefix tree matches original dominance and accounts for all charged operations.
 
-Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json), [evidence/ex15-growing-lca/verification.json](evidence/ex15-growing-lca/verification.json).
+Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json), [evidence/ex15-growing-lca/verification.json](evidence/ex15-growing-lca/verification.json), [evidence/ex15-predecessor-fold/verification.json](evidence/ex15-predecessor-fold/verification.json).
 
 <a id="ex16"></a>
 

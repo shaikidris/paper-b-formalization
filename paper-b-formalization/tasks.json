@@ -99,7 +99,8 @@
     "release-core/PaperB/HeavyChild.lean": "dominator",
     "release-core/PaperB/PairKeyMerge.lean": "cuts",
     "release-core/PaperB/ThirdBlock.lean": "dominator",
-    "release-core/PaperB/ForestLayoutRefine.lean": "cuts"
+    "release-core/PaperB/ForestLayoutRefine.lean": "cuts",
+    "release-core/PaperB/DomPredecessorFold.lean": "dominator"
   },
   "milestones": [
     {
@@ -499,9 +500,10 @@
       "evidence": [
         "evidence/ex15-predecessor-lca/verification.json",
         "evidence/ex15-common-depth-search/verification.json",
-        "evidence/ex15-growing-lca/verification.json"
+        "evidence/ex15-growing-lca/verification.json",
+        "evidence/ex15-predecessor-fold/verification.json"
       ],
-      "progress": "The executable growing-tree LCA query refines the greatest common ancestor of any two existing nodes, preserves answers after leaf insertion, and charges the probes, records and word reads. Build the actual topological predecessor fold and lower its whole execution to the sealed machine."
+      "progress": "Executable LCA folding over nonempty reachable predecessor slots computes the greatest common ancestor and charges each predecessor occurrence once. The word version refines the semantic fold with aggregated probe and record charges. Run the fold on each topologically processed vertex; prove that the prefix tree matches original dominance and accounts for all charged operations."
     },
     {
       "id": "EX1.6",

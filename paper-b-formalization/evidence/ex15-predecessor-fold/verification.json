@@ -1,0 +1,11 @@
+{
+  "base_commit": "f574c96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DomPredecessorFold.lean",
+  "sha256": "929fbc4f7458e13b27581efa72cea82d9f215befa33396e7a1fea9a1054ed60b",
+  "scope": "Executable LCA folding over nonempty reachable predecessor slots computes the greatest common ancestor and charges each predecessor occurrence once. The word version refines the semantic fold with aggregated probe and record charges.",
+  "remaining": "Run the fold on each topologically processed vertex; prove that the prefix tree matches original dominance and accounts for all charged operations."
+}
