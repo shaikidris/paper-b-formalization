@@ -640,5 +640,208 @@ theorem State.degree_eq_zero_iff_no_unprocessed_arc
     exact h ⟨u, (State.mem_unfinished s u).mp hu,
       (countOccurrence_pos_iff_row_mem v (g.outArcs u)).mp hp⟩
 
+private theorem queue_head_not_mem_processedPrefix {n : Nat} (s : State n)
+    (h : s.head < s.queue.size) (hq : s.QueueInv) :
+    s.queue[s.head]'h ∉ s.processedPrefix := by
+  intro hm
+  change s.queue[s.head]'h ∈ s.queue.toList.take s.head at hm
+  obtain ⟨i, hi, he⟩ := List.mem_iff_getElem.mp hm
+  have hi' : i < s.head := by
+    have ht := hi
+    simp only [List.length_take] at ht
+    omega
+  have hhq : s.head < s.queue.toList.length := by simpa using h
+  have hiq := Nat.lt_trans hi' hhq
+  have he' : s.queue.toList[i]'hiq = s.queue.toList[s.head]'hhq := by
+    simpa only [List.getElem_take, Array.getElem_toList] using he
+  exact (Nat.ne_of_lt hi') (hq.1.eq_of_getElem_eq hiq hhq he')
+
+theorem processHead_pairwise_forward (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) (hq : s.QueueInv) (hd : State.DegreeInv g s)
+    (hp : s.processedPrefix.Pairwise (fun a b => ¬ g.HasArc b a)) :
+    (processHead g s h).processedPrefix.Pairwise (fun a b => ¬ g.HasArc b a) := by
+  rw [processHead_processedPrefix, List.pairwise_append]
+  refine ⟨hp, by simp, ?_⟩
+  intro a ha b hb
+  have he : b = s.queue[s.head]'h := by simpa using hb
+  subst b
+  have hsub : s.processedPrefix.Sublist s.queue.toList := by
+    unfold State.processedPrefix
+    apply List.take_sublist
+  have hz : s.degree a = 0 := (hq.2 a).mp (hsub.subset ha)
+  intro harc
+  exact (State.degree_eq_zero_iff_no_unprocessed_arc g s hq hd a).mp hz
+    ⟨s.queue[s.head]'h, queue_head_not_mem_processedPrefix s h hq, harc⟩
+
+def ScanInv (g : Digraph) (s : State g.vertexCount) : Prop :=
+  s.QueueInv ∧ State.DegreeInv g s ∧
+    s.processedPrefix.Pairwise (fun a b => ¬ g.HasArc b a)
+
+theorem processHead_scanInv (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) (hs : ScanInv g s) :
+    ScanInv g (processHead g s h) :=
+  ⟨processHead_queueInv g s h hs.1,
+    processHead_degreeInv g s h hs.2.1,
+    processHead_pairwise_forward g s h hs.1 hs.2.1 hs.2.2⟩
+
+theorem scan_scanInv (g : Digraph) (fuel : Nat) (s : State g.vertexCount)
+    (hs : ScanInv g s) : ScanInv g (scan g fuel s).1 := by
+  induction fuel generalizing s with
+  | zero => simpa only [scan] using hs
+  | succ k ih =>
+      by_cases h : s.head < s.queue.size
+      · simpa only [scan, dite_eq_left h] using
+          ih (processHead g s h) (processHead_scanInv g s h hs)
+      · simpa only [scan, dite_eq_right h] using hs
+
+theorem seed_scanInv (g : Digraph) :
+    ScanInv g
+      { remaining := (indegreeScan g).1
+        queue := seed (indegreeScan g).1 (indegrees_size g)
+        head := 0
+        edgeVisits := 0
+        remaining_size := indegrees_size g
+        head_le_queue := Nat.zero_le _ } := by
+  exact ⟨seed_queueInv _ _, seed_degreeInv g, List.Pairwise.nil⟩
+
+theorem run_scanInv (g : Digraph) : ScanInv g (run g).state := by
+  unfold run
+  exact scan_scanInv g g.vertexCount _ (seed_scanInv g)
+
+theorem run_processedPrefix_pairwise_forward (g : Digraph) :
+    (run g).state.processedPrefix.Pairwise (fun a b => ¬ g.HasArc b a) :=
+  (run_scanInv g).2.2
+/-- Fuel exhaustion means every unit of fuel was spent processing a row. -/
+theorem scan_fuelExhausted_head (g : Digraph) (fuel : Nat)
+    (s : State g.vertexCount)
+    (hstop : (scan g fuel s).2 = .fuelExhausted) :
+    (scan g fuel s).1.head = s.head + fuel := by
+  induction fuel generalizing s with
+  | zero => simp [scan]
+  | succ k ih =>
+      by_cases h : s.head < s.queue.size
+      · simp only [scan, dite_eq_left h] at hstop ⊢
+        calc
+          _ = (processHead g s h).head + k := ih _ hstop
+          _ = s.head + (k + 1) := by
+            rw [(processHead_spec g s h).2.1, Nat.add_assoc, Nat.add_comm 1 k]
+      · simp [scan, h] at hstop
+
+private theorem kahn_processedPrefix_eq_queue {n : Nat} (s : State n)
+    (h : s.head = s.queue.size) :
+    s.processedPrefix = s.queue.toList := by
+  simp only [State.processedPrefix, h, ← Array.length_toList, List.take_length]
+
+private theorem kahn_exists_min_rank_mem {α : Type _} (rank : α → Nat)
+    (xs : List α) (hne : xs ≠ []) :
+    ∃ u ∈ xs, ∀ v ∈ xs, rank u ≤ rank v := by
+  induction xs with
+  | nil => exact (hne rfl).elim
+  | cons a xs ih =>
+      by_cases ht : xs = []
+      · subst xs
+        refine ⟨a, by simp, ?_⟩
+        intro v hv
+        have he : v = a := by simpa using hv
+        subst v
+        exact Nat.le_refl _
+      · obtain ⟨u, hu, hmin⟩ := ih ht
+        rcases Nat.le_total (rank a) (rank u) with hau | hua
+        · refine ⟨a, by simp, ?_⟩
+          intro v hv
+          rcases List.mem_cons.mp hv with he | hv
+          · subst v
+            exact Nat.le_refl _
+          · exact Nat.le_trans hau (hmin v hv)
+        · refine ⟨u, List.mem_cons_of_mem _ hu, ?_⟩
+          intro v hv
+          rcases List.mem_cons.mp hv with he | hv
+          · subst v
+            exact hua
+          · exact hmin v hv
+
+/-- In an acyclic graph, an empty unread queue leaves no vertex unfinished. -/
+theorem State.mem_processedPrefix_of_head_eq_queue_size
+    (g : Digraph) (s : State g.vertexCount)
+    (hq : s.QueueInv) (hd : State.DegreeInv g s)
+    (hacyc : IsAcyclic g) (hhead : s.head = s.queue.size) :
+    ∀ v : Fin g.vertexCount, v ∈ s.processedPrefix := by
+  obtain ⟨rank, hrank⟩ := hacyc
+  intro v
+  apply Classical.byContradiction
+  intro hv
+  have hvun := (State.mem_unfinished s v).mpr hv
+  have hne : s.unfinished ≠ [] := by
+    intro he
+    simpa [he] using hvun
+  obtain ⟨u, hu, hmin⟩ := kahn_exists_min_rank_mem rank s.unfinished hne
+  have hzero : s.degree u = 0 := by
+    apply (State.degree_eq_zero_iff_no_unprocessed_arc g s hq hd u).mpr
+    rintro ⟨w, hw, ha⟩
+    have hle := hmin w ((State.mem_unfinished s w).mpr hw)
+    have hlt : rank w < rank u := hrank w u ha
+    exact (Nat.not_lt_of_ge hle) hlt
+  have huq : u ∈ s.queue.toList := (hq.2 u).mpr hzero
+  have hup : u ∈ s.processedPrefix := by
+    rw [kahn_processedPrefix_eq_queue s hhead]
+    exact huq
+  exact ((State.mem_unfinished s u).mp hu) hup
+
+/-- The queue contains at most one entry per original vertex. -/
+theorem State.queue_size_le_vertexCount {n : Nat} (s : State n)
+    (hq : s.QueueInv) :
+    s.queue.size ≤ n := by
+  let t : State n :=
+    { s with head := s.queue.size, head_le_queue := Nat.le_refl _ }
+  have hqt : t.QueueInv := hq
+  have hpre : t.processedPrefix = s.queue.toList :=
+    kahn_processedPrefix_eq_queue t rfl
+  have hlen := (State.processedPrefix_append_unfinished_perm t hqt).length_eq
+  rw [List.length_append, hpre, Array.length_toList, List.length_ofFn] at hlen
+  calc
+    s.queue.size ≤ s.queue.size + t.unfinished.length := Nat.le_add_right _ _
+    _ = n := hlen
+theorem run_stop_noNext (g : Digraph) : (run g).stop = .noNext := by
+  cases hstop : (run g).stop with
+  | noNext => rfl
+  | fuelExhausted =>
+      have hlt := run_stop_spec g
+      rw [hstop] at hlt
+      change (run g).state.head < (run g).state.queue.size at hlt
+      have hhead : (run g).state.head = g.vertexCount := by
+        unfold run at hstop ⊢
+        exact (scan_fuelExhausted_head g g.vertexCount _ hstop).trans
+          (Nat.zero_add _)
+      have hsize :=
+        State.queue_size_le_vertexCount (run g).state (run_scanInv g).1
+      rw [hhead] at hlt
+      exact False.elim ((Nat.not_lt_of_ge hsize) hlt)
+
+theorem run_isTopologicalList (g : Digraph) (hacyc : IsAcyclic g) :
+    g.IsTopologicalList (run g).order.toList := by
+  have hinv := run_scanInv g
+  have hhead := run_stop_spec g
+  rw [run_stop_noNext g] at hhead
+  change (run g).state.head = (run g).state.queue.size at hhead
+  have hprefix := kahn_processedPrefix_eq_queue (run g).state hhead
+  have hall := State.mem_processedPrefix_of_head_eq_queue_size
+    g (run g).state hinv.1 hinv.2.1 hacyc hhead
+  have hforward := run_processedPrefix_pairwise_forward g
+  rw [hprefix] at hall hforward
+  change g.IsTopologicalList (run g).state.queue.toList
+  refine ⟨hinv.1.1, hall, ?_⟩
+  intro pre u post hsplit v huv
+  have hv := hall v
+  rw [hsplit] at hv
+  rcases List.mem_append.mp hv with hvpre | hvrest
+  · rw [hsplit, List.pairwise_append] at hforward
+    have hu : u ∈ u :: post := by simp
+    exact False.elim (hforward.2.2 v hvpre u hu huv)
+  · rcases List.mem_cons.mp hvrest with heq | hvpost
+    · subst v
+      obtain ⟨rank, hrank⟩ := hacyc
+      exact False.elim (Nat.lt_irrefl (rank u) (hrank u u huv))
+    · exact hvpost
+
 end Kahn
 end PaperB

@@ -1,0 +1,13 @@
+'PaperB.Kahn.processHead_pairwise_forward' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.processHead_scanInv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.scan_scanInv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.seed_scanInv' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.run_scanInv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.run_processedPrefix_pairwise_forward' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.scan_fuelExhausted_head' depends on axioms: [propext]
+'PaperB.Kahn.State.mem_processedPrefix_of_head_eq_queue_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.State.queue_size_le_vertexCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.run_stop_noNext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.run_isTopologicalList' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperB.Kahn.run_isTopologicalList : ∀ (g : PaperB.Digraph),
+  g.IsAcyclic → g.IsTopologicalList (PaperB.Kahn.run g).order.toList

@@ -1,0 +1,11 @@
+{
+  "base_commit": "09fb45a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Kahn.lean",
+  "sha256": "067b07b96d4c319c68bd543e3b8f29c589324f4c93e25369c75be8437a09fad1",
+  "scope": "The actual Kahn run produces a complete duplicate-free topological order for every explicitly represented DAG. Its queue has at most one slot per vertex.",
+  "remaining": "Prove aggregate traversal bounds and finish exact compact ID and adjacency representation."
+}
