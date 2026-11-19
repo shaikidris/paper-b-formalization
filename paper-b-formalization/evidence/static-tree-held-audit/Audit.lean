@@ -1,0 +1,4 @@
+import PaperB.StaticOracleTree
+#print axioms PaperB.EX16Assembly.OriginalReader.find_eq_some_iff_original
+#print axioms PaperB.EX16Assembly.OriginalReader.slot_at_original
+#print axioms PaperB.EX16Assembly.OriginalReader.held_dominates_iff_interval

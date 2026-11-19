@@ -1,0 +1,11 @@
+{
+  "base_commit": "fa668da",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticOracleTree.lean",
+  "sha256": "0a50bf3a64dbec9d1b14b965b0000784fbf37e2010b9494ca453d90f782367a8",
+  "scope": "A single shared original-tree build retains both exact ID translations from its actual scanner, and physical dominance agrees with the same static interval reader after either translation.",
+  "remaining": "Bind the actual runtime translation and stored subtree fields to the sealed query contracts."
+}

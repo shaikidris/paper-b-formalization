@@ -94,6 +94,9 @@ structure OriginalReader (g : Digraph) (r : Fin g.vertexCount) where
   input : PackedStaticLayout.Input count
   reader : StaticTreeReader.Reader input
   slot : (v : Fin g.vertexCount) → g.InitiallyReachable r v → Fin count
+  ids : OriginalIds.Reader g r count
+  find_slot : ∀ (v : Fin g.vertexCount) (hv : g.InitiallyReachable r v),
+    ids.find v = some (slot v hv)
   dominates_iff_interval :
     ∀ (a v : Fin g.vertexCount)
       (ha : g.InitiallyReachable r a) (hv : g.InitiallyReachable r v),
@@ -110,6 +113,8 @@ private def ofScan {α : Type u} {g : Digraph} {R : JumpWordRegion}
     input := x
     reader := q
     slot := scanSlot C
+    ids := OriginalIds.build C
+    find_slot := OriginalIds.toSlot_of_reachable C
     dominates_iff_interval := fun _ _ ha hv =>
       scan_dominates_iff_interval C q ha hv }
 
@@ -142,6 +147,37 @@ theorem fromOriginal_dominates_iff_interval
 namespace OriginalReader
 
 variable {g : Digraph} {r : Fin g.vertexCount}
+
+theorem find_eq_some_iff_original (q : OriginalReader g r)
+    (i : Fin g.vertexCount) (x : Fin q.count) :
+    q.ids.find i = some x ↔ q.ids.originals.read x = i := by
+  constructor
+  · intro h
+    exact q.ids.original_of_slot i x h
+  · intro h
+    rw [← h]
+    exact q.ids.slot_of_original x
+
+theorem original_at_slot (q : OriginalReader g r)
+    (v : Fin g.vertexCount) (hv : g.InitiallyReachable r v) :
+    q.ids.originals.read (q.slot v hv) = v :=
+  (q.find_eq_some_iff_original v (q.slot v hv)).mp (q.find_slot v hv)
+
+theorem slot_at_original (q : OriginalReader g r) (x : Fin q.count) :
+    q.slot (q.ids.originals.read x) (q.ids.original_reachable x) = x := by
+  apply Option.some.inj
+  exact (q.find_slot _ (q.ids.original_reachable x)).symm.trans
+    (q.ids.slot_of_original x)
+
+theorem held_dominates_iff_interval (q : OriginalReader g r)
+    (a x : Fin q.count) :
+    g.Dominates r (q.ids.originals.read a) (q.ids.originals.read x) ↔
+      q.reader.entry a ≤ q.reader.entry x ∧
+      q.reader.entry x < q.reader.stop a := by
+  simpa only [slot_at_original] using
+    (q.dominates_iff_interval
+      (q.ids.originals.read a) (q.ids.originals.read x)
+      (q.ids.original_reachable a) (q.ids.original_reachable x))
 
 /-- Query the stored reader directly on the two translated original IDs. -/
 def dominates (q : OriginalReader g r) (a v : Fin g.vertexCount)

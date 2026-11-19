@@ -1188,9 +1188,10 @@
         "evidence/third-leaf-audit/verification.json",
         "evidence/all-original-audit/verification.json",
         "evidence/exit-span-audit/verification.json",
-        "evidence/held-id-audit/verification.json"
+        "evidence/held-id-audit/verification.json",
+        "evidence/static-tree-held-audit/verification.json"
       ],
-      "progress": "The actual scan's packed original-to-held and held-to-original lookups have checked presence, absence and two-way inverse identities. These give the normalized query ID contracts once wired to the final index."
+      "progress": "The original static build now stores both ID directions as part of one reader and verifies translated physical dominance on that same stored tree."
     },
     {
       "id": "EX5.1",

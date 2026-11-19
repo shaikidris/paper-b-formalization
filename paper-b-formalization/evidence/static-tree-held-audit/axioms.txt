@@ -1,0 +1,5 @@
+'PaperB.EX16Assembly.OriginalReader.find_eq_some_iff_original' depends on axioms: [propext]
+'PaperB.EX16Assembly.OriginalReader.slot_at_original' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX16Assembly.OriginalReader.held_dominates_iff_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
