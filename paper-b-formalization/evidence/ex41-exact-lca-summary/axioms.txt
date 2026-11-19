@@ -1,0 +1,3 @@
+'PaperB.Digraph.ExitLCABridge.DFSIndex.decode_record' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.ExitLCABridge.DFSIndex.decode_join' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.ExitLCABridge.DFSIndex.evalLcaMap_compose' depends on axioms: [propext, Classical.choice, Quot.sound]

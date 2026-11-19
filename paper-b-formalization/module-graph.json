@@ -125,7 +125,8 @@
         "release-core/PaperB/SeedOrder.lean",
         "release-core/PaperB/ArcOwnerTotal.lean",
         "release-core/PaperB/SeedOrderActual.lean",
-        "release-core/PaperB/ExitIncoming.lean"
+        "release-core/PaperB/ExitIncoming.lean",
+        "release-core/PaperB/ExitLCABridge.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -838,6 +839,15 @@
       "path": "release-core/PaperB/ExitIncoming.lean",
       "local_imports": [
         "release-core/PaperB/Forest.lean"
+      ],
+      "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitLCABridge.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitSummary.lean",
+        "release-core/PaperB/SemanticLCA.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"

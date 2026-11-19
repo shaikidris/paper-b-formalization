@@ -347,9 +347,9 @@ Acceptance:
 
 - Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage.
 
-Lean verifies two-coordinate map composition and interval joins. Computed rank summaries compose over concatenation, and their endpoint test is equivalent to all listed tail ranks lying in the half-open subtree interval, with an explicit empty case. Integration with stored exit tails and bounded word accounting remain open.
+The min/max preorder summary decodes to the exact ordinary-tree LCA of each finite physical-tail set. Joining intervals refines empty-aware LCA join, and the composable two-coordinate maps preserve this decoding. Instantiate the interval contract on the actual ordinary-tree index and account stored word records.
 
-Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json), [evidence/ex41-exit-extrema/verification.json](evidence/ex41-exit-extrema/verification.json).
+Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json), [evidence/ex41-exit-extrema/verification.json](evidence/ex41-exit-extrema/verification.json), [evidence/ex41-exact-lca-summary/verification.json](evidence/ex41-exact-lca-summary/verification.json).
 
 <a id="ex42"></a>
 

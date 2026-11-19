@@ -1,0 +1,11 @@
+{
+  "base_commit": "9c90cd1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitLCABridge.lean",
+  "sha256": "26568615633ec19e66fdfddc5423584ec598eb5fb57855c125f456902cc5249a",
+  "scope": "The min/max preorder summary decodes to the exact ordinary-tree LCA of each finite physical-tail set. Joining intervals refines empty-aware LCA join, and the composable two-coordinate maps preserve this decoding.",
+  "remaining": "Instantiate the interval contract on the actual ordinary-tree index and account stored word records."
+}

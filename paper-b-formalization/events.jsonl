@@ -128,3 +128,4 @@
 {"at": "2026-11-19T21:45:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StructuralPaper", "tasks": ["EX3.3"], "evidence": "evidence/paper-41-transfer-certified/verification.json"}
 {"at": "2026-11-19T21:50:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SeedOrderActual", "tasks": ["EX4.2"], "evidence": "evidence/ex42-actual-seeds/verification.json"}
 {"at": "2026-11-19T21:50:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitIncoming", "tasks": ["EX4.2"], "evidence": "evidence/ex42-incoming-tails/verification.json"}
+{"at": "2026-11-19T21:50:49+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitLCABridge", "tasks": ["EX4.1"], "evidence": "evidence/ex41-exact-lca-summary/verification.json"}
