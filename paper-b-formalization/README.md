@@ -1,5 +1,7 @@
 # Formalizing Paper B v1.2 in Lean 4
 
+[Current handoff](HANDOFF.md) includes the exact EX2.4 replay and the pinned build commands.
+
 The [published ten-page paper](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.pdf) gives a two-vertex-failure reachability oracle on DAGs. Begin with the [formalization design](PLAN.md) for its two central theorems, nine proved statements, task order and Figure 1 checks. The [reuse map](REUSE.md) identifies relevant Lean declarations already in the project.
 
 Use the [dashboard](DASHBOARD.md) for current status, the [milestone list](MILESTONES.md) and [task cards](TASKS.md) for assignment, and the [coverage map](COVERAGE.md) for proposed declarations and theorem dependencies. The [interfaces](INTERFACES.md), [release contract](contracts/release-contract.md), and [handoff instructions](DISPATCH.md) define acceptance. The [source lock](sources/source-lock.json) identifies the deposited edition. [Version DOI](https://doi.org/10.5281/zenodo.24339761)

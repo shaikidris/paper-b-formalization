@@ -22,6 +22,11 @@
       "sha256": "15535fdb80db0aff2667b625d628152e8c6ad67a1fa17dafb5f1961e8cd697c9"
     },
     {
+      "path": "HANDOFF.md",
+      "bytes": 2876,
+      "sha256": "b1443394907cd31dd88c66fea82f62922c88907162cba4ae66bf79f8b083ce16"
+    },
+    {
       "path": "INTERFACES.md",
       "bytes": 2640,
       "sha256": "bec7e94d69ff1839737b5e42a6696fe1b1daf4241a81ce0391896d952d63d2dd"
@@ -38,8 +43,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 1606,
-      "sha256": "cb0fe46fb2540a274f1e4d28ddade3401f2c7d7e9d63952f11ea5d43a2238c12"
+      "bytes": 1700,
+      "sha256": "8a585d96da334244fcc9e2d03ba204f6433d904300bfe923f6fe2b2c6faab33b"
     },
     {
       "path": "REUSE.md",
@@ -295,6 +300,11 @@
       "path": "evidence/public-lean-flatmap-split/verification.json",
       "bytes": 867,
       "sha256": "e9d0a68eb428d311a340101e4f51efe32fccfa4ed2fb11f5a9142870c0b082db"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/ForestIntervals.base.lean.txt",
+      "bytes": 36957,
+      "sha256": "906c9deca8b9686d60f56504d74d45b0e943ab8e7f0855453a7ff16b6dacbe3b"
     },
     {
       "path": "evidence/public-lean-interval-assembly/ForestIntervals.patch",
