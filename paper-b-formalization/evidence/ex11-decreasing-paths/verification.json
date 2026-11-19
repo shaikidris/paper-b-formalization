@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a5a602",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DecreasingDAG.lean",
+  "sha256": "99e554f35f27395106cbd5deb2e5ecaa5b6d44f6c1d1c64799f3cf4e3821276b",
+  "scope": "Exact decreasing-index ReachAvoid path equivalence and parallel-child preservation under O(1) inverse array maps for a supplied valid topological order.",
+  "remaining": "Construct and prove actual inverse order maps from the Kahn array."
+}

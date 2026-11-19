@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — Executable normalization builds the compact reachable DAG by Kahn traversal, reachability scan, compact mapping and adjacency sweep. Every original root query with up to two failed IDs is equivalent after translation; initially unreachable targets and failed source or target are rejected, preserving original zero-length cases. Exact phase counters are bounded by original sizes. Complete the decreasing-index adapter and rank map, then close EX1.1.
+- [EX1.1](TASKS.md#ex11) — Lean verifies end-to-end compact query normalization and phase counts. The standalone decreasing-index ReachAvoid representation has exact path and row equivalence for supplied Kahn-order maps. Actual map construction awaits verification.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case.

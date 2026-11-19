@@ -203,7 +203,8 @@
         "release-core/PaperB/CompactPaths.lean",
         "release-core/PaperB/CompactFailures.lean",
         "release-core/PaperB/CompactCounts.lean",
-        "release-core/PaperB/Normalization.lean"
+        "release-core/PaperB/Normalization.lean",
+        "release-core/PaperB/DecreasingDAG.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -622,6 +623,14 @@
         "release-core/PaperB/Forest.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DecreasingDAG.lean",
+      "local_imports": [
+        "release-core/PaperB/ReachScan.lean"
+      ],
+      "owner_role": "graph",
       "admission": "ORACLE_CORE"
     }
   ],
