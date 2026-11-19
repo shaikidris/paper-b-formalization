@@ -1,0 +1,12 @@
+'PaperB.PairLookup.lexLess_trans' depends on axioms: [propext, Quot.sound]
+'PaperB.PairLookup.lexLess_irrefl' depends on axioms: [propext, Quot.sound]
+'PaperB.PairLookup.prefix_upper' depends on axioms: [propext]
+'PaperB.PairLookup.prefix_real_true' depends on axioms: [propext]
+'PaperB.PairLookup.lowerBound_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PairLookup.lowerBound_count_le' depends on axioms: [propext, Quot.sound]
+'PaperB.PairLookup.lookup_count_eq' does not depend on any axioms
+'PaperB.PairLookup.lookup_count_le' depends on axioms: [propext, Quot.sound]
+'PaperB.PairLookup.lookup_eq_some_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PairLookup.lookup_member_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperB.PairLookup.lookup_member_iff : ∀ (a : Array PaperB.PairLookup.Key) (q : PaperB.PairLookup.Key),
+  PaperB.PairLookup.StrictSorted a → ((∃ i, (PaperB.PairLookup.lookup a q).fst = some i) ↔ ∃ i hi, a[i] = q)

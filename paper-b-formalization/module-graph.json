@@ -212,7 +212,8 @@
         "release-core/PaperB/Jumps.lean",
         "release-core/Challenge.lean",
         "release-core/PaperB/PrefixProbe.lean",
-        "release-core/PaperB/PredecessorSearch.lean"
+        "release-core/PaperB/PredecessorSearch.lean",
+        "release-core/PaperB/PairLookup.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -464,6 +465,14 @@
         "release-core/PaperB/SiblingArcOwnership.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PairLookup.lean",
+      "local_imports": [
+        "release-core/PaperB/PrefixProbe.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "base_commit": "09fb45a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PairLookup.lean",
+  "sha256": "e5a573d19d98c22b5806158841cff5d0baa401f62574d762d65c274b1ff4ed9f",
+  "scope": "An executable lexicographic pair lookup on a strictly sorted array returns the correct optional key position with logarithmically many array probes, plus one final check.",
+  "remaining": "Build and sort the real candidate keys and connect occupied records to the forest sweep."
+}
