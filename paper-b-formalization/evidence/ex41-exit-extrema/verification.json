@@ -1,0 +1,11 @@
+{
+  "base_commit": "cef3140b16754c052418ea49ae7e8fa69e62285e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitSummary.lean",
+  "sha256": "41a5ef3b5344e89ee28bd4c145a9c431c7fccd0bb4ed3f6f839f1681cf212262",
+  "scope": "Fold executable min/max summaries over finite lists, join under list concatenation, and verify exact half-open subtree membership against every listed rank, including the empty case.",
+  "remaining": "Establish rank-array layout and integrate chronological computation from exact physical-tail sets."
+}

@@ -49,7 +49,8 @@
     "release-core/PaperB/ImmediateDominator.lean": "dominator",
     "release-core/PaperB/ExitMap.lean": "oracle",
     "release-core/PaperB/DominatorTree.lean": "dominator",
-    "release-core/PaperB/DominatorBoundary.lean": "dominator"
+    "release-core/PaperB/DominatorBoundary.lean": "dominator",
+    "release-core/PaperB/ExitSummary.lean": "oracle"
   },
   "milestones": [
     {
@@ -747,9 +748,10 @@
         "Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage."
       ],
       "evidence": [
-        "evidence/ex41-exit-map-algebra/verification.json"
+        "evidence/ex41-exit-map-algebra/verification.json",
+        "evidence/ex41-exit-extrema/verification.json"
       ],
-      "progress": "Lean verifies empty interval identity and min/max join algebra, executable evaluation, identity and traversal-order composition of two constant-plus-optional-slot records. The bridge to actual tail sets and bounded word layout remains open."
+      "progress": "Lean verifies two-coordinate map composition and interval joins. Computed rank summaries compose over concatenation, and their endpoint test is equivalent to all listed tail ranks lying in the half-open subtree interval, with an explicit empty case. Integration with stored exit tails and bounded word accounting remain open."
     },
     {
       "id": "EX4.2",

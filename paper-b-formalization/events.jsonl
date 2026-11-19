@@ -49,3 +49,4 @@
 {"at": "2026-11-19T20:17:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DominatorTree", "tasks": ["EX1.2"], "evidence": "evidence/ex12-dominator-tree/verification.json"}
 {"at": "2026-11-19T20:17:09+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DominatorBoundary", "tasks": ["EX1.3"], "evidence": "evidence/ex13-dominator-boundary/verification.json"}
 {"at": "2026-11-19T20:17:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Figure1", "tasks": ["EX3.3"], "evidence": "evidence/ex33-figure-1/verification.json"}
+{"at": "2026-11-19T20:17:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitSummary", "tasks": ["EX4.1"], "evidence": "evidence/ex41-exit-extrema/verification.json"}

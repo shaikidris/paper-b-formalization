@@ -335,9 +335,9 @@ Acceptance:
 
 - Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage.
 
-Lean verifies empty interval identity and min/max join algebra, executable evaluation, identity and traversal-order composition of two constant-plus-optional-slot records. The bridge to actual tail sets and bounded word layout remains open.
+Lean verifies two-coordinate map composition and interval joins. Computed rank summaries compose over concatenation, and their endpoint test is equivalent to all listed tail ranks lying in the half-open subtree interval, with an explicit empty case. Integration with stored exit tails and bounded word accounting remain open.
 
-Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json).
+Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json), [evidence/ex41-exit-extrema/verification.json](evidence/ex41-exit-extrema/verification.json).
 
 <a id="ex42"></a>
 

@@ -1,0 +1,5 @@
+'PaperB.ExitSummary.summary_append' depends on axioms: [propext]
+'PaperB.ExitSummary.endpointsInside_summary_iff' depends on axioms: [propext, Quot.sound]
+PaperB.ExitSummary.endpointsInside_summary_iff : ∀ (tin tout : Nat) (ranks : List Nat),
+  PaperB.ExitSummary.endpointsInside tin tout (PaperB.ExitSummary.summary ranks) = true ↔
+    ∀ (rank : Nat), rank ∈ ranks → tin ≤ rank ∧ rank < tout

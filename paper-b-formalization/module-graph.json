@@ -96,7 +96,8 @@
         "release-core/PaperB/TreeIndex.lean",
         "release-core/PaperB/ForestIntervals.lean",
         "release-core/PaperB/ForestIntervalQuery.lean",
-        "release-core/PaperB/ExitMap.lean"
+        "release-core/PaperB/ExitMap.lean",
+        "release-core/PaperB/ExitSummary.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -262,6 +263,14 @@
         "release-core/PaperB/DominatorChain.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitSummary.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitMap.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

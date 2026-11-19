@@ -30,7 +30,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX3.1](TASKS.md#ex31) — Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.
 - [EX3.2](TASKS.md#ex32) — Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
 - [EX3.3](TASKS.md#ex33) — Lean verifies exact exit transfer on the constructed forest of a supplied flat labelled quotient and replays Figure 1's exact union terms and actual computed pair-parent edge and vertex labels. The original-graph quotient construction and EX3 dependencies remain open.
-- [EX4.1](TASKS.md#ex41) — Lean verifies empty interval identity and min/max join algebra, executable evaluation, identity and traversal-order composition of two constant-plus-optional-slot records. The bridge to actual tail sets and bounded word layout remains open.
+- [EX4.1](TASKS.md#ex41) — Lean verifies two-coordinate map composition and interval joins. Computed rank summaries compose over concatenation, and their endpoint test is equivalent to all listed tail ranks lying in the half-open subtree interval, with an explicit empty case. Integration with stored exit tails and bounded word accounting remain open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 
