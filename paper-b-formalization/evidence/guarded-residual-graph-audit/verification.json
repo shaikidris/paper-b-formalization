@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea10691",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "extensions/GuardedWitness.lean",
+  "sha256": "d4396549e464dd3cb22615acf3dfa134fa9461ff8409124c8d3be04bcc61986e",
+  "scope": "One pass of baseline mask checks and one scan of all original arc occurrences build the shared residual adjacency. The graph reuses the constructed array directly and preserves original IDs, parallel edges and acyclicity. Lean verifies exact path transfer including deleted and zero-length endpoints.",
+  "remaining": "Pass the actual residual graph and grouped target/failure rows to the sealed batch oracle and return Q union the detected label at the published bound."
+}

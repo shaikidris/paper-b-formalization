@@ -856,3 +856,270 @@ theorem list_oracle_row (x : Input d Q) (i : Fin n)
 
 end Input
 end PaperB.EX62
+set_option autoImplicit false
+set_option relaxedAutoImplicit false
+
+namespace PaperB.EX62.SharedResidual
+
+/-
+Pass the packed mask's Boolean lookup to `guardCheck`, or pass an
+already-refined vertex check directly to `build`. The proof argument to
+`survivingPath_iff` is exact: for EX6.2, take `base := d.GuardFailed Q`.
+
+The excerpt does not include the query-row declaration. `queryRow_iff`
+therefore takes the existing row interpretation with its path test
+abstracted; it does not introduce a second row format or interpretation.
+-/
+
+def guardCheck {Label V : Type} (maskBit : Label → Bool)
+    (guardLabels : V → List Label) (v : V) : Bool :=
+  (guardLabels v).any maskBit
+
+theorem guardCheck_refines {Label V : Type}
+    (maskBit : Label → Bool) (Q : Label → Prop)
+    (guardLabels : V → List Label) (base : V → Prop)
+    (bitExact : ∀ i, maskBit i = true ↔ Q i)
+    (guardExact : ∀ v, base v ↔ ∃ i, i ∈ guardLabels v ∧ Q i)
+    (v : V) :
+    guardCheck maskBit guardLabels v = true ↔ base v := by
+  rw [guardExact v]
+  simp only [guardCheck, List.any_eq_true, bitExact]
+
+private def readFin {α : Type} {n : Nat} (xs : Array α)
+    (sizeExact : xs.size = n) (i : Fin n) : α :=
+  xs[i.val]'(by rw [sizeExact]; exact i.isLt)
+
+@[simp] private theorem readFin_ofFn {α : Type} {n : Nat}
+    (f : Fin n → α) (sizeExact : (Array.ofFn f).size = n) (i : Fin n) :
+    readFin (Array.ofFn f) sizeExact i = f i := by
+  simp [readFin]
+
+/-- Charge one visit for every original occurrence, even in a deleted row. -/
+private def scan {V : Type} (keep : V → Bool) : List V → List V × Nat
+  | [] => ([], 0)
+  | v :: vs =>
+    let k := keep v
+    let rest := scan keep vs
+    (if k then v :: rest.1 else rest.1, rest.2 + 1)
+
+private theorem scan_exact {V : Type} (keep : V → Bool) (xs : List V) :
+    scan keep xs = (xs.filter keep, xs.length) := by
+  induction xs with
+  | nil => rfl
+  | cons v vs ih =>
+    cases hv : keep v <;>
+      simp [scan, List.filter_cons, hv, ih, Nat.succ_eq_add_one]
+
+structure View (g : Digraph) where
+  bits : Array Bool
+  bitsSize : bits.size = g.vertexCount
+  rows : Array (List (Fin g.vertexCount))
+  rowsSize : rows.size = g.vertexCount
+  arcScans : Nat
+
+def View.deleted {g : Digraph} (r : View g) (v : Fin g.vertexCount) : Bool :=
+  readFin r.bits r.bitsSize v
+
+def View.row {g : Digraph} (r : View g) (u : Fin g.vertexCount) :
+    List (Fin g.vertexCount) :=
+  readFin r.rows r.rowsSize u
+
+/-- The residual graph uses the view's row array directly as its adjacency. -/
+abbrev View.graph {g : Digraph} (r : View g) : Digraph :=
+  { vertexCount := g.vertexCount, adj := r.rows, adj_size := r.rowsSize }
+
+/-- Cache one baseline check per ID and scan each original row once. -/
+def build (g : Digraph) (check : Fin g.vertexCount → Bool) : View g :=
+  let bits := Array.ofFn check
+  have hb : bits.size = g.vertexCount := by simp [bits]
+  let packed := Array.ofFn fun u : Fin g.vertexCount =>
+    let sourceDeleted := readFin bits hb u
+    scan (fun v => !(sourceDeleted || readFin bits hb v)) (g.outArcs u)
+  have hp : packed.size = g.vertexCount := by simp [packed]
+  let arcScans := packed.foldl (fun acc p => acc + p.2) 0
+  let rows := Array.ofFn fun u : Fin g.vertexCount => (readFin packed hp u).1
+  ⟨bits, hb, rows, by simp [rows], arcScans⟩
+
+def View.vertexScans {g : Digraph} (r : View g) : Nat :=
+  r.bits.size
+
+private theorem foldlPackedCountsList {α : Type} (xs : List (α × Nat)) (n : Nat) :
+    xs.foldl (fun acc p => acc + p.2) n = n + (xs.map Prod.snd).sum := by
+  induction xs generalizing n with
+  | nil => simp
+  | cons p xs ih => simp [ih, Nat.add_assoc]
+
+private theorem foldlPackedCountsOfFn {α : Type} {n : Nat} (f : Fin n → α × Nat) :
+    (Array.ofFn f).foldl (fun acc p => acc + p.2) 0 =
+      (List.ofFn fun i => (f i).2).sum := by
+  rw [← Array.foldl_toList, foldlPackedCountsList, Nat.zero_add,
+    Array.toList_ofFn, List.map_ofFn]
+  rfl
+
+@[simp] theorem deleted_build (g : Digraph) (check : Fin g.vertexCount → Bool)
+    (v : Fin g.vertexCount) :
+    (build g check).deleted v = check v := by
+  simp [build, View.deleted]
+
+theorem row_exact (g : Digraph) (check : Fin g.vertexCount → Bool)
+    (u : Fin g.vertexCount) :
+    (build g check).row u =
+      (g.outArcs u).filter (fun v => !(check u || check v)) := by
+  simp [build, View.row, scan_exact]
+
+theorem build_scans (g : Digraph) (check : Fin g.vertexCount → Bool) :
+    (build g check).vertexScans = g.vertexCount ∧
+    (build g check).arcScans =
+      (List.ofFn (fun u : Fin g.vertexCount => (g.outArcs u).length)).sum := by
+  refine ⟨(build g check).bitsSize, ?_⟩
+  simp only [build, foldlPackedCountsOfFn, scan_exact]
+
+/-- List equality preserves order, target IDs and every surviving parallel arc. -/
+theorem outArcs_exact (g : Digraph) (check : Fin g.vertexCount → Bool)
+    (u : Fin g.vertexCount) :
+    (build g check).graph.outArcs u =
+      (g.outArcs u).filter (fun v => !(check u || check v)) := by
+  change (build g check).row u = _
+  exact row_exact g check u
+
+theorem arc_subset (g : Digraph) (check : Fin g.vertexCount → Bool)
+    {u v : Fin g.vertexCount} (h : (build g check).graph.HasArc u v) :
+    g.HasArc u v := by
+  change v ∈ (build g check).row u at h
+  rw [row_exact] at h
+  exact (List.mem_filter.mp h).1
+
+private theorem mapEdges {V : Type} {E E' : V → V → Prop} {F : V → Prop}
+    (sub : ∀ {u v : V}, E u v → E' u v)
+    {s t : V} (p : AvoidPath E F s t) : AvoidPath E' F s t := by
+  induction p with
+  | refl a ha => exact AvoidPath.refl a ha
+  | step a b c ha arc _ ih => exact AvoidPath.step a b c ha (sub arc) ih
+
+/-- A nonempty directed cycle is an arc followed by a return path. -/
+theorem acyclic_inherited (g : Digraph) (check : Fin g.vertexCount → Bool)
+    (acyclic : ∀ u v : Fin g.vertexCount, g.HasArc u v →
+      ¬ g.SurvivingPath (fun _ => False) v u) :
+    ∀ u v : Fin g.vertexCount, (build g check).graph.HasArc u v →
+      ¬ (build g check).graph.SurvivingPath (fun _ => False) v u := by
+  intro u v arc p
+  exact acyclic u v (arc_subset g check arc)
+    (mapEdges (fun {_ _} e => arc_subset g check e) p)
+
+/-- A supplied topological ranking also works unchanged. -/
+theorem rank_inherited (g : Digraph) (check : Fin g.vertexCount → Bool)
+    (rank : Fin g.vertexCount → Nat)
+    (rises : ∀ u v, g.HasArc u v → rank u < rank v)
+    (u v : Fin g.vertexCount) (arc : (build g check).graph.HasArc u v) :
+    rank u < rank v :=
+  rises u v (arc_subset g check arc)
+
+private theorem alive_iff {V : Type} {check : V → Bool} {base : V → Prop}
+    (refines : ∀ v, check v = true ↔ base v) (v : V) :
+    check v = false ↔ ¬ base v := by
+  rw [← refines v]
+  cases check v <;> simp
+
+theorem arc_iff (g : Digraph) (check : Fin g.vertexCount → Bool)
+    {base : Fin g.vertexCount → Prop}
+    (refines : ∀ v, check v = true ↔ base v) (u v : Fin g.vertexCount) :
+    (build g check).graph.HasArc u v ↔
+      g.HasArc u v ∧ ¬ base u ∧ ¬ base v := by
+  change (v ∈ (build g check).row u) ↔
+    (v ∈ g.outArcs u ∧ ¬ base u ∧ ¬ base v)
+  rw [row_exact, List.mem_filter, ← alive_iff refines u, ← alive_iff refines v]
+  cases hu : check u <;> cases hv : check v <;> simp [hu, hv]
+
+/-- Filtering arcs isolates deleted IDs. The endpoint tests also exclude
+length-zero paths at those IDs. -/
+def View.Survives {g : Digraph} (r : View g)
+    (failed : Fin g.vertexCount → Prop) (s t : Fin g.vertexCount) : Prop :=
+  r.deleted s = false ∧ r.deleted t = false ∧
+    AvoidPath r.graph.HasArc failed s t
+
+theorem survives_self {g : Digraph} (r : View g)
+    (failed : Fin g.vertexCount → Prop) (s : Fin g.vertexCount) :
+    r.Survives failed s s ↔ r.deleted s = false ∧ ¬ failed s := by
+  constructor
+  · rintro ⟨hs, _, p⟩
+    exact ⟨hs, (AvoidPath.endpoints_alive p).1⟩
+  · rintro ⟨hs, ha⟩
+    exact ⟨hs, hs, AvoidPath.refl s ha⟩
+
+theorem no_survives_deleted_endpoint {g : Digraph} (r : View g)
+    (failed : Fin g.vertexCount → Prop) (s t : Fin g.vertexCount)
+    (h : r.deleted s = true ∨ r.deleted t = true) :
+    ¬ r.Survives failed s t := by
+  rintro ⟨hs, ht, _⟩
+  rcases h with h | h
+  · simp [h] at hs
+  · simp [h] at ht
+
+theorem survivingPath_iff (g : Digraph) (check : Fin g.vertexCount → Bool)
+    {base : Fin g.vertexCount → Prop}
+    (refines : ∀ v, check v = true ↔ base v)
+    (failed : Fin g.vertexCount → Prop) (s t : Fin g.vertexCount) :
+    (build g check).Survives failed s t ↔
+      g.SurvivingPath (fun v => base v ∨ failed v) s t := by
+  have project : ∀ {a b : Fin g.vertexCount},
+      AvoidPath (build g check).graph.HasArc failed a b → ¬ base b →
+      g.SurvivingPath (fun v => base v ∨ failed v) a b := by
+    intro a b p
+    induction p with
+    | refl a ha =>
+      intro hb
+      exact AvoidPath.refl a (fun h => h.elim hb ha)
+    | step a b c ha arc _ ih =>
+      intro hc
+      obtain ⟨orig, aliveA, _⟩ := (arc_iff g check refines a b).mp arc
+      exact AvoidPath.step a b c (fun h => h.elim aliveA ha) orig (ih hc)
+  have liftPath : ∀ {a b : Fin g.vertexCount},
+      g.SurvivingPath (fun v => base v ∨ failed v) a b →
+      AvoidPath (build g check).graph.HasArc failed a b := by
+    intro a b p
+    change AvoidPath g.HasArc (fun v => base v ∨ failed v) a b at p
+    induction p with
+    | refl a ha =>
+      exact AvoidPath.refl a (fun h => ha (Or.inr h))
+    | step a b c ha arc tail ih =>
+      have hb := (AvoidPath.endpoints_alive tail).1
+      have kept := (arc_iff g check refines a b).mpr
+        ⟨arc, fun h => ha (Or.inl h), fun h => hb (Or.inl h)⟩
+      exact AvoidPath.step a b c (fun h => ha (Or.inr h)) kept ih
+  constructor
+  · rintro ⟨_, ht, p⟩
+    exact project p ((alive_iff refines t).mp (by simpa only [deleted_build] using ht))
+  · intro p
+    have ends := AvoidPath.endpoints_alive
+      (edge := g.HasArc) (failed := fun v => base v ∨ failed v) p
+    refine ⟨?_, ?_, liftPath p⟩
+    · rw [deleted_build]
+      exact (alive_iff refines s).mpr (fun h => ends.1 (Or.inl h))
+    · rw [deleted_build]
+      exact (alive_iff refines t).mpr (fun h => ends.2 (Or.inl h))
+
+theorem two_failures_iff (g : Digraph) (check : Fin g.vertexCount → Bool)
+    {base : Fin g.vertexCount → Prop}
+    (refines : ∀ v, check v = true ↔ base v)
+    (s t x y : Fin g.vertexCount) :
+    (build g check).Survives (fun v => v = x ∨ v = y) s t ↔
+      g.SurvivingPath (fun v => base v ∨ v = x ∨ v = y) s t :=
+  survivingPath_iff g check refines (fun v => v = x ∨ v = y) s t
+
+/-- Rewrite only the path test in an existing row interpretation. This also
+works for negative tests and rows with multiple original target occurrences. -/
+theorem queryRow_iff (g : Digraph) (check : Fin g.vertexCount → Bool)
+    {base : Fin g.vertexCount → Prop}
+    (refines : ∀ v, check v = true ↔ base v)
+    (fail₁ fail₂ : Fin g.vertexCount → Prop)
+    (rowSem : (Fin g.vertexCount → Fin g.vertexCount → Prop) → Prop) :
+    rowSem ((build g check).Survives (fun v => fail₁ v ∨ fail₂ v)) ↔
+      rowSem (g.SurvivingPath (fun v => base v ∨ fail₁ v ∨ fail₂ v)) := by
+  have paths :
+      (build g check).Survives (fun v => fail₁ v ∨ fail₂ v) =
+        g.SurvivingPath (fun v => base v ∨ fail₁ v ∨ fail₂ v) :=
+    funext fun s => funext fun t =>
+      propext (survivingPath_iff g check refines (fun v => fail₁ v ∨ fail₂ v) s t)
+  rw [paths]
+
+end PaperB.EX62.SharedResidual

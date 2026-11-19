@@ -546,7 +546,7 @@ Acceptance:
 - Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.
 - Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion.
 
-Lean checks the linear grouping of supplied residual guard and terminal incidences on the existing decoder model. The per-label query has at most two distinct failures, all terminal occurrences, and exact residual semantics. Shared residual graph and whole-oracle instantiation remain open.
+Shared baseline guard deletion now has a checked executable graph builder, exact linear scan counts and all-case path transfer. Next connect the checked rows and eventual single-index batch construction to actual detecting-set output.
 
-Planning/evidence references: [evidence/guarded-incidences-audit/verification.json](evidence/guarded-incidences-audit/verification.json).
+Planning/evidence references: [evidence/guarded-incidences-audit/verification.json](evidence/guarded-incidences-audit/verification.json), [evidence/guarded-residual-graph-audit/verification.json](evidence/guarded-residual-graph-audit/verification.json).
 
