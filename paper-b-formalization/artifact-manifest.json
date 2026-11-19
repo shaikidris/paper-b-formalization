@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 40491,
-      "sha256": "cb92b57f3d82b63092789ed8ea7e7cab4d0f4d32c482bb50918d4b7a106d05c8"
+      "bytes": 40435,
+      "sha256": "7dfd88b0e10ca0544cda51f03c993a839d1662d81da1bf2c487c9f7088541dc1"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 33591,
-      "sha256": "9f3bb793b288b62fa45dbacc4df9ad2ece321d2f0b0ef13344147a330fe42715"
+      "bytes": 33781,
+      "sha256": "d34bcadf846ccbc8296d7d146668063336c57c62a7c194a6b5d0044b2f7a3093"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -200,6 +200,26 @@
       "path": "evidence/ex02-carbon-start/verification.json",
       "bytes": 5088,
       "sha256": "685e21a2a3de9bd5dbcba6c51968490cdb0d5a0ea2f163b7e26f560a2e9d2c95"
+    },
+    {
+      "path": "evidence/ex02-fixed-word-slack/Audit.lean",
+      "bytes": 193,
+      "sha256": "3ab9c1851924e608787cb4ecea8e2e1a373b6f8017e10cd6980968bb84589eff"
+    },
+    {
+      "path": "evidence/ex02-fixed-word-slack/axioms.txt",
+      "bytes": 216,
+      "sha256": "41f6256a2a0de0868f45930c291321f58af909ac39796f3542066f729aabfa5b"
+    },
+    {
+      "path": "evidence/ex02-fixed-word-slack/fidelity.md",
+      "bytes": 714,
+      "sha256": "027231bac2715f01bba553b6c461dd3a414225c7435a68eef1d6fd9309b5df02"
+    },
+    {
+      "path": "evidence/ex02-fixed-word-slack/verification.json",
+      "bytes": 537,
+      "sha256": "37f7629f3b29bdb9a2505f114750ef966c2c275cb0b5850ed23cea70d4adce3a"
     },
     {
       "path": "evidence/ex02-oracle-contract/Audit.lean",
@@ -2468,8 +2488,8 @@
     },
     {
       "path": "release-core/PaperB/OracleContract.lean",
-      "bytes": 4245,
-      "sha256": "26d1fab88609d3e48a52890b25d70fce0400e899a7c6e7e9ffa3e8d53154358f"
+      "bytes": 5502,
+      "sha256": "eb4f045af377135c1b94d39b1df6fa2e4b9e8964e9234e389096d8b1afa51887"
     },
     {
       "path": "release-core/PaperB/OracleMemoryLayout.lean",
@@ -2768,8 +2788,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 57879,
-      "sha256": "f3370340f83429154cbcbfd591b0cabe12f725e9e7bef8a64dd36ecbc0694f4a"
+      "bytes": 57784,
+      "sha256": "308019b046f4e1538e87f37a69c1c6adfc7746a684226af87b5a71d8ffe00049"
     },
     {
       "path": "test_plan.py",

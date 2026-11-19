@@ -10,10 +10,33 @@ def L (n : Nat) : Nat :=
 theorem one_le_L (n : Nat) : 1 ≤ L n :=
   Nat.succ_le_succ (Nat.zero_le (Nat.log2 (n + 1)))
 
-/-- Two guard bits for a constant-factor adjacency-list layout. Here `m`
+/-- The base width plus fixed, layout-dependent slack. Here `m`
 counts arc occurrences, including parallel arcs. -/
-def wordBits (n m : Nat) : Nat :=
-  L (n + m) + 2
+def wordBits (wordSlack n m : Nat) : Nat :=
+  L (n + m) + wordSlack
+
+/-- `L s` is the ceiling of `log₂ (s + 2)`, so for fixed `wordSlack`
+these bounds give Θ(log(n + m + 2)) bits uniformly in `n` and `m`,
+including the single-vertex case. -/
+theorem wordBits_bounds (wordSlack n m : Nat) :
+    L (n + m) ≤ wordBits wordSlack n m ∧
+    wordBits wordSlack n m ≤ (wordSlack + 1) * L (n + m) := by
+  constructor
+  · unfold wordBits
+    exact Nat.le_add_right _ _
+  · calc
+      wordBits wordSlack n m = wordSlack + L (n + m) :=
+        Nat.add_comm (L (n + m)) wordSlack
+      _ = wordSlack * 1 + L (n + m) := by rw [Nat.mul_one]
+      _ ≤ wordSlack * L (n + m) + L (n + m) :=
+        Nat.add_le_add_right (Nat.mul_le_mul_left wordSlack (one_le_L (n + m))) _
+      _ = (wordSlack + 1) * L (n + m) := by rw [Nat.add_mul, Nat.one_mul]
+
+/-- The single-vertex, zero-arc input uses two base bits. -/
+theorem wordBits_single_vertex (wordSlack : Nat) :
+    wordBits wordSlack 1 0 = 2 + wordSlack := by
+  have h : L (1 + 0) = 2 := by decide
+  rw [wordBits, h]
 
 /-- The immutable index has only layout metadata and a flat word payload. -/
 structure WordIndex where
@@ -36,18 +59,20 @@ structure QueryObservation where
   operations : Nat
 
 /--
-Candidate interface, not an executable word-machine semantics. The build
-observer takes the graph itself, which stores its explicit adjacency lists.
+Candidate interface, not an executable word-machine semantics. The fixed
+`wordSlack` determines the build width and thus the index width seen by
+the query program. The build observer takes the graph itself, which
+stores its explicit adjacency lists.
 EX0.3 must justify the layout and the interpretation of each observation as
 a machine run. In particular, the build observation must charge for the
 index header and the full retained footprint, not just the logical length
 of the payload. `none` supplies no completed-run observation.
 -/
-structure CandidateInterface where
+structure CandidateInterface (wordSlack : Nat) where
   BuildProgram : Type
   QueryProgram : Type
   observeBuild : BuildProgram → (g : Digraph) → Fin g.vertexCount →
-    Option (BuildObservation (wordBits g.vertexCount g.arcCount))
+    Option (BuildObservation (wordBits wordSlack g.vertexCount g.arcCount))
   observeQuery : QueryProgram → (I : WordIndex) →
     FailureSet I.vertices → Fin I.vertices → Option QueryObservation
 
@@ -57,12 +82,13 @@ and query programs and the same constant work for every acyclic graph and
 root. The quantification over the two-slot failure sets and original targets
 is after the single build observation.
 -/
-def Candidate (M : CandidateInterface) (buildExp queryExp : Nat) : Prop :=
+def Candidate {wordSlack : Nat} (M : CandidateInterface wordSlack)
+    (buildExp queryExp : Nat) : Prop :=
   ∃ (build : M.BuildProgram) (query : M.QueryProgram) (C : Nat),
     0 < C ∧
     ∀ (g : Digraph) (r : Fin g.vertexCount),
       g.IsAcyclic →
-      ∃ b : BuildObservation (wordBits g.vertexCount g.arcCount),
+      ∃ b : BuildObservation (wordBits wordSlack g.vertexCount g.arcCount),
         M.observeBuild build g r = some b ∧
         b.operations ≤ C * ((g.vertexCount + g.arcCount) * L g.vertexCount ^ buildExp) ∧
         b.peakLiveWords ≤ C * (g.vertexCount + g.arcCount) ∧
@@ -74,10 +100,10 @@ def Candidate (M : CandidateInterface) (buildExp queryExp : Nat) : Prop :=
             q.operations ≤ C * L g.vertexCount ^ queryExp ∧
             (q.answer = true ↔ g.ReachableAvoiding F r t)
 
-def CandidateV13 (M : CandidateInterface) : Prop :=
+def CandidateV13 {wordSlack : Nat} (M : CandidateInterface wordSlack) : Prop :=
   Candidate M 2 1
 
-def CandidateV12 (M : CandidateInterface) : Prop :=
+def CandidateV12 {wordSlack : Nat} (M : CandidateInterface wordSlack) : Prop :=
   Candidate M 3 3
 
 private theorem pow_le_next (n k : Nat) :
@@ -88,7 +114,7 @@ private theorem pow_le_next (n k : Nat) :
     _ = L n ^ (k + 1) := (Nat.pow_succ (L n) k).symm
 
 /-- Relaxing the exponents changes neither the programs nor their observations. -/
-theorem v13_implies_v12 (M : CandidateInterface) :
+theorem v13_implies_v12 {wordSlack : Nat} (M : CandidateInterface wordSlack) :
     CandidateV13 M → CandidateV12 M := by
   intro h
   unfold CandidateV13 Candidate at h

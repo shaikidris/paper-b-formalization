@@ -37,9 +37,9 @@ Acceptance:
 - Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.
 - Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives.
 
-The pinned toolchain elaborates both candidate interfaces. The exit-set type retains exact original-tail membership. The static oracle contract fixes one build and one query, quantifies all queries after the build, and uses all four resource bounds. Lean checks the v1.3-to-v1.2 bound relaxation. The executable observer and theorem proof remain under EX0.3 and EX5.
+The exact published and v1.3 oracle contracts allow one fixed layout-specific address allowance with checked logarithmic word-width bounds. Use the actual chosen layout slack from the complete implementation.
 
-Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json), [evidence/exit-transfer-nested/review.md](evidence/exit-transfer-nested/review.md), [evidence/ex02-oracle-contract/verification.json](evidence/ex02-oracle-contract/verification.json).
+Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json), [evidence/exit-transfer-nested/review.md](evidence/exit-transfer-nested/review.md), [evidence/ex02-oracle-contract/verification.json](evidence/ex02-oracle-contract/verification.json), [evidence/ex02-fixed-word-slack/verification.json](evidence/ex02-fixed-word-slack/verification.json).
 
 <a id="ex03"></a>
 

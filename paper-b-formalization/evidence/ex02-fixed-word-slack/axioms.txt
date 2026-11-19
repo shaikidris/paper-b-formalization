@@ -1,0 +1,3 @@
+'PaperB.OracleContract.wordBits_bounds' depends on axioms: [propext]
+'PaperB.OracleContract.wordBits_single_vertex' does not depend on any axioms
+'PaperB.OracleContract.v13_implies_v12' does not depend on any axioms

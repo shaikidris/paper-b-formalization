@@ -1,0 +1,11 @@
+{
+  "base_commit": "10e76c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OracleContract.lean",
+  "sha256": "eb4f045af377135c1b94d39b1df6fa2e4b9e8964e9234e389096d8b1afa51887",
+  "scope": "The exact published and v1.3 oracle contracts allow one fixed layout-specific address allowance with checked logarithmic word-width bounds.",
+  "remaining": "Use the actual chosen layout slack from the complete implementation."
+}
