@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc425fa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/JumpMapFold.lean",
+  "sha256": "fa0037c455cf2755677ae19d11efa5f156d5ac2688e194cf36b0787732a9f9ca",
+  "scope": "Stored parent and skew jump maps compose to the exact map over each ancestor segment. Executable folding over a checked trace performs one map step per move.",
+  "remaining": "Connect the records and fold to actual forest jump arrays and the complete quotient preprocessing and query costs."
+}

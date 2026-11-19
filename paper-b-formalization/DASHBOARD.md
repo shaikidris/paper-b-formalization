@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **14/27**. Planning audits **1** and verified proof packages **13**.
-- Remaining work packages **13**. 7 in progress, 6 planned.
+- Remaining work packages **13**. 8 in progress, 5 planned.
 - Milestones 5 in progress, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -24,6 +24,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX1.6](TASKS.md#ex16) — The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings. Construct and verify the actual head table and static child interval lookup.
 - [EX2.4](TASKS.md#ex24) — The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.
 - [EX4.2](TASKS.md#ex42) — Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant.
+- [EX4.3](TASKS.md#ex43) — Stored parent and skew jump maps compose to the exact map over each ancestor segment. Executable folding over a checked trace performs one map step per move.
 - [EX5.1](TASKS.md#ex51) — The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions. Use these macros and loop invariants to lower each actual graph and index phase.
 - [EX5.5](TASKS.md#ex55) — Lean verifies downstream list disjunctions, original output order, all target/count charges, and the cubic-log scaling from an exact single-target oracle. The whole-oracle instantiation remains open.
 

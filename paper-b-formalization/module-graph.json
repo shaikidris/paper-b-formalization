@@ -127,7 +127,8 @@
         "release-core/PaperB/SeedOrderActual.lean",
         "release-core/PaperB/ExitIncoming.lean",
         "release-core/PaperB/ExitLCABridge.lean",
-        "release-core/PaperB/ExitMapRetention.lean"
+        "release-core/PaperB/ExitMapRetention.lean",
+        "release-core/PaperB/JumpMapFold.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -904,6 +905,14 @@
       "local_imports": [
         "release-core/PaperB/ExitMap.lean",
         "release-core/PaperB/Machine.lean"
+      ],
+      "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/JumpMapFold.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitMap.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"

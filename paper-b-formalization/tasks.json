@@ -117,7 +117,8 @@
     "release-core/PaperB/ActualForestQuery.lean": "cuts",
     "release-core/PaperB/ForestHead.lean": "cuts",
     "extensions/GuardedWitness.lean": "application",
-    "release-core/PaperB/ExitMapRetention.lean": "oracle"
+    "release-core/PaperB/ExitMapRetention.lean": "oracle",
+    "release-core/PaperB/JumpMapFold.lean": "oracle"
   },
   "milestones": [
     {
@@ -1037,7 +1038,7 @@
         "1.1",
         "5.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Construct one upward jump map per real pair and recover both summary coordinates from the vertex base.",
@@ -1045,7 +1046,10 @@
         "Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.",
         "Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex43-checked-map-fold/verification.json"
+      ],
+      "progress": "Stored parent and skew jump maps compose to the exact map over each ancestor segment. Executable folding over a checked trace performs one map step per move."
     },
     {
       "id": "EX4.4",

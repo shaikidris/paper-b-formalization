@@ -376,7 +376,7 @@ Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](
 
 ## EX4.3 — Build and evaluate composed jump maps
 
-- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX4; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX4.2, EX2.3, EX1.6.
 - Proposed owner module: `release-core/PaperB/Index.lean`.
@@ -388,6 +388,10 @@ Acceptance:
 
 - Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
 - Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation.
+
+Stored parent and skew jump maps compose to the exact map over each ancestor segment. Executable folding over a checked trace performs one map step per move.
+
+Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json).
 
 <a id="ex44"></a>
 

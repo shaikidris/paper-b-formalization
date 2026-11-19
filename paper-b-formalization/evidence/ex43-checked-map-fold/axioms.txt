@@ -1,0 +1,4 @@
+'PaperB.ExitMap.CheckedFold.jumpOK_skew' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.CheckedFold.fold_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.CheckedFold.query_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.CheckedFold.query_steps_le' depends on axioms: [propext, Quot.sound]
