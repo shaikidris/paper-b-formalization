@@ -430,9 +430,9 @@ Acceptance:
 
 - Prove deterministic O((n+m)L³) build time for the compiled data layout.
 
-The word-machine midpoint is now a checked three-instruction executable block with exact arithmetic and register preservation. The charged binary-search and whole build remain open.
+The dense quotient vertex layout is verified in one pass over actual ordinary children, with exact local addressing and at most two vertex copies per retained original.
 
-Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json), [evidence/ex51-linear-occurrence-buckets/verification.json](evidence/ex51-linear-occurrence-buckets/verification.json), [evidence/ex51-one-word-midpoint/verification.json](evidence/ex51-one-word-midpoint/verification.json), [evidence/global-sibling-audit/verification.json](evidence/global-sibling-audit/verification.json), [evidence/ram-midpoint-audit/verification.json](evidence/ram-midpoint-audit/verification.json).
+Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json), [evidence/ex51-linear-occurrence-buckets/verification.json](evidence/ex51-linear-occurrence-buckets/verification.json), [evidence/ex51-one-word-midpoint/verification.json](evidence/ex51-one-word-midpoint/verification.json), [evidence/global-sibling-audit/verification.json](evidence/global-sibling-audit/verification.json), [evidence/ram-midpoint-audit/verification.json](evidence/ram-midpoint-audit/verification.json), [evidence/dense-quotient-audit/verification.json](evidence/dense-quotient-audit/verification.json).
 
 <a id="ex52"></a>
 

@@ -1,0 +1,5 @@
+'PaperB.DenseQuotientRows.Layout.key_zero' depends on axioms: [propext, Quot.sound]
+'PaperB.DenseQuotientRows.Layout.key_injective' depends on axioms: [propext, Quot.sound]
+'PaperB.DenseQuotientRows.Layout.occurs_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.DenseQuotientRows.Layout.sum_lengths_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.DenseQuotientRows.Layout.storage_le' depends on axioms: [propext, Quot.sound]

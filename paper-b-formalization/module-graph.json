@@ -142,7 +142,8 @@
         "release-core/PaperB/ThirdReachableRoute.lean",
         "release-core/PaperB/AllOrigOracleCases.lean",
         "release-core/PaperB/ExitSpanBridge.lean",
-        "release-core/PaperB/OriginalStaticConnector.lean"
+        "release-core/PaperB/OriginalStaticConnector.lean",
+        "release-core/PaperB/DenseQuotientRows.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1381,6 +1382,14 @@
       ],
       "owner_role": "application",
       "admission": "DOWNSTREAM"
+    },
+    {
+      "path": "release-core/PaperB/DenseQuotientRows.lean",
+      "local_imports": [
+        "release-core/PaperB/StaticTreeReader.lean"
+      ],
+      "owner_role": "quotient",
+      "admission": "ORACLE_CORE"
     }
   ],
   "structural_root": "release-core/PaperB/Exit.lean"

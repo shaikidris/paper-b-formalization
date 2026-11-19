@@ -166,7 +166,8 @@
     "release-core/PaperB/MeasuredCutRange.lean": "cuts",
     "release-core/PaperB/ForestTopologicalTotal.lean": "cuts",
     "release-core/PaperB/OriginalStaticConnector.lean": "oracle",
-    "extensions/GuardedListedWitness.lean": "application"
+    "extensions/GuardedListedWitness.lean": "application",
+    "release-core/PaperB/DenseQuotientRows.lean": "quotient"
   },
   "milestones": [
     {
@@ -1234,9 +1235,10 @@
         "evidence/ex51-linear-occurrence-buckets/verification.json",
         "evidence/ex51-one-word-midpoint/verification.json",
         "evidence/global-sibling-audit/verification.json",
-        "evidence/ram-midpoint-audit/verification.json"
+        "evidence/ram-midpoint-audit/verification.json",
+        "evidence/dense-quotient-audit/verification.json"
       ],
-      "progress": "The word-machine midpoint is now a checked three-instruction executable block with exact arithmetic and register preservation. The charged binary-search and whole build remain open."
+      "progress": "The dense quotient vertex layout is verified in one pass over actual ordinary children, with exact local addressing and at most two vertex copies per retained original."
     },
     {
       "id": "EX5.2",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "f452946",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseQuotientRows.lean",
+  "sha256": "712d586ea631f97d4648734278431609d8df891d28ea3169911cac0d6d961605",
+  "scope": "The actual static child buckets build a dense quotient row layout with exact mutually inverse row positions and root versus child tags. One outer pass creates each quotient root and one occurrence of every ordinary child, with at most two slots per retained vertex.",
+  "remaining": "Use actual child and original-parent readers to route physical arcs through these dense addresses, and instantiate quotient rank rows and final global work summation."
+}
