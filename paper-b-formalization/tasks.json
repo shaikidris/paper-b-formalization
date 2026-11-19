@@ -121,7 +121,8 @@
     "release-core/PaperB/JumpMapFold.lean": "oracle",
     "release-core/PaperB/ConcreteDomOps.lean": "dominator",
     "release-core/PaperB/StaticHeadSweep.lean": "dominator",
-    "release-core/PaperB/ArcBuckets.lean": "cost model"
+    "release-core/PaperB/ArcBuckets.lean": "cost model",
+    "release-core/PaperB/ExitArraySweep.lean": "oracle"
   },
   "milestones": [
     {
@@ -1019,9 +1020,10 @@
       "evidence": [
         "evidence/ex42-seed-chronology/verification.json",
         "evidence/ex42-actual-seeds/verification.json",
-        "evidence/ex42-incoming-tails/verification.json"
+        "evidence/ex42-incoming-tails/verification.json",
+        "evidence/ex42-topological-array-sweep/verification.json"
       ],
-      "progress": "Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant."
+      "progress": "A topological array driver installs a real pair map before its first base, preserves prior maps on repeated seeds and proves availability for actual fresh sources and earlier labelled predecessors. Instantiate the callbacks on the exact exit summary operations and charge the total graph scan and map traversals."
     },
     {
       "id": "EX4.3",

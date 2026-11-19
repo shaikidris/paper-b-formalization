@@ -128,7 +128,8 @@
         "release-core/PaperB/ExitIncoming.lean",
         "release-core/PaperB/ExitLCABridge.lean",
         "release-core/PaperB/ExitMapRetention.lean",
-        "release-core/PaperB/JumpMapFold.lean"
+        "release-core/PaperB/JumpMapFold.lean",
+        "release-core/PaperB/ExitArraySweep.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -942,6 +943,16 @@
       "path": "release-core/PaperB/ArcBuckets.lean",
       "local_imports": [],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitArraySweep.lean",
+      "local_imports": [
+        "release-core/PaperB/SeedOrder.lean",
+        "release-core/PaperB/ForestIntervals.lean",
+        "release-core/PaperB/ExitPaths.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

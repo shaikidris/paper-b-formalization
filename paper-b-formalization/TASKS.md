@@ -368,9 +368,9 @@ Acceptance:
 - Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.
 - The path above the already processed fresh endpoint has maps installed. For an earlier off-endpoint predecessor, propagate its base; for an endpoint arc add its own physical tail.
 
-Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant.
+A topological array driver installs a real pair map before its first base, preserves prior maps on repeated seeds and proves availability for actual fresh sources and earlier labelled predecessors. Instantiate the callbacks on the exact exit summary operations and charge the total graph scan and map traversals.
 
-Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json), [evidence/ex42-actual-seeds/verification.json](evidence/ex42-actual-seeds/verification.json), [evidence/ex42-incoming-tails/verification.json](evidence/ex42-incoming-tails/verification.json).
+Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json), [evidence/ex42-actual-seeds/verification.json](evidence/ex42-actual-seeds/verification.json), [evidence/ex42-incoming-tails/verification.json](evidence/ex42-incoming-tails/verification.json), [evidence/ex42-topological-array-sweep/verification.json](evidence/ex42-topological-array-sweep/verification.json).
 
 <a id="ex43"></a>
 

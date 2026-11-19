@@ -1,0 +1,11 @@
+{
+  "base_commit": "2928b5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitArraySweep.lean",
+  "sha256": "b88fe6d6d810cef8bc1f9b7fc92b1014198be05814d3601f21a1a07bc86e05d8",
+  "scope": "A topological array driver installs a real pair map before its first base, preserves prior maps on repeated seeds and proves availability for actual fresh sources and earlier labelled predecessors.",
+  "remaining": "Instantiate the callbacks on the exact exit summary operations and charge the total graph scan and map traversals."
+}
