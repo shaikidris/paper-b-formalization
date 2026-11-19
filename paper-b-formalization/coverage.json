@@ -138,14 +138,22 @@
         "EX2.1",
         "EX2.2"
       ],
-      "formal_status": "NOT_CERTIFIED",
+      "formal_status": "CERTIFIED",
       "claim_facets": [
         "effective pairs",
         "ancestor labels",
         "nested proper losses"
       ],
       "proposed_declaration": "PaperB.proper_loss_forest",
-      "depends_on_items": []
+      "depends_on_items": [],
+      "verification": {
+        "declaration": "PaperB.proper_loss_forest",
+        "build": "evidence/paper-31-forest-certified/verification.json",
+        "axioms": "evidence/paper-31-forest-certified/axioms.txt",
+        "fidelity": "evidence/paper-31-forest-certified/fidelity.md",
+        "dependencies": "evidence/paper-31-forest-certified/dependencies.md",
+        "independent_replay": "evidence/paper-31-forest-certified/independent_replay.md"
+      }
     },
     {
       "id": "3.2",

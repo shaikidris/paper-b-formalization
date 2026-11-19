@@ -119,7 +119,8 @@
         "release-core/PaperB/ExitNonempty.lean",
         "release-core/PaperB/ThirdBlockLift.lean",
         "release-core/PaperB/ThirdBlock.lean",
-        "release-core/PaperB/LastExit.lean"
+        "release-core/PaperB/LastExit.lean",
+        "release-core/PaperB/StructuralPaper.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -756,6 +757,21 @@
         "release-core/PaperB/SemanticLCA.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StructuralPaper.lean",
+      "local_imports": [
+        "release-core/PaperB/FiniteSiblingFlat.lean",
+        "release-core/PaperB/DominatorTree.lean",
+        "release-core/PaperB/QuotientArrayCounts.lean",
+        "release-core/PaperB/QuotientBudget.lean",
+        "release-core/PaperB/FiniteSiblingBudget.lean",
+        "release-core/PaperB/SiblingVertexBudget.lean",
+        "release-core/PaperB/TopologicalRank.lean",
+        "release-core/PaperB/ForestIntervals.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

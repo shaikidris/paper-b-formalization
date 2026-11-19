@@ -101,7 +101,8 @@
     "release-core/PaperB/ThirdBlock.lean": "dominator",
     "release-core/PaperB/ForestLayoutRefine.lean": "cuts",
     "release-core/PaperB/DomPredecessorFold.lean": "dominator",
-    "release-core/PaperB/LastExit.lean": "dominator"
+    "release-core/PaperB/LastExit.lean": "dominator",
+    "release-core/PaperB/StructuralPaper.lean": "cuts"
   },
   "milestones": [
     {

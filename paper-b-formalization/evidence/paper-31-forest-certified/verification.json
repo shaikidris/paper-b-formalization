@@ -1,0 +1,11 @@
+{
+  "base_commit": "2220c91",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StructuralPaper.lean",
+  "sha256": "b16680bcedac33df5a1c55e21f6635f546f040714b7258c051617192faa66925",
+  "scope": "Exact named structural paper declarations, with whole-statement verification of Lemma 3.1 and its actual valid forest witness.",
+  "remaining": "Close Lemma 2.1 after exact retained-arc assignment, then certify Theorem 4.1 against the same ledger."
+}

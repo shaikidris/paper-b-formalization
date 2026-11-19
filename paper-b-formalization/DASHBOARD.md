@@ -5,7 +5,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - Published edition inventory: 10 items, including 9 proof-bearing statements and Question 6.2.
 - Work inventory: 27 packages in 7 milestones.
 - Completed planning audits: 1.
-- Certified main theorems: **0/2**. Certified numbered results: **0/9**.
+- Certified main theorems: **0/2**. Certified numbered results: **1/9**.
 - Assigned workers: 0; execution: LEAN_IMPLEMENTATION_IN_PROGRESS.
 - Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.
 - First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.
