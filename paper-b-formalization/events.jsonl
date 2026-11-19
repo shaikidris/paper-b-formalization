@@ -88,3 +88,4 @@
 {"at": "2026-11-19T20:58:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "QuotientArrayCounts", "tasks": ["EX1.3"], "evidence": "evidence/ex13-quotient-array-counts/verification.json"}
 {"at": "2026-11-19T20:59:02+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "QuotientBudget", "tasks": ["EX1.3"], "evidence": "evidence/ex13-unique-arc-budget/verification.json"}
 {"at": "2026-11-19T21:05:12+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CompactGraph", "tasks": ["EX1.1"], "evidence": "evidence/ex11-compact-graph/verification.json"}
+{"at": "2026-11-19T21:05:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FiniteSiblingBudget", "tasks": ["EX1.3"], "evidence": "evidence/ex13-actual-arc-budget/verification.json"}

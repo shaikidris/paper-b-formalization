@@ -1,0 +1,9 @@
+import PaperB.FiniteSiblingBudget
+
+#print axioms PaperB.Digraph.siblingBudgetEmit_owner
+#print axioms PaperB.Digraph.siblingBudgetEmit_unique
+#print axioms PaperB.Digraph.siblingBudgetEmit_filterMap_length
+#print axioms PaperB.Digraph.sum_finiteSiblingQuotient_arcCount_le_occurrences
+#print axioms PaperB.Digraph.originalArcOccurrences_length_eq_arcCount_forSiblingBudget
+#print axioms PaperB.Digraph.sum_finiteSiblingQuotient_arcCount_le_arcCount
+#check @PaperB.Digraph.sum_finiteSiblingQuotient_arcCount_le_arcCount

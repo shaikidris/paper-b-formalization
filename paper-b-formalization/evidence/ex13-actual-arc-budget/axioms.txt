@@ -1,0 +1,18 @@
+'PaperB.Digraph.siblingBudgetEmit_owner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.siblingBudgetEmit_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.siblingBudgetEmit_filterMap_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.sum_finiteSiblingQuotient_arcCount_le_occurrences' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.Digraph.originalArcOccurrences_length_eq_arcCount_forSiblingBudget' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.sum_finiteSiblingQuotient_arcCount_le_arcCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@PaperB.Digraph.sum_finiteSiblingQuotient_arcCount_le_arcCount : ∀ {g : PaperB.Digraph} {r : Fin g.vertexCount}
+  {parent : Fin g.vertexCount → Fin g.vertexCount} {rank : Fin g.vertexCount → Nat}
+  (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) (spec : g.ParentSpec r parent)
+  (roots : List { v // g.InitiallyReachable r v }),
+  roots.Nodup →
+    (List.map (fun d => (PaperB.Digraph.finiteSiblingQuotient progress injective spec ⋯).arcCount) roots).sum ≤
+      g.arcCount

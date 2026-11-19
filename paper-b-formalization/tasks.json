@@ -76,7 +76,8 @@
     "release-core/PaperB/CompactIds.lean": "graph",
     "release-core/PaperB/FiniteSiblingFlat.lean": "dominator",
     "release-core/PaperB/QuotientArrayCounts.lean": "dominator",
-    "release-core/PaperB/CompactGraph.lean": "graph"
+    "release-core/PaperB/CompactGraph.lean": "graph",
+    "release-core/PaperB/FiniteSiblingBudget.lean": "dominator"
   },
   "milestones": [
     {
@@ -384,9 +385,10 @@
         "evidence/ex13-finite-sibling/verification.json",
         "evidence/ex13-finite-flatness/verification.json",
         "evidence/ex13-quotient-array-counts/verification.json",
-        "evidence/ex13-unique-arc-budget/verification.json"
+        "evidence/ex13-unique-arc-budget/verification.json",
+        "evidence/ex13-actual-arc-budget/verification.json"
       ],
-      "progress": "Lean verifies the finite flat representation and exact per-quotient counts, and proves the total generic counting bound for exclusive occurrence ownership. Apply this to the original sibling emitters and actual vertex copies."
+      "progress": "Lean verifies the actual finite quotient’s path equivalence and flatness. Across all distinct reachable roots the emitted adjacency arrays contain at most m original arc occurrences. The actual vertex-copy bound and formal task closure remain open."
     },
     {
       "id": "EX1.4",

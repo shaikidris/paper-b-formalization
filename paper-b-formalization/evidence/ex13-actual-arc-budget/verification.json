@@ -1,0 +1,11 @@
+{
+  "base_commit": "d62a60a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FiniteSiblingBudget.lean",
+  "sha256": "1cc297822ab69189ae31b676d1c7d54c862d11748d16e1f24ac8e423438a9d19",
+  "scope": "The actual finite sibling quotient arrays over distinct reachable roots contain at most m labelled arc occurrences in total, preserving every parallel occurrence independently.",
+  "remaining": "Verify the actual global vertex-copy bound and close task verification after normalization prerequisites."
+}
