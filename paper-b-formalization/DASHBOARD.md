@@ -13,13 +13,14 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **1/27**. Planning audits **1** and verified proof packages **0**.
-- Remaining work packages **26**. 10 in progress, 16 planned.
+- Remaining work packages **26**. 11 in progress, 15 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
 
 - [EX0.2](TASKS.md#ex02) — Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
+- [EX0.3](TASKS.md#ex03) — Lean builds an abstract array-block machine with bounded-width payload words, explicit read/write/allocation/release charges and checked work and peak aggregation. Released slots remain counted as metadata. Address fit, live-word invariant, arithmetic and lowbit primitives, allocation-transient space and construction/query trace integration remain open.
 - [EX1.1](TASKS.md#ex11) — Lean verifies the induced graph on initially reachable original IDs preserves surviving path semantics for every failure predicate and exactly preserves the order and multiplicity of each retained outgoing list. Failed endpoints and initially unreachable targets are covered. The executable topological enumeration and charged ID compaction remain open.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the semantic dominance laws and its exact recurrence at a nonsource, nonfailed endpoint over initially reachable predecessors. The immediate-dominator tree construction and coincident ancestry relation remain open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.

@@ -191,7 +191,7 @@
         "3.2",
         "5.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Specify word size, addressable arrays, peak live words, retained index size and the available query input.",
@@ -199,7 +199,10 @@
         "Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.",
         "Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex03-machine-foundation/verification.json"
+      ],
+      "progress": "Lean builds an abstract array-block machine with bounded-width payload words, explicit read/write/allocation/release charges and checked work and peak aggregation. Released slots remain counted as metadata. Address fit, live-word invariant, arithmetic and lowbit primitives, allocation-transient space and construction/query trace integration remain open."
     },
     {
       "id": "EX1.1",

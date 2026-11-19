@@ -1,0 +1,11 @@
+{
+  "base_commit": "cd259707c46cef5e42f6ac2d150a17968f14dca7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Machine.lean",
+  "sha256": "12acf403818a6ef1aabe4363bcea3023e79b2d4ce121da8e0ddc0d39a3625f3b",
+  "scope": "Executable bounded-width payload primitives, explicit allocation and release, abstract work observations, and trace aggregation and peak lemmas. Tombstones count toward storage. The operation costs describe an abstract machine, with no Lean runtime bounds asserted.",
+  "remaining": "Prove the live-payload count invariant, fit handles and addresses into input-sized words, account for allocation-transient space, and connect build and query execution with fixed capacities and primitives."
+}

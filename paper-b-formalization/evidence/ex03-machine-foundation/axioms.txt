@@ -1,0 +1,10 @@
+'PaperB.Machine.totalWork_append' depends on axioms: [propext]
+'PaperB.Machine.space_le_peak' depends on axioms: [propext]
+@PaperB.Machine.allocate : {bits : Nat} →
+  PaperB.Machine.Heap → Nat → PaperB.Machine.Word bits → PaperB.Machine.Step (PaperB.Machine.Handle bits)
+@PaperB.Machine.read : {bits : Nat} →
+  PaperB.Machine.Heap → PaperB.Machine.Handle bits → Nat → PaperB.Machine.Step (Option (PaperB.Machine.Word bits))
+@PaperB.Machine.write : {bits : Nat} →
+  PaperB.Machine.Heap → PaperB.Machine.Handle bits → Nat → PaperB.Machine.Word bits → PaperB.Machine.Step (Option Unit)
+@PaperB.Machine.free : {bits : Nat} →
+  PaperB.Machine.Heap → PaperB.Machine.Handle bits → PaperB.Machine.Step (Option Unit)

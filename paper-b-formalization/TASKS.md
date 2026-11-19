@@ -45,7 +45,7 @@ Planning/evidence references: [release-core/Challenge.lean](release-core/Challen
 
 ## EX0.3 — Define execution and storage units
 
-- Milestone: EX0; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX0; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.2.
 - Proposed owner module: `release-core/PaperB/Machine.lean`.
@@ -57,6 +57,10 @@ Acceptance:
 
 - Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.
 - Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation.
+
+Lean builds an abstract array-block machine with bounded-width payload words, explicit read/write/allocation/release charges and checked work and peak aggregation. Released slots remain counted as metadata. Address fit, live-word invariant, arithmetic and lowbit primitives, allocation-transient space and construction/query trace integration remain open.
+
+Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json).
 
 <a id="ex11"></a>
 

@@ -40,3 +40,4 @@
 {"at": "2026-11-19T20:03:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PrefixProbe", "tasks": ["EX2.4"], "evidence": "evidence/ex24-prefix-cutoff/verification.json"}
 {"at": "2026-11-19T20:05:16+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Dom", "tasks": ["EX1.2"], "evidence": "evidence/ex12-dominator-predecessors/verification.json"}
 {"at": "2026-11-19T20:07:10+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestIntervalQuery", "tasks": ["EX2.4"], "evidence": "evidence/ex24-array-interval/verification.json"}
+{"at": "2026-11-19T20:07:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Machine", "tasks": ["EX0.3"], "evidence": "evidence/ex03-machine-foundation/verification.json"}
