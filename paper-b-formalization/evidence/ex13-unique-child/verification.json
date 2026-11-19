@@ -1,0 +1,11 @@
+{
+  "base_commit": "2f1010ac2aab4d5a037f0e34d2be8a9c9ebd0c09",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingPartition.lean",
+  "sha256": "7ae5c139ae0f31b7d6eace29853527b4199e23b0f61581f17c57327e62804a42",
+  "scope": "Every proper dominated descendant belongs to exactly one reachable child subtree of the ordinary dominator parent.",
+  "remaining": "Build the finite original-DAG block representation and all labelled quotient instances and occurrence counts."
+}

@@ -56,7 +56,8 @@
     "release-core/PaperB/BlockPaths.lean": "dominator",
     "release-core/PaperB/BlockProjection.lean": "dominator",
     "release-core/PaperB/ReachScan.lean": "graph",
-    "release-core/PaperB/RamProgram.lean": "cost model"
+    "release-core/PaperB/RamProgram.lean": "cost model",
+    "release-core/PaperB/SiblingPartition.lean": "dominator"
   },
   "milestones": [
     {
@@ -328,9 +329,10 @@
         "evidence/ex13-dominator-boundary/verification.json",
         "evidence/ex13-block-lifting/verification.json",
         "evidence/ex13-block-projection/verification.json",
-        "evidence/ex13-dominator-segment/verification.json"
+        "evidence/ex13-dominator-segment/verification.json",
+        "evidence/ex13-unique-child/verification.json"
       ],
-      "progress": "Lean verifies the supplied-block projection and lifting equivalence and the named tail guarantee. Original dominator subtrees have unique entry and internal paths. The original-DAG sibling block system, labelled quotient arrays, flatness and occurrence counts remain open."
+      "progress": "Lean verifies every proper descendant lies below exactly one child of its dominator. It already checks arbitrary-block projection and lifting with exact tails, and original subtree unique entry. The original-DAG block assignment and finite quotient construction, flatness and occurrence bounds remain open."
     },
     {
       "id": "EX1.4",

@@ -51,7 +51,8 @@
         "release-core/PaperB/Dom.lean",
         "release-core/PaperB/DominatorBoundary.lean",
         "release-core/PaperB/BlockPaths.lean",
-        "release-core/PaperB/BlockProjection.lean"
+        "release-core/PaperB/BlockProjection.lean",
+        "release-core/PaperB/SiblingPartition.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -325,6 +326,14 @@
         "release-core/PaperB/WordOps.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SiblingPartition.lean",
+      "local_imports": [
+        "release-core/PaperB/DominatorTree.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

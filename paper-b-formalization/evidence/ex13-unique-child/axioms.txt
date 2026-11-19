@@ -1,0 +1,12 @@
+'PaperB.Digraph.existsUnique_dominator_child' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.existsUnique_dominator_child : ∀ {g : PaperB.Digraph} {r d v : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount},
+  (∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y) →
+    (∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) →
+      g.ParentSpec r parent →
+        g.InitiallyReachable r v →
+          g.Dominates r d v →
+            v ≠ d →
+              ∃ c,
+                (parent c = d ∧ c ≠ d ∧ g.InitiallyReachable r c ∧ g.Dominates r c v) ∧
+                  ∀ (e : Fin g.vertexCount), parent e = d ∧ e ≠ d ∧ g.InitiallyReachable r e ∧ g.Dominates r e v → e = c

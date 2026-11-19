@@ -121,9 +121,9 @@ Acceptance:
 - Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.
 - Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator.
 
-Lean verifies the supplied-block projection and lifting equivalence and the named tail guarantee. Original dominator subtrees have unique entry and internal paths. The original-DAG sibling block system, labelled quotient arrays, flatness and occurrence counts remain open.
+Lean verifies every proper descendant lies below exactly one child of its dominator. It already checks arbitrary-block projection and lifting with exact tails, and original subtree unique entry. The original-DAG block assignment and finite quotient construction, flatness and occurrence bounds remain open.
 
-Planning/evidence references: [evidence/ex13-dominator-boundary/verification.json](evidence/ex13-dominator-boundary/verification.json), [evidence/ex13-block-lifting/verification.json](evidence/ex13-block-lifting/verification.json), [evidence/ex13-block-projection/verification.json](evidence/ex13-block-projection/verification.json), [evidence/ex13-dominator-segment/verification.json](evidence/ex13-dominator-segment/verification.json).
+Planning/evidence references: [evidence/ex13-dominator-boundary/verification.json](evidence/ex13-dominator-boundary/verification.json), [evidence/ex13-block-lifting/verification.json](evidence/ex13-block-lifting/verification.json), [evidence/ex13-block-projection/verification.json](evidence/ex13-block-projection/verification.json), [evidence/ex13-dominator-segment/verification.json](evidence/ex13-dominator-segment/verification.json), [evidence/ex13-unique-child/verification.json](evidence/ex13-unique-child/verification.json).
 
 <a id="ex14"></a>
 
