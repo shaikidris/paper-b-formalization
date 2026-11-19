@@ -1,0 +1,12 @@
+'PrefixProbe.searchLog_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PrefixProbe.searchLog_count_le' depends on axioms: [propext, Quot.sound]
+PrefixProbe.searchLog_spec : ∀ (p : Nat → Bool) (lo hi : Nat),
+  lo < hi →
+    p lo = true →
+      p hi = false →
+        (∀ (a b : Nat), lo ≤ a → a ≤ b → b ≤ hi → p b = true → p a = true) →
+          have cut := (PrefixProbe.searchLog p lo hi).fst;
+          lo ≤ cut ∧
+            cut < hi ∧
+              p cut = true ∧
+                p (cut + 1) = false ∧ ∀ (j : Nat), lo ≤ j → j ≤ hi → (p j = true ↔ j ≤ cut) ∧ (p j = false ↔ cut < j)

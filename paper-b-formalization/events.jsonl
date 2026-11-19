@@ -37,3 +37,4 @@
 {"at": "2026-11-19T19:54:43+00:00", "kind": "EX24_PRIVATE_API_CHECKPOINT", "task": "EX2.4", "model": "gpt-6.2-sol", "state": "BUILT_ANCESTRY_INTERVAL_EQUIVALENCE", "remaining_original_errors": 0}
 {"at": "2026-11-19T19:59:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Exit", "tasks": ["EX3.1", "EX3.2", "EX3.3"], "evidence": "evidence/ex33-forest-exit/verification.json"}
 {"at": "2026-11-19T20:02:32+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Graph", "tasks": ["EX1.1"], "evidence": "evidence/ex11-retained-graph/verification.json"}
+{"at": "2026-11-19T20:03:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PrefixProbe", "tasks": ["EX2.4"], "evidence": "evidence/ex24-prefix-cutoff/verification.json"}

@@ -181,8 +181,15 @@
       "local_imports": [
         "release-core/PaperB/Forest.lean",
         "release-core/PaperB/Jumps.lean",
-        "release-core/Challenge.lean"
+        "release-core/Challenge.lean",
+        "release-core/PaperB/PrefixProbe.lean"
       ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PrefixProbe.lean",
+      "local_imports": [],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }

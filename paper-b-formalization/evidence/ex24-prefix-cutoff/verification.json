@@ -1,0 +1,11 @@
+{
+  "base_commit": "4d76a921aac3b214fde781bb4304e7b04092e98d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PrefixProbe.lean",
+  "sha256": "2ab707d8f0db3ce659b74cdbbce5fb029b8857bfd59debea34edf7f228e19adc",
+  "scope": "Executable numeric prefix search with sentinels, exact cutoff and full classification under monotonicity. The same search makes at most log2(width)+1 predicate calls.",
+  "remaining": "Connect the numeric predicate to forest predecessors, prove the charged per-probe cost and assemble the constructor and index."
+}
