@@ -1,0 +1,11 @@
+{
+  "base_commit": "6311ed8ace4ad238d225d447f3df21fcad4287cd",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Dom.lean",
+  "sha256": "a4e7a194206c32b89cb7542da13aef584381f7f7d3fa976f665f025360632ed2",
+  "scope": "Reflexivity, transitivity and the checked predecessor recurrence for deletion-based dominance, ignoring unreachable predecessors.",
+  "remaining": "Prove the unique deepest common predecessor dominator, tree ancestry equivalence and strictly increasing topological rank on parent edges."
+}

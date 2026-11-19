@@ -1,0 +1,6 @@
+'PaperB.Digraph.dominates_refl' does not depend on any axioms
+'PaperB.Digraph.dominates_trans' does not depend on any axioms
+'PaperB.Digraph.dominates_iff_reachable_predecessors' does not depend on any axioms
+@PaperB.Digraph.dominates_iff_reachable_predecessors : ∀ {g : PaperB.Digraph} {r d v : Fin g.vertexCount},
+  v ≠ r →
+    d ≠ v → (g.Dominates r d v ↔ ∀ (p : Fin g.vertexCount), g.HasArc p v → g.InitiallyReachable r p → g.Dominates r d p)

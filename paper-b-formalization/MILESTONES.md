@@ -23,7 +23,7 @@ Work packages: 6; planning audits complete: 0; verified proof packages: 0.
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
 | [EX1.1](TASKS.md#ex11) — Normalize original vertices and failure sets | graph | IN_PROGRESS | EX0.2 |
-| [EX1.2](TASKS.md#ex12) — Characterize the ordinary dominator tree | dominator | PLANNED | EX1.1 |
+| [EX1.2](TASKS.md#ex12) — Characterize the ordinary dominator tree | dominator | IN_PROGRESS | EX1.1 |
 | [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | PLANNED | EX1.2 |
 | [EX1.4](TASKS.md#ex14) — Characterize partial-block reachability | dominator | PLANNED | EX1.3 |
 | [EX1.5](TASKS.md#ex15) — Construct the ordinary dominator tree within the oracle budget | dominator | PLANNED | EX1.2, EX0.3, EX2.3 |

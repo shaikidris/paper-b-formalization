@@ -83,7 +83,7 @@ Planning/evidence references: [evidence/ex11-retained-graph/verification.json](e
 
 ## EX1.2 — Characterize the ordinary dominator tree
 
-- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.1.
 - Proposed owner module: `release-core/PaperB/Dom.lean`.
@@ -95,6 +95,10 @@ Acceptance:
 
 - Give a tree construction or existence proof on all retained DAGs and characterize single deletion. Justify the root, singleton, and reachable nonroot predecessor cases.
 - This semantic result supplies the labelled quotient independently of machine code.
+
+Lean verifies the semantic dominance laws and its exact recurrence at a nonsource, nonfailed endpoint over initially reachable predecessors. The immediate-dominator tree construction and coincident ancestry relation remain open.
+
+Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json).
 
 <a id="ex13"></a>
 
