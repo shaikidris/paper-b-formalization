@@ -1,0 +1,11 @@
+{
+  "base_commit": "7b15f71",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/CompactCounts.lean",
+  "sha256": "32ce75bb1c57bb71302330252ce5d7e287dd8cbd2d15b94e2a03472f9ea0e3d5",
+  "scope": "The compact graph contains at most the original vertex and arc counts. Traversal of retained adjacency charges at most one original row occurrence per copy, preserving parallel entries.",
+  "remaining": "Compose executable normalization and its phase counts."
+}

@@ -1,0 +1,2 @@
+'PaperB.CompactCounts.compact_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.CompactCounts.traversal_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]

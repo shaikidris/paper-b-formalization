@@ -82,7 +82,8 @@
     "release-core/PaperB/CompactPaths.lean": "graph",
     "release-core/PaperB/SiblingVertexBudget.lean": "dominator",
     "release-core/PaperB/ForestLayoutCost.lean": "cuts",
-    "release-core/PaperB/CompactFailures.lean": "graph"
+    "release-core/PaperB/CompactFailures.lean": "graph",
+    "release-core/PaperB/CompactCounts.lean": "graph"
   },
   "milestones": [
     {
@@ -307,9 +308,10 @@
         "evidence/ex11-compact-id-maps/verification.json",
         "evidence/ex11-compact-graph/verification.json",
         "evidence/ex11-compact-paths/verification.json",
-        "evidence/ex11-compact-failures/verification.json"
+        "evidence/ex11-compact-failures/verification.json",
+        "evidence/ex11-compact-counts/verification.json"
       ],
-      "progress": "The executable at-most-two-failure translation skips absent IDs and agrees exactly with the failed predicate under inverse IDs; duplicate failures have the same membership. Compose with the compact query and the decreasing-order view."
+      "progress": "The compact graph contains at most the original vertex and arc counts. Traversal of retained adjacency charges at most one original row occurrence per copy, preserving parallel entries. Compose executable normalization and its phase counts."
     },
     {
       "id": "EX1.2",
