@@ -62,7 +62,7 @@ Work packages: 4; planning audits complete: 0; verified proof packages: 0.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
-| [EX4.1](TASKS.md#ex41) — Implement the two-coordinate map algebra | oracle | PLANNED | EX3.3, EX1.2 |
+| [EX4.1](TASKS.md#ex41) — Implement the two-coordinate map algebra | oracle | IN_PROGRESS | EX3.3, EX1.2 |
 | [EX4.2](TASKS.md#ex42) — Install maps before bases in topological order | oracle | PLANNED | EX4.1, EX2.4 |
 | [EX4.3](TASKS.md#ex43) — Build and evaluate composed jump maps | oracle | PLANNED | EX4.2, EX2.3, EX1.6 |
 | [EX4.4](TASKS.md#ex44) — Decide arbitrary post-build queries | oracle | PLANNED | EX1.4, EX4.3, EX1.5 |

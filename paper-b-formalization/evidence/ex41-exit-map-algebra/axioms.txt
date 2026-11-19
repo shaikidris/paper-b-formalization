@@ -1,0 +1,9 @@
+'PaperB.ExitMap.Interval.empty_join' does not depend on any axioms
+'PaperB.ExitMap.Interval.join_empty' does not depend on any axioms
+'PaperB.ExitMap.Interval.join_assoc' depends on axioms: [propext]
+'PaperB.ExitMap.Interval.join_comm' depends on axioms: [propext]
+'PaperB.ExitMap.Coord.eval_compose' depends on axioms: [propext]
+'PaperB.ExitMap.Map.eval_compose_get' depends on axioms: [propext]
+'PaperB.ExitMap.Map.eval_identity' depends on axioms: [propext]
+PaperB.ExitMap.Map.eval_compose_get : ∀ (inner outer : PaperB.ExitMap.Map) (xs : PaperB.ExitMap.Values) (i : Fin 2),
+  PaperB.ExitMap.Two.get ((inner.compose outer).eval xs) i = PaperB.ExitMap.Two.get (outer.eval (inner.eval xs)) i

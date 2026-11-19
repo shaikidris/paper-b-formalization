@@ -1,0 +1,11 @@
+{
+  "base_commit": "b36e24fcf9460b4cbd9af63fa9ef0e25f06e3088",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitMap.lean",
+  "sha256": "124a0b7d3bf60cf0c6ab2e42b0724dddc32a9f77f6873ecfe74e0532f2310ce7",
+  "scope": "The v1.3 two-coordinate map algebra with an empty interval, min/max join, optional selected input and constant-size composition form.",
+  "remaining": "Relate min/max intervals to exact finite tail sets and the tree ancestry predicate. Connect constants to the exit-transfer theorem and account for their representation and work."
+}

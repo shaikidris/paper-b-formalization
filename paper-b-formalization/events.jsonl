@@ -45,3 +45,4 @@
 {"at": "2026-11-19T20:11:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DominatorChain", "tasks": ["EX1.2"], "evidence": "evidence/ex12-dominator-chain/verification.json"}
 {"at": "2026-11-19T20:11:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PredecessorSearch", "tasks": ["EX2.4"], "evidence": "evidence/ex24-predecessor-search/verification.json"}
 {"at": "2026-11-19T20:13:39+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ImmediateDominator", "tasks": ["EX1.2"], "evidence": "evidence/ex12-immediate-dominator/verification.json"}
+{"at": "2026-11-19T20:13:41+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitMap", "tasks": ["EX4.1"], "evidence": "evidence/ex41-exit-map-algebra/verification.json"}

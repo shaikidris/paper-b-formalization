@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **2/27**. Planning audits **1** and verified proof packages **1**.
-- Remaining work packages **25**. 10 in progress, 15 planned.
+- Remaining work packages **25**. 11 in progress, 14 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -29,6 +29,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX3.1](TASKS.md#ex31) — Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.
 - [EX3.2](TASKS.md#ex32) — Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
 - [EX3.3](TASKS.md#ex33) — Lean verifies pointwise equality of the two sides of exit transfer on the actual constructed proper-loss forest, hence equality as predicates on physical tails for either parent endpoint. Original-graph quotient construction and Figure 1 replay through that forest remain open.
+- [EX4.1](TASKS.md#ex41) — Lean verifies empty interval identity and min/max join algebra, executable evaluation, identity and traversal-order composition of two constant-plus-optional-slot records. The bridge to actual tail sets and bounded word layout remains open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

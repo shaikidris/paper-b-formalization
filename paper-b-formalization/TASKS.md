@@ -319,7 +319,7 @@ Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evid
 
 ## EX4.1 — Implement the two-coordinate map algebra
 
-- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX4; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX3.3, EX1.2.
 - Proposed owner module: `release-core/PaperB/Index.lean`.
@@ -330,6 +330,10 @@ Formalize the LCA join with an empty sentinel and constant-plus-optional-coordin
 Acceptance:
 
 - Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage.
+
+Lean verifies empty interval identity and min/max join algebra, executable evaluation, identity and traversal-order composition of two constant-plus-optional-slot records. The bridge to actual tail sets and bounded word layout remains open.
+
+Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json).
 
 <a id="ex42"></a>
 

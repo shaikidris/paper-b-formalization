@@ -46,7 +46,8 @@
     "release-core/PaperB/OracleContract.lean": "contract",
     "release-core/PaperB/DominatorChain.lean": "dominator",
     "release-core/PaperB/PredecessorSearch.lean": "cuts",
-    "release-core/PaperB/ImmediateDominator.lean": "dominator"
+    "release-core/PaperB/ImmediateDominator.lean": "dominator",
+    "release-core/PaperB/ExitMap.lean": "oracle"
   },
   "milestones": [
     {
@@ -731,14 +732,17 @@
         "1.1",
         "5.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Formalize the LCA join with an empty sentinel and constant-plus-optional-coordinate maps.",
       "acceptance": [
         "Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex41-exit-map-algebra/verification.json"
+      ],
+      "progress": "Lean verifies empty interval identity and min/max join algebra, executable evaluation, identity and traversal-order composition of two constant-plus-optional-slot records. The bridge to actual tail sets and bounded word layout remains open."
     },
     {
       "id": "EX4.2",
