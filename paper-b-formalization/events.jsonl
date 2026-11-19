@@ -211,3 +211,4 @@
 {"at": "2026-11-19T23:52:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestOrderedReader", "tasks": ["EX2.4"], "evidence": "evidence/forest-ordered-reader-audit/verification.json"}
 {"at": "2026-11-19T23:52:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseArcRecode", "tasks": ["EX5.1"], "evidence": "evidence/dense-arc-local-slot-audit/verification.json"}
 {"at": "2026-11-19T23:55:39+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestRealCounts", "tasks": ["EX2.4"], "evidence": "evidence/forest-real-counts-audit/verification.json"}
+{"at": "2026-11-19T23:55:44+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitGroupedFresh", "tasks": ["EX4.2"], "evidence": "evidence/exit-grouped-fresh-audit/verification.json"}

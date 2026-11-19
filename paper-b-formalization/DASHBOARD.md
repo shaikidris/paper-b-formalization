@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — Lean verifies the aggregate measured counts on the complete executable ordered sweep. The proof discharges the local site premises from the run itself. Word-level time and workspace remain open.
-- [EX4.2](TASKS.md#ex42) — The actual forest event log now has checked first-creation and final parent chronology. The scatter can produce the exit schedule without per-vertex forest scans once its exact slot correspondence is joined.
+- [EX4.2](TASKS.md#ex42) — The one-pass fresh-event index has exact head lookup under the verified ordering shape. Attachment to the actual exit install schedule is in progress.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — A checked inverse translates the actual two-range global block code into a local quotient slot without scanning the child row or allocating a table per root. The dense arc fold and whole-arena proof remain open.

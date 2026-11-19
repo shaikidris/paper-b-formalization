@@ -177,7 +177,8 @@
     "release-core/PaperB/ActualSiblingEmitter.lean": "quotient",
     "release-core/PaperB/ForestOrderedReader.lean": "cuts",
     "release-core/PaperB/DenseArcRecode.lean": "quotient",
-    "release-core/PaperB/ForestRealCounts.lean": "cuts"
+    "release-core/PaperB/ForestRealCounts.lean": "cuts",
+    "release-core/PaperB/ExitGroupedFresh.lean": "exit"
   },
   "milestones": [
     {
@@ -1139,9 +1140,10 @@
         "evidence/physical-exit-audit/verification.json",
         "evidence/exit-indexed-audit/verification.json",
         "evidence/physical-entry-audit/verification.json",
-        "evidence/forest-event-chronology-audit/verification.json"
+        "evidence/forest-event-chronology-audit/verification.json",
+        "evidence/exit-grouped-fresh-audit/verification.json"
       ],
-      "progress": "The actual forest event log now has checked first-creation and final parent chronology. The scatter can produce the exit schedule without per-vertex forest scans once its exact slot correspondence is joined."
+      "progress": "The one-pass fresh-event index has exact head lookup under the verified ordering shape. Attachment to the actual exit install schedule is in progress."
     },
     {
       "id": "EX4.3",

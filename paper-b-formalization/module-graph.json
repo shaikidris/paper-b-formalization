@@ -194,7 +194,8 @@
         "release-core/PaperB/Resources.lean",
         "release-core/PaperB/OracleContract.lean",
         "release-core/PaperB/ActualSiblingEmitter.lean",
-        "release-core/PaperB/DenseArcRecode.lean"
+        "release-core/PaperB/DenseArcRecode.lean",
+        "release-core/PaperB/ExitGroupedFresh.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1490,6 +1491,14 @@
         "release-core/PaperB/ForestSiteDepth.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitGroupedFresh.lean",
+      "local_imports": [
+        "release-core/PaperB/ArcBuckets.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

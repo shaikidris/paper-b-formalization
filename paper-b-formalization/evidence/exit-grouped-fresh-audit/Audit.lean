@@ -1,0 +1,2 @@
+import PaperB.ExitGroupedFresh
+#print axioms FreshHeadIndex.lookup_eq_some_iff

@@ -1,0 +1,11 @@
+{
+  "base_commit": "954ac2b",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitGroupedFresh.lean",
+  "sha256": "09fb8ad110253b617ee1198d813ebbffdf8f99ef75a17d0871c305c1173ccded",
+  "scope": "A single filtered bucket pass indexes fresh nonroot events. For logs with distinct vertex heads, lookup returns exactly the first-creation event at the requested head.",
+  "remaining": "Attach the real trace's distinct head sequence and bind the physical allocation IDs to the exact first-creation plan."
+}
