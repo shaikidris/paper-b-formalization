@@ -340,9 +340,10 @@
         "evidence/ex13-unique-child/verification.json",
         "evidence/ex13-sibling-blocks/verification.json",
         "evidence/ex13-failed-suffix/verification.json",
-        "evidence/ex13-sibling-system/verification.json"
+        "evidence/ex13-sibling-system/verification.json",
+        "evidence/ex13-sibling-flatness/verification.json"
       ],
-      "progress": "Lean constructs the semantic sibling blocks from the original DAG parent map and proves all internal paths, unique crossing entry, and exact failed-leader reachability in the quotient. Flatness and finite adjacency construction remain open."
+      "progress": "Lean constructs the semantic sibling blocks of the original DAG, proves internal paths and unique entry, proves exact projection/lifting and verifies flatness under every single nonroot failure. The finite labelled adjacency representation and total occurrence budget remain open."
     },
     {
       "id": "EX1.4",

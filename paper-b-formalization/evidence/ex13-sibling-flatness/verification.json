@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingBlockSystem.lean",
+  "sha256": "55d0c3d81306c53e17624683bfa672edb3779e87203865e05afaa19b1a5496bd",
+  "scope": "The concrete original-DAG sibling-block quotient is reachable from its root and remains reachable at each other key after a single nonroot deletion.",
+  "remaining": "Recover the promised Fin-indexed labelled quotient arrays with certified occurrence counts and injective rank."
+}

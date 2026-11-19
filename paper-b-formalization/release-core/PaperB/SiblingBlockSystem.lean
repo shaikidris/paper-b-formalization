@@ -139,5 +139,111 @@ theorem siblingBlockSystem_leader_path_iff (hd : g.InitiallyReachable r d)
   (siblingBlockSystem progress injective spec hd).leader_path_iff
     (siblingBlockSystem_enter progress injective spec hd)
 
+/-- Lift a raw surviving path from `d` to a leader into the reachable
+dominator subtree, retaining avoidance of every failed leader. -/
+private theorem siblingBlockSystem_lift_raw_path
+    (hd : g.InitiallyReachable r d)
+    (t : SiblingBlockKey g r d parent)
+    {failed : Fin g.vertexCount → Prop}
+    {failedKey : SiblingBlockKey g r d parent → Prop}
+    (path : g.SurvivingPath failed d (siblingBlockLeader spec hd t).val)
+    (hfailed : ∀ x : SiblingVertex g r d,
+      (siblingBlockSystem progress injective spec hd).LeaderFailed failedKey x →
+        failed x.val) :
+    let S := siblingBlockSystem progress injective spec hd
+    AvoidPath S.arc (S.LeaderFailed failedKey)
+      (S.leader (SiblingBlockKey.root g r d parent)) (S.leader t) := by
+  classical
+  let s := siblingBlockLeader spec hd (SiblingBlockKey.root g r d parent)
+  let v := siblingBlockLeader spec hd t
+  have hsub := survivingPath_within_dominator_subtree
+    (r := r) (d := d) (failed := failed) progress v.property.1 v.property.2 path
+  let good : Fin g.vertexCount → Prop := fun x =>
+    (g.InitiallyReachable r x ∧ g.Dominates r d x) ∧ ¬ failed x
+  have hgood : AvoidPath g.HasArc (fun x => ¬ good x) d v.val :=
+    AvoidPath.mono hsub (fun x hx => by
+      by_cases hm : g.InitiallyReachable r x ∧ g.Dominates r d x
+      · exact Or.inl (Classical.byContradiction (fun hf => hx ⟨hm, hf⟩))
+      · exact Or.inr hm)
+  have hlift := avoidPath_lift_subtype
+    (good := good)
+    (member := fun x => g.InitiallyReachable r x ∧ g.Dominates r d x)
+    (test := fun x : SiblingVertex g r d => ¬ failed x.val)
+    (fun _ hx => hx.1) (fun _ hx => hx.2)
+    hgood s.property v.property
+  change AvoidPath (fun x y : SiblingVertex g r d => g.HasArc x.val y.val)
+    ((siblingBlockSystem progress injective spec hd).LeaderFailed failedKey) s v
+  exact AvoidPath.mono hlift (fun x hx hn => hn (hfailed x hx))
+
+/-- Every key is reachable from the root key in the abstract quotient. -/
+theorem siblingBlockSystem_root_path
+    (hd : g.InitiallyReachable r d)
+    (t : SiblingBlockKey g r d parent) :
+    let S := siblingBlockSystem progress injective spec hd
+    AvoidPath S.QuotientEdge (fun _ => False)
+      (SiblingBlockKey.root g r d parent) t := by
+  let v := siblingBlockLeader spec hd t
+  have hraw : g.SurvivingPath (fun _ => False) d v.val :=
+    initiallyReachable_suffix_of_dominates v.property.1 v.property.2
+  apply (siblingBlockSystem_leader_path_iff progress injective spec hd
+    (failed := fun _ => False) (s := SiblingBlockKey.root g r d parent)
+    (t := t)).1
+  apply siblingBlockSystem_lift_raw_path progress injective spec hd t
+    (failed := fun _ => False) hraw
+  intro x hx
+  simpa [BlockSystem.LeaderFailed] using hx
+
+/-- Deleting one nonroot key leaves every other key reachable from the
+root key in the abstract quotient. -/
+theorem siblingBlockSystem_root_path_avoiding
+    (hd : g.InitiallyReachable r d)
+    (b t : SiblingBlockKey g r d parent)
+    (hb : b ≠ SiblingBlockKey.root g r d parent) (ht : t ≠ b) :
+    let S := siblingBlockSystem progress injective spec hd
+    AvoidPath S.QuotientEdge (fun x => x = b)
+      (SiblingBlockKey.root g r d parent) t := by
+  let S := siblingBlockSystem progress injective spec hd
+  let v := siblingBlockLeader spec hd t
+  have hbd : b.val ≠ d := fun h => hb (Subtype.ext h)
+  have hnotdom : ¬ g.Dominates r b.val v.val := by
+    intro hdom
+    by_cases htd : t.val = d
+    · have hdb : rank d < rank b.val :=
+        rank_lt_of_strict_dominator progress
+          (siblingBlockLeader spec hd b).property.1
+          (siblingBlockLeader spec hd b).property.2 (Ne.symm hbd)
+      change g.Dominates r b.val t.val at hdom
+      have hdomd : g.Dominates r b.val d := by
+        simpa only [htd] using hdom
+      have hbdRank := rank_lt_of_strict_dominator progress hd hdomd hbd
+      exact Nat.lt_irrefl _ (Nat.lt_trans hdb hbdRank)
+    · have hown : siblingBlockOf progress injective spec v = t :=
+        siblingBlockOf_leader progress injective spec hd t
+      have hother : siblingBlockOf progress injective spec v = b :=
+        (siblingBlockOf_eq_child_iff progress injective spec v b hbd).2 hdom
+      exact ht (hown.symm.trans hother)
+  have hraw : g.SurvivingPath (fun x => x = b.val) r v.val := by
+    apply Classical.byContradiction
+    intro h
+    apply hnotdom
+    first
+    | exact h
+    | intro havoid
+      exact h (AvoidPath.mono havoid (fun _ he => he.symm))
+  have hsuffix : g.SurvivingPath (fun x => x = b.val) d v.val :=
+    survivingPath_suffix_of_dominates hraw v.property.2
+  have hfailed (x : SiblingVertex g r d)
+      (hx : S.LeaderFailed (fun k => k = b) x) : x.val = b.val := by
+    have hblock (c : SiblingBlockKey g r d parent) :
+        S.block (S.leader c) = c := S.leader_block c
+    have hleader : x = S.leader b := by
+      unfold BlockSystem.LeaderFailed at hx
+      grind
+    exact congrArg (fun u : SiblingVertex g r d => u.val) hleader
+  exact (siblingBlockSystem_leader_path_iff progress injective spec hd
+    (failed := fun x => x = b) (s := SiblingBlockKey.root g r d parent)
+    (t := t)).1
+      (siblingBlockSystem_lift_raw_path progress injective spec hd t hsuffix hfailed)
+
 end Digraph
 end PaperB
