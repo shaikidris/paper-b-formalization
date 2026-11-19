@@ -138,7 +138,8 @@
     "release-core/PaperB/ExitKernels.lean": "oracle",
     "release-core/PaperB/ForestReady.lean": "cuts",
     "release-core/PaperB/OracleRuntimeProof.lean": "oracle",
-    "release-core/PaperB/ActualChildRanges.lean": "dominator"
+    "release-core/PaperB/ActualChildRanges.lean": "dominator",
+    "release-core/PaperB/ForestEmbeddingStep.lean": "cuts"
   },
   "milestones": [
     {
@@ -845,9 +846,10 @@
         "evidence/ex24-verified-head-step/verification.json",
         "evidence/ex24-dynamic-key-install/verification.json",
         "evidence/ex24-small-quotient/verification.json",
-        "evidence/ex24-ready-embedding/verification.json"
+        "evidence/ex24-ready-embedding/verification.json",
+        "evidence/forest-embedding-step-audit/verification.json"
       ],
-      "progress": "An exact embedding of occupied growing jump slots into canonical real forest nodes proves correct predecessor ancestry, chain-prefix lookups and the measured head kernel Ready predicate. Prove the initial and one-step embedding extension and discharge the concrete jump getter and canonical laws.",
+      "progress": "One actual forest insertion or reuse preserves the canonical embedding of occupied slots under exact local endpoint and allocation contracts. The executable sweep and concrete contracts remain in progress.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

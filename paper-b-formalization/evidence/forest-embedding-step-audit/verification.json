@@ -1,0 +1,11 @@
+{
+  "base_commit": "07171a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestEmbeddingStep.lean",
+  "sha256": "18560c675342b49fdb8fb20e4d56c96d53018c8026fa856de2ccc3fa49bcf0cb",
+  "scope": "One actual forest insertion or reuse preserves the canonical embedding of all occupied slots when the endpoint and allocator satisfy the exact local contracts.",
+  "remaining": "Derive concrete getter, endpoint and allocation contracts and close the complete topological sweep induction."
+}
