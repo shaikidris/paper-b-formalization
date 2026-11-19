@@ -1,0 +1,11 @@
+{
+  "base_commit": "10e76c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/LastExitPaper.lean",
+  "sha256": "727fdcaac74d090ce99e4a22659b88b13a7ff3299e123c4aba30017b3ba5350d",
+  "scope": "Verified the full published last-exit case partition on arbitrary incomparable failures with exact physical-tail and ordinary-tree LCA tests.",
+  "remaining": "Use these branches in the sealed oracle. The static and compiled cost bounds remain separate."
+}

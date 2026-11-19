@@ -122,7 +122,7 @@
         "EX1.2",
         "EX1.4"
       ],
-      "formal_status": "NOT_CERTIFIED",
+      "formal_status": "CERTIFIED",
       "claim_facets": [
         "outside and within-block queries",
         "last-exit equivalence"
@@ -130,7 +130,15 @@
       "proposed_declaration": "PaperB.last_exit_test",
       "depends_on_items": [
         "2.1"
-      ]
+      ],
+      "verification": {
+        "declaration": "PaperB.last_exit_test",
+        "build": "evidence/paper-22-last-exit-certified/verification.json",
+        "axioms": "evidence/paper-22-last-exit-certified/axioms.txt",
+        "fidelity": "evidence/paper-22-last-exit-certified/fidelity.md",
+        "dependencies": "evidence/paper-22-last-exit-certified/dependencies.md",
+        "independent_replay": "evidence/paper-22-last-exit-certified/independent_replay.md"
+      }
     },
     {
       "id": "3.1",

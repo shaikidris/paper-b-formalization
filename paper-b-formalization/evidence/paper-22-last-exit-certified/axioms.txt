@@ -1,0 +1,3 @@
+'PaperB.last_exit_test' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_third_properLoss_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_incomparable_below_lca' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -129,7 +129,7 @@ Planning/evidence references: [evidence/ex13-dominator-boundary/verification.jso
 
 ## EX1.4 — Characterize partial-block reachability
 
-- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.3.
 - Proposed owner module: `release-core/PaperB/Quotient.lean`.
@@ -142,9 +142,9 @@ Acceptance:
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 - Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
 
-At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks. Bundle these facts with the branch lemmas over all original targets.
+Verified the complete original-DAG last-exit classification for all incomparable failures, including outside, common ancestor, both own blocks and the third-block exact LCA tests.
 
-Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json), [evidence/ex14-third-block-lift/verification.json](evidence/ex14-third-block-lift/verification.json), [evidence/ex14-third-block-equivalence/verification.json](evidence/ex14-third-block-equivalence/verification.json), [evidence/ex14-third-block-lca/verification.json](evidence/ex14-third-block-lca/verification.json), [evidence/ex14-failures-below-lca/verification.json](evidence/ex14-failures-below-lca/verification.json).
+Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json), [evidence/ex14-third-block-lift/verification.json](evidence/ex14-third-block-lift/verification.json), [evidence/ex14-third-block-equivalence/verification.json](evidence/ex14-third-block-equivalence/verification.json), [evidence/ex14-third-block-lca/verification.json](evidence/ex14-third-block-lca/verification.json), [evidence/ex14-failures-below-lca/verification.json](evidence/ex14-failures-below-lca/verification.json), [evidence/paper-22-last-exit-certified/verification.json](evidence/paper-22-last-exit-certified/verification.json).
 
 <a id="ex15"></a>
 

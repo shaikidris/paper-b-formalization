@@ -126,7 +126,8 @@
     "release-core/PaperB/ActualJumpMaps.lean": "oracle",
     "release-core/PaperB/StaticChildLookup.lean": "dominator",
     "release-core/PaperB/SimpleOracleCases.lean": "oracle",
-    "release-core/PaperB/OracleMemoryLayout.lean": "cost model"
+    "release-core/PaperB/OracleMemoryLayout.lean": "cost model",
+    "release-core/PaperB/LastExitPaper.lean": "dominator"
   },
   "milestones": [
     {
@@ -488,8 +489,8 @@
         "1.1",
         "2.2"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Separate outside, own-block and third-block targets and translate the last usable exit into a subtree test.",
       "acceptance": [
@@ -503,9 +504,17 @@
         "evidence/ex14-third-block-lift/verification.json",
         "evidence/ex14-third-block-equivalence/verification.json",
         "evidence/ex14-third-block-lca/verification.json",
-        "evidence/ex14-failures-below-lca/verification.json"
+        "evidence/ex14-failures-below-lca/verification.json",
+        "evidence/paper-22-last-exit-certified/verification.json"
       ],
-      "progress": "At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks. Bundle these facts with the branch lemmas over all original targets."
+      "progress": "Verified the complete original-DAG last-exit classification for all incomparable failures, including outside, common ancestor, both own blocks and the third-block exact LCA tests.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/paper-22-last-exit-certified/verification.json",
+        "axioms": "evidence/paper-22-last-exit-certified/axioms.txt",
+        "fidelity": "evidence/paper-22-last-exit-certified/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX1.5",

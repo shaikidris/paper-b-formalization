@@ -130,7 +130,8 @@
         "release-core/PaperB/ExitMapRetention.lean",
         "release-core/PaperB/JumpMapFold.lean",
         "release-core/PaperB/ExitArraySweep.lean",
-        "release-core/PaperB/ActualJumpMaps.lean"
+        "release-core/PaperB/ActualJumpMaps.lean",
+        "release-core/PaperB/LastExitPaper.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -988,6 +989,14 @@
         "release-core/PaperB/SealedBuild.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/LastExitPaper.lean",
+      "local_imports": [
+        "release-core/PaperB/LastExitBridge.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],
