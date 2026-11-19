@@ -99,9 +99,15 @@
       ],
       "owner_role": "cuts",
       "immediate_consumer": "exit transfer",
-      "status": "OPEN",
-      "exact_type": null,
-      "evidence": []
+      "status": "CLOSED",
+      "exact_type": "PaperB.LabelledQuotient.buildProperLossForest_edge_properLoss_subset and PaperB.LabelledQuotient.buildProperLossForest_edge_fresh_follows_parent",
+      "evidence": [
+        "evidence/paper-41-transfer-certified/dependencies.md",
+        "evidence/paper-41-transfer-certified/fidelity.md",
+        "evidence/paper-41-transfer-certified/independent_replay.md",
+        "evidence/paper-41-transfer-certified/Audit.lean",
+        "evidence/paper-41-transfer-certified/axioms.txt"
+      ]
     },
     {
       "id": "O41.2",
@@ -113,9 +119,15 @@
       ],
       "owner_role": "cuts",
       "immediate_consumer": "set inclusion",
-      "status": "OPEN",
-      "exact_type": null,
-      "evidence": []
+      "status": "CLOSED",
+      "exact_type": "PaperB.exit_set_transfer, right-to-left implication of exact physical-tail membership",
+      "evidence": [
+        "evidence/paper-41-transfer-certified/dependencies.md",
+        "evidence/paper-41-transfer-certified/fidelity.md",
+        "evidence/paper-41-transfer-certified/independent_replay.md",
+        "evidence/paper-41-transfer-certified/Audit.lean",
+        "evidence/paper-41-transfer-certified/axioms.txt"
+      ]
     },
     {
       "id": "O41.3",
@@ -127,9 +139,15 @@
       ],
       "owner_role": "cuts",
       "immediate_consumer": "closed structural theorem",
-      "status": "OPEN",
-      "exact_type": null,
-      "evidence": []
+      "status": "CLOSED",
+      "exact_type": "PaperB.exit_set_transfer, left-to-right implication, and PaperB.buildProperLossForest_edge_exitTailMem_eq",
+      "evidence": [
+        "evidence/paper-41-transfer-certified/dependencies.md",
+        "evidence/paper-41-transfer-certified/fidelity.md",
+        "evidence/paper-41-transfer-certified/independent_replay.md",
+        "evidence/paper-41-transfer-certified/Audit.lean",
+        "evidence/paper-41-transfer-certified/axioms.txt"
+      ]
     }
   ],
   "extension_obligations": [

@@ -314,7 +314,7 @@ Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evid
 
 ## EX3.3 — Certify the set-level transfer theorem
 
-- Milestone: EX3; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX3; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX3.2.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
@@ -327,9 +327,9 @@ Acceptance:
 - An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target.
 - Instantiate the structural identity on the actual constructed forest and the original-tail labels. Figure 1 checks both exact contributions and all three failure outcomes as a regression control.
 
-Lean now instantiates exit transfer on the actual Fin-labelled sibling quotient built from original DAG arcs. It carries the exact physical tail. Figure 1 replays. Whole task and paper-statement acceptance await EX1.3 and EX2 evidence and the dependent task checklist.
+The full exact exit-transfer set equality is certified for the published declaration on actual original-DAG quotients.
 
-Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json), [evidence/ex33-figure-1/verification.json](evidence/ex33-figure-1/verification.json), [evidence/ex13-finite-flatness/verification.json](evidence/ex13-finite-flatness/verification.json).
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json), [evidence/ex33-figure-1/verification.json](evidence/ex33-figure-1/verification.json), [evidence/ex13-finite-flatness/verification.json](evidence/ex13-finite-flatness/verification.json), [evidence/paper-41-transfer-certified/verification.json](evidence/paper-41-transfer-certified/verification.json).
 
 <a id="ex41"></a>
 

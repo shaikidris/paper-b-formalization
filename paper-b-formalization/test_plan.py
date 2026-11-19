@@ -114,7 +114,7 @@ class PlanControls(unittest.TestCase):
             plan.validate_module_graph(self.data, graph)
 
     def test_root_count_cannot_be_inflated(self):
-        self.data['formal_roots_accepted'] = 1
+        self.data['formal_roots_accepted'] += 1
         with self.assertRaisesRegex(plan.PlanError, 'certified root count'):
             self.validate()
 

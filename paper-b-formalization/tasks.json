@@ -18,7 +18,7 @@
   ],
   "plan_status": "MAPPED_TO_PUBLISHED_VERSION",
   "execution_status": "LEAN_IMPLEMENTATION_IN_PROGRESS",
-  "formal_roots_accepted": 0,
+  "formal_roots_accepted": 1,
   "module_owners": {
     "release-core/Challenge.lean": "contract",
     "release-core/PaperB/Spec.lean": "graph",
@@ -133,7 +133,7 @@
       "id": "EX3",
       "title": "Prove the exit-set transfer identity",
       "exit_gate": "Independently replay Theorem 4.1 on the constructed forest, including disjoint pairs. Preserve original tails and check Figure 1.",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED"
     },
     {
       "id": "EX4",
@@ -907,8 +907,8 @@
       "paper_consumers": [
         "4.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Assemble both inclusions as an equality of finite sets of physical tails before compression.",
       "acceptance": [
@@ -918,9 +918,17 @@
       "evidence": [
         "evidence/ex33-forest-exit/verification.json",
         "evidence/ex33-figure-1/verification.json",
-        "evidence/ex13-finite-flatness/verification.json"
+        "evidence/ex13-finite-flatness/verification.json",
+        "evidence/paper-41-transfer-certified/verification.json"
       ],
-      "progress": "Lean now instantiates exit transfer on the actual Fin-labelled sibling quotient built from original DAG arcs. It carries the exact physical tail. Figure 1 replays. Whole task and paper-statement acceptance await EX1.3 and EX2 evidence and the dependent task checklist."
+      "progress": "The full exact exit-transfer set equality is certified for the published declaration on actual original-DAG quotients.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/paper-41-transfer-certified/verification.json",
+        "axioms": "evidence/paper-41-transfer-certified/axioms.txt",
+        "fidelity": "evidence/paper-41-transfer-certified/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX4.1",

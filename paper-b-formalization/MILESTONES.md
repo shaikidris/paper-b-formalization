@@ -46,13 +46,13 @@ Work packages: 4; planning audits complete: 0; verified proof packages: 3.
 
 Independently replay Theorem 4.1 on the constructed forest, including disjoint pairs. Preserve original tails and check Figure 1.
 
-Work packages: 3; planning audits complete: 0; verified proof packages: 2.
+Work packages: 3; planning audits complete: 0; verified proof packages: 3.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
 | [EX3.1](TASKS.md#ex31) — Lift each fresh endpoint contribution | cuts | VERIFIED | EX2.2, EX1.3 |
 | [EX3.2](TASKS.md#ex32) — Handle inherited tails and the reverse inclusion | cuts | VERIFIED | EX3.1 |
-| [EX3.3](TASKS.md#ex33) — Certify the set-level transfer theorem | cuts | IN_PROGRESS | EX3.2 |
+| [EX3.3](TASKS.md#ex33) — Certify the set-level transfer theorem | cuts | VERIFIED | EX3.2 |
 
 ## EX4 — Implement compressed exit summaries and queries
 

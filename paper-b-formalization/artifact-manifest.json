@@ -3,13 +3,13 @@
   "files": [
     {
       "path": "COVERAGE.md",
-      "bytes": 4173,
-      "sha256": "2eaa14c30146f75e904e05cd8807e729d1f5221dd75ab3c3f39cb4547180843c"
+      "bytes": 4175,
+      "sha256": "a0ca9647dc3faaa1c11ee24ac2bca1992b291d09f9d6bb368d00baaf02c69d2e"
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3677,
-      "sha256": "9ed3b4d3df06e092302f7ae1c5d47e37e61e36ab26494c6d978e42af9ffe21c4"
+      "bytes": 3379,
+      "sha256": "4ae5c7f30fe6291188c39f8a3cdbdfa5efd661d277ea66ffd60f2235c9d9a794"
     },
     {
       "path": "DISPATCH.md",
@@ -23,8 +23,8 @@
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 3138,
-      "sha256": "02ef9c5cec27c0810aa614b2a0f7dede5221bb43c56992fd09fbaa5eb9e639d1"
+      "bytes": 2466,
+      "sha256": "a821514385abbbda2b896ea6602259ac3b1ab2ac0577756428916c2ab741c7e2"
     },
     {
       "path": "INTERFACES.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5328,
-      "sha256": "2a851abbf4f22de752df6e355d92cc0e74f68fe9109af20705a429d37a7777a2"
+      "bytes": 5325,
+      "sha256": "d34404453cf1c0f6c6242a8afcad16f2ccfbb4569549e2b024a4963ebf225d8e"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 36753,
-      "sha256": "6dd4eb3373cc33e29d630fe74f4e42c5c587c2c55c81c01f10e7d0e0c56a5cfc"
+      "bytes": 36710,
+      "sha256": "9ff54585fe548e2d134831ae5adbec96d84a91a139c15874c39d1726eab4d328"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,13 +98,13 @@
     },
     {
       "path": "coverage.json",
-      "bytes": 13881,
-      "sha256": "b71f262d9975eff663d4aef05388a72267f7ce00b8efb554efba63d74360843b"
+      "bytes": 14348,
+      "sha256": "f688e7d50d69bcba75d4076d5f5b1f1cbd61f369140ad0332544de5201e161a7"
     },
     {
       "path": "events.jsonl",
-      "bytes": 29558,
-      "sha256": "2636fb8481da6858b8da472be8b36e8a4f4df800b033cc8338616b0bb7f65d1f"
+      "bytes": 29755,
+      "sha256": "dd72fe7158f233a8a79d1ebf65ecf692e646ac712e51fbf27d5b72e46a84321e"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1717,6 +1717,36 @@
       "sha256": "5ced2ba8c19cf434af7c4676fc09723ce32e6b108300ed83092e50f92649e67a"
     },
     {
+      "path": "evidence/paper-41-transfer-certified/Audit.lean",
+      "bytes": 330,
+      "sha256": "f30845e0baf64944a2d5bfb1dea5e8e4958b919500e5c50ee7d0e5240a9d11aa"
+    },
+    {
+      "path": "evidence/paper-41-transfer-certified/axioms.txt",
+      "bytes": 405,
+      "sha256": "ec91e794606d9166e5592a03ccc35f68eb83539e47a8ac9b282d0e72b7512e5d"
+    },
+    {
+      "path": "evidence/paper-41-transfer-certified/dependencies.md",
+      "bytes": 426,
+      "sha256": "0c470576d7df5ab117c1ec2a6fe2418822a68266e8e98d4a191854c2e25ae664"
+    },
+    {
+      "path": "evidence/paper-41-transfer-certified/fidelity.md",
+      "bytes": 1119,
+      "sha256": "26d5f7a9059a33eb0ca77cf7a4b290566b25ea27bc4c8815f9e9ade43836c493"
+    },
+    {
+      "path": "evidence/paper-41-transfer-certified/independent_replay.md",
+      "bytes": 458,
+      "sha256": "4e1a5b97bcf0e314f681d078f0774bf08c5e929e844b8338811b00c579c26fca"
+    },
+    {
+      "path": "evidence/paper-41-transfer-certified/verification.json",
+      "bytes": 553,
+      "sha256": "1461ea806b3b00223dd1cb74cf5070dc58bab789fba830f57357bb391cfefbdc"
+    },
+    {
       "path": "evidence/plan-validation.json",
       "bytes": 4061,
       "sha256": "f3f2aba8a5165d36a516f4890ba87965f450d624ab6e67a3b1c0be9e1d6bc4f0"
@@ -1818,8 +1848,8 @@
     },
     {
       "path": "obligations.json",
-      "bytes": 4154,
-      "sha256": "fabee40232357e1da49af5af0f46adae7063211e0f04a54aa0d239841bd0d2a8"
+      "bytes": 5442,
+      "sha256": "b90e0645441e6a91a1e560eb5c38719441fa69b020bb7a1085921c0c6df2f0ad"
     },
     {
       "path": "plan.py",
@@ -2338,13 +2368,13 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 53050,
-      "sha256": "6abb76f5689dd18833507f93a08c478b382dc23204d167cbdcaff87d3d0ad2fe"
+      "bytes": 53305,
+      "sha256": "ad882e22a468bec6bcf8161857332f866bd4423e9cbdc39df3addd5833fdfebe"
     },
     {
       "path": "test_plan.py",
-      "bytes": 8699,
-      "sha256": "68f622a807e3f8ee990a89becd72bd01d423e80535c1a23e2bcb375d9b5fd57d"
+      "bytes": 8700,
+      "sha256": "bfb25dd05d28c8e3ef27c607cc62f689b7012010de3b7671e8198733e4351a5d"
     },
     {
       "path": "unattended/README.md",

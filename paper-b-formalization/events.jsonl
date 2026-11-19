@@ -125,3 +125,4 @@
 {"at": "2026-11-19T21:44:55+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ArcOwnerTotal", "tasks": ["EX1.3"], "evidence": "evidence/paper-21-siblings-certified/verification.json"}
 {"at": "2026-11-19T21:44:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Exit", "tasks": ["EX3.1"], "evidence": "evidence/ex31-fresh-certified/verification.json"}
 {"at": "2026-11-19T21:44:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Exit", "tasks": ["EX3.2"], "evidence": "evidence/ex32-inherited-certified/verification.json"}
+{"at": "2026-11-19T21:45:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StructuralPaper", "tasks": ["EX3.3"], "evidence": "evidence/paper-41-transfer-certified/verification.json"}

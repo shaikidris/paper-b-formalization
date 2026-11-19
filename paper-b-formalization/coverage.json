@@ -208,7 +208,7 @@
         "EX3.2",
         "EX3.3"
       ],
-      "formal_status": "NOT_CERTIFIED",
+      "formal_status": "CERTIFIED",
       "claim_facets": [
         "fresh child endpoints",
         "shared endpoint bypass",
@@ -219,7 +219,15 @@
       "depends_on_items": [
         "2.1",
         "3.1"
-      ]
+      ],
+      "verification": {
+        "declaration": "PaperB.exit_set_transfer",
+        "build": "evidence/paper-41-transfer-certified/verification.json",
+        "axioms": "evidence/paper-41-transfer-certified/axioms.txt",
+        "fidelity": "evidence/paper-41-transfer-certified/fidelity.md",
+        "dependencies": "evidence/paper-41-transfer-certified/dependencies.md",
+        "independent_replay": "evidence/paper-41-transfer-certified/independent_replay.md"
+      }
     },
     {
       "id": "5.1",

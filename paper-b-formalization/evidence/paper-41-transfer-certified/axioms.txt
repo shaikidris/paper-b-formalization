@@ -1,0 +1,4 @@
+'PaperB.exit_set_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.buildProperLossForest_edge_exitTailMem_eq' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.buildProperLossForest_edge_properLoss_subset' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.buildProperLossForest_edge_fresh_follows_parent' depends on axioms: [propext, Quot.sound]

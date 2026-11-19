@@ -10,7 +10,7 @@ Each row binds a paper statement to its proposed Lean declaration, immediate pap
 | 2.2 | last-exit test ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-2-2)) | PaperB.last_exit_test | 2.1 | NOT_CERTIFIED | EX1.1, EX1.2, EX1.4 |
 | 3.1 | forest of proper losses ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-3-1)) | PaperB.proper_loss_forest | — | CERTIFIED | EX2.1, EX2.2 |
 | 3.2 | constructing the forest ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-3-2)) | PaperB.build_proper_loss_forest | 3.1 | NOT_CERTIFIED | EX0.3, EX2.3, EX2.4 |
-| 4.1 | exit transfer ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-4-1)) | PaperB.exit_set_transfer | 2.1, 3.1 | NOT_CERTIFIED | EX0.1, EX0.2, EX2.2, EX3.1, EX3.2, EX3.3 |
+| 4.1 | exit transfer ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-4-1)) | PaperB.exit_set_transfer | 2.1, 3.1 | CERTIFIED | EX0.1, EX0.2, EX2.2, EX3.1, EX3.2, EX3.3 |
 | 5.1 | compressed exit summaries ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-5-1)) | PaperB.compressed_exit_summaries | 3.2, 4.1 | NOT_CERTIFIED | EX0.3, EX1.2, EX1.6, EX2.3, EX4.1, EX4.2, EX4.3 |
 | 6.1 | a guarded output of residual multiplicity two ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-6-1)) | PaperB.healthy_zero_detection | 1.2 | NOT_CERTIFIED | EX6.1, EX6.2 |
 | 6.2 | higher sensitivity ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-6-2)) | — | — | OPEN_RESEARCH | — |
@@ -29,9 +29,9 @@ The first two formal targets are the oracle theorem and its exit-set transfer id
 | O11.4 — Peak workspace and retained size for the same index | 1.1 | cost model | OPEN | final oracle layout |
 | O11.5 — Post-build query program using only retained records | 1.1 | cost model | OPEN | per-query time |
 | O11.6 — Single implementation and formal correspondence with Theorem 1.1 | 1.1 | integration | OPEN | closed headline theorem |
-| O41.1 — Proper-loss nesting and topological order of fresh endpoints | 4.1 | cuts | OPEN | exit transfer |
-| O41.2 — Forward inclusion for fresh and inherited physical tails | 4.1 | cuts | OPEN | set inclusion |
-| O41.3 — Reverse inclusion and full two-coordinate set equality | 4.1 | cuts | OPEN | closed structural theorem |
+| O41.1 — Proper-loss nesting and topological order of fresh endpoints | 4.1 | cuts | CLOSED | exit transfer |
+| O41.2 — Forward inclusion for fresh and inherited physical tails | 4.1 | cuts | CLOSED | set inclusion |
+| O41.3 — Reverse inclusion and full two-coordinate set equality | 4.1 | cuts | CLOSED | closed structural theorem |
 
 ## Structural extension obligations
 

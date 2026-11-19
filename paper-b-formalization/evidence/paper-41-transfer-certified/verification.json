@@ -1,0 +1,9 @@
+{
+  "base_commit": "9c90cd1",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StructuralPaper.lean",
+  "sha256": "b16680bcedac33df5a1c55e21f6635f546f040714b7258c051617192faa66925",
+  "scope": "The full exact exit-transfer set equality is certified for the published declaration on actual original-DAG quotients.",
+  "remaining": "The costed exit-map summary construction is tracked separately in EX4.",
+  "source_provenance": "Exact existing proof source, independently replayed in the staged and canonical checkouts."
+}

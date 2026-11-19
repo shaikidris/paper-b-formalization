@@ -1,0 +1,7 @@
+import PaperB.StructuralPaper
+import PaperB.ArcOwnerTotal
+
+#print axioms PaperB.exit_set_transfer
+#print axioms PaperB.buildProperLossForest_edge_exitTailMem_eq
+#print axioms PaperB.LabelledQuotient.buildProperLossForest_edge_properLoss_subset
+#print axioms PaperB.LabelledQuotient.buildProperLossForest_edge_fresh_follows_parent
