@@ -1,0 +1,11 @@
+{
+  "base_commit": "99d426a995f94d11e04b08992ecb36ad6edf1313",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PredecessorSearch.lean",
+  "sha256": "77d11aed026604bc8ec8b898939d9bca47cef1ea4f8ccd4a3768c569a5d8fddb",
+  "scope": "Exact predecessor-test classification on a supplied ordered nested list of cut pairs, with sentinels and at most log2(length+1)+1 evaluations of a supplied correct test.",
+  "remaining": "Replace list indexing by charged depth lookup, implement the raw predecessor test and topological update, and connect the dictionary, interval arrays and resource model."
+}

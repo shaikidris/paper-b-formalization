@@ -1,0 +1,17 @@
+'PaperB.PredecessorSearch.prefixTest_real' depends on axioms: [propext]
+'PaperB.PredecessorSearch.prefixTest_end' depends on axioms: [propext]
+'PaperB.PredecessorSearch.prefixTest_mono' depends on axioms: [propext, Quot.sound]
+'PaperB.PredecessorSearch.run_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PredecessorSearch.run_count_le' depends on axioms: [propext, Quot.sound]
+@PaperB.PredecessorSearch.run_spec : ∀ {H : PaperB.LabelledQuotient} (ancestors : List H.CutPair)
+  (passes : H.CutPair → Bool) (isPred : Fin H.vertexCount → Prop),
+  List.Pairwise (fun B P => ∀ (v : Fin H.vertexCount), P.Mem v → H.Lost B v) ancestors →
+    (∀ (B : H.CutPair), passes B = true ↔ ∀ (u : Fin H.vertexCount), isPred u → H.Lost B u) →
+      have cut := (PaperB.PredecessorSearch.run ancestors passes).fst;
+      cut ≤ ancestors.length ∧
+        PaperB.PredecessorSearch.prefixTest ancestors passes cut = true ∧
+          PaperB.PredecessorSearch.prefixTest ancestors passes (cut + 1) = false ∧
+            ∀ (k : Nat) (hk : k < ancestors.length),
+              (passes ancestors[k] = true ↔ k + 1 ≤ cut) ∧
+                (passes ancestors[k] = false ↔ cut < k + 1) ∧
+                  ((∀ (u : Fin H.vertexCount), isPred u → H.Lost ancestors[k] u) ↔ k + 1 ≤ cut)
