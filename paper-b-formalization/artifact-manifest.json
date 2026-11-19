@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3821,
-      "sha256": "e88ca3b59f9bcf04d61eaf5ac0a94cbc9658ee65a1a0edf292457b536c7f15e8"
+      "bytes": 3591,
+      "sha256": "f455d969ecdd854868920bd383109dc67668523859f17deb8831e75ea089876e"
     },
     {
       "path": "DISPATCH.md",
@@ -24,7 +24,7 @@
     {
       "path": "HANDOFF.md",
       "bytes": 2674,
-      "sha256": "6af4fc3ce374ce5d5125f4689f91fa72001458d6b23602e174d4563b0b81753c"
+      "sha256": "e21ddb19f957c0f781e98e2593d220e33d3f07fb77f0cba5716487cd0354027f"
     },
     {
       "path": "INTERFACES.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5341,
-      "sha256": "9cdf43deb2f3a9e32826c63b81e88e0144578bd233630975a3407cd2178d6d3d"
+      "bytes": 5338,
+      "sha256": "0baf969b21721721ea8dbf0ec7274575cf8db10d9e928981709fa2e96bf45aa1"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 44152,
-      "sha256": "7d22a9984c2614da8ab9874c093f62eef240398d7bc9ee3c6752f0e9e8f68bab"
+      "bytes": 44352,
+      "sha256": "1a2ec1eb53de7349e3fea877e03929e9a05a6d63bbba89b722bf4ebc0a6c955a"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 40885,
-      "sha256": "49c4ec883d0ed93218c8be002ea80c61834111afa663529253be2030fb813217"
+      "bytes": 41080,
+      "sha256": "c28af10cac6acf89365fab1e9e2d0da581c24da5d864e4413dd80626a28bb049"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2712,6 +2712,26 @@
       "sha256": "ef2f298a87579e69992e0b974447cb379e22b48d281a15a683930475645a3927"
     },
     {
+      "path": "evidence/static-oracle-tree-audit/Audit.lean",
+      "bytes": 230,
+      "sha256": "20557e03b918f7c080fb6a215ed228f875a9004c406e5b2733939e7417507899"
+    },
+    {
+      "path": "evidence/static-oracle-tree-audit/axioms.txt",
+      "bytes": 311,
+      "sha256": "48d809769e76ade6f78ec2919774611759996ace112d3259de67fd2bccf21ef5"
+    },
+    {
+      "path": "evidence/static-oracle-tree-audit/fidelity.md",
+      "bytes": 1078,
+      "sha256": "2d3ee08576119b21147d1e7eef66d5c0241430a5d12258f46d06f779455a9861"
+    },
+    {
+      "path": "evidence/static-oracle-tree-audit/verification.json",
+      "bytes": 683,
+      "sha256": "a63eb0fc01854476182fbd2f1ca0d24a46ddf7b8e0b2969ebb9e06b22184c55f"
+    },
+    {
       "path": "evidence/static-tree-reader-audit/Audit.lean",
       "bytes": 394,
       "sha256": "3d501414dcb4ca81e97089e5d9256c161cac8d167479ab511c42f43db5e6f6c6"
@@ -2758,8 +2778,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 40197,
-      "sha256": "30d31e041b050fffd34f2399af316ec6659b71efbf6336efa59f9fc34b0c385e"
+      "bytes": 40583,
+      "sha256": "2792d8f6ad814b4dd20aaf3b5d3df191866dd2b601080f983303e39f029c8310"
     },
     {
       "path": "obligations.json",
@@ -3372,6 +3392,11 @@
       "sha256": "bb18c020580aea28e284374bb5ba6a3c5ba8d896f4a0d23c3dc4a82bea9b1225"
     },
     {
+      "path": "release-core/PaperB/StaticOracleTree.lean",
+      "bytes": 6255,
+      "sha256": "29715a231b93405407882ddef3432edde64ff6e053a0142d7d3bf6a560dd2c52"
+    },
+    {
       "path": "release-core/PaperB/StaticTreeReader.lean",
       "bytes": 18128,
       "sha256": "df570f207bf8a2880f73449cc3ee8f70994e9b6648012080954f74ac0792c866"
@@ -3423,8 +3448,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 3352,
-      "sha256": "a4e56f2f8a7a2b75ea4727d970ae824740cd5332f02f022945e6a407f4f777dc"
+      "bytes": 3379,
+      "sha256": "c6428fb0ac1353a84952346468a5675a4c4a1c040dfd00af44e24541ce1af917"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -3528,8 +3553,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 62561,
-      "sha256": "52f38547cd14d497c424071b337c4dc6ac2c9b2905121638d860a8f5e35394b1"
+      "bytes": 63115,
+      "sha256": "da01d43898871b5f2b447e49540f642ef15cc5f49594dba139163833049360a2"
     },
     {
       "path": "test_plan.py",

@@ -1,0 +1,3 @@
+'PaperB.EX16Assembly.parentIter_iff_readerAncestor' does not depend on any axioms
+'PaperB.EX16Assembly.fromOriginal_dominates_iff_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX16Assembly.OriginalReader.dominates_exact' depends on axioms: [propext, Classical.choice, Quot.sound]

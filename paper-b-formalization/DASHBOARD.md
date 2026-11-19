@@ -12,14 +12,13 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Completed and remaining
 
-- Completed work packages **16/27**. Planning audits **1** and verified proof packages **15**.
-- Remaining work packages **11**. 9 in progress, 2 planned.
-- Milestones 5 in progress, 2 verified.
+- Completed work packages **17/27**. Planning audits **1** and verified proof packages **16**.
+- Remaining work packages **10**. 8 in progress, 2 planned.
+- Milestones 4 in progress, 3 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
 
-- [EX1.6](TASKS.md#ex16) — The shared static reader now implements and checks exact interval, child search and logarithmic LCA queries. It binds the layout and tables once. Original-DAG reader composition is the remaining step.
 - [EX2.4](TASKS.md#ex24) — The full successful-step invariant now checks for the actual packed callbacks. It constructs the new canonical embedding and preserves all old labels and physical slots. Totality and full increasing-order induction remain in progress.
 - [EX4.2](TASKS.md#ex42) — Lean checks the executable array schedule with one visit per vertex, at most one map installation and exact agreement with reference map/base semantics. The actual first-allocation schedule and physical reader bindings remain in progress.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.

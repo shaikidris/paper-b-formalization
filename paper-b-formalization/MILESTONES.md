@@ -18,7 +18,7 @@ Work packages: 3; planning audits complete: 1; verified proof packages: 2.
 
 Prove the semantic quotient and last-exit results. Supply costed dominator and static tree indices for the executable branch.
 
-Work packages: 6; planning audits complete: 0; verified proof packages: 5.
+Work packages: 6; planning audits complete: 0; verified proof packages: 6.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
@@ -27,7 +27,7 @@ Work packages: 6; planning audits complete: 0; verified proof packages: 5.
 | [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | VERIFIED | EX1.2 |
 | [EX1.4](TASKS.md#ex14) — Characterize partial-block reachability | dominator | VERIFIED | EX1.3 |
 | [EX1.5](TASKS.md#ex15) — Construct the ordinary dominator tree within the oracle budget | dominator | VERIFIED | EX1.2, EX0.3, EX2.3 |
-| [EX1.6](TASKS.md#ex16) — Implement static tree intervals, child lookup and LCA | dominator | IN_PROGRESS | EX1.2, EX0.3 |
+| [EX1.6](TASKS.md#ex16) — Implement static tree intervals, child lookup and LCA | dominator | VERIFIED | EX1.2, EX0.3 |
 
 ## EX2 — Build the forest of effective separating pairs
 

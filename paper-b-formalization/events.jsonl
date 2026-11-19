@@ -184,3 +184,4 @@
 {"at": "2026-11-19T23:07:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestExactDictionary", "tasks": ["EX2.4"], "evidence": "evidence/forest-exact-dict-audit/verification.json"}
 {"at": "2026-11-19T23:10:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestActualStep", "tasks": ["EX2.4"], "evidence": "evidence/forest-actual-step-audit/verification.json"}
 {"at": "2026-11-19T23:10:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "AllOrigOracleCases", "tasks": ["EX4.4"], "evidence": "evidence/all-original-audit/verification.json"}
+{"at": "2026-11-19T23:13:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticOracleTree", "tasks": ["EX1.6"], "evidence": "evidence/static-oracle-tree-audit/verification.json"}

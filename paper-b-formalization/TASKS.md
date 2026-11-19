@@ -171,7 +171,7 @@ Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](
 
 ## EX1.6 — Implement static tree intervals, child lookup and LCA
 
-- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, cost model; assigned worker: unassigned.
 - Dependencies: EX1.2, EX0.3.
 - Proposed owner module: `release-core/PaperB/TreeIndex.lean`.
@@ -184,9 +184,9 @@ Acceptance:
 - Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.
 - Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget.
 
-The shared static reader now implements and checks exact interval, child search and logarithmic LCA queries. It binds the layout and tables once. Original-DAG reader composition is the remaining step.
+Verified the complete actual ordinary-tree index component. One run of the original DAG dominator build supplies the stored subtree columns, sorted child intervals and heavy-head table. Original dominance, exact child and LCA reads, linear static build/space and logarithmic query costs are checked.
 
-Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json), [evidence/ex16-child-interval-search/verification.json](evidence/ex16-child-interval-search/verification.json), [evidence/ex16-packed-static-layout/verification.json](evidence/ex16-packed-static-layout/verification.json), [evidence/actual-child-audit/verification.json](evidence/actual-child-audit/verification.json), [evidence/static-linear-audit/verification.json](evidence/static-linear-audit/verification.json), [evidence/static-from-dom-audit/verification.json](evidence/static-from-dom-audit/verification.json), [evidence/static-tree-reader-audit/verification.json](evidence/static-tree-reader-audit/verification.json).
+Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json), [evidence/ex16-child-interval-search/verification.json](evidence/ex16-child-interval-search/verification.json), [evidence/ex16-packed-static-layout/verification.json](evidence/ex16-packed-static-layout/verification.json), [evidence/actual-child-audit/verification.json](evidence/actual-child-audit/verification.json), [evidence/static-linear-audit/verification.json](evidence/static-linear-audit/verification.json), [evidence/static-from-dom-audit/verification.json](evidence/static-from-dom-audit/verification.json), [evidence/static-tree-reader-audit/verification.json](evidence/static-tree-reader-audit/verification.json), [evidence/static-oracle-tree-audit/verification.json](evidence/static-oracle-tree-audit/verification.json).
 
 <a id="ex21"></a>
 

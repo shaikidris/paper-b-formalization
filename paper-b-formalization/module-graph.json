@@ -265,7 +265,8 @@
         "release-core/PaperB/DomFromOriginal.lean",
         "release-core/PaperB/StaticLinearHead.lean",
         "release-core/PaperB/StaticFromDominators.lean",
-        "release-core/PaperB/StaticTreeReader.lean"
+        "release-core/PaperB/StaticTreeReader.lean",
+        "release-core/PaperB/StaticOracleTree.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -1310,6 +1311,16 @@
         "release-core/PaperB/ThirdReachableRoute.lean"
       ],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticOracleTree.lean",
+      "local_imports": [
+        "release-core/PaperB/DomFromOriginal.lean",
+        "release-core/PaperB/StaticFromDominators.lean",
+        "release-core/PaperB/StaticTreeReader.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "base_commit": "089514e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticOracleTree.lean",
+  "sha256": "29715a231b93405407882ddef3432edde64ff6e053a0142d7d3bf6a560dd2c52",
+  "scope": "The actual original-DAG dominator scan constructs one reusable packed ordinary tree reader. Its inclusive dominance test, child lookup and LCA use the same topology and the checked linear static construction and logarithmic searches.",
+  "remaining": "Use the constructed static reader in the quotient emitter and seal its reader fields to the fixed word-machine layout."
+}

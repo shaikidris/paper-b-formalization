@@ -1,0 +1,4 @@
+import PaperB.StaticOracleTree
+#print axioms PaperB.EX16Assembly.parentIter_iff_readerAncestor
+#print axioms PaperB.EX16Assembly.fromOriginal_dominates_iff_interval
+#print axioms PaperB.EX16Assembly.OriginalReader.dominates_exact

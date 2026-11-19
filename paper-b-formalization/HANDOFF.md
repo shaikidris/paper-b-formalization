@@ -26,14 +26,14 @@ normalization already build on the pinned Lean toolchain.
 
 ## Next checkpoints
 
-- EX1 has a checked ordinary dominator build from the original DAG.
-  The static tree index still needs the executable linear head sweep and
-  the final wiring from the packed dominator tree.
-- EX2 finishes the executable growing forest sweep and the reuse of
-  deterministically sorted keys. The retained DFS array values, word
-  accesses for jump primitives, and predecessor stamp pass already build.
-- EX4 stores and advances the two exit maps and vertex bases in topological
-  order. The exact set theorem supplies correctness of the map constants.
+- EX1 is verified. The original DAG build produces the actual static tree
+  reader with exact inclusive dominance, child lookup, and LCA.
+- EX2 has the packed predecessor and dictionary builders, compact event
+  fold, and exact one-step embedding proof. Remaining work is totality and
+  the full topological induction with the component resource totals.
+- EX4 has a verified indexed exit schedule and all-case query semantics
+  under exact retained readers. Derive these readers and schedule from the
+  actual installed forest and physical exit tables.
 - EX5 connects the actual index builder and queries to one charged word
   machine execution. EX6 reduces healthy-zero guarded outputs to the
   listed-target interface.

@@ -159,7 +159,8 @@
     "release-core/PaperB/StaticTreeReader.lean": "dominator",
     "release-core/PaperB/ForestExactDictionary.lean": "cuts",
     "release-core/PaperB/ForestActualStep.lean": "cuts",
-    "release-core/PaperB/AllOrigOracleCases.lean": "oracle"
+    "release-core/PaperB/AllOrigOracleCases.lean": "oracle",
+    "release-core/PaperB/StaticOracleTree.lean": "dominator"
   },
   "milestones": [
     {
@@ -172,7 +173,7 @@
       "id": "EX1",
       "title": "Build the dominator and labelled quotient interface",
       "exit_gate": "Prove the semantic quotient and last-exit results. Supply costed dominator and static tree indices for the executable branch.",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED"
     },
     {
       "id": "EX2",
@@ -614,8 +615,8 @@
         "1.1",
         "5.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "resource bound",
       "obligation": "Construct inclusive subtree intervals, ordered child ranges and a heavy-path index on the actual ordinary tree.",
       "acceptance": [
@@ -631,9 +632,17 @@
         "evidence/actual-child-audit/verification.json",
         "evidence/static-linear-audit/verification.json",
         "evidence/static-from-dom-audit/verification.json",
-        "evidence/static-tree-reader-audit/verification.json"
+        "evidence/static-tree-reader-audit/verification.json",
+        "evidence/static-oracle-tree-audit/verification.json"
       ],
-      "progress": "The shared static reader now implements and checks exact interval, child search and logarithmic LCA queries. It binds the layout and tables once. Original-DAG reader composition is the remaining step."
+      "progress": "Verified the complete actual ordinary-tree index component. One run of the original DAG dominator build supplies the stored subtree columns, sorted child intervals and heavy-head table. Original dominance, exact child and LCA reads, linear static build/space and logarithmic query costs are checked.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/static-oracle-tree-audit/verification.json",
+        "axioms": "evidence/static-oracle-tree-audit/axioms.txt",
+        "fidelity": "evidence/static-oracle-tree-audit/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX2.1",
