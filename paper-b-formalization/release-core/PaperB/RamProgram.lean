@@ -40,6 +40,7 @@ inductive Instr (bits registerCount : Nat) where
   | branchLt (lhs rhs : Fin registerCount) (ltPC gePC : Nat)
   | goto (target : Nat)
   | halt
+  | shr1 (dst src : Fin registerCount)
 
 abbrev Program {bits : Nat} (L : Layout bits) :=
   Array (Instr bits L.registerCount)
@@ -63,6 +64,10 @@ private def writeReg (s : State L) (r : Fin L.registerCount) (w : Word bits) :
 private def advance (code : Program L) (s : State L) (pc : Nat) :
     Option (Transition L) :=
   if pc < code.size then some (.next { s with pc := pc }) else none
+
+/-- Unsigned right shift by one: exact natural division, without wraparound. -/
+private def shr1Word (w : Word bits) : Word bits :=
+  ⟨w.val / 2, Nat.lt_of_le_of_lt (Nat.div_le_self w.val 2) w.isLt⟩
 
 /-- Reject an invalid fetch, memory access, or chosen successor PC. -/
 def step (code : Program L) (input : Input L) (s : State L) :
@@ -95,6 +100,7 @@ def step (code : Program L) (input : Input L) (s : State L) :
     advance code s (if ltb (readReg s x) (readReg s y) then ltPC else gePC)
   | .goto target => advance code s target
   | .halt => some (.halted s)
+  | .shr1 dst src => put dst (shr1Word (readReg s src))
 
 structure Result {bits : Nat} (L : Layout bits) where
   finalState : State L
@@ -512,6 +518,39 @@ theorem step_branchLt_at {code : Program L} {input : Input L}
   change (if ltb (readReg s x) (readReg s y) then yesPC else noPC) <
     code.size at ht
   simp [step, hf, advance, reg, ht]
+
+/-- Shift the original source value, allowing `dst` and `src` to alias. -/
+theorem step_shr1_at {code : Program L} {input : Input L} {s : State L}
+    {dst src : Fin L.registerCount}
+    (hf : code[s.pc]? = some (.shr1 dst src))
+    (hnext : s.pc + 1 < code.size) :
+    ∃ t : State L, step code input s = some (.next t) ∧
+      t.pc = s.pc + 1 ∧ (reg t dst).val = (reg s src).val / 2 ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  let w := shr1Word (readReg s src)
+  let t : State L := { (writeReg s dst w) with pc := s.pc + 1 }
+  have hs : step code input s = some (.next t) := by
+    simp [step, hf, advance, hnext, t, w]
+  refine ⟨t, hs, rfl, ?_, ?_, rfl⟩
+  · change (reg t dst).val = w.val
+    have hreg : reg t dst = w := reg_write_same s dst w
+    exact congrArg Fin.val hreg
+  · intro r hr
+    exact reg_write_other s dst r w hr
+
+/-- The shift contributes exactly one non-halting instruction to a trace. -/
+theorem shr1_steps {code : Program L} {input : Input L} {s : State L}
+    {dst src : Fin L.registerCount}
+    (hf : code[s.pc]? = some (.shr1 dst src))
+    (hnext : s.pc + 1 < code.size) :
+    ∃ t : State L, Steps code input 1 s t ∧
+      t.pc = s.pc + 1 ∧ (reg t dst).val = (reg s src).val / 2 ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  obtain ⟨t, ht, hpost⟩ :=
+    step_shr1_at (code := code) (input := input) (s := s) hf hnext
+  exact ⟨t, Steps.cons ht (Steps.zero t), hpost⟩
 
 /-- Read input at `base + index`. The destination also holds the temporary
 address, so no extra register is needed and either source may alias `dst`. -/

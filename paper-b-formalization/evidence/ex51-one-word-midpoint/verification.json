@@ -1,0 +1,11 @@
+{
+  "base_commit": "cb8132e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "05117e80619053cfb368728fd7f4fb424b6df35c38262b25eda7fd43116b0317",
+  "scope": "One standard right shift computes an unsigned half in the fixed word machine. Lean verifies the exact register, preserved fields and one-instruction trace.",
+  "remaining": "Use this in the fixed binary search and packed query lowering."
+}

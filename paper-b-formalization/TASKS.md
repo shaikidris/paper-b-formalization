@@ -430,9 +430,9 @@ Acceptance:
 
 - Prove deterministic O((n+m)L³) build time for the compiled data layout.
 
-The linear array bucket pass groups actual occurrences by owner or target, preserving order and repeats. All row initialization, reads, prepends, final reversals and references are explicitly counted. Instantiate the grouping on the concrete graph normalization and the finite sibling arc emitter, then lower the executions.
+One standard right shift computes an unsigned half in the fixed word machine. Lean verifies the exact register, preserved fields and one-instruction trace. Use this in the fixed binary search and packed query lowering.
 
-Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json), [evidence/ex51-linear-occurrence-buckets/verification.json](evidence/ex51-linear-occurrence-buckets/verification.json).
+Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json), [evidence/ex51-linear-occurrence-buckets/verification.json](evidence/ex51-linear-occurrence-buckets/verification.json), [evidence/ex51-one-word-midpoint/verification.json](evidence/ex51-one-word-midpoint/verification.json).
 
 <a id="ex52"></a>
 
