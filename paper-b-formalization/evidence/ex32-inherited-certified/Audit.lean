@@ -1,0 +1,6 @@
+import PaperB.Exit
+import PaperB.FiniteSiblingFlat
+
+#print axioms PaperB.LabelledQuotient.exitTailMem_transfer_inherited
+#print axioms PaperB.LabelledQuotient.exitTailMem_converse_split
+#print axioms PaperB.buildProperLossForest_edge_exitTailMem_eq

@@ -294,7 +294,7 @@ Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evid
 
 ## EX3.2 — Handle inherited tails and the reverse inclusion
 
-- Milestone: EX3; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX3; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX3.1.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
@@ -306,9 +306,9 @@ Acceptance:
 
 - Discharge disjoint pairs, inherited-only exits and exits through a fresh endpoint with exact tail identity.
 
-Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
+The inherited contribution and converse preserve exact physical tails with the required endpoint guard.
 
-Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json).
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json), [evidence/ex32-inherited-certified/verification.json](evidence/ex32-inherited-certified/verification.json).
 
 <a id="ex33"></a>
 

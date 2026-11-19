@@ -870,17 +870,25 @@
       "paper_consumers": [
         "4.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "path semantics",
       "obligation": "Prove the bypass argument for a shared endpoint and the converse for each child visitation pattern.",
       "acceptance": [
         "Discharge disjoint pairs, inherited-only exits and exits through a fresh endpoint with exact tail identity."
       ],
       "evidence": [
-        "evidence/ex33-forest-exit/verification.json"
+        "evidence/ex33-forest-exit/verification.json",
+        "evidence/ex32-inherited-certified/verification.json"
       ],
-      "progress": "Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open."
+      "progress": "The inherited contribution and converse preserve exact physical tails with the required endpoint guard.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex32-inherited-certified/verification.json",
+        "axioms": "evidence/ex32-inherited-certified/axioms.txt",
+        "fidelity": "evidence/ex32-inherited-certified/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX3.3",

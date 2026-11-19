@@ -1,0 +1,3 @@
+'PaperB.LabelledQuotient.exitTailMem_transfer_inherited' does not depend on any axioms
+'PaperB.LabelledQuotient.exitTailMem_converse_split' does not depend on any axioms
+'PaperB.buildProperLossForest_edge_exitTailMem_eq' depends on axioms: [propext, Quot.sound]

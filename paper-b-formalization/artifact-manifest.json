@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3888,
-      "sha256": "5905e84d5d1602100a7414979840823a92693a5613a462c087f1629436fac513"
+      "bytes": 3677,
+      "sha256": "9ed3b4d3df06e092302f7ae1c5d47e37e61e36ab26494c6d978e42af9ffe21c4"
     },
     {
       "path": "DISPATCH.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5331,
-      "sha256": "70bb1b75cbe22d6742fbaed2303b428ea7f7784ceefb7126819920fac684494e"
+      "bytes": 5328,
+      "sha256": "2a851abbf4f22de752df6e355d92cc0e74f68fe9109af20705a429d37a7777a2"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 36731,
-      "sha256": "b4ca76febb8a43fd441961eec1d77633fc6209569777a58145e148be6a174760"
+      "bytes": 36753,
+      "sha256": "6dd4eb3373cc33e29d630fe74f4e42c5c587c2c55c81c01f10e7d0e0c56a5cfc"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 29375,
-      "sha256": "72330e37208259e3c97fb69530eae8fad148a7ede860250e0b5649bd2f34f6f4"
+      "bytes": 29558,
+      "sha256": "2636fb8481da6858b8da472be8b36e8a4f4df800b033cc8338616b0bb7f65d1f"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1547,6 +1547,26 @@
       "sha256": "694e64f0c27e3b841058acdd461e958cbfb0377ce8af7a1aa785d356a0ebee60"
     },
     {
+      "path": "evidence/ex32-inherited-certified/Audit.lean",
+      "bytes": 249,
+      "sha256": "c19b7c81c80c3add8479352d32c51dcfcf415153294d6893e1534cbdae058f9a"
+    },
+    {
+      "path": "evidence/ex32-inherited-certified/axioms.txt",
+      "bytes": 262,
+      "sha256": "2f878326bb9ea11127b20c1bea7fe26940e0d11542fc621f1fe3ea5cc2220f84"
+    },
+    {
+      "path": "evidence/ex32-inherited-certified/fidelity.md",
+      "bytes": 476,
+      "sha256": "e86bc330631e256a15b7a8b13888b9cae70b1d9c24a41bf1e0ed4686871321ae"
+    },
+    {
+      "path": "evidence/ex32-inherited-certified/verification.json",
+      "bytes": 527,
+      "sha256": "6775d719514fdf115c78659a542a9617085330388f2d14da5a598b0314179a6e"
+    },
+    {
       "path": "evidence/ex33-figure-1/Figure1.lean",
       "bytes": 5199,
       "sha256": "5d6bd0287d589c2c50d9ea862d748232222e889528f83961968fc81893374ff3"
@@ -2318,8 +2338,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 52733,
-      "sha256": "e97a1f03bde3be3d6b57e78ca7ce566d2c4747f879cb8764cfa6672987c4c29d"
+      "bytes": 53050,
+      "sha256": "6abb76f5689dd18833507f93a08c478b382dc23204d167cbdcaff87d3d0ad2fe"
     },
     {
       "path": "test_plan.py",
