@@ -1,0 +1,11 @@
+{
+  "base_commit": "954ac2b",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestRealCounts.lean",
+  "sha256": "55d1810bdad2aa27e662aa344b6feeef20eb6a2cfd5692c69722130f17e1aee6",
+  "scope": "The real packed run has the exact measured-count theorem for every full ordered quotient. Its grounded prefixes discharge the Sites premise without an external callback result.",
+  "remaining": "Code-level word charges, storage lifecycle and dictionary/DFS retention are still separate obligations."
+}

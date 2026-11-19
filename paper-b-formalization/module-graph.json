@@ -317,7 +317,8 @@
         "release-core/PaperB/ForestMeasuredWork.lean",
         "release-core/PaperB/ForestPhysicalIntervals.lean",
         "release-core/PaperB/ForestSiteDepth.lean",
-        "release-core/PaperB/ForestOrderedReader.lean"
+        "release-core/PaperB/ForestOrderedReader.lean",
+        "release-core/PaperB/ForestRealCounts.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1479,6 +1480,16 @@
         "release-core/PaperB/DenseQuotientRows.lean"
       ],
       "owner_role": "quotient",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestRealCounts.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestActualFull.lean",
+        "release-core/PaperB/ForestTopologicalTotal.lean",
+        "release-core/PaperB/ForestSiteDepth.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],
