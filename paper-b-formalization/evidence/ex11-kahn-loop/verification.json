@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Kahn.lean",
+  "sha256": "b6b5950ab916b409a206e38b5bcf624fe359bd76c14423294b588f2a4e615fe6",
+  "scope": "Executable growing-queue Kahn preprocessing loop, including parallel-edge visits and checked row and stop specifications.",
+  "remaining": "Prove exact residual degrees, queue completeness, no duplicate enqueue, final order correctness and preallocated memory accounting."
+}

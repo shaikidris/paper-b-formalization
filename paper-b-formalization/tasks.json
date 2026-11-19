@@ -62,7 +62,8 @@
     "release-core/PaperB/Indegrees.lean": "graph",
     "release-core/PaperB/SiblingBlockSystem.lean": "dominator",
     "release-core/PaperB/SealedBuild.lean": "cost model",
-    "release-core/PaperB/SealedQuery.lean": "cost model"
+    "release-core/PaperB/SealedQuery.lean": "cost model",
+    "release-core/PaperB/Kahn.lean": "graph"
   },
   "milestones": [
     {
@@ -269,9 +270,10 @@
         "evidence/ex11-reach-scan/verification.json",
         "evidence/ex11-reach-sound/verification.json",
         "evidence/ex11-reach-scan-correct/verification.json",
-        "evidence/ex11-indegree-prepass/verification.json"
+        "evidence/ex11-indegree-prepass/verification.json",
+        "evidence/ex11-kahn-loop/verification.json"
       ],
-      "progress": "Lean proves exact reachable-vertex marks for a supplied order, and verifies the array-based indegree prepass used to construct the order. Each parallel occurrence contributes once to its head and the scan count is exactly m. Kahn’s dequeue/update loop, ID compaction and machine integration remain open."
+      "progress": "Lean verifies exact reachable marks given a valid order and exact indegree counts. The Kahn loop executes and reports local traversal and stop specifications. Queue invariants, final order correctness and charged ID compaction remain open."
     },
     {
       "id": "EX1.2",

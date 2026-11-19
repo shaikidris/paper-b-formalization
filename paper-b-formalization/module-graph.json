@@ -182,7 +182,8 @@
         "release-core/PaperB/DominatorTree.lean",
         "release-core/PaperB/TopologicalRank.lean",
         "release-core/PaperB/ReachScan.lean",
-        "release-core/PaperB/Indegrees.lean"
+        "release-core/PaperB/Indegrees.lean",
+        "release-core/PaperB/Kahn.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -381,6 +382,14 @@
         "release-core/PaperB/RamProgram.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/Kahn.lean",
+      "local_imports": [
+        "release-core/PaperB/Indegrees.lean"
+      ],
+      "owner_role": "graph",
       "admission": "ORACLE_CORE"
     }
   ],

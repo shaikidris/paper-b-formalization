@@ -1,0 +1,6 @@
+'PaperB.Kahn.visit_queue_size' depends on axioms: [propext]
+'PaperB.Kahn.visitRow_spec' depends on axioms: [propext]
+'PaperB.Kahn.processHead_spec' depends on axioms: [propext]
+'PaperB.Kahn.scan_stop_spec' depends on axioms: [propext]
+'PaperB.Kahn.run_stop_spec' depends on axioms: [propext, Quot.sound]
+PaperB.Kahn.run_stop_spec : ∀ (g : PaperB.Digraph), (PaperB.Kahn.run g).stop.Valid (PaperB.Kahn.run g).state
