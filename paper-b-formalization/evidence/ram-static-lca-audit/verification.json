@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea10691",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamStaticLCA.lean",
+  "sha256": "66df1e61f464e2efe41a599f305cab685a3a165dce257f0f2d58ac700a31b530",
+  "scope": "The packed static heavy-path LCA worker runs a fixed 32-instruction program and uses only ten registers and its immutable input. Lean proves the exact result and 14k+19 executed instructions for k heavy-head jumps.",
+  "remaining": "Rebase the fixed worker into the full sealed query and connect packed header and column encodings. Lower the other query primitives and charge their composition."
+}

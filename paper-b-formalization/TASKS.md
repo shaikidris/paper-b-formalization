@@ -459,7 +459,7 @@ Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.js
 
 ## EX5.3 — Bound each later query and exclude adjacency access
 
-- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX5; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX4.4, EX5.2.
 - Proposed owner module: `release-core/PaperB/Resources.lean`.
@@ -470,6 +470,10 @@ Run the fixed query program on only the stored index, failure set and one target
 Acceptance:
 
 - Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
+
+The fixed RAM LCA worker is proved exact with ten registers, immutable head/parent/depth columns and 14k+19 executed instructions for k jumps. The complete sealed query remains in progress.
+
+Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json).
 
 <a id="ex54"></a>
 

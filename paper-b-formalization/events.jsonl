@@ -188,3 +188,4 @@
 {"at": "2026-11-19T23:13:05+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PhysicalExitModel", "tasks": ["EX4.2"], "evidence": "evidence/physical-entry-audit/verification.json"}
 {"at": "2026-11-19T23:13:08+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitSpanBridge", "tasks": ["EX4.4"], "evidence": "evidence/exit-span-audit/verification.json"}
 {"at": "2026-11-19T23:19:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GuardedWitness", "tasks": ["EX6.2"], "evidence": "evidence/guarded-residual-graph-audit/verification.json"}
+{"at": "2026-11-19T23:19:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamStaticLCA", "tasks": ["EX5.3"], "evidence": "evidence/ram-static-lca-audit/verification.json"}

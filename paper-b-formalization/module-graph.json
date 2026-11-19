@@ -166,7 +166,8 @@
         "release-core/PaperB/RamLifecycle.lean",
         "release-core/PaperB/ArcBuckets.lean",
         "release-core/PaperB/OracleMemoryLayout.lean",
-        "release-core/PaperB/UniformArena.lean"
+        "release-core/PaperB/UniformArena.lean",
+        "release-core/PaperB/RamStaticLCA.lean"
       ],
       "owner_role": "cost model",
       "admission": "ORACLE_CORE"
@@ -1330,6 +1331,15 @@
         "release-core/PaperB/ExitSummary.lean"
       ],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamStaticLCA.lean",
+      "local_imports": [
+        "release-core/PaperB/RamProgram.lean",
+        "release-core/PaperB/StaticHeavyLCA.lean"
+      ],
+      "owner_role": "cost model",
       "admission": "ORACLE_CORE"
     }
   ],

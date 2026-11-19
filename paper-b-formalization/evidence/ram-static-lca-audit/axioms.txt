@@ -1,0 +1,3 @@
+'PaperB.EX53.jumpLeftSteps' depends on axioms: [propext, Quot.sound]
+'PaperB.EX53.jumpRightSteps' depends on axioms: [propext, Quot.sound]
+'PaperB.EX53.runWorker' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **17/27**. Planning audits **1** and verified proof packages **16**.
-- Remaining work packages **10**. 8 in progress, 2 planned.
+- Remaining work packages **10**. 9 in progress, 1 planned.
 - Milestones 4 in progress, 3 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -25,6 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — The exact span conversion recovers both actual witnesses using the retained inverse DFS entry and held-ID columns. Reader instantiation and machine execution remain in progress.
 - [EX5.1](TASKS.md#ex51) — The word-machine midpoint is now a checked three-instruction executable block with exact arithmetic and register preservation. The charged binary-search and whole build remain open.
 - [EX5.2](TASKS.md#ex52) — The arena and sealed prefix are reserved solely from declared input counts with the exact oracle contract bit width. Dense offsets, headers, retained words and legal query address ranges are bounded uniformly. Choose constant final block widths and instantiate the same built/queried machine programs in this layout.
+- [EX5.3](TASKS.md#ex53) — The fixed RAM LCA worker is proved exact with ten registers, immutable head/parent/depth columns and 14k+19 executed instructions for k jumps. The complete sealed query remains in progress.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Shared baseline guard deletion now has a checked executable graph builder, exact linear scan counts and all-case path transfer. Next connect the checked rows and eventual single-index batch construction to actual detecting-set output.
 

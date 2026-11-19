@@ -161,7 +161,8 @@
     "release-core/PaperB/ForestActualStep.lean": "cuts",
     "release-core/PaperB/AllOrigOracleCases.lean": "oracle",
     "release-core/PaperB/StaticOracleTree.lean": "dominator",
-    "release-core/PaperB/ExitSpanBridge.lean": "oracle"
+    "release-core/PaperB/ExitSpanBridge.lean": "oracle",
+    "release-core/PaperB/RamStaticLCA.lean": "cost model"
   },
   "milestones": [
     {
@@ -1274,14 +1275,17 @@
       "paper_consumers": [
         "1.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Run the fixed query program on only the stored index, failure set and one target.",
       "acceptance": [
         "Give an O(L³) bound independent of graph density, target choice, batch size and previous queries."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ram-static-lca-audit/verification.json"
+      ],
+      "progress": "The fixed RAM LCA worker is proved exact with ten registers, immutable head/parent/depth columns and 14k+19 executed instructions for k jumps. The complete sealed query remains in progress."
     },
     {
       "id": "EX5.4",
