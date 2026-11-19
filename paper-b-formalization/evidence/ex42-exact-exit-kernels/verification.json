@@ -1,0 +1,11 @@
+{
+  "base_commit": "3fe7bfa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitKernels.lean",
+  "sha256": "d4e28648830691ae70cc15e83446e1b672629a35f8365b0165ad20d5e2b01f1d",
+  "scope": "The executable exit-map and target-base kernels account for at most two fresh-endpoint path reads per coordinate and every entering arc. Under valid earlier reads they compute the exact extrema of the set recurrence.",
+  "remaining": "Instantiate the typed action and read contracts on the actual forest, composed jump records and prior array entries."
+}

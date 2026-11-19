@@ -1,0 +1,5 @@
+'PaperB.BuiltExit.Kernel.install_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.BuiltExit.Kernel.base_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.BuiltExit.Kernel.base_exit_test' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.BuiltExit.Kernel.installCharge_queries' depends on axioms: [propext, Quot.sound]
+'PaperB.BuiltExit.Kernel.baseCharge_visits' depends on axioms: [propext, Quot.sound]

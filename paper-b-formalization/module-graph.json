@@ -131,7 +131,8 @@
         "release-core/PaperB/JumpMapFold.lean",
         "release-core/PaperB/ExitArraySweep.lean",
         "release-core/PaperB/ActualJumpMaps.lean",
-        "release-core/PaperB/LastExitPaper.lean"
+        "release-core/PaperB/LastExitPaper.lean",
+        "release-core/PaperB/ExitKernels.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1065,6 +1066,16 @@
         "release-core/PaperB/Forest.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitKernels.lean",
+      "local_imports": [
+        "release-core/PaperB/Forest.lean",
+        "release-core/PaperB/ExitMap.lean",
+        "release-core/PaperB/ExitSummary.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

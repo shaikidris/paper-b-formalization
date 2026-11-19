@@ -156,3 +156,4 @@
 {"at": "2026-11-19T22:22:05+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedStaticLayout", "tasks": ["EX1.6"], "evidence": "evidence/ex16-packed-static-layout/verification.json"}
 {"at": "2026-11-19T22:22:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "UniformArena", "tasks": ["EX5.2"], "evidence": "evidence/ex52-uniform-sealed-arena/verification.json"}
 {"at": "2026-11-19T22:24:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SmallQuotient", "tasks": ["EX2.4"], "evidence": "evidence/ex24-small-quotient/verification.json"}
+{"at": "2026-11-19T22:24:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitKernels", "tasks": ["EX4.2"], "evidence": "evidence/ex42-exact-exit-kernels/verification.json"}
