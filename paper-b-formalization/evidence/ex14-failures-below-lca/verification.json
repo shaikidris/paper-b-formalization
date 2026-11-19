@@ -1,0 +1,11 @@
+{
+  "base_commit": "01b7f5e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/LastExitBridge.lean",
+  "sha256": "ec0c9defdd0b54cf6181f50779fd370fe5cd568814b90eda9ffde1b0b2188395",
+  "scope": "At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks.",
+  "remaining": "Bundle these facts with the branch lemmas over all original targets."
+}

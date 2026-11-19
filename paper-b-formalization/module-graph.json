@@ -120,7 +120,8 @@
         "release-core/PaperB/ThirdBlockLift.lean",
         "release-core/PaperB/ThirdBlock.lean",
         "release-core/PaperB/LastExit.lean",
-        "release-core/PaperB/StructuralPaper.lean"
+        "release-core/PaperB/StructuralPaper.lean",
+        "release-core/PaperB/LastExitBridge.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -794,6 +795,14 @@
     {
       "path": "release-core/PaperB/StaticHeavyLCA.lean",
       "local_imports": [],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/LastExitBridge.lean",
+      "local_imports": [
+        "release-core/PaperB/LastExit.lean"
+      ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }

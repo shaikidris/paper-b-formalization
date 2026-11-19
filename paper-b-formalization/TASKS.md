@@ -142,9 +142,9 @@ Acceptance:
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 - Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
 
-Lean verifies the original third-block query using both unique actual physical-tail LCAs. It proves both tail lists nonempty, ties each tail to its original block, and checks the exact inclusive ancestry condition. Final named branch composition remains open.
+At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks. Bundle these facts with the branch lemmas over all original targets.
 
-Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json), [evidence/ex14-third-block-lift/verification.json](evidence/ex14-third-block-lift/verification.json), [evidence/ex14-third-block-equivalence/verification.json](evidence/ex14-third-block-equivalence/verification.json), [evidence/ex14-third-block-lca/verification.json](evidence/ex14-third-block-lca/verification.json).
+Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json), [evidence/ex14-third-block-lift/verification.json](evidence/ex14-third-block-lift/verification.json), [evidence/ex14-third-block-equivalence/verification.json](evidence/ex14-third-block-equivalence/verification.json), [evidence/ex14-third-block-lca/verification.json](evidence/ex14-third-block-lca/verification.json), [evidence/ex14-failures-below-lca/verification.json](evidence/ex14-failures-below-lca/verification.json).
 
 <a id="ex15"></a>
 

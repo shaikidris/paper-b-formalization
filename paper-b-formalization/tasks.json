@@ -105,7 +105,8 @@
     "release-core/PaperB/StructuralPaper.lean": "cuts",
     "release-core/PaperB/DistinctPredecessors.lean": "cuts",
     "release-core/PaperB/PairDictionary.lean": "cuts",
-    "release-core/PaperB/StaticHeavyLCA.lean": "dominator"
+    "release-core/PaperB/StaticHeavyLCA.lean": "dominator",
+    "release-core/PaperB/LastExitBridge.lean": "dominator"
   },
   "milestones": [
     {
@@ -472,9 +473,10 @@
         "evidence/ex14-forward-last-exit/verification.json",
         "evidence/ex14-third-block-lift/verification.json",
         "evidence/ex14-third-block-equivalence/verification.json",
-        "evidence/ex14-third-block-lca/verification.json"
+        "evidence/ex14-third-block-lca/verification.json",
+        "evidence/ex14-failures-below-lca/verification.json"
       ],
-      "progress": "Lean verifies the original third-block query using both unique actual physical-tail LCAs. It proves both tail lists nonempty, ties each tail to its original block, and checks the exact inclusive ancestry condition. Final named branch composition remains open."
+      "progress": "At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks. Bundle these facts with the branch lemmas over all original targets."
     },
     {
       "id": "EX1.5",
