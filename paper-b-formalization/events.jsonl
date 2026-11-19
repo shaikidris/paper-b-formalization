@@ -163,3 +163,4 @@
 {"at": "2026-11-19T22:34:18+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestEmbeddingStep", "tasks": ["EX2.4"], "evidence": "evidence/forest-embedding-step-audit/verification.json"}
 {"at": "2026-11-19T22:38:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FusedJumpMaps", "tasks": ["EX4.3"], "evidence": "evidence/fused-jump-audit/verification.json"}
 {"at": "2026-11-19T22:38:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GlobalSiblingEmitter", "tasks": ["EX5.1"], "evidence": "evidence/global-sibling-audit/verification.json"}
+{"at": "2026-11-19T22:38:38+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RetainedRouteProof", "tasks": ["EX4.4"], "evidence": "evidence/retained-early-audit/verification.json"}

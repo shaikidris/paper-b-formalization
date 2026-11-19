@@ -1,0 +1,11 @@
+{
+  "base_commit": "db2f100",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RetainedRouteProof.lean",
+  "sha256": "ebbdd82a51ce12575e7a07bfcce084d0b1529ffa2dc805374600bb1d183fd6e5",
+  "scope": "With at least one failure outside the reachable subgraph, the actual runtime route chooses the correct surviving-path leaf for an originally incomparable pair under exact ID and subtree index lookups.",
+  "remaining": "Connect the reachable-reachable route, original comparable failures, and actual packed query accessors."
+}

@@ -134,7 +134,8 @@
         "release-core/PaperB/LastExitPaper.lean",
         "release-core/PaperB/ExitKernels.lean",
         "release-core/PaperB/FusedJumpMaps.lean",
-        "release-core/PaperB/GlobalSiblingEmitter.lean"
+        "release-core/PaperB/GlobalSiblingEmitter.lean",
+        "release-core/PaperB/RetainedRouteProof.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1134,6 +1135,14 @@
         "release-core/PaperB/ArcOwnerTotal.lean"
       ],
       "owner_role": "quotient",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RetainedRouteProof.lean",
+      "local_imports": [
+        "release-core/PaperB/OracleRuntimeProof.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -410,9 +410,9 @@ Acceptance:
 - Prove output iff reachability after deletion for any subset of size at most two and any original target.
 - Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths.
 
-The retained query route and answer share a checked total control budget. Each granted semantic leaf is evaluated exactly, including the original subtree avoidance test on both exit spans. Derive the leaf grants from actual sealed index lookups and compose a single unrestricted original-input query proof.
+With at least one failure outside the reachable subgraph, the actual runtime route chooses the correct survival leaf for an originally incomparable pair under exact ID and subtree index lookups. Both retained failures and final reader assembly remain in progress.
 
-Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json), [evidence/ex44-query-leaf-proofs/verification.json](evidence/ex44-query-leaf-proofs/verification.json).
+Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json), [evidence/ex44-query-leaf-proofs/verification.json](evidence/ex44-query-leaf-proofs/verification.json), [evidence/retained-early-audit/verification.json](evidence/retained-early-audit/verification.json).
 
 <a id="ex51"></a>
 
