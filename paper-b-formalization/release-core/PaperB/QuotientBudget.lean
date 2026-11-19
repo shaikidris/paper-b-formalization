@@ -111,4 +111,69 @@ theorem root_child_budget (root : α → β) (child : α → Option κ)
     _ = 2 * vertices.length := by
       rw [show (2 : Nat) = 1 + 1 from rfl, Nat.add_mul, Nat.one_mul]
 
+private theorem globalOccurrenceCount_le_one {K : Type _} {B : Type _}
+    (f : K → Option B) (roots : List K) (hn : roots.Nodup)
+    (huniq : ∀ {r s : K} {b c : B}, f r = some b → f s = some c → r = s) :
+    (roots.map (fun r => if (f r).isSome then (1 : Nat) else 0)).sum ≤ 1 := by
+  have zero_of_none (rs : List K) (hz : ∀ s ∈ rs, f s = none) :
+      (rs.map (fun s => if (f s).isSome then (1 : Nat) else 0)).sum = 0 := by
+    induction rs with
+    | nil => rfl
+    | cons s ss ih =>
+      have hs := hz s (List.mem_cons.mpr (Or.inl rfl))
+      have ht := ih (fun t hm => hz t (List.mem_cons.mpr (Or.inr hm)))
+      rw [List.map_cons, List.sum_cons, ht]
+      simp [hs]
+  induction roots with
+  | nil => simp
+  | cons r rs ih =>
+    have hn' := List.nodup_cons.mp hn
+    cases hr : f r with
+    | none =>
+      simpa [List.sum_cons, hr, Option.isSome] using ih hn'.2
+    | some b =>
+      have hz : ∀ s ∈ rs, f s = none := by
+        intro s hs
+        cases ht : f s with
+        | none => rfl
+        | some c =>
+          have hsr : s = r := huniq ht hr
+          exact (hn'.1 (hsr ▸ hs)).elim
+      rw [List.map_cons, List.sum_cons, zero_of_none rs hz]
+      simp [hr, Option.isSome]
+
+private theorem globalOccurrenceSum_cons {K : Type _} {A : Type _} {B : Type _}
+    (roots : List K) (emit : K → A → Option B) (a : A) (xs : List A) :
+    (roots.map (fun r => ((a :: xs).filterMap (emit r)).length)).sum =
+      (roots.map (fun r => if (emit r a).isSome then (1 : Nat) else 0)).sum +
+        (roots.map (fun r => (xs.filterMap (emit r)).length)).sum := by
+  induction roots with
+  | nil => rfl
+  | cons r rs ih =>
+    simp only [List.map_cons, List.sum_cons]
+    rw [ih]
+    cases h : emit r a <;>
+      simp [List.filterMap, h, Option.isSome, Nat.add_assoc, Nat.add_comm,
+        Nat.add_left_comm]
+
+/-- Over distinct roots, each physical occurrence contributes at most one output. -/
+theorem sum_filterMap_length_le_length_of_nodup
+    {K : Type _} {A : Type _} {B : Type _}
+    (roots : List K) (xs : List A) (emit : K → A → Option B)
+    (hn : roots.Nodup)
+    (huniq : ∀ {r s : K} {a : A} {b c : B},
+      emit r a = some b → emit s a = some c → r = s) :
+    (roots.map (fun r => (xs.filterMap (emit r)).length)).sum ≤ xs.length := by
+  induction xs with
+  | nil =>
+    clear hn huniq
+    induction roots with
+    | nil => simp
+    | cons r rs ih => simpa [List.filterMap, List.sum_cons] using ih
+  | cons a xs ih =>
+    rw [globalOccurrenceSum_cons, Nat.add_comm, List.length_cons]
+    exact Nat.add_le_add ih
+      (globalOccurrenceCount_le_one (fun r => emit r a) roots hn
+        (fun hr hs => huniq (a := a) hr hs))
+
 end PaperB.QuotientBudget

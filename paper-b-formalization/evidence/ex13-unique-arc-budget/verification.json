@@ -1,0 +1,11 @@
+{
+  "base_commit": "ad4253a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/QuotientBudget.lean",
+  "sha256": "638ce1d449ab5b8cc8a25232bfb4e32f6e3df45e7588152e7aba2251cd5ceaf1",
+  "scope": "Generic sum bound for all distinct roots when each original occurrence can emit to at most one root, with all duplicate occurrences counted.",
+  "remaining": "Apply the budget to actual sibling emissions and copy counts."
+}

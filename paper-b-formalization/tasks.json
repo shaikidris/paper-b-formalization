@@ -381,9 +381,10 @@
         "evidence/ex13-original-emissions/verification.json",
         "evidence/ex13-finite-sibling/verification.json",
         "evidence/ex13-finite-flatness/verification.json",
-        "evidence/ex13-quotient-array-counts/verification.json"
+        "evidence/ex13-quotient-array-counts/verification.json",
+        "evidence/ex13-unique-arc-budget/verification.json"
       ],
-      "progress": "Lean also verifies the finite quotient array stores one item for every emitted occurrence. Apply the unique-owner accounting to these concrete finite sibling graphs to get the total bounds."
+      "progress": "Lean verifies the finite flat representation and exact per-quotient counts, and proves the total generic counting bound for exclusive occurrence ownership. Apply this to the original sibling emitters and actual vertex copies."
     },
     {
       "id": "EX1.4",

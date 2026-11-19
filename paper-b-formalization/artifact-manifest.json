@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 4839,
-      "sha256": "b83d1202915505648596cc7d6ee665f590d3f849be5ff5b50917d2016d8a6c4d"
+      "bytes": 4875,
+      "sha256": "da94d83f3da89e36318ea51c77916a37335c395091478fbe7482dca93c1ba51c"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 32665,
-      "sha256": "885387449a34491c1ca38c673c3829defee94d3b7246aae1ef9776f8cd0b14b2"
+      "bytes": 32805,
+      "sha256": "72970b7d15f9b8a10c81813690dd6a07ed43cd42c10722c1d2574a816d76b060"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 22165,
-      "sha256": "08bda1800dfd263aca235bd62d94d3c84fc6626a7ad3494dc103038246126015"
+      "bytes": 22356,
+      "sha256": "0d944f244b8464a8ebbfa9c62d2b116ddc3f18d9239ff9a91d19dd134f24a9b9"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -827,6 +827,21 @@
       "sha256": "c0d3ca0fd4368f2aada611f2498ff54f4a6db503147d837a371d019d4826d963"
     },
     {
+      "path": "evidence/ex13-unique-arc-budget/Audit.lean",
+      "bytes": 176,
+      "sha256": "b08fd9282d8d050a60767438aea3348b9d254346e0b1a4361b44cba0287acf87"
+    },
+    {
+      "path": "evidence/ex13-unique-arc-budget/axioms.txt",
+      "bytes": 482,
+      "sha256": "59e65b6094a9850e30681889cfd6f6849e061dac2b0f07c2864020143916662d"
+    },
+    {
+      "path": "evidence/ex13-unique-arc-budget/verification.json",
+      "bytes": 531,
+      "sha256": "d077d64dbfe8de75bbfc8c4ae146396afa2565ed5e6f5eea37ce5457970f5a6d"
+    },
+    {
       "path": "evidence/ex13-unique-child/Audit.lean",
       "bytes": 142,
       "sha256": "ff9d413eaa791d9c6160e86460eddf301531f83d46b97c2240eaaba24ac5623b"
@@ -1338,8 +1353,8 @@
     },
     {
       "path": "release-core/PaperB/QuotientBudget.lean",
-      "bytes": 4673,
-      "sha256": "01f2163944c25f7b03f2aec82896aa30e53ae465da5cd64764bc4447697fd4b1"
+      "bytes": 7344,
+      "sha256": "638ce1d449ab5b8cc8a25232bfb4e32f6e3df45e7588152e7aba2251cd5ceaf1"
     },
     {
       "path": "release-core/PaperB/RamLifecycle.lean",
@@ -1523,8 +1538,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 45960,
-      "sha256": "7f9c65a8bf18c062e07747193e0202ee080918289f2e6712b76a1acf3103b34f"
+      "bytes": 46057,
+      "sha256": "97ee3e92a31b5c2fd9986fec110abfff79abcec03f7575ed69788e49a392e20b"
     },
     {
       "path": "test_plan.py",

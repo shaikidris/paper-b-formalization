@@ -1,0 +1,6 @@
+'PaperB.QuotientBudget.sum_filterMap_length_le_length_of_nodup' depends on axioms: [propext, Quot.sound]
+@PaperB.QuotientBudget.sum_filterMap_length_le_length_of_nodup : ∀ {K : Type u_1} {A : Type u_2} {B : Type u_3}
+  (roots : List K) (xs : List A) (emit : K → A → Option B),
+  roots.Nodup →
+    (∀ {r s : K} {a : A} {b c : B}, emit r a = some b → emit s a = some c → r = s) →
+      (List.map (fun r => (List.filterMap (emit r) xs).length) roots).sum ≤ xs.length
