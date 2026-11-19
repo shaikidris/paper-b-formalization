@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.5](TASKS.md#ex15) — The executable dominator step uses the actual packed jump-region implementation. Lean verifies correct prefix ancestry, the fresh leaf ancestor law and array-backed folding and insertion. Build the initialized word region and run the concrete step over the full Kahn order.
+- [EX1.5](TASKS.md#ex15) — The complete topological scan using the concrete growing jump kernel constructs the correct parent map under exact incoming rows and valid initial region. It counts row occurrences, predecessor LCA applications and leaf writes. Instantiate the topological order with Kahn, actual incoming rows and initialized region and bound total work.
 - [EX1.6](TASKS.md#ex16) — A binary search over sorted half-open child intervals returns exactly the child containing the queried preorder rank. Entry and exclusive stop endpoints, root and absence cases are checked. Wire the child ranges recorded by the actual ordinary tree and charge their construction.
 - [EX2.4](TASKS.md#ex24) — The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.
 - [EX4.2](TASKS.md#ex42) — A topological array driver installs a real pair map before its first base, preserves prior maps on repeated seeds and proves availability for actual fresh sources and earlier labelled predecessors. Instantiate the callbacks on the exact exit summary operations and charge the total graph scan and map traversals.

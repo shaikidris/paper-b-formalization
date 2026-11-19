@@ -1,0 +1,2 @@
+'PaperB.EX15.WholeScan.run_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX15.WholeScan.scan_suffix' depends on axioms: [propext, Classical.choice, Quot.sound]

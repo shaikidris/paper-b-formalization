@@ -148,3 +148,4 @@
 {"at": "2026-11-19T22:10:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OracleMemoryLayout", "tasks": ["EX5.2"], "evidence": "evidence/ex52-exact-memory-layout/verification.json"}
 {"at": "2026-11-19T22:10:55+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OracleContract", "tasks": ["EX0.2"], "evidence": "evidence/ex02-fixed-word-slack/verification.json"}
 {"at": "2026-11-19T22:13:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "LastExitPaper", "tasks": ["EX1.4"], "evidence": "evidence/paper-22-last-exit-certified/verification.json"}
+{"at": "2026-11-19T22:13:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FullDomScan", "tasks": ["EX1.5"], "evidence": "evidence/ex15-full-dom-sweep/verification.json"}

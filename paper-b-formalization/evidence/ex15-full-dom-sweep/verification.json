@@ -1,0 +1,11 @@
+{
+  "base_commit": "6266aaf",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FullDomScan.lean",
+  "sha256": "c2dc1f0bb509435b237d447acdd4c08ae2f011b87184695362d6d65f1a81ef15",
+  "scope": "The complete topological scan using the concrete growing jump kernel constructs the correct parent map under exact incoming rows and valid initial region. It counts row occurrences, predecessor LCA applications and leaf writes.",
+  "remaining": "Instantiate the topological order with Kahn, actual incoming rows and initialized region and bound total work."
+}
