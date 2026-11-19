@@ -1,0 +1,8 @@
+'PaperB.BlockSystem.project' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.BlockSystem.avoid_failed_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.BlockSystem.leader_path_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.BlockSystem.leader_path_iff : ∀ {V C : Type} (S : PaperB.BlockSystem V C),
+  (∀ (v w : V), S.arc v w → S.block v ≠ S.block w → w = S.leader (S.block w)) →
+    ∀ {failed : C → Prop} {s t : C},
+      PaperB.AvoidPath S.arc (S.LeaderFailed failed) (S.leader s) (S.leader t) ↔
+        PaperB.AvoidPath S.QuotientEdge failed s t

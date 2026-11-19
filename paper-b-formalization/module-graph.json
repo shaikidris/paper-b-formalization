@@ -50,7 +50,8 @@
       "local_imports": [
         "release-core/PaperB/Dom.lean",
         "release-core/PaperB/DominatorBoundary.lean",
-        "release-core/PaperB/BlockPaths.lean"
+        "release-core/PaperB/BlockPaths.lean",
+        "release-core/PaperB/BlockProjection.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -296,6 +297,14 @@
       "path": "release-core/PaperB/BlockPaths.lean",
       "local_imports": [
         "release-core/PaperB/Spec.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/BlockProjection.lean",
+      "local_imports": [
+        "release-core/PaperB/BlockPaths.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

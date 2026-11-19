@@ -1,0 +1,11 @@
+{
+  "base_commit": "555bd7d2a84ecfc5ab452822ce031e17b0b8ec13",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/BlockProjection.lean",
+  "sha256": "48da2e9ad51566199e15bad7eba971a82008c585e34356dce20a93fcad1682c0",
+  "scope": "Semantic correspondence for any block system with unique entry: original leader-to-leader paths avoiding failed leaders exist exactly when the quotient has a path avoiding failed blocks.",
+  "remaining": "Instantiate the block system with siblings in the ordinary dominator tree and construct and count the finite labelled quotient representations."
+}

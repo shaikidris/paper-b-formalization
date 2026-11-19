@@ -53,7 +53,8 @@
     "release-core/PaperB/ExitSummary.lean": "oracle",
     "release-core/PaperB/TopologicalRank.lean": "dominator",
     "release-core/PaperB/WordOps.lean": "cost model",
-    "release-core/PaperB/BlockPaths.lean": "dominator"
+    "release-core/PaperB/BlockPaths.lean": "dominator",
+    "release-core/PaperB/BlockProjection.lean": "dominator"
   },
   "milestones": [
     {
@@ -321,9 +322,10 @@
       ],
       "evidence": [
         "evidence/ex13-dominator-boundary/verification.json",
-        "evidence/ex13-block-lifting/verification.json"
+        "evidence/ex13-block-lifting/verification.json",
+        "evidence/ex13-block-projection/verification.json"
       ],
-      "progress": "Lean verifies unique entry and internal path containment for dominator subtrees, and lifts a quotient path through supplied blocks while preserving the selected physical tail and its label. Projection, concrete quotient construction, flatness and occurrence counts remain open."
+      "progress": "Lean verifies unique entry and within-subtree paths, and a separate block theorem proves exact agreement of quotient and original leader-to-leader reachability under block-root failures. The lift preserves a named original tail. Construct the actual sibling blocks and labelled arrays next, and prove flatness and occurrence counts."
     },
     {
       "id": "EX1.4",

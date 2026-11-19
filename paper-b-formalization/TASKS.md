@@ -121,9 +121,9 @@ Acceptance:
 - Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.
 - Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator.
 
-Lean verifies unique entry and internal path containment for dominator subtrees, and lifts a quotient path through supplied blocks while preserving the selected physical tail and its label. Projection, concrete quotient construction, flatness and occurrence counts remain open.
+Lean verifies unique entry and within-subtree paths, and a separate block theorem proves exact agreement of quotient and original leader-to-leader reachability under block-root failures. The lift preserves a named original tail. Construct the actual sibling blocks and labelled arrays next, and prove flatness and occurrence counts.
 
-Planning/evidence references: [evidence/ex13-dominator-boundary/verification.json](evidence/ex13-dominator-boundary/verification.json), [evidence/ex13-block-lifting/verification.json](evidence/ex13-block-lifting/verification.json).
+Planning/evidence references: [evidence/ex13-dominator-boundary/verification.json](evidence/ex13-dominator-boundary/verification.json), [evidence/ex13-block-lifting/verification.json](evidence/ex13-block-lifting/verification.json), [evidence/ex13-block-projection/verification.json](evidence/ex13-block-projection/verification.json).
 
 <a id="ex14"></a>
 
