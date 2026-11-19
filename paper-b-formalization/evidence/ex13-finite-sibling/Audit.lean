@@ -1,0 +1,7 @@
+import PaperB.FiniteSiblingQuotient
+
+#print axioms PaperB.Digraph.mem_outArcs_finiteSiblingQuotient_iff
+#print axioms PaperB.Digraph.mem_outArcs_finiteSiblingQuotient_iff_raw
+#print axioms PaperB.Digraph.finiteSiblingQuotient_hasQuotientArc_iff
+#print axioms PaperB.Digraph.finiteSiblingRank_lt_of_hasQuotientArc
+#check @PaperB.Digraph.finiteSiblingRank_lt_of_hasQuotientArc

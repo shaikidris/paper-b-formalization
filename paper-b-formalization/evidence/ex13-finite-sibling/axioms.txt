@@ -1,0 +1,12 @@
+'PaperB.Digraph.mem_outArcs_finiteSiblingQuotient_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.mem_outArcs_finiteSiblingQuotient_iff_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.finiteSiblingQuotient_hasQuotientArc_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.finiteSiblingRank_lt_of_hasQuotientArc' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.finiteSiblingRank_lt_of_hasQuotientArc : ∀ {g : PaperB.Digraph} {r d : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount}
+  (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) (spec : g.ParentSpec r parent)
+  (hd : g.InitiallyReachable r d) {u w : Fin (g.siblingBlockKeys r d parent).length},
+  (PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).HasQuotientArc u w →
+    PaperB.Digraph.finiteSiblingRank progress injective spec hd u <
+      PaperB.Digraph.finiteSiblingRank progress injective spec hd w

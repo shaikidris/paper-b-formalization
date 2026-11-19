@@ -59,7 +59,8 @@
         "release-core/PaperB/SiblingEncoding.lean",
         "release-core/PaperB/QuotientBudget.lean",
         "release-core/PaperB/QuotientArrays.lean",
-        "release-core/PaperB/SiblingEmissions.lean"
+        "release-core/PaperB/SiblingEmissions.lean",
+        "release-core/PaperB/FiniteSiblingQuotient.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -451,6 +452,16 @@
       "local_imports": [
         "release-core/PaperB/SiblingBlockSystem.lean",
         "release-core/PaperB/SiblingEncoding.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/FiniteSiblingQuotient.lean",
+      "local_imports": [
+        "release-core/PaperB/SiblingEmissions.lean",
+        "release-core/PaperB/QuotientArrays.lean",
+        "release-core/PaperB/SiblingArcOwnership.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

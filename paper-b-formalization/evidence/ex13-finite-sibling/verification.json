@@ -1,0 +1,11 @@
+{
+  "base_commit": "09fb45a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FiniteSiblingQuotient.lean",
+  "sha256": "749709366c3bba20e71ec755572a07418869df4d32de0c60a1e7bdb05effdb4b",
+  "scope": "Encode original sibling arc emissions in finite labelled adjacency without changing original tails, parallel record multiplicity or rank.",
+  "remaining": "Transport path deletions and flatness to the exact finite representation and prove total budget across all concrete quotients."
+}
