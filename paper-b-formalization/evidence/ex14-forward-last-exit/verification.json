@@ -1,0 +1,11 @@
+{
+  "base_commit": "54bd61e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ThirdBlockForward.lean",
+  "sha256": "098b44c0dee6350f993b5863c7da9e7c5234c0e0c70b01e354d16704d47ba43f",
+  "scope": "Generic last-exit decomposition of a physical path gives a clean quotient route, or its original tail and outgoing arc, followed by a clean suffix. Covers direct last outgoing arcs.",
+  "remaining": "Specialize the forward implication to the actual finite sibling quotient, then finish the two-failure equivalence."
+}

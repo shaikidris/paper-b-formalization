@@ -142,9 +142,9 @@ Acceptance:
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 - Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
 
-For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case.
+Generic last-exit decomposition of a physical path gives a clean quotient route, or its original tail and outgoing arc, followed by a clean suffix. Covers direct last outgoing arcs. Specialize the forward implication to the actual finite sibling quotient, then finish the two-failure equivalence.
 
-Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json).
+Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json).
 
 <a id="ex15"></a>
 

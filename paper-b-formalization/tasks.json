@@ -91,7 +91,8 @@
     "release-core/PaperB/DecreasingDAG.lean": "graph",
     "release-core/PaperB/KahnDecreasing.lean": "graph",
     "release-core/PaperB/CommonAncestorSearch.lean": "dominator",
-    "release-core/PaperB/ForestLayoutTrace.lean": "cuts"
+    "release-core/PaperB/ForestLayoutTrace.lean": "cuts",
+    "release-core/PaperB/ThirdBlockForward.lean": "dominator"
   },
   "milestones": [
     {
@@ -446,9 +447,10 @@
       ],
       "evidence": [
         "evidence/ex14-last-exit-outside-own/verification.json",
-        "evidence/ex14-both-exits/verification.json"
+        "evidence/ex14-both-exits/verification.json",
+        "evidence/ex14-forward-last-exit/verification.json"
       ],
-      "progress": "For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case."
+      "progress": "Generic last-exit decomposition of a physical path gives a clean quotient route, or its original tail and outgoing arc, followed by a clean suffix. Covers direct last outgoing arcs. Specialize the forward implication to the actual finite sibling quotient, then finish the two-failure equivalence."
     },
     {
       "id": "EX1.5",
