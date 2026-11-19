@@ -1,0 +1,3 @@
+'PaperB.EX44.third_route_leaf_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX44.both_route_leaf_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX44.both_routed_answer_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

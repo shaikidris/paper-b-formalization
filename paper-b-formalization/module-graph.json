@@ -138,7 +138,8 @@
         "release-core/PaperB/RetainedRouteProof.lean",
         "release-core/PaperB/BothReachableRoute.lean",
         "release-core/PaperB/PhysicalExitModel.lean",
-        "release-core/PaperB/ExitLinearSchedule.lean"
+        "release-core/PaperB/ExitLinearSchedule.lean",
+        "release-core/PaperB/ThirdReachableRoute.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1247,6 +1248,14 @@
         "release-core/PaperB/ForestEmbeddingStep.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ThirdReachableRoute.lean",
+      "local_imports": [
+        "release-core/PaperB/BothReachableRoute.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

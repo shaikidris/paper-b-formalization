@@ -1,0 +1,11 @@
+{
+  "base_commit": "c0e1c78",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ThirdReachableRoute.lean",
+  "sha256": "2dc7d5514fc9e7286085f721fb3d11c4813c7cb96d7f17986240b8abf39614d7",
+  "scope": "Exact dictionary keys, membership and both physical-tail spans give correct third-block answers. Lean also checks the placement and orientation of both exit coordinates. The complete route and answer are exact for both reachable incomparable failures under these storage contracts.",
+  "remaining": "Discharge those contracts from the actual sealed packed index and assemble the original-input normalization and comparable cases."
+}

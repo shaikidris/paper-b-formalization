@@ -178,3 +178,4 @@
 {"at": "2026-11-19T22:57:20+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitLinearSchedule", "tasks": ["EX4.2"], "evidence": "evidence/exit-indexed-audit/verification.json"}
 {"at": "2026-11-19T22:57:23+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPreparedHead", "tasks": ["EX2.4"], "evidence": "evidence/prepared-head-audit/verification.json"}
 {"at": "2026-11-19T23:02:30+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestEndpoints", "tasks": ["EX2.4"], "evidence": "evidence/forest-endpoints-audit/verification.json"}
+{"at": "2026-11-19T23:02:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ThirdReachableRoute", "tasks": ["EX4.4"], "evidence": "evidence/third-leaf-audit/verification.json"}
