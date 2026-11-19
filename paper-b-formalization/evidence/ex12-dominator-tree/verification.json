@@ -1,0 +1,11 @@
+{
+  "base_commit": "cef3140b16754c052418ea49ae7e8fa69e62285e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DominatorTree.lean",
+  "sha256": "26fcb3c4ca44f119646ff3ef018c9de0fcdc565562517326fb6145076a8fad88",
+  "scope": "For a supplied injective topological order, the semantic immediate-dominator map defines inclusive parent ancestry equivalent to original DAG dominance on every reachable target, with strict rank descent on real parents.",
+  "remaining": "EX1.2 acceptance still depends on a completed EX1.1 input normalization package. Implement the topological predecessor-LCA constructor under EX1.5."
+}

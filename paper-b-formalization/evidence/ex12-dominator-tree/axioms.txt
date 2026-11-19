@@ -1,0 +1,11 @@
+'PaperB.Digraph.ParentSpec.immediate' does not depend on any axioms
+'PaperB.Digraph.parent_reachable_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.ancestor_iff_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.semanticParent_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.semanticParent_reachable_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.semanticParent_ancestor_iff_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.semanticParent_ancestor_iff_dominates : ∀ {g : PaperB.Digraph} {r v : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) {d : Fin g.vertexCount},
+  g.InitiallyReachable r v →
+    (PaperB.Digraph.Ancestor (PaperB.Digraph.semanticParent progress injective) d v ↔ g.Dominates r d v)

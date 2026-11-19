@@ -167,7 +167,8 @@
         "release-core/PaperB/Dom.lean",
         "release-core/PaperB/Jumps.lean",
         "release-core/PaperB/DominatorChain.lean",
-        "release-core/PaperB/ImmediateDominator.lean"
+        "release-core/PaperB/ImmediateDominator.lean",
+        "release-core/PaperB/DominatorTree.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -244,6 +245,14 @@
       "path": "release-core/PaperB/ExitMap.lean",
       "local_imports": [],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DominatorTree.lean",
+      "local_imports": [
+        "release-core/PaperB/ImmediateDominator.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],
