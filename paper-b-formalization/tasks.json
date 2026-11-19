@@ -167,7 +167,8 @@
     "release-core/PaperB/ForestTopologicalTotal.lean": "cuts",
     "release-core/PaperB/OriginalStaticConnector.lean": "oracle",
     "extensions/GuardedListedWitness.lean": "application",
-    "release-core/PaperB/DenseQuotientRows.lean": "quotient"
+    "release-core/PaperB/DenseQuotientRows.lean": "quotient",
+    "release-core/PaperB/ForestActualFull.lean": "cuts"
   },
   "milestones": [
     {
@@ -907,9 +908,10 @@
         "evidence/measured-cut-audit/verification.json",
         "evidence/compact-loop-public-audit/verification.json",
         "evidence/prepared-parent-audit/verification.json",
-        "evidence/forest-topological-audit/verification.json"
+        "evidence/forest-topological-audit/verification.json",
+        "evidence/forest-actual-full-audit/verification.json"
       ],
-      "progress": "Lean verifies the full increasing-order fold and final canonical labels under exact packed inputs and per-row parent occupancy. A separate checked theorem supplies that parent premise. The actual constructor and aggregate resource proof remain in progress.",
+      "progress": "The actual constructor now instantiates the full ordered fold with its own packed root region, exact numeric dictionary, and unconditional per-head measured parent bound. Final physical known-node reads and aggregate accounting remain in progress.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

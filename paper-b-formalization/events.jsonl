@@ -199,3 +199,4 @@
 {"at": "2026-11-19T23:29:09+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GuardedListedWitness", "tasks": ["EX6.2"], "evidence": "evidence/guarded-listed-witness-audit/verification.json"}
 {"at": "2026-11-19T23:32:39+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticOracleTree", "tasks": ["EX4.4"], "evidence": "evidence/original-parent-audit/verification.json"}
 {"at": "2026-11-19T23:32:44+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseQuotientRows", "tasks": ["EX5.1"], "evidence": "evidence/dense-quotient-audit/verification.json"}
+{"at": "2026-11-19T23:32:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestActualFull", "tasks": ["EX2.4"], "evidence": "evidence/forest-actual-full-audit/verification.json"}

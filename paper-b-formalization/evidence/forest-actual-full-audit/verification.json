@@ -1,0 +1,11 @@
+{
+  "base_commit": "f452946",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestActualFull.lean",
+  "sha256": "89c6c2ec47fa286e65ba9fa11df9a732e9ca5abe17a0f81d76b58fcc66973296",
+  "scope": "On supplied exact ordered quotient rows, the actual prepared forest constructor builds its own dictionary and initial packed storage, invokes the verified fold and computes all canonical source labels. The measured parent range is derived inside the proof. The small root-only case is handled by a checked constant-size component.",
+  "remaining": "Connect final physical DFS interval and exact dictionary membership reads, combine with the small branch, and tally resource bounds over actual occurrences."
+}
