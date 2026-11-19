@@ -1,0 +1,11 @@
+{
+  "base_commit": "4eb79cca5ea4df2c32975b6eb4dcc335388345ed",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Exit.lean",
+  "sha256": "7d05d5de244b6631d01ff7191fddc16a10b561803bc1d017fa2da0f4872aa89e",
+  "scope": "The exit-tail identity on every real parent-child edge of the constructed forest of a supplied flat labelled quotient, as a pointwise equivalence and equality of predicates on physical original tails.",
+  "remaining": "Derive the labelled quotient and its hypotheses from original graph input and replay Figure 1 through the constructed forest."
+}

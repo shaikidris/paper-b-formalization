@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **1/27**. Planning audits **1** and verified proof packages **0**.
-- Remaining work packages **26**. 5 in progress, 21 planned.
+- Remaining work packages **26**. 8 in progress, 18 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -24,6 +24,9 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.2](TASKS.md#ex22) — Lean verified the bundled semantic Lemma 3.1 on a flat quotient with a supplied injective topological rank. The construction has exactly the canonical effective keys, a single artificial root, exact inclusive ancestor labels, nesting, fresh endpoint order and at most one real node per vertex in the count. Paper-level certification awaits the dependent input representation and statement audit.
 - [EX2.3](TASKS.md#ex23) — Lean verified the growing-tree invariant, unique depth-target traversal, the logarithmic move bound, and the array-backed jump implementation under a preallocated word layout. A leaf insertion uses 14 word accesses. The traversal and ancestry test have explicit logarithmic word-read bounds. The full EX0.3 package and end-to-end statement audit remain open.
 - [EX2.4](TASKS.md#ex24) — Lean checks the computed DFS preorder interval equivalence for inclusive ancestry, its specialization to real cut-pair nodes and quotient labels, and its equivalence to exact proper loss. The proof covers self-membership and exclusion at the right endpoint. All ten original candidate errors are resolved. Conditional charging and the separate numeric prefix-probe count also build. The cutoff and logarithmic-fuel proofs, executable constructor, deterministic dictionary, array-backed constant-time query and end-to-end time and space bounds remain open.
+- [EX3.1](TASKS.md#ex31) — Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.
+- [EX3.2](TASKS.md#ex32) — Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
+- [EX3.3](TASKS.md#ex33) — Lean verifies pointwise equality of the two sides of exit transfer on the actual constructed proper-loss forest, hence equality as predicates on physical tails for either parent endpoint. Original-graph quotient construction and Figure 1 replay through that forest remain open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

@@ -246,7 +246,7 @@ Planning/evidence references: [evidence/ex22-unattended/native-swarm-charging.js
 
 ## EX3.1 — Lift each fresh endpoint contribution
 
-- Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX3; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX2.2, EX1.3.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
@@ -258,11 +258,15 @@ Acceptance:
 
 - Prove inclusion for every output coordinate and target in the child proper-loss set.
 
+Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.
+
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json).
+
 <a id="ex32"></a>
 
 ## EX3.2 — Handle inherited tails and the reverse inclusion
 
-- Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX3; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX3.1.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
@@ -274,11 +278,15 @@ Acceptance:
 
 - Discharge disjoint pairs, inherited-only exits and exits through a fresh endpoint with exact tail identity.
 
+Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
+
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json).
+
 <a id="ex33"></a>
 
 ## EX3.3 — Certify the set-level transfer theorem
 
-- Milestone: EX3; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX3; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX3.2.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
@@ -290,6 +298,10 @@ Acceptance:
 
 - An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target.
 - Instantiate the structural identity on the actual constructed forest and the original-tail labels. Figure 1 checks both exact contributions and all three failure outcomes as a regression control.
+
+Lean verifies pointwise equality of the two sides of exit transfer on the actual constructed proper-loss forest, hence equality as predicates on physical tails for either parent endpoint. Original-graph quotient construction and Figure 1 replay through that forest remain open.
+
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json).
 
 <a id="ex41"></a>
 

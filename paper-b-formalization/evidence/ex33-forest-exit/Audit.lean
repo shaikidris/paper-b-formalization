@@ -1,0 +1,5 @@
+import PaperB.Exit
+
+#print axioms PaperB.buildProperLossForest_edge_exitTailMem_iff
+#print axioms PaperB.buildProperLossForest_edge_exitTailMem_eq
+#check @PaperB.buildProperLossForest_edge_exitTailMem_eq

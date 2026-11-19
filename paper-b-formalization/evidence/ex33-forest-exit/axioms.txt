@@ -1,0 +1,14 @@
+'PaperB.buildProperLossForest_edge_exitTailMem_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.buildProperLossForest_edge_exitTailMem_eq' depends on axioms: [propext, Quot.sound]
+@PaperB.buildProperLossForest_edge_exitTailMem_eq : ∀ {H : PaperB.LabelledQuotient} {rank : Fin H.vertexCount → Nat},
+  (∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) →
+    H.IsFlat →
+      ∀ {uP : Fin ((H.buildProperLossForest rank).realNodeCount + 1)} {P B : H.CutPair},
+        (H.buildProperLossForest rank).nodeKey? uP = some P →
+          (H.buildProperLossForest rank).nodeKey? ((H.buildProperLossForest rank).parent uP) = some B →
+            ∀ {s y : Fin H.vertexCount},
+              B.Mem s →
+                H.ProperLoss P y →
+                  (fun x => H.ExitTailMem B s y x) = fun x =>
+                    (∃ p, PaperB.LabelledQuotient.IsFreshEndpoint B P p ∧ H.ExitTailMem B s p x) ∨
+                      P.Mem s ∧ H.ExitTailMem P s y x
