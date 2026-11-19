@@ -268,5 +268,233 @@ theorem processHead_queue_prefix (g : Digraph) (s : State g.vertexCount)
   visitRow_queue_prefix (g.outArcs (s.queue[s.head]'h)) s hi
 
 
+/-- The entire queue is duplicate-free and contains exactly the vertices
+    whose remaining degree is zero. -/
+def State.QueueInv {n : Nat} (s : State n) : Prop :=
+  s.queue.toList.Nodup ∧
+    ∀ v : Fin n, v ∈ s.queue.toList ↔ s.degree v = 0
+
+private theorem queue_nodup_append_singleton {α : Type _} {xs : List α}
+    {x : α} (hn : xs.Nodup) (hx : x ∉ xs) : (xs ++ [x]).Nodup := by
+  induction xs with
+  | nil => simp
+  | cons a xs ih =>
+      obtain ⟨ha, ht⟩ := List.nodup_cons.mp hn
+      have hax : a ≠ x := by
+        intro he
+        subst a
+        exact hx (by simp)
+      have hxt : x ∉ xs := fun hm => hx (List.mem_cons_of_mem _ hm)
+      change (a :: (xs ++ [x])).Nodup
+      exact List.nodup_cons.mpr
+        ⟨by simpa [List.mem_append, hax] using ha, ih ht hxt⟩
+
+/-- Outside the enqueue branch, subtraction preserves zero status:
+    zero saturates, and a degree of at least two stays positive. -/
+private theorem queue_sub_one_zero_iff (d : Nat) (h : d ≠ 1) :
+    d = 0 ↔ d - 1 = 0 := by
+  cases d with
+  | zero => rfl
+  | succ k =>
+      cases k with
+      | zero => exact (h rfl).elim
+      | succ k =>
+          change Nat.succ (Nat.succ k) = 0 ↔ Nat.succ k = 0
+          simp
+
+theorem visit_queueInv {n : Nat} (s : State n) (w : Fin n)
+    (hs : s.QueueInv) : (visit s w).QueueInv := by
+  unfold State.QueueInv at hs ⊢
+  obtain ⟨hn, hm⟩ := hs
+  by_cases hw : s.degree w = 1
+  · rw [visit_queue_toList, ite_eq_left hw]
+    have hp : 0 < s.degree w := by simp [hw]
+    have hfresh : w ∉ s.queue.toList := by
+      intro hmem
+      have hz := (hm w).mp hmem
+      rw [hz] at hp
+      exact (Nat.lt_irrefl 0) hp
+    refine ⟨queue_nodup_append_singleton hn hfresh, ?_⟩
+    intro v
+    by_cases he : w = v
+    · subst v
+      simp [List.mem_append, visit_degree, hw]
+    · simpa [List.mem_append, visit_degree, he, Ne.symm he] using (hm v)
+  · rw [visit_queue_toList, ite_eq_right hw, List.append_nil]
+    refine ⟨hn, ?_⟩
+    intro v
+    by_cases he : w = v
+    · subst v
+      rw [visit_degree, ite_eq_left rfl]
+      exact (hm w).trans (queue_sub_one_zero_iff _ hw)
+    · simpa [visit_degree, he] using (hm v)
+
+theorem visitRow_queueInv {n : Nat} (row : List (Fin n)) (s : State n)
+    (hs : s.QueueInv) : (visitRow row s).QueueInv := by
+  induction row generalizing s with
+  | nil => simpa only [visitRow] using hs
+  | cons w ws ih =>
+      simpa only [visitRow] using ih (visit s w) (visit_queueInv s w hs)
+
+theorem processHead_queueInv (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) (hs : s.QueueInv) :
+    (processHead g s h).QueueInv := by
+  have ht := visitRow_queueInv (g.outArcs (s.queue[s.head]'h)) s hs
+  unfold State.QueueInv at ht ⊢
+  exact ht
+
+private theorem queue_foldl_push_toList {α : Type _} (p : α → Prop)
+    [DecidablePred p] (xs : List α) (q : Array α) :
+    (xs.foldl (fun b x => if p x then b.push x else b) q).toList =
+      q.toList ++ xs.filter (fun x => decide (p x)) := by
+  induction xs generalizing q with
+  | nil => simp
+  | cons x xs ih =>
+      by_cases hx : p x <;>
+        simp [List.foldl, hx, ih, Array.toList_push,
+          List.append_assoc]
+
+theorem seed_queue_toList {n : Nat} (a : Array Nat) (ha : a.size = n) :
+    (seed a ha).toList =
+      (List.ofFn (fun v : Fin n => v)).filter
+        (fun v => decide (a[v.val]'(by rw [ha]; exact v.isLt) = 0)) := by
+  simpa [seed] using
+    (queue_foldl_push_toList
+      (fun v : Fin n => a[v.val]'(by rw [ha]; exact v.isLt) = 0)
+      (List.ofFn (fun v : Fin n => v)) (#[] : Array (Fin n)))
+
+private theorem queue_nodup_ofFn {α : Type _} {n : Nat} (f : Fin n → α)
+    (hf : ∀ i j, f i = f j → i = j) : (List.ofFn f).Nodup := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+      rw [List.ofFn_succ]
+      refine List.nodup_cons.mpr ⟨?_, ?_⟩
+      · intro hm
+        obtain ⟨i, hi⟩ := List.mem_ofFn.mp hm
+        have he : i.succ = (0 : Fin (n + 1)) := by
+          apply hf
+          first | exact hi | exact hi.symm
+        have hv := congrArg Fin.val he
+        change Nat.succ i.val = 0 at hv
+        exact Nat.noConfusion hv
+      · apply ih
+        intro i j hij
+        have hv := congrArg Fin.val (hf i.succ j.succ hij)
+        exact Fin.ext (Nat.succ.inj hv)
+
+private theorem queue_nodup_filter {α : Type _} (p : α → Bool)
+    (xs : List α) (hn : xs.Nodup) : (xs.filter p).Nodup := by
+  induction xs with
+  | nil => simp
+  | cons x xs ih =>
+      obtain ⟨hx, ht⟩ := List.nodup_cons.mp hn
+      cases hp : p x with
+      | false => simpa [List.filter_cons, hp] using (ih ht)
+      | true =>
+          have hxf : x ∉ xs.filter p := fun hm => hx (List.mem_filter.mp hm).1
+          have hf : (x :: xs.filter p).Nodup :=
+            List.nodup_cons.mpr ⟨hxf, ih ht⟩
+          simpa [List.filter_cons, hp] using hf
+
+theorem seed_queueInv {n : Nat} (a : Array Nat) (ha : a.size = n) :
+    State.QueueInv
+      ({ remaining := a
+         queue := seed a ha
+         head := 0
+         edgeVisits := 0
+         remaining_size := ha
+         head_le_queue := Nat.zero_le _ } : State n) := by
+  let ids := List.ofFn (fun v : Fin n => v)
+  let p : Fin n → Bool := fun v =>
+    decide (a[v.val]'(by rw [ha]; exact v.isLt) = 0)
+  have hq : (seed a ha).toList = ids.filter p := seed_queue_toList a ha
+  have hn : ids.Nodup :=
+    queue_nodup_ofFn (fun v : Fin n => v) (fun _ _ h => h)
+  change (seed a ha).toList.Nodup ∧
+    ∀ v : Fin n, v ∈ (seed a ha).toList ↔
+      a[v.val]'(by rw [ha]; exact v.isLt) = 0
+  rw [hq]
+  refine ⟨queue_nodup_filter p ids hn, ?_⟩
+  intro v
+  have hv : v ∈ ids := by
+    change v ∈ List.ofFn (fun w : Fin n => w)
+    exact List.mem_ofFn.mpr ⟨v, rfl⟩
+  simp [List.mem_filter, hv, p]
+
+/-- The queue entries already consumed, in processing order. -/
+def State.processedPrefix {n : Nat} (s : State n) : List (Fin n) :=
+  s.queue.toList.take s.head
+
+theorem processHead_processedPrefix (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) :
+    (processHead g s h).processedPrefix =
+      s.processedPrefix ++ [s.queue[s.head]'h] := by
+  let t := processHead g s h
+  obtain ⟨tail, hq, _⟩ :=
+    visitRow_queue_tail (g.outArcs (s.queue[s.head]'h)) s
+  change t.queue.toList = s.queue.toList ++ tail at hq
+  have hb : s.head ≤ s.queue.toList.length := by
+    simpa using s.head_le_queue
+  have hp : t.queue.toList.take s.head = s.queue.toList.take s.head := by
+    rw [hq, List.take_append_of_le_length hb]
+  have he : t.queue.toList[s.head]? = some (s.queue[s.head]'h) := by
+    have ha : t.queue[s.head]? = some (s.queue[s.head]'h) :=
+      (processHead_queue_prefix g s h h).trans (Array.getElem?_eq_getElem h)
+    simpa using ha
+  change t.queue.toList.take (s.head + 1) =
+    s.queue.toList.take s.head ++ [s.queue[s.head]'h]
+  rw [List.take_add_one, hp, he] <;> rfl
+
+/-- Count all incoming arc occurrences from processed vertices, including repeats. -/
+def processedIncoming (g : Digraph) (s : State g.vertexCount)
+    (v : Fin g.vertexCount) : Nat :=
+  (s.processedPrefix.map (fun w => countOccurrence v (g.outArcs w))).sum
+
+private theorem processed_sum_append_singleton (xs : List Nat) (a : Nat) :
+    (xs ++ [a]).sum = xs.sum + a := by
+  induction xs with
+  | nil => simp
+  | cons x xs ih =>
+      simp only [List.cons_append, List.sum_cons, ih, Nat.add_assoc]
+
+theorem processHead_processedIncoming (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) (v : Fin g.vertexCount) :
+    processedIncoming g (processHead g s h) v =
+      processedIncoming g s v + countOccurrence v (g.outArcs (s.queue[s.head]'h)) := by
+  simp only [processedIncoming, processHead_processedPrefix, List.map_append,
+    List.map_cons, List.map_nil, processed_sum_append_singleton]
+
+/-- The initial indegree is read from the prepass array used by `run`. -/
+def initialIndegree (g : Digraph) (v : Fin g.vertexCount) : Nat :=
+  (indegreeScan g).1[v.val]'(by
+    change v.val < (g.indegrees).size
+    exact g.indegrees_size.symm ▸ v.isLt)
+
+/-- Every remaining degree is the initial indegree minus the occurrences
+    contributed by the processed prefix, with subtraction on `Nat`. -/
+def State.DegreeInv (g : Digraph) (s : State g.vertexCount) : Prop :=
+  ∀ v : Fin g.vertexCount,
+    s.degree v = initialIndegree g v - processedIncoming g s v
+
+theorem processHead_degreeInv (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) (hs : State.DegreeInv g s) :
+    State.DegreeInv g (processHead g s h) := by
+  intro v
+  rw [processHead_degree g s h v, hs v, Nat.sub_sub,
+    processHead_processedIncoming g s h v]
+
+theorem seed_degreeInv (g : Digraph) :
+    State.DegreeInv g
+      { remaining := (indegreeScan g).1
+        queue := seed (indegreeScan g).1 (indegrees_size g)
+        head := 0
+        edgeVisits := 0
+        remaining_size := indegrees_size g
+        head_le_queue := Nat.zero_le _ } := by
+  intro v
+  change initialIndegree g v = initialIndegree g v - 0
+  exact (Nat.sub_zero _).symm
+
 end Kahn
 end PaperB

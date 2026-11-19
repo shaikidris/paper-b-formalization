@@ -1,0 +1,6 @@
+'PaperB.Kahn.processHead_processedPrefix' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.processHead_processedIncoming' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.processHead_degreeInv' depends on axioms: [propext, Quot.sound]
+PaperB.Kahn.processHead_degreeInv : ∀ (g : PaperB.Digraph) (s : PaperB.Kahn.State g.vertexCount)
+  (h : s.head < s.queue.size),
+  PaperB.Kahn.State.DegreeInv g s → PaperB.Kahn.State.DegreeInv g (PaperB.Kahn.processHead g s h)

@@ -1,0 +1,11 @@
+{
+  "base_commit": "7f6b15443bad7194ef21305f8dcc6f615f0ddd5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Kahn.lean",
+  "sha256": "e89bb27afabe36f99d90f7b1d35750597335bd37fdb0ff5c7301afe1ba3c2913",
+  "scope": "Processing one queue entry extends the exact processed prefix and maintains residual degree as initial indegree minus processed contributions.",
+  "remaining": "Convert this identity to the incoming count of the unprocessed original graph and prove completeness and order."
+}
