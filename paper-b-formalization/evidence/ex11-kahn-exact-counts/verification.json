@@ -1,0 +1,11 @@
+{
+  "base_commit": "ad4253a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Kahn.lean",
+  "sha256": "93a15bb763f63c9946667d628e95cd7771e3847ab165a2f1479f3370ebd02a81",
+  "scope": "The actual successful Kahn run visits n vertices and exactly m occurrences per edge pass, with a queue of at most n slots.",
+  "remaining": "Complete executable compact adjacency translation and its counts."
+}

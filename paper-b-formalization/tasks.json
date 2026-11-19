@@ -292,9 +292,10 @@
         "evidence/ex11-kahn-row/verification.json",
         "evidence/ex11-kahn-prefix/verification.json",
         "evidence/ex11-kahn-residual-graph/verification.json",
-        "evidence/ex11-kahn-topological/verification.json"
+        "evidence/ex11-kahn-topological/verification.json",
+        "evidence/ex11-kahn-exact-counts/verification.json"
       ],
-      "progress": "Lean verifies that the actual Kahn run produces a complete topological order for every DAG, with a duplicate-free queue bounded by n. The reachability scan on that order is exact. Final traversal charges and certified compact ID and adjacency tables remain open."
+      "progress": "The verified Kahn run produces the full topological order with n queue slots and exact n and m traversal counts. The checked reachability scan produces the exact marks. Complete compact IDs, compact adjacency and their operational bounds."
     },
     {
       "id": "EX1.2",

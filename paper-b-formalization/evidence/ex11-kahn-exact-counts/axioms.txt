@@ -1,0 +1,12 @@
+'PaperB.Kahn.processHead_preserves_edgeVisitsInv' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.scan_preserves_edgeVisitsInv' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.run_edgeVisitsInv' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.run_processedPrefix_perm_ofFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.run_queue_slots_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Kahn.run_indegreeVisits_eq_arcCount' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.run_exactTraversalCounts' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperB.Kahn.run_exactTraversalCounts : ∀ (g : PaperB.Digraph),
+  g.IsAcyclic →
+    (PaperB.Kahn.run g).rowsProcessed = g.vertexCount ∧
+      (PaperB.Kahn.run g).edgeVisits = g.arcCount ∧
+        (PaperB.Kahn.run g).indegreeVisits = g.arcCount ∧ (PaperB.Kahn.run g).state.queue.size ≤ g.vertexCount

@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — Lean verifies that the actual Kahn run produces a complete topological order for every DAG, with a duplicate-free queue bounded by n. The reachability scan on that order is exact. Final traversal charges and certified compact ID and adjacency tables remain open.
+- [EX1.1](TASKS.md#ex11) — The verified Kahn run produces the full topological order with n queue slots and exact n and m traversal counts. The checked reachability scan produces the exact marks. Complete compact IDs, compact adjacency and their operational bounds.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — Lean constructs the finite labelled sibling quotient from original arcs, proves both exact label membership and underlying edge correspondence, and verifies topological rank. Transport abstract flatness to these arrays and instantiate the global size bounds.
 - [EX1.5](TASKS.md#ex15) — Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.

@@ -843,5 +843,165 @@ theorem run_isTopologicalList (g : Digraph) (hacyc : IsAcyclic g) :
       exact False.elim (Nat.lt_irrefl (rank u) (hrank u u huv))
     · exact hvpost
 
+
+def State.EdgeVisitsInv (g : Digraph) (s : State g.vertexCount) : Prop :=
+  s.edgeVisits = suppliedAdjacencyLength g s.processedPrefix
+
+private theorem kahn_supplied_append_singleton (g : Digraph)
+    (xs : List (Fin g.vertexCount)) (u : Fin g.vertexCount) :
+    suppliedAdjacencyLength g (xs ++ [u]) =
+      suppliedAdjacencyLength g xs + (g.outArcs u).length := by
+  induction xs with
+  | nil => simp [suppliedAdjacencyLength]
+  | cons x xs ih =>
+      simp only [List.cons_append, suppliedAdjacencyLength, ih, Nat.add_assoc]
+
+theorem processHead_preserves_edgeVisitsInv (g : Digraph)
+    (s : State g.vertexCount) (h : s.head < s.queue.size)
+    (hs : State.EdgeVisitsInv g s) :
+    State.EdgeVisitsInv g (processHead g s h) := by
+  unfold State.EdgeVisitsInv at hs ⊢
+  rw [(processHead_spec g s h).2.2.1, processHead_processedPrefix g s h,
+    kahn_supplied_append_singleton, hs]
+
+theorem scan_preserves_edgeVisitsInv (g : Digraph) (fuel : Nat)
+    (s : State g.vertexCount) (hs : State.EdgeVisitsInv g s) :
+    State.EdgeVisitsInv g (scan g fuel s).1 := by
+  induction fuel generalizing s with
+  | zero =>
+      simp only [scan]
+      first
+      | exact hs
+      | split <;> exact hs
+  | succ fuel ih =>
+      simp only [scan]
+      split <;>
+        first
+        | exact hs
+        | exact ih _ (processHead_preserves_edgeVisitsInv g s (by assumption) hs)
+
+theorem run_edgeVisitsInv (g : Digraph) :
+    State.EdgeVisitsInv g (run g).state := by
+  unfold run
+  apply scan_preserves_edgeVisitsInv
+  rfl
+
+theorem run_processedPrefix_perm_ofFn (g : Digraph) (hacyc : IsAcyclic g) :
+    (run g).state.processedPrefix.Perm
+      (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount)) := by
+  have hhead := run_stop_spec g
+  rw [run_stop_noNext g] at hhead
+  change (run g).state.head = (run g).state.queue.size at hhead
+  have htop : g.IsTopologicalList (run g).state.processedPrefix := by
+    rw [kahn_processedPrefix_eq_queue (run g).state hhead]
+    exact run_isTopologicalList g hacyc
+  have hfull :
+      (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount)).Nodup := by
+    change List.Pairwise (· ≠ ·)
+      (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount))
+    rw [List.pairwise_iff_getElem]
+    intro i j hi hj hij
+    simp only [List.getElem_ofFn, id_eq]
+    intro he
+    have hij' : i = j := congrArg Fin.val he
+    omega
+  apply (List.perm_ext_iff_of_nodup htop.1 hfull).2
+  intro v
+  exact ⟨fun _ => List.mem_ofFn.mpr ⟨v, rfl⟩, fun _ => htop.2.1 v⟩
+
+private theorem kahn_supplied_eq_of_perm (g : Digraph)
+    {xs ys : List (Fin g.vertexCount)} (hp : xs.Perm ys) :
+    suppliedAdjacencyLength g xs = suppliedAdjacencyLength g ys := by
+  induction hp with
+  | nil => rfl
+  | cons u _ ih => simp only [suppliedAdjacencyLength, ih]
+  | swap u v xs =>
+      simp only [suppliedAdjacencyLength]
+      omega
+  | trans _ _ ih₁ ih₂ => exact ih₁.trans ih₂
+
+private theorem kahn_supplied_eq_row_sum (g : Digraph)
+    (xs : List (Fin g.vertexCount)) :
+    suppliedAdjacencyLength g xs = ((xs.map g.outArcs).map List.length).sum := by
+  induction xs with
+  | nil => rfl
+  | cons u xs ih =>
+      simp only [suppliedAdjacencyLength, List.map_cons, List.sum_cons, ih]
+
+private theorem kahn_foldl_row_lengths {α : Type}
+    (rows : List (List α)) (k : Nat) :
+    rows.foldl (fun acc row => acc + row.length) k =
+      k + (rows.map List.length).sum := by
+  induction rows generalizing k with
+  | nil => simp
+  | cons row rows ih =>
+      simp only [List.foldl_cons, List.map_cons, List.sum_cons, ih, Nat.add_assoc]
+
+private theorem kahn_adj_row_sum_eq_arcCount (g : Digraph) :
+    (g.adj.toList.map List.length).sum = g.arcCount := by
+  unfold Digraph.arcCount
+  generalize g.adj.toList = rows
+  first
+  | rfl
+  | change (rows.map List.length).sum =
+      rows.foldl (fun acc row => acc + row.length) 0
+    simpa only [Nat.zero_add] using (kahn_foldl_row_lengths rows 0).symm
+  | induction rows with
+    | nil => rfl
+    | cons row rows ih =>
+        first
+        | exact congrArg (fun k : Nat => row.length + k) ih
+        | simp [listLengthSum, kahn_foldl_row_lengths, List.foldr] at ih ⊢ <;> omega
+
+private theorem kahn_supplied_full_eq_arcCount (g : Digraph) :
+    suppliedAdjacencyLength g
+      (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount)) = g.arcCount := by
+  have hmap :
+      (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount)).map g.outArcs =
+        List.ofFn g.outArcs := by
+    apply List.ext_getElem
+    · simp only [List.length_map, List.length_ofFn]
+    · intro i hi hj
+      simp only [List.getElem_map, List.getElem_ofFn, id_eq]
+  have hrows : List.ofFn g.outArcs = g.adj.toList := by
+    apply List.ext_getElem
+    · simp [g.adj_size]
+    · intro i hi hj
+      simp [List.getElem_ofFn, Digraph.outArcs]
+  rw [kahn_supplied_eq_row_sum, hmap, hrows, kahn_adj_row_sum_eq_arcCount]
+
+/-- The queue bound is on logical slots, independently of acyclicity. -/
+theorem run_queue_slots_le (g : Digraph) :
+    (run g).state.queue.size ≤ g.vertexCount :=
+  State.queue_size_le_vertexCount (run g).state (run_scanInv g).1
+
+theorem run_indegreeVisits_eq_arcCount (g : Digraph) :
+    (run g).indegreeVisits = g.arcCount := by
+  change Digraph.indegreeScanCount g = g.arcCount
+  exact Digraph.indegreeScanCount_eq_arcCount g
+
+/-- On a DAG, the actual run processes every row once and visits every supplied
+    arc occurrence once in each pass. The queue bound concerns logical slots,
+    not physical allocations or the cost of compiled Lean code. -/
+theorem run_exactTraversalCounts (g : Digraph) (hacyc : IsAcyclic g) :
+    (run g).rowsProcessed = g.vertexCount ∧
+    (run g).edgeVisits = g.arcCount ∧
+    (run g).indegreeVisits = g.arcCount ∧
+    (run g).state.queue.size ≤ g.vertexCount := by
+  have hp := run_processedPrefix_perm_ofFn g hacyc
+  refine ⟨?_, ?_, run_indegreeVisits_eq_arcCount g, run_queue_slots_le g⟩
+  · have hle := (run g).state.head_le_queue
+    simpa [Result.rowsProcessed, State.processedPrefix, Nat.min_eq_left hle]
+      using hp.length_eq
+  · calc
+      (run g).edgeVisits =
+          suppliedAdjacencyLength g (run g).state.processedPrefix :=
+        run_edgeVisitsInv g
+      _ = suppliedAdjacencyLength g
+          (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount)) :=
+        kahn_supplied_eq_of_perm g hp
+      _ = g.arcCount := kahn_supplied_full_eq_arcCount g
+
+
 end Kahn
 end PaperB
