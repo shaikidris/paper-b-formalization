@@ -1,0 +1,11 @@
+{
+  "base_commit": "99d426a995f94d11e04b08992ecb36ad6edf1313",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OracleContract.lean",
+  "sha256": "26d1fab88609d3e48a52890b25d70fce0400e899a7c6e7e9ffa3e8d53154358f",
+  "scope": "Elaboration and fidelity audit of the candidate exit-set and costed oracle interfaces against the pinned v1.2 statement and v1.3 resource targets. The candidate v1.3 guarantee implies v1.2 on the same program observations.",
+  "remaining": "Realize the explicit build and query observations with an executable cost model, the graph-to-quotient construction, and the stated complexity bounds."
+}

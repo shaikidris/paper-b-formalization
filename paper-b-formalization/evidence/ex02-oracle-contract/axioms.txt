@@ -1,0 +1,34 @@
+def PaperB.OracleContract.Candidate : PaperB.OracleContract.CandidateInterface → Nat → Nat → Prop :=
+fun M buildExp queryExp =>
+  ∃ build query C,
+    0 < C ∧
+      ∀ (g : PaperB.Digraph) (r : Fin g.vertexCount),
+        g.IsAcyclic →
+          ∃ b,
+            M.observeBuild build g r = some b ∧
+              b.operations ≤ C * ((g.vertexCount + g.arcCount) * PaperB.OracleContract.L g.vertexCount ^ buildExp) ∧
+                b.peakLiveWords ≤ C * (g.vertexCount + g.arcCount) ∧
+                  b.words.size ≤ b.retainedWords ∧
+                    b.retainedWords ≤ C * g.vertexCount ∧
+                      ∀ (F : PaperB.FailureSet g.vertexCount) (t : Fin g.vertexCount),
+                        ∃ q,
+                          M.observeQuery query (b.index g.vertexCount) F t = some q ∧
+                            q.operations ≤ C * PaperB.OracleContract.L g.vertexCount ^ queryExp ∧
+                              (q.answer = true ↔ g.ReachableAvoiding F r t)
+PaperB.OracleContract.CandidateV12 : PaperB.OracleContract.CandidateInterface → Prop
+PaperB.OracleContract.CandidateV13 : PaperB.OracleContract.CandidateInterface → Prop
+'PaperB.OracleContract.one_le_L' does not depend on any axioms
+'PaperB.OracleContract.v13_implies_v12' does not depend on any axioms
+@PaperB.buildProperLossForest_edge_exitTailMem_eq : ∀ {H : PaperB.LabelledQuotient} {rank : Fin H.vertexCount → Nat},
+  (∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) →
+    H.IsFlat →
+      ∀ {uP : Fin ((H.buildProperLossForest rank).realNodeCount + 1)} {P B : H.CutPair},
+        (H.buildProperLossForest rank).nodeKey? uP = some P →
+          (H.buildProperLossForest rank).nodeKey? ((H.buildProperLossForest rank).parent uP) = some B →
+            ∀ {s y : Fin H.vertexCount},
+              B.Mem s →
+                H.ProperLoss P y →
+                  (fun x => H.ExitTailMem B s y x) = fun x =>
+                    (∃ p, PaperB.LabelledQuotient.IsFreshEndpoint B P p ∧ H.ExitTailMem B s p x) ∨
+                      P.Mem s ∧ H.ExitTailMem P s y x
+'PaperB.buildProperLossForest_edge_exitTailMem_eq' depends on axioms: [propext, Quot.sound]

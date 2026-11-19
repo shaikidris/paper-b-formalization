@@ -24,7 +24,7 @@ Planning/evidence references: [sources/source-lock.json](sources/source-lock.jso
 
 ## EX0.2 — Pin the environment and elaborate candidate interfaces
 
-- Milestone: EX0; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX0; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: contract; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.1.
 - Proposed owner module: `release-core/Challenge.lean`.
@@ -37,9 +37,9 @@ Acceptance:
 - Record the toolchain, supported imports, exact elaborated types and a review of the quantifier order.
 - Replay only needed existing declarations in the selected environment. Record exact matches, adapters, and new obligations, including input orientation, multiarcs, batch quantifiers and cost primitives.
 
-Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open.
+The pinned toolchain elaborates both candidate interfaces. The exit-set type retains exact original-tail membership. The static oracle contract fixes one build and one query, quantifies all queries after the build, and uses all four resource bounds. Lean checks the v1.3-to-v1.2 bound relaxation. The executable observer and theorem proof remain under EX0.3 and EX5.
 
-Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json), [evidence/exit-transfer-nested/review.md](evidence/exit-transfer-nested/review.md).
+Planning/evidence references: [release-core/Challenge.lean](release-core/Challenge.lean), [release-core/PaperB/ExitPaths.lean](release-core/PaperB/ExitPaths.lean), [evidence/ex02-carbon-start/review.md](evidence/ex02-carbon-start/review.md), [evidence/ex02-carbon-start/verification.json](evidence/ex02-carbon-start/verification.json), [evidence/exit-transfer-nested/review.md](evidence/exit-transfer-nested/review.md), [evidence/ex02-oracle-contract/verification.json](evidence/ex02-oracle-contract/verification.json).
 
 <a id="ex03"></a>
 

@@ -42,7 +42,8 @@
     "release-core/PaperB/ExitPaths.lean": "cuts",
     "release-core/PaperB/ForestIntervals.lean": "cuts",
     "release-core/PaperB/PrefixProbe.lean": "cuts",
-    "release-core/PaperB/ForestIntervalQuery.lean": "cuts"
+    "release-core/PaperB/ForestIntervalQuery.lean": "cuts",
+    "release-core/PaperB/OracleContract.lean": "contract"
   },
   "milestones": [
     {
@@ -134,8 +135,8 @@
         "1.1",
         "4.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Typecheck candidate signatures for a finite labelled DAG, tail sets, immutable index and costed programs.",
       "acceptance": [
@@ -147,7 +148,8 @@
         "release-core/PaperB/ExitPaths.lean",
         "evidence/ex02-carbon-start/review.md",
         "evidence/ex02-carbon-start/verification.json",
-        "evidence/exit-transfer-nested/review.md"
+        "evidence/exit-transfer-nested/review.md",
+        "evidence/ex02-oracle-contract/verification.json"
       ],
       "dispatch": {
         "task": "e51e83fa-618f-44e4-aa31-95b046b72a67",
@@ -170,7 +172,14 @@
           }
         ]
       },
-      "progress": "Lean proves exit transfer for nested cuts in a flat acyclic quotient. The constructed forest still needs to supply distinctness and nesting. The costed oracle signature remains open."
+      "progress": "The pinned toolchain elaborates both candidate interfaces. The exit-set type retains exact original-tail membership. The static oracle contract fixes one build and one query, quantifies all queries after the build, and uses all four resource bounds. Lean checks the v1.3-to-v1.2 bound relaxation. The executable observer and theorem proof remain under EX0.3 and EX5.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex02-oracle-contract/verification.json",
+        "axioms": "evidence/ex02-oracle-contract/axioms.txt",
+        "fidelity": "evidence/ex02-oracle-contract/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX0.3",

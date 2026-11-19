@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 4809,
-      "sha256": "e302639694d30a7e3017e3b2f98cef07b596dd103e8f5e7ce14f258a80616d5d"
+      "bytes": 4597,
+      "sha256": "3ee341f5cd2f7659ed16c0d0d2840159bc10631634361a8ee68054ecd75d571a"
     },
     {
       "path": "DISPATCH.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5334,
-      "sha256": "4aeddbae0edce5e08f196b81b32d51186c11c4e9c581eb5a91ab88676b5c0e0e"
+      "bytes": 5331,
+      "sha256": "55c618663a691e7290181ce25532864c191ce577819552af59542ddf8bf78407"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 27299,
-      "sha256": "f10a08f21cd43d1e9fb5624047a60dc23129df3046efcde62a76af4cce91c70b"
+      "bytes": 27576,
+      "sha256": "1c8654c0edb237f92b8891cee580d234fe582c15d4023a6f5aa581a0cbada242"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 13771,
-      "sha256": "2118e6cf22dcbb94422a1678f2a297b7bebf226635da23f9d3799adae8fa925d"
+      "bytes": 13960,
+      "sha256": "73f6a79237c9a18b9b4ad55c17f46595d2d12c36cd1d38b413af80163aa660ae"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -200,6 +200,26 @@
       "path": "evidence/ex02-carbon-start/verification.json",
       "bytes": 5088,
       "sha256": "685e21a2a3de9bd5dbcba6c51968490cdb0d5a0ea2f163b7e26f560a2e9d2c95"
+    },
+    {
+      "path": "evidence/ex02-oracle-contract/Audit.lean",
+      "bytes": 391,
+      "sha256": "0deca48304ac951471888eecca758c95496ed9fa939ad88b1924ecd87c0b815d"
+    },
+    {
+      "path": "evidence/ex02-oracle-contract/axioms.txt",
+      "bytes": 2223,
+      "sha256": "7640a49617f4ec193f0b72ba87f1e3d1f2468dabca30de9b4f43dc067361a1ae"
+    },
+    {
+      "path": "evidence/ex02-oracle-contract/fidelity.md",
+      "bytes": 1692,
+      "sha256": "c5cccebbdc435f70f48ea7600128c700e9969a022c34ac2a457cb219c966f861"
+    },
+    {
+      "path": "evidence/ex02-oracle-contract/verification.json",
+      "bytes": 735,
+      "sha256": "9fb8ac79c7dbd5f2c69076cf312aba564076a5b6c03b969e13b312627ada6453"
     },
     {
       "path": "evidence/ex03-machine-foundation/Audit.lean",
@@ -478,8 +498,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 5621,
-      "sha256": "f7381d17f90ee59a1af8c4504d35adb6660a422d3119ef9cd9a5fa18e8fb6523"
+      "bytes": 5879,
+      "sha256": "03a39070bf95b923baead136833ab0b48e4016231fb174c1f621e9b6360b7d3d"
     },
     {
       "path": "obligations.json",
@@ -552,6 +572,11 @@
       "sha256": "12acf403818a6ef1aabe4363bcea3023e79b2d4ce121da8e0ddc0d39a3625f3b"
     },
     {
+      "path": "release-core/PaperB/OracleContract.lean",
+      "bytes": 4245,
+      "sha256": "26d1fab88609d3e48a52890b25d70fce0400e899a7c6e7e9ffa3e8d53154358f"
+    },
+    {
       "path": "release-core/PaperB/PrefixProbe.lean",
       "bytes": 4451,
       "sha256": "2ab707d8f0db3ce659b74cdbbce5fb029b8857bfd59debea34edf7f228e19adc"
@@ -568,8 +593,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 429,
-      "sha256": "343fbf166579dbea53cbd58856eddcc22fc0cf116a2cc763afcbde674f848030"
+      "bytes": 454,
+      "sha256": "f4ff6a4eca7839912666111c6d8ffeee3688929f4ae021bb5807838d6e9740b2"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -673,13 +698,13 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 39884,
-      "sha256": "9e7b1aa75800d6e74d552e746aced00505e9c767a6f7a60356270822021051ac"
+      "bytes": 40507,
+      "sha256": "0711b7e6f14174c6acea4f9c390af2ac72996886e10b4a35357e1718194c2adf"
     },
     {
       "path": "test_plan.py",
-      "bytes": 8530,
-      "sha256": "f039110f92e0884858eaf482459f8db0762d3ec6402f9e0575bb89efa52eee4a"
+      "bytes": 8699,
+      "sha256": "68f622a807e3f8ee990a89becd72bd01d423e80535c1a23e2bcb375d9b5fd57d"
     },
     {
       "path": "unattended/README.md",

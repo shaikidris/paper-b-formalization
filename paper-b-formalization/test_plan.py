@@ -78,6 +78,11 @@ class PlanControls(unittest.TestCase):
             self.validate()
 
     def test_premature_ready(self):
+        prereq = self.tasks['EX0.2']
+        prereq['status'] = 'IN_PROGRESS'
+        prereq['proof_status'] = 'NOT_CERTIFIED'
+        prereq.pop('verification', None)
+
         self.tasks['EX1.1']['status'] = 'READY'
         with self.assertRaisesRegex(plan.PlanError, 'incomplete dependencies'):
             self.validate()
