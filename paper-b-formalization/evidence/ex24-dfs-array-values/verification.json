@@ -1,0 +1,11 @@
+{
+  "base_commit": "f574c96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLayoutRefine.lean",
+  "sha256": "93c765b8ad507d27c4b64b2bea767db70dcb7ee00e53fb3da80f96444d7e338e",
+  "scope": "Actual stack DFS arrays contain the exact preorder entry and exclusive subtree-end rank at every vertex, with two commands per vertex.",
+  "remaining": "Connect it to the known-node array query and finish compiled topological sweep and dictionary costs."
+}

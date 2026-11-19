@@ -98,7 +98,8 @@
     "release-core/PaperB/SemanticLCA.lean": "dominator",
     "release-core/PaperB/HeavyChild.lean": "dominator",
     "release-core/PaperB/PairKeyMerge.lean": "cuts",
-    "release-core/PaperB/ThirdBlock.lean": "dominator"
+    "release-core/PaperB/ThirdBlock.lean": "dominator",
+    "release-core/PaperB/ForestLayoutRefine.lean": "cuts"
   },
   "milestones": [
     {
@@ -768,9 +769,10 @@
         "evidence/ex24-dfs-stack-potential/verification.json",
         "evidence/ex24-dfs-exact-count/verification.json",
         "evidence/ex24-actual-trace-refinement/verification.json",
-        "evidence/ex24-merge-keys/verification.json"
+        "evidence/ex24-merge-keys/verification.json",
+        "evidence/ex24-dfs-array-values/verification.json"
       ],
-      "progress": "Executable deduplicating merge of two strictly sorted candidate key lists preserves exact membership and sortedness with at most their summed lengths in head comparisons. Recursively merge runs and charge allocation, sorting and final dictionary lookup.",
+      "progress": "Actual stack DFS arrays contain the exact preorder entry and exclusive subtree-end rank at every vertex, with two commands per vertex. Connect it to the known-node array query and finish compiled topological sweep and dictionary costs.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
