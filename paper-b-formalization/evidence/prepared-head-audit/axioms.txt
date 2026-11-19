@@ -1,0 +1,3 @@
+'PaperB.ForestHead.runPrepared_eq_runHead' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestHead.planPrepared_work' depends on axioms: [propext]
+'EX24.stepPrepared_eq_step' depends on axioms: [propext, Quot.sound]

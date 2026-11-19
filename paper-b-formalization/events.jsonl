@@ -176,3 +176,4 @@
 {"at": "2026-11-19T22:57:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Forest", "tasks": ["EX2.4"], "evidence": "evidence/forest-rank-members-audit/verification.json"}
 {"at": "2026-11-19T22:57:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedRows", "tasks": ["EX2.4"], "evidence": "evidence/forest-packed-rows-audit/verification.json"}
 {"at": "2026-11-19T22:57:20+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitLinearSchedule", "tasks": ["EX4.2"], "evidence": "evidence/exit-indexed-audit/verification.json"}
+{"at": "2026-11-19T22:57:23+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPreparedHead", "tasks": ["EX2.4"], "evidence": "evidence/prepared-head-audit/verification.json"}

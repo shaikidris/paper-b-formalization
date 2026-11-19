@@ -151,7 +151,8 @@
     "release-core/PaperB/StaticFromDominators.lean": "dominator",
     "release-core/PaperB/PhysicalExitModel.lean": "exit",
     "release-core/PaperB/ForestPackedRows.lean": "cuts",
-    "release-core/PaperB/ExitLinearSchedule.lean": "exit"
+    "release-core/PaperB/ExitLinearSchedule.lean": "exit",
+    "release-core/PaperB/ForestPreparedHead.lean": "cuts"
   },
   "milestones": [
     {
@@ -873,9 +874,10 @@
         "evidence/forest-canonical-audit/verification.json",
         "evidence/forest-word-audit/verification.json",
         "evidence/forest-rank-members-audit/verification.json",
-        "evidence/forest-packed-rows-audit/verification.json"
+        "evidence/forest-packed-rows-audit/verification.json",
+        "evidence/prepared-head-audit/verification.json"
       ],
-      "progress": "Packed arrays supply constant-index access to exact stamped predecessor and raw occurrence rows after one linear conversion of each outer table.",
+      "progress": "The executable prepared head uses only the stamped predecessor row, has linear selection overhead, and preserves the measured reference head and installation result. Dictionary and full topological loop remain in progress.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

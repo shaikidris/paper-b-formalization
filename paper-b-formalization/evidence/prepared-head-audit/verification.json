@@ -1,0 +1,11 @@
+{
+  "base_commit": "8a975a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPreparedHead.lean",
+  "sha256": "01eddacf464954995a2ab17acb4bfd443a6fe56f02056398d6eb4e10184f226a",
+  "scope": "The actual head uses only the prepared predecessor row and exactly preserves every measured probe and installation request. Rank and candidate selection add linear work in row length. It does not run the reference adjacency searches.",
+  "remaining": "Build the dictionary and close the full topological loop with exact initial/update and fixed-width charges."
+}
