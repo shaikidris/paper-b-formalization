@@ -1,0 +1,11 @@
+{
+  "base_commit": "fd55326fe365dc0cf52314c12d5f0d2f4bce651f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/TopologicalRank.lean",
+  "sha256": "6812a175b3649800c53182c129d4f964c1975ceff33a345a82cbdd968ec46597",
+  "scope": "Every original DAG supplies an injective topological rank and a semantic parent family whose inclusive ancestry is dominance on retained vertices.",
+  "remaining": "Executable topological ordering, ID compaction and predecessor-LCA construction with word costs."
+}

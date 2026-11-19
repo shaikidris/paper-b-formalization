@@ -100,9 +100,9 @@ Acceptance:
 - Give a tree construction or existence proof on all retained DAGs and characterize single deletion. Justify the root, singleton, and reachable nonroot predecessor cases.
 - This semantic result supplies the labelled quotient independently of machine code.
 
-Lean verifies immediate-dominator existence and uniqueness, strict rank descent and equivalence between inclusive parent ancestry and ordinary dominance for every initially reachable vertex on a supplied injective topological order. Semantic choice is separate from the executable constructor. Task closure awaits EX1.1.
+Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 
-Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json), [evidence/ex12-dominator-chain/verification.json](evidence/ex12-dominator-chain/verification.json), [evidence/ex12-immediate-dominator/verification.json](evidence/ex12-immediate-dominator/verification.json), [evidence/ex12-dominator-tree/verification.json](evidence/ex12-dominator-tree/verification.json).
+Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json), [evidence/ex12-dominator-chain/verification.json](evidence/ex12-dominator-chain/verification.json), [evidence/ex12-immediate-dominator/verification.json](evidence/ex12-immediate-dominator/verification.json), [evidence/ex12-dominator-tree/verification.json](evidence/ex12-dominator-tree/verification.json), [evidence/ex12-topological-rank/verification.json](evidence/ex12-topological-rank/verification.json).
 
 <a id="ex13"></a>
 
