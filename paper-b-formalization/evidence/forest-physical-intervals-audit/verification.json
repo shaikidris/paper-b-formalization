@@ -1,0 +1,11 @@
+{
+  "base_commit": "9f61fc9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPhysicalIntervals.lean",
+  "sha256": "d341b0deda8efd7667533c79b165b87daca7e5eb827e6169f723b11000c8affe",
+  "scope": "The actual final physical jump words build stored DFS intervals and checked label access. A known-node test uses only bounded indexed endpoint reads and comparisons. Lean connects it to exact physical ancestry and the proper-loss query.",
+  "remaining": "Bind the final reader to the complete forest result, cover the small branch in the same interface and complete aggregate resource accounting."
+}
