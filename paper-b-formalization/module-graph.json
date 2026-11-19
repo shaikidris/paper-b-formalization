@@ -165,7 +165,8 @@
       "local_imports": [
         "release-core/PaperB/Dom.lean",
         "release-core/PaperB/Jumps.lean",
-        "release-core/PaperB/DominatorChain.lean"
+        "release-core/PaperB/DominatorChain.lean",
+        "release-core/PaperB/ImmediateDominator.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -228,6 +229,14 @@
         "release-core/PaperB/PrefixProbe.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ImmediateDominator.lean",
+      "local_imports": [
+        "release-core/PaperB/DominatorChain.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "base_commit": "b36e24fcf9460b4cbd9af63fa9ef0e25f06e3088",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ImmediateDominator.lean",
+  "sha256": "2700bdd77c1b68dfa09f296a598ce2ed340b3ffb86872bfda442a2baf8c26437",
+  "scope": "A reachable nonroot vertex in an injectively ranked DAG has a unique strict dominator dominated by every other strict dominator.",
+  "remaining": "Connect the semantic parent map to transitive ancestry, prove the LCA construction, and implement the costed topological scan."
+}

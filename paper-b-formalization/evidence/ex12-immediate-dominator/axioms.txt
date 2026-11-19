@@ -1,0 +1,7 @@
+'PaperB.Digraph.existsUnique_immediateDominator' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.existsUnique_immediateDominator : ∀ {g : PaperB.Digraph} {r v : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat},
+  (∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y) →
+    (∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) →
+      g.InitiallyReachable r v →
+        v ≠ r → ∃ d, g.IsImmediateDominator r d v ∧ ∀ (e : Fin g.vertexCount), g.IsImmediateDominator r e v → e = d

@@ -45,7 +45,8 @@
     "release-core/PaperB/ForestIntervalQuery.lean": "cuts",
     "release-core/PaperB/OracleContract.lean": "contract",
     "release-core/PaperB/DominatorChain.lean": "dominator",
-    "release-core/PaperB/PredecessorSearch.lean": "cuts"
+    "release-core/PaperB/PredecessorSearch.lean": "cuts",
+    "release-core/PaperB/ImmediateDominator.lean": "dominator"
   },
   "milestones": [
     {
@@ -277,9 +278,10 @@
       ],
       "evidence": [
         "evidence/ex12-dominator-predecessors/verification.json",
-        "evidence/ex12-dominator-chain/verification.json"
+        "evidence/ex12-dominator-chain/verification.json",
+        "evidence/ex12-immediate-dominator/verification.json"
       ],
-      "progress": "Lean verifies the reachable-predecessor recurrence, reachability of every dominator of a reachable vertex, strict rank separation, and comparability under an injective topological rank. Immediate-dominator existence and tree ancestry equivalence remain open."
+      "progress": "Lean verifies predecessor recurrence, strict rank separation, the dominator chain and the existence and uniqueness of the strongest strict dominator of every reachable nonroot vertex. Parent ancestry equivalence and the separate executable construction remain open."
     },
     {
       "id": "EX1.3",

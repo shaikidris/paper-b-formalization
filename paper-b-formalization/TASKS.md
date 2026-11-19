@@ -100,9 +100,9 @@ Acceptance:
 - Give a tree construction or existence proof on all retained DAGs and characterize single deletion. Justify the root, singleton, and reachable nonroot predecessor cases.
 - This semantic result supplies the labelled quotient independently of machine code.
 
-Lean verifies the reachable-predecessor recurrence, reachability of every dominator of a reachable vertex, strict rank separation, and comparability under an injective topological rank. Immediate-dominator existence and tree ancestry equivalence remain open.
+Lean verifies predecessor recurrence, strict rank separation, the dominator chain and the existence and uniqueness of the strongest strict dominator of every reachable nonroot vertex. Parent ancestry equivalence and the separate executable construction remain open.
 
-Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json), [evidence/ex12-dominator-chain/verification.json](evidence/ex12-dominator-chain/verification.json).
+Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json), [evidence/ex12-dominator-chain/verification.json](evidence/ex12-dominator-chain/verification.json), [evidence/ex12-immediate-dominator/verification.json](evidence/ex12-immediate-dominator/verification.json).
 
 <a id="ex13"></a>
 
