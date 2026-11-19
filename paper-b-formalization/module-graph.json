@@ -298,7 +298,8 @@
         "release-core/PaperB/ForestPreparedHead.lean",
         "release-core/PaperB/ForestEndpoints.lean",
         "release-core/PaperB/ForestCompactFold.lean",
-        "release-core/PaperB/ForestExactDictionary.lean"
+        "release-core/PaperB/ForestExactDictionary.lean",
+        "release-core/PaperB/ForestActualStep.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1286,6 +1287,18 @@
       "local_imports": [
         "release-core/PaperB/ForestPreparedHead.lean",
         "release-core/PaperB/PairDictionary.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestActualStep.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestCompactFold.lean",
+        "release-core/PaperB/ForestEndpoints.lean",
+        "release-core/PaperB/ForestPreparedHead.lean",
+        "release-core/PaperB/ForestWordLaws.lean",
+        "release-core/PaperB/ForestCanonicalLaws.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

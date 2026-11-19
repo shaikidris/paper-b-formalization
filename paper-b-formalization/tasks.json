@@ -157,7 +157,8 @@
     "release-core/PaperB/ThirdReachableRoute.lean": "oracle",
     "release-core/PaperB/ForestCompactFold.lean": "cuts",
     "release-core/PaperB/StaticTreeReader.lean": "dominator",
-    "release-core/PaperB/ForestExactDictionary.lean": "cuts"
+    "release-core/PaperB/ForestExactDictionary.lean": "cuts",
+    "release-core/PaperB/ForestActualStep.lean": "cuts"
   },
   "milestones": [
     {
@@ -884,9 +885,10 @@
         "evidence/prepared-head-audit/verification.json",
         "evidence/forest-endpoints-audit/verification.json",
         "evidence/forest-compact-audit/verification.json",
-        "evidence/forest-exact-dict-audit/verification.json"
+        "evidence/forest-exact-dict-audit/verification.json",
+        "evidence/forest-actual-step-audit/verification.json"
       ],
-      "progress": "One canonical key per prepared row suffices for every allocation request. Lean verifies the actual dictionary contents and size, logarithmic sort comparisons and successful lookup in the measured head.",
+      "progress": "The full successful-step invariant now checks for the actual packed callbacks. It constructs the new canonical embedding and preserves all old labels and physical slots. Totality and full increasing-order induction remain in progress.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

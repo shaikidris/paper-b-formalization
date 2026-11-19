@@ -1,0 +1,11 @@
+{
+  "base_commit": "53a643e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestActualStep.lean",
+  "sha256": "51ad192561525c8cc5f04b530d84be705b6f112713240163c4b913ee071899c2",
+  "scope": "Under the exact packed configuration, one actual prepared head derives the old reader laws, new grounded layout, and canonical source-label and parent embedding from the successful installation and the previous prefix. All earlier labels and keys remain exact.",
+  "remaining": "Prove step totality before installation, run the increasing-order induction, and certify final array membership and the per-input resource totals."
+}
