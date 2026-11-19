@@ -274,7 +274,7 @@ Planning/evidence references: [evidence/ex22-unattended/native-swarm-charging.js
 
 ## EX3.1 — Lift each fresh endpoint contribution
 
-- Milestone: EX3; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX3; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX2.2, EX1.3.
 - Proposed owner module: `release-core/PaperB/Exit.lean`.
@@ -286,9 +286,9 @@ Acceptance:
 
 - Prove inclusion for every output coordinate and target in the child proper-loss set.
 
-Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.
+The universal fresh contribution preserves each original physical tail on every real parent-child edge.
 
-Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json).
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json), [evidence/ex31-fresh-certified/verification.json](evidence/ex31-fresh-certified/verification.json).
 
 <a id="ex32"></a>
 

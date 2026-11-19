@@ -1,0 +1,9 @@
+{
+  "base_commit": "9c90cd1",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Exit.lean",
+  "sha256": "7d05d5de244b6631d01ff7191fddc16a10b561803bc1d017fa2da0f4872aa89e",
+  "scope": "The universal fresh contribution preserves each original physical tail on every real parent-child edge.",
+  "remaining": "The costed exit-map summary construction is tracked separately in EX4.",
+  "source_provenance": "Exact existing proof source, independently replayed in the staged and canonical checkouts."
+}

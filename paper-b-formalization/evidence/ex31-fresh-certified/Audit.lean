@@ -1,0 +1,6 @@
+import PaperB.Exit
+import PaperB.FiniteSiblingFlat
+
+#print axioms PaperB.LabelledQuotient.exitTailMem_transfer_of_onwardPath
+#print axioms PaperB.LabelledQuotient.exitTailMem_iff_of_flat_rank
+#print axioms PaperB.Digraph.finiteSiblingQuotient_edge_exitTailMem_iff

@@ -833,17 +833,25 @@
       "paper_consumers": [
         "4.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Give the forward witness using topological order for each fresh child endpoint, for arbitrary parallel exit tails.",
       "acceptance": [
         "Prove inclusion for every output coordinate and target in the child proper-loss set."
       ],
       "evidence": [
-        "evidence/ex33-forest-exit/verification.json"
+        "evidence/ex33-forest-exit/verification.json",
+        "evidence/ex31-fresh-certified/verification.json"
       ],
-      "progress": "Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open."
+      "progress": "The universal fresh contribution preserves each original physical tail on every real parent-child edge.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex31-fresh-certified/verification.json",
+        "axioms": "evidence/ex31-fresh-certified/axioms.txt",
+        "fidelity": "evidence/ex31-fresh-certified/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX3.2",
