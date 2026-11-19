@@ -1,0 +1,4 @@
+'EX24.PreStep.initial_embedding' depends on axioms: [propext, Quot.sound]
+'EX24.PreStep.step_install_cases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX24.PreStep.step_selected_key_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX24.PreStep.step_endpoint_facts' depends on axioms: [propext, Classical.choice, Quot.sound]

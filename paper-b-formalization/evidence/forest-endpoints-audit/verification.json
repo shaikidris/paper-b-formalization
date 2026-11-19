@@ -1,0 +1,11 @@
+{
+  "base_commit": "c0e1c78",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestEndpoints.lean",
+  "sha256": "e545c580d86cb162fc0cd59850a991b8072ac8d39d2a19988a33876552227993",
+  "scope": "The concrete root embedding and all selected-endpoint, reverse-slot and freshness facts hold for the actual measured forest request and allocation. The proof recovers the exact canonical parent and depth on allocation and canonical node identity on reuse.",
+  "remaining": "Join the single-step invariant and checked order and capacity into the actual full topological sweep."
+}
