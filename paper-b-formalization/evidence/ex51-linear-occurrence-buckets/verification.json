@@ -1,0 +1,11 @@
+{
+  "base_commit": "2928b5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ArcBuckets.lean",
+  "sha256": "21cc15cf91e6dd429eddbc6fb920ac79bad039aeff0d0a939bdf6146048cf2c8",
+  "scope": "The linear array bucket pass groups actual occurrences by owner or target, preserving order and repeats. All row initialization, reads, prepends, final reversals and references are explicitly counted.",
+  "remaining": "Instantiate the grouping on the concrete graph normalization and the finite sibling arc emitter, then lower the executions."
+}

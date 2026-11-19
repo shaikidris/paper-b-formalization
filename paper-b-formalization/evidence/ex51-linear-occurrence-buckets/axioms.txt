@@ -1,0 +1,4 @@
+'EX51.group_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.groupMap_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.groupMap_multiplicity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.incoming_row' depends on axioms: [propext, Classical.choice, Quot.sound]

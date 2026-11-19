@@ -426,9 +426,9 @@ Acceptance:
 
 - Prove deterministic O((n+m)L³) build time for the compiled data layout.
 
-The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions. Use these macros and loop invariants to lower each actual graph and index phase.
+The linear array bucket pass groups actual occurrences by owner or target, preserving order and repeats. All row initialization, reads, prepends, final reversals and references are explicitly counted. Instantiate the grouping on the concrete graph normalization and the finite sibling arc emitter, then lower the executions.
 
-Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json).
+Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json), [evidence/ex51-linear-occurrence-buckets/verification.json](evidence/ex51-linear-occurrence-buckets/verification.json).
 
 <a id="ex52"></a>
 
