@@ -1,0 +1,11 @@
+{
+  "base_commit": "16dbef8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OracleRuntime.lean",
+  "sha256": "4e17270eca0ea54abf13e8c67821182bc29b92c059e35bc30e46da468ac722c1",
+  "scope": "Executable post-build routing and answer evaluation use only typed retained-index primitive reads. Finite control budgets distinguish constant and logarithmic operations and preserve orientation.",
+  "remaining": "Prove all leaf meanings using the exact original-DAG cases and instantiate query primitives on the sealed packed index."
+}

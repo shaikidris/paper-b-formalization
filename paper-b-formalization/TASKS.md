@@ -410,9 +410,9 @@ Acceptance:
 - Prove output iff reachability after deletion for any subset of size at most two and any original target.
 - Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths.
 
-Source and target failure, initially unreachable targets, and comparable failures are handled by exact early decisions. Comparable failures require only their higher dominator, in both orders and for duplicates. Integrate with the retained index and incomparable-pair branch.
+Executable post-build routing and answer evaluation use only typed retained-index primitive reads. Finite control budgets distinguish constant and logarithmic operations and preserve orientation. Prove all leaf meanings using the exact original-DAG cases and instantiate query primitives on the sealed packed index.
 
-Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json).
+Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json).
 
 <a id="ex51"></a>
 
