@@ -150,7 +150,8 @@
     "release-core/PaperB/BothReachableRoute.lean": "oracle",
     "release-core/PaperB/StaticFromDominators.lean": "dominator",
     "release-core/PaperB/PhysicalExitModel.lean": "exit",
-    "release-core/PaperB/ForestPackedRows.lean": "cuts"
+    "release-core/PaperB/ForestPackedRows.lean": "cuts",
+    "release-core/PaperB/ExitLinearSchedule.lean": "exit"
   },
   "milestones": [
     {
@@ -1083,9 +1084,10 @@
         "evidence/ex42-incoming-tails/verification.json",
         "evidence/ex42-topological-array-sweep/verification.json",
         "evidence/ex42-exact-exit-kernels/verification.json",
-        "evidence/physical-exit-audit/verification.json"
+        "evidence/physical-exit-audit/verification.json",
+        "evidence/exit-indexed-audit/verification.json"
       ],
-      "progress": "The physical sibling quotient and certified real-edge transfer now instantiate the exit-kernel model. Exact incoming and installed-edge array refinements and indexed chronology remain in progress."
+      "progress": "Lean checks the executable array schedule with one visit per vertex, at most one map installation and exact agreement with reference map/base semantics. The actual first-allocation schedule and physical reader bindings remain in progress."
     },
     {
       "id": "EX4.3",

@@ -368,9 +368,9 @@ Acceptance:
 - Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.
 - The path above the already processed fresh endpoint has maps installed. For an earlier off-endpoint predecessor, propagate its base; for an endpoint arc add its own physical tail.
 
-The physical sibling quotient and certified real-edge transfer now instantiate the exit-kernel model. Exact incoming and installed-edge array refinements and indexed chronology remain in progress.
+Lean checks the executable array schedule with one visit per vertex, at most one map installation and exact agreement with reference map/base semantics. The actual first-allocation schedule and physical reader bindings remain in progress.
 
-Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json), [evidence/ex42-actual-seeds/verification.json](evidence/ex42-actual-seeds/verification.json), [evidence/ex42-incoming-tails/verification.json](evidence/ex42-incoming-tails/verification.json), [evidence/ex42-topological-array-sweep/verification.json](evidence/ex42-topological-array-sweep/verification.json), [evidence/ex42-exact-exit-kernels/verification.json](evidence/ex42-exact-exit-kernels/verification.json), [evidence/physical-exit-audit/verification.json](evidence/physical-exit-audit/verification.json).
+Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json), [evidence/ex42-actual-seeds/verification.json](evidence/ex42-actual-seeds/verification.json), [evidence/ex42-incoming-tails/verification.json](evidence/ex42-incoming-tails/verification.json), [evidence/ex42-topological-array-sweep/verification.json](evidence/ex42-topological-array-sweep/verification.json), [evidence/ex42-exact-exit-kernels/verification.json](evidence/ex42-exact-exit-kernels/verification.json), [evidence/physical-exit-audit/verification.json](evidence/physical-exit-audit/verification.json), [evidence/exit-indexed-audit/verification.json](evidence/exit-indexed-audit/verification.json).
 
 <a id="ex43"></a>
 

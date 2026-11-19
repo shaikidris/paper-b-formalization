@@ -1,0 +1,11 @@
+{
+  "base_commit": "8a975a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitLinearSchedule.lean",
+  "sha256": "9db59e8816b4710421002fe2ddbc648195d54da2d71819644af7f6df53c7c7eb",
+  "scope": "An indexed exact schedule visits each topological vertex once and installs at most one real-edge map per visit. Lean proves equivalence to the reference and all map/base contents. The executable schedule skips rank gaps and does not scan other maps per visit.",
+  "remaining": "Construct the exact schedule from the actual first allocations and bind the physical exit kernel and fixed packed map records."
+}
