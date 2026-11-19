@@ -153,7 +153,8 @@
         "release-core/PaperB/SealedBuild.lean",
         "release-core/PaperB/SealedQuery.lean",
         "release-core/PaperB/RamLifecycle.lean",
-        "release-core/PaperB/ArcBuckets.lean"
+        "release-core/PaperB/ArcBuckets.lean",
+        "release-core/PaperB/OracleMemoryLayout.lean"
       ],
       "owner_role": "cost model",
       "admission": "ORACLE_CORE"
@@ -979,6 +980,14 @@
         "release-core/PaperB/Dom.lean"
       ],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/OracleMemoryLayout.lean",
+      "local_imports": [
+        "release-core/PaperB/SealedBuild.lean"
+      ],
+      "owner_role": "cost model",
       "admission": "ORACLE_CORE"
     }
   ],

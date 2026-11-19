@@ -145,3 +145,4 @@
 {"at": "2026-11-19T22:05:04+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "BatchSupport", "tasks": ["EX5.5"], "evidence": "evidence/ex55-v13-batch-bound/verification.json"}
 {"at": "2026-11-19T22:10:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticChildLookup", "tasks": ["EX1.6"], "evidence": "evidence/ex16-child-interval-search/verification.json"}
 {"at": "2026-11-19T22:10:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SimpleOracleCases", "tasks": ["EX4.4"], "evidence": "evidence/ex44-early-query-cases/verification.json"}
+{"at": "2026-11-19T22:10:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OracleMemoryLayout", "tasks": ["EX5.2"], "evidence": "evidence/ex52-exact-memory-layout/verification.json"}

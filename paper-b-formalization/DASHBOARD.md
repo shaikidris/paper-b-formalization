@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **14/27**. Planning audits **1** and verified proof packages **13**.
-- Remaining work packages **13**. 9 in progress, 4 planned.
+- Remaining work packages **13**. 10 in progress, 3 planned.
 - Milestones 5 in progress, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -27,6 +27,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.3](TASKS.md#ex43) — Lean composes and evaluates stored map records on the actual skew jump trace. The logged move, record probes and map operations have the required logarithmic traversal bound. Exact full record installation remains open.
 - [EX4.4](TASKS.md#ex44) — Source and target failure, initially unreachable targets, and comparable failures are handled by exact early decisions. Comparable failures require only their higher dominator, in both orders and for duplicates. Integrate with the retained index and incomparable-pair branch.
 - [EX5.1](TASKS.md#ex51) — The linear array bucket pass groups actual occurrences by owner or target, preserving order and repeats. All row initialization, reads, prepends, final reversals and references are explicitly counted. Instantiate the grouping on the concrete graph normalization and the finite sibling arc emitter, then lower the executions.
+- [EX5.2](TASKS.md#ex52) — Dense offset tables certify disjoint fixed-word fields, a linear live arena and a linear sealed prefix under concrete graph count bounds. Width depends on a fixed layout allowance. Instantiate all block widths, bind the uniform worst-case capacities and connect actual programs to these regions.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).

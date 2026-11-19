@@ -125,7 +125,8 @@
     "release-core/PaperB/ExitArraySweep.lean": "oracle",
     "release-core/PaperB/ActualJumpMaps.lean": "oracle",
     "release-core/PaperB/StaticChildLookup.lean": "dominator",
-    "release-core/PaperB/SimpleOracleCases.lean": "oracle"
+    "release-core/PaperB/SimpleOracleCases.lean": "oracle",
+    "release-core/PaperB/OracleMemoryLayout.lean": "cost model"
   },
   "milestones": [
     {
@@ -1146,7 +1147,7 @@
       "paper_consumers": [
         "1.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "resource bound",
       "obligation": "Give allocation lifetimes and index serialization for the same construction.",
@@ -1154,7 +1155,10 @@
         "Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.",
         "Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex52-exact-memory-layout/verification.json"
+      ],
+      "progress": "Dense offset tables certify disjoint fixed-word fields, a linear live arena and a linear sealed prefix under concrete graph count bounds. Width depends on a fixed layout allowance. Instantiate all block widths, bind the uniform worst-case capacities and connect actual programs to these regions."
     },
     {
       "id": "EX5.3",

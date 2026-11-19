@@ -438,7 +438,7 @@ Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.
 
 ## EX5.2 — Bound peak workspace and the retained index
 
-- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX5; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX5.1.
 - Proposed owner module: `release-core/PaperB/Resources.lean`.
@@ -450,6 +450,10 @@ Acceptance:
 
 - Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
 - Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs.
+
+Dense offset tables certify disjoint fixed-word fields, a linear live arena and a linear sealed prefix under concrete graph count bounds. Width depends on a fixed layout allowance. Instantiate all block widths, bind the uniform worst-case capacities and connect actual programs to these regions.
+
+Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json).
 
 <a id="ex53"></a>
 

@@ -1,0 +1,3 @@
+'PaperB.EX52.ExplicitOracle.budget_fits' depends on axioms: [propext, Quot.sound]
+'PaperB.EX52.ExplicitOracle.sealedAddr_eq_workAddr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX52.ExplicitOracle.builder_and_seal_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

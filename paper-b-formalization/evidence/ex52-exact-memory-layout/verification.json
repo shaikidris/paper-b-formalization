@@ -1,0 +1,11 @@
+{
+  "base_commit": "10e76c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OracleMemoryLayout.lean",
+  "sha256": "dc9363e2ad3475fe17e3b1d599be82d676d873d7304ac30e709438a3c6f40131",
+  "scope": "Dense offset tables certify disjoint fixed-word fields, a linear live arena and a linear sealed prefix under concrete graph count bounds. Width depends on a fixed layout allowance.",
+  "remaining": "Instantiate all block widths, bind the uniform worst-case capacities and connect actual programs to these regions."
+}
