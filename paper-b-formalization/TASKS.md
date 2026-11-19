@@ -58,9 +58,9 @@ Acceptance:
 - Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.
 - Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation.
 
-Lean verifies bounded word operations and a deterministic fixed-capacity interpreter with explicit loads, stores, branches and charged instruction count. Successful runs preserve declared memory capacities. The build/query adapter, peak trace and retained-index resource proofs are open.
+Lean verifies bounded words and actual fixed-capacity interpreter traces. Successful execution and its exact count are independent of fuel, and the fixed-layout trace peak is checked. The sealed-index adapter, layout initialization and retained output still need charging.
 
-Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json), [evidence/ex03-word-operations/verification.json](evidence/ex03-word-operations/verification.json), [evidence/ex03-ram-program/verification.json](evidence/ex03-ram-program/verification.json).
+Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json), [evidence/ex03-word-operations/verification.json](evidence/ex03-word-operations/verification.json), [evidence/ex03-ram-program/verification.json](evidence/ex03-ram-program/verification.json), [evidence/ex03-ram-traces/verification.json](evidence/ex03-ram-traces/verification.json).
 
 <a id="ex11"></a>
 

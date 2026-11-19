@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX0.3](TASKS.md#ex03) — Lean verifies bounded word operations and a deterministic fixed-capacity interpreter with explicit loads, stores, branches and charged instruction count. Successful runs preserve declared memory capacities. The build/query adapter, peak trace and retained-index resource proofs are open.
+- [EX0.3](TASKS.md#ex03) — Lean verifies bounded words and actual fixed-capacity interpreter traces. Successful execution and its exact count are independent of fuel, and the fixed-layout trace peak is checked. The sealed-index adapter, layout initialization and retained output still need charging.
 - [EX1.1](TASKS.md#ex11) — Lean verifies semantic pruning under every failure predicate and preservation of parallel occurrences. A new array-based traversal of a supplied topological order checks its array size and exact occurrence visit bound. Mark correctness, construction of the order, and charged ID compaction remain open.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — Lean verifies every proper descendant lies below exactly one child of its dominator. It already checks arbitrary-block projection and lifting with exact tails, and original subtree unique entry. The original-DAG block assignment and finite quotient construction, flatness and occurrence bounds remain open.

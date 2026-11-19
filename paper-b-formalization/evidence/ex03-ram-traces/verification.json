@@ -1,0 +1,11 @@
+{
+  "base_commit": "2f1010ac2aab4d5a037f0e34d2be8a9c9ebd0c09",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "c1938b744e847c24c139abc4948f3fb24ce12f24f3490f8c51824cf484f4164f",
+  "scope": "The fixed-capacity word machine has a unique successful trace independent of fuel, and each checked trace's exact instruction count and live-array peak derive from its actual states.",
+  "remaining": "Account for separate sealed query input, initialization, output extraction, fixed control storage and concrete program lowering for the oracle."
+}

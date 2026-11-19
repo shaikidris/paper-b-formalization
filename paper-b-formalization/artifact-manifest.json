@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 5226,
-      "sha256": "bcfa55441962fbcc66318a10f06935fef163d6e6602935609a01b5bc24f2ee3f"
+      "bytes": 5211,
+      "sha256": "b913db53470ffddfa805f9283f41cbd46cc948a18c9afa429402302f8ab08896"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 29799,
-      "sha256": "9bfaa090c102b1656279c6577d36f6dc12d78c4608af86ff56b6ea140de1bf2a"
+      "bytes": 29874,
+      "sha256": "baec07c4e08dfbb8c55ff17ba9fe2ddbb3171d10cae48e0ad30f8ff1ade7e942"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 16950,
-      "sha256": "7a5ebd5df9403b04e51c4ebf44e11b88c2c574453297d6d24f3a1547468f536e"
+      "bytes": 17130,
+      "sha256": "7a0e9668591c113e02dde0d5124a764debc29c5013d5ceb4a59c090caa173994"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -250,6 +250,21 @@
       "path": "evidence/ex03-ram-program/verification.json",
       "bytes": 780,
       "sha256": "492281ce55a5f66ac87549d9097652c8686bab5b8f7da550e94e7e86b5069d1f"
+    },
+    {
+      "path": "evidence/ex03-ram-traces/Audit.lean",
+      "bytes": 402,
+      "sha256": "2a0e0730b462b75cb32ccb280a51bf99376f46b571be8c75eae79c1dc360963c"
+    },
+    {
+      "path": "evidence/ex03-ram-traces/axioms.txt",
+      "bytes": 929,
+      "sha256": "6ddc98ad05dbb84a3d2475a614577c9b95d54a74cf93c810ce714443089f3319"
+    },
+    {
+      "path": "evidence/ex03-ram-traces/verification.json",
+      "bytes": 684,
+      "sha256": "54350eaa085fca17109bca6a5c27c4ebfc97c043566a2bbe51813304fc573803"
     },
     {
       "path": "evidence/ex03-word-operations/Audit.lean",
@@ -868,8 +883,8 @@
     },
     {
       "path": "release-core/PaperB/RamProgram.lean",
-      "bytes": 6466,
-      "sha256": "456aedb88bcbc2cf640a811b303c1084da11e251feb7e91cbbf897c7386e4307"
+      "bytes": 11352,
+      "sha256": "c1938b744e847c24c139abc4948f3fb24ce12f24f3490f8c51824cf484f4164f"
     },
     {
       "path": "release-core/PaperB/ReachScan.lean",
@@ -1008,8 +1023,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 42884,
-      "sha256": "370eadd4a1914c371b2eae6e62cd5bb872b9a0d685be07e00d3efd5adef9dff9"
+      "bytes": 42923,
+      "sha256": "900e2c5a279c791aca79b165320634cbb8534e1df4c50d3779ea5f0ece1e6047"
     },
     {
       "path": "test_plan.py",

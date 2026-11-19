@@ -1,0 +1,11 @@
+'PaperB.RamProgram.run_stable_of_le' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.run_success_unique' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.SuccessfulTrace.unique' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.run_has_successfulTrace' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.SuccessfulTrace.storage_eq' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.SuccessfulTrace.peak_eq' depends on axioms: [propext, Quot.sound]
+@PaperB.RamProgram.SuccessfulTrace.peak_eq : ∀ {bits : Nat} {L : PaperB.RamProgram.Layout bits}
+  {code : PaperB.RamProgram.Program L} {input : PaperB.RamProgram.Input L} {s : PaperB.RamProgram.State L}
+  {states : List (PaperB.RamProgram.State L)} {r : PaperB.RamProgram.Result L},
+  PaperB.RamProgram.SuccessfulTrace code input s states r →
+    PaperB.RamProgram.tracePeakWords input states = PaperB.RamProgram.footprint L

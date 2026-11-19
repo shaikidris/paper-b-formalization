@@ -178,4 +178,124 @@ theorem observe_footprint {code : Program L} {input : Input L}
     subst o
     exact ⟨storageWords_eq input s, storageWords_eq input r.finalState⟩
 
+/-- Extra fuel does not change a successful execution. -/
+theorem run_stable_of_le {code : Program L} {input : Input L}
+    {fuel more : Nat} {s : State L} {r : Result L}
+    (hle : fuel ≤ more) (h : run code input fuel s = some r) :
+    run code input more s = some r := by
+  induction fuel generalizing more s r with
+  | zero => simp [run] at h
+  | succ n ih =>
+    cases more with
+    | zero => simp at hle
+    | succ m =>
+      cases hs : step code input s with
+      | none => simp [run, hs] at h
+      | some out =>
+        cases out with
+        | halted t => simpa [run, hs] using h
+        | next t =>
+          cases ht : run code input n t with
+          | none => simp [run, hs, ht] at h
+          | some q =>
+            have hm : run code input m t = some q :=
+              ih (more := m) (s := t) (r := q) (Nat.le_of_succ_le_succ hle) ht
+            simpa [run, hs, ht, hm] using h
+
+/-- The whole result, including the instruction count, is independent of fuel
+whenever both runs succeed. -/
+theorem run_success_unique {code : Program L} {input : Input L}
+    {fuel₁ fuel₂ : Nat} {s : State L} {r₁ r₂ : Result L}
+    (h₁ : run code input fuel₁ s = some r₁)
+    (h₂ : run code input fuel₂ s = some r₂) : r₁ = r₂ := by
+  rcases Nat.le_total fuel₁ fuel₂ with hle | hle
+  · exact Option.some.inj ((run_stable_of_le hle h₁).symm.trans h₂)
+  · exact Option.some.inj (h₁.symm.trans (run_stable_of_le hle h₂))
+
+/-- A successful trace records the initial state and one successor per
+instruction, including the state returned by halt. -/
+inductive SuccessfulTrace (code : Program L) (input : Input L) :
+    State L → List (State L) → Result L → Prop where
+  | halted {s t : State L} (hs : step code input s = some (.halted t)) :
+      SuccessfulTrace code input s [s, t] ⟨t, 1⟩
+  | next {s t : State L} {states : List (State L)} {r : Result L}
+      (hs : step code input s = some (.next t))
+      (tail : SuccessfulTrace code input t states r) :
+      SuccessfulTrace code input s (s :: states)
+        { r with executed := r.executed + 1 }
+
+theorem SuccessfulTrace.unique {code : Program L} {input : Input L}
+    {s : State L} {states states' : List (State L)} {r r' : Result L}
+    (h : SuccessfulTrace code input s states r)
+    (h' : SuccessfulTrace code input s states' r') :
+    states = states' ∧ r = r' := by
+  induction h generalizing states' r' with
+  | halted hs =>
+    cases h' with
+    | halted hs' =>
+      have he := Transition.halted.inj (Option.some.inj (hs.symm.trans hs'))
+      cases he
+      exact ⟨rfl, rfl⟩
+    | next hs' ht' =>
+      have he := Option.some.inj (hs.symm.trans hs')
+      cases he
+  | next hs ht ih =>
+    cases h' with
+    | halted hs' =>
+      have he := Option.some.inj (hs.symm.trans hs')
+      cases he
+    | next hs' ht' =>
+      have he := Transition.next.inj (Option.some.inj (hs.symm.trans hs'))
+      cases he
+      obtain ⟨hl, hr⟩ := @ih _ _ ht'
+      cases hl
+      cases hr
+      exact ⟨rfl, rfl⟩
+
+theorem run_has_successfulTrace {code : Program L} {input : Input L}
+    {fuel : Nat} {s : State L} {r : Result L}
+    (h : run code input fuel s = some r) :
+    ∃ states : List (State L), SuccessfulTrace code input s states r := by
+  induction fuel generalizing s r with
+  | zero => simp [run] at h
+  | succ n ih =>
+    cases hs : step code input s with
+    | none => simp [run, hs] at h
+    | some out =>
+      cases out with
+      | halted t =>
+        have hr : (⟨t, 1⟩ : Result L) = r := by simpa [run, hs] using h
+        subst r
+        exact ⟨[s, t], SuccessfulTrace.halted hs⟩
+      | next t =>
+        cases ht : run code input n t with
+        | none => simp [run, hs, ht] at h
+        | some q =>
+          have hr : { q with executed := q.executed + 1 } = r := by
+            simpa [run, hs, ht] using h
+          subst r
+          obtain ⟨states, htail⟩ := ih (s := t) (r := q) ht
+          exact ⟨s :: states, SuccessfulTrace.next hs htail⟩
+
+theorem SuccessfulTrace.storage_eq {code : Program L} {input : Input L}
+    {s t : State L} {states : List (State L)} {r : Result L}
+    (_ : SuccessfulTrace code input s states r) (_ : t ∈ states) :
+    storageWords input t = footprint L :=
+  storageWords_eq input t
+
+/-- Peak modeled word slots; excludes code, PC, and metadata charges. -/
+def tracePeakWords (input : Input L) : List (State L) → Nat
+  | [] => 0
+  | s :: states => max (storageWords input s) (tracePeakWords input states)
+
+theorem SuccessfulTrace.peak_eq {code : Program L} {input : Input L}
+    {s : State L} {states : List (State L)} {r : Result L}
+    (h : SuccessfulTrace code input s states r) :
+    tracePeakWords input states = footprint L := by
+  induction h with
+  | halted hs =>
+    simp [tracePeakWords, storageWords_eq, Nat.max_eq_left]
+  | next hs ht ih =>
+    simp [tracePeakWords, storageWords_eq, ih]
+
 end PaperB.RamProgram
