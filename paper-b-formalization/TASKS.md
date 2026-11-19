@@ -315,9 +315,9 @@ Acceptance:
 - An independent statement audit verifies quantification over every real forest edge, both coordinates and every proper-loss target.
 - Instantiate the structural identity on the actual constructed forest and the original-tail labels. Figure 1 checks both exact contributions and all three failure outcomes as a regression control.
 
-Lean verifies pointwise equality of the two sides of exit transfer on the actual constructed proper-loss forest, hence equality as predicates on physical tails for either parent endpoint. Original-graph quotient construction and Figure 1 replay through that forest remain open.
+Lean verifies exact exit transfer on the constructed forest of a supplied flat labelled quotient and replays Figure 1's exact union terms and actual computed pair-parent edge and vertex labels. The original-graph quotient construction and EX3 dependencies remain open.
 
-Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json).
+Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evidence/ex33-forest-exit/verification.json), [evidence/ex33-figure-1/verification.json](evidence/ex33-figure-1/verification.json).
 
 <a id="ex41"></a>
 

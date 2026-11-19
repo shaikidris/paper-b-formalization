@@ -1,0 +1,11 @@
+{
+  "base_commit": "cef3140b16754c052418ea49ae7e8fa69e62285e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "evidence/ex33-figure-1/Figure1.lean",
+  "sha256": "5d6bd0287d589c2c50d9ea862d748232222e889528f83961968fc81893374ff3",
+  "scope": "Kernel checks the exact Figure 1 tail sets and the real-pair keys, parent edge and vertex labels produced by the forest builder on that labelled quotient.",
+  "remaining": "Finish the algorithm that constructs the labelled quotient from the original-DAG input and supplies its general hypotheses."
+}
