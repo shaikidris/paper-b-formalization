@@ -4,4 +4,4 @@ The [dependency register](external-inputs.json) records the consumers of each in
 
 The [authority records](sources/authority-retrieval.json) preserve earlier source, toolchain, registry and public-edition checks. Toolchain selection and a clean replay for the proposed core are EX0.2 and EX5.4. The theorem statements’ reliance on particular algorithms is recorded in the [core contract](contracts/release-contract.md).
 
-The independent mathematical [analogue and literature comparison](../evidence/paper-b-space-20261118/exit-transfer-literature-and-paper-b.md) gives context for derived sibling graphs, two-cut hierarchies and Choudhary's general-digraph oracle. Paper A's image theorem is used only for the physical interpretation of the guarded application.
+The [v1.2 proof and literature review](../evidence/paper-b-v12-adversarial-20261118/local-review.md) compares the exit-transfer construction with earlier dominator algorithms. Paper A's image theorem is used only for the physical interpretation of the guarded application.
