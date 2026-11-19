@@ -1,0 +1,6 @@
+'PaperB.Digraph.indegrees_size' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.indegrees_getElem' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.indegreeScanCount_eq_arcCount' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.arcCount_le_indegreeScanCount' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.indegreeScanCount_le_arcCount' depends on axioms: [propext, Quot.sound]
+PaperB.Digraph.indegreeScanCount_eq_arcCount : ∀ (g : PaperB.Digraph), g.indegreeScanCount = g.arcCount

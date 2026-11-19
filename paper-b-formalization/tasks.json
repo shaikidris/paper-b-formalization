@@ -58,7 +58,8 @@
     "release-core/PaperB/ReachScan.lean": "graph",
     "release-core/PaperB/RamProgram.lean": "cost model",
     "release-core/PaperB/SiblingPartition.lean": "dominator",
-    "release-core/PaperB/SiblingBlocks.lean": "dominator"
+    "release-core/PaperB/SiblingBlocks.lean": "dominator",
+    "release-core/PaperB/Indegrees.lean": "graph"
   },
   "milestones": [
     {
@@ -262,9 +263,10 @@
         "evidence/ex11-retained-graph/verification.json",
         "evidence/ex11-reach-scan/verification.json",
         "evidence/ex11-reach-sound/verification.json",
-        "evidence/ex11-reach-scan-correct/verification.json"
+        "evidence/ex11-reach-scan-correct/verification.json",
+        "evidence/ex11-indegree-prepass/verification.json"
       ],
-      "progress": "Lean checks the explicit reachability scan marks precisely the original vertices reachable from the source given a verified topological list. Its checked counts preserve parallel arc occurrences, and semantic pruning preserves failed-path queries. Executable topological ordering and charged compaction remain open."
+      "progress": "Lean proves exact reachable-vertex marks for a supplied order, and verifies the array-based indegree prepass used to construct the order. Each parallel occurrence contributes once to its head and the scan count is exactly m. Kahn’s dequeue/update loop, ID compaction and machine integration remain open."
     },
     {
       "id": "EX1.2",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc31f19",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Indegrees.lean",
+  "sha256": "eb69fdb88e8c028b91e03a02303f8b3d152ffb3b76601b2e83af1001aae40ec2",
+  "scope": "The executable indegree prepass counts every explicit parallel arc occurrence once and leaves an array of exact incoming occurrence counts.",
+  "remaining": "Implement the zero-indegree work queue and its ordering and resource invariants. Finish compact ID maps."
+}
