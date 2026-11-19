@@ -12,14 +12,13 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Completed and remaining
 
-- Completed work packages **15/27**. Planning audits **1** and verified proof packages **14**.
-- Remaining work packages **12**. 9 in progress, 3 planned.
+- Completed work packages **16/27**. Planning audits **1** and verified proof packages **15**.
+- Remaining work packages **11**. 8 in progress, 3 planned.
 - Milestones 5 in progress, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
 
-- [EX1.5](TASKS.md#ex15) — The allocated packed jump region starts with exactly the root record and word-size header. The initialization and leaf storage fit within explicit linear word bounds. Use the actual initialized region with the full topological scan.
 - [EX1.6](TASKS.md#ex16) — The actual ordinary-tree layout yields exact ordered child intervals, with each child emitted once. The packed records give the binary child search its required order and interval validity. The linear executable head input remains in progress.
 - [EX2.4](TASKS.md#ex24) — One actual forest insertion or reuse preserves the canonical embedding of occupied slots under exact local endpoint and allocation contracts. The executable sweep and concrete contracts remain in progress.
 - [EX4.2](TASKS.md#ex42) — The executable exit-map and target-base kernels account for at most two fresh-endpoint path reads per coordinate and every entering arc. Under valid earlier reads they compute the exact extrema of the set recurrence. Instantiate the typed action and read contracts on the actual forest, composed jump records and prior array entries.

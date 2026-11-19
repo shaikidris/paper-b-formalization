@@ -150,7 +150,7 @@ Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.
 
 ## EX1.5 — Construct the ordinary dominator tree within the oracle budget
 
-- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, cost model; assigned worker: unassigned.
 - Dependencies: EX1.2, EX0.3, EX2.3.
 - Proposed owner module: `release-core/PaperB/DomBuild.lean`.
@@ -163,9 +163,9 @@ Acceptance:
 - Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.
 - For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established.
 
-The allocated packed jump region starts with exactly the root record and word-size header. The initialization and leaf storage fit within explicit linear word bounds. Use the actual initialized region with the full topological scan.
+Verified the ordinary dominator build on the actual original DAG. Exact parent semantics, individual quadratic-log LCA charges, total input occurrences and exact fourteen-word leaf charges establish the component budget.
 
-Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json), [evidence/ex15-growing-lca/verification.json](evidence/ex15-growing-lca/verification.json), [evidence/ex15-predecessor-fold/verification.json](evidence/ex15-predecessor-fold/verification.json), [evidence/ex15-dominator-step/verification.json](evidence/ex15-dominator-step/verification.json), [evidence/ex15-concrete-jump-backend/verification.json](evidence/ex15-concrete-jump-backend/verification.json), [evidence/ex15-full-dom-sweep/verification.json](evidence/ex15-full-dom-sweep/verification.json), [evidence/ex15-actual-root-word-region/verification.json](evidence/ex15-actual-root-word-region/verification.json).
+Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json), [evidence/ex15-growing-lca/verification.json](evidence/ex15-growing-lca/verification.json), [evidence/ex15-predecessor-fold/verification.json](evidence/ex15-predecessor-fold/verification.json), [evidence/ex15-dominator-step/verification.json](evidence/ex15-dominator-step/verification.json), [evidence/ex15-concrete-jump-backend/verification.json](evidence/ex15-concrete-jump-backend/verification.json), [evidence/ex15-full-dom-sweep/verification.json](evidence/ex15-full-dom-sweep/verification.json), [evidence/ex15-actual-root-word-region/verification.json](evidence/ex15-actual-root-word-region/verification.json), [evidence/dom-from-original-audit/verification.json](evidence/dom-from-original-audit/verification.json).
 
 <a id="ex16"></a>
 

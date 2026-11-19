@@ -1,0 +1,11 @@
+{
+  "base_commit": "b95f68f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DomFromOriginal.lean",
+  "sha256": "79d7bc5aa0f5fac5057293f3f94e9aa8354a8209bf147d7e90cd31a9849fda7f",
+  "scope": "The ordinary dominator sweep executes on the original DAG with actual Kahn order, grouped original incoming arcs, one reachability scan and the fixed root-initialized jump region. Its exact work counters give the v1.3 quadratic-log preprocessing bound for this component.",
+  "remaining": "Export the packed parent and depth columns to the static tree builder. Lower the combined index to the fixed machine in EX5."
+}

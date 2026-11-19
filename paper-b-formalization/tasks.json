@@ -142,7 +142,8 @@
     "release-core/PaperB/ForestEmbeddingStep.lean": "cuts",
     "release-core/PaperB/FusedJumpMaps.lean": "exit",
     "release-core/PaperB/GlobalSiblingEmitter.lean": "quotient",
-    "release-core/PaperB/RetainedRouteProof.lean": "oracle"
+    "release-core/PaperB/RetainedRouteProof.lean": "oracle",
+    "release-core/PaperB/DomFromOriginal.lean": "dominator"
   },
   "milestones": [
     {
@@ -550,8 +551,8 @@
       "paper_consumers": [
         "1.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "resource bound",
       "obligation": "Implement a checked constructor for the semantic tree on explicit DAG input. The proposed DAG route uses growing-tree LCAs of predecessors.",
       "acceptance": [
@@ -566,9 +567,17 @@
         "evidence/ex15-dominator-step/verification.json",
         "evidence/ex15-concrete-jump-backend/verification.json",
         "evidence/ex15-full-dom-sweep/verification.json",
-        "evidence/ex15-actual-root-word-region/verification.json"
+        "evidence/ex15-actual-root-word-region/verification.json",
+        "evidence/dom-from-original-audit/verification.json"
       ],
-      "progress": "The allocated packed jump region starts with exactly the root record and word-size header. The initialization and leaf storage fit within explicit linear word bounds. Use the actual initialized region with the full topological scan."
+      "progress": "Verified the ordinary dominator build on the actual original DAG. Exact parent semantics, individual quadratic-log LCA charges, total input occurrences and exact fourteen-word leaf charges establish the component budget.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/dom-from-original-audit/verification.json",
+        "axioms": "evidence/dom-from-original-audit/axioms.txt",
+        "fidelity": "evidence/dom-from-original-audit/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX1.6",

@@ -10,6 +10,9 @@ resource targets.
 - [Lemma 2.1](evidence/paper-21-siblings-certified/fidelity.md) certifies the
   finite flat sibling quotients. It carries the physical tail and records
   which quotient receives each retained original arc occurrence.
+- [Lemma 2.2](evidence/paper-22-last-exit-certified/fidelity.md) certifies
+  the complete last-exit case split, including the two nonempty physical
+  exit sets and the original-tree LCA test for a third block.
 - [Lemma 3.1](evidence/paper-31-forest-certified/fidelity.md) certifies the
   proper-loss forest, its inclusive ancestry test, and its real parent edges.
 - [Theorem 4.1](evidence/paper-41-transfer-certified/fidelity.md) certifies
@@ -23,9 +26,9 @@ normalization already build on the pinned Lean toolchain.
 
 ## Next checkpoints
 
-- EX1 finishes the combined last-exit case split and the costed ordinary
-  dominator and static tree builders. The unique dominator ancestry and
-  lowest common ancestor semantics are verified.
+- EX1 has a checked ordinary dominator build from the original DAG.
+  The static tree index still needs the executable linear head sweep and
+  the final wiring from the packed dominator tree.
 - EX2 finishes the executable growing forest sweep and the reuse of
   deterministically sorted keys. The retained DFS array values, word
   accesses for jump primitives, and predecessor stamp pass already build.
