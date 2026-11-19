@@ -141,7 +141,8 @@
         "release-core/PaperB/ExitLinearSchedule.lean",
         "release-core/PaperB/ThirdReachableRoute.lean",
         "release-core/PaperB/AllOrigOracleCases.lean",
-        "release-core/PaperB/ExitSpanBridge.lean"
+        "release-core/PaperB/ExitSpanBridge.lean",
+        "release-core/PaperB/OriginalStaticConnector.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1360,6 +1361,15 @@
         "release-core/PaperB/ForestExactDictionary.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/OriginalStaticConnector.lean",
+      "local_imports": [
+        "release-core/PaperB/StaticOracleTree.lean",
+        "release-core/PaperB/RetainedRouteProof.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

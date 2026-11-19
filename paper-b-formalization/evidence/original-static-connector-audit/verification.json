@@ -1,0 +1,11 @@
+{
+  "base_commit": "fa668da",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OriginalStaticConnector.lean",
+  "sha256": "6840407546e9c6df6ddaa82f4fe442fb7ff34273f33c3bff3f7f83cc03da4b0e",
+  "scope": "The constructed original static tree supplies actual normalized ID and subtree readers for the retained oracle. The exclusive stored endpoint is refined to its exact inclusive interval, with positivity checked even at roots and leaves.",
+  "remaining": "Bind actual ordinary parent, LCA and child relations to the oracle and quotient emitter interfaces."
+}

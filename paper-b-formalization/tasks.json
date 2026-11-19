@@ -164,7 +164,8 @@
     "release-core/PaperB/ExitSpanBridge.lean": "oracle",
     "release-core/PaperB/RamStaticLCA.lean": "cost model",
     "release-core/PaperB/MeasuredCutRange.lean": "cuts",
-    "release-core/PaperB/ForestTopologicalTotal.lean": "cuts"
+    "release-core/PaperB/ForestTopologicalTotal.lean": "cuts",
+    "release-core/PaperB/OriginalStaticConnector.lean": "oracle"
   },
   "milestones": [
     {
@@ -1193,9 +1194,10 @@
         "evidence/all-original-audit/verification.json",
         "evidence/exit-span-audit/verification.json",
         "evidence/held-id-audit/verification.json",
-        "evidence/static-tree-held-audit/verification.json"
+        "evidence/static-tree-held-audit/verification.json",
+        "evidence/original-static-connector-audit/verification.json"
       ],
-      "progress": "The original static build now stores both ID directions as part of one reader and verifies translated physical dominance on that same stored tree."
+      "progress": "The actual original tree now discharges the query's normalized ID and interval dominance contracts. Exact common-LCA and child reader bindings and sealed word layout remain in progress."
     },
     {
       "id": "EX5.1",

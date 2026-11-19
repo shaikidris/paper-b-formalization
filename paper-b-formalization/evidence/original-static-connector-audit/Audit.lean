@@ -1,0 +1,3 @@
+import PaperB.OriginalStaticConnector
+#print axioms PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.normalizedIDs
+#print axioms PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.dominance
