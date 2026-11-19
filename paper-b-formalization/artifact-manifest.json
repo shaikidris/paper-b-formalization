@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3673,
-      "sha256": "0d91cda905640ff59d9bc1edc6c21a7233ce5e18a72e52f007d715f4dfc01ac4"
+      "bytes": 3572,
+      "sha256": "2252332d13c9a75443298b8950ef0e01e4a7d7fbf73f6b293b5f767edbf8ca09"
     },
     {
       "path": "DISPATCH.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5333,
-      "sha256": "ad828cf57692ae29c440e742b3f77f285828f93eea3ec591bad75a280580839a"
+      "bytes": 5334,
+      "sha256": "1952c725676307b75e91d01acb03aa8727b1cef427c3307a3185fec19ed26865"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 37856,
-      "sha256": "599fe61753cd2d2f6aa5b8564e4bae556dd58524b68ddd38e9bc06e726ca7a80"
+      "bytes": 38328,
+      "sha256": "4c5ba39532fae5f99caafc6d9e09e31d690c264dbfaa873bc91b95e8251bc784"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 31275,
-      "sha256": "04c860e977b2d8d7ca3fef6f60bb5048844dbd8e2e37b78b19b93960fa8a293c"
+      "bytes": 31464,
+      "sha256": "9512fc82bbc2e49081d64dcea627bc7c5779e1770230f84ff98bf12e959852dc"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1762,6 +1762,26 @@
       "sha256": "7b24f17901c778f84caabe5f4c0d33b2789a0ad8b86957b27c6061e587003f29"
     },
     {
+      "path": "evidence/ex61-guarded-witness/Audit.lean",
+      "bytes": 176,
+      "sha256": "42c4abbac2f9de476d1ebbc179cf65bea2cbe45116bb14900ac20f001097b69c"
+    },
+    {
+      "path": "evidence/ex61-guarded-witness/axioms.txt",
+      "bytes": 959,
+      "sha256": "ddc71d129cbdcdebf7a8b2dd7c8e37839474b898b5a3b8fb7e952002ca166664"
+    },
+    {
+      "path": "evidence/ex61-guarded-witness/fidelity.md",
+      "bytes": 800,
+      "sha256": "2fd7fd70f910c1df383b2d987596d96e144ccee79632f1f2b9a2319bf8bc8bad"
+    },
+    {
+      "path": "evidence/ex61-guarded-witness/verification.json",
+      "bytes": 662,
+      "sha256": "c7383b0ed003e3da67a7e5efbc2af8ffebefd19c3fbc379e51d1c454540cbdd7"
+    },
+    {
       "path": "evidence/exit-transfer-nested/build.txt",
       "bytes": 670,
       "sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599"
@@ -1962,14 +1982,19 @@
       "sha256": "2f1fb190f912df446f39a6e27299ad16b7c9804319ecb201d9470e46c056b0f6"
     },
     {
+      "path": "extensions/GuardedWitness.lean",
+      "bytes": 13843,
+      "sha256": "4b785bc12513b392bb9d7d8427acad03c626b784f867aa25a5b8cdf12aa84dfd"
+    },
+    {
       "path": "external-inputs.json",
       "bytes": 1805,
       "sha256": "ec2fd837d0db5296e45e4b5bf3c293b7969f403924af39cb70eb45d9da4f24d5"
     },
     {
       "path": "module-graph.json",
-      "bytes": 26807,
-      "sha256": "a33f86e96c42f9729996a0d3fbd75652abe9975e2f147d6e7b3cc208d4bbecd9"
+      "bytes": 27052,
+      "sha256": "628ef3676649f41e25e0319bc6ab255076ee14d54b44b1023decf61f032c56d6"
     },
     {
       "path": "obligations.json",
@@ -2523,8 +2548,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 54485,
-      "sha256": "3b42e066bd7facad41bc39a7d1181a335b29d30f7db7965c634aa1f370603eea"
+      "bytes": 55296,
+      "sha256": "d7ab7cb17f1134b9cdef99ca3b76b1e9c3c0ed873c0017306ae6a7de108b213c"
     },
     {
       "path": "test_plan.py",

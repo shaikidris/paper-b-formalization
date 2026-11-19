@@ -12,9 +12,9 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Completed and remaining
 
-- Completed work packages **12/27**. Planning audits **1** and verified proof packages **11**.
-- Remaining work packages **15**. 8 in progress, 7 planned.
-- Milestones 4 in progress, 1 planned, 2 verified.
+- Completed work packages **13/27**. Planning audits **1** and verified proof packages **12**.
+- Remaining work packages **14**. 8 in progress, 6 planned.
+- Milestones 5 in progress, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
@@ -27,10 +27,6 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant.
 - [EX5.1](TASKS.md#ex51) — The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions. Use these macros and loop invariants to lower each actual graph and index phase.
 - [EX5.5](TASKS.md#ex55) — Lean verifies downstream list disjunctions, original output order, all target/count charges, and the cubic-log scaling from an exact single-target oracle. The whole-oracle instantiation remains open.
-
-## Ready to start
-
-- EX6.1 — Prove the guarded-path and shrinking-witness equivalence.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

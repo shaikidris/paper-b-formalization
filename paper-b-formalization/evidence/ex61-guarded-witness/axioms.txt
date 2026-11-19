@@ -1,0 +1,21 @@
+<stdin>:193:12: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [GuardFailed, hg] at h
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:194:18: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [GuardFailed, hg] at h
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:195:14: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [GuardFailed, hg] at h
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PaperB.GuardedDecoder.trueAt_iff_path' depends on axioms: [propext, Quot.sound]
+'PaperB.GuardedDecoder.shrink_detecting' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.GuardedDecoder.exists_detecting_iff_residualQuery' depends on axioms: [propext, Classical.choice, Quot.sound]

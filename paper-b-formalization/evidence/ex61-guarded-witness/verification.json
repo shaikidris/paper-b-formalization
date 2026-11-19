@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc425fa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "extensions/GuardedWitness.lean",
+  "sha256": "4b785bc12513b392bb9d7d8427acad03c626b784f867aa25a5b8cdf12aa84dfd",
+  "scope": "A true guarded output is equivalent to a surviving path to a true labelled terminal. Healthy-zero admissible witnesses shrink to the forced set plus one non-reference label. The residual query equivalence handles deleted guards and root.",
+  "remaining": "Construct and charge all failure and terminal lists for the residual multiplicity-two batch under EX6.2."
+}

@@ -193,7 +193,8 @@
     {
       "path": "extensions/Guarded.lean",
       "local_imports": [
-        "extensions/Batch.lean"
+        "extensions/Batch.lean",
+        "extensions/GuardedWitness.lean"
       ],
       "owner_role": "application",
       "admission": "DOWNSTREAM"
@@ -888,6 +889,14 @@
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "extensions/GuardedWitness.lean",
+      "local_imports": [
+        "release-core/PaperB/Graph.lean"
+      ],
+      "owner_role": "application",
+      "admission": "DOWNSTREAM"
     }
   ],
   "structural_root": "release-core/PaperB/Exit.lean"

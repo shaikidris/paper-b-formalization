@@ -115,7 +115,8 @@
     "release-core/PaperB/DomBuildStep.lean": "dominator",
     "extensions/BatchSupport.lean": "application",
     "release-core/PaperB/ActualForestQuery.lean": "cuts",
-    "release-core/PaperB/ForestHead.lean": "cuts"
+    "release-core/PaperB/ForestHead.lean": "cuts",
+    "extensions/GuardedWitness.lean": "application"
   },
   "milestones": [
     {
@@ -158,7 +159,7 @@
       "id": "EX6",
       "title": "Transfer to a supplied healthy-zero guarded output",
       "exit_gate": "Account for every guard incidence and target and recover a detecting admissible set.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     }
   ],
   "tasks": [
@@ -1227,14 +1228,24 @@
       "paper_consumers": [
         "6.1"
       ],
-      "status": "PLANNED",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Relate truth of a supplied healthy-zero root to a surviving labelled terminal and shrink the witness to Q union a candidate singleton.",
       "acceptance": [
         "Cover constant-zero terminals, repeated labels, forced guard deletions and both choices of Q."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex61-guarded-witness/verification.json"
+      ],
+      "progress": "A true guarded output is equivalent to a surviving path to a true labelled terminal. Healthy-zero admissible witnesses shrink to the forced set plus one non-reference label. The residual query equivalence handles deleted guards and root. Construct and charge all failure and terminal lists for the residual multiplicity-two batch under EX6.2.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex61-guarded-witness/verification.json",
+        "axioms": "evidence/ex61-guarded-witness/axioms.txt",
+        "fidelity": "evidence/ex61-guarded-witness/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX6.2",

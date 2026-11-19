@@ -501,7 +501,7 @@ Planning/evidence references: [evidence/ex55-listed-batch-support/verification.j
 
 ## EX6.1 — Prove the guarded-path and shrinking-witness equivalence
 
-- Milestone: EX6; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX6; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: application; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.1.
 - Proposed owner module: `extensions/Guarded.lean`.
@@ -512,6 +512,10 @@ Relate truth of a supplied healthy-zero root to a surviving labelled terminal an
 Acceptance:
 
 - Cover constant-zero terminals, repeated labels, forced guard deletions and both choices of Q.
+
+A true guarded output is equivalent to a surviving path to a true labelled terminal. Healthy-zero admissible witnesses shrink to the forced set plus one non-reference label. The residual query equivalence handles deleted guards and root. Construct and charge all failure and terminal lists for the residual multiplicity-two batch under EX6.2.
+
+Planning/evidence references: [evidence/ex61-guarded-witness/verification.json](evidence/ex61-guarded-witness/verification.json).
 
 <a id="ex62"></a>
 
