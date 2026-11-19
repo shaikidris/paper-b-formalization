@@ -1,0 +1,3 @@
+'PaperB.Digraph.initiallyReachable_suffix_of_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.initiallyReachable_suffix_of_dominates : ∀ {g : PaperB.Digraph} {r d v : Fin g.vertexCount},
+  g.InitiallyReachable r v → g.Dominates r d v → g.InitiallyReachable d v

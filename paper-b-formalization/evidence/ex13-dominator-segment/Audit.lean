@@ -1,0 +1,4 @@
+import PaperB.DominatorChain
+
+#print axioms PaperB.Digraph.initiallyReachable_suffix_of_dominates
+#check @PaperB.Digraph.initiallyReachable_suffix_of_dominates

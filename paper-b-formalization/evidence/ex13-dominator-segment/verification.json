@@ -1,0 +1,11 @@
+{
+  "base_commit": "2f1010ac2aab4d5a037f0e34d2be8a9c9ebd0c09",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DominatorChain.lean",
+  "sha256": "6d9497667a2382c63e8f408f6deb60dfa6436ad6c6f073e2b6497f3e58c2a9b6",
+  "scope": "Expose the actual original path segment from a dominator to its reachable dominated vertex for constructing the sibling-block instance.",
+  "remaining": "Instantiate the labelled graph and prove the finite occurrence budget."
+}

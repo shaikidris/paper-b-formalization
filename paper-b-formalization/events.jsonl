@@ -56,3 +56,4 @@
 {"at": "2026-11-19T20:21:49+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "BlockProjection", "tasks": ["EX1.3"], "evidence": "evidence/ex13-block-projection/verification.json"}
 {"at": "2026-11-19T20:21:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ReachScan", "tasks": ["EX1.1"], "evidence": "evidence/ex11-reach-scan/verification.json"}
 {"at": "2026-11-19T20:21:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX0.3"], "evidence": "evidence/ex03-ram-program/verification.json"}
+{"at": "2026-11-19T20:25:03+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DominatorChain", "tasks": ["EX1.3"], "evidence": "evidence/ex13-dominator-segment/verification.json"}

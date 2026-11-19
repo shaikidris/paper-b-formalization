@@ -327,9 +327,10 @@
       "evidence": [
         "evidence/ex13-dominator-boundary/verification.json",
         "evidence/ex13-block-lifting/verification.json",
-        "evidence/ex13-block-projection/verification.json"
+        "evidence/ex13-block-projection/verification.json",
+        "evidence/ex13-dominator-segment/verification.json"
       ],
-      "progress": "Lean verifies unique entry and within-subtree paths, and a separate block theorem proves exact agreement of quotient and original leader-to-leader reachability under block-root failures. The lift preserves a named original tail. Construct the actual sibling blocks and labelled arrays next, and prove flatness and occurrence counts."
+      "progress": "Lean verifies the supplied-block projection and lifting equivalence and the named tail guarantee. Original dominator subtrees have unique entry and internal paths. The original-DAG sibling block system, labelled quotient arrays, flatness and occurrence counts remain open."
     },
     {
       "id": "EX1.4",

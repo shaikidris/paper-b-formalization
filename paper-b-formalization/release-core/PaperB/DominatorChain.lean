@@ -95,4 +95,8 @@ theorem dominators_comparable
     exact Or.inl dominates_refl
   · exact Or.inr (dominates_of_rank_lt progress hv hb ha h)
 
+theorem initiallyReachable_suffix_of_dominates (hv : g.InitiallyReachable r v)
+    (hd : g.Dominates r d v) : g.InitiallyReachable d v :=
+  (split_of_dominates hv hd).2
+
 end PaperB.Digraph
