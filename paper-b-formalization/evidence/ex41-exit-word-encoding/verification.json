@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc425fa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitMapRetention.lean",
+  "sha256": "20e3b0269d720f7ce81cf9b2dcbe061987c20a0cd81dd9b719dcee2106e8413c",
+  "scope": "Verified exact composition and endpoint orientation for empty-aware exit maps, including their bounded fixed-width word encoding.",
+  "remaining": "Connect the records and fold to actual forest jump arrays and the complete quotient preprocessing and query costs."
+}

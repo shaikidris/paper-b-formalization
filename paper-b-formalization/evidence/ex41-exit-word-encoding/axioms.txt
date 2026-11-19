@@ -1,0 +1,5 @@
+'PaperB.ExitMap.Retention.map_fits' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.Retention.eval_swapMap' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.Retention.retained_eval_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.Retention.retained_io_counts' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.Retention.offsetWord_no_wrap' depends on axioms: [propext, Quot.sound]

@@ -335,7 +335,7 @@ Planning/evidence references: [evidence/ex33-forest-exit/verification.json](evid
 
 ## EX4.1 — Implement the two-coordinate map algebra
 
-- Milestone: EX4; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX4; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX3.3, EX1.2.
 - Proposed owner module: `release-core/PaperB/Index.lean`.
@@ -347,9 +347,9 @@ Acceptance:
 
 - Prove identity, evaluation and composition, including missing slots and endpoint reordering with bounded storage.
 
-The min/max preorder summary decodes to the exact ordinary-tree LCA of each finite physical-tail set. Joining intervals refines empty-aware LCA join, and the composable two-coordinate maps preserve this decoding. Instantiate the interval contract on the actual ordinary-tree index and account stored word records.
+Verified exact composition and endpoint orientation for empty-aware exit maps, including their bounded fixed-width word encoding.
 
-Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json), [evidence/ex41-exit-extrema/verification.json](evidence/ex41-exit-extrema/verification.json), [evidence/ex41-exact-lca-summary/verification.json](evidence/ex41-exact-lca-summary/verification.json).
+Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json](evidence/ex41-exit-map-algebra/verification.json), [evidence/ex41-exit-extrema/verification.json](evidence/ex41-exit-extrema/verification.json), [evidence/ex41-exact-lca-summary/verification.json](evidence/ex41-exact-lca-summary/verification.json), [evidence/ex41-exit-word-encoding/verification.json](evidence/ex41-exit-word-encoding/verification.json).
 
 <a id="ex42"></a>
 

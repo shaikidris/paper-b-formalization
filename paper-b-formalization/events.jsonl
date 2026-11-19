@@ -135,3 +135,4 @@
 {"at": "2026-11-19T21:53:56+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestHead", "tasks": ["EX2.4"], "evidence": "evidence/ex24-verified-head-step/verification.json"}
 {"at": "2026-11-19T21:54:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX5.1"], "evidence": "evidence/ex51-ram-trace-composition/verification.json"}
 {"at": "2026-11-19T21:54:02+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GuardedWitness", "tasks": ["EX6.1"], "evidence": "evidence/ex61-guarded-witness/verification.json"}
+{"at": "2026-11-19T21:55:20+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitMapRetention", "tasks": ["EX4.1"], "evidence": "evidence/ex41-exit-word-encoding/verification.json"}

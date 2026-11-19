@@ -126,7 +126,8 @@
         "release-core/PaperB/ArcOwnerTotal.lean",
         "release-core/PaperB/SeedOrderActual.lean",
         "release-core/PaperB/ExitIncoming.lean",
-        "release-core/PaperB/ExitLCABridge.lean"
+        "release-core/PaperB/ExitLCABridge.lean",
+        "release-core/PaperB/ExitMapRetention.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -897,6 +898,15 @@
       ],
       "owner_role": "application",
       "admission": "DOWNSTREAM"
+    },
+    {
+      "path": "release-core/PaperB/ExitMapRetention.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitMap.lean",
+        "release-core/PaperB/Machine.lean"
+      ],
+      "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
     }
   ],
   "structural_root": "release-core/PaperB/Exit.lean"
