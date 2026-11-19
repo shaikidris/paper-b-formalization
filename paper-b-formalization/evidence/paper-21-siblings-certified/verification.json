@@ -1,0 +1,11 @@
+{
+  "base_commit": "9c90cd1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ArcOwnerTotal.lean",
+  "sha256": "66280878ae6016550fc08b3f3f614312ad900f54a4338ca691ac435ed4f1093a",
+  "scope": "Exact retained occurrence assignment and the published sibling-quotient lemma, including tagged projection and lifting, flatness and global storage budgets.",
+  "remaining": "The linear-time global bucket construction belongs to EX5.1."
+}

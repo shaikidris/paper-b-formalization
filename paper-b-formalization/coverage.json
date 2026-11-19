@@ -90,14 +90,22 @@
         "EX1.2",
         "EX1.3"
       ],
-      "formal_status": "NOT_CERTIFIED",
+      "formal_status": "CERTIFIED",
       "claim_facets": [
         "flat siblings",
         "labelled path lifting",
         "global quotient size"
       ],
       "proposed_declaration": "PaperB.sibling_quotients",
-      "depends_on_items": []
+      "depends_on_items": [],
+      "verification": {
+        "declaration": "PaperB.sibling_quotients",
+        "build": "evidence/paper-21-siblings-certified/verification.json",
+        "axioms": "evidence/paper-21-siblings-certified/axioms.txt",
+        "fidelity": "evidence/paper-21-siblings-certified/fidelity.md",
+        "dependencies": "evidence/paper-21-siblings-certified/dependencies.md",
+        "independent_replay": "evidence/paper-21-siblings-certified/independent_replay.md"
+      }
     },
     {
       "id": "2.2",

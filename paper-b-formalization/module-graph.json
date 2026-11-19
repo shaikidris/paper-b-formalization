@@ -122,7 +122,8 @@
         "release-core/PaperB/LastExit.lean",
         "release-core/PaperB/StructuralPaper.lean",
         "release-core/PaperB/LastExitBridge.lean",
-        "release-core/PaperB/SeedOrder.lean"
+        "release-core/PaperB/SeedOrder.lean",
+        "release-core/PaperB/ArcOwnerTotal.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -811,6 +812,14 @@
       "path": "release-core/PaperB/SeedOrder.lean",
       "local_imports": [],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ArcOwnerTotal.lean",
+      "local_imports": [
+        "release-core/PaperB/StructuralPaper.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

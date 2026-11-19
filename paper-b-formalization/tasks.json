@@ -107,20 +107,21 @@
     "release-core/PaperB/PairDictionary.lean": "cuts",
     "release-core/PaperB/StaticHeavyLCA.lean": "dominator",
     "release-core/PaperB/LastExitBridge.lean": "dominator",
-    "release-core/PaperB/SeedOrder.lean": "oracle"
+    "release-core/PaperB/SeedOrder.lean": "oracle",
+    "release-core/PaperB/ArcOwnerTotal.lean": "dominator"
   },
   "milestones": [
     {
       "id": "EX0",
       "title": "Freeze the graph, algorithm and cost contracts",
       "exit_gate": "Pin the source and toolchain. Elaborate two candidate Lean types with their full quantifiers and cost units.",
-      "status": "IN_PROGRESS"
+      "status": "VERIFIED"
     },
     {
       "id": "EX1",
       "title": "Build the dominator and labelled quotient interface",
       "exit_gate": "Prove the semantic quotient and last-exit results. Supply costed dominator and static tree indices for the executable branch.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "EX2",
@@ -132,13 +133,13 @@
       "id": "EX3",
       "title": "Prove the exit-set transfer identity",
       "exit_gate": "Independently replay Theorem 4.1 on the constructed forest, including disjoint pairs. Preserve original tails and check Figure 1.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "EX4",
       "title": "Implement compressed exit summaries and queries",
       "exit_gate": "Prove the chronological construction, constant-size map composition and all online cases for the executable index.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "EX5",
@@ -410,8 +411,8 @@
         "1.1",
         "2.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Assign each retained arc to its head parent, store its original tail, and prove flatness, projection and lifting.",
       "acceptance": [
@@ -438,9 +439,17 @@
         "evidence/ex13-quotient-array-counts/verification.json",
         "evidence/ex13-unique-arc-budget/verification.json",
         "evidence/ex13-actual-arc-budget/verification.json",
-        "evidence/ex13-vertex-budget/verification.json"
+        "evidence/ex13-vertex-budget/verification.json",
+        "evidence/paper-21-siblings-certified/verification.json"
       ],
-      "progress": "The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3."
+      "progress": "Verified the exact sibling quotients for all original DAGs, with chosen labelled path lifting, flatness and the full occurrence and vertex budgets.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/paper-21-siblings-certified/verification.json",
+        "axioms": "evidence/paper-21-siblings-certified/axioms.txt",
+        "fidelity": "evidence/paper-21-siblings-certified/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX1.4",

@@ -1,0 +1,11 @@
+import PaperB.ArcOwnerTotal
+
+#print axioms PaperB.sibling_quotients
+#print axioms PaperB.sibling_quotients_of_parentSpec
+#print axioms PaperB.SiblingCertification.project_trace
+#print axioms PaperB.SiblingCertification.lift_trace
+#print axioms PaperB.Digraph.siblingEmission_exists_iff_headParent
+#print axioms PaperB.Digraph.siblingEmission_physicalTail
+#print axioms PaperB.Digraph.siblingEmissions_preserve_retained_occurrences
+#print axioms PaperB.Digraph.total_finiteSiblingArcCount_eq_retained
+#print axioms PaperB.SiblingVertexBudget.sum_siblingBlockKeys_length_le_vertex_budget

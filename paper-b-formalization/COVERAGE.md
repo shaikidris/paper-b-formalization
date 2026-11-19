@@ -6,7 +6,7 @@ Each row binds a paper statement to its proposed Lean declaration, immediate pap
 |---|---|---|---|---|---|
 | 1.1 | two-failure reachability oracle ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-1-1)) | PaperB.two_failure_dag_oracle | 2.1, 2.2, 3.2, 5.1 | NOT_CERTIFIED | EX0.1, EX0.2, EX0.3, EX1.1, EX1.2, EX1.3, EX1.4, EX1.5, EX1.6, EX2.1, EX2.2, EX2.3, EX2.4, EX4.1, EX4.2, EX4.3, EX4.4, EX5.1, EX5.2, EX5.3, EX5.4 |
 | 1.2 | listed target sets ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-1-2)) | PaperB.listed_target_sets | 1.1 | NOT_CERTIFIED | EX5.5 |
-| 2.1 | sibling quotients ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-2-1)) | PaperB.sibling_quotients | — | NOT_CERTIFIED | EX1.1, EX1.2, EX1.3 |
+| 2.1 | sibling quotients ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-2-1)) | PaperB.sibling_quotients | — | CERTIFIED | EX1.1, EX1.2, EX1.3 |
 | 2.2 | last-exit test ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-2-2)) | PaperB.last_exit_test | 2.1 | NOT_CERTIFIED | EX1.1, EX1.2, EX1.4 |
 | 3.1 | forest of proper losses ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-3-1)) | PaperB.proper_loss_forest | — | CERTIFIED | EX2.1, EX2.2 |
 | 3.2 | constructing the forest ([statement](../submissions/paper-b-v1.2-20261118/paper-b-v1.2.md#statement-3-2)) | PaperB.build_proper_loss_forest | 3.1 | NOT_CERTIFIED | EX0.3, EX2.3, EX2.4 |

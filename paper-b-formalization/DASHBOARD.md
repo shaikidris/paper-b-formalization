@@ -5,21 +5,20 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - Published edition inventory: 10 items, including 9 proof-bearing statements and Question 6.2.
 - Work inventory: 27 packages in 7 milestones.
 - Completed planning audits: 1.
-- Certified main theorems: **0/2**. Certified numbered results: **1/9**.
+- Certified main theorems: **0/2**. Certified numbered results: **2/9**.
 - Assigned workers: 0; execution: LEAN_IMPLEMENTATION_IN_PROGRESS.
 - Oracle milestone: Theorem 1.1, with one index built before the failures and target are named, including preprocessing, peak and retained words, query correctness and cost.
 - First main proof milestone: Theorem 4.1, equality of both exit-tail sets under nested cuts before any LCA compression.
 
 ## Completed and remaining
 
-- Completed work packages **8/27**. Planning audits **1** and verified proof packages **7**.
-- Remaining work packages **19**. 10 in progress, 9 planned.
-- Milestones 2 in progress, 5 planned.
+- Completed work packages **9/27**. Planning audits **1** and verified proof packages **8**.
+- Remaining work packages **18**. 9 in progress, 9 planned.
+- Milestones 4 in progress, 2 planned, 1 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
 
-- [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — At the ordinary-tree LCA of two incomparable failures, both failures lie strictly below it in distinct actual sibling blocks. Bundle these facts with the branch lemmas over all original targets.
 - [EX1.5](TASKS.md#ex15) — Executable LCA folding over nonempty reachable predecessor slots computes the greatest common ancestor and charges each predecessor occurrence once. The word version refines the semantic fold with aggregated probe and record charges. Run the fold on each topologically processed vertex; prove that the prefix tree matches original dominance and accounts for all charged operations.
 - [EX1.6](TASKS.md#ex16) — The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings. Construct and verify the actual head table and static child interval lookup.
