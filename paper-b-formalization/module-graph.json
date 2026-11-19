@@ -220,7 +220,8 @@
         "release-core/PaperB/KahnDecreasing.lean",
         "release-core/PaperB/CommonAncestorSearch.lean",
         "release-core/PaperB/JumpLCA.lean",
-        "release-core/PaperB/DomPredecessorFold.lean"
+        "release-core/PaperB/DomPredecessorFold.lean",
+        "release-core/PaperB/DomBuildStep.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -850,6 +851,14 @@
         "release-core/PaperB/SemanticLCA.lean"
       ],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DomBuildStep.lean",
+      "local_imports": [
+        "release-core/PaperB/TopologicalRank.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

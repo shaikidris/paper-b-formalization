@@ -111,7 +111,8 @@
     "release-core/PaperB/ArcOwnerTotal.lean": "dominator",
     "release-core/PaperB/SeedOrderActual.lean": "oracle",
     "release-core/PaperB/ExitIncoming.lean": "oracle",
-    "release-core/PaperB/ExitLCABridge.lean": "oracle"
+    "release-core/PaperB/ExitLCABridge.lean": "oracle",
+    "release-core/PaperB/DomBuildStep.lean": "dominator"
   },
   "milestones": [
     {
@@ -522,9 +523,10 @@
         "evidence/ex15-predecessor-lca/verification.json",
         "evidence/ex15-common-depth-search/verification.json",
         "evidence/ex15-growing-lca/verification.json",
-        "evidence/ex15-predecessor-fold/verification.json"
+        "evidence/ex15-predecessor-fold/verification.json",
+        "evidence/ex15-dominator-step/verification.json"
       ],
-      "progress": "Executable LCA folding over nonempty reachable predecessor slots computes the greatest common ancestor and charges each predecessor occurrence once. The word version refines the semantic fold with aggregated probe and record charges. Run the fold on each topologically processed vertex; prove that the prefix tree matches original dominance and accounts for all charged operations."
+      "progress": "Lean verifies the actual dominator construction step using the previously checked predecessor-fold semantics. The concrete JumpOps backend and end-to-end scan remain."
     },
     {
       "id": "EX1.6",

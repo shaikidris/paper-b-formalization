@@ -1,0 +1,11 @@
+{
+  "base_commit": "5e88284",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DomBuildStep.lean",
+  "sha256": "59644d31a5b01c657919d35235b40ea8b02b7f826dd6022806c4298607e58ef5",
+  "scope": "The actual ordinary tree predecessor-fold step under a verified JumpOps backend computes the correct immediate dominator, installs the next slot and preserves each previous ancestry entry.",
+  "remaining": "Instantiate the backend on the checked word jump arrays and execute the whole topological fold with exact total counts."
+}

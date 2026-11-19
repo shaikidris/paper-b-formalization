@@ -1,0 +1,2 @@
+'PaperB.EX15.immediateDominator_iff_predecessor_lca_partial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX15.step_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
