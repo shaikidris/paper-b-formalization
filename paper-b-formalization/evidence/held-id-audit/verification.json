@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea10691",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticFromDominators.lean",
+  "sha256": "4a6b39d2e278f68b149638432f730f3beb54a5726239973bd7f12c824da92302",
+  "scope": "The actual packed ordinary scan has a constant-index held-ID reader and linear-scatter inverse. Lean checks exact absence, present original identity, and both inverse directions, including root slot zero versus the unreachable sentinel.",
+  "remaining": "Include the checked held-ID tables in shared original static and quotient construction, then lower them to sealed index word reads."
+}

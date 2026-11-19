@@ -1185,9 +1185,10 @@
         "evidence/both-reachable-audit/verification.json",
         "evidence/third-leaf-audit/verification.json",
         "evidence/all-original-audit/verification.json",
-        "evidence/exit-span-audit/verification.json"
+        "evidence/exit-span-audit/verification.json",
+        "evidence/held-id-audit/verification.json"
       ],
-      "progress": "The exact span conversion recovers both actual witnesses using the retained inverse DFS entry and held-ID columns. Reader instantiation and machine execution remain in progress."
+      "progress": "The actual scan's packed original-to-held and held-to-original lookups have checked presence, absence and two-way inverse identities. These give the normalized query ID contracts once wired to the final index."
     },
     {
       "id": "EX5.1",

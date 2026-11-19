@@ -1,0 +1,10 @@
+'PaperB.EX15.WholeScan.PackedInput.OriginalIds.toSlot_eq_none_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX15.WholeScan.PackedInput.OriginalIds.toSlot_eq_some_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX15.WholeScan.PackedInput.OriginalIds.toSlot_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX15.WholeScan.PackedInput.OriginalIds.build' depends on axioms: [propext, Classical.choice, Quot.sound]

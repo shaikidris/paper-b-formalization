@@ -315,6 +315,259 @@ theorem dominates_iff_semanticAncestor (C : Certified α R r S s)
     (semanticAncestor_iff_jump (ofWords_parent L (scan_layout C))
       (scanSlot C a ha) (scanSlot C v hv)).symm
 
+/- Insert this block immediately before `end Scan` in
+   `PaperB.EX15.WholeScan.PackedInput`. It uses the existing imports and the
+   private `partial_layout` lemma. `Fin (occupied R s.words)` is the retained
+   slot type returned by the existing `scanSlot`. -/
+
+namespace OriginalIds
+
+set_option autoImplicit false
+
+universe uIds
+
+/-- The inverse column is an array indexed by retained slots. -/
+structure Column (G : Digraph) (m : Nat) where
+  data : Array (Vertex G)
+  size_eq : data.size = m
+
+namespace Column
+
+variable {G : Digraph} {m : Nat}
+
+def read (a : Column G m) (k : Fin m) : Vertex G :=
+  a.data[k.val]'(by rw [a.size_eq]; exact k.isLt)
+
+private def write (a : Column G m) (k : Fin m) (x : Vertex G) : Column G m :=
+  ⟨a.data.set k.val x (by rw [a.size_eq]; exact k.isLt),
+    by simpa using a.size_eq⟩
+
+private theorem read_write (a : Column G m) (j k : Fin m) (x : Vertex G) :
+    (a.write j x).read k = if k = j then x else a.read k := by
+  by_cases h : k = j
+  · subst k
+    simp [read, write, Array.getElem_set]
+  · have h₁ : k.val ≠ j.val := fun e => h (Fin.ext e)
+    have h₂ : j.val ≠ k.val := Ne.symm h₁
+    simp [read, write, Array.getElem_set, h, h₁, h₂]
+
+end Column
+
+/-- Visit original IDs in descending order. The accumulator is threaded
+    through one tail call per original ID, with one write on `some` and
+    no write on `none`. -/
+private def scatter {G : Digraph} {m : Nat}
+    (fwd : Vertex G → Option (Fin m)) :
+    (n : Nat) → n ≤ G.vertexCount → Column G m → Column G m
+  | 0, _, a => a
+  | n + 1, hn, a =>
+    let x : Vertex G := ⟨n, by omega⟩
+    let a' := match fwd x with
+      | none => a
+      | some k => a.write k x
+    scatter fwd n (by omega) a'
+
+private theorem scatter_read {G : Digraph} {m : Nat}
+    (fwd : Vertex G → Option (Fin m))
+    (inj : ∀ {x y : Vertex G} {k : Fin m},
+      fwd x = some k → fwd y = some k → x = y)
+    (x : Vertex G) (k : Fin m) (hit : fwd x = some k)
+    (n : Nat) (hn : n ≤ G.vertexCount) (a : Column G m) :
+    (scatter fwd n hn a).read k =
+      if x.val < n then x else a.read k := by
+  induction n generalizing a with
+  | zero => simp [scatter]
+  | succ n ih =>
+    let y : Vertex G := ⟨n, by omega⟩
+    have hn' : n ≤ G.vertexCount := by omega
+    let a' := match fwd y with
+      | none => a
+      | some j => a.write j y
+    change (scatter fwd n hn' a').read k = _
+    rw [ih hn' a']
+    by_cases hlt : x.val < n
+    · rw [if_pos hlt, if_pos (show x.val < n + 1 by omega)]
+    · rw [if_neg hlt]
+      by_cases he : x.val = n
+      · have hxy : x = y := Fin.ext he
+        rw [if_pos (show x.val < n + 1 by omega)]
+        change (match fwd y with
+          | none => a
+          | some j => a.write j y).read k = x
+        rw [← hxy, hit, Column.read_write, if_pos rfl]
+      · rw [if_neg (show ¬ x.val < n + 1 by omega)]
+        change (match fwd y with
+          | none => a
+          | some j => a.write j y).read k = a.read k
+        cases hy : fwd y with
+        | none => rfl
+        | some j =>
+          have hkj : k ≠ j := by
+            intro e
+            subst j
+            exact he (congrArg Fin.val (inj hit hy))
+          exact (Column.read_write a j k y).trans (if_neg hkj)
+
+private def seed {G : Digraph} (root : Vertex G) (m : Nat) : Column G m :=
+  ⟨Array.replicate m root, by simp⟩
+
+section CertifiedScan
+
+variable {β : Type uIds} {G : Digraph} {region : JumpWordRegion}
+  {root : Vertex G} {st : ScanState}
+variable (C : Certified β region root (G.InitiallyReachable root) st)
+
+include C
+
+private theorem root_mem : G.InitiallyReachable root root := by
+  obtain ⟨F, I⟩ := C
+  exact I.rootMem
+
+private theorem root_zero (h : G.InitiallyReachable root root) :
+    (scanSlot C root h).val = 0 := by
+  obtain ⟨F, I⟩ := C
+  exact I.rootSlot
+
+private theorem count_pos : 0 < occupied region st.words := by
+  have h := (scanSlot C root (root_mem C)).isLt
+  rw [root_zero C (root_mem C)] at h
+  exact h
+
+private theorem reachable_of_nonzero (x : Vertex G)
+    (h : readSlot st.slots x ≠ 0) : G.InitiallyReachable root x := by
+  obtain ⟨F, I⟩ := C
+  exact Classical.byContradiction (fun hn => h (I.unmapped x hn))
+
+private theorem nonzero_of_reachable (x : Vertex G)
+    (hx : G.InitiallyReachable root x) (hne : x ≠ root) :
+    readSlot st.slots x ≠ 0 := by
+  intro hz
+  obtain ⟨F, I⟩ := C
+  exact hne (I.injective hx I.rootMem (hz.trans I.rootSlot.symm))
+
+/-- Constant-time lookup. The root bypasses the sentinel test. Every other
+    vertex uses one packed-slot read, and that value is reused on a hit. -/
+def toSlot (x : Vertex G) : Option (Fin (occupied region st.words)) :=
+  if x = root then
+    some ⟨0, count_pos C⟩
+  else
+    let k := readSlot st.slots x
+    if h : k = 0 then none
+    else some ⟨k, (scanSlot C x (reachable_of_nonzero C x h)).isLt⟩
+
+theorem toSlot_of_reachable (x : Vertex G) (hx : G.InitiallyReachable root x) :
+    toSlot C x = some (scanSlot C x hx) := by
+  by_cases hr : x = root
+  · subst x
+    rw [toSlot, if_pos rfl]
+    exact congrArg some (Fin.ext (root_zero C hx).symm)
+  · have hn := nonzero_of_reachable C x hx hr
+    simp only [toSlot, if_neg hr, dif_neg hn] <;>
+      exact congrArg some (Fin.ext rfl)
+
+theorem toSlot_eq_none_iff (x : Vertex G) :
+    toSlot C x = none ↔ ¬ G.InitiallyReachable root x := by
+  constructor
+  · intro h hx
+    rw [toSlot_of_reachable C x hx] at h
+    cases h
+  · intro hx
+    have hr : x ≠ root := by
+      intro e
+      subst x
+      exact hx (root_mem C)
+    have hz : readSlot st.slots x = 0 := by
+      obtain ⟨F, I⟩ := C
+      exact I.unmapped x hx
+    simp only [toSlot, if_neg hr, dif_pos hz]
+
+theorem toSlot_eq_some_iff (x : Vertex G) (k : Fin (occupied region st.words)) :
+    toSlot C x = some k ↔
+      ∃ hx : G.InitiallyReachable root x, scanSlot C x hx = k := by
+  constructor
+  · intro h
+    have hx : G.InitiallyReachable root x := by
+      apply Classical.byContradiction
+      intro hn
+      have e := (toSlot_eq_none_iff C x).2 hn
+      rw [h] at e
+      cases e
+    rw [toSlot_of_reachable C x hx] at h
+    exact ⟨hx, Option.some.inj h⟩
+  · rintro ⟨hx, e⟩
+    rw [toSlot_of_reachable C x hx, e]
+
+private theorem hit_inj {x y : Vertex G} {k : Fin (occupied region st.words)}
+    (hx : toSlot C x = some k) (hy : toSlot C y = some k) : x = y := by
+  obtain ⟨hxr, ex⟩ := (toSlot_eq_some_iff C x k).1 hx
+  obtain ⟨hyr, ey⟩ := (toSlot_eq_some_iff C y k).1 hy
+  obtain ⟨F, I⟩ := C
+  exact I.injective hxr hyr (congrArg Fin.val (ex.trans ey.symm))
+
+private theorem has_hit (k : Fin (occupied region st.words)) :
+    ∃ x : Vertex G, toSlot C x = some k := by
+  have hslot := fun x : Vertex G => toSlot_eq_some_iff C x k
+  obtain ⟨F, I⟩ := C
+  have hk := k.isLt
+  change k.val < readWord st.words region.baseAddr at hk
+  rw [(partial_layout I).size_word] at hk
+  obtain ⟨x, hx, e⟩ := I.onto k.val hk
+  exact ⟨x, (hslot x).2 ⟨hx, Fin.ext e⟩⟩
+
+/-- Initialize exactly `occupied region st.words` cells, then visit each
+    original ID exactly once. No graph traversal and no witness extraction
+    enter the executable definition. -/
+def inverse : Column G (occupied region st.words) :=
+  scatter (toSlot C) G.vertexCount (Nat.le_refl _)
+    (seed root (occupied region st.words))
+
+theorem inverse_read {x : Vertex G} {k : Fin (occupied region st.words)}
+    (h : toSlot C x = some k) : (inverse C).read k = x := by
+  unfold inverse
+  rw [scatter_read (toSlot C) (fun hx hy => hit_inj C hx hy) x k h,
+    if_pos x.isLt]
+
+theorem toSlot_inverse (k : Fin (occupied region st.words)) :
+    toSlot C ((inverse C).read k) = some k := by
+  obtain ⟨x, hx⟩ := has_hit C k
+  rw [inverse_read C hx]
+  exact hx
+
+end CertifiedScan
+
+structure Reader (G : Digraph) (root : Vertex G) (m : Nat) where
+  find : Vertex G → Option (Fin m)
+  originals : Column G m
+  miss_iff : ∀ x, find x = none ↔ ¬ G.InitiallyReachable root x
+  original_of_slot : ∀ x k, find x = some k → originals.read k = x
+  slot_of_original : ∀ k, find (originals.read k) = some k
+
+theorem Reader.original_reachable {G : Digraph} {root : Vertex G} {m : Nat}
+    (q : Reader G root m) (k : Fin m) :
+    G.InitiallyReachable root (q.originals.read k) := by
+  apply Classical.byContradiction
+  intro hn
+  have e := (q.miss_iff (q.originals.read k)).2 hn
+  rw [q.slot_of_original k] at e
+  cases e
+
+/-- Build from the same certificate passed to `scanInput` at the `ofScan`
+    call site. Store this result once: `find` and `originals.read` are
+    constant-time queries. `slot_of_original` makes the inverse read
+    injective, so there are at most `G.vertexCount` initialized cells.
+    The scatter performs at most one write per original ID. -/
+def build {β : Type uIds} {G : Digraph} {region : JumpWordRegion}
+    {root : Vertex G} {st : ScanState}
+    (C : Certified β region root (G.InitiallyReachable root) st) :
+    Reader G root (occupied region st.words) where
+  find := toSlot C
+  originals := inverse C
+  miss_iff := toSlot_eq_none_iff C
+  original_of_slot := fun _ _ h => inverse_read C h
+  slot_of_original := toSlot_inverse C
+
+end OriginalIds
+
 end Scan
 
 /- At the original-graph call site (the module defining EX15.runGraph):
