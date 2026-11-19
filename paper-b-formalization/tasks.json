@@ -171,7 +171,8 @@
     "release-core/PaperB/ForestActualFull.lean": "cuts",
     "release-core/PaperB/ForestPhysicalReflection.lean": "cuts",
     "release-core/PaperB/ForestMeasuredWork.lean": "cuts",
-    "release-core/PaperB/ForestPhysicalIntervals.lean": "cuts"
+    "release-core/PaperB/ForestPhysicalIntervals.lean": "cuts",
+    "release-core/PaperB/ForestEventChronology.lean": "exit"
   },
   "milestones": [
     {
@@ -1128,9 +1129,10 @@
         "evidence/ex42-exact-exit-kernels/verification.json",
         "evidence/physical-exit-audit/verification.json",
         "evidence/exit-indexed-audit/verification.json",
-        "evidence/physical-entry-audit/verification.json"
+        "evidence/physical-entry-audit/verification.json",
+        "evidence/forest-event-chronology-audit/verification.json"
       ],
-      "progress": "The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing."
+      "progress": "The actual forest event log now has checked first-creation and final parent chronology. The scatter can produce the exit schedule without per-vertex forest scans once its exact slot correspondence is joined."
     },
     {
       "id": "EX4.3",

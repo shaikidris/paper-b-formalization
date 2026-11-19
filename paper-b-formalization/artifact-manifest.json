@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3561,
-      "sha256": "b4c0e29e712b87c43c51ac25cebac1e2a4e457f483a8b67334cb9d3af786fa1b"
+      "bytes": 3562,
+      "sha256": "a10ce46f77cc7c5ddd4dba51e593c3087bf035f59fbb230d601dbaa48781ac60"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 46229,
-      "sha256": "909c316bfb0ab729640a4b618316b455f0a469f82b45d4b917988360dfd024f9"
+      "bytes": 46348,
+      "sha256": "2b5c183300fcff8cad4fbf3c3927c45ff60cc8a611cef2f52324c32118055750"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 44601,
-      "sha256": "d3aadd7787717e7aa2ac484a66f37880c85688f9e44fbfd9869a771f5b140ffc"
+      "bytes": 44806,
+      "sha256": "ee96dc2a6e0f2fbee44f4b5eaf6adbfaa23fe616a04a48909f6607a0db120f36"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2367,6 +2367,21 @@
       "sha256": "1825155ade6c4e25872102eea5bc819ed49ccc5dee07bd65d67497ca354f235a"
     },
     {
+      "path": "evidence/forest-event-chronology-audit/Audit.lean",
+      "bytes": 234,
+      "sha256": "fc40b74d5948c830dab24a70da5dc7a22c1086590356b5e55383e9840292dbbc"
+    },
+    {
+      "path": "evidence/forest-event-chronology-audit/axioms.txt",
+      "bytes": 309,
+      "sha256": "b03ba185f42589c1b57f44a7a74a389a001a789192bbc67c88af22e5d97f9f56"
+    },
+    {
+      "path": "evidence/forest-event-chronology-audit/verification.json",
+      "bytes": 658,
+      "sha256": "6c24abfd3462cb89b594e234f99aba7d5e2f5f7dc7877bc07d7fa923ecb9f90b"
+    },
+    {
       "path": "evidence/forest-exact-dict-audit/Audit.lean",
       "bytes": 285,
       "sha256": "eb0af72821d284e3889d62b006e6a153b2cd6ed0a881b5fa3ee3246e1eae0abc"
@@ -3053,8 +3068,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 44151,
-      "sha256": "72bf14a67a93a916032aa9f72d59ef32d7caeab34761ca9e481a085f0876a45e"
+      "bytes": 44439,
+      "sha256": "c2e94da2954b8c893afebd60c03c15db7af20500b6b4e8519eb70798826c260f"
     },
     {
       "path": "obligations.json",
@@ -3320,6 +3335,11 @@
       "path": "release-core/PaperB/ForestEndpoints.lean",
       "bytes": 17412,
       "sha256": "e545c580d86cb162fc0cd59850a991b8072ac8d39d2a19988a33876552227993"
+    },
+    {
+      "path": "release-core/PaperB/ForestEventChronology.lean",
+      "bytes": 15278,
+      "sha256": "3b7b9e0717c6587d5e4c573d50f0ec520e605bccf43adb961755c236fde7814b"
     },
     {
       "path": "release-core/PaperB/ForestExactDictionary.lean",
@@ -3773,8 +3793,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 3674,
-      "sha256": "7f5f606f5ba6eab0d420234dbc4140565a70e90aed27f4707a18617aac8cc37f"
+      "bytes": 3706,
+      "sha256": "1a1346c27b95217b432f1ee356b3d7a9c1583cc7c798cfafa03dc0843fd81949"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -3878,8 +3898,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 64867,
-      "sha256": "3b991f1bf79f39a54c278d22439f8489ec8b745efc9f01430fd48053190e6a52"
+      "bytes": 64998,
+      "sha256": "8a0ef851f9be7e66967a1ed7b1eee186bf4389d7f66711c299980fc5cb5b9ba9"
     },
     {
       "path": "test_plan.py",

@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — The exact physical DFS membership reader is verified on the final grounded records. Known-node tests use constant-time entry/stop comparisons and dictionary lookup stays logarithmic.
-- [EX4.2](TASKS.md#ex42) — The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing.
+- [EX4.2](TASKS.md#ex42) — The actual forest event log now has checked first-creation and final parent chronology. The scatter can produce the exit schedule without per-vertex forest scans once its exact slot correspondence is joined.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — The dense quotient vertex layout is verified in one pass over actual ordinary children, with exact local addressing and at most two vertex copies per retained original.

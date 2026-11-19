@@ -1,0 +1,11 @@
+{
+  "base_commit": "9f61fc9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestEventChronology.lean",
+  "sha256": "3b7b9e0717c6587d5e4c573d50f0ec520e605bccf43adb961755c236fde7814b",
+  "scope": "The actual compact forest log records each real node's unique first allocation and final physical parent. Lean checks preservation on reuse and the bounded first-creation scatter that prepares the exit schedule.",
+  "remaining": "Prove the compact scatter array satisfies the exact exit firstAt schedule and refine its physical map writers."
+}

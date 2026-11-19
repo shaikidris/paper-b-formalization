@@ -203,3 +203,4 @@
 {"at": "2026-11-19T23:41:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPhysicalReflection", "tasks": ["EX2.4"], "evidence": "evidence/forest-reflection-audit/verification.json"}
 {"at": "2026-11-19T23:41:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestMeasuredWork", "tasks": ["EX2.4"], "evidence": "evidence/forest-measured-work-audit/verification.json"}
 {"at": "2026-11-19T23:41:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPhysicalIntervals", "tasks": ["EX2.4"], "evidence": "evidence/forest-physical-intervals-audit/verification.json"}
+{"at": "2026-11-19T23:41:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestEventChronology", "tasks": ["EX4.2"], "evidence": "evidence/forest-event-chronology-audit/verification.json"}

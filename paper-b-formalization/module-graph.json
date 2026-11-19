@@ -143,7 +143,8 @@
         "release-core/PaperB/AllOrigOracleCases.lean",
         "release-core/PaperB/ExitSpanBridge.lean",
         "release-core/PaperB/OriginalStaticConnector.lean",
-        "release-core/PaperB/DenseQuotientRows.lean"
+        "release-core/PaperB/DenseQuotientRows.lean",
+        "release-core/PaperB/ForestEventChronology.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1430,6 +1431,14 @@
         "release-core/PaperB/StaticOracleTree.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestEventChronology.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestTopologicalTotal.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],
