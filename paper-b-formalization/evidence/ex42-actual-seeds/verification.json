@@ -1,0 +1,11 @@
+{
+  "base_commit": "9c90cd1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SeedOrderActual.lean",
+  "sha256": "7c47776c0f7e12797247b5a3e1d715d3b8022486071d528f40a1f08c257d9e1b",
+  "scope": "The verified seed chronology applies to the actual computed forest and its exact proper-loss labels, including nested real parent and child nodes.",
+  "remaining": "Connect availability to stored base and map arrays, including artificial-root map and repeated seeds."
+}
