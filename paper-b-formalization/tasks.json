@@ -173,7 +173,8 @@
     "release-core/PaperB/ForestMeasuredWork.lean": "cuts",
     "release-core/PaperB/ForestPhysicalIntervals.lean": "cuts",
     "release-core/PaperB/ForestEventChronology.lean": "exit",
-    "release-core/PaperB/ForestSiteDepth.lean": "cuts"
+    "release-core/PaperB/ForestSiteDepth.lean": "cuts",
+    "release-core/PaperB/ActualSiblingEmitter.lean": "quotient"
   },
   "milestones": [
     {
@@ -1248,9 +1249,10 @@
         "evidence/ex51-one-word-midpoint/verification.json",
         "evidence/global-sibling-audit/verification.json",
         "evidence/ram-midpoint-audit/verification.json",
-        "evidence/dense-quotient-audit/verification.json"
+        "evidence/dense-quotient-audit/verification.json",
+        "evidence/actual-sibling-emitter-audit/verification.json"
       ],
-      "progress": "The dense quotient vertex layout is verified in one pass over actual ordinary children, with exact local addressing and at most two vertex copies per retained original."
+      "progress": "The actual ordinary static index now supplies provably correct sibling quotient buckets directly from original-graph arc occurrences, with one checked child lookup charge per retained arc. Local dense rows and whole-arena accounting remain open."
     },
     {
       "id": "EX5.2",

@@ -1,0 +1,4 @@
+import PaperB.ActualSiblingEmitter
+#print axioms PaperB.StaticOriginalSiblingEmitter.checked
+#print axioms PaperB.StaticOriginalSiblingEmitter.child_some_original
+#print axioms PaperB.StaticOriginalSiblingEmitter.locate_cost_le

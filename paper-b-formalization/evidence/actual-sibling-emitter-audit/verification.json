@@ -1,0 +1,11 @@
+{
+  "base_commit": "8db228f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ActualSiblingEmitter.lean",
+  "sha256": "3bdce630b57e04b1521e513c481469d1fb043f8635a57add5a37663adae90472",
+  "scope": "The ordinary static reader implements the original-graph quotient emitter getters. Its physical root and child codes agree with both endpoints of each emitted sibling arc and charge at most one checked child lookup per arc.",
+  "remaining": "Convert global codes to local dense quotient rows, preserve all physical tails and charge aggregate construction."
+}

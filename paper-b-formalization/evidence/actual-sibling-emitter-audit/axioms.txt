@@ -1,0 +1,3 @@
+'PaperB.StaticOriginalSiblingEmitter.checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticOriginalSiblingEmitter.child_some_original' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticOriginalSiblingEmitter.locate_cost_le' depends on axioms: [propext, Quot.sound]
