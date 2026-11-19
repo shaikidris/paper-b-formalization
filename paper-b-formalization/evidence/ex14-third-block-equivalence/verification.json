@@ -1,0 +1,11 @@
+{
+  "base_commit": "f574c96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ThirdBlock.lean",
+  "sha256": "d4b336d020260d7b3f65000fa0623094e94ff4f7470929b4fba3c380dcebe9ad",
+  "scope": "Every original third-block query is equivalent to a failure-block-free path in the finite sibling quotient or a reachable physical exit tail for one of the failed blocks.",
+  "remaining": "Replace the reachable-tail disjunction by exact ordinary-tree LCA tests."
+}

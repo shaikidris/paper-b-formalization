@@ -142,9 +142,9 @@ Acceptance:
 - Prove nonemptiness of both exit sets and the inclusive ancestry tests for the LCA of physical tails.
 - Cover a failure equal to a block root, the LCA target, a target outside its subtree and a direct last exit to a third block.
 
-Actual finite sibling quotient paths avoiding both failure blocks lift to original surviving paths. A reachable labelled exit tail with a clean continuation also lifts, including a direct last exit. Specialize the forward path decomposition on the same encoded quotient and pass the selected tails to the LCA test.
+Every original third-block query is equivalent to a failure-block-free path in the finite sibling quotient or a reachable physical exit tail for one of the failed blocks. Replace the reachable-tail disjunction by exact ordinary-tree LCA tests.
 
-Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json), [evidence/ex14-third-block-lift/verification.json](evidence/ex14-third-block-lift/verification.json).
+Planning/evidence references: [evidence/ex14-last-exit-outside-own/verification.json](evidence/ex14-last-exit-outside-own/verification.json), [evidence/ex14-both-exits/verification.json](evidence/ex14-both-exits/verification.json), [evidence/ex14-forward-last-exit/verification.json](evidence/ex14-forward-last-exit/verification.json), [evidence/ex14-third-block-lift/verification.json](evidence/ex14-third-block-lift/verification.json), [evidence/ex14-third-block-equivalence/verification.json](evidence/ex14-third-block-equivalence/verification.json).
 
 <a id="ex15"></a>
 

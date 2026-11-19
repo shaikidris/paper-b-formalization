@@ -117,7 +117,8 @@
         "release-core/PaperB/FiniteSiblingBudget.lean",
         "release-core/PaperB/SiblingVertexBudget.lean",
         "release-core/PaperB/ExitNonempty.lean",
-        "release-core/PaperB/ThirdBlockLift.lean"
+        "release-core/PaperB/ThirdBlockLift.lean",
+        "release-core/PaperB/ThirdBlock.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -714,6 +715,15 @@
         "release-core/PaperB/PairLookup.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ThirdBlock.lean",
+      "local_imports": [
+        "release-core/PaperB/ThirdBlockLift.lean",
+        "release-core/PaperB/ThirdBlockForward.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

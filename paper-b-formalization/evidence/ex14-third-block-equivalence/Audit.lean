@@ -1,0 +1,3 @@
+import PaperB.ThirdBlock
+
+#print axioms PaperB.Digraph.lemma22_third_survivingPath_iff_exitTailMem
