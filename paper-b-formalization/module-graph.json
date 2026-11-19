@@ -304,7 +304,8 @@
         "release-core/PaperB/ForestCompactFold.lean",
         "release-core/PaperB/ForestExactDictionary.lean",
         "release-core/PaperB/ForestActualStep.lean",
-        "release-core/PaperB/MeasuredCutRange.lean"
+        "release-core/PaperB/MeasuredCutRange.lean",
+        "release-core/PaperB/ForestTopologicalTotal.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1348,6 +1349,15 @@
       "path": "release-core/PaperB/MeasuredCutRange.lean",
       "local_imports": [
         "release-core/PaperB/ForestHead.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestTopologicalTotal.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestActualStep.lean",
+        "release-core/PaperB/ForestExactDictionary.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

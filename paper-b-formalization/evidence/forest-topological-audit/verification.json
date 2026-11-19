@@ -1,0 +1,11 @@
+{
+  "base_commit": "fa668da",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestTopologicalTotal.lean",
+  "sha256": "36bfea4ca35b7154e8aa3b57e4eca43d621b0d362ad1e40d4cc2526cf5418e93",
+  "scope": "The actual tail-recursive forest fold is total under the exact ordered rows, packed configuration, candidate dictionary and occupied-parent premise. Lean proves the canonical embedding on all original row labels, final occupied capacity and exact source-labelled log.",
+  "remaining": "Discharge the per-row occupied-parent premise with the checked measured kernel, bind the actual quotient schedule and final DFS arrays, and audit aggregate time and space."
+}

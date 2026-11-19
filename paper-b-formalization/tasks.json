@@ -163,7 +163,8 @@
     "release-core/PaperB/StaticOracleTree.lean": "dominator",
     "release-core/PaperB/ExitSpanBridge.lean": "oracle",
     "release-core/PaperB/RamStaticLCA.lean": "cost model",
-    "release-core/PaperB/MeasuredCutRange.lean": "cuts"
+    "release-core/PaperB/MeasuredCutRange.lean": "cuts",
+    "release-core/PaperB/ForestTopologicalTotal.lean": "cuts"
   },
   "milestones": [
     {
@@ -902,9 +903,10 @@
         "evidence/forest-actual-step-audit/verification.json",
         "evidence/measured-cut-audit/verification.json",
         "evidence/compact-loop-public-audit/verification.json",
-        "evidence/prepared-parent-audit/verification.json"
+        "evidence/prepared-parent-audit/verification.json",
+        "evidence/forest-topological-audit/verification.json"
       ],
-      "progress": "The selected parent is proved occupied before installation for every actual prepared head. The proof uses only always-valid range, the checked prefix mapping and exact packed ancestor reads.",
+      "progress": "Lean verifies the full increasing-order fold and final canonical labels under exact packed inputs and per-row parent occupancy. A separate checked theorem supplies that parent premise. The actual constructor and aggregate resource proof remain in progress.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
