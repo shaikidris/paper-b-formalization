@@ -1,0 +1,7 @@
+import PaperB.FiniteSiblingFlat
+
+#print axioms PaperB.Digraph.finiteSiblingQuotient_avoidPath_iff
+#print axioms PaperB.Digraph.finiteSiblingQuotient_isFlat
+#print axioms PaperB.Digraph.finiteSiblingRank_injective
+#print axioms PaperB.Digraph.finiteSiblingQuotient_edge_exitTailMem_iff
+#check @PaperB.Digraph.finiteSiblingQuotient_edge_exitTailMem_iff

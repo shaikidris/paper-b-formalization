@@ -108,7 +108,8 @@
         "release-core/PaperB/ForestIntervals.lean",
         "release-core/PaperB/ForestIntervalQuery.lean",
         "release-core/PaperB/ExitMap.lean",
-        "release-core/PaperB/ExitSummary.lean"
+        "release-core/PaperB/ExitSummary.lean",
+        "release-core/PaperB/FiniteSiblingFlat.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -482,6 +483,15 @@
         "release-core/PaperB/ReachScan.lean"
       ],
       "owner_role": "graph",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/FiniteSiblingFlat.lean",
+      "local_imports": [
+        "release-core/PaperB/FiniteSiblingQuotient.lean",
+        "release-core/PaperB/Exit.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

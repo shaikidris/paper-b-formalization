@@ -73,7 +73,8 @@
     "release-core/PaperB/SiblingEmissions.lean": "dominator",
     "release-core/PaperB/FiniteSiblingQuotient.lean": "dominator",
     "release-core/PaperB/PairLookup.lean": "cuts",
-    "release-core/PaperB/CompactIds.lean": "graph"
+    "release-core/PaperB/CompactIds.lean": "graph",
+    "release-core/PaperB/FiniteSiblingFlat.lean": "dominator"
   },
   "milestones": [
     {
@@ -377,9 +378,10 @@
         "evidence/ex13-occurrence-budget/verification.json",
         "evidence/ex13-quotient-arrays/verification.json",
         "evidence/ex13-original-emissions/verification.json",
-        "evidence/ex13-finite-sibling/verification.json"
+        "evidence/ex13-finite-sibling/verification.json",
+        "evidence/ex13-finite-flatness/verification.json"
       ],
-      "progress": "Lean constructs the finite labelled sibling quotient from original arcs, proves both exact label membership and underlying edge correspondence, and verifies topological rank. Transport abstract flatness to these arrays and instantiate the global size bounds."
+      "progress": "Lean verifies the finite labelled sibling quotient’s original-tail correspondence, exact finite path transport, single-failure flatness and injective topological rank. The global sum of the actual quotient sizes remains open."
     },
     {
       "id": "EX1.4",
@@ -783,9 +785,10 @@
       ],
       "evidence": [
         "evidence/ex33-forest-exit/verification.json",
-        "evidence/ex33-figure-1/verification.json"
+        "evidence/ex33-figure-1/verification.json",
+        "evidence/ex13-finite-flatness/verification.json"
       ],
-      "progress": "Lean verifies exact exit transfer on the constructed forest of a supplied flat labelled quotient and replays Figure 1's exact union terms and actual computed pair-parent edge and vertex labels. The original-graph quotient construction and EX3 dependencies remain open."
+      "progress": "Lean now instantiates exit transfer on the actual Fin-labelled sibling quotient built from original DAG arcs. It carries the exact physical tail. Figure 1 replays. Whole task and paper-statement acceptance await EX1.3 and EX2 evidence and the dependent task checklist."
     },
     {
       "id": "EX4.1",

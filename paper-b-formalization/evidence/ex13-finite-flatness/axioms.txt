@@ -1,0 +1,33 @@
+'PaperB.Digraph.finiteSiblingQuotient_avoidPath_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.finiteSiblingQuotient_isFlat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.finiteSiblingRank_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.finiteSiblingQuotient_edge_exitTailMem_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.finiteSiblingQuotient_edge_exitTailMem_iff : ∀ {g : PaperB.Digraph} {r d : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount}
+  (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) (spec : g.ParentSpec r parent)
+  (hd : g.InitiallyReachable r d) {x : Fin g.vertexCount}
+  (uP :
+    Fin
+      (((PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).buildProperLossForest
+            (PaperB.Digraph.finiteSiblingRank progress injective spec hd)).realNodeCount +
+        1))
+  (P B : (PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).CutPair),
+  ((PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).buildProperLossForest
+            (PaperB.Digraph.finiteSiblingRank progress injective spec hd)).nodeKey?
+        uP =
+      some P →
+    ((PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).buildProperLossForest
+              (PaperB.Digraph.finiteSiblingRank progress injective spec hd)).nodeKey?
+          (((PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).buildProperLossForest
+                (PaperB.Digraph.finiteSiblingRank progress injective spec hd)).parent
+            uP) =
+        some B →
+      ∀ (s y : Fin (PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).vertexCount),
+        B.Mem s →
+          (PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).ProperLoss P y →
+            ((PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).ExitTailMem B s y x ↔
+              (∃ p,
+                  PaperB.LabelledQuotient.IsFreshEndpoint B P p ∧
+                    (PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).ExitTailMem B s p x) ∨
+                P.Mem s ∧ (PaperB.Digraph.finiteSiblingQuotient progress injective spec hd).ExitTailMem P s y x)

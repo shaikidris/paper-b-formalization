@@ -1,0 +1,11 @@
+{
+  "base_commit": "ad4253a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FiniteSiblingFlat.lean",
+  "sha256": "abac67a738cf180ba90332cdd73436dc1ec5be895af4118e4daf984833903aec",
+  "scope": "Exact finite-quotient path transport, flatness and injective rank on arrays built from original arcs, plus the real-edge exit-transfer instance.",
+  "remaining": "Complete the actual aggregate sizes and the whole-statement evidence gates."
+}
