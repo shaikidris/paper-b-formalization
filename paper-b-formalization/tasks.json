@@ -51,7 +51,8 @@
     "release-core/PaperB/DominatorTree.lean": "dominator",
     "release-core/PaperB/DominatorBoundary.lean": "dominator",
     "release-core/PaperB/ExitSummary.lean": "oracle",
-    "release-core/PaperB/TopologicalRank.lean": "dominator"
+    "release-core/PaperB/TopologicalRank.lean": "dominator",
+    "release-core/PaperB/WordOps.lean": "cost model"
   },
   "milestones": [
     {
@@ -217,9 +218,10 @@
         "Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation."
       ],
       "evidence": [
-        "evidence/ex03-machine-foundation/verification.json"
+        "evidence/ex03-machine-foundation/verification.json",
+        "evidence/ex03-word-operations/verification.json"
       ],
-      "progress": "Lean builds an abstract array-block machine with bounded-width payload words, explicit read/write/allocation/release charges and checked work and peak aggregation. Released slots remain counted as metadata. Address fit, live-word invariant, arithmetic and lowbit primitives, allocation-transient space and construction/query trace integration remain open."
+      "progress": "Lean verifies finite-word arithmetic, comparison, the lowbit primitive composition and a logarithmic address bound that counts every arc occurrence. The heap primitives and observation aggregation build. Actual program execution, live-layout and allocation bounds, and build/query trace integration remain open."
     },
     {
       "id": "EX1.1",

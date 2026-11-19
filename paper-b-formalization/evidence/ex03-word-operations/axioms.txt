@@ -1,0 +1,11 @@
+'PaperB.WordOps.add_val' does not depend on any axioms
+'PaperB.WordOps.sub_val' does not depend on any axioms
+'PaperB.WordOps.band_val' depends on axioms: [propext, Quot.sound]
+'PaperB.WordOps.ltb_eq_true' depends on axioms: [propext]
+'PaperB.WordOps.add_no_wrap' depends on axioms: [propext]
+'PaperB.WordOps.lowbit_val' depends on axioms: [propext, Quot.sound]
+'PaperB.WordOps.address_bound' depends on axioms: [propext, Quot.sound]
+'PaperB.WordOps.address_size' depends on axioms: [propext, Quot.sound]
+PaperB.WordOps.address_size : ∀ (n m : Nat),
+  (∀ (v : Fin n), ↑v < 2 ^ PaperB.WordOps.addrBits n m) ∧
+    ∀ (e : Fin m), ↑e < 2 ^ PaperB.WordOps.addrBits n m ∧ n + ↑e < 2 ^ PaperB.WordOps.addrBits n m

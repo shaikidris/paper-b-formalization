@@ -114,7 +114,8 @@
       "path": "release-core/PaperB/Resources.lean",
       "local_imports": [
         "release-core/PaperB/Oracle.lean",
-        "release-core/PaperB/Machine.lean"
+        "release-core/PaperB/Machine.lean",
+        "release-core/PaperB/WordOps.lean"
       ],
       "owner_role": "cost model",
       "admission": "ORACLE_CORE"
@@ -280,6 +281,14 @@
         "release-core/PaperB/DominatorTree.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/WordOps.lean",
+      "local_imports": [
+        "release-core/PaperB/Machine.lean"
+      ],
+      "owner_role": "cost model",
       "admission": "ORACLE_CORE"
     }
   ],

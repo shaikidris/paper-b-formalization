@@ -1,0 +1,11 @@
+{
+  "base_commit": "fd55326fe365dc0cf52314c12d5f0d2f4bce651f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/WordOps.lean",
+  "sha256": "4b1ee2cd3dfa9e660714a6b2f0a63afb459ba4c6aa7df6221faee7297d072bbd",
+  "scope": "Typed modular word addition, subtraction, bitwise AND and comparison, lowbit as fixed primitive composition, and logarithmic address capacity for vertex and parallel-arc occurrence indices.",
+  "remaining": "Tie instructions to actual program executions, prove the live-word invariant and allocation-transient bounds, and connect the immutable index to build and query."
+}
