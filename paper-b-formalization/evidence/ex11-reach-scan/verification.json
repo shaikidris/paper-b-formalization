@@ -1,0 +1,11 @@
+{
+  "base_commit": "555bd7d2a84ecfc5ab452822ce031e17b0b8ec13",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ReachScan.lean",
+  "sha256": "3303992204a9543e371f98cdf9ef827996fa2ddccc9701dddac6263bf2842430",
+  "scope": "An array-based scan of a supplied topological vertex list counts every vertex visit and every examined adjacency occurrence with multiplicity, and Lean verifies the traversal bound.",
+  "remaining": "Prove scan soundness and completeness, construct the topological order and the compact ID arrays, and relate traversal counts to actual machine instructions."
+}

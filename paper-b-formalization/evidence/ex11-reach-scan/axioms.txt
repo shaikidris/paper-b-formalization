@@ -1,0 +1,7 @@
+'PaperB.Digraph.scanReachability_size' depends on axioms: [propext]
+'PaperB.Digraph.scanReachability_vertexVisits' depends on axioms: [propext]
+'PaperB.Digraph.scanReachability_adjacencyOccurrences_le' depends on axioms: [propext]
+'PaperB.Digraph.scanReachability_probes_le' depends on axioms: [propext]
+PaperB.Digraph.scanReachability_probes_le : ∀ (g : PaperB.Digraph) (source : Fin g.vertexCount)
+  (order : List (Fin g.vertexCount)) (verified : g.IsTopologicalList order),
+  (g.scanReachability source order verified).probes ≤ order.length + g.suppliedAdjacencyLength order

@@ -174,7 +174,8 @@
         "release-core/PaperB/DominatorChain.lean",
         "release-core/PaperB/ImmediateDominator.lean",
         "release-core/PaperB/DominatorTree.lean",
-        "release-core/PaperB/TopologicalRank.lean"
+        "release-core/PaperB/TopologicalRank.lean",
+        "release-core/PaperB/ReachScan.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -307,6 +308,14 @@
         "release-core/PaperB/BlockPaths.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ReachScan.lean",
+      "local_imports": [
+        "release-core/PaperB/Graph.lean"
+      ],
+      "owner_role": "graph",
       "admission": "ORACLE_CORE"
     }
   ],
