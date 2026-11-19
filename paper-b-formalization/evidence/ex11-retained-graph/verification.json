@@ -1,0 +1,11 @@
+{
+  "base_commit": "c2acdb4ffe95d81d3be51f43af53b34a9152a502",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Graph.lean",
+  "sha256": "eb52114bd01bc2ea26340a5f7b27a1040fe91c195690bbf7466cfa9ae6c85bb1",
+  "scope": "Restrict to initially reachable original IDs, with bidirectional surviving-path transport for every failure predicate and exact preservation of parallel adjacency occurrences.",
+  "remaining": "Implement and charge a topological enumeration and a compact lookup table from original identifiers."
+}

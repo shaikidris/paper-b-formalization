@@ -1,0 +1,9 @@
+'PaperB.Digraph.survivingPath_iff_retained' does not depend on any axioms
+'PaperB.Digraph.ReachableVertex.outArcs_values' does not depend on any axioms
+'PaperB.Digraph.not_survivingPath_of_failed_endpoint' does not depend on any axioms
+PaperB.Digraph.survivingPath_iff_retained : ∀ (g : PaperB.Digraph) (r v : Fin g.vertexCount)
+  (failed : Fin g.vertexCount → Prop),
+  g.SurvivingPath failed r v ↔
+    ∃ hv,
+      PaperB.AvoidPath PaperB.Digraph.ReachableVertex.HasArc (PaperB.Digraph.ReachableVertex.restrictFailed failed)
+        (PaperB.Digraph.ReachableVertex.source g r) ⟨v, hv⟩

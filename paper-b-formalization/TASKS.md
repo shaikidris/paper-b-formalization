@@ -62,7 +62,7 @@ Acceptance:
 
 ## EX1.1 — Normalize original vertices and failure sets
 
-- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: graph; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.2.
 - Proposed owner module: `release-core/PaperB/Graph.lean`.
@@ -74,6 +74,10 @@ Acceptance:
 
 - Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers.
 - Relate arbitrary IDs and counted parallel input entries to the existing decreasing-index ReachAvoid specification. Charge constructing the ordering and reachability mask in the executable branch.
+
+Lean verifies the induced graph on initially reachable original IDs preserves surviving path semantics for every failure predicate and exactly preserves the order and multiplicity of each retained outgoing list. Failed endpoints and initially unreachable targets are covered. The executable topological enumeration and charged ID compaction remain open.
+
+Planning/evidence references: [evidence/ex11-retained-graph/verification.json](evidence/ex11-retained-graph/verification.json).
 
 <a id="ex12"></a>
 
