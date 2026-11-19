@@ -135,7 +135,8 @@
     "release-core/PaperB/PackedStaticLayout.lean": "dominator",
     "release-core/PaperB/UniformArena.lean": "cost model",
     "release-core/PaperB/SmallQuotient.lean": "cuts",
-    "release-core/PaperB/ExitKernels.lean": "oracle"
+    "release-core/PaperB/ExitKernels.lean": "oracle",
+    "release-core/PaperB/ForestReady.lean": "cuts"
   },
   "milestones": [
     {
@@ -840,9 +841,10 @@
         "evidence/ex24-actual-known-node-query/verification.json",
         "evidence/ex24-verified-head-step/verification.json",
         "evidence/ex24-dynamic-key-install/verification.json",
-        "evidence/ex24-small-quotient/verification.json"
+        "evidence/ex24-small-quotient/verification.json",
+        "evidence/ex24-ready-embedding/verification.json"
       ],
-      "progress": "A quotient of at most two vertices has no real pair, and its computed forest is root-only. A larger quotient supplies a constant-comparison well-typed default pair used solely for sentinel reads. Wire the early branch into the full packed forest constructor.",
+      "progress": "An exact embedding of occupied growing jump slots into canonical real forest nodes proves correct predecessor ancestry, chain-prefix lookups and the measured head kernel Ready predicate. Prove the initial and one-step embedding extension and discharge the concrete jump getter and canonical laws.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

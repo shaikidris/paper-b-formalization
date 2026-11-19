@@ -1,0 +1,11 @@
+{
+  "base_commit": "31940c8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestReady.lean",
+  "sha256": "7483219d887139c3fb78b4df6e068a461355693fd82dbedddc96eba86f1b5fe1",
+  "scope": "An exact embedding of occupied growing jump slots into canonical real forest nodes proves correct predecessor ancestry, chain-prefix lookups and the measured head kernel Ready predicate.",
+  "remaining": "Prove the initial and one-step embedding extension and discharge the concrete jump getter and canonical laws."
+}

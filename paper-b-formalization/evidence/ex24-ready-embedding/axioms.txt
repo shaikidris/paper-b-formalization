@@ -1,0 +1,4 @@
+'EX24.PreStep.real_ancestor' depends on axioms: [propext]
+'EX24.PreStep.selected_prefix' depends on axioms: [propext, Quot.sound]
+'EX24.PreStep.ready' depends on axioms: [propext, Quot.sound]
+'EX24.PreStep.later_head_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
