@@ -451,9 +451,9 @@ Acceptance:
 - Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
 - Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs.
 
-Dense offset tables certify disjoint fixed-word fields, a linear live arena and a linear sealed prefix under concrete graph count bounds. Width depends on a fixed layout allowance. Instantiate all block widths, bind the uniform worst-case capacities and connect actual programs to these regions.
+The arena and sealed prefix are reserved solely from declared input counts with the exact oracle contract bit width. Dense offsets, headers, retained words and legal query address ranges are bounded uniformly. Choose constant final block widths and instantiate the same built/queried machine programs in this layout.
 
-Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json).
+Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json).
 
 <a id="ex53"></a>
 

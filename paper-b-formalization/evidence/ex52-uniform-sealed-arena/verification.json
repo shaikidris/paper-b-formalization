@@ -1,0 +1,11 @@
+{
+  "base_commit": "cb8132e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/UniformArena.lean",
+  "sha256": "e6a5dae60ae3925c7da67d70fdb8765d1c2dba55c859913e3cab29fac920d9f3",
+  "scope": "The arena and sealed prefix are reserved solely from declared input counts with the exact oracle contract bit width. Dense offsets, headers, retained words and legal query address ranges are bounded uniformly.",
+  "remaining": "Choose constant final block widths and instantiate the same built/queried machine programs in this layout."
+}
