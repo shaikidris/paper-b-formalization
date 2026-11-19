@@ -1,0 +1,11 @@
+{
+  "base_commit": "efaacca",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticFromDominators.lean",
+  "sha256": "96864a8ee96fa68a8d2a14bf752bb967a3fe181f90e5e308efb3c90acb871ac7",
+  "scope": "The static constructor collects the parent and depth columns from the actual occupied ordinary jump words in one pass. Lean proves validity and inclusive ancestry equivalence to original DAG dominance for all reachable vertices.",
+  "remaining": "Expose the final single constructor from original graph to executable static interval, child and LCA readers and close the component resource audit."
+}

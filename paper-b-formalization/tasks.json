@@ -147,7 +147,8 @@
     "release-core/PaperB/StaticLinearHead.lean": "dominator",
     "release-core/PaperB/ForestCanonicalLaws.lean": "cuts",
     "release-core/PaperB/ForestWordLaws.lean": "cuts",
-    "release-core/PaperB/BothReachableRoute.lean": "oracle"
+    "release-core/PaperB/BothReachableRoute.lean": "oracle",
+    "release-core/PaperB/StaticFromDominators.lean": "dominator"
   },
   "milestones": [
     {
@@ -617,9 +618,10 @@
         "evidence/ex16-child-interval-search/verification.json",
         "evidence/ex16-packed-static-layout/verification.json",
         "evidence/actual-child-audit/verification.json",
-        "evidence/static-linear-audit/verification.json"
+        "evidence/static-linear-audit/verification.json",
+        "evidence/static-from-dom-audit/verification.json"
       ],
-      "progress": "The actual static head sweep obtains its DFS order by scanning vertices and scattering once to their already computed entry ranks. Lean verifies exactly one scatter and one head write per vertex and exact static LCA input semantics. The actual ordinary record adapter is in progress."
+      "progress": "The actual jump words produce valid static-tree columns, and Lean proves that static parent ancestry gives original DAG dominance on reachable vertices. Final constructor and packed reader composition remains in progress."
     },
     {
       "id": "EX2.1",

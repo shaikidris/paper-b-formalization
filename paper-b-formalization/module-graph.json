@@ -259,7 +259,8 @@
         "release-core/PaperB/PackedStaticLayout.lean",
         "release-core/PaperB/ActualChildRanges.lean",
         "release-core/PaperB/DomFromOriginal.lean",
-        "release-core/PaperB/StaticLinearHead.lean"
+        "release-core/PaperB/StaticLinearHead.lean",
+        "release-core/PaperB/StaticFromDominators.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -1191,6 +1192,15 @@
         "release-core/PaperB/RetainedRouteProof.lean"
       ],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticFromDominators.lean",
+      "local_imports": [
+        "release-core/PaperB/FullDomScan.lean",
+        "release-core/PaperB/PackedStaticLayout.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

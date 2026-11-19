@@ -1,0 +1,5 @@
+'PaperB.EX15.WholeScan.PackedInput.ofWords_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX15.WholeScan.PackedInput.scanInput_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX15.WholeScan.PackedInput.dominates_iff_semanticAncestor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
