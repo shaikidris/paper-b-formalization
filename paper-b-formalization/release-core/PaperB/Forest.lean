@@ -2420,6 +2420,56 @@ theorem exists_properLossForest_lemma_3_1 {H : LabelledQuotient}
         buildProperLossForest_edge_properLoss_subset rankArc distinctRanks flat huP huB,
         buildProperLossForest_edge_fresh_follows_parent rankArc flat huP huB⟩⟩
 
+set_option autoImplicit false
+
+/-- An injective rank makes the maximum independent of row order.
+No `Nodup` hypothesis is needed for this result. -/
+theorem maxByRank_eq_of_mem_iff {n : Nat} (rank : Fin n → Nat)
+    (inj : ∀ {a b : Fin n}, rank a = rank b → a = b)
+    {xs ys : List (Fin n)}
+    (mem : ∀ u : Fin n, u ∈ xs ↔ u ∈ ys) :
+    maxByRank rank xs = maxByRank rank ys := by
+  have best (a : Fin n) (tl : List (Fin n)) :
+      maxByRankAux rank a tl ∈ a :: tl ∧
+        ∀ u : Fin n, u ∈ a :: tl →
+          rank u ≤ rank (maxByRankAux rank a tl) := by
+    refine ⟨List.mem_cons.mpr (maxByRankAux_mem rank a tl), ?_⟩
+    intro u hu
+    obtain ⟨ha, ht⟩ := maxByRankAux_ge rank a tl
+    rcases List.mem_cons.mp hu with he | hu
+    · subst u
+      exact ha
+    · exact ht u hu
+  cases xs with
+  | nil =>
+    cases ys with
+    | nil => rfl
+    | cons b bs =>
+      have h : b ∈ ([] : List (Fin n)) :=
+        (mem b).mpr (List.mem_cons.mpr (Or.inl rfl))
+      simp at h
+  | cons a ats =>
+    cases ys with
+    | nil =>
+      have h : a ∈ ([] : List (Fin n)) :=
+        (mem a).mp (List.mem_cons.mpr (Or.inl rfl))
+      simp at h
+    | cons b bs =>
+      obtain ⟨ha, hga⟩ := best a ats
+      obtain ⟨hb, hgb⟩ := best b bs
+      have hEq : maxByRankAux rank a ats = maxByRankAux rank b bs :=
+        inj (Nat.le_antisymm
+          (hgb _ ((mem _).mp ha))
+          (hga _ ((mem _).mpr hb)))
+      exact congrArg some hEq
+
+/-- A two-element predecessor set determines the reference row in `Fin` order. -/
+theorem preds_eq_pair_of_mem_iff (H : LabelledQuotient)
+    (y : Fin H.vertexCount) {a b : Fin H.vertexCount} (hab : a < b)
+    (mem : ∀ u : Fin H.vertexCount, u ∈ preds H y ↔ u = a ∨ u = b) :
+    preds H y = [a, b] :=
+  eq_pair_of_pairwise_lt_mem_iff (pairwise_lt_preds H y) hab mem
+
 end LabelledQuotient
 
 end PaperB

@@ -1,0 +1,11 @@
+{
+  "base_commit": "8a975a3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Forest.lean",
+  "sha256": "2efbd1a03c493c022bee8a93d11f5bb5518e42ef1bc4395c50b8e5fe7de3048a",
+  "scope": "Reference maximum-predecessor selection is independent of row order for distinct ranks. Two exact predecessor members uniquely determine the reference's ordered pair.",
+  "remaining": "Use the exact identities in the executable prepared head without reference predecessor or adjacency scans."
+}

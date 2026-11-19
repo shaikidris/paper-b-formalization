@@ -1,0 +1,2 @@
+'PaperB.LabelledQuotient.maxByRank_eq_of_mem_iff' depends on axioms: [propext]
+'PaperB.LabelledQuotient.preds_eq_pair_of_mem_iff' depends on axioms: [propext, Quot.sound]

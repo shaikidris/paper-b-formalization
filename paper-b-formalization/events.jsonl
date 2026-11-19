@@ -173,3 +173,4 @@
 {"at": "2026-11-19T22:52:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "BothReachableRoute", "tasks": ["EX4.4"], "evidence": "evidence/both-reachable-audit/verification.json"}
 {"at": "2026-11-19T22:52:55+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticFromDominators", "tasks": ["EX1.6"], "evidence": "evidence/static-from-dom-audit/verification.json"}
 {"at": "2026-11-19T22:56:55+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PhysicalExitModel", "tasks": ["EX4.2"], "evidence": "evidence/physical-exit-audit/verification.json"}
+{"at": "2026-11-19T22:57:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Forest", "tasks": ["EX2.4"], "evidence": "evidence/forest-rank-members-audit/verification.json"}

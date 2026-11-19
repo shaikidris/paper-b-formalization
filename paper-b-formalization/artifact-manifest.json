@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3788,
-      "sha256": "d2fbfc27cb02e5e8d0444ea140424d6bd545b36f0d0cbea9249418d8c4552cae"
+      "bytes": 3732,
+      "sha256": "bf5ceb4d9e8cd4892d9df1ade9e3e719160e95886056c12f68848ef27f8a2d45"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 42993,
-      "sha256": "59565b3785ebaebc2ba7a2efd67951f7e97222d6f442f63612e25552f7b1bb86"
+      "bytes": 43047,
+      "sha256": "b6602367142e522b97afc37a34a6344ca71273cc11a79c8f3781c433224b5695"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 38767,
-      "sha256": "2327efd2fd91ba33565a77106e404d895484a3552478dd5ed098fcc410597390"
+      "bytes": 38953,
+      "sha256": "88c05baa21e2456447c2992cbaa32eb252741b0c970c6121cebdd664f142a37e"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2232,6 +2232,21 @@
       "sha256": "f3204a9c26034219044d6c159ba7e3f9719c9a87ea3e33f57e1a14917e764a61"
     },
     {
+      "path": "evidence/forest-rank-members-audit/Audit.lean",
+      "bytes": 146,
+      "sha256": "4684471d5bd19d7fc99497bf79a114ddd9b208f8aa25e1fe9bce106676ef1ee0"
+    },
+    {
+      "path": "evidence/forest-rank-members-audit/axioms.txt",
+      "bytes": 171,
+      "sha256": "40a8961d3d42c7bb2672a434e5e1f952b5dbf804be64882992c6018d80fc4e70"
+    },
+    {
+      "path": "evidence/forest-rank-members-audit/verification.json",
+      "bytes": 594,
+      "sha256": "5ab89ec129243764c215b54136014630ff6cebb6fa445c2bc737ea27eed1878c"
+    },
+    {
       "path": "evidence/forest-word-audit/Audit.lean",
       "bytes": 147,
       "sha256": "effb10cc161cc29b040e1e4d443ac62339984a20fb64bd9a136f8d2fe8ab1f7c"
@@ -2803,8 +2818,8 @@
     },
     {
       "path": "release-core/PaperB/Forest.lean",
-      "bytes": 107132,
-      "sha256": "2931e7c404d3b8285cc9a53232529100ee5e5794586c74a40e7e2772b9b4d596"
+      "bytes": 108978,
+      "sha256": "2efbd1a03c493c022bee8a93d11f5bb5518e42ef1bc4395c50b8e5fe7de3048a"
     },
     {
       "path": "release-core/PaperB/ForestBuild.lean",
@@ -3313,8 +3328,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 61273,
-      "sha256": "0e88d2dbb0f8076848e49518ad7d85d05509e86cc87fa3ae95e9d02a989f8a95"
+      "bytes": 61281,
+      "sha256": "885562975f6d71ed8fde8e10786e103b2faba381d4848b5147f1301c3fd914d2"
     },
     {
       "path": "test_plan.py",
