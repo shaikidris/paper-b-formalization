@@ -1,0 +1,11 @@
+{
+  "base_commit": "5aeb7c8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "85f1d298c2b9091242695c97ccf59983903b98690c39ac3291a3abe3fffd101e",
+  "scope": "The fixed word machine implements overflow-safe midpoint as three exact instructions. Lean checks both the arithmetic and preservation of the data arena and all other registers.",
+  "remaining": "Compose the indexed probe, guard and bounds update into the explicit binary-search loop and use it in the compiled final oracle."
+}

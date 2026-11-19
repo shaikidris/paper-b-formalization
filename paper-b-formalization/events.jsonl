@@ -169,3 +169,4 @@
 {"at": "2026-11-19T22:43:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestCanonicalLaws", "tasks": ["EX2.4"], "evidence": "evidence/forest-canonical-audit/verification.json"}
 {"at": "2026-11-19T22:43:03+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestWordLaws", "tasks": ["EX2.4"], "evidence": "evidence/forest-word-audit/verification.json"}
 {"at": "2026-11-19T22:46:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GuardedWitness", "tasks": ["EX6.2"], "evidence": "evidence/guarded-incidences-audit/verification.json"}
+{"at": "2026-11-19T22:46:56+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX5.1"], "evidence": "evidence/ram-midpoint-audit/verification.json"}

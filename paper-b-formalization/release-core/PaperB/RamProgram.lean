@@ -656,3 +656,106 @@ theorem indexedDataWrite_steps {code : Program L} {input : Input L}
   exact reg_write_other s tmp r w hr
 
 end PaperB.RamProgram
+
+namespace PaperB.RamProgram
+
+open PaperB.Machine (Word)
+open PaperB.WordOps (add sub band ltb)
+
+variable {bits : Nat} {L : Layout bits}
+
+/-- Three instructions; the instruction at `entry + 3` is not part of the block. -/
+def ramMidpoint (dst lo hi : Fin L.registerCount) :
+    List (Instr bits L.registerCount) :=
+  [.sub dst hi lo, .shr1 dst dst, .add dst lo dst]
+
+private theorem ramMid_word_lt (w : Word bits) : w.val < 2 ^ bits :=
+  w.isLt
+
+private theorem ramMid_sub_exact (x y : Word bits) (h : y.val ≤ x.val) :
+    (sub x y).val = x.val - y.val := by
+  have hb : x.val - y.val < 2 ^ bits :=
+    Nat.lt_of_le_of_lt (Nat.sub_le _ _) (ramMid_word_lt x)
+  change (2 ^ bits + x.val - y.val) % (2 ^ bits) = x.val - y.val
+  rw [Nat.add_sub_assoc h, Nat.add_mod]
+  simp only [Nat.mod_self, Nat.zero_add, Nat.mod_eq_of_lt hb]
+
+private theorem ramMid_sub_at {code : Program L} {input : Input L}
+    {s : State L} {dst lo hi : Fin L.registerCount}
+    (hf : code[s.pc]? = some (.sub dst hi lo))
+    (hn : s.pc + 1 < code.size)
+    (hle : (reg s lo).val ≤ (reg s hi).val) :
+    ∃ t, step code input s = some (.next t) ∧
+      t.pc = s.pc + 1 ∧
+      (reg t dst).val = (reg s hi).val - (reg s lo).val ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  let w := sub (reg s hi) (reg s lo)
+  let t : State L := { (writeReg s dst w) with pc := s.pc + 1 }
+  have hs : step code input s = some (.next t) := by
+    calc
+      step code input s = advance code (writeReg s dst w) (s.pc + 1) := by
+        simp [step, hf, w, reg]
+      _ = some (.next t) := by simp [advance, hn, t]
+  refine ⟨t, hs, rfl, ?_, ?_, rfl⟩
+  · have hd : reg t dst = w := reg_write_same s dst w
+    exact (congrArg Fin.val hd).trans (ramMid_sub_exact (reg s hi) (reg s lo) hle)
+  · intro r h
+    exact reg_write_other s dst r w h
+
+theorem ramMidpoint_steps {code : Program L} {input : Input L}
+    {s : State L} {entry : Nat} {dst lo hi : Fin L.registerCount}
+    (placed : Placed code entry (ramMidpoint dst lo hi))
+    (hpc : s.pc = entry) (hexit : entry + 3 < code.size)
+    (hAlias : dst ≠ lo) (hle : (reg s lo).val ≤ (reg s hi).val) :
+    ∃ t, Steps code input 3 s t ∧ t.pc = entry + 3 ∧
+      (reg t dst).val = (reg s lo).val + ((reg s hi).val - (reg s lo).val) / 2 ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  have hf₀ : code[s.pc]? = some (.sub dst hi lo) := by
+    rw [hpc]
+    exact placed 0 _ (by simp [ramMidpoint])
+  obtain ⟨a, ha, hapc, haval, hakeep, hadata⟩ :=
+    ramMid_sub_at (input := input) hf₀ (by omega) hle
+  have haentry : a.pc = entry + 1 := by omega
+  have hf₁ : code[a.pc]? = some (.shr1 dst dst) := by
+    rw [haentry]
+    exact placed 1 _ (by simp [ramMidpoint])
+  obtain ⟨b, hb, hbpc, hbval, hbkeep, hbdata⟩ :=
+    step_shr1_at (input := input) hf₁ (by omega)
+  have hbentry : b.pc = entry + 2 := by omega
+  have hbLo : reg b lo = reg s lo :=
+    (hbkeep lo (Ne.symm hAlias)).trans (hakeep lo (Ne.symm hAlias))
+  have hbHalf :
+      (reg b dst).val = ((reg s hi).val - (reg s lo).val) / 2 := by
+    rw [hbval, haval]
+  have hsum : (reg b lo).val + (reg b dst).val < 2 ^ bits := by
+    rw [hbLo, hbHalf]
+    have hh := ramMid_word_lt (reg s hi)
+    omega
+  have hf₂ : code[b.pc]? = some (.add dst lo dst) := by
+    rw [hbentry]
+    exact placed 2 _ (by simp [ramMidpoint])
+  have hn : b.pc + 1 < code.size := by omega
+  let w := add (reg b lo) (reg b dst)
+  let t : State L := { (writeReg b dst w) with pc := b.pc + 1 }
+  have ht : step code input b = some (.next t) := by
+    calc
+      step code input b = advance code (writeReg b dst w) (b.pc + 1) := by
+        simp [step, hf₂, w, reg]
+      _ = some (.next t) := by simp [advance, hn, t]
+  refine ⟨t, Steps.cons ha (Steps.cons hb (Steps.cons ht (Steps.zero t))),
+    ?_, ?_, ?_, ?_⟩
+  · change b.pc + 1 = entry + 3
+    omega
+  · have hd : reg t dst = w := reg_write_same b dst w
+    calc
+      (reg t dst).val = w.val := congrArg Fin.val hd
+      _ = (reg b lo).val + (reg b dst).val :=
+        PaperB.WordOps.add_no_wrap (reg b lo) (reg b dst) hsum
+      _ = _ := by rw [hbLo, hbHalf]
+  · intro r h
+    exact (reg_write_other b dst r w h).trans ((hbkeep r h).trans (hakeep r h))
+  · exact (show t.data = b.data from rfl).trans (hbdata.trans hadata)
+
+end PaperB.RamProgram
