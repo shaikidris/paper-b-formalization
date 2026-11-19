@@ -145,7 +145,8 @@
     "release-core/PaperB/RetainedRouteProof.lean": "oracle",
     "release-core/PaperB/DomFromOriginal.lean": "dominator",
     "release-core/PaperB/StaticLinearHead.lean": "dominator",
-    "release-core/PaperB/ForestCanonicalLaws.lean": "cuts"
+    "release-core/PaperB/ForestCanonicalLaws.lean": "cuts",
+    "release-core/PaperB/ForestWordLaws.lean": "cuts"
   },
   "milestones": [
     {
@@ -863,9 +864,10 @@
         "evidence/ex24-small-quotient/verification.json",
         "evidence/ex24-ready-embedding/verification.json",
         "evidence/forest-embedding-step-audit/verification.json",
-        "evidence/forest-canonical-audit/verification.json"
+        "evidence/forest-canonical-audit/verification.json",
+        "evidence/forest-word-audit/verification.json"
       ],
-      "progress": "The actual canonical loss forest now discharges all chain laws used by the executable predecessor kernel, including exact nesting and predecessor-pass identities. Concrete packed getter and sweep integration remain in progress.",
+      "progress": "The actual packed jump readers and the actual canonical loss forest discharge both families of probe laws. Remaining work is the complete topological sweep and its local endpoint and allocation contracts.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

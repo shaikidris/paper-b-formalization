@@ -1,0 +1,11 @@
+{
+  "base_commit": "0517237",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestWordLaws.lean",
+  "sha256": "f1da6e032b00b72c836fdc2ab88a6f7f70a2fe03ee9d332e07501fbe181221f5",
+  "scope": "The concrete packed jump getters discharge every depth and ancestry law required by the executable loss-forest probe. The proofs interpret the same occupied parent records used in the run.",
+  "remaining": "Discharge selected endpoint and allocation identities in the executable full sweep."
+}
