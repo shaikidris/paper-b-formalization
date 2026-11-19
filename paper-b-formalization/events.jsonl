@@ -77,3 +77,4 @@
 {"at": "2026-11-19T20:45:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingEncoding", "tasks": ["EX1.3"], "evidence": "evidence/ex13-sibling-encoding/verification.json"}
 {"at": "2026-11-19T20:45:56+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "QuotientBudget", "tasks": ["EX1.3"], "evidence": "evidence/ex13-occurrence-budget/verification.json"}
 {"at": "2026-11-19T20:48:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Kahn", "tasks": ["EX1.1"], "evidence": "evidence/ex11-kahn-residual-graph/verification.json"}
+{"at": "2026-11-19T20:48:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "QuotientArrays", "tasks": ["EX1.3"], "evidence": "evidence/ex13-quotient-arrays/verification.json"}

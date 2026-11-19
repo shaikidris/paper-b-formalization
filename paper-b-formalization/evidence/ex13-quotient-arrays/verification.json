@@ -1,0 +1,11 @@
+{
+  "base_commit": "f9d1ec2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/QuotientArrays.lean",
+  "sha256": "9a293053341af04484849106985f02d15b2792c414f98281c25d65f8ebb9fc65",
+  "scope": "Build Fin-labelled adjacency arrays directly from physical arc occurrence lists, with exact membership of each tail and preservation of parallel list entries.",
+  "remaining": "Compose the represented arrays with the original DAG’s semantic block emissions and apply the global budget."
+}

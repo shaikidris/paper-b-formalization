@@ -1,0 +1,7 @@
+'PaperB.QuotientArrays.outArcs_ofOccurrences' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.QuotientArrays.mem_outArcs_ofOccurrences' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.QuotientArrays.hasQuotientArc_ofOccurrences' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.QuotientArrays.hasQuotientArc_ofOccurrences : ∀ {n k : Nat} (root : Fin k)
+  (occurrences : List (PaperB.QuotientArrays.ArcOccurrence n k)) (u w : Fin k),
+  (PaperB.QuotientArrays.ofOccurrences root occurrences).HasQuotientArc u w ↔
+    ∃ a, a ∈ occurrences ∧ a.from = u ∧ a.to = w

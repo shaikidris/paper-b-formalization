@@ -68,7 +68,8 @@
     "release-core/PaperB/RamLifecycle.lean": "cost model",
     "release-core/PaperB/SiblingArcOwnership.lean": "dominator",
     "release-core/PaperB/SiblingEncoding.lean": "dominator",
-    "release-core/PaperB/QuotientBudget.lean": "dominator"
+    "release-core/PaperB/QuotientBudget.lean": "dominator",
+    "release-core/PaperB/QuotientArrays.lean": "dominator"
   },
   "milestones": [
     {
@@ -366,9 +367,10 @@
         "evidence/ex13-sibling-flatness/verification.json",
         "evidence/ex13-arc-ownership/verification.json",
         "evidence/ex13-sibling-encoding/verification.json",
-        "evidence/ex13-occurrence-budget/verification.json"
+        "evidence/ex13-occurrence-budget/verification.json",
+        "evidence/ex13-quotient-arrays/verification.json"
       ],
-      "progress": "Lean verifies semantic sibling flatness, unique crossing ownership, reversible IDs and the generic aggregate occurrence bound allowing repeats. Apply the accounting to the concrete labelled quotient arrays and implement the charged collector."
+      "progress": "Lean verifies finite labelled adjacency arrays from counted occurrence records, including exact physical tail membership. The bridge to the original sibling emissions, path transport and final aggregate bounds are open."
     },
     {
       "id": "EX1.4",
