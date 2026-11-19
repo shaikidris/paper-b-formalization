@@ -410,9 +410,9 @@ Acceptance:
 - Prove output iff reachability after deletion for any subset of size at most two and any original target.
 - Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths.
 
-All branches for two reachable incomparable failures are verified under the exact static, key, membership and physical-span readers. Both exit orientations are checked. Actual packed read bindings and other original inputs remain in progress.
+The complete original-input route proof passes for every optional original failure pair and target under exact table contracts. Repeated, discarded, comparable and incomparable failures all use the same executable route. Actual index instantiation remains in progress.
 
-Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json), [evidence/ex44-query-leaf-proofs/verification.json](evidence/ex44-query-leaf-proofs/verification.json), [evidence/retained-early-audit/verification.json](evidence/retained-early-audit/verification.json), [evidence/both-reachable-audit/verification.json](evidence/both-reachable-audit/verification.json), [evidence/third-leaf-audit/verification.json](evidence/third-leaf-audit/verification.json).
+Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json), [evidence/ex44-retained-query-runtime/verification.json](evidence/ex44-retained-query-runtime/verification.json), [evidence/ex44-query-leaf-proofs/verification.json](evidence/ex44-query-leaf-proofs/verification.json), [evidence/retained-early-audit/verification.json](evidence/retained-early-audit/verification.json), [evidence/both-reachable-audit/verification.json](evidence/both-reachable-audit/verification.json), [evidence/third-leaf-audit/verification.json](evidence/third-leaf-audit/verification.json), [evidence/all-original-audit/verification.json](evidence/all-original-audit/verification.json).
 
 <a id="ex51"></a>
 

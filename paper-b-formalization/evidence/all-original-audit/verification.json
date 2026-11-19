@@ -1,0 +1,11 @@
+{
+  "base_commit": "53a643e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/AllOrigOracleCases.lean",
+  "sha256": "d127106c95f861a40218829b9c5bbc49016db79ed2e43077f762e1c113a0cefa",
+  "scope": "The actual retained route and answer are semantically exact for every pair of optional original failure IDs and every original target, including repeated, discarded, empty, comparable, and incomparable failures. The theorem uses exact contracts on actual table fields, not assumptions about the final answer.",
+  "remaining": "Establish exact table contracts from the fixed packed original-DAG build and bind the runtime to the sealed word-machine query."
+}

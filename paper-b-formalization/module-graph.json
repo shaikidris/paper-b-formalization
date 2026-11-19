@@ -139,7 +139,8 @@
         "release-core/PaperB/BothReachableRoute.lean",
         "release-core/PaperB/PhysicalExitModel.lean",
         "release-core/PaperB/ExitLinearSchedule.lean",
-        "release-core/PaperB/ThirdReachableRoute.lean"
+        "release-core/PaperB/ThirdReachableRoute.lean",
+        "release-core/PaperB/AllOrigOracleCases.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1301,6 +1302,14 @@
         "release-core/PaperB/ForestCanonicalLaws.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/AllOrigOracleCases.lean",
+      "local_imports": [
+        "release-core/PaperB/ThirdReachableRoute.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

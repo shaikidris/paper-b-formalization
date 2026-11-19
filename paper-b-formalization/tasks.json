@@ -158,7 +158,8 @@
     "release-core/PaperB/ForestCompactFold.lean": "cuts",
     "release-core/PaperB/StaticTreeReader.lean": "dominator",
     "release-core/PaperB/ForestExactDictionary.lean": "cuts",
-    "release-core/PaperB/ForestActualStep.lean": "cuts"
+    "release-core/PaperB/ForestActualStep.lean": "cuts",
+    "release-core/PaperB/AllOrigOracleCases.lean": "oracle"
   },
   "milestones": [
     {
@@ -1170,9 +1171,10 @@
         "evidence/ex44-query-leaf-proofs/verification.json",
         "evidence/retained-early-audit/verification.json",
         "evidence/both-reachable-audit/verification.json",
-        "evidence/third-leaf-audit/verification.json"
+        "evidence/third-leaf-audit/verification.json",
+        "evidence/all-original-audit/verification.json"
       ],
-      "progress": "All branches for two reachable incomparable failures are verified under the exact static, key, membership and physical-span readers. Both exit orientations are checked. Actual packed read bindings and other original inputs remain in progress."
+      "progress": "The complete original-input route proof passes for every optional original failure pair and target under exact table contracts. Repeated, discarded, comparable and incomparable failures all use the same executable route. Actual index instantiation remains in progress."
     },
     {
       "id": "EX5.1",
