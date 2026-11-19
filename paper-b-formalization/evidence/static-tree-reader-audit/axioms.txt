@@ -1,0 +1,6 @@
+'PaperB.StaticTreeReader.Reader.ancestor_iff_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticTreeReader.Reader.lca_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticTreeReader.Reader.lca_pow_jumps_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticTreeReader.Reader.child_cost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticTreeReader.Reader.child_some_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticTreeReader.Reader.child_none_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

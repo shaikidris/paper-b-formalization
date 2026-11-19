@@ -1,0 +1,11 @@
+{
+  "base_commit": "0bb12bd",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticTreeReader.lean",
+  "sha256": "df570f207bf8a2880f73449cc3ee8f70994e9b6648012080954f74ac0792c866",
+  "scope": "A single static-tree index builds and retains the exact packed endpoint, heavy-head and child range tables. Lean proves interval ancestry, exact LCA and immediate-child results, and charged logarithmic query bounds without rebuilding any layout.",
+  "remaining": "Instantiate this reader on the ordinary tree from the actual original-DAG dominator run and lift the ancestry statement to original IDs."
+}

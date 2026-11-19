@@ -155,7 +155,8 @@
     "release-core/PaperB/ForestPreparedHead.lean": "cuts",
     "release-core/PaperB/ForestEndpoints.lean": "cuts",
     "release-core/PaperB/ThirdReachableRoute.lean": "oracle",
-    "release-core/PaperB/ForestCompactFold.lean": "cuts"
+    "release-core/PaperB/ForestCompactFold.lean": "cuts",
+    "release-core/PaperB/StaticTreeReader.lean": "dominator"
   },
   "milestones": [
     {
@@ -626,9 +627,10 @@
         "evidence/ex16-packed-static-layout/verification.json",
         "evidence/actual-child-audit/verification.json",
         "evidence/static-linear-audit/verification.json",
-        "evidence/static-from-dom-audit/verification.json"
+        "evidence/static-from-dom-audit/verification.json",
+        "evidence/static-tree-reader-audit/verification.json"
       ],
-      "progress": "The actual jump words produce valid static-tree columns, and Lean proves that static parent ancestry gives original DAG dominance on reachable vertices. Final constructor and packed reader composition remains in progress."
+      "progress": "The shared static reader now implements and checks exact interval, child search and logarithmic LCA queries. It binds the layout and tables once. Original-DAG reader composition is the remaining step."
     },
     {
       "id": "EX2.1",
