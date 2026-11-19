@@ -85,7 +85,8 @@
     "release-core/PaperB/CompactFailures.lean": "graph",
     "release-core/PaperB/CompactCounts.lean": "graph",
     "release-core/PaperB/ForestLayoutTreeCost.lean": "cuts",
-    "release-core/PaperB/PartialBlock.lean": "dominator"
+    "release-core/PaperB/PartialBlock.lean": "dominator",
+    "release-core/PaperB/Normalization.lean": "graph"
   },
   "milestones": [
     {
@@ -311,9 +312,10 @@
         "evidence/ex11-compact-graph/verification.json",
         "evidence/ex11-compact-paths/verification.json",
         "evidence/ex11-compact-failures/verification.json",
-        "evidence/ex11-compact-counts/verification.json"
+        "evidence/ex11-compact-counts/verification.json",
+        "evidence/ex11-query-normalization/verification.json"
       ],
-      "progress": "The compact graph contains at most the original vertex and arc counts. Traversal of retained adjacency charges at most one original row occurrence per copy, preserving parallel entries. Compose executable normalization and its phase counts."
+      "progress": "Executable normalization builds the compact reachable DAG by Kahn traversal, reachability scan, compact mapping and adjacency sweep. Every original root query with up to two failed IDs is equivalent after translation; initially unreachable targets and failed source or target are rejected, preserving original zero-length cases. Exact phase counters are bounded by original sizes. Complete the decreasing-index adapter and rank map, then close EX1.1."
     },
     {
       "id": "EX1.2",

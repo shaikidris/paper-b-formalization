@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a5a602",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Normalization.lean",
+  "sha256": "7de0ebe42863c57cfd86333947431b2e6fd0e19c8da8f63a00a54eda44a7cf74",
+  "scope": "Executable normalization builds the compact reachable DAG by Kahn traversal, reachability scan, compact mapping and adjacency sweep. Every original root query with up to two failed IDs is equivalent after translation; initially unreachable targets and failed source or target are rejected, preserving original zero-length cases. Exact phase counters are bounded by original sizes.",
+  "remaining": "Complete the decreasing-index adapter and rank map, then close EX1.1."
+}

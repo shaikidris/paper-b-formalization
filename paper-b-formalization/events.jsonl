@@ -97,3 +97,4 @@
 {"at": "2026-11-19T21:09:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CompactCounts", "tasks": ["EX1.1"], "evidence": "evidence/ex11-compact-counts/verification.json"}
 {"at": "2026-11-19T21:10:02+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLayoutTreeCost", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dfs-exact-count/verification.json"}
 {"at": "2026-11-19T21:10:04+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PartialBlock", "tasks": ["EX1.4"], "evidence": "evidence/ex14-last-exit-outside-own/verification.json"}
+{"at": "2026-11-19T21:13:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Normalization", "tasks": ["EX1.1"], "evidence": "evidence/ex11-query-normalization/verification.json"}

@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — The compact graph contains at most the original vertex and arc counts. Traversal of retained adjacency charges at most one original row occurrence per copy, preserving parallel entries. Compose executable normalization and its phase counts.
+- [EX1.1](TASKS.md#ex11) — Executable normalization builds the compact reachable DAG by Kahn traversal, reachability scan, compact mapping and adjacency sweep. Every original root query with up to two failed IDs is equivalent after translation; initially unreachable targets and failed source or target are rejected, preserving original zero-length cases. Exact phase counters are bounded by original sizes. Complete the decreasing-index adapter and rank map, then close EX1.1.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — Lean verifies the last-exit test for outside targets, the common dominator itself, and each of the two failure blocks. Third-block and two nonempty exit-tail sets remain open.
