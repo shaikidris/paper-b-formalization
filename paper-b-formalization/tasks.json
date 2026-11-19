@@ -69,7 +69,8 @@
     "release-core/PaperB/SiblingArcOwnership.lean": "dominator",
     "release-core/PaperB/SiblingEncoding.lean": "dominator",
     "release-core/PaperB/QuotientBudget.lean": "dominator",
-    "release-core/PaperB/QuotientArrays.lean": "dominator"
+    "release-core/PaperB/QuotientArrays.lean": "dominator",
+    "release-core/PaperB/SiblingEmissions.lean": "dominator"
   },
   "milestones": [
     {
@@ -368,9 +369,10 @@
         "evidence/ex13-arc-ownership/verification.json",
         "evidence/ex13-sibling-encoding/verification.json",
         "evidence/ex13-occurrence-budget/verification.json",
-        "evidence/ex13-quotient-arrays/verification.json"
+        "evidence/ex13-quotient-arrays/verification.json",
+        "evidence/ex13-original-emissions/verification.json"
       ],
-      "progress": "Lean verifies finite labelled adjacency arrays from counted occurrence records, including exact physical tail membership. The bridge to the original sibling emissions, path transport and final aggregate bounds are open."
+      "progress": "Lean verifies exact labelled emissions from original adjacency lists and the finite-array representation of such occurrences independently. Their transport under reversible IDs and exact global counts must be composed."
     },
     {
       "id": "EX1.4",

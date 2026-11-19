@@ -1,0 +1,11 @@
+{
+  "base_commit": "f9d1ec2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingEmissions.lean",
+  "sha256": "43151bf13786b58a3b9e5eefd8b27a2476b28f49043125ac912fbad5d1076c45",
+  "scope": "Each actual labelled sibling emission comes from the original adjacency list, and all selected physical-tail arc witnesses appear with the stated endpoints.",
+  "remaining": "Encode the emitted lists as the actual quotient arrays, transport paths under the reversible IDs, and combine the global count."
+}

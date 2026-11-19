@@ -58,7 +58,8 @@
         "release-core/PaperB/SiblingArcOwnership.lean",
         "release-core/PaperB/SiblingEncoding.lean",
         "release-core/PaperB/QuotientBudget.lean",
-        "release-core/PaperB/QuotientArrays.lean"
+        "release-core/PaperB/QuotientArrays.lean",
+        "release-core/PaperB/SiblingEmissions.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -441,6 +442,15 @@
       "path": "release-core/PaperB/QuotientArrays.lean",
       "local_imports": [
         "release-core/Challenge.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SiblingEmissions.lean",
+      "local_imports": [
+        "release-core/PaperB/SiblingBlockSystem.lean",
+        "release-core/PaperB/SiblingEncoding.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

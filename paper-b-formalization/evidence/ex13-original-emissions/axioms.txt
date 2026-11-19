@@ -1,0 +1,12 @@
+'PaperB.Digraph.mem_originalArcOccurrences_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.siblingEmission?_eq_some_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.mem_siblingEmissionsFrom_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.mem_siblingEmissions_iff_labelledStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.mem_siblingEmissions_iff_labelledStep : ∀ {g : PaperB.Digraph} {r d : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount}
+  (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) (spec : g.ParentSpec r parent)
+  (hd : g.InitiallyReachable r d) (e : g.SiblingEmission r d parent),
+  e ∈ PaperB.Digraph.siblingEmissions progress injective spec ↔
+    ∃ ht,
+      (PaperB.Digraph.siblingBlockSystem progress injective spec hd).LabelledStep e.source e.destination ⟨e.tail, ht⟩
