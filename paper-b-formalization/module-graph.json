@@ -168,7 +168,8 @@
         "release-core/PaperB/Index.lean",
         "release-core/PaperB/DomBuild.lean",
         "release-core/PaperB/SimpleOracleCases.lean",
-        "release-core/PaperB/OracleRuntime.lean"
+        "release-core/PaperB/OracleRuntime.lean",
+        "release-core/PaperB/OracleRuntimeProof.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1085,6 +1086,16 @@
         "release-core/PaperB/ForestKeyInstall.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/OracleRuntimeProof.lean",
+      "local_imports": [
+        "release-core/PaperB/OracleRuntime.lean",
+        "release-core/PaperB/LastExitPaper.lean",
+        "release-core/PaperB/SimpleOracleCases.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

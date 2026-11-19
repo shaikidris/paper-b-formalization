@@ -1,0 +1,11 @@
+{
+  "base_commit": "31940c8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OracleRuntimeProof.lean",
+  "sha256": "c52cae957e969d84d11570075d697e526879f1062f7a8f7813745e0c0935fb26",
+  "scope": "The retained query route and answer share a checked total control budget. Each granted semantic leaf is evaluated exactly, including the original subtree avoidance test on both exit spans.",
+  "remaining": "Derive the leaf grants from actual sealed index lookups and compose a single unrestricted original-input query proof."
+}

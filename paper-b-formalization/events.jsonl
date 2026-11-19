@@ -158,3 +158,4 @@
 {"at": "2026-11-19T22:24:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SmallQuotient", "tasks": ["EX2.4"], "evidence": "evidence/ex24-small-quotient/verification.json"}
 {"at": "2026-11-19T22:24:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitKernels", "tasks": ["EX4.2"], "evidence": "evidence/ex42-exact-exit-kernels/verification.json"}
 {"at": "2026-11-19T22:27:30+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestReady", "tasks": ["EX2.4"], "evidence": "evidence/ex24-ready-embedding/verification.json"}
+{"at": "2026-11-19T22:27:34+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OracleRuntimeProof", "tasks": ["EX4.4"], "evidence": "evidence/ex44-query-leaf-proofs/verification.json"}

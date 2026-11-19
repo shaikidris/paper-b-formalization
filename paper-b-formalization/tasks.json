@@ -136,7 +136,8 @@
     "release-core/PaperB/UniformArena.lean": "cost model",
     "release-core/PaperB/SmallQuotient.lean": "cuts",
     "release-core/PaperB/ExitKernels.lean": "oracle",
-    "release-core/PaperB/ForestReady.lean": "cuts"
+    "release-core/PaperB/ForestReady.lean": "cuts",
+    "release-core/PaperB/OracleRuntimeProof.lean": "oracle"
   },
   "milestones": [
     {
@@ -1119,9 +1120,10 @@
       ],
       "evidence": [
         "evidence/ex44-early-query-cases/verification.json",
-        "evidence/ex44-retained-query-runtime/verification.json"
+        "evidence/ex44-retained-query-runtime/verification.json",
+        "evidence/ex44-query-leaf-proofs/verification.json"
       ],
-      "progress": "Executable post-build routing and answer evaluation use only typed retained-index primitive reads. Finite control budgets distinguish constant and logarithmic operations and preserve orientation. Prove all leaf meanings using the exact original-DAG cases and instantiate query primitives on the sealed packed index."
+      "progress": "The retained query route and answer share a checked total control budget. Each granted semantic leaf is evaluated exactly, including the original subtree avoidance test on both exit spans. Derive the leaf grants from actual sealed index lookups and compose a single unrestricted original-input query proof."
     },
     {
       "id": "EX5.1",
