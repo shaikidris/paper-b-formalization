@@ -550,7 +550,7 @@ Acceptance:
 - Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.
 - Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion.
 
-Shared baseline guard deletion now has a checked executable graph builder, exact linear scan counts and all-case path transfer. Next connect the checked rows and eventual single-index batch construction to actual detecting-set output.
+Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 
-Planning/evidence references: [evidence/guarded-incidences-audit/verification.json](evidence/guarded-incidences-audit/verification.json), [evidence/guarded-residual-graph-audit/verification.json](evidence/guarded-residual-graph-audit/verification.json).
+Planning/evidence references: [evidence/guarded-incidences-audit/verification.json](evidence/guarded-incidences-audit/verification.json), [evidence/guarded-residual-graph-audit/verification.json](evidence/guarded-residual-graph-audit/verification.json), [evidence/guarded-listed-witness-audit/verification.json](evidence/guarded-listed-witness-audit/verification.json).
 

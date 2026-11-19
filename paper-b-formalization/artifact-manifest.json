@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3661,
-      "sha256": "df64b1eda7d28ae6a712d7f7945187a374e2937e00c6d4146ca28d619346f2be"
+      "bytes": 3668,
+      "sha256": "f8e3af7e6b8b4cfd18ad4dfe36626bd31972069177089bb9d5d64f043f37e6ba"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 45563,
-      "sha256": "96053dca73b00d926cd2388ba49775c12d1c2423b0c09e71c7590f232bea6082"
+      "bytes": 45686,
+      "sha256": "17779b459a750516004a1ca360763e6ea5759d13476a6cbe2cd78601bc7f3e81"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 43209,
-      "sha256": "32b67618031e3676d83080b54ad222112ebb1c9f2ce645879ae50e0399cdb4ae"
+      "bytes": 43412,
+      "sha256": "6698b1a7ac155d0487cbdbee553454fc8d3e62dff8d877416f460b50bf53021b"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2457,6 +2457,21 @@
       "sha256": "c26ce72686314f534e6f5ecb6b370ffbfee54011c0b02c3dcc1894b3bfce2a3c"
     },
     {
+      "path": "evidence/guarded-listed-witness-audit/Audit.lean",
+      "bytes": 285,
+      "sha256": "c46d8ef9fedfd795d737331ef1a0ebd945ad18c164decc1e005b0d6db2fc729e"
+    },
+    {
+      "path": "evidence/guarded-listed-witness-audit/axioms.txt",
+      "bytes": 2577,
+      "sha256": "a61e7d441bee54aacbfb4c1e596298a6e5e76564485c30bb00bf7db415d49dfd"
+    },
+    {
+      "path": "evidence/guarded-listed-witness-audit/verification.json",
+      "bytes": 758,
+      "sha256": "82e0955398aebd85e5ab515b391932b9ae25c91382ad0df07725c26a57b762cd"
+    },
+    {
       "path": "evidence/guarded-residual-graph-audit/Audit.lean",
       "bytes": 280,
       "sha256": "fc547bd99b73d393a940accf7ff3fdcbc48e6b0e9dce58130583bf0594b6f1e3"
@@ -2932,6 +2947,11 @@
       "sha256": "b579ec2b76cebac535deea3db0ab6deb761fb4cf2bf5b207d8a4d0f2bff1c853"
     },
     {
+      "path": "extensions/GuardedListedWitness.lean",
+      "bytes": 15520,
+      "sha256": "c5b33d0db270e7cf5badf4f288d97d5318536ed781bcaa94fba94bf51bc1ba47"
+    },
+    {
       "path": "extensions/GuardedWitness.lean",
       "bytes": 44090,
       "sha256": "d4396549e464dd3cb22615acf3dfa134fa9461ff8409124c8d3be04bcc61986e"
@@ -2943,8 +2963,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 42167,
-      "sha256": "d0e3a724d274db3126a8cce49da5da6ccc1e675932b5bbe27765084ef3ce6d60"
+      "bytes": 42464,
+      "sha256": "561e93be3f82b7e5d1c90f578d8bd70fd23296b3f3f16cb45f7aab2e4466c684"
     },
     {
       "path": "obligations.json",
@@ -3743,8 +3763,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 64155,
-      "sha256": "39d0cafa990e863833b6edbca211b7047dc920cb21c5987a4b8000a181ac4b3d"
+      "bytes": 64288,
+      "sha256": "1035e8784bb4a30d9278952a930b3226b442990c2fc66d86742f8e9cd6e1bae0"
     },
     {
       "path": "test_plan.py",

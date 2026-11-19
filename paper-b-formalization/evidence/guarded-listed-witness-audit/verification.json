@@ -1,0 +1,11 @@
+{
+  "base_commit": "fa668da",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "extensions/GuardedListedWitness.lean",
+  "sha256": "c5b33d0db270e7cf5badf4f288d97d5318536ed781bcaa94fba94bf51bc1ba47",
+  "scope": "The actual grouped residual rows drive one exact listed-target batch. A positive result returns the first detecting label and its concrete witness Q union that label. Lean proves soundness, complete negative answers, initially deleted root handling, and the mixed resource transfer under the single-target oracle contract.",
+  "remaining": "Use the actual completed sealed oracle for the residual graph before accepting EX6.2 or the numbered theorem."
+}

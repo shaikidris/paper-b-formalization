@@ -165,7 +165,8 @@
     "release-core/PaperB/RamStaticLCA.lean": "cost model",
     "release-core/PaperB/MeasuredCutRange.lean": "cuts",
     "release-core/PaperB/ForestTopologicalTotal.lean": "cuts",
-    "release-core/PaperB/OriginalStaticConnector.lean": "oracle"
+    "release-core/PaperB/OriginalStaticConnector.lean": "oracle",
+    "extensions/GuardedListedWitness.lean": "application"
   },
   "milestones": [
     {
@@ -1419,9 +1420,10 @@
       ],
       "evidence": [
         "evidence/guarded-incidences-audit/verification.json",
-        "evidence/guarded-residual-graph-audit/verification.json"
+        "evidence/guarded-residual-graph-audit/verification.json",
+        "evidence/guarded-listed-witness-audit/verification.json"
       ],
-      "progress": "Shared baseline guard deletion now has a checked executable graph builder, exact linear scan counts and all-case path transfer. Next connect the checked rows and eventual single-index batch construction to actual detecting-set output."
+      "progress": "Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open."
     }
   ]
 }

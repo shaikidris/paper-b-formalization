@@ -1,0 +1,63 @@
+<stdin>:196:12: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [GuardFailed, hg] at h
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:197:18: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [GuardFailed, hg] at h
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:198:14: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [GuardFailed, hg] at h
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:481:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+<stdin>:666:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+<stdin>:683:34: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+<stdin>:911:18: warning: This simp argument is unused:
+  List.filter_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scan, hv, ih, Nat.succ_eq_add_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:911:44: warning: This simp argument is unused:
+  Nat.succ_eq_add_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scan, List.filter_cons, hv, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:1031:54: warning: This simp argument is unused:
+  hu
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:1031:58: warning: This simp argument is unused:
+  hv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PaperB.EX62.ListedWitness.detectingSet_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX62.ListedWitness.none_of_root_deleted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX62.ListedWitness.incidence_totals' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX62.ListedWitness.operations_mixed' depends on axioms: [propext, Quot.sound]
+'PaperB.EX62.ListedWitness.words_mixed' depends on axioms: [propext, Quot.sound]
