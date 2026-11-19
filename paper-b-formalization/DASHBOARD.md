@@ -12,14 +12,13 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Completed and remaining
 
-- Completed work packages **7/27**. Planning audits **1** and verified proof packages **6**.
-- Remaining work packages **20**. 9 in progress, 11 planned.
+- Completed work packages **8/27**. Planning audits **1** and verified proof packages **7**.
+- Remaining work packages **19**. 8 in progress, 11 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
 ## In progress
 
-- [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — Actual finite sibling quotient paths avoiding both failure blocks lift to original surviving paths. A reachable labelled exit tail with a clean continuation also lifts, including a direct last exit. Specialize the forward path decomposition on the same encoded quotient and pass the selected tails to the LCA test.
 - [EX1.5](TASKS.md#ex15) — The executable growing-tree LCA query refines the greatest common ancestor of any two existing nodes, preserves answers after leaf insertion, and charges the probes, records and word reads. Build the actual topological predecessor fold and lower its whole execution to the sealed machine.
@@ -31,6 +30,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Ready to start
 
+- EX1.6 — Implement static tree intervals, child lookup and LCA.
 - EX6.1 — Prove the guarded-path and shrinking-witness equivalence.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).

@@ -63,7 +63,8 @@
         "release-core/PaperB/FiniteSiblingQuotient.lean",
         "release-core/PaperB/QuotientArrayCounts.lean",
         "release-core/PaperB/PartialBlock.lean",
-        "release-core/PaperB/ThirdBlockForward.lean"
+        "release-core/PaperB/ThirdBlockForward.lean",
+        "release-core/PaperB/SemanticLCA.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -685,6 +686,14 @@
       "path": "release-core/PaperB/ThirdBlockLift.lean",
       "local_imports": [
         "release-core/PaperB/FiniteSiblingFlat.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SemanticLCA.lean",
+      "local_imports": [
+        "release-core/PaperB/TopologicalRank.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

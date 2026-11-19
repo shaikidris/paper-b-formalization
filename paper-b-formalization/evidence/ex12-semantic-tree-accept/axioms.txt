@@ -1,0 +1,6 @@
+'PaperB.Digraph.IsAcyclic.exists_semantic_parent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.semanticParent_ancestor_iff_dominates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.dominators_comparable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.exists_unique_dominatorLCA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.all_tail_dominates_iff_dominates_lca' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.exists_unique_pair_dominatorLCA' depends on axioms: [propext, Classical.choice, Quot.sound]

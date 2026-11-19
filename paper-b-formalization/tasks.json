@@ -94,7 +94,8 @@
     "release-core/PaperB/ForestLayoutTrace.lean": "cuts",
     "release-core/PaperB/ThirdBlockForward.lean": "dominator",
     "release-core/PaperB/JumpLCA.lean": "dominator",
-    "release-core/PaperB/ThirdBlockLift.lean": "dominator"
+    "release-core/PaperB/ThirdBlockLift.lean": "dominator",
+    "release-core/PaperB/SemanticLCA.lean": "dominator"
   },
   "milestones": [
     {
@@ -354,8 +355,8 @@
         "2.2",
         "5.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Prove inclusive ancestor iff ordinary domination on the reachable DAG, with LCA, child subtrees and prefix/suffix facts.",
       "acceptance": [
@@ -367,9 +368,17 @@
         "evidence/ex12-dominator-chain/verification.json",
         "evidence/ex12-immediate-dominator/verification.json",
         "evidence/ex12-dominator-tree/verification.json",
-        "evidence/ex12-topological-rank/verification.json"
+        "evidence/ex12-topological-rank/verification.json",
+        "evidence/ex12-semantic-tree-accept/verification.json"
       ],
-      "progress": "Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5."
+      "progress": "Verified the semantic tree for every DAG, with exact inclusive ancestry and a unique LCA on every nonempty collection of reachable vertices.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex12-semantic-tree-accept/verification.json",
+        "axioms": "evidence/ex12-semantic-tree-accept/axioms.txt",
+        "fidelity": "evidence/ex12-semantic-tree-accept/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX1.3",

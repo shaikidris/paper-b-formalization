@@ -1,0 +1,11 @@
+{
+  "base_commit": "0383e2f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SemanticLCA.lean",
+  "sha256": "31701c4e68cd2930824b5752fa09a2c1c23c3ae65df8a5963c54d7e4b1eeb2b8",
+  "scope": "An ordinary dominator tree with exact inclusive ancestry and a unique lowest common ancestor exists for every reachable DAG and each nonempty finite list of reachable vertices.",
+  "remaining": "Executable original-tree construction and index costs are recorded separately."
+}

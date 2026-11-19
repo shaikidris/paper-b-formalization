@@ -87,7 +87,7 @@ Planning/evidence references: [evidence/ex11-retained-graph/verification.json](e
 
 ## EX1.2 — Characterize the ordinary dominator tree
 
-- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.1.
 - Proposed owner module: `release-core/PaperB/Dom.lean`.
@@ -100,9 +100,9 @@ Acceptance:
 - Give a tree construction or existence proof on all retained DAGs and characterize single deletion. Justify the root, singleton, and reachable nonroot predecessor cases.
 - This semantic result supplies the labelled quotient independently of machine code.
 
-Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
+Verified the semantic tree for every DAG, with exact inclusive ancestry and a unique LCA on every nonempty collection of reachable vertices.
 
-Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json), [evidence/ex12-dominator-chain/verification.json](evidence/ex12-dominator-chain/verification.json), [evidence/ex12-immediate-dominator/verification.json](evidence/ex12-immediate-dominator/verification.json), [evidence/ex12-dominator-tree/verification.json](evidence/ex12-dominator-tree/verification.json), [evidence/ex12-topological-rank/verification.json](evidence/ex12-topological-rank/verification.json).
+Planning/evidence references: [evidence/ex12-dominator-predecessors/verification.json](evidence/ex12-dominator-predecessors/verification.json), [evidence/ex12-dominator-chain/verification.json](evidence/ex12-dominator-chain/verification.json), [evidence/ex12-immediate-dominator/verification.json](evidence/ex12-immediate-dominator/verification.json), [evidence/ex12-dominator-tree/verification.json](evidence/ex12-dominator-tree/verification.json), [evidence/ex12-topological-rank/verification.json](evidence/ex12-topological-rank/verification.json), [evidence/ex12-semantic-tree-accept/verification.json](evidence/ex12-semantic-tree-accept/verification.json).
 
 <a id="ex13"></a>
 
