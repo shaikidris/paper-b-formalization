@@ -104,7 +104,8 @@
     "release-core/PaperB/LastExit.lean": "dominator",
     "release-core/PaperB/StructuralPaper.lean": "cuts",
     "release-core/PaperB/DistinctPredecessors.lean": "cuts",
-    "release-core/PaperB/PairDictionary.lean": "cuts"
+    "release-core/PaperB/PairDictionary.lean": "cuts",
+    "release-core/PaperB/StaticHeavyLCA.lean": "dominator"
   },
   "milestones": [
     {
@@ -538,9 +539,10 @@
         "Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget."
       ],
       "evidence": [
-        "evidence/ex16-heavy-child/verification.json"
+        "evidence/ex16-heavy-child/verification.json",
+        "evidence/ex16-heavy-path-lca/verification.json"
       ],
-      "progress": "The executable heavy-child scan selects the first maximum under a supplied constant-time subtree-size getter. Lean verifies exact comparison and read counts, disjoint child subtrees, and the strict halving bound for every light edge. Build the actual heavy-path index and connect its scan and query charges."
+      "progress": "The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings. Construct and verify the actual head table and static child interval lookup."
     },
     {
       "id": "EX2.1",

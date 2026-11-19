@@ -1,0 +1,3 @@
+'EX16.lca' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX16.Result.pow_jumps_le' depends on axioms: [propext, Quot.sound]
+'EX16.Result.jumps_lt_twice_bits' depends on axioms: [propext, Quot.sound]

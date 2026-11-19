@@ -1,0 +1,11 @@
+{
+  "base_commit": "01b7f5e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticHeavyLCA.lean",
+  "sha256": "994fe45627a856e7e6756aae0b501d5fd54488f904f9d643b19605ee4f3b2b6e",
+  "scope": "The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings.",
+  "remaining": "Construct and verify the actual head table and static child interval lookup."
+}

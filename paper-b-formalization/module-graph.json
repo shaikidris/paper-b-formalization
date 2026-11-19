@@ -224,7 +224,8 @@
       "local_imports": [
         "release-core/PaperB/Dom.lean",
         "release-core/PaperB/Machine.lean",
-        "release-core/PaperB/HeavyChild.lean"
+        "release-core/PaperB/HeavyChild.lean",
+        "release-core/PaperB/StaticHeavyLCA.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -788,6 +789,12 @@
         "release-core/PaperB/PairKeyMerge.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticHeavyLCA.lean",
+      "local_imports": [],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

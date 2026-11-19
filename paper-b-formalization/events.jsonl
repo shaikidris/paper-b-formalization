@@ -119,3 +119,4 @@
 {"at": "2026-11-19T21:34:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StructuralPaper", "tasks": [], "evidence": "evidence/paper-31-forest-certified/verification.json"}
 {"at": "2026-11-19T21:38:31+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DistinctPredecessors", "tasks": ["EX2.4"], "evidence": "evidence/ex24-predecessor-stamps/verification.json"}
 {"at": "2026-11-19T21:38:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PairDictionary", "tasks": ["EX2.4"], "evidence": "evidence/ex24-balanced-dictionary/verification.json"}
+{"at": "2026-11-19T21:38:36+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticHeavyLCA", "tasks": ["EX1.6"], "evidence": "evidence/ex16-heavy-path-lca/verification.json"}
