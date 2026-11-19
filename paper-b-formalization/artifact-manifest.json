@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3317,
-      "sha256": "093045233bbee7f0a870a3390de77f38ae71ba05d7fa7120c8394adb0a3cb44e"
+      "bytes": 3202,
+      "sha256": "c5915a047d1f3357a6c28f3c26ae41a03accb70b7859b39995e16f59fc595f05"
     },
     {
       "path": "DISPATCH.md",
@@ -18,13 +18,13 @@
     },
     {
       "path": "EXTERNAL-INPUTS.md",
-      "bytes": 1162,
-      "sha256": "15535fdb80db0aff2667b625d628152e8c6ad67a1fa17dafb5f1961e8cd697c9"
+      "bytes": 1094,
+      "sha256": "c5a366c570ca3493a20901ee95a8ea301b5428c158756df2e69bb8674e622356"
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 2876,
-      "sha256": "b1443394907cd31dd88c66fea82f62922c88907162cba4ae66bf79f8b083ce16"
+      "bytes": 2580,
+      "sha256": "d166e9493f50e6bbbe2be30e3faf972ae2d5e3cc165cce6414afe7a46f53d8db"
     },
     {
       "path": "INTERFACES.md",
@@ -48,13 +48,13 @@
     },
     {
       "path": "REUSE.md",
-      "bytes": 3929,
-      "sha256": "00ef8c9073e4c23ed8402fbd3d065374534d08a148cf8630b8aeacfc7690ab7c"
+      "bytes": 3822,
+      "sha256": "186ea2f1c2e2f68d4b16ec24d1edfbb79c34a99afab90d7e2dd7b9c26be89d50"
     },
     {
       "path": "TASKS.md",
-      "bytes": 24874,
-      "sha256": "ef226ec053a3b4c756830f358e7c2b4c275f00cb94be7fd1e309d09a66a09855"
+      "bytes": 24863,
+      "sha256": "9e12a6b32efddc15ae732c922b2bc341804b11ce39f05c5bef931778bbb9ccfe"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 12456,
-      "sha256": "edb10e1e07530c79f8883cd63e20b0e733c4c46cddc0d53066dcb0ef43328f52"
+      "bytes": 12652,
+      "sha256": "20e1c21f2a05a7d4a3ac8ee5f4cdf1b1a10ab93d6c4432d02408e04849b95bde"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -262,6 +262,21 @@
       "sha256": "89e473e095aa99e25d86958da34d373842859792995cc0dab6544ff477a73832"
     },
     {
+      "path": "evidence/ex24-ancestry-interval/IntervalAudit.lean",
+      "bytes": 1107,
+      "sha256": "052a5a1d1a3c1696dc73796d1bd0c13c3ee17ae4865c6616e15548761ee67fc1"
+    },
+    {
+      "path": "evidence/ex24-ancestry-interval/axioms.txt",
+      "bytes": 2444,
+      "sha256": "282faa5e79fd90abba4e41ad9fe62adc5efd5221af0dab1908a40933f255683f"
+    },
+    {
+      "path": "evidence/ex24-ancestry-interval/verification.json",
+      "bytes": 1505,
+      "sha256": "8e161887ecfcec4ed6df835c654da35925dd8313b3337f8f40a458231958f06e"
+    },
+    {
       "path": "evidence/exit-transfer-nested/build.txt",
       "bytes": 670,
       "sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599"
@@ -373,8 +388,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 4881,
-      "sha256": "d80ef8f678c43e550a0611ce44c10d4d94f905e8a47939b593b085fd63e0b0cd"
+      "bytes": 5141,
+      "sha256": "5b33ba6424ee8692b2efa0629d1929d46f4e87c28d3349f09857e6de72e322d4"
     },
     {
       "path": "obligations.json",
@@ -412,6 +427,11 @@
       "sha256": "181692cde143b70cad1824f5661931997106647f200e4078426c416e703e7966"
     },
     {
+      "path": "release-core/PaperB/ForestIntervals.lean",
+      "bytes": 46350,
+      "sha256": "0e7c48a5d13630d17a6bcc2e0aa533fe99b41c1c6595743fe4c4e2d4d4279967"
+    },
+    {
       "path": "release-core/PaperB/Jumps.lean",
       "bytes": 131997,
       "sha256": "340d4e7dc93569424a0440b642d424da0443dcc973ff40aa981da43cc81e4c68"
@@ -428,8 +448,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 288,
-      "sha256": "577202078b0e3d6d4e3e163d961e8ac58adf67ff50e3a00b076cbae370e44ed5"
+      "bytes": 314,
+      "sha256": "aaafdf84ecef8b3cd456d63a3e64fc7556beabefbb4ab8b72957322d7713596b"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -533,8 +553,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 37686,
-      "sha256": "ddb65ce6d1024b37d7a65f1622ef0601b2cf77a2e27c73edeb47c6fed551f2e4"
+      "bytes": 37688,
+      "sha256": "74c684b77aa21f9e67f5f342b63839e13da38e19333fda32dbf70aa7f146d297"
     },
     {
       "path": "test_plan.py",

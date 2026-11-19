@@ -62,6 +62,14 @@
       "admission": "ORACLE_CORE"
     },
     {
+      "path": "release-core/PaperB/ForestIntervals.lean",
+      "local_imports": [
+        "release-core/PaperB/Forest.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
       "path": "release-core/PaperB/Jumps.lean",
       "local_imports": [
         "release-core/PaperB/ExitPaths.lean"
@@ -84,7 +92,8 @@
       "local_imports": [
         "release-core/PaperB/Exit.lean",
         "release-core/PaperB/ForestBuild.lean",
-        "release-core/PaperB/TreeIndex.lean"
+        "release-core/PaperB/TreeIndex.lean",
+        "release-core/PaperB/ForestIntervals.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"

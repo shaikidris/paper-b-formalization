@@ -1,0 +1,31 @@
+{
+  "task": "EX2.4",
+  "checkpoint": "Preorder ancestry interval correctness",
+  "parent_git_commit": "696b0523ed35836d54db126c9f2b8cc660086f72",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source_sha256": "0e7c48a5d13630d17a6bcc2e0aa533fe99b41c1c6595743fe4c4e2d4d4279967",
+  "starting_candidate_sha256": "e1098cf5097612e85391ccdd1cebdf275190ed06c47af651dd594b806b36172d",
+  "starting_errors": 10,
+  "final_errors": 0,
+  "writer": {
+    "model": "gpt-6.2-sol",
+    "reasoning_effort": "high",
+    "api_data_sharing": false,
+    "response_storage": false
+  },
+  "witness": "entry is first occurrence in the computed DFS preorder; right bound is entry plus computed subtree length",
+  "checked_declarations": [
+    "PaperB.LabelledQuotient.isForestAncestor_iff_dfsIntervalContains",
+    "PaperB.LabelledQuotient.buildProperLossForest_ancestor_iff_interval_of_node",
+    "PaperB.LabelledQuotient.buildProperLossForest_properLoss_iff_interval_of_node",
+    "PaperB.LabelledQuotient.not_isForestAncestor_of_entry_eq_right_endpoint",
+    "PaperB.LabelledQuotient.total_bucketChildren_edges"
+  ],
+  "build": "(cd paper-b-formalization/release-core && lake build)",
+  "audit": "(cd paper-b-formalization/release-core && lake env lean ../evidence/ex24-ancestry-interval/IntervalAudit.lean)",
+  "ahead": [
+    "Executable constructor and deterministic pair dictionary",
+    "Precomputed constant-time query and its Word-RAM accounting",
+    "End-to-end construction time, retained space and peak space"
+  ]
+}

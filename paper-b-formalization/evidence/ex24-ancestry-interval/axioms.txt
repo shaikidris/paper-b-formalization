@@ -1,0 +1,39 @@
+@isForestAncestor_iff_dfsIntervalContains : ∀ {N : Nat} {root : Fin N} {parent : Fin N → Fin N} {depth : Fin N → Nat},
+  ValidDepthTree root parent depth →
+    ∀ (a v : Fin N), IsForestAncestor parent a v ↔ dfsIntervalContains root parent depth a v
+@buildProperLossForest_ancestor_iff_interval_of_node : ∀ {H : LabelledQuotient} {rank : Fin H.vertexCount → Nat},
+  (∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) →
+    H.IsFlat →
+      ∀ {a : Fin ((H.buildProperLossForest rank).realNodeCount + 1)} {P : H.CutPair},
+        (H.buildProperLossForest rank).nodeKey? a = some P →
+          ∀ (y : Fin H.vertexCount),
+            let F := H.buildProperLossForest rank;
+            IsForestAncestor F.parent a (F.label y) ↔ dfsIntervalContains F.rootNode F.parent F.depth a (F.label y)
+@buildProperLossForest_properLoss_iff_interval_of_node : ∀ {H : LabelledQuotient} {rank : Fin H.vertexCount → Nat},
+  (∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) →
+    (∀ (a b : Fin H.vertexCount), rank a = rank b → a = b) →
+      H.IsFlat →
+        ∀ {a : Fin ((H.buildProperLossForest rank).realNodeCount + 1)} {P : H.CutPair},
+          (H.buildProperLossForest rank).nodeKey? a = some P →
+            ∀ (y : Fin H.vertexCount),
+              let F := H.buildProperLossForest rank;
+              H.ProperLoss P y ↔ dfsIntervalContains F.rootNode F.parent F.depth a (F.label y)
+@not_isForestAncestor_of_entry_eq_right_endpoint : ∀ {N : Nat} {root : Fin N} {parent : Fin N → Fin N}
+  {depth : Fin N → Nat},
+  ValidDepthTree root parent depth →
+    ∀ {a v : Fin N},
+      entry root parent depth v = entry root parent depth a + (dfsSubtree root parent depth a).length →
+        ¬IsForestAncestor parent a v
+'PaperB.LabelledQuotient.isForestAncestor_iff_dfsIntervalContains' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.LabelledQuotient.buildProperLossForest_ancestor_iff_interval_of_node' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.LabelledQuotient.buildProperLossForest_properLoss_iff_interval_of_node' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.LabelledQuotient.not_isForestAncestor_of_entry_eq_right_endpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.LabelledQuotient.total_bucketChildren_edges' depends on axioms: [propext, Quot.sound]

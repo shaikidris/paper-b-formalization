@@ -39,7 +39,8 @@
     "release-core/PaperB/DomBuild.lean": "dominator",
     "release-core/PaperB/TreeIndex.lean": "dominator",
     "release-core/PaperB/ForestBuild.lean": "cuts",
-    "release-core/PaperB/ExitPaths.lean": "cuts"
+    "release-core/PaperB/ExitPaths.lean": "cuts",
+    "release-core/PaperB/ForestIntervals.lean": "cuts"
   },
   "milestones": [
     {
@@ -571,9 +572,10 @@
         "evidence/ex22-unattended/native-swarm-charging.json",
         "evidence/public-lean-flatmap-split/verification.json",
         "evidence/public-lean-interval-assembly/verification.json",
-        "evidence/public-lean-prefix-probe/verification.json"
+        "evidence/public-lean-prefix-probe/verification.json",
+        "evidence/ex24-ancestry-interval/verification.json"
       ],
-      "progress": "Lean verified conditional charging. GPT-6.2 Sol supplied public list and grouping proofs, and the local assembly now checks the contiguous-block and bucket-membership theorems inside the ancestry-interval candidate. The pinned replay reduces diagnostics from 21 errors to 10. The remaining tree and bucket-count proofs, executable constructor, dictionary and index operations, and end-to-end time and space verification are open. The assembled candidate remains outside the build targets. A standalone executable prefix search and its bound of at most one probe per unit of fuel now check in Lean. Choosing logarithmic fuel and proving the cutoff correct are still open.",
+      "progress": "Lean checks the computed DFS preorder interval equivalence for inclusive ancestry, its specialization to real cut-pair nodes and quotient labels, and its equivalence to exact proper loss. The proof covers self-membership and exclusion at the right endpoint. All ten original candidate errors are resolved. Conditional charging and the separate numeric prefix-probe count also build. The cutoff and logarithmic-fuel proofs, executable constructor, deterministic dictionary, array-backed constant-time query and end-to-end time and space bounds remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
