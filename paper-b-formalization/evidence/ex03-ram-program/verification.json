@@ -1,0 +1,11 @@
+{
+  "base_commit": "555bd7d2a84ecfc5ab452822ce031e17b0b8ec13",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "456aedb88bcbc2cf640a811b303c1084da11e251feb7e91cbbf897c7386e4307",
+  "scope": "A deterministic fixed-capacity interpreter over actual arithmetic, input and data accesses, conditional branches and halt. The same successful run yields its actual instruction count and constant-size input, registers and data layout.",
+  "remaining": "Connect the flat retained index to an independent query run, account for input encoding, initialization, retained extraction and fixed control metadata, and complete execution accounting."
+}

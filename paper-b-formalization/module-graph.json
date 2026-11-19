@@ -117,7 +117,8 @@
       "local_imports": [
         "release-core/PaperB/Oracle.lean",
         "release-core/PaperB/Machine.lean",
-        "release-core/PaperB/WordOps.lean"
+        "release-core/PaperB/WordOps.lean",
+        "release-core/PaperB/RamProgram.lean"
       ],
       "owner_role": "cost model",
       "admission": "ORACLE_CORE"
@@ -316,6 +317,14 @@
         "release-core/PaperB/Graph.lean"
       ],
       "owner_role": "graph",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamProgram.lean",
+      "local_imports": [
+        "release-core/PaperB/WordOps.lean"
+      ],
+      "owner_role": "cost model",
       "admission": "ORACLE_CORE"
     }
   ],

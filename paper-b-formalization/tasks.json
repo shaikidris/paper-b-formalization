@@ -55,7 +55,8 @@
     "release-core/PaperB/WordOps.lean": "cost model",
     "release-core/PaperB/BlockPaths.lean": "dominator",
     "release-core/PaperB/BlockProjection.lean": "dominator",
-    "release-core/PaperB/ReachScan.lean": "graph"
+    "release-core/PaperB/ReachScan.lean": "graph",
+    "release-core/PaperB/RamProgram.lean": "cost model"
   },
   "milestones": [
     {
@@ -222,9 +223,10 @@
       ],
       "evidence": [
         "evidence/ex03-machine-foundation/verification.json",
-        "evidence/ex03-word-operations/verification.json"
+        "evidence/ex03-word-operations/verification.json",
+        "evidence/ex03-ram-program/verification.json"
       ],
-      "progress": "Lean verifies finite-word arithmetic, comparison, the lowbit primitive composition and a logarithmic address bound that counts every arc occurrence. The heap primitives and observation aggregation build. Actual program execution, live-layout and allocation bounds, and build/query trace integration remain open."
+      "progress": "Lean verifies bounded word operations and a deterministic fixed-capacity interpreter with explicit loads, stores, branches and charged instruction count. Successful runs preserve declared memory capacities. The build/query adapter, peak trace and retained-index resource proofs are open."
     },
     {
       "id": "EX1.1",

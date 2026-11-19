@@ -1,0 +1,7 @@
+'PaperB.RamProgram.run_executed_le' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.run_preserves_lengths' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.storageWords_eq' depends on axioms: [propext]
+'PaperB.RamProgram.observe_footprint' depends on axioms: [propext, Quot.sound]
+@PaperB.RamProgram.run_executed_le : ∀ {bits : Nat} {L : PaperB.RamProgram.Layout bits}
+  {code : PaperB.RamProgram.Program L} {input : PaperB.RamProgram.Input L} {fuel : Nat} {s : PaperB.RamProgram.State L}
+  {r : PaperB.RamProgram.Result L}, PaperB.RamProgram.run code input fuel s = some r → r.executed ≤ fuel

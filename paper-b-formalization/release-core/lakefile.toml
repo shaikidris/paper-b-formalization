@@ -8,7 +8,7 @@ relaxedAutoImplicit = false
 
 [[lean_lib]]
 name = "PaperB"
-roots = ["PaperB.Spec", "PaperB.ExitPaths", "PaperB.Forest", "PaperB.ForestIntervals", "PaperB.ReachScan", "PaperB.BlockProjection", "PaperB.BlockPaths", "PaperB.WordOps", "PaperB.TopologicalRank", "PaperB.ExitSummary", "PaperB.DominatorBoundary", "PaperB.DominatorTree", "PaperB.ExitMap", "PaperB.ImmediateDominator", "PaperB.PredecessorSearch", "PaperB.DominatorChain", "PaperB.OracleContract", "PaperB.Machine", "PaperB.ForestIntervalQuery", "PaperB.Dom", "PaperB.PrefixProbe", "PaperB.Graph", "PaperB.Exit", "PaperB.Jumps", "PaperB.ForestBuild"]
+roots = ["PaperB.Spec", "PaperB.ExitPaths", "PaperB.Forest", "PaperB.ForestIntervals", "PaperB.RamProgram", "PaperB.ReachScan", "PaperB.BlockProjection", "PaperB.BlockPaths", "PaperB.WordOps", "PaperB.TopologicalRank", "PaperB.ExitSummary", "PaperB.DominatorBoundary", "PaperB.DominatorTree", "PaperB.ExitMap", "PaperB.ImmediateDominator", "PaperB.PredecessorSearch", "PaperB.DominatorChain", "PaperB.OracleContract", "PaperB.Machine", "PaperB.ForestIntervalQuery", "PaperB.Dom", "PaperB.PrefixProbe", "PaperB.Graph", "PaperB.Exit", "PaperB.Jumps", "PaperB.ForestBuild"]
 
 [[lean_lib]]
 name = "Challenge"
