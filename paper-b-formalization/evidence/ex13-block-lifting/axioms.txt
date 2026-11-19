@@ -1,0 +1,13 @@
+'PaperB.BlockSystem.lift_internal' does not depend on any axioms
+'PaperB.BlockSystem.lift' does not depend on any axioms
+'PaperB.BlockSystem.lift_first_arc' does not depend on any axioms
+'PaperB.BlockSystem.lift_tagged_exit' does not depend on any axioms
+@PaperB.BlockSystem.lift_tagged_exit : {V C : Type} →
+  (S : PaperB.BlockSystem V C) →
+    {Label : Type} →
+      {failed : C → Prop} →
+        {c d t : C} →
+          (first : S.TaggedExit Label c d) →
+            ¬failed c →
+              PaperB.AvoidPath S.QuotientEdge failed d t →
+                { chosen // chosen = first ∧ PaperB.AvoidPath S.arc (S.VertexFailed failed) chosen.tail (S.leader t) }

@@ -1,0 +1,11 @@
+{
+  "base_commit": "fd55326fe365dc0cf52314c12d5f0d2f4bce651f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/BlockPaths.lean",
+  "sha256": "e0b9574b71042501677b0125bebb36a34aabe981b7db6f96e18c4442df798e86",
+  "scope": "Lift a path through supplied blocks to an original path staying in surviving blocks, preserving a given physical first arc and its label.",
+  "remaining": "Connect the abstract blocks to ordinary dominators, project original paths, build actual finite quotient arrays and account for all occurrences."
+}

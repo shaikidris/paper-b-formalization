@@ -52,7 +52,8 @@
     "release-core/PaperB/DominatorBoundary.lean": "dominator",
     "release-core/PaperB/ExitSummary.lean": "oracle",
     "release-core/PaperB/TopologicalRank.lean": "dominator",
-    "release-core/PaperB/WordOps.lean": "cost model"
+    "release-core/PaperB/WordOps.lean": "cost model",
+    "release-core/PaperB/BlockPaths.lean": "dominator"
   },
   "milestones": [
     {
@@ -319,9 +320,10 @@
         "Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator."
       ],
       "evidence": [
-        "evidence/ex13-dominator-boundary/verification.json"
+        "evidence/ex13-dominator-boundary/verification.json",
+        "evidence/ex13-block-lifting/verification.json"
       ],
-      "progress": "Lean verifies the unique entry point of an arc into a dominator subtree and preservation of within-subtree paths from the root. Labelled quotient construction, flatness, projection, lifting, and occurrence counts remain open."
+      "progress": "Lean verifies unique entry and internal path containment for dominator subtrees, and lifts a quotient path through supplied blocks while preserving the selected physical tail and its label. Projection, concrete quotient construction, flatness and occurrence counts remain open."
     },
     {
       "id": "EX1.4",

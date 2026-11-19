@@ -49,7 +49,8 @@
       "path": "release-core/PaperB/Quotient.lean",
       "local_imports": [
         "release-core/PaperB/Dom.lean",
-        "release-core/PaperB/DominatorBoundary.lean"
+        "release-core/PaperB/DominatorBoundary.lean",
+        "release-core/PaperB/BlockPaths.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -289,6 +290,14 @@
         "release-core/PaperB/Machine.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/BlockPaths.lean",
+      "local_imports": [
+        "release-core/PaperB/Spec.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],
