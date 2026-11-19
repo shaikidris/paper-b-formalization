@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc425fa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "900456086780bbee215d49b0b57770f3b3fbeac94932f157da9d8cf6f7c216a5",
+  "scope": "The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions.",
+  "remaining": "Use these macros and loop invariants to lower each actual graph and index phase."
+}

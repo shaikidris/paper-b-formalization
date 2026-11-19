@@ -1087,14 +1087,17 @@
       "paper_consumers": [
         "1.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "resource bound",
       "obligation": "Sum all phases, including sorting, dominator construction, repeated predecessor scans and LCA operations.",
       "acceptance": [
         "Prove deterministic O((n+m)L³) build time for the compiled data layout."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex51-ram-trace-composition/verification.json"
+      ],
+      "progress": "The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions. Use these macros and loop invariants to lower each actual graph and index phase."
     },
     {
       "id": "EX5.2",

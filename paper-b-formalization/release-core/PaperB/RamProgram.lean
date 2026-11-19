@@ -299,3 +299,321 @@ theorem SuccessfulTrace.peak_eq {code : Program L} {input : Input L}
     simp [tracePeakWords, storageWords_eq, ih]
 
 end PaperB.RamProgram
+
+-- Append to PaperB/RamProgram.lean after its namespace closes.
+-- This extension uses the existing private register helpers and the actual
+-- step/run semantics. It adds no instructions and changes no resource charges.
+
+namespace PaperB.RamProgram
+
+open PaperB.Machine (Word)
+open PaperB.WordOps (add ltb)
+
+variable {bits : Nat} {L : Layout bits}
+
+/-- Exactly `n` non-halting instructions in one fixed program and input. -/
+inductive Steps (code : Program L) (input : Input L) :
+    Nat → State L → State L → Prop where
+  | zero (s : State L) : Steps code input 0 s s
+  | cons {n : Nat} {s u t : State L}
+      (head : step code input s = some (.next u))
+      (tail : Steps code input n u t) :
+      Steps code input (Nat.succ n) s t
+
+theorem Steps.append {code : Program L} {input : Input L}
+    {m n : Nat} {s u t : State L} (h : Steps code input m s u) :
+    Steps code input n u t → Steps code input (m + n) s t := by
+  induction h with
+  | zero s =>
+    intro hn
+    simpa only [Nat.zero_add] using hn
+  | cons hs ht ih =>
+    intro hn
+    simpa only [Nat.succ_add] using Steps.cons hs (ih hn)
+
+/-- Prefixing a successful run preserves its final state and adds exactly
+the number of non-halting instructions in the prefix. -/
+theorem Steps.thenRun {code : Program L} {input : Input L}
+    {n fuel : Nat} {s t : State L} {r : Result L}
+    (h : Steps code input n s t) :
+    run code input fuel t = some r →
+    run code input (n + fuel) s =
+      some ⟨r.finalState, n + r.executed⟩ := by
+  induction h with
+  | zero s =>
+    intro hr
+    cases r
+    simpa only [Nat.zero_add] using hr
+  | cons hs ht ih =>
+    intro hr
+    simp only [Nat.succ_add, run, hs, ih hr]
+
+theorem Steps.halts {code : Program L} {input : Input L}
+    {n : Nat} {s t v : State L} (h : Steps code input n s t)
+    (hh : step code input t = some (.halted v)) :
+    run code input (n + 1) s = some ⟨v, n + 1⟩ :=
+  h.thenRun (fuel := 1) (r := ⟨v, 1⟩) (by simp [run, hh])
+
+/-- The witnessed instruction count is also the minimum successful fuel. -/
+theorem Steps.halt_run_iff {code : Program L} {input : Input L}
+    {n fuel : Nat} {s t v : State L} {r : Result L}
+    (h : Steps code input n s t)
+    (hh : step code input t = some (.halted v)) :
+    run code input fuel s = some r ↔
+      n + 1 ≤ fuel ∧ r = ⟨v, n + 1⟩ := by
+  have he := h.halts hh
+  constructor
+  · intro hr
+    have eq := run_success_unique hr he
+    have hle := run_executed_le hr
+    rw [eq] at hle
+    exact ⟨hle, eq⟩
+  · rintro ⟨hle, rfl⟩
+    exact run_stable_of_le hle he
+
+/-- Contracts operate on complete machine states. In particular, a
+postcondition can require the PC expected by the next block. -/
+def BlockSpec (code : Program L) (input : Input L) (n : Nat)
+    (pre post : State L → Prop) : Prop :=
+  ∀ s, pre s → ∃ t, Steps code input n s t ∧ post t
+
+theorem BlockSpec.seq {code : Program L} {input : Input L}
+    {m n : Nat} {P Q R : State L → Prop}
+    (hp : BlockSpec code input m P Q)
+    (hq : BlockSpec code input n Q R) :
+    BlockSpec code input (m + n) P R := by
+  intro s hs
+  obtain ⟨u, hsu, hu⟩ := hp s hs
+  obtain ⟨t, hut, ht⟩ := hq u hu
+  exact ⟨t, hsu.append hut, ht⟩
+
+def iterationCost (cost : Nat → Nat) : Nat → Nat
+  | 0 => 0
+  | i + 1 => iterationCost cost i + cost i
+
+/-- Each body trace includes all emitted control-flow instructions on its
+path, including the taken guard and back-edge when present. -/
+theorem loop_steps {code : Program L} {input : Input L}
+    (count : Nat) (cost : Nat → Nat) (inv : Nat → State L → Prop)
+    (body : ∀ i, i < count →
+      BlockSpec code input (cost i) (inv i) (inv (i + 1))) :
+    BlockSpec code input (iterationCost cost count) (inv 0) (inv count) := by
+  intro s hs
+  have reach : ∀ i, i ≤ count →
+      ∃ t, Steps code input (iterationCost cost i) s t ∧ inv i t := by
+    intro i
+    induction i with
+    | zero =>
+      intro _
+      exact ⟨s, Steps.zero s, hs⟩
+    | succ i ih =>
+      intro hi
+      obtain ⟨u, hsu, hu⟩ := ih (by omega)
+      obtain ⟨t, hut, ht⟩ := body i (by omega) u hu
+      exact ⟨t, hsu.append hut, ht⟩
+  exact reach count (Nat.le_refl count)
+
+/-- The exit block includes any final guard and epilogue up to, but not
+including, halt. Halt is charged separately, once. -/
+theorem loop_run {code : Program L} {input : Input L} {s : State L}
+    (count exitCost : Nat) (cost : Nat → Nat)
+    (inv : Nat → State L → Prop) (post : State L → Prop)
+    (initial : inv 0 s)
+    (body : ∀ i, i < count →
+      BlockSpec code input (cost i) (inv i) (inv (i + 1)))
+    (exit : BlockSpec code input exitCost (inv count)
+      (fun u => ∃ v, step code input u = some (.halted v) ∧ post v)) :
+    ∃ v, post v ∧
+      run code input (iterationCost cost count + exitCost + 1) s =
+        some ⟨v, iterationCost cost count + exitCost + 1⟩ := by
+  have hloop := loop_steps count cost inv body
+  obtain ⟨u, hsu, hu⟩ := hloop s initial
+  obtain ⟨t, hut, v, hh, hv⟩ := exit u hu
+  exact ⟨v, hv, (hsu.append hut).halts hh⟩
+
+/-- A block's local instruction offsets agree with the linked program. This
+does not run the block as a standalone program: every successor is checked
+against the full program by `step`. -/
+def Placed (code : Program L) (entry : Nat)
+    (block : List (Instr bits L.registerCount)) : Prop :=
+  ∀ (i : Nat) (op : Instr bits L.registerCount),
+    block[i]? = some op → code[entry + i]? = some op
+
+private theorem fetch_shift {α : Type} (pre xs : List α) (i : Nat) :
+    (pre ++ xs)[pre.length + i]? = xs[i]? := by
+  induction pre with
+  | nil => simp
+  | cons x pre ih =>
+    have he : (x :: pre).length + i = (pre.length + i) + 1 := by
+      simp only [List.length_cons]
+      omega
+    rw [he]
+    simpa using ih
+
+private theorem fetch_append_left {α : Type} (xs ys : List α)
+    {i : Nat} {x : α} (h : xs[i]? = some x) :
+    (xs ++ ys)[i]? = some x := by
+  induction xs generalizing i with
+  | nil => simp at h
+  | cons y xs ih =>
+    cases i with
+    | zero => simpa using h
+    | succ i =>
+      have h' : xs[i]? = some x := by simpa using h
+      simpa using ih (i := i) h'
+
+theorem placed_link
+    (pre block suffix : List (Instr bits L.registerCount)) :
+    Placed (L := L) (pre ++ (block ++ suffix)).toArray pre.length block := by
+  intro i op hi
+  have h := (fetch_shift pre (block ++ suffix) i).trans
+    (fetch_append_left block suffix hi)
+  simpa using h
+
+private theorem fetch_in_bounds {code : Program L} {pc : Nat}
+    {op : Instr bits L.registerCount} (h : code[pc]? = some op) :
+    pc < code.size := by
+  by_cases hp : pc < code.size
+  · exact hp
+  · simp [getElem?_def, hp] at h
+
+/-- Public register observation, with no change to the state representation. -/
+abbrev reg (s : State L) (r : Fin L.registerCount) : Word bits :=
+  readReg s r
+
+private theorem reg_write_same (s : State L) (r : Fin L.registerCount)
+    (w : Word bits) : reg (writeReg s r w) r = w := by
+  simp [reg, readReg, writeReg, Array.getElem_set]
+
+private theorem reg_write_other (s : State L)
+    (dst r : Fin L.registerCount) (w : Word bits) (h : r ≠ dst) :
+    reg (writeReg s dst w) r = reg s r := by
+  have hv : r.val ≠ dst.val := fun he => h (Fin.ext he)
+  simp [reg, readReg, writeReg, Array.getElem_set, hv, Ne.symm hv]
+
+theorem step_halt_at {code : Program L} {input : Input L} {s : State L}
+    (hf : code[s.pc]? = some .halt) :
+    step code input s = some (.halted s) := by
+  simp [step, hf]
+
+theorem step_goto_at {code : Program L} {input : Input L} {s : State L}
+    {target : Nat} (hf : code[s.pc]? = some (.goto target))
+    (ht : target < code.size) :
+    step code input s = some (.next { s with pc := target }) := by
+  simp [step, hf, advance, ht]
+
+theorem step_branchLt_at {code : Program L} {input : Input L}
+    {s : State L} {x y : Fin L.registerCount} {yesPC noPC : Nat}
+    (hf : code[s.pc]? = some (.branchLt x y yesPC noPC))
+    (ht : (if ltb (reg s x) (reg s y) then yesPC else noPC) < code.size) :
+    step code input s =
+      some (.next { s with
+        pc := if ltb (reg s x) (reg s y) then yesPC else noPC }) := by
+  change (if ltb (readReg s x) (readReg s y) then yesPC else noPC) <
+    code.size at ht
+  simp [step, hf, advance, reg, ht]
+
+/-- Read input at `base + index`. The destination also holds the temporary
+address, so no extra register is needed and either source may alias `dst`. -/
+def indexedInputRead {w r : Nat} (dst base index : Fin r) :
+    List (Instr w r) :=
+  [.add dst base index, .loadInput dst dst]
+
+/-- Write work data at `base + index`. Only `src` must survive the address
+calculation; `tmp` may alias either address operand. -/
+def indexedDataWrite {w r : Nat} (tmp base index src : Fin r) :
+    List (Instr w r) :=
+  [.add tmp base index, .storeData tmp src]
+
+/-- The unsigned bound is on the mathematical sum of the original register
+values. Since `inputCap ≤ 2^bits`, it rules out both wrap and invalid access.
+The continuation at `entry + 2` must be fetchable. -/
+theorem indexedInputRead_steps {code : Program L} {input : Input L}
+    {s : State L} {entry : Nat} {dst base index : Fin L.registerCount}
+    (placed : Placed code entry (indexedInputRead dst base index))
+    (hpc : s.pc = entry) (hexit : entry + 2 < code.size)
+    (hbound : (reg s base).val + (reg s index).val < L.inputCap) :
+    ∃ t, Steps code input 2 s t ∧ t.pc = entry + 2 ∧
+      some (reg t dst) =
+        input.words[(reg s base).val + (reg s index).val]? ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  have hf₀ : code[entry]? = some (.add dst base index) :=
+    placed 0 (.add dst base index) (by simp [indexedInputRead])
+  have hf₁ : code[entry + 1]? = some (.loadInput dst dst) :=
+    placed 1 (.loadInput dst dst) (by simp [indexedInputRead])
+  have hmid := fetch_in_bounds hf₁
+  let a := (reg s base).val + (reg s index).val
+  let w := add (reg s base) (reg s index)
+  have hw : w.val = a :=
+    PaperB.WordOps.add_no_wrap _ _ (Nat.lt_of_lt_of_le hbound L.inputFits)
+  have ha : a < input.words.size := by
+    simpa only [a, input.size_eq] using hbound
+  let v := input.words[a]'ha
+  have hv : input.words[a]? = some v := by
+    simp [getElem?_def, ha, v]
+  let u : State L := { (writeReg s dst w) with pc := entry + 1 }
+  let t : State L := { (writeReg u dst v) with pc := entry + 2 }
+  have huPC : u.pc = entry + 1 := rfl
+  have huReg : readReg u dst = w := reg_write_same s dst w
+  have huAddr : (readReg u dst).val = a := (congrArg Fin.val huReg).trans hw
+  have hs₀ : step code input s = some (.next u) := by
+    simp [step, hpc, hf₀, advance, hmid, u, w, reg]
+  have hs₁ : step code input u = some (.next t) := by
+    simp [step, huPC, hf₁, huAddr, hv, advance, hexit, t]
+  refine ⟨t, Steps.cons hs₀ (Steps.cons hs₁ (Steps.zero t)), rfl,
+    ?_, ?_, rfl⟩
+  · have htReg : reg t dst = v := reg_write_same u dst v
+    exact (congrArg some htReg).trans hv.symm
+  · intro r hr
+    exact (reg_write_other u dst r v hr).trans
+      (reg_write_other s dst r w hr)
+
+/-- The array update is at the exact unsigned sum, not at a wrapped
+address. The postcondition gives the full updated array and all register
+effects, so it can be used directly in a kernel invariant. -/
+theorem indexedDataWrite_steps {code : Program L} {input : Input L}
+    {s : State L} {entry : Nat} {tmp base index src : Fin L.registerCount}
+    (placed : Placed code entry (indexedDataWrite tmp base index src))
+    (hpc : s.pc = entry) (hexit : entry + 2 < code.size)
+    (hsrc : src ≠ tmp)
+    (hbound : (reg s base).val + (reg s index).val < L.workCap) :
+    ∃ t, Steps code input 2 s t ∧ t.pc = entry + 2 ∧
+      t.data = s.data.set ((reg s base).val + (reg s index).val)
+        (reg s src) (by simpa only [s.data_size] using hbound) ∧
+      reg t tmp = add (reg s base) (reg s index) ∧
+      (∀ r : Fin L.registerCount, r ≠ tmp → reg t r = reg s r) := by
+  have hf₀ : code[entry]? = some (.add tmp base index) :=
+    placed 0 (.add tmp base index) (by simp [indexedDataWrite])
+  have hf₁ : code[entry + 1]? = some (.storeData tmp src) :=
+    placed 1 (.storeData tmp src) (by simp [indexedDataWrite])
+  have hmid := fetch_in_bounds hf₁
+  let a := (reg s base).val + (reg s index).val
+  let w := add (reg s base) (reg s index)
+  have hw : w.val = a :=
+    PaperB.WordOps.add_no_wrap _ _ (Nat.lt_of_lt_of_le hbound L.workFits)
+  have ha : a < s.data.size := by
+    simpa only [a, s.data_size] using hbound
+  let u : State L := { (writeReg s tmp w) with pc := entry + 1 }
+  let t : State L :=
+    { u with
+      data := s.data.set a (reg s src) ha
+      pc := entry + 2
+      data_size := by simp only [Array.size_set, s.data_size] }
+  have huPC : u.pc = entry + 1 := rfl
+  have huReg : readReg u tmp = w := reg_write_same s tmp w
+  have huAddr : (readReg u tmp).val = a := (congrArg Fin.val huReg).trans hw
+  have huSrc : readReg u src = readReg s src :=
+    reg_write_other s tmp src w hsrc
+  have huBound : a < u.data.size := ha
+  have hs₀ : step code input s = some (.next u) := by
+    simp [step, hpc, hf₀, advance, hmid, u, w, reg]
+  have hs₁ : step code input u = some (.next t) := by
+    simp [step, huPC, hf₁, huAddr, huSrc, huBound, advance, hexit, t, reg]
+    exact ⟨hexit, rfl⟩
+  refine ⟨t, Steps.cons hs₀ (Steps.cons hs₁ (Steps.zero t)), rfl, rfl,
+    reg_write_same s tmp w, ?_⟩
+  intro r hr
+  exact reg_write_other s tmp r w hr
+
+end PaperB.RamProgram

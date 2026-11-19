@@ -75,7 +75,7 @@ Work packages: 5; planning audits complete: 0; verified proof packages: 0.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
-| [EX5.1](TASKS.md#ex51) — Account for discovery and every edge scan | cost model | PLANNED | EX0.3, EX2.4, EX4.3, EX1.5, EX1.6 |
+| [EX5.1](TASKS.md#ex51) — Account for discovery and every edge scan | cost model | IN_PROGRESS | EX0.3, EX2.4, EX4.3, EX1.5, EX1.6 |
 | [EX5.2](TASKS.md#ex52) — Bound peak workspace and the retained index | cost model | PLANNED | EX5.1 |
 | [EX5.3](TASKS.md#ex53) — Bound each later query and exclude adjacency access | cost model | PLANNED | EX4.4, EX5.2 |
 | [EX5.4](TASKS.md#ex54) — Join correctness and costs in the oracle theorem | integration | PLANNED | EX5.3 |

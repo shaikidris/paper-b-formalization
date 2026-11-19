@@ -410,7 +410,7 @@ Acceptance:
 
 ## EX5.1 — Account for discovery and every edge scan
 
-- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX5; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.3, EX2.4, EX4.3, EX1.5, EX1.6.
 - Proposed owner module: `release-core/PaperB/Resources.lean`.
@@ -421,6 +421,10 @@ Sum all phases, including sorting, dominator construction, repeated predecessor 
 Acceptance:
 
 - Prove deterministic O((n+m)L³) build time for the compiled data layout.
+
+The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions. Use these macros and loop invariants to lower each actual graph and index phase.
+
+Planning/evidence references: [evidence/ex51-ram-trace-composition/verification.json](evidence/ex51-ram-trace-composition/verification.json).
 
 <a id="ex52"></a>
 

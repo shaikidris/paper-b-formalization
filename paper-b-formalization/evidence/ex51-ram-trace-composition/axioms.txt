@@ -1,0 +1,5 @@
+'PaperB.RamProgram.Steps.halt_run_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.BlockSpec.seq' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.loop_run' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.indexedInputRead_steps' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.indexedDataWrite_steps' depends on axioms: [propext, Quot.sound]

@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **12/27**. Planning audits **1** and verified proof packages **11**.
-- Remaining work packages **15**. 7 in progress, 8 planned.
+- Remaining work packages **15**. 8 in progress, 7 planned.
 - Milestones 4 in progress, 1 planned, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -25,6 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.
 - [EX4.1](TASKS.md#ex41) — The min/max preorder summary decodes to the exact ordinary-tree LCA of each finite physical-tail set. Joining intervals refines empty-aware LCA join, and the composable two-coordinate maps preserve this decoding. Instantiate the interval contract on the actual ordinary-tree index and account stored word records.
 - [EX4.2](TASKS.md#ex42) — Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant.
+- [EX5.1](TASKS.md#ex51) — The fixed word-machine supports exact composition of instruction block traces and a charged loop rule. Checked indexed read and write macros access their bounded addresses in two instructions. Use these macros and loop invariants to lower each actual graph and index phase.
 - [EX5.5](TASKS.md#ex55) — Lean verifies downstream list disjunctions, original output order, all target/count charges, and the cubic-log scaling from an exact single-target oracle. The whole-oracle instantiation remains open.
 
 ## Ready to start
