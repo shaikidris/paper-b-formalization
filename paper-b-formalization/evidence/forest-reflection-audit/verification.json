@@ -1,0 +1,11 @@
+{
+  "base_commit": "9f61fc9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPhysicalReflection.lean",
+  "sha256": "9b4441e3b0ac8c525349c369340570cccde9d824eaadb029ba5e699cb128b89b",
+  "scope": "The final occupied forest is onto the canonical proper-loss forest, as well as injective, and the actual pair dictionary hits exactly a real canonical cut. Physical parent ancestry and final labels give exact proper-loss membership.",
+  "remaining": "Use the actual DFS interval reader for constant-time same membership after a dictionary hit, and complete measured costs."
+}

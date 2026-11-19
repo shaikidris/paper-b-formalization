@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual constructor now instantiates the full ordered fold with its own packed root region, exact numeric dictionary, and unconditional per-head measured parent bound. Final physical known-node reads and aggregate accounting remain in progress.
+- [EX2.4](TASKS.md#ex24) — The final physical slots now form an exact bijective embedding of the canonical real-node forest, and Lean checks actual dictionary hits and the exact proper-loss relation.
 - [EX4.2](TASKS.md#ex42) — The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.

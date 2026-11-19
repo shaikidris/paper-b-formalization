@@ -309,7 +309,8 @@
         "release-core/PaperB/ForestActualStep.lean",
         "release-core/PaperB/MeasuredCutRange.lean",
         "release-core/PaperB/ForestTopologicalTotal.lean",
-        "release-core/PaperB/ForestActualFull.lean"
+        "release-core/PaperB/ForestActualFull.lean",
+        "release-core/PaperB/ForestPhysicalReflection.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1398,6 +1399,15 @@
         "release-core/PaperB/ForestTopologicalTotal.lean",
         "release-core/PaperB/JumpRegionInit.lean",
         "release-core/PaperB/SmallQuotient.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestPhysicalReflection.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestTopologicalTotal.lean",
+        "release-core/PaperB/ForestCanonicalLaws.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

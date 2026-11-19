@@ -168,7 +168,8 @@
     "release-core/PaperB/OriginalStaticConnector.lean": "oracle",
     "extensions/GuardedListedWitness.lean": "application",
     "release-core/PaperB/DenseQuotientRows.lean": "quotient",
-    "release-core/PaperB/ForestActualFull.lean": "cuts"
+    "release-core/PaperB/ForestActualFull.lean": "cuts",
+    "release-core/PaperB/ForestPhysicalReflection.lean": "cuts"
   },
   "milestones": [
     {
@@ -909,9 +910,10 @@
         "evidence/compact-loop-public-audit/verification.json",
         "evidence/prepared-parent-audit/verification.json",
         "evidence/forest-topological-audit/verification.json",
-        "evidence/forest-actual-full-audit/verification.json"
+        "evidence/forest-actual-full-audit/verification.json",
+        "evidence/forest-reflection-audit/verification.json"
       ],
-      "progress": "The actual constructor now instantiates the full ordered fold with its own packed root region, exact numeric dictionary, and unconditional per-head measured parent bound. Final physical known-node reads and aggregate accounting remain in progress.",
+      "progress": "The final physical slots now form an exact bijective embedding of the canonical real-node forest, and Lean checks actual dictionary hits and the exact proper-loss relation.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
