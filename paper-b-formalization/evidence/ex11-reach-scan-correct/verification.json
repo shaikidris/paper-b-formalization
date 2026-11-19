@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc31f19",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ReachScan.lean",
+  "sha256": "2724f9e3016fc4c891c16c93b39958bfa937b7f7b9476a0a74142cd62d9e8164",
+  "scope": "The concrete array scan of a verified topological order marks exactly the vertices initially reachable in the original DAG. The same executable reports the checked vertex-visit and adjacency-occurrence counts.",
+  "remaining": "Construct and charge topological order, compact ID mapping and induced adjacency arrays."
+}

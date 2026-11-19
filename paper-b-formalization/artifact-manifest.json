@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 5166,
-      "sha256": "5c1452917972a7c0e4879812f0f81da12bf79cf485a890545b016119691b7ad6"
+      "bytes": 5224,
+      "sha256": "55088f138f55f68da7565e9d9aa56cd58b64c24e861198ad2d966eee527fda2a"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 29921,
-      "sha256": "324411675a742b94d9f870bacfd00c94309b3c34c140bcac766fd4094f65d6f5"
+      "bytes": 30085,
+      "sha256": "006516ba6b06b9289e8f77a5b755c5b0f563ac2580ebbcd37688c40059607a13"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 17310,
-      "sha256": "393e3eca20ebd963ab52cd646a438a184979e1caaf501e4989783cf07c7f2564"
+      "bytes": 17497,
+      "sha256": "135fa511c7ae8ac555504b95e9dd99d284881a1fd5b02353d366051d389468ce"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -295,6 +295,21 @@
       "path": "evidence/ex11-reach-scan/verification.json",
       "bytes": 696,
       "sha256": "acd9493fc928b0f0dfe590fe768c7d2a038da08b7b9f28bc4a847f747dbce172"
+    },
+    {
+      "path": "evidence/ex11-reach-scan-correct/Audit.lean",
+      "bytes": 174,
+      "sha256": "994de6b8a88fc1c6480cca1119386a3696d22bbe8d6548e0769353196ec9b16b"
+    },
+    {
+      "path": "evidence/ex11-reach-scan-correct/axioms.txt",
+      "bytes": 467,
+      "sha256": "78cf7ccc52aa9cb1657567703631c373f523832b819c78e5d0ceecb6fc17f3f3"
+    },
+    {
+      "path": "evidence/ex11-reach-scan-correct/verification.json",
+      "bytes": 622,
+      "sha256": "ee38bf19edb2058d79af71e0670d4654902179244f9b95ee702394ab12f7956e"
     },
     {
       "path": "evidence/ex11-reach-sound/Audit.lean",
@@ -903,8 +918,8 @@
     },
     {
       "path": "release-core/PaperB/ReachScan.lean",
-      "bytes": 9864,
-      "sha256": "281efbdab09c587d709735ec2a02286fef84b02d691ef8954988078153e4a041"
+      "bytes": 17024,
+      "sha256": "2724f9e3016fc4c891c16c93b39958bfa937b7f7b9476a0a74142cd62d9e8164"
     },
     {
       "path": "release-core/PaperB/SiblingPartition.lean",
@@ -1038,8 +1053,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 42933,
-      "sha256": "c08cf2ef4ca4fa9d4c3ec3ce2a1617ca1d374ed616684ec7a8472cb83f4bdc79"
+      "bytes": 43053,
+      "sha256": "51bfef57bb8f1b36a0ad440111cbcbdc6c631b649e9fc48741e89e73a2556922"
     },
     {
       "path": "test_plan.py",

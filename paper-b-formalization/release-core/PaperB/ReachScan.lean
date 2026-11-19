@@ -222,4 +222,170 @@ theorem scanReachability_sound (g : Digraph) (source : Fin g.vertexCount)
   exact scanReachVertices_sound g source order (seedReachMarks g source) hsize
     hseed u (by simpa only [scanReachability] using hu)
 
+private def reachScanMarked {n : Nat} (marked : Array Bool) (u : Fin n) : Prop :=
+  (marked[u.val]?).getD false = true
+
+private theorem visitReachVertex_query (g : Digraph) (marked : Array Bool)
+    (u : Fin g.vertexCount) (hsize : marked.size = g.vertexCount)
+    (v : Fin g.vertexCount) :
+    reachScanMarked (visitReachVertex g marked u).1 v ↔
+      reachScanMarked marked v ∨ (reachScanMarked marked u ∧ g.HasArc u v) := by
+  unfold reachScanMarked visitReachVertex
+  split
+  · rename_i hu
+    refine (markReachHeads_query (g.outArcs u) marked hsize v).trans ?_
+    constructor
+    · intro hv
+      rcases hv with hv | hv
+      · exact Or.inl hv
+      · exact Or.inr ⟨hu, hv⟩
+    · intro hv
+      rcases hv with hv | ⟨_, hv⟩
+      · exact Or.inl hv
+      · exact Or.inr hv
+  · rename_i hu
+    constructor
+    · exact Or.inl
+    · intro hv
+      rcases hv with hv | ⟨hmarked, _⟩
+      · exact hv
+      · exact (hu hmarked).elim
+
+private theorem reachScan_arc_tail_mem_prefix (g : Digraph)
+    (order : List (Fin g.vertexCount)) (verified : g.IsTopologicalList order)
+    (pre rest : List (Fin g.vertexCount)) (p u : Fin g.vertexCount)
+    (horder : order = pre ++ (u :: rest)) (hpu : g.HasArc p u) :
+    p ∈ pre := by
+  have hpAll : p ∈ pre ++ (u :: rest) := by
+    rw [← horder]
+    exact verified.2.1 p
+  rcases List.mem_append.mp hpAll with hp | hp
+  · exact hp
+  · exfalso
+    have suffixNodup : ∀ (xs ys : List (Fin g.vertexCount)),
+        (xs ++ ys).Nodup → ys.Nodup := by
+      intro xs ys
+      induction xs with
+      | nil =>
+          intro h
+          exact h
+      | cons x xs ih =>
+          intro h
+          change (x :: (xs ++ ys)).Nodup at h
+          exact ih (List.nodup_cons.mp h).2
+    have hn : (pre ++ (u :: rest)).Nodup := by
+      rw [← horder]
+      exact verified.1
+    have huNot : u ∉ rest :=
+      (List.nodup_cons.mp (suffixNodup pre (u :: rest) hn)).1
+    have splitMem : ∀ xs : List (Fin g.vertexCount), p ∈ xs →
+        ∃ a b : List (Fin g.vertexCount), xs = a ++ (p :: b) := by
+      intro xs
+      induction xs with
+      | nil => simp
+      | cons x xs ih =>
+          intro hx
+          rcases List.mem_cons.mp hx with hx | hx
+          · subst x
+            exact ⟨[], xs, rfl⟩
+          · rcases ih hx with ⟨a, b, hab⟩
+            exact ⟨x :: a, b, congrArg (List.cons x) hab⟩
+    rcases splitMem (u :: rest) hp with ⟨a, b, hab⟩
+    have hpOrder : order = (pre ++ a) ++ (p :: b) := by
+      rw [List.append_assoc, ← hab]
+      exact horder
+    have huIn : u ∈ b := verified.2.2 (pre ++ a) p b hpOrder u hpu
+    apply huNot
+    cases a with
+    | nil =>
+        have he : u :: rest = p :: b := hab
+        rw [(List.cons.inj he).2]
+        exact huIn
+    | cons x xs =>
+        have he : u :: rest = x :: (xs ++ (p :: b)) := hab
+        rw [(List.cons.inj he).2]
+        exact List.mem_append.mpr (Or.inr (List.mem_cons.mpr (Or.inr huIn)))
+
+/-- The source, every processed reachable vertex, and all of their arc heads
+remain marked as the scan advances. -/
+private theorem scanReachVertices_complete (g : Digraph)
+    (source : Fin g.vertexCount) (order : List (Fin g.vertexCount))
+    (verified : g.IsTopologicalList order)
+    (rest pre : List (Fin g.vertexCount)) (marked : Array Bool)
+    (horder : order = pre ++ rest) (hsize : marked.size = g.vertexCount)
+    (hsource : reachScanMarked marked source)
+    (hpre : ∀ p : Fin g.vertexCount, p ∈ pre → g.InitiallyReachable source p →
+      reachScanMarked marked p ∧
+        (∀ v : Fin g.vertexCount, g.HasArc p v → reachScanMarked marked v)) :
+    ∀ v : Fin g.vertexCount, g.InitiallyReachable source v →
+      reachScanMarked (scanReachVertices g marked rest).marked v := by
+  induction rest generalizing pre marked with
+  | nil =>
+      intro v hv
+      have hmem : v ∈ pre := by
+        simpa only [horder, List.append_nil] using (verified.2.1 v)
+      simpa only [scanReachVertices] using (hpre v hmem hv).1
+  | cons u us ih =>
+      have huMarked : g.InitiallyReachable source u → reachScanMarked marked u := by
+        intro hu
+        have hlast : source = u ∨
+            ∃ p : Fin g.vertexCount, g.InitiallyReachable source p ∧ g.HasArc p u := by
+          first
+          | exact eq_or_exists_last_arc hu
+          | exact AvoidPath.eq_or_exists_last_arc hu
+        rcases hlast with h | ⟨p, hp, hpu⟩
+        · exact h ▸ hsource
+        · have hpPre : p ∈ pre :=
+            reachScan_arc_tail_mem_prefix g order verified pre us p u horder hpu
+          exact (hpre p hpPre hp).2 u hpu
+      let next := (visitReachVertex g marked u).1
+      have hpreserve : ∀ v : Fin g.vertexCount, reachScanMarked marked v →
+          reachScanMarked next v := by
+        intro v hv
+        exact (visitReachVertex_query g marked u hsize v).mpr (Or.inl hv)
+      have hpre' : ∀ p : Fin g.vertexCount, p ∈ pre ++ [u] →
+          g.InitiallyReachable source p → reachScanMarked next p ∧
+            (∀ v : Fin g.vertexCount, g.HasArc p v → reachScanMarked next v) := by
+        intro p hp hreach
+        rcases List.mem_append.mp hp with hp | hp
+        · rcases hpre p hp hreach with ⟨hmarked, hheads⟩
+          exact ⟨hpreserve p hmarked, fun v hv => hpreserve v (hheads v hv)⟩
+        · have he : p = u := by simpa using hp
+          subst p
+          have hm := huMarked hreach
+          refine ⟨hpreserve u hm, ?_⟩
+          intro v hv
+          exact (visitReachVertex_query g marked u hsize v).mpr (Or.inr ⟨hm, hv⟩)
+      have horder' : order = (pre ++ [u]) ++ us := by
+        rw [List.append_assoc]
+        exact horder
+      have hsize' : next.size = g.vertexCount :=
+        (visitReachVertex_spec g marked u).1.trans hsize
+      simpa only [scanReachVertices] using
+        (ih (pre ++ [u]) next horder' hsize' (hpreserve source hsource) hpre')
+
+/-- Scanning a topological list marks every vertex reachable from the source. -/
+theorem scanReachability_complete (g : Digraph) (source : Fin g.vertexCount)
+    (order : List (Fin g.vertexCount)) (verified : g.IsTopologicalList order)
+    (u : Fin g.vertexCount) (hu : g.InitiallyReachable source u) :
+    ((g.scanReachability source order verified).marked[u.val]?).getD false = true := by
+  have hsize : (seedReachMarks g source).size = g.vertexCount := by
+    simp [seedReachMarks]
+  have hsource : reachScanMarked (seedReachMarks g source) source :=
+    (seedReachMarks_query g source source).mpr rfl
+  exact scanReachVertices_complete g source order verified order []
+    (seedReachMarks g source) rfl hsize hsource
+    (by
+      intro p hp
+      simp at hp) u hu
+
+/-- The scan marks exactly the vertices reachable from the source. -/
+theorem scanReachability_iff (g : Digraph) (source : Fin g.vertexCount)
+    (order : List (Fin g.vertexCount)) (verified : g.IsTopologicalList order)
+    (u : Fin g.vertexCount) :
+    ((g.scanReachability source order verified).marked[u.val]?).getD false = true ↔
+      g.InitiallyReachable source u :=
+  ⟨scanReachability_sound g source order verified u,
+    scanReachability_complete g source order verified u⟩
+
 end PaperB.Digraph

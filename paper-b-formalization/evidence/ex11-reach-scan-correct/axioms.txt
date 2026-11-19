@@ -1,0 +1,5 @@
+'PaperB.Digraph.scanReachability_complete' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.scanReachability_iff' depends on axioms: [propext, Quot.sound]
+PaperB.Digraph.scanReachability_iff : ∀ (g : PaperB.Digraph) (source : Fin g.vertexCount)
+  (order : List (Fin g.vertexCount)) (verified : g.IsTopologicalList order) (u : Fin g.vertexCount),
+  (g.scanReachability source order verified).marked[↑u]?.getD false = true ↔ g.InitiallyReachable source u
