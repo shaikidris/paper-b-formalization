@@ -121,9 +121,9 @@ Acceptance:
 - Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.
 - Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator.
 
-Lean extracts the original path suffix starting at a dominator while preserving arbitrary failures. Labelled quotient construction and its occurrence bound remain open.
+Lean constructs the semantic sibling blocks from the original DAG parent map and proves all internal paths, unique crossing entry, and exact failed-leader reachability in the quotient. Flatness and finite adjacency construction remain open.
 
-Planning/evidence references: [evidence/ex13-dominator-boundary/verification.json](evidence/ex13-dominator-boundary/verification.json), [evidence/ex13-block-lifting/verification.json](evidence/ex13-block-lifting/verification.json), [evidence/ex13-block-projection/verification.json](evidence/ex13-block-projection/verification.json), [evidence/ex13-dominator-segment/verification.json](evidence/ex13-dominator-segment/verification.json), [evidence/ex13-unique-child/verification.json](evidence/ex13-unique-child/verification.json), [evidence/ex13-sibling-blocks/verification.json](evidence/ex13-sibling-blocks/verification.json), [evidence/ex13-failed-suffix/verification.json](evidence/ex13-failed-suffix/verification.json).
+Planning/evidence references: [evidence/ex13-dominator-boundary/verification.json](evidence/ex13-dominator-boundary/verification.json), [evidence/ex13-block-lifting/verification.json](evidence/ex13-block-lifting/verification.json), [evidence/ex13-block-projection/verification.json](evidence/ex13-block-projection/verification.json), [evidence/ex13-dominator-segment/verification.json](evidence/ex13-dominator-segment/verification.json), [evidence/ex13-unique-child/verification.json](evidence/ex13-unique-child/verification.json), [evidence/ex13-sibling-blocks/verification.json](evidence/ex13-sibling-blocks/verification.json), [evidence/ex13-failed-suffix/verification.json](evidence/ex13-failed-suffix/verification.json), [evidence/ex13-sibling-system/verification.json](evidence/ex13-sibling-system/verification.json).
 
 <a id="ex14"></a>
 

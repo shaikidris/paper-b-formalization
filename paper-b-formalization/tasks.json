@@ -59,7 +59,8 @@
     "release-core/PaperB/RamProgram.lean": "cost model",
     "release-core/PaperB/SiblingPartition.lean": "dominator",
     "release-core/PaperB/SiblingBlocks.lean": "dominator",
-    "release-core/PaperB/Indegrees.lean": "graph"
+    "release-core/PaperB/Indegrees.lean": "graph",
+    "release-core/PaperB/SiblingBlockSystem.lean": "dominator"
   },
   "milestones": [
     {
@@ -338,9 +339,10 @@
         "evidence/ex13-dominator-segment/verification.json",
         "evidence/ex13-unique-child/verification.json",
         "evidence/ex13-sibling-blocks/verification.json",
-        "evidence/ex13-failed-suffix/verification.json"
+        "evidence/ex13-failed-suffix/verification.json",
+        "evidence/ex13-sibling-system/verification.json"
       ],
-      "progress": "Lean extracts the original path suffix starting at a dominator while preserving arbitrary failures. Labelled quotient construction and its occurrence bound remain open."
+      "progress": "Lean constructs the semantic sibling blocks from the original DAG parent map and proves all internal paths, unique crossing entry, and exact failed-leader reachability in the quotient. Flatness and finite adjacency construction remain open."
     },
     {
       "id": "EX1.4",

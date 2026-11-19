@@ -1,0 +1,10 @@
+'PaperB.Digraph.siblingBlock_internal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.siblingBlockSystem_enter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.siblingBlockSystem_leader_path_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.siblingBlockSystem_leader_path_iff : ∀ {g : PaperB.Digraph} {r d : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount}
+  (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) (spec : g.ParentSpec r parent)
+  (hd : g.InitiallyReachable r d) {failed : g.SiblingBlockKey r d parent → Prop} {s t : g.SiblingBlockKey r d parent},
+  have S := PaperB.Digraph.siblingBlockSystem progress injective spec hd;
+  PaperB.AvoidPath S.arc (S.LeaderFailed failed) (S.leader s) (S.leader t) ↔ PaperB.AvoidPath S.QuotientEdge failed s t

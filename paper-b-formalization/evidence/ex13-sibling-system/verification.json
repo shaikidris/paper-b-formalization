@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingBlockSystem.lean",
+  "sha256": "611ef52a70b4b82b9a2bc1a014599fe40fb811b0d0a00e559bc17ee82276a80e",
+  "scope": "Construct the original-DAG sibling block system and prove exact quotient paths for surviving leaders, with original arc occurrence witnesses.",
+  "remaining": "Prove flatness and translate to allocated finite arrays with exact occurrence counts."
+}

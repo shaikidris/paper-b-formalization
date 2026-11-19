@@ -53,7 +53,8 @@
         "release-core/PaperB/BlockPaths.lean",
         "release-core/PaperB/BlockProjection.lean",
         "release-core/PaperB/SiblingPartition.lean",
-        "release-core/PaperB/SiblingBlocks.lean"
+        "release-core/PaperB/SiblingBlocks.lean",
+        "release-core/PaperB/SiblingBlockSystem.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -352,6 +353,16 @@
         "release-core/PaperB/ReachScan.lean"
       ],
       "owner_role": "graph",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SiblingBlockSystem.lean",
+      "local_imports": [
+        "release-core/PaperB/SiblingBlocks.lean",
+        "release-core/PaperB/DominatorBoundary.lean",
+        "release-core/PaperB/BlockProjection.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],
