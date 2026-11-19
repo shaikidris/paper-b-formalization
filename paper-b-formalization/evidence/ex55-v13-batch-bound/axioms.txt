@@ -1,0 +1,3 @@
+'PaperB.EX55.totalOperations_mixed' depends on axioms: [propext, Quot.sound]
+'PaperB.EX55.laterList_linear' depends on axioms: [propext, Quot.sound]
+'PaperB.EX55.wordBudget_mixed_le' depends on axioms: [propext, Quot.sound]

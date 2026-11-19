@@ -1,0 +1,11 @@
+{
+  "base_commit": "a97e353",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "extensions/BatchSupport.lean",
+  "sha256": "b579ec2b76cebac535deea3db0ab6deb761fb4cf2bf5b207d8a4d0f2bff1c853",
+  "scope": "The ordered listed-target transfer proves the v1.3 mixed bound, including single construction, per-list overhead, all repeated target charges and a later list.",
+  "remaining": "Instantiate against the sealed single-target oracle."
+}

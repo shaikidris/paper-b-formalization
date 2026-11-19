@@ -1230,9 +1230,10 @@
         "Produce one Boolean per original list in order, prove the later-single-list bound, and allow logarithmic words in S+2."
       ],
       "evidence": [
-        "evidence/ex55-listed-batch-support/verification.json"
+        "evidence/ex55-listed-batch-support/verification.json",
+        "evidence/ex55-v13-batch-bound/verification.json"
       ],
-      "progress": "Lean verifies downstream list disjunctions, original output order, all target/count charges, and the cubic-log scaling from an exact single-target oracle. The whole-oracle instantiation remains open."
+      "progress": "The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open."
     },
     {
       "id": "EX6.1",

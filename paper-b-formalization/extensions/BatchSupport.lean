@@ -336,3 +336,83 @@ theorem wordBudget_le (n m q M A C buildPeak retained queryExtra : Nat)
       rw [Nat.add_mul, Nat.mul_comm 2 A, Nat.mul_assoc]
 
 end PaperB.EX55
+
+namespace PaperB.EX55
+
+universe uMixed
+
+variable {V : Type uMixed}
+
+/-- v1.3: at most `M` scans, `Cq * M * L` oracle operations, and exactly `q` writes. -/
+theorem runBatch_mixed_bounds (oracle : Oracle V) (Cq L : Nat)
+    (hQ : OracleBound oracle (Cq * L)) (jobs : List (Job V)) :
+    (runBatch oracle jobs).scans ≤ targetCount jobs ∧
+      (runBatch oracle jobs).oracleOps ≤ Cq * targetCount jobs * L ∧
+      (runBatch oracle jobs).writes = jobs.length := by
+  have h := runBatch_bounds oracle (Cq * L) hQ jobs
+  refine ⟨h.1, ?_, runBatch_writes oracle jobs⟩
+  rw [Nat.mul_comm Cq (targetCount jobs),
+    Nat.mul_assoc (targetCount jobs) Cq L]
+  exact Nat.le_trans h.2 (Nat.mul_le_mul_right (Cq * L) h.1)
+
+/--
+Mixed transfer: `B + 3 * q + (3 + Cq) * M * L`, where
+`B = Cb * (n + m) * L^2 + 1`. The one batch-start charge remains
+in `B` even when there are no jobs.
+-/
+theorem totalOperations_mixed (oracle : Oracle V)
+    (n m buildOps Cb Cq L : Nat) (jobs : List (Job V))
+    (hL : 1 ≤ L)
+    (hBuild : buildOps ≤ Cb * (n + m) * L ^ 2)
+    (hQ : OracleBound oracle (Cq * L)) :
+    totalOperations buildOps (runBatch oracle jobs) ≤
+      (Cb * (n + m) * L ^ 2 + 1) + 3 * jobs.length +
+        (3 + Cq) * targetCount jobs * L := by
+  calc
+    _ ≤ batchBudget (Cb * (n + m) * L ^ 2) (Cq * L)
+          jobs.length (targetCount jobs) :=
+      totalOperations_le oracle buildOps (Cb * (n + m) * L ^ 2)
+        (Cq * L) hBuild hQ jobs
+    _ ≤ _ := by
+      rw [batchBudget, Nat.mul_comm (3 + Cq) (targetCount jobs),
+        Nat.mul_assoc (targetCount jobs) (3 + Cq) L]
+      exact Nat.add_le_add (Nat.le_refl _)
+        (Nat.mul_le_mul_left (targetCount jobs) (overhead_le Cq 3 L hL))
+
+/-- A later list pays one start unit and no construction charge. -/
+theorem laterList_linear (oracle : Oracle V) (Cq L : Nat)
+    (hL : 1 ≤ L) (hQ : OracleBound oracle (Cq * L))
+    (f : FailureSlots V) (ts : List V) :
+    listOperations (runList oracle f ts) ≤
+      1 + (3 + Cq) * ts.length * L := by
+  calc
+    _ ≤ 1 + ts.length * (3 + Cq * L) :=
+      runList_operations_le oracle (Cq * L) hQ f ts
+    _ ≤ _ := by
+      rw [Nat.mul_comm (3 + Cq) ts.length,
+        Nat.mul_assoc ts.length (3 + Cq) L]
+      exact Nat.add_le_add (Nat.le_refl 1)
+        (Nat.mul_le_mul_left ts.length (overhead_le Cq 3 L hL))
+
+/--
+Linear working words in the `wordBudget` model. Construction, retained
+storage, and one-call scratch require their own space bounds; the operation
+bounds do not imply these bounds.
+-/
+theorem wordBudget_mixed_le
+    (n m A Cbuild Cret Cscratch buildPeak retained queryExtra : Nat)
+    (jobs : List (Job V)) (hS : 0 < inputSize n m jobs)
+    (hBuild : buildPeak ≤ Cbuild * (n + m))
+    (hRetained : retained ≤ Cret * (n + m))
+    (hScratch : queryExtra ≤ Cscratch * (n + m)) :
+    wordBudget A buildPeak retained queryExtra jobs.length (targetCount jobs) ≤
+      (2 * A + (Cbuild + Cret + Cscratch)) * inputSize n m jobs := by
+  have hOracle :
+      buildPeak + retained + queryExtra ≤
+        (Cbuild + Cret + Cscratch) * (n + m) := by
+    simpa only [Nat.add_mul] using
+      (Nat.add_le_add (Nat.add_le_add hBuild hRetained) hScratch)
+  exact wordBudget_le n m jobs.length (targetCount jobs) A
+    (Cbuild + Cret + Cscratch) buildPeak retained queryExtra hS hOracle
+
+end PaperB.EX55

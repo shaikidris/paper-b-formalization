@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3736,
-      "sha256": "21f5ec00959bbe640247f34e64ffc7a0a7568a655ba996bce4b44395669c9521"
+      "bytes": 3760,
+      "sha256": "200e91adf9590b1abbe92f2fe9dbef4a5d3f9b9beed081f09adfd38f4b54d6a6"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 39415,
-      "sha256": "8f57e0b595145b3d6c5ac85b91542bc0e2b9e8e3a9f095fcee96cbdebfc2fb1b"
+      "bytes": 39539,
+      "sha256": "28e73ce724d57bcb0f692c06f311ecfead26f051d6b42c02f867d45c7967cf8b"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 32815,
-      "sha256": "78ef97d5aa2e2bdc40c0759317cf1d659a979250f54f6456b0bc3a412db7244b"
+      "bytes": 33002,
+      "sha256": "5731f34240fd351863bda83fae7da1c60d2c2ab08666cf4f434fe4e8ab653eae"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1872,6 +1872,21 @@
       "sha256": "7b24f17901c778f84caabe5f4c0d33b2789a0ad8b86957b27c6061e587003f29"
     },
     {
+      "path": "evidence/ex55-v13-batch-bound/Audit.lean",
+      "bytes": 137,
+      "sha256": "ec12088b16882898380ad03d85f7453bd7659ca6893e43157ae964079d597ae7"
+    },
+    {
+      "path": "evidence/ex55-v13-batch-bound/axioms.txt",
+      "bytes": 224,
+      "sha256": "1a474501b1392bdeb49fa109d72f37003d37064413b2316cc7c5178aa9971987"
+    },
+    {
+      "path": "evidence/ex55-v13-batch-bound/verification.json",
+      "bytes": 530,
+      "sha256": "02085992ab5db1ea89e4fbd1de5db12629ab61ff0fdea6b73fdcd6613675b31a"
+    },
+    {
       "path": "evidence/ex61-guarded-witness/Audit.lean",
       "bytes": 176,
       "sha256": "42c4abbac2f9de476d1ebbc179cf65bea2cbe45116bb14900ac20f001097b69c"
@@ -2088,8 +2103,8 @@
     },
     {
       "path": "extensions/BatchSupport.lean",
-      "bytes": 12747,
-      "sha256": "2f1fb190f912df446f39a6e27299ad16b7c9804319ecb201d9470e46c056b0f6"
+      "bytes": 16073,
+      "sha256": "b579ec2b76cebac535deea3db0ab6deb761fb4cf2bf5b207d8a4d0f2bff1c853"
     },
     {
       "path": "extensions/GuardedWitness.lean",
@@ -2693,8 +2708,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 56801,
-      "sha256": "5cb71c9eb0e0b924c2f1f0156b2d4d9142ec1fce1bc3f9a82a0b8bce5e0d6b27"
+      "bytes": 56884,
+      "sha256": "ce68847398c55ea39aae4f1140b6bb62706cbaf7225d602a54d9f8a0925a8877"
     },
     {
       "path": "test_plan.py",
