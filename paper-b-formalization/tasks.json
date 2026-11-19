@@ -1196,9 +1196,10 @@
         "evidence/exit-span-audit/verification.json",
         "evidence/held-id-audit/verification.json",
         "evidence/static-tree-held-audit/verification.json",
-        "evidence/original-static-connector-audit/verification.json"
+        "evidence/original-static-connector-audit/verification.json",
+        "evidence/original-parent-audit/verification.json"
       ],
-      "progress": "The actual original tree now discharges the query's normalized ID and interval dominance contracts. Exact common-LCA and child reader bindings and sealed word layout remain in progress."
+      "progress": "The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters."
     },
     {
       "id": "EX5.1",

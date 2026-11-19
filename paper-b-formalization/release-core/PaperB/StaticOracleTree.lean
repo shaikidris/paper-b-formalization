@@ -89,6 +89,20 @@ theorem scan_dominates_iff_interval {S : Fin g.vertexCount → Prop}
 
 end Scan
 
+private def readOriginalParent {g : Digraph} {r : Fin g.vertexCount}
+    {n : Nat} (x : PackedStaticLayout.Input n) (ids : OriginalIds.Reader g r n)
+    (v : Fin g.vertexCount) : Fin g.vertexCount :=
+  match ids.find v with
+  | none => v
+  | some k => ids.originals.read (x.parent.read k)
+
+private theorem readOriginalParent_hit {g : Digraph} {r : Fin g.vertexCount}
+    {n : Nat} (x : PackedStaticLayout.Input n) (ids : OriginalIds.Reader g r n)
+    {v : Fin g.vertexCount} {k : Fin n} (h : ids.find v = some k) :
+    readOriginalParent x ids v = ids.originals.read (x.parent.read k) := by
+  unfold readOriginalParent
+  rw [h]
+
 structure OriginalReader (g : Digraph) (r : Fin g.vertexCount) where
   count : Nat
   input : PackedStaticLayout.Input count
@@ -97,6 +111,7 @@ structure OriginalReader (g : Digraph) (r : Fin g.vertexCount) where
   ids : OriginalIds.Reader g r count
   find_slot : ∀ (v : Fin g.vertexCount) (hv : g.InitiallyReachable r v),
     ids.find v = some (slot v hv)
+  parentSpec : PaperB.Digraph.ParentSpec g r (readOriginalParent input ids)
   dominates_iff_interval :
     ∀ (a v : Fin g.vertexCount)
       (ha : g.InitiallyReachable r a) (hv : g.InitiallyReachable r v),
@@ -106,30 +121,83 @@ structure OriginalReader (g : Digraph) (r : Fin g.vertexCount) where
 
 private def ofScan {α : Type u} {g : Digraph} {R : JumpWordRegion}
     {r : Fin g.vertexCount} {s : ScanState}
-    (C : Certified α R r (g.InitiallyReachable r) s) : OriginalReader g r :=
+    (H : ∃ F, Partial (WholeScan.packedJumpOps α R) r (g.InitiallyReachable r) F s ∧
+      Parents r (g.InitiallyReachable r) F s.slots)
+    (rootReach : g.InitiallyReachable r r) : OriginalReader g r :=
+  let C : Certified α R r (g.InitiallyReachable r) s := by
+    obtain ⟨F, I, _⟩ := H
+    exact ⟨F, I⟩
   let x := scanInput C
-  let q := PaperB.StaticTreeReader.build x (scanInput_ok C)
+  let hx := scanInput_ok C
+  let q := PaperB.StaticTreeReader.build x hx
+  let ids := OriginalIds.build C
   { count := occupied R s.words
     input := x
     reader := q
     slot := scanSlot C
-    ids := OriginalIds.build C
+    ids := ids
     find_slot := OriginalIds.toSlot_of_reachable C
+    parentSpec := by
+      obtain ⟨F, I, P⟩ := H
+      have hLayout : JumpWordLayout R F s.words := I.layout
+      have hExists : ∃ J, JumpWordLayout R J s.words := ⟨F, hLayout⟩
+      have hword (k : Fin (occupied R s.words)) :
+          (x.parent.read k).val = F.parentOf k.val :=
+        ofWords_parent hLayout hExists k
+      have hfind (v : Fin g.vertexCount) (hv : g.InitiallyReachable r v) :
+          ids.find v = some (scanSlot C v hv) :=
+        OriginalIds.toSlot_of_reachable C v hv
+      constructor
+      · have hslot : scanSlot C r rootReach = x.root := by
+          apply Fin.ext
+          change readSlot s.slots r = 0
+          first
+          | exact I.root_slot
+          | exact I.slot_root
+          | exact I.rootSlot
+          | exact I.root
+          | cases I <;> solve_by_elim
+          | exact?
+        have hr : ids.find r = some x.root := by
+          rw [← hslot]
+          exact hfind r rootReach
+        have hp : x.parent.read x.root = x.root := by
+          have hok := hx
+          first
+          | exact hok.root_parent
+          | exact hok.parent_root
+          | cases hok <;> assumption
+          | exact scanRoot_fixed C
+        rw [readOriginalParent_hit x ids hr, hp]
+        exact ids.original_of_slot r x.root hr
+      · intro v hvr
+        by_cases hv : g.InitiallyReachable r v
+        · obtain ⟨d, hd, hslot, hi⟩ := P v hv hvr
+          have hp : x.parent.read (scanSlot C v hv) = scanSlot C d hd := by
+            apply Fin.ext
+            exact (hword (scanSlot C v hv)).trans hslot.symm
+          have he : readOriginalParent x ids v = d :=
+            (readOriginalParent_hit x ids (hfind v hv)).trans
+              ((congrArg ids.originals.read hp).trans
+                (ids.original_of_slot d (scanSlot C d hd) (hfind d hd)))
+          exact Or.inl ⟨hv, he.symm ▸ hi⟩
+        · have hm : ids.find v = none := (ids.miss_iff v).2 hv
+          exact Or.inr ⟨hv, by simp only [readOriginalParent, hm]⟩
     dominates_iff_interval := fun _ _ ha hv =>
       scan_dominates_iff_interval C q ha hv }
 
 /-- Run the original DAG scan once and build one reader from its word image.
-The scan specification supplies only an erased certificate. -/
+The scan specification supplies one erased witness for both certificates. -/
 def fromOriginal (g : Digraph) (r : Fin g.vertexCount)
     (hacyc : EX15.GraphAcyclic g) {L : Nat} (hL : g.vertexCount + 2 ≤ 2 ^ L)
     (rootReach : g.InitiallyReachable r r)
     (rootDom : ∀ d, g.Dominates r d r ↔ d = r) : OriginalReader g r :=
   let out := EX15.runGraph g r hacyc
-  let C := certifiedOfSpec
-    (α := EX15.OriginalOccurrence g) (g := g) (r := r)
-    (S := g.InitiallyReachable r) (s := out.state)
-    (EX15.runGraph_spec g r hacyc hL rootReach rootDom)
-  ofScan C
+  ofScan (α := EX15.OriginalOccurrence g) (s := out.state)
+    (by
+      obtain ⟨F, I, P, _⟩ := EX15.runGraph_spec g r hacyc hL rootReach rootDom
+      exact ⟨F, I, P⟩)
+    rootReach
 
 theorem fromOriginal_dominates_iff_interval
     (g : Digraph) (r : Fin g.vertexCount)
@@ -147,6 +215,11 @@ theorem fromOriginal_dominates_iff_interval
 namespace OriginalReader
 
 variable {g : Digraph} {r : Fin g.vertexCount}
+
+/-- The original-ID parent callback, certified by `parentSpec`. -/
+def parent (q : OriginalReader g r) (v : Fin g.vertexCount) :
+    Fin g.vertexCount :=
+  readOriginalParent q.input q.ids v
 
 theorem find_eq_some_iff_original (q : OriginalReader g r)
     (i : Fin g.vertexCount) (x : Fin q.count) :
@@ -168,6 +241,22 @@ theorem slot_at_original (q : OriginalReader g r) (x : Fin q.count) :
   apply Option.some.inj
   exact (q.find_slot _ (q.ids.original_reachable x)).symm.trans
     (q.ids.slot_of_original x)
+
+theorem parent_at_slot (q : OriginalReader g r)
+    (v : Fin g.vertexCount) (hv : g.InitiallyReachable r v) :
+    q.parent v = q.ids.originals.read (q.input.parent.read (q.slot v hv)) :=
+  readOriginalParent_hit q.input q.ids (q.find_slot v hv)
+
+theorem find_parent_at_slot (q : OriginalReader g r)
+    (v : Fin g.vertexCount) (hv : g.InitiallyReachable r v) :
+    q.ids.find (q.parent v) = some (q.input.parent.read (q.slot v hv)) := by
+  rw [q.parent_at_slot v hv]
+  exact q.ids.slot_of_original _
+
+theorem parent_at_original (q : OriginalReader g r) (k : Fin q.count) :
+    q.parent (q.ids.originals.read k) =
+      q.ids.originals.read (q.input.parent.read k) :=
+  readOriginalParent_hit q.input q.ids (q.ids.slot_of_original k)
 
 theorem held_dominates_iff_interval (q : OriginalReader g r)
     (a x : Fin q.count) :

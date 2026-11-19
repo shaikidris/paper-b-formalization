@@ -1,0 +1,11 @@
+{
+  "base_commit": "f452946",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticOracleTree.lean",
+  "sha256": "fd25c35c2a7db32a454d4cf364a1a16c01435c9ae37853393b12147750e9b948",
+  "scope": "The same computed original DAG scan supplies exact read-only immediate parent queries on original and held IDs, with ParentSpec verified for reachable, root and absent vertices.",
+  "remaining": "Route actual sibling arc ownership and ordinary-child lookup through this parent field."
+}
