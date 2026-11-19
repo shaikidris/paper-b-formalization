@@ -1,0 +1,7 @@
+import PaperB.ExitPaths
+import PaperB.Forest
+
+#print axioms PaperB.LabelledQuotient.properLoss_follows_endpoints
+#print axioms PaperB.LabelledQuotient.predecessors_iff_endpoints_of_first_properLoss
+#print axioms PaperB.LabelledQuotient.buildProperLossForest_label_of_root_arc
+#print axioms PaperB.LabelledQuotient.buildProperLossForest_exists_node_iff

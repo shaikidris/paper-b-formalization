@@ -12,8 +12,8 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## Completed and remaining
 
-- Completed work packages **5/27**. Planning audits **1** and verified proof packages **4**.
-- Remaining work packages **22**. 11 in progress, 11 planned.
+- Completed work packages **6/27**. Planning audits **1** and verified proof packages **5**.
+- Remaining work packages **21**. 10 in progress, 11 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -23,7 +23,6 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX1.3](TASKS.md#ex13) — The actual finite sibling quotient vertex keys sum to at most twice the original vertex count over distinct root IDs. Discharge the predecessor task certificates before closing EX1.3.
 - [EX1.4](TASKS.md#ex14) — For a proper loss under two distinct nonroot failures, both original-tail sets in the finite flat quotient are nonempty, including a direct exit to the target. Instantiate on constructed sibling quotients and prove surviving original paths iff one usable exit in the remaining third-block case.
 - [EX1.5](TASKS.md#ex15) — Lean verifies the predecessor-LCA characterization and the logarithmic deepest-common-depth search. Jump getter instantiation, topological fold and whole-constructor costs remain open.
-- [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
 - [EX2.2](TASKS.md#ex22) — Lean verified the bundled semantic Lemma 3.1 on a flat quotient with a supplied injective topological rank. The construction has exactly the canonical effective keys, a single artificial root, exact inclusive ancestor labels, nesting, fresh endpoint order and at most one real node per vertex in the count. Paper-level certification awaits the dependent input representation and statement audit.
 - [EX2.4](TASKS.md#ex24) — The interval traversal over the actual child buckets executes exactly 2N commands and empties its stack. Table value refinement and sweep integration remain open.
 - [EX3.1](TASKS.md#ex31) — Lean checks the fresh-endpoint term on every real edge of the constructed forest of a supplied flat labelled quotient. The original-graph to labelled-quotient bridge remains open.

@@ -529,8 +529,8 @@
         "1.1",
         "3.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Show the first strict loss follows both endpoints and has exactly those distinct predecessors.",
       "acceptance": [
@@ -538,9 +538,17 @@
       ],
       "evidence": [
         "evidence/carbon-last-arc/review.md",
-        "evidence/carbon-first-proper-loss/review.md"
+        "evidence/carbon-first-proper-loss/review.md",
+        "evidence/ex21-earliest-loss-audit/verification.json"
       ],
-      "progress": "Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending."
+      "progress": "The first proper loss follows both endpoints and its distinct predecessor set equals the failed pair.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex21-earliest-loss-audit/verification.json",
+        "axioms": "evidence/ex21-earliest-loss-audit/axioms.txt",
+        "fidelity": "evidence/ex21-earliest-loss-audit/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX2.2",

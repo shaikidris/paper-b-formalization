@@ -188,7 +188,7 @@ Acceptance:
 
 ## EX2.1 — Identify the first proper loss
 
-- Milestone: EX2; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX2; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.1.
 - Proposed owner module: `release-core/PaperB/Forest.lean`.
@@ -200,9 +200,9 @@ Acceptance:
 
 - Handle parallel arcs, direct root edges and the absence of any proper loss.
 
-Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
+The first proper loss follows both endpoints and its distinct predecessor set equals the failed pair.
 
-Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carbon-last-arc/review.md), [evidence/carbon-first-proper-loss/review.md](evidence/carbon-first-proper-loss/review.md).
+Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carbon-last-arc/review.md), [evidence/carbon-first-proper-loss/review.md](evidence/carbon-first-proper-loss/review.md), [evidence/ex21-earliest-loss-audit/verification.json](evidence/ex21-earliest-loss-audit/verification.json).
 
 <a id="ex22"></a>
 

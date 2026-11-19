@@ -1,0 +1,4 @@
+'PaperB.LabelledQuotient.properLoss_follows_endpoints' does not depend on any axioms
+'PaperB.LabelledQuotient.predecessors_iff_endpoints_of_first_properLoss' does not depend on any axioms
+'PaperB.LabelledQuotient.buildProperLossForest_label_of_root_arc' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.buildProperLossForest_exists_node_iff' depends on axioms: [propext, Quot.sound]

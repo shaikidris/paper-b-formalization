@@ -1,0 +1,9 @@
+{
+  "base_commit": "9f25e91",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPaths.lean",
+  "sha256": "2f9f593d08544f43817cfcf5af48bb51d4af67570ae22e874b09aef2432a0237",
+  "scope": "The first proper loss follows both endpoints and its distinct predecessor set equals the failed pair.",
+  "remaining": "Clocked data-structure integration and numbered statement audit are separate.",
+  "source_provenance": "Pre-existing sources independently replayed. See the task evidence for original proof provenance."
+}
