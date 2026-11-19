@@ -104,3 +104,4 @@
 {"at": "2026-11-19T21:19:09+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "KahnDecreasing", "tasks": ["EX1.1"], "evidence": "evidence/ex11-accept-normalization/verification.json"}
 {"at": "2026-11-19T21:19:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CommonAncestorSearch", "tasks": ["EX1.5"], "evidence": "evidence/ex15-common-depth-search/verification.json"}
 {"at": "2026-11-19T21:21:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPaths", "tasks": ["EX2.1"], "evidence": "evidence/ex21-earliest-loss-audit/verification.json"}
+{"at": "2026-11-19T21:21:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Forest", "tasks": ["EX2.2"], "evidence": "evidence/ex22-forest-invariant-audit/verification.json"}

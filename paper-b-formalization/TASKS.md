@@ -208,7 +208,7 @@ Planning/evidence references: [evidence/carbon-last-arc/review.md](evidence/carb
 
 ## EX2.2 — Prove the topological forest invariant
 
-- Milestone: EX2; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX2; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: cuts; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX2.1.
 - Proposed owner module: `release-core/PaperB/Forest.lean`.
@@ -221,9 +221,9 @@ Acceptance:
 - Prove existing ordered pair keys keep the same parent, endpoint inclusion, nested proper-loss sets and the linear node count.
 - Maintain the induction for every processed label and every real edge, including raw losses at endpoints. Cover the latest predecessor and why an existing pair key retains its parent.
 
-Lean verified the bundled semantic Lemma 3.1 on a flat quotient with a supplied injective topological rank. The construction has exactly the canonical effective keys, a single artificial root, exact inclusive ancestor labels, nesting, fresh endpoint order and at most one real node per vertex in the count. Paper-level certification awaits the dependent input representation and statement audit.
+The actual sweep constructs the exact proper-loss forest on every finite flat quotient.
 
-Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json), [evidence/carbon-forest-prefix/verification.json](evidence/carbon-forest-prefix/verification.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json), [evidence/ex22-unattended/native-swarm-sweep-step.json](evidence/ex22-unattended/native-swarm-sweep-step.json), [evidence/ex22-unattended/native-swarm-global-sweep.json](evidence/ex22-unattended/native-swarm-global-sweep.json), [evidence/ex22-unattended/native-swarm-forest-parents.json](evidence/ex22-unattended/native-swarm-forest-parents.json), [evidence/ex22-unattended/native-swarm-lemma-3-1.json](evidence/ex22-unattended/native-swarm-lemma-3-1.json).
+Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evidence/carbon-forest-sweep/progress.json), [evidence/carbon-sweep-latest-member/verification.json](evidence/carbon-sweep-latest-member/verification.json), [evidence/carbon-forest-prefix/verification.json](evidence/carbon-forest-prefix/verification.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-prefix.json), [evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json](evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json), [evidence/ex22-unattended/native-swarm-sweep-step.json](evidence/ex22-unattended/native-swarm-sweep-step.json), [evidence/ex22-unattended/native-swarm-global-sweep.json](evidence/ex22-unattended/native-swarm-global-sweep.json), [evidence/ex22-unattended/native-swarm-forest-parents.json](evidence/ex22-unattended/native-swarm-forest-parents.json), [evidence/ex22-unattended/native-swarm-lemma-3-1.json](evidence/ex22-unattended/native-swarm-lemma-3-1.json), [evidence/ex22-forest-invariant-audit/verification.json](evidence/ex22-forest-invariant-audit/verification.json).
 
 <a id="ex23"></a>
 

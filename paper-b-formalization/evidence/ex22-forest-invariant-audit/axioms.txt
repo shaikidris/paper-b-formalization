@@ -1,0 +1,6 @@
+'PaperB.LabelledQuotient.exists_properLossForest_lemma_3_1' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.predecessor_losses_form_prefix' does not depend on any axioms
+'PaperB.LabelledQuotient.sweep_parent_eq_for_reused_pair_key' depends on axioms: [Quot.sound]
+'PaperB.LabelledQuotient.sweep_step_preserves_proper_loss_labels' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.buildProperLossForest_validDepthTree' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.ValidDepthTree.isForestAncestor_root' does not depend on any axioms

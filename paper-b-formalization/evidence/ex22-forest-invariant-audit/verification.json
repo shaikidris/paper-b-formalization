@@ -1,0 +1,9 @@
+{
+  "base_commit": "9f25e91",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Forest.lean",
+  "sha256": "2931e7c404d3b8285cc9a53232529100ee5e5794586c74a40e7e2772b9b4d596",
+  "scope": "The actual sweep constructs the exact proper-loss forest on every finite flat quotient.",
+  "remaining": "Clocked data-structure integration and numbered statement audit are separate.",
+  "source_provenance": "Pre-existing sources independently replayed. See the task evidence for original proof provenance."
+}

@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 4270,
-      "sha256": "9399c1121494250c7ee16da55d258a047c8c26338901af24a6de721ec1f69f12"
+      "bytes": 3844,
+      "sha256": "7fa8ed7660b25387877095c3179c26078f940edda51b3d34ea3cf995a5f554bb"
     },
     {
       "path": "DISPATCH.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5335,
-      "sha256": "1e0520f0f3f68f4358158ef6712e7e5ffdcbe696f213c98a91b0044b77ddaa64"
+      "bytes": 5332,
+      "sha256": "e3dc88f6285ef2696585bba12d4162b5c9a692ff7d2202b0439280322609702a"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 34569,
-      "sha256": "a7a1d190e2dc29a79f5e3bc2302a0138ff48e86cbd4e7e60bf76362927a37fa8"
+      "bytes": 34368,
+      "sha256": "b53727a6f43c37cb8937516ba111929debd7f1995b1ab4d4cbc09da031317639"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 25590,
-      "sha256": "23db5cff0887259edc0acf72258a39ecf1e0bb974bf5ae4cd0424d6c83fa57e8"
+      "bytes": 25778,
+      "sha256": "374284efcea4e56528e19e1ad56bdb60a5252f694291ef5c925265cb1915cf43"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1077,6 +1077,26 @@
       "sha256": "b55e210213904d80d537422cdaf049b243a4d929289a46e0279e7a42094b7c66"
     },
     {
+      "path": "evidence/ex22-forest-invariant-audit/Audit.lean",
+      "bytes": 498,
+      "sha256": "5034512aebd2c59239f6a94b77c2e6ac01376a049ff7fbe2a66e04d36cead50d"
+    },
+    {
+      "path": "evidence/ex22-forest-invariant-audit/axioms.txt",
+      "bytes": 586,
+      "sha256": "4d749c8d724b3ceee098a57261bd55c069f4f350b1faa21617f6d168b49dcaa3"
+    },
+    {
+      "path": "evidence/ex22-forest-invariant-audit/fidelity.md",
+      "bytes": 950,
+      "sha256": "1ce897447ed161ed8967f99fd2923f630ff5d1713aed117f8e90de883045b347"
+    },
+    {
+      "path": "evidence/ex22-forest-invariant-audit/verification.json",
+      "bytes": 527,
+      "sha256": "7c0d4c720030a9b182a15c08e009455c50d7471371644227bd516a591bdbaa83"
+    },
+    {
       "path": "evidence/ex22-unattended/f0686845-5aaf-419e-ac39-903e187dc284-pair-key-reuse.json",
       "bytes": 2039,
       "sha256": "ad3438955960d8f203610ca352decb7b7e0561d6ab73d66cb751f19243a6fd21"
@@ -1883,8 +1903,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 48982,
-      "sha256": "5d668ced5569c75fc4c7f47fedf5a4e28fac6f7fd2ae230abdb16793ca44e40f"
+      "bytes": 49082,
+      "sha256": "8746a927a61e6bd83d3e6d0ee0a68e1413792b392e4e760447c6fee7c9d71158"
     },
     {
       "path": "test_plan.py",

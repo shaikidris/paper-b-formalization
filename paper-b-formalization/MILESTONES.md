@@ -33,12 +33,12 @@ Work packages: 6; planning audits complete: 0; verified proof packages: 1.
 
 Construct one record per effective pair, prove membership by ancestry and bound the charged predecessor scans.
 
-Work packages: 4; planning audits complete: 0; verified proof packages: 2.
+Work packages: 4; planning audits complete: 0; verified proof packages: 3.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
 | [EX2.1](TASKS.md#ex21) — Identify the first proper loss | cuts | VERIFIED | EX1.1 |
-| [EX2.2](TASKS.md#ex22) — Prove the topological forest invariant | cuts | IN_PROGRESS | EX2.1 |
+| [EX2.2](TASKS.md#ex22) — Prove the topological forest invariant | cuts | VERIFIED | EX2.1 |
 | [EX2.3](TASKS.md#ex23) — Implement depth jumps under leaf insertion | data structures | VERIFIED | EX0.3 |
 | [EX2.4](TASKS.md#ex24) — Charge forest construction and membership | cuts | IN_PROGRESS | EX2.2, EX2.3 |
 
