@@ -121,7 +121,8 @@
         "release-core/PaperB/ThirdBlock.lean",
         "release-core/PaperB/LastExit.lean",
         "release-core/PaperB/StructuralPaper.lean",
-        "release-core/PaperB/LastExitBridge.lean"
+        "release-core/PaperB/LastExitBridge.lean",
+        "release-core/PaperB/SeedOrder.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -804,6 +805,12 @@
         "release-core/PaperB/LastExit.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SeedOrder.lean",
+      "local_imports": [],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

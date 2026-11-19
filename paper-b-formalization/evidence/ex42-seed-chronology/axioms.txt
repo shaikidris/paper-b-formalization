@@ -1,0 +1,2 @@
+'EX42.ProperLossForestWitness.realParent_seed_lt_child_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX42.ProperLossForestWitness.freshEndpoint_dependencies' depends on axioms: [propext, Classical.choice, Quot.sound]

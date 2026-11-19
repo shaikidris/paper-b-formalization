@@ -355,7 +355,7 @@ Planning/evidence references: [evidence/ex41-exit-map-algebra/verification.json]
 
 ## EX4.2 — Install maps before bases in topological order
 
-- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX4; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX4.1, EX2.4.
 - Proposed owner module: `release-core/PaperB/Index.lean`.
@@ -367,6 +367,10 @@ Acceptance:
 
 - Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.
 - The path above the already processed fresh endpoint has maps installed. For an earlier off-endpoint predecessor, propagate its base; for an endpoint arc add its own physical tail.
+
+The exact first seed of a real parent is earlier than its child seed. Every fresh endpoint and each map on the relevant ancestor path is available before the new pair seed. Instantiate this interface on the constructed proper-loss forest and finish predecessor source reads.
+
+Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json).
 
 <a id="ex43"></a>
 

@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **8/27**. Planning audits **1** and verified proof packages **7**.
-- Remaining work packages **19**. 9 in progress, 10 planned.
+- Remaining work packages **19**. 10 in progress, 9 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -28,6 +28,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX3.2](TASKS.md#ex32) — Lean checks the inherited term and converse on each real edge of the constructed forest. No overlap hypothesis is needed. The original-graph to labelled-quotient bridge remains open.
 - [EX3.3](TASKS.md#ex33) — Lean now instantiates exit transfer on the actual Fin-labelled sibling quotient built from original DAG arcs. It carries the exact physical tail. Figure 1 replays. Whole task and paper-statement acceptance await EX1.3 and EX2 evidence and the dependent task checklist.
 - [EX4.1](TASKS.md#ex41) — Lean verifies two-coordinate map composition and interval joins. Computed rank summaries compose over concatenation, and their endpoint test is equivalent to all listed tail ranks lying in the half-open subtree interval, with an explicit empty case. Integration with stored exit tails and bounded word accounting remain open.
+- [EX4.2](TASKS.md#ex42) — The exact first seed of a real parent is earlier than its child seed. Every fresh endpoint and each map on the relevant ancestor path is available before the new pair seed. Instantiate this interface on the constructed proper-loss forest and finish predecessor source reads.
 
 ## Ready to start
 

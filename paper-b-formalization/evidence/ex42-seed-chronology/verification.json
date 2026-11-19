@@ -1,0 +1,11 @@
+{
+  "base_commit": "01b7f5e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SeedOrder.lean",
+  "sha256": "dd493d407053248c59767158be311a35af7d67caa8548c140218cf481067ec3d",
+  "scope": "The exact first seed of a real parent is earlier than its child seed. Every fresh endpoint and each map on the relevant ancestor path is available before the new pair seed.",
+  "remaining": "Instantiate this interface on the constructed proper-loss forest and finish predecessor source reads."
+}

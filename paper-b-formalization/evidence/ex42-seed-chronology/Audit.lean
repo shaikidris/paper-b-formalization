@@ -1,0 +1,4 @@
+import PaperB.SeedOrder
+
+#print axioms EX42.ProperLossForestWitness.realParent_seed_lt_child_seed
+#print axioms EX42.ProperLossForestWitness.freshEndpoint_dependencies
