@@ -238,9 +238,9 @@ Acceptance:
 - For v1.3, prove per-quotient O((n_H+m_H)L²) build, O(n_H+m_H) peak, O(n_H) retained, O(L) key lookup and O(1) known-node test.
 - Deduplicate only for predecessor tests. Charge O(L) prefix probes, O(L) per level search and every repeated predecessor scan. Include deterministic dictionary construction, query and final intervals. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified the conditional charging theorem. The interval candidate from swarm post 33 is saved with Lean diagnostics and requires repairs. The executable topological constructor, dictionary and index operations, and full peak and retained space accounting are pending. Antigravity quota interrupted the switch to Neon Medium on the same swarm. A standalone GPT-6.2 Sol proof now checks the standard List.flatMap split at a chosen member, a helper for the interval candidate. Integrating it into that candidate remains pending.
+Lean verified conditional charging. GPT-6.2 Sol supplied public list and grouping proofs, and the local assembly now checks the contiguous-block and bucket-membership theorems inside the ancestry-interval candidate. The pinned replay reduces diagnostics from 21 errors to 10. The remaining tree and bucket-count proofs, executable constructor, dictionary and index operations, and end-to-end time and space verification are open. The assembled candidate remains outside the build targets.
 
-Planning/evidence references: [evidence/ex22-unattended/native-swarm-charging.json](evidence/ex22-unattended/native-swarm-charging.json), [evidence/public-lean-flatmap-split/verification.json](evidence/public-lean-flatmap-split/verification.json).
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-charging.json](evidence/ex22-unattended/native-swarm-charging.json), [evidence/public-lean-flatmap-split/verification.json](evidence/public-lean-flatmap-split/verification.json), [evidence/public-lean-interval-assembly/verification.json](evidence/public-lean-interval-assembly/verification.json).
 
 <a id="ex31"></a>
 

@@ -1,0 +1,217 @@
+--- a/ForestIntervals.lean
++++ b/ForestIntervals.lean
+@@ -234,35 +234,17 @@
+-private theorem mem_bucketPassAux_iff {N : Nat} (root : Fin N)
+-    (parent : Fin N → Fin N) :
+-    ∀ (us : List (Fin N)) (buckets : Fin N → List (Fin N)) (q c : Fin N),
+-      c ∈ bucketPassAux root parent us buckets q ↔
+-        c ∈ buckets q ∨ (c ∈ us ∧ c ≠ root ∧ parent c = q)
+-  | [], _, _, _ =>
+-      ⟨fun h => Or.inl h,
+-        fun h => h.elim id (fun ⟨hNil, _⟩ => False.elim (by nomatch hNil))⟩
+-  | u :: us, buckets, q, c => by
+-      dsimp [bucketPassAux]
+-      rw [mem_bucketPassAux_iff root parent us
+-        (addChildToBuckets root parent buckets u) q c]
+-      unfold addChildToBuckets
+-      by_cases hu : u = root
+-      · rw [ite_eq_left hu]
+-        constructor
+-        · intro h
+-          cases h with
+-          | inl hb => exact Or.inl hb
+-          | inr ⟨hInUs, hcNe, hcPar⟩ =>
+-              exact Or.inr ⟨List.mem_cons.mpr (Or.inr hInUs), hcNe, hcPar⟩
+-        · intro h
+-          cases h with
+-          | inl hb => exact Or.inl hb
+-          | inr ⟨hInCons, hcNe, hcPar⟩ =>
+-              cases List.mem_cons.mp hInCons with
+-              | inl hcu =>
+-                  rw [hcu] at hcNe
+-                  exact False.elim (hcNe hu)
+-              | inr hInUs =>
+-                  exact Or.inr ⟨hInUs, hcNe, hcPar⟩
+-      · rw [ite_eq_right hu]
+-        dsimp only
+-        by_cases hqp : q = parent u
+-        · rw [ite_eq_left hqp]
++private theorem mem_bucketPassAux_iff {n : Nat} (excluded : Fin n)
++    (key : Fin n → Fin n) :
++    ∀ (us : List (Fin n)) (groups : Fin n → List (Fin n)) (q c : Fin n),
++      c ∈ bucketPassAux excluded key us groups q ↔
++        c ∈ groups q ∨ (c ∈ us ∧ c ≠ excluded ∧ key c = q) := by
++  intro us
++  induction us with
++  | nil =>
++      intro groups q c
++      simp only [bucketPassAux, List.not_mem_nil, false_and, or_false]
++  | cons u us ih =>
++      intro groups q c
++      have hupdate :
++          c ∈ addChildToBuckets excluded key groups u q ↔
++            c ∈ groups q ∨ (c = u ∧ c ≠ excluded ∧ key c = q) := by
++        by_cases he : u = excluded
++        · simp only [addChildToBuckets, ite_eq_left he]
+@@ -269,0 +252,2 @@
++          · intro hg
++            exact Or.inl hg
+@@ -271,45 +255,43 @@
+-            cases h with
+-            | inl hCons =>
+-                cases List.mem_cons.mp hCons with
+-                | inl hcu =>
+-                    rw [hcu]
+-                    exact Or.inr ⟨List.mem_cons.mpr (Or.inl rfl), hu, hqp.symm⟩
+-                | inr hb => exact Or.inl hb
+-            | inr ⟨hInUs, hcNe, hcPar⟩ =>
+-                exact Or.inr ⟨List.mem_cons.mpr (Or.inr hInUs), hcNe, hcPar⟩
+-          · intro h
+-            cases h with
+-            | inl hb => exact Or.inl (List.mem_cons.mpr (Or.inr hb))
+-            | inr ⟨hInCons, hcNe, hcPar⟩ =>
+-                cases List.mem_cons.mp hInCons with
+-                | inl hcu => exact Or.inl (List.mem_cons.mpr (Or.inl hcu))
+-                | inr hInUs => exact Or.inr ⟨hInUs, hcNe, hcPar⟩
+-        · rw [ite_eq_right hqp]
+-          constructor
+-          · intro h
+-            cases h with
+-            | inl hb => exact Or.inl hb
+-            | inr ⟨hInUs, hcNe, hcPar⟩ =>
+-                exact Or.inr ⟨List.mem_cons.mpr (Or.inr hInUs), hcNe, hcPar⟩
+-          · intro h
+-            cases h with
+-            | inl hb => exact Or.inl hb
+-            | inr ⟨hInCons, hcNe, hcPar⟩ =>
+-                cases List.mem_cons.mp hInCons with
+-                | inl hcu =>
+-                    rw [hcu] at hcPar
+-                    exact False.elim (hqp hcPar.symm)
+-                | inr hInUs => exact Or.inr ⟨hInUs, hcNe, hcPar⟩
+-
+-theorem mem_bucketChildren_iff {N : Nat} (root : Fin N)
+-    (parent : Fin N → Fin N) (q c : Fin N) :
+-    c ∈ bucketChildren root parent q ↔ c ≠ root ∧ parent c = q := by
+-  unfold bucketChildren
+-  rw [mem_bucketPassAux_iff]
+-  constructor
+-  · intro h
+-    cases h with
+-    | inl hNil => nomatch hNil
+-    | inr ⟨_, hcNe, hcPar⟩ => exact ⟨hcNe, hcPar⟩
+-  · intro ⟨hcNe, hcPar⟩
+-    exact Or.inr ⟨mem_finElems c, hcNe, hcPar⟩
++            rcases h with hg | ⟨hcu, hne, _⟩
++            · exact hg
++            · exact (hne (hcu.trans he)).elim
++        · by_cases hk : q = key u
++          · simp only [addChildToBuckets, ite_eq_right he, ite_eq_left hk, List.mem_cons]
++            constructor
++            · intro h
++              rcases h with hcu | hg
++              · exact Or.inr ⟨hcu, fun hce => he (hcu.symm.trans hce),
++                  (congrArg key hcu).trans hk.symm⟩
++              · exact Or.inl hg
++            · intro h
++              rcases h with hg | ⟨hcu, _, _⟩
++              · exact Or.inr hg
++              · exact Or.inl hcu
++          · simp only [addChildToBuckets, ite_eq_right he, ite_eq_right hk]
++            constructor
++            · intro hg
++              exact Or.inl hg
++            · intro h
++              rcases h with hg | ⟨hcu, _, hcq⟩
++              · exact hg
++              · exact (hk (hcq.symm.trans (congrArg key hcu))).elim
++      simp only [bucketPassAux, ih, hupdate, List.mem_cons]
++      constructor
++      · intro h
++        rcases h with h | ⟨hus, hne, hcq⟩
++        · rcases h with hg | ⟨hcu, hne, hcq⟩
++          · exact Or.inl hg
++          · exact Or.inr ⟨Or.inl hcu, hne, hcq⟩
++        · exact Or.inr ⟨Or.inr hus, hne, hcq⟩
++      · intro h
++        rcases h with hg | ⟨hmem, hne, hcq⟩
++        · exact Or.inl (Or.inl hg)
++        · rcases hmem with hcu | hus
++          · exact Or.inl (Or.inr ⟨hcu, hne, hcq⟩)
++          · exact Or.inr ⟨hus, hne, hcq⟩
++
++theorem mem_bucketChildren_iff {n : Nat} (excluded : Fin n)
++    (key : Fin n → Fin n) (q c : Fin n) :
++    c ∈ bucketChildren excluded key q ↔ c ≠ excluded ∧ key c = q := by
++  simp only [bucketChildren, mem_bucketPassAux_iff, List.not_mem_nil, false_or,
++    mem_finElems, true_and]
+@@ -480,0 +463,7 @@
++theorem flatMap_split_at_mem {α β : Type} (f : α → List β)
++    {xs : List α} {x : α} (hx : x ∈ xs) :
++    ∃ before after : List β, xs.flatMap f = before ++ f x ++ after := by
++  obtain ⟨ys, zs, rfl⟩ := List.append_of_mem hx
++  refine ⟨ys.flatMap f, zs.flatMap f, ?_⟩
++  simp [List.flatMap_append, List.flatMap_cons, List.append_assoc]
++
+@@ -484,0 +474,7 @@
++theorem concatMapList_eq_flatMap {α β : Type} (f : α → List β) (l : List α) :
++    concatMapList f l = l.flatMap f := by
++  induction l with
++  | nil => rfl
++  | cons x xs ih =>
++    simp only [concatMapList, List.flatMap_cons, ih]
++
+@@ -487,17 +483,2 @@
+-  induction l with
+-  | nil =>
+-      constructor
+-      · intro h; nomatch h
+-      · intro ⟨_, hMem, _⟩; nomatch hMem
+-  | cons x _ ih =>
+-      dsimp [concatMapList]
+-      rw [List.mem_append, ih]
+-      constructor
+-      · intro h
+-        cases h with
+-        | inl hyx => exact ⟨x, List.mem_cons.mpr (Or.inl rfl), hyx⟩
+-        | inr ⟨z, hz, hyz⟩ => exact ⟨z, List.mem_cons.mpr (Or.inr hz), hyz⟩
+-      · intro ⟨z, hzMem, hyz⟩
+-        cases List.mem_cons.mp hzMem with
+-        | inl hzx => rw [← hzx]; exact Or.inl hyz
+-        | inr hzTail => exact Or.inr ⟨z, hzTail, hyz⟩
++  rw [concatMapList_eq_flatMap]
++  exact List.mem_flatMap
+@@ -507,0 +489 @@
++  revert hEq
+@@ -509 +491,3 @@
+-  | nil => rfl
++  | nil =>
++    intro _
++    rfl
+@@ -511,3 +495,6 @@
+-      dsimp [concatMapList]
+-      rw [hEq x (List.mem_cons.mpr (Or.inl rfl)),
+-        ih (fun z hz => hEq z (List.mem_cons.mpr (Or.inr hz)))]
++    intro hEq
++    have hHead : f x = g x := hEq x (by simp)
++    have hTail : ∀ z : α, z ∈ xs → f z = g z := by
++      intro z hz
++      exact hEq z (List.mem_cons.mpr (Or.inr hz))
++    simp only [concatMapList, hHead, ih hTail]
+@@ -517,12 +504,4 @@
+-      ∃ before after : List β, concatMapList f l = before ++ f c ++ after
+-  | [], _, hMem => False.elim (by nomatch hMem)
+-  | x :: xs, c, hMem => by
+-      dsimp [concatMapList]
+-      cases List.mem_cons.mp hMem with
+-      | inl hcx =>
+-          rw [hcx]
+-          exact ⟨[], concatMapList f xs, rfl⟩
+-      | inr hcTail =>
+-          let ⟨b, a, hEq⟩ := exists_split_concatMapList f hcTail
+-          refine ⟨f x ++ b, a, ?_⟩
+-          rw [hEq, List.append_assoc, List.append_assoc]
++      ∃ before after : List β, concatMapList f l = before ++ f c ++ after := by
++  intro l c hc
++  rw [concatMapList_eq_flatMap]
++  exact flatMap_split_at_mem f hc

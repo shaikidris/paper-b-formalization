@@ -1,0 +1,70 @@
+{
+  "api_calls": [
+    {
+      "model": "gpt-6.2-sol",
+      "reasoning": {
+        "context": "all_turns",
+        "effort": "high",
+        "mode": "standard",
+        "summary": null
+      },
+      "status": "completed",
+      "incomplete_details": null,
+      "usage": {
+        "input_tokens": 504,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 760,
+        "output_tokens_details": {
+          "reasoning_tokens": 282
+        },
+        "total_tokens": 1264
+      },
+      "service_tier": "default"
+    },
+    {
+      "model": "gpt-6.2-sol",
+      "reasoning": {
+        "context": "all_turns",
+        "effort": "high",
+        "mode": "standard",
+        "summary": null
+      },
+      "status": "completed",
+      "incomplete_details": null,
+      "usage": {
+        "input_tokens": 480,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 1975,
+        "output_tokens_details": {
+          "reasoning_tokens": 1164
+        },
+        "total_tokens": 2455
+      },
+      "service_tier": "default"
+    }
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "input_candidate_sha256": "906c9deca8b9686d60f56504d74d45b0e943ab8e7f0855453a7ff16b6dacbe3b",
+  "assembled_candidate_sha256": "e1098cf5097612e85391ccdd1cebdf275190ed06c47af651dd594b806b36172d",
+  "diagnostic_counts": [
+    21,
+    17,
+    10
+  ],
+  "list_price_usd_estimate": 0.029318,
+  "scope": "The public list and grouping proofs check. The assembled interval candidate has 10 errors and is outside the build targets."
+}

@@ -1,0 +1,64 @@
+private theorem mem_groupPass_iff {n : Nat} (excluded : Fin n)
+    (key : Fin n → Fin n) :
+    ∀ (us : List (Fin n)) (groups : Fin n → List (Fin n)) (q c : Fin n),
+      c ∈ groupPass excluded key us groups q ↔
+        c ∈ groups q ∨ (c ∈ us ∧ c ≠ excluded ∧ key c = q) := by
+  intro us
+  induction us with
+  | nil =>
+      intro groups q c
+      simp only [groupPass, List.not_mem_nil, false_and, or_false]
+  | cons u us ih =>
+      intro groups q c
+      have hupdate :
+          c ∈ update excluded key groups u q ↔
+            c ∈ groups q ∨ (c = u ∧ c ≠ excluded ∧ key c = q) := by
+        by_cases he : u = excluded
+        · simp only [update, if_pos he]
+          constructor
+          · intro hg
+            exact Or.inl hg
+          · intro h
+            rcases h with hg | ⟨hcu, hne, _⟩
+            · exact hg
+            · exact (hne (hcu.trans he)).elim
+        · by_cases hk : q = key u
+          · simp only [update, if_neg he, if_pos hk, List.mem_cons]
+            constructor
+            · intro h
+              rcases h with hcu | hg
+              · exact Or.inr ⟨hcu, fun hce => he (hcu.symm.trans hce),
+                  (congrArg key hcu).trans hk.symm⟩
+              · exact Or.inl hg
+            · intro h
+              rcases h with hg | ⟨hcu, _, _⟩
+              · exact Or.inr hg
+              · exact Or.inl hcu
+          · simp only [update, if_neg he, if_neg hk]
+            constructor
+            · intro hg
+              exact Or.inl hg
+            · intro h
+              rcases h with hg | ⟨hcu, _, hcq⟩
+              · exact hg
+              · exact (hk (hcq.symm.trans (congrArg key hcu))).elim
+      simp only [groupPass, ih, hupdate, List.mem_cons]
+      constructor
+      · intro h
+        rcases h with h | ⟨hus, hne, hcq⟩
+        · rcases h with hg | ⟨hcu, hne, hcq⟩
+          · exact Or.inl hg
+          · exact Or.inr ⟨Or.inl hcu, hne, hcq⟩
+        · exact Or.inr ⟨Or.inr hus, hne, hcq⟩
+      · intro h
+        rcases h with hg | ⟨hmem, hne, hcq⟩
+        · exact Or.inl (Or.inl hg)
+        · rcases hmem with hcu | hus
+          · exact Or.inl (Or.inr ⟨hcu, hne, hcq⟩)
+          · exact Or.inr ⟨hus, hne, hcq⟩
+
+theorem mem_grouped_iff {n : Nat} (excluded : Fin n)
+    (key : Fin n → Fin n) (q c : Fin n) :
+    c ∈ grouped excluded key q ↔ c ≠ excluded ∧ key c = q := by
+  simp only [grouped, mem_groupPass_iff, List.not_mem_nil, false_or,
+    mem_enumerate, true_and]

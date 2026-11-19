@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3177,
-      "sha256": "c51301113235bfcc964035d5fa2b56d28cc6eed88b69a6ef9332d524b93888df"
+      "bytes": 3135,
+      "sha256": "97ad75fbd525c164f469b3684c436406863acd6094abc794886a5420d1bcc5f1"
     },
     {
       "path": "DISPATCH.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 24508,
-      "sha256": "175e2fe8ccf1c5a839b740db766f0135cf55d20a02b3badb8608d316ee847910"
+      "bytes": 24584,
+      "sha256": "a0cf1248fe972c3188d958281ec59f8e03df702f4bb3a2e6b40cc991ad8ad11b"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 12122,
-      "sha256": "e49224ad8e105461ee55fd5d0ea30762484f2e11bf24a1566ad56d4e653efe3a"
+      "bytes": 12305,
+      "sha256": "d19937fc9beee2fa4f0e88693331ccb3ad2e70b11dd4db763eaf7d6b905ff820"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -297,6 +297,41 @@
       "sha256": "e9d0a68eb428d311a340101e4f51efe32fccfa4ed2fb11f5a9142870c0b082db"
     },
     {
+      "path": "evidence/public-lean-interval-assembly/ForestIntervals.patch",
+      "bytes": 8648,
+      "sha256": "f646e2b49eeaf1d33292246595a66090984d29313577c36ed0360002ad58b14e"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/GroupingProof.txt",
+      "bytes": 2528,
+      "sha256": "2bf41496d77a73d0c0d3ef87739113f8b95585f1e71e433b604cd459202114bf"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/ListAdapter.lean",
+      "bytes": 1725,
+      "sha256": "d7bbb02ee49de15c7db3f826ba9dc24963fbba4a591b79855ef0c287573309d2"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/assembled-check.txt",
+      "bytes": 3176,
+      "sha256": "d78f5200cb309eaefc2d5d5dc3832728d83e35ecf2ab0e1ece73eafd2dc54dd3"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/grouping-check.txt",
+      "bytes": 90,
+      "sha256": "6757497dbe3dded5be5a51ca3fe18b61a1be0d52deecc55a6e0234721b88b761"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/standalone-check.txt",
+      "bytes": 123,
+      "sha256": "4b2b7d80896cb70d5f43366005f246813bc967db0999ef0dfad81a154eafda9b"
+    },
+    {
+      "path": "evidence/public-lean-interval-assembly/verification.json",
+      "bytes": 1901,
+      "sha256": "eb92f01093fa04c8ece4017ec403a45e343d0ca6fa3ae8a0ec404e378b9086ab"
+    },
+    {
       "path": "evidence/review.md",
       "bytes": 1374,
       "sha256": "cc4b9fe4abd224003b26fe474a1e289f0cf931f2e9b3a35dabe1960fe93b051f"
@@ -468,8 +503,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 37415,
-      "sha256": "bf7a786d28c717c361a5d263f430d4dca49f778a619fd82bb0dbd43fbdfa11fe"
+      "bytes": 37441,
+      "sha256": "a868a0c25f7109bb98d960632919d53cfdfaf8d3a8c14dcd800c8826e57f54f9"
     },
     {
       "path": "test_plan.py",

@@ -1,0 +1,57 @@
+ForestIntervals.lean:28:52: error: Invalid rewrite argument: Expected an equality or iff proof or definition name, but `hEq` is a value of type
+  ?m.19
+ForestIntervals.lean:134:12: error: Missing cases:
+_
+ForestIntervals.lean:157:27: error(lean.unknownIdentifier): Unknown identifier `w`
+ForestIntervals.lean:161:35: error(lean.unknownIdentifier): Unknown identifier `w`
+ForestIntervals.lean:318:10: error: `dsimp` made no progress
+ForestIntervals.lean:333:10: error: `dsimp` made no progress
+ForestIntervals.lean:391:40: error: Application type mismatch: The argument
+  h
+has type
+  p = q
+but is expected to have type
+  q = p
+in the application
+  hqp h
+ForestIntervals.lean:404:6: error: No goals to be solved
+ForestIntervals.lean:416:12: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a =>
+    sumBucketLengths buckets (finElems N) + (keepBool (fun v => decide (v ≠ root)) us).length =
+      sumBucketLengths buckets (finElems N) +
+        (if _a = true then u :: keepBool (fun v => decide ¬v = root) us
+          else keepBool (fun v => decide ¬v = root) us).length
+Error: Application type mismatch: The argument
+  instDecidableEqBool ((fun v => decide ¬v = root) u) true
+has type
+  Decidable ((fun v => decide ¬v = root) u = true)
+but is expected to have type
+  Decidable (_a = true)
+in the application
+  @ite (List (Fin N)) (_a = true) (instDecidableEqBool ((fun v => decide ¬v = root) u) true)
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case pos
+N : Nat
+root : Fin N
+parent : Fin N → Fin N
+u : Fin N
+us : List (Fin N)
+buckets : Fin N → List (Fin N)
+hu : u = root
+hDecFalse : decide (u ≠ root) = false
+⊢ sumBucketLengths buckets (finElems N) + (keepBool (fun v => decide (v ≠ root)) us).length =
+    sumBucketLengths buckets (finElems N) +
+      (if (decide ¬u = root) = true then u :: keepBool (fun v => decide ¬v = root) us
+        else keepBool (fun v => decide ¬v = root) us).length
+ForestIntervals.lean:431:2: error: Type mismatch
+  sumBucketLengths_empty qs
+has type
+  sumBucketLengths (fun x => []) qs = 0
+but is expected to have type
+  sumBucketLengths (fun x => []) (head✝ :: qs) = 0
+'PaperB.LabelledQuotient.mem_bucketChildren_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.exists_split_concatMapList' depends on axioms: [propext]
