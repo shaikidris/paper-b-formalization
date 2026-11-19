@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc31f19",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingBlocks.lean",
+  "sha256": "5d5ae7a6057c765f7c8b1ca5c8924b0453878a1f7495734e0a93b0f2e7007801",
+  "scope": "Every original subtree vertex is assigned to the singleton root or its unique dominator child. Block keys enumerate actual original vertices, and each leader is assigned to its own block.",
+  "remaining": "Finish the sibling BlockSystem instance and prove finite labelled adjacency construction, flatness and occurrence counts."
+}
