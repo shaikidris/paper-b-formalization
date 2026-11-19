@@ -60,7 +60,8 @@
         "release-core/PaperB/QuotientBudget.lean",
         "release-core/PaperB/QuotientArrays.lean",
         "release-core/PaperB/SiblingEmissions.lean",
-        "release-core/PaperB/FiniteSiblingQuotient.lean"
+        "release-core/PaperB/FiniteSiblingQuotient.lean",
+        "release-core/PaperB/QuotientArrayCounts.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -490,6 +491,15 @@
       "local_imports": [
         "release-core/PaperB/FiniteSiblingQuotient.lean",
         "release-core/PaperB/Exit.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/QuotientArrayCounts.lean",
+      "local_imports": [
+        "release-core/PaperB/QuotientArrays.lean",
+        "release-core/PaperB/QuotientBudget.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

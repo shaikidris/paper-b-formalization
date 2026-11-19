@@ -1,0 +1,11 @@
+{
+  "base_commit": "ad4253a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/QuotientArrayCounts.lean",
+  "sha256": "5608ed3d639c46f8c2831bb0365cb4ee6e32ec1b16d9e885cfa6f72229ea3172",
+  "scope": "The actual constructed finite quotient adjacency stores exactly one arc for every occurrence in the source list, including duplicates.",
+  "remaining": "Sum over actual sibling graphs using original arc ownership and key counts."
+}

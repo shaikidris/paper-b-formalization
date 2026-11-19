@@ -1,0 +1,4 @@
+'PaperB.arcCount_ofOccurrences' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.arcCount_ofOccurrences : ∀ {n k : Nat} (root : Fin k)
+  (occurrences : List (PaperB.QuotientArrays.ArcOccurrence n k)),
+  (PaperB.QuotientArrays.ofOccurrences root occurrences).arcCount = occurrences.length

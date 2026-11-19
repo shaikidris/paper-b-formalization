@@ -74,7 +74,8 @@
     "release-core/PaperB/FiniteSiblingQuotient.lean": "dominator",
     "release-core/PaperB/PairLookup.lean": "cuts",
     "release-core/PaperB/CompactIds.lean": "graph",
-    "release-core/PaperB/FiniteSiblingFlat.lean": "dominator"
+    "release-core/PaperB/FiniteSiblingFlat.lean": "dominator",
+    "release-core/PaperB/QuotientArrayCounts.lean": "dominator"
   },
   "milestones": [
     {
@@ -379,9 +380,10 @@
         "evidence/ex13-quotient-arrays/verification.json",
         "evidence/ex13-original-emissions/verification.json",
         "evidence/ex13-finite-sibling/verification.json",
-        "evidence/ex13-finite-flatness/verification.json"
+        "evidence/ex13-finite-flatness/verification.json",
+        "evidence/ex13-quotient-array-counts/verification.json"
       ],
-      "progress": "Lean verifies the finite labelled sibling quotient’s original-tail correspondence, exact finite path transport, single-failure flatness and injective topological rank. The global sum of the actual quotient sizes remains open."
+      "progress": "Lean also verifies the finite quotient array stores one item for every emitted occurrence. Apply the unique-owner accounting to these concrete finite sibling graphs to get the total bounds."
     },
     {
       "id": "EX1.4",
