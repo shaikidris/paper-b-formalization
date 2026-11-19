@@ -169,7 +169,8 @@
     "extensions/GuardedListedWitness.lean": "application",
     "release-core/PaperB/DenseQuotientRows.lean": "quotient",
     "release-core/PaperB/ForestActualFull.lean": "cuts",
-    "release-core/PaperB/ForestPhysicalReflection.lean": "cuts"
+    "release-core/PaperB/ForestPhysicalReflection.lean": "cuts",
+    "release-core/PaperB/ForestMeasuredWork.lean": "cuts"
   },
   "milestones": [
     {
@@ -911,9 +912,10 @@
         "evidence/prepared-parent-audit/verification.json",
         "evidence/forest-topological-audit/verification.json",
         "evidence/forest-actual-full-audit/verification.json",
-        "evidence/forest-reflection-audit/verification.json"
+        "evidence/forest-reflection-audit/verification.json",
+        "evidence/forest-measured-work-audit/verification.json"
       ],
-      "progress": "The final physical slots now form an exact bijective embedding of the canonical real-node forest, and Lean checks actual dictionary hits and the exact proper-loss relation.",
+      "progress": "Lean checks the measured forest-cost sum over actual prepared steps, including each repeated scan and allocation. The quadratic-log aggregation holds under specified actual local packed-word projections. Final resource composition remains open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

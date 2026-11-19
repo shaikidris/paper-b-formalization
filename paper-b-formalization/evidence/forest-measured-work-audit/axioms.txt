@@ -1,0 +1,3 @@
+'EX24.PreparedSweep.AggregateEX24.aggregate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX24.PreparedSweep.AggregateEX24.packedSumBound' depends on axioms: [propext, Quot.sound]
+'EX24.PreparedSweep.AggregateEX24.foldWordBound' depends on axioms: [propext, Quot.sound]

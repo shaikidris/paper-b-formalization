@@ -1,0 +1,11 @@
+{
+  "base_commit": "9f61fc9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestMeasuredWork.lean",
+  "sha256": "0105e42f456e339cafa51d3ebf97deab7c9c653f8898576956664fe1556c4f0a",
+  "scope": "Exact measured sums across the actual compact trace charge every scan test, depth and ancestry call, and installation. The aggregation theorem proves quadratic-log per-quotient work under the explicitly stated site and word-projection premises.",
+  "remaining": "Discharge the site and word-projection premises from the actual packed execution and bound temporary state and dictionary storage."
+}
