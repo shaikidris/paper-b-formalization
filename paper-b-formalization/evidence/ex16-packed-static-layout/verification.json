@@ -1,0 +1,11 @@
+{
+  "base_commit": "cb8132e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PackedStaticLayout.lean",
+  "sha256": "34f8f4ef3de4016d4ba1b92795ee532a76b2a812ea1fe9e44728618d3b913e32",
+  "scope": "The executable static layout constructs exact inclusive subtree interval tests, sizes from exclusive stops, valid heavy children and head arrays, and cached child interval records from packed parent/depth arrays.",
+  "remaining": "Prove ordering and total charges for the actual ordinary-tree buckets and wire the bounded child lookup."
+}

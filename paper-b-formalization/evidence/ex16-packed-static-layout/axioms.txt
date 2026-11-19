@@ -1,0 +1,3 @@
+'PaperB.PackedStaticLayout.valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PackedStaticLayout.heavy_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PackedStaticLayout.built_interval_row' depends on axioms: [propext, Classical.choice, Quot.sound]

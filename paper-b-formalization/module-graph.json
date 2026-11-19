@@ -248,7 +248,8 @@
         "release-core/PaperB/HeavyChild.lean",
         "release-core/PaperB/StaticHeavyLCA.lean",
         "release-core/PaperB/StaticHeadSweep.lean",
-        "release-core/PaperB/StaticChildLookup.lean"
+        "release-core/PaperB/StaticChildLookup.lean",
+        "release-core/PaperB/PackedStaticLayout.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -1036,6 +1037,15 @@
       "path": "release-core/PaperB/OracleRuntime.lean",
       "local_imports": [],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PackedStaticLayout.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestLayoutRefine.lean",
+        "release-core/PaperB/StaticHeadSweep.lean"
+      ],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

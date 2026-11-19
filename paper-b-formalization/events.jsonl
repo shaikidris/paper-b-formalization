@@ -153,3 +153,4 @@
 {"at": "2026-11-19T22:18:28+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestKeyInstall", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dynamic-key-install/verification.json"}
 {"at": "2026-11-19T22:18:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OracleRuntime", "tasks": ["EX4.4"], "evidence": "evidence/ex44-retained-query-runtime/verification.json"}
 {"at": "2026-11-19T22:21:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX5.1"], "evidence": "evidence/ex51-one-word-midpoint/verification.json"}
+{"at": "2026-11-19T22:22:05+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedStaticLayout", "tasks": ["EX1.6"], "evidence": "evidence/ex16-packed-static-layout/verification.json"}

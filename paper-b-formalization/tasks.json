@@ -131,7 +131,8 @@
     "release-core/PaperB/FullDomScan.lean": "dominator",
     "release-core/PaperB/JumpRegionInit.lean": "dominator",
     "release-core/PaperB/ForestKeyInstall.lean": "cuts",
-    "release-core/PaperB/OracleRuntime.lean": "oracle"
+    "release-core/PaperB/OracleRuntime.lean": "oracle",
+    "release-core/PaperB/PackedStaticLayout.lean": "dominator"
   },
   "milestones": [
     {
@@ -590,9 +591,10 @@
         "evidence/ex16-heavy-child/verification.json",
         "evidence/ex16-heavy-path-lca/verification.json",
         "evidence/ex16-static-head-words/verification.json",
-        "evidence/ex16-child-interval-search/verification.json"
+        "evidence/ex16-child-interval-search/verification.json",
+        "evidence/ex16-packed-static-layout/verification.json"
       ],
-      "progress": "A binary search over sorted half-open child intervals returns exactly the child containing the queried preorder rank. Entry and exclusive stop endpoints, root and absence cases are checked. Wire the child ranges recorded by the actual ordinary tree and charge their construction."
+      "progress": "The executable static layout constructs exact inclusive subtree interval tests, sizes from exclusive stops, valid heavy children and head arrays, and cached child interval records from packed parent/depth arrays. Prove ordering and total charges for the actual ordinary-tree buckets and wire the bounded child lookup."
     },
     {
       "id": "EX2.1",
