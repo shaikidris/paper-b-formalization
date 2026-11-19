@@ -90,7 +90,8 @@
     "release-core/PaperB/ExitNonempty.lean": "dominator",
     "release-core/PaperB/DecreasingDAG.lean": "graph",
     "release-core/PaperB/KahnDecreasing.lean": "graph",
-    "release-core/PaperB/CommonAncestorSearch.lean": "dominator"
+    "release-core/PaperB/CommonAncestorSearch.lean": "dominator",
+    "release-core/PaperB/ForestLayoutTrace.lean": "cuts"
   },
   "milestones": [
     {
@@ -743,9 +744,10 @@
         "evidence/ex24-pair-lookup/verification.json",
         "evidence/ex24-dfs-array-builder/verification.json",
         "evidence/ex24-dfs-stack-potential/verification.json",
-        "evidence/ex24-dfs-exact-count/verification.json"
+        "evidence/ex24-dfs-exact-count/verification.json",
+        "evidence/ex24-actual-trace-refinement/verification.json"
       ],
-      "progress": "The interval traversal over the actual child buckets executes exactly 2N commands and empties its stack. Table value refinement and sweep integration remain open.",
+      "progress": "The executable DFS run pops exactly its complete event list when fuel suffices. The actual array entries agree with their last stamped trace event. Instantiate a complete ordered DFS trace with the exact preorder and subtree intervals.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

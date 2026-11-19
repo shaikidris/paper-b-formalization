@@ -1,0 +1,11 @@
+{
+  "base_commit": "54bd61e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLayoutTrace.lean",
+  "sha256": "0fe6ddd9e55b677c51fa9b123ae0c70deffbc993027cfc8aa946cbe675b7712b",
+  "scope": "The executable DFS run pops exactly its complete event list when fuel suffices. The actual array entries agree with their last stamped trace event.",
+  "remaining": "Instantiate a complete ordered DFS trace with the exact preorder and subtree intervals."
+}
