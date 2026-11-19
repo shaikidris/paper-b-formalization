@@ -1,0 +1,11 @@
+{
+  "base_commit": "3fe7bfa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SmallQuotient.lean",
+  "sha256": "c32703be6bc5414bf91905246316535d37eab7fa002e53fd687fd5d9dd7cc8d2",
+  "scope": "A quotient of at most two vertices has no real pair, and its computed forest is root-only. A larger quotient supplies a constant-comparison well-typed default pair used solely for sentinel reads.",
+  "remaining": "Wire the early branch into the full packed forest constructor."
+}

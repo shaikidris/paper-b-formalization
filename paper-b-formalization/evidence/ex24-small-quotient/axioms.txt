@@ -1,0 +1,3 @@
+'PaperB.SmallQuotient.cutPair_impossible_of_small' depends on axioms: [propext, Quot.sound]
+'PaperB.SmallQuotient.buildProperLossForestSmallExact_eq' depends on axioms: [propext, Quot.sound]
+'PaperB.SmallQuotient.readComputedKeySmallExact_sentinel_only_root' depends on axioms: [propext, Quot.sound]

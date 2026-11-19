@@ -133,7 +133,8 @@
     "release-core/PaperB/ForestKeyInstall.lean": "cuts",
     "release-core/PaperB/OracleRuntime.lean": "oracle",
     "release-core/PaperB/PackedStaticLayout.lean": "dominator",
-    "release-core/PaperB/UniformArena.lean": "cost model"
+    "release-core/PaperB/UniformArena.lean": "cost model",
+    "release-core/PaperB/SmallQuotient.lean": "cuts"
   },
   "milestones": [
     {
@@ -837,9 +838,10 @@
         "evidence/ex24-balanced-dictionary/verification.json",
         "evidence/ex24-actual-known-node-query/verification.json",
         "evidence/ex24-verified-head-step/verification.json",
-        "evidence/ex24-dynamic-key-install/verification.json"
+        "evidence/ex24-dynamic-key-install/verification.json",
+        "evidence/ex24-small-quotient/verification.json"
       ],
-      "progress": "The executable per-head step writes one label, allocates at most one new pair node and uses the exact key lookup to reuse existing nodes without changing their stored parent. It preserves grounded packed jump memory and charges at most 18 logical writes. Close the Ready embedding induction over all processed heads and compose the graph input preparation and memory charges.",
+      "progress": "A quotient of at most two vertices has no real pair, and its computed forest is root-only. A larger quotient supplies a constant-comparison well-typed default pair used solely for sentinel reads. Wire the early branch into the full packed forest constructor.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

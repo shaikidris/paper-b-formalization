@@ -274,7 +274,8 @@
         "release-core/PaperB/PairDictionary.lean",
         "release-core/PaperB/ActualForestQuery.lean",
         "release-core/PaperB/ForestHead.lean",
-        "release-core/PaperB/ForestKeyInstall.lean"
+        "release-core/PaperB/ForestKeyInstall.lean",
+        "release-core/PaperB/SmallQuotient.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1056,6 +1057,14 @@
         "release-core/PaperB/OracleContract.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SmallQuotient.lean",
+      "local_imports": [
+        "release-core/PaperB/Forest.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],
