@@ -1,0 +1,4 @@
+'EX24.PreparedSweep.foldRows_trace' depends on axioms: [propext]
+'EX24.PreparedSweep.fromRoot_trace' depends on axioms: [propext]
+'EX24.PreparedSweep.Trace.length' depends on axioms: [propext]
+'EX24.PreparedSweep.prepared_step_exists' depends on axioms: [propext, Classical.choice, Quot.sound]

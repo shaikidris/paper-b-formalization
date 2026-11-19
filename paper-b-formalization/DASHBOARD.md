@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX1.6](TASKS.md#ex16) — The actual jump words produce valid static-tree columns, and Lean proves that static parent ancestry gives original DAG dominance on reachable vertices. Final constructor and packed reader composition remains in progress.
-- [EX2.4](TASKS.md#ex24) — The root embedding and both exact installation branches are checked. Lean recovers canonical parent and depth on allocation, canonical node identity on reuse, and absence of the new key from all old occupied slots.
+- [EX2.4](TASKS.md#ex24) — The actual tail-recursive topological fold logs fixed-size events rather than retaining full historical state. Lean proves their exact source association, order and cardinality. Full proof of totality and the inductive canonical embedding remains in progress.
 - [EX4.2](TASKS.md#ex42) — Lean checks the executable array schedule with one visit per vertex, at most one map installation and exact agreement with reference map/base semantics. The actual first-allocation schedule and physical reader bindings remain in progress.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — All branches for two reachable incomparable failures are verified under the exact static, key, membership and physical-span readers. Both exit orientations are checked. Actual packed read bindings and other original inputs remain in progress.

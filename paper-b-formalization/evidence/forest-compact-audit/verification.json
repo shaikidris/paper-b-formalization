@@ -1,0 +1,11 @@
+{
+  "base_commit": "0bb12bd",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCompactFold.lean",
+  "sha256": "f2c63bc203f90b51fd088260aa489dcea83dc2d5c6b3c6098eb289c1f4988fb0",
+  "scope": "The executable prepared forest fold retains the current state and one constant-size event per head, never old state arrays. Proof-only traces relate all compact events to actual step results and preserve input head order.",
+  "remaining": "Prove totality of the increasing-order fold with the exact dictionary, capacity and canonical embedding, and use its events to fill the exit schedule."
+}
