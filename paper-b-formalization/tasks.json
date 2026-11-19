@@ -96,7 +96,8 @@
     "release-core/PaperB/JumpLCA.lean": "dominator",
     "release-core/PaperB/ThirdBlockLift.lean": "dominator",
     "release-core/PaperB/SemanticLCA.lean": "dominator",
-    "release-core/PaperB/HeavyChild.lean": "dominator"
+    "release-core/PaperB/HeavyChild.lean": "dominator",
+    "release-core/PaperB/PairKeyMerge.lean": "cuts"
   },
   "milestones": [
     {
@@ -764,9 +765,10 @@
         "evidence/ex24-dfs-array-builder/verification.json",
         "evidence/ex24-dfs-stack-potential/verification.json",
         "evidence/ex24-dfs-exact-count/verification.json",
-        "evidence/ex24-actual-trace-refinement/verification.json"
+        "evidence/ex24-actual-trace-refinement/verification.json",
+        "evidence/ex24-merge-keys/verification.json"
       ],
-      "progress": "The executable DFS run pops exactly its complete event list when fuel suffices. The actual array entries agree with their last stamped trace event. Instantiate a complete ordered DFS trace with the exact preorder and subtree intervals.",
+      "progress": "Executable deduplicating merge of two strictly sorted candidate key lists preserves exact membership and sortedness with at most their summed lengths in head comparisons. Recursively merge runs and charge allocation, sorting and final dictionary lookup.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

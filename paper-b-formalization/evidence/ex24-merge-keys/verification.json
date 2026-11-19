@@ -1,0 +1,11 @@
+{
+  "base_commit": "f574c96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PairKeyMerge.lean",
+  "sha256": "cbabc0e0a77abcfd2850824a8e6896cf925209f5d968c9cc200f9e62e56ac8d5",
+  "scope": "Executable deduplicating merge of two strictly sorted candidate key lists preserves exact membership and sortedness with at most their summed lengths in head comparisons.",
+  "remaining": "Recursively merge runs and charge allocation, sorting and final dictionary lookup."
+}

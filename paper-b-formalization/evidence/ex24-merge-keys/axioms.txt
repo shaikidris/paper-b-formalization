@@ -1,0 +1,3 @@
+'PaperB.PairLookup.KeyMerge.merge_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PairLookup.KeyMerge.merge_comparison_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PairLookup.KeyMerge.mergeToArray_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

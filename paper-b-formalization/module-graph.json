@@ -237,7 +237,8 @@
         "release-core/PaperB/ForestLayout.lean",
         "release-core/PaperB/ForestLayoutCost.lean",
         "release-core/PaperB/ForestLayoutTreeCost.lean",
-        "release-core/PaperB/ForestLayoutTrace.lean"
+        "release-core/PaperB/ForestLayoutTrace.lean",
+        "release-core/PaperB/PairKeyMerge.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -705,6 +706,14 @@
         "release-core/PaperB/ForestIntervals.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PairKeyMerge.lean",
+      "local_imports": [
+        "release-core/PaperB/PairLookup.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],
