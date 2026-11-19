@@ -1,0 +1,4 @@
+'PaperB.jumpWordRamBridge_endToEnd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ancestorAtDepthWords_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.decideAncestorWords_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.execRecordOpsWords_appendLeafOps' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -633,8 +633,8 @@
         "3.2",
         "5.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Use the v1.3 skew-binary parent, depth and jump records to reach a prescribed ancestor depth.",
       "acceptance": [
@@ -645,9 +645,10 @@
         "evidence/ex22-unattended/native-swarm-jump-invariant.json",
         "evidence/ex22-unattended/native-swarm-jump-traversal.json",
         "evidence/ex22-unattended/native-swarm-jump-move-bound.json",
-        "evidence/ex22-unattended/native-swarm-word-memory.json"
+        "evidence/ex22-unattended/native-swarm-word-memory.json",
+        "evidence/ex23-jump-kernel-audit/verification.json"
       ],
-      "progress": "Lean verified the growing-tree invariant, unique depth-target traversal, the logarithmic move bound, and the array-backed jump implementation under a preallocated word layout. A leaf insertion uses 14 word accesses. The traversal and ancestry test have explicit logarithmic word-read bounds. The full EX0.3 package and end-to-end statement audit remain open.",
+      "progress": "Verified for the actual preallocated jump region. Leaf insertion uses exactly 14 word accesses, depth lookup and online ancestry have logarithmic read bounds, and the concrete region has one size header and three fields per node.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
@@ -667,6 +668,13 @@
           ],
           "applied_model": "gemini-4-neon-medium"
         }
+      },
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex23-jump-kernel-audit/verification.json",
+        "axioms": "evidence/ex23-jump-kernel-audit/axioms.txt",
+        "fidelity": "evidence/ex23-jump-kernel-audit/fidelity.md",
+        "dependencies": "external-inputs.json"
       }
     },
     {

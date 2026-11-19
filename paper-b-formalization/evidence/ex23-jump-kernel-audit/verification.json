@@ -1,0 +1,9 @@
+{
+  "base_commit": "1a5a602",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Jumps.lean",
+  "sha256": "340d4e7dc93569424a0440b642d424da0443dcc973ff40aa981da43cc81e4c68",
+  "scope": "Replay and fidelity audit of the existing skew-binary growing-tree kernel and its concrete array word accesses, with EX0.3 now verified.",
+  "remaining": "Compose these operations in the forest and original-tree builders and prove the oracle-wide primitive instruction bounds.",
+  "source_provenance": "Pre-existing Carbon Medium and Neon Medium work as recorded by the EX2.3 dispatch ledger. This checkpoint replays the exact existing source."
+}

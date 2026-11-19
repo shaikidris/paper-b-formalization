@@ -229,7 +229,7 @@ Planning/evidence references: [evidence/carbon-forest-sweep/progress.json](evide
 
 ## EX2.3 — Implement depth jumps under leaf insertion
 
-- Milestone: EX2; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX2; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: data structures; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.3.
 - Proposed owner module: `release-core/PaperB/Jumps.lean`.
@@ -241,9 +241,9 @@ Acceptance:
 
 - Prove constant-time insertion, O(L) moves per level search and O(L) online ancestry with one jump per node. See the [v1.3 acceptance addendum](../evidence/paper-b-log-shave-20261118/formalization-v1.3.md).
 
-Lean verified the growing-tree invariant, unique depth-target traversal, the logarithmic move bound, and the array-backed jump implementation under a preallocated word layout. A leaf insertion uses 14 word accesses. The traversal and ancestry test have explicit logarithmic word-read bounds. The full EX0.3 package and end-to-end statement audit remain open.
+Verified for the actual preallocated jump region. Leaf insertion uses exactly 14 word accesses, depth lookup and online ancestry have logarithmic read bounds, and the concrete region has one size header and three fields per node.
 
-Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json), [evidence/ex22-unattended/native-swarm-jump-move-bound.json](evidence/ex22-unattended/native-swarm-jump-move-bound.json), [evidence/ex22-unattended/native-swarm-word-memory.json](evidence/ex22-unattended/native-swarm-word-memory.json).
+Planning/evidence references: [evidence/ex22-unattended/native-swarm-jump-foundation.json](evidence/ex22-unattended/native-swarm-jump-foundation.json), [evidence/ex22-unattended/native-swarm-jump-invariant.json](evidence/ex22-unattended/native-swarm-jump-invariant.json), [evidence/ex22-unattended/native-swarm-jump-traversal.json](evidence/ex22-unattended/native-swarm-jump-traversal.json), [evidence/ex22-unattended/native-swarm-jump-move-bound.json](evidence/ex22-unattended/native-swarm-jump-move-bound.json), [evidence/ex22-unattended/native-swarm-word-memory.json](evidence/ex22-unattended/native-swarm-word-memory.json), [evidence/ex23-jump-kernel-audit/verification.json](evidence/ex23-jump-kernel-audit/verification.json).
 
 <a id="ex24"></a>
 

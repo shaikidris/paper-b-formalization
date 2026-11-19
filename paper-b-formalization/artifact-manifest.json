@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 5058,
-      "sha256": "1a818731f388fa433ffd7c4726f0ca7e5f68c3ad2a0cfb0c40ef3bd98d24dd74"
+      "bytes": 4670,
+      "sha256": "648c035b81fc0b406de20a01c65ed58604873755d67a0fd5e88b474c9f03448a"
     },
     {
       "path": "DISPATCH.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5344,
-      "sha256": "bdf386ca1a1d720adaf3038f079fc01ffcccbf4bc4624d0c76e2cbb735b224a7"
+      "bytes": 5341,
+      "sha256": "a6b5f441bf399ab87923ae278e369a316e3b2488ae77cfe121006e74ace155e5"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 34311,
-      "sha256": "95e4963b1dfe054a01335fd0e04ac6f9c7e40ba6186a7e26f42cb1e7513f34e0"
+      "bytes": 34279,
+      "sha256": "a57ebfa11168598334e8a03c67fb99524714bb96ee55e1cdcfc7c4c60086ee41"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 24827,
-      "sha256": "22e2cef41a887ac6712484bfaba94fa000e51bd8a76d73cda7abe6ab50b881f5"
+      "bytes": 25009,
+      "sha256": "139d7e878f7c00a84430991bf37b45eb74633c269aab0ce495714e078f0e08bd"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1082,6 +1082,26 @@
       "sha256": "89e473e095aa99e25d86958da34d373842859792995cc0dab6544ff477a73832"
     },
     {
+      "path": "evidence/ex23-jump-kernel-audit/Audit.lean",
+      "bytes": 216,
+      "sha256": "df8bbb734a8799dd34ee19317e405ef2938639300f74cf7104819b1bfa8990e7"
+    },
+    {
+      "path": "evidence/ex23-jump-kernel-audit/axioms.txt",
+      "bytes": 383,
+      "sha256": "d6d5f013cd3ec5c3a84aefd79ea68d18e25e77cb576bcd52fd30a53f69a38ae7"
+    },
+    {
+      "path": "evidence/ex23-jump-kernel-audit/fidelity.md",
+      "bytes": 984,
+      "sha256": "7e1bc86caae74360edda3599b90438b0eae7ab2587a3faab4e2bbcc4f3c9d19e"
+    },
+    {
+      "path": "evidence/ex23-jump-kernel-audit/verification.json",
+      "bytes": 662,
+      "sha256": "dac1d2648d7fbf4b7848453bc7909227433fe1d54fb25872e3849b8e8d82e1f8"
+    },
+    {
       "path": "evidence/ex24-ancestry-interval/IntervalAudit.lean",
       "bytes": 1107,
       "sha256": "052a5a1d1a3c1696dc73796d1bd0c13c3ee17ae4865c6616e15548761ee67fc1"
@@ -1798,8 +1818,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 47764,
-      "sha256": "11126805303320a83e5c9101ce25f23660c5ef2fe0679d0a72fe01982946bac1"
+      "bytes": 48023,
+      "sha256": "3cbd600ed84949373b18f214bf9d2a77682684fd8de2f2ecff1ab5dfcffc2250"
     },
     {
       "path": "test_plan.py",
