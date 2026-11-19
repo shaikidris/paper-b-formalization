@@ -1,0 +1,11 @@
+{
+  "base_commit": "cd259707c46cef5e42f6ac2d150a17968f14dca7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestIntervalQuery.lean",
+  "sha256": "450d9e2349874b961ee7a61970481dff9d132a8da9ad7e190a645fa3693bb190",
+  "scope": "Array-backed Boolean test of a supplied known pair node against an original quotient vertex, proved equivalent to proper loss on a correct layout.",
+  "remaining": "Construct the arrays within the resource budget, wire the dictionary and predecessor predicate, and verify actual Word-RAM costs."
+}

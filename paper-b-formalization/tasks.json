@@ -41,7 +41,8 @@
     "release-core/PaperB/ForestBuild.lean": "cuts",
     "release-core/PaperB/ExitPaths.lean": "cuts",
     "release-core/PaperB/ForestIntervals.lean": "cuts",
-    "release-core/PaperB/PrefixProbe.lean": "cuts"
+    "release-core/PaperB/PrefixProbe.lean": "cuts",
+    "release-core/PaperB/ForestIntervalQuery.lean": "cuts"
   },
   "milestones": [
     {
@@ -581,9 +582,10 @@
         "evidence/public-lean-interval-assembly/verification.json",
         "evidence/public-lean-prefix-probe/verification.json",
         "evidence/ex24-ancestry-interval/verification.json",
-        "evidence/ex24-prefix-cutoff/verification.json"
+        "evidence/ex24-prefix-cutoff/verification.json",
+        "evidence/ex24-array-interval/verification.json"
       ],
-      "progress": "Lean checks computed DFS preorder interval membership and the real-pair proper-loss corollary. The numeric prefix search also checks exact monotone cutoff classification and uses at most log2(bracket width)+1 probes. The remaining work is the predecessor predicate bridge, executable forest construction, deterministic dictionary, array-backed constant-time query and end-to-end time and space bounds.",
+      "progress": "Lean verifies exact monotone cutoff with logarithmically many prefix probes. A separate executable query reads a precomputed layout for a known pair and quotient vertex, and Lean proves it returns true exactly for proper loss. The remaining work is constructing that layout within budget, wiring the predecessor predicate and deterministic pair dictionary, and certifying end-to-end Word-RAM time and space.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

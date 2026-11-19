@@ -93,7 +93,8 @@
         "release-core/PaperB/Exit.lean",
         "release-core/PaperB/ForestBuild.lean",
         "release-core/PaperB/TreeIndex.lean",
-        "release-core/PaperB/ForestIntervals.lean"
+        "release-core/PaperB/ForestIntervals.lean",
+        "release-core/PaperB/ForestIntervalQuery.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -190,6 +191,14 @@
     {
       "path": "release-core/PaperB/PrefixProbe.lean",
       "local_imports": [],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestIntervalQuery.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestIntervals.lean"
+      ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }

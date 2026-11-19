@@ -1,0 +1,14 @@
+'PaperB.ForestIntervalQuery.query_eq_true_iff_interval' depends on axioms: [propext]
+'PaperB.ForestIntervalQuery.query_eq_true_iff_properLoss_of_node' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@PaperB.ForestIntervalQuery.query_eq_true_iff_properLoss_of_node : ∀ {H : PaperB.LabelledQuotient}
+  {rank : Fin H.vertexCount → Nat},
+  (∀ (u v : Fin H.vertexCount), H.HasQuotientArc u v → rank u < rank v) →
+    (∀ (a b : Fin H.vertexCount), rank a = rank b → a = b) →
+      H.IsFlat →
+        ∀ {T : PaperB.ForestIntervalQuery.Tables ((H.buildProperLossForest rank).realNodeCount + 1) H.vertexCount},
+          PaperB.ForestIntervalQuery.ProperLossLayout H rank T →
+            ∀ {a : Fin ((H.buildProperLossForest rank).realNodeCount + 1)} {P : H.CutPair},
+              (H.buildProperLossForest rank).nodeKey? a = some P →
+                ∀ (y : Fin H.vertexCount), PaperB.ForestIntervalQuery.query T a y = true ↔ H.ProperLoss P y

@@ -1,0 +1,5 @@
+import PaperB.ForestIntervalQuery
+
+#print axioms PaperB.ForestIntervalQuery.query_eq_true_iff_interval
+#print axioms PaperB.ForestIntervalQuery.query_eq_true_iff_properLoss_of_node
+#check @PaperB.ForestIntervalQuery.query_eq_true_iff_properLoss_of_node

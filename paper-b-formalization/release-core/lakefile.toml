@@ -8,7 +8,7 @@ relaxedAutoImplicit = false
 
 [[lean_lib]]
 name = "PaperB"
-roots = ["PaperB.Spec", "PaperB.ExitPaths", "PaperB.Forest", "PaperB.ForestIntervals", "PaperB.Dom", "PaperB.PrefixProbe", "PaperB.Graph", "PaperB.Exit", "PaperB.Jumps", "PaperB.ForestBuild"]
+roots = ["PaperB.Spec", "PaperB.ExitPaths", "PaperB.Forest", "PaperB.ForestIntervals", "PaperB.ForestIntervalQuery", "PaperB.Dom", "PaperB.PrefixProbe", "PaperB.Graph", "PaperB.Exit", "PaperB.Jumps", "PaperB.ForestBuild"]
 
 [[lean_lib]]
 name = "Challenge"
