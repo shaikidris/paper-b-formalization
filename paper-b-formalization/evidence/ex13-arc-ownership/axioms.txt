@@ -1,0 +1,11 @@
+'PaperB.Digraph.siblingBlockSystem_crossing_owner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.siblingBlockSystem_owner_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.siblingBlockSystem_quotient_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.siblingBlockSystem_quotient_rank_lt : ∀ {g : PaperB.Digraph} {r d : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount}
+  (progress : ∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y)
+  (injective : ∀ ⦃x y : Fin g.vertexCount⦄, rank x = rank y → x = y) (spec : g.ParentSpec r parent)
+  (hd : g.InitiallyReachable r d) {s t : g.SiblingBlockKey r d parent},
+  (PaperB.Digraph.siblingBlockSystem progress injective spec hd).QuotientEdge s t →
+    rank ((PaperB.Digraph.siblingBlockSystem progress injective spec hd).leader s).val <
+      rank ((PaperB.Digraph.siblingBlockSystem progress injective spec hd).leader t).val

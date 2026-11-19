@@ -1,0 +1,11 @@
+{
+  "base_commit": "7f6b15443bad7194ef21305f8dcc6f615f0ddd5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingArcOwnership.lean",
+  "sha256": "e8afc260965cede8ed449e109aa22822354a268849d66edefd1351181d01c4c7",
+  "scope": "Every labelled crossing arc is owned by the parent of its physical head. Its quotient endpoints increase original leader rank strictly.",
+  "remaining": "Build finite labelled adjacency arrays and apply the occurrence budget to the graph’s emitted records."
+}

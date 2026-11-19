@@ -65,7 +65,8 @@
     "release-core/PaperB/SealedQuery.lean": "cost model",
     "release-core/PaperB/Kahn.lean": "graph",
     "release-core/PaperB/PredecessorLCA.lean": "dominator",
-    "release-core/PaperB/RamLifecycle.lean": "cost model"
+    "release-core/PaperB/RamLifecycle.lean": "cost model",
+    "release-core/PaperB/SiblingArcOwnership.lean": "dominator"
   },
   "milestones": [
     {
@@ -359,9 +360,10 @@
         "evidence/ex13-sibling-blocks/verification.json",
         "evidence/ex13-failed-suffix/verification.json",
         "evidence/ex13-sibling-system/verification.json",
-        "evidence/ex13-sibling-flatness/verification.json"
+        "evidence/ex13-sibling-flatness/verification.json",
+        "evidence/ex13-arc-ownership/verification.json"
       ],
-      "progress": "Lean constructs the semantic sibling blocks of the original DAG, proves internal paths and unique entry, proves exact projection/lifting and verifies flatness under every single nonroot failure. The finite labelled adjacency representation and total occurrence budget remain open."
+      "progress": "Lean verifies the concrete sibling quotient’s flatness, strict order by leader rank, and that each crossing arc belongs to a unique quotient, the ordinary parent of its head. Finite encoded adjacency and exact global occurrence accounting remain open."
     },
     {
       "id": "EX1.4",

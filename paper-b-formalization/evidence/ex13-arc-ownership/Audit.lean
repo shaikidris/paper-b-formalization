@@ -1,0 +1,6 @@
+import PaperB.SiblingArcOwnership
+
+#print axioms PaperB.Digraph.siblingBlockSystem_crossing_owner
+#print axioms PaperB.Digraph.siblingBlockSystem_owner_unique
+#print axioms PaperB.Digraph.siblingBlockSystem_quotient_rank_lt
+#check @PaperB.Digraph.siblingBlockSystem_quotient_rank_lt
