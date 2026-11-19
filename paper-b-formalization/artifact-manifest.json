@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3637,
-      "sha256": "c29903afe5c6fd20ef7218be80b09a9032739cf8800fc4d00cc8d6e1964cc7f5"
+      "bytes": 3662,
+      "sha256": "933ec406bb9ef4668c84efd594214a46e614b4f2d08af0a4e986709ca918a017"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 46757,
-      "sha256": "a0280748b974a350557f611163c7b490d1294b8cb4607b3ce87ab7222383c20f"
+      "bytes": 46890,
+      "sha256": "eab0b9dabdd6ef459b5c5dbcf318e9d6ee9ce15e5fca7dbcb3bd18f7d4a7a19a"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 45393,
-      "sha256": "3b4d23acf497205b26f216dfeb9b795b0902f572a0667f1147a66f474633bb90"
+      "bytes": 45594,
+      "sha256": "a4bd68fe97d66e49df04f6bbf1aef08c2b03cf77dfb19e031f6b3d6c3d6f9cad"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2472,6 +2472,21 @@
       "sha256": "5ab89ec129243764c215b54136014630ff6cebb6fa445c2bc737ea27eed1878c"
     },
     {
+      "path": "evidence/forest-real-prefix-audit/Audit.lean",
+      "bytes": 91,
+      "sha256": "870aa8ce0c06a7f57a11757d1374c2a3381733d8b023cd7afbd21905478560b4"
+    },
+    {
+      "path": "evidence/forest-real-prefix-audit/axioms.txt",
+      "bytes": 101,
+      "sha256": "2c517ceed4fc90e774c714d89fe9870406eb9f054df8e01a18f4b58e481b81ff"
+    },
+    {
+      "path": "evidence/forest-real-prefix-audit/verification.json",
+      "bytes": 658,
+      "sha256": "36746f4d998016490c5ff4ff7785f7ee491ed98df98840f5a1db1d9de7cd4db3"
+    },
+    {
       "path": "evidence/forest-reflection-audit/Audit.lean",
       "bytes": 246,
       "sha256": "f3c3c0c797869935cc63eb9267aa8b3d5736774e8a35f3d41f5e764bd788a6f7"
@@ -3478,8 +3493,8 @@
     },
     {
       "path": "release-core/PaperB/ForestTopologicalTotal.lean",
-      "bytes": 15764,
-      "sha256": "36bfea4ca35b7154e8aa3b57e4eca43d621b0d362ad1e40d4cc2526cf5418e93"
+      "bytes": 21754,
+      "sha256": "317f01f2bfe5e5bbf7e2412fa59df3508bb62b65efd21b0258a290afe2131faf"
     },
     {
       "path": "release-core/PaperB/ForestWordLaws.lean",
@@ -3953,8 +3968,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 65388,
-      "sha256": "e768fee6a09e0ccb32eb8c1710925529a53d8659cde068e7f1310cdbff8f39ed"
+      "bytes": 65476,
+      "sha256": "851d01cde055926c36a8953baa7be61d2473b45629b3a92debff1860426f61e8"
     },
     {
       "path": "test_plan.py",

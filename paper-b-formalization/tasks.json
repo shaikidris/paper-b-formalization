@@ -919,9 +919,10 @@
         "evidence/forest-reflection-audit/verification.json",
         "evidence/forest-measured-work-audit/verification.json",
         "evidence/forest-physical-intervals-audit/verification.json",
-        "evidence/forest-site-depth-audit/verification.json"
+        "evidence/forest-site-depth-audit/verification.json",
+        "evidence/forest-real-prefix-audit/verification.json"
       ],
-      "progress": "Prepared heads now have checked local site premises and selected-pivot depth bounds from real grounded prefixes. Aggregate word-level accounting and full oracle integration remain in progress.",
+      "progress": "The proof now exposes the exact physical prefix invariant and predecessor-test specification at every step of the successful packed sweep. The next resource proof can use these without an external per-head assumption.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

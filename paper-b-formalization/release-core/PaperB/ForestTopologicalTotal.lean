@@ -359,3 +359,130 @@ theorem fromRoot_total {H : LabelledQuotient}
 
 end PreparedSweep
 end EX24
+
+namespace EX24.PreparedSweep
+
+open PaperB PaperB.ForestHead EX24.PreStep PaperB.LabelledQuotient
+
+/-- A Prop-only callback on the occupied prefix immediately before `row`. -/
+def PrefixLocalAt {H : LabelledQuotient} (c : Config H)
+    (rank : Vertex H → Nat) (Local : State H → Row H → Prop) (row : Row H) : Prop :=
+  ∀ (s : State H) (F : JumpForest) (up : Fin F.size → Fin F.size),
+    Grounded c F s.tables →
+    (∀ a : Fin F.size, (up a).val = F.parentOf a.val) →
+    Embedding c s F rank up (fun v => rank v < rank row.head) →
+    TestSpec row.head row.tests →
+    Local s row
+
+/-- An actual prepared trace with `Local` certified at each step's input state. -/
+inductive LocalTrace {H : LabelledQuotient} (c : Config H)
+    (rank : Vertex H → Nat) (Local : State H → Row H → Prop) :
+    State H → List (Row H) → State H → Log H → Prop where
+  | nil (s : State H) : LocalTrace c rank Local s [] s []
+  | cons {s out : State H} {row : Row H} {rows : List (Row H)}
+      {r : HeadResult H} {log : Log H} :
+      stepPrepared c s rank row.head row.tests = some r →
+      Local s row →
+      LocalTrace c rank Local r.state rows out log →
+      LocalTrace c rank Local s (row :: rows) out (Event.ofResult row.head r :: log)
+
+private theorem trace_addLocal {H : LabelledQuotient}
+    (p : ForestDictionary.Rows H) {c : Config H} {rank : Vertex H → Nat}
+    {Local : State H → Row H → Prop}
+    (hc : c.usePackedWords = c)
+    (rankArc : ∀ u v : Vertex H, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Vertex H, rank a = rank b → a = b)
+    (flat : H.IsFlat)
+    {s out : State H} {rows : List (Row H)} {log : Log H}
+    (tr : Trace c rank s rows out log) :
+    ∀ (F : JumpForest) (up : Fin F.size → Fin F.size),
+      rows.Pairwise (fun a b => rank a.head < rank b.head) →
+      Frontier rank rows →
+      (∀ row ∈ rows, row.tests = p.row row.head) →
+      (∀ row ∈ rows, PrefixLocalAt c rank Local row) →
+      Grounded c F s.tables →
+      (∀ a : Fin F.size, (up a).val = F.parentOf a.val) →
+      Embedding c s F rank up (Past rank rows) →
+      LocalTrace c rank Local s rows out log := by
+  induction tr with
+  | nil s =>
+    intro _ _ _ _ _ _ _ _ _
+    exact LocalTrace.nil s
+  | @cons s out row rows r log hstep tail ih =>
+    intro F up ho hf hexact hLocal g hparent E
+    have T : TestSpec row.head row.tests := by
+      rw [hexact row (by simp)]
+      exact p.spec row.head
+    have Ehead : Embedding c s F rank up (fun v => rank v < rank row.head) := by
+      simpa only [past_cons ho] using E
+    have hhere := hLocal row (by simp) s F up g hparent Ehead T
+    let F' := if r.installed.allocated then
+      F.appendLeaf r.measured.step.parent
+    else F
+    obtain ⟨g', _, _, _, up', hparent', ⟨E'⟩⟩ :=
+      occupiedStep (row := row) hc Ehead g hparent T rankArc distinctRanks flat hstep
+    have Etail : Embedding c r.state F' rank up' (Past rank rows) := by
+      rw [past_tail ho hf]
+      exact E'
+    exact LocalTrace.cons hstep hhere
+      (ih F' up' (List.pairwise_cons.mp ho).2 (frontier_tail ho hf)
+        (fun t ht => hexact t (List.mem_cons_of_mem row ht))
+        (fun t ht => hLocal t (List.mem_cons_of_mem row ht))
+        g' hparent' Etail)
+
+/-- The complete prepared run retains its original guarantees and certifies `Local`
+    at the input state of every row in its trace. -/
+theorem fromRoot_total_local {H : LabelledQuotient}
+    (p : ForestDictionary.Rows H) (c : Config H) (rank : Vertex H → Nat)
+    (Local : State H → Row H → Prop)
+    {mem : Array Nat} {rows : List (Row H)}
+    (layout : JumpWordLayout c.region JumpForest.init mem)
+    (hc : c.usePackedWords = c)
+    (hd : c.dict = ForestDictionary.dictionary p c.code)
+    (hmax : c.region.maxNodes = H.vertexCount)
+    (hindex : ∀ v : Vertex H, c.vertexIndex v = Fin.val v)
+    (rankArc : ∀ u v : Vertex H, H.HasQuotientArc u v → rank u < rank v)
+    (distinctRanks : ∀ a b : Vertex H, rank a = rank b → a = b)
+    (flat : H.IsFlat)
+    (full : FullRows p rank rows)
+    (parents : ∀ row ∈ rows, ParentAt c rank row)
+    (hLocal : ∀ row ∈ rows, PrefixLocalAt c rank Local row) :
+    ∃ (out : State H) (log : Log H),
+      fromRoot c rank mem H.vertexCount rows = some (out, log) ∧
+      Trace c rank (initial c mem H.vertexCount) rows out log ∧
+      log.map Event.head = rows.map Row.head ∧
+      log.length = rows.length ∧
+      (∀ e ∈ log, (selectors c out).label e.head = e.node) ∧
+      OutputOK c rank out ∧
+      LocalTrace c rank Local (initial c mem H.vertexCount) rows out log := by
+  obtain ⟨out, log, hrun, tr, hheads, hlen, hfinal, hout⟩ :=
+    fromRoot_total p c rank layout hc hd hmax hindex rankArc distinctRanks flat full parents
+  let s := initial c mem H.vertexCount
+  have g : Grounded c JumpForest.init s.tables :=
+    initial_grounded c layout rfl H.vertexCount
+  let up : Fin JumpForest.init.size → Fin JumpForest.init.size :=
+    boundedJumpParent g.layout.valid
+  have hparent : ∀ a : Fin JumpForest.init.size, (up a).val = JumpForest.init.parentOf a.val :=
+    fun _ => rfl
+  have hup : initialUp = up := by
+    funext a
+    apply Fin.ext
+    have ha : (initialUp a).val < 1 := (initialUp a).isLt
+    have hb : (up a).val < 1 := (up a).isLt
+    omega
+  have hpast : Past rank rows = (fun _ => False) := by
+    funext v
+    apply propext
+    refine ⟨?_, fun h => h.elim⟩
+    intro hv
+    obtain ⟨row, hr, he⟩ := full.covers v
+    exact (Nat.lt_irrefl (rank v)) (by simpa only [he] using hv row hr)
+  have E : Embedding c s JumpForest.init rank up (Past rank rows) := by
+    rw [← hup, hpast]
+    exact initial_embedding c rank layout H.vertexCount
+  exact ⟨out, log, hrun, tr, hheads, hlen, hfinal, hout,
+    trace_addLocal p hc rankArc distinctRanks flat tr
+      JumpForest.init up full.ordered (fun v => Or.inl (full.covers v))
+      full.tests_eq hLocal g hparent E⟩
+
+end EX24.PreparedSweep

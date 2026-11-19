@@ -1,0 +1,2 @@
+import PaperB.ForestTopologicalTotal
+#print axioms EX24.PreparedSweep.fromRoot_total_local

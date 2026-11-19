@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Prepared heads now have checked local site premises and selected-pivot depth bounds from real grounded prefixes. Aggregate word-level accounting and full oracle integration remain in progress.
+- [EX2.4](TASKS.md#ex24) — The proof now exposes the exact physical prefix invariant and predecessor-test specification at every step of the successful packed sweep. The next resource proof can use these without an external per-head assumption.
 - [EX4.2](TASKS.md#ex42) — The actual forest event log now has checked first-creation and final parent chronology. The scatter can produce the exit schedule without per-vertex forest scans once its exact slot correspondence is joined.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.

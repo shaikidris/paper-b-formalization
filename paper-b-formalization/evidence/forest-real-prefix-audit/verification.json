@@ -1,0 +1,11 @@
+{
+  "base_commit": "7029c62",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestTopologicalTotal.lean",
+  "sha256": "317f01f2bfe5e5bbf7e2412fa59df3508bb62b65efd21b0258a290afe2131faf",
+  "scope": "Actual grounded forest prefixes satisfy any predicate derived from the local embedding and exact predecessor tests. The checked structural induction runs on the existing successful trace and does not add runtime work.",
+  "remaining": "Instantiate the stronger result with the local measured-work predicate and seal the runtime accounting."
+}
