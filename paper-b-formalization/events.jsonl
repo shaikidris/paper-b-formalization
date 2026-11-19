@@ -95,3 +95,4 @@
 {"at": "2026-11-19T21:08:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLayoutCost", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dfs-stack-potential/verification.json"}
 {"at": "2026-11-19T21:09:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CompactFailures", "tasks": ["EX1.1"], "evidence": "evidence/ex11-compact-failures/verification.json"}
 {"at": "2026-11-19T21:09:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "CompactCounts", "tasks": ["EX1.1"], "evidence": "evidence/ex11-compact-counts/verification.json"}
+{"at": "2026-11-19T21:10:02+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLayoutTreeCost", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dfs-exact-count/verification.json"}

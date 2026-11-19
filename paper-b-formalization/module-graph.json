@@ -224,7 +224,8 @@
         "release-core/PaperB/PredecessorSearch.lean",
         "release-core/PaperB/PairLookup.lean",
         "release-core/PaperB/ForestLayout.lean",
-        "release-core/PaperB/ForestLayoutCost.lean"
+        "release-core/PaperB/ForestLayoutCost.lean",
+        "release-core/PaperB/ForestLayoutTreeCost.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -580,6 +581,15 @@
         "release-core/PaperB/Kahn.lean"
       ],
       "owner_role": "graph",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestLayoutTreeCost.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestLayout.lean",
+        "release-core/PaperB/ForestLayoutCost.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

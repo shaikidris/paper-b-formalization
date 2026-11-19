@@ -1,0 +1,11 @@
+{
+  "base_commit": "7b15f71",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLayoutTreeCost.lean",
+  "sha256": "6998fea54458e29cadb3386622eab942cc119fc94d214f205722673cec838a1f",
+  "scope": "The actual bucketed depth-tree DFS exhausts its stack after exactly two commands per vertex. The bound applies to a valid forest tree with the artificial root.",
+  "remaining": "Verify the recorded entry and exit values and connect the resulting query cells."
+}
