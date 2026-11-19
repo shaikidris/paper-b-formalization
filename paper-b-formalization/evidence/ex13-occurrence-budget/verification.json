@@ -1,0 +1,11 @@
+{
+  "base_commit": "7f6b15443bad7194ef21305f8dcc6f615f0ddd5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/QuotientBudget.lean",
+  "sha256": "01f2163944c25f7b03f2aec82896aa30e53ae465da5cd64764bc4447697fd4b1",
+  "scope": "Exact sum of grouped arc occurrence counts, at most one emission per raw occurrence and at most two root/child records per original vertex.",
+  "remaining": "Instantiate the occupied buckets with actual preserved arcs and quotient IDs, then charge the executable collector."
+}

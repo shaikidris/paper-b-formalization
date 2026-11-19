@@ -1,0 +1,8 @@
+'PaperB.QuotientBudget.length_filterMap_le' depends on axioms: [propext]
+'PaperB.QuotientBudget.unique_match_count' depends on axioms: [propext]
+'PaperB.QuotientBudget.bucketTotal_eq_length' depends on axioms: [propext, Quot.sound]
+'PaperB.QuotientBudget.emitted_bucket_budget' depends on axioms: [propext, Quot.sound]
+'PaperB.QuotientBudget.root_child_budget' depends on axioms: [propext]
+@PaperB.QuotientBudget.root_child_budget : ∀ {α : Type u_1} {β : Type u_2} {κ : Type u_3} (root : α → β)
+  (child : α → Option κ) (vertices : List α),
+  (List.map root vertices).length + (List.filterMap child vertices).length ≤ 2 * vertices.length

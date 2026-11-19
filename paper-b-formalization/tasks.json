@@ -67,7 +67,8 @@
     "release-core/PaperB/PredecessorLCA.lean": "dominator",
     "release-core/PaperB/RamLifecycle.lean": "cost model",
     "release-core/PaperB/SiblingArcOwnership.lean": "dominator",
-    "release-core/PaperB/SiblingEncoding.lean": "dominator"
+    "release-core/PaperB/SiblingEncoding.lean": "dominator",
+    "release-core/PaperB/QuotientBudget.lean": "dominator"
   },
   "milestones": [
     {
@@ -363,9 +364,10 @@
         "evidence/ex13-sibling-system/verification.json",
         "evidence/ex13-sibling-flatness/verification.json",
         "evidence/ex13-arc-ownership/verification.json",
-        "evidence/ex13-sibling-encoding/verification.json"
+        "evidence/ex13-sibling-encoding/verification.json",
+        "evidence/ex13-occurrence-budget/verification.json"
       ],
-      "progress": "Lean verifies flatness and ownership of the original-DAG sibling quotient and a reversible Fin index for every actual block key. The labelled adjacency builder and counts remain open."
+      "progress": "Lean verifies semantic sibling flatness, unique crossing ownership, reversible IDs and the generic aggregate occurrence bound allowing repeats. Apply the accounting to the concrete labelled quotient arrays and implement the charged collector."
     },
     {
       "id": "EX1.4",
