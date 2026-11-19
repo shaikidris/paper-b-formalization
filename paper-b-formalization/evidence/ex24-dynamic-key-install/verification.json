@@ -1,0 +1,11 @@
+{
+  "base_commit": "16dbef8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestKeyInstall.lean",
+  "sha256": "319469b3cd90a09782be1a36de8adae4d45f6d81b0b031c22c3e7682ff0e1356",
+  "scope": "The executable per-head step writes one label, allocates at most one new pair node and uses the exact key lookup to reuse existing nodes without changing their stored parent. It preserves grounded packed jump memory and charges at most 18 logical writes.",
+  "remaining": "Close the Ready embedding induction over all processed heads and compose the graph input preparation and memory charges."
+}

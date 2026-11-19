@@ -1,0 +1,4 @@
+'EX24.step_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX24.step_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX24.previous_label' depends on axioms: [propext]
+'EX24.step_request_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]

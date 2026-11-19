@@ -150,3 +150,4 @@
 {"at": "2026-11-19T22:13:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "LastExitPaper", "tasks": ["EX1.4"], "evidence": "evidence/paper-22-last-exit-certified/verification.json"}
 {"at": "2026-11-19T22:13:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FullDomScan", "tasks": ["EX1.5"], "evidence": "evidence/ex15-full-dom-sweep/verification.json"}
 {"at": "2026-11-19T22:13:56+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "JumpRegionInit", "tasks": ["EX1.5"], "evidence": "evidence/ex15-actual-root-word-region/verification.json"}
+{"at": "2026-11-19T22:18:28+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestKeyInstall", "tasks": ["EX2.4"], "evidence": "evidence/ex24-dynamic-key-install/verification.json"}

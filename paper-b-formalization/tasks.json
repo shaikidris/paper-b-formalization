@@ -129,7 +129,8 @@
     "release-core/PaperB/OracleMemoryLayout.lean": "cost model",
     "release-core/PaperB/LastExitPaper.lean": "dominator",
     "release-core/PaperB/FullDomScan.lean": "dominator",
-    "release-core/PaperB/JumpRegionInit.lean": "dominator"
+    "release-core/PaperB/JumpRegionInit.lean": "dominator",
+    "release-core/PaperB/ForestKeyInstall.lean": "cuts"
   },
   "milestones": [
     {
@@ -831,9 +832,10 @@
         "evidence/ex24-predecessor-stamps/verification.json",
         "evidence/ex24-balanced-dictionary/verification.json",
         "evidence/ex24-actual-known-node-query/verification.json",
-        "evidence/ex24-verified-head-step/verification.json"
+        "evidence/ex24-verified-head-step/verification.json",
+        "evidence/ex24-dynamic-key-install/verification.json"
       ],
-      "progress": "The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.",
+      "progress": "The executable per-head step writes one label, allocates at most one new pair node and uses the exact key lookup to reuse existing nodes without changing their stored parent. It preserves grounded packed jump memory and charges at most 18 logical writes. Close the Ready embedding induction over all processed heads and compose the graph input preparation and memory charges.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

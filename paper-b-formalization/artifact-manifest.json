@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 4109,
-      "sha256": "77bab1d9e9e36db0a7a718e6a516a6a953b934bdfe57ef2af33978ae4bc73262"
+      "bytes": 4174,
+      "sha256": "d070bc43bc74d1865bd4995aed406ed6557737c08721d901ee1f5b2643691d2c"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 40702,
-      "sha256": "fcf556c1c1b540cd12e4dab878be993396f98e497b23e11ac8b6db7bbe7a96eb"
+      "bytes": 40875,
+      "sha256": "a1b41876ede7d01a5dab92a0cdbe8b234cbe85191a1802d965a678de9d7aa42d"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 34359,
-      "sha256": "6289aa6dd2c85135ed5a3413d92b2b7d82549e6a6213bdb4a64f656c6e0a4f92"
+      "bytes": 34554,
+      "sha256": "49b1e6385317e503efd337d7863cc4f956186fdec0bdde59a53c02796c21a46c"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1577,6 +1577,21 @@
       "sha256": "bfce46ec96f5d8612cc96d80eaf8a4ce3428c185f0c502e30807bcdf4a9001cc"
     },
     {
+      "path": "evidence/ex24-dynamic-key-install/Audit.lean",
+      "bytes": 168,
+      "sha256": "578a7b37fe50c1815a86bc9716aade017159ce2f25c2bea4465a602e6efc7ad5"
+    },
+    {
+      "path": "evidence/ex24-dynamic-key-install/axioms.txt",
+      "bytes": 294,
+      "sha256": "f8b941eb2690484b84ff9531424265284a4d53ccb0a5ceab1c6437877c9083a2"
+    },
+    {
+      "path": "evidence/ex24-dynamic-key-install/verification.json",
+      "bytes": 706,
+      "sha256": "108c0ada74e578dc8147e55cfabbf4071835df6987dfdf71339c5502cb21f18d"
+    },
+    {
       "path": "evidence/ex24-merge-keys/Audit.lean",
       "bytes": 204,
       "sha256": "cb4135e52abf6fe82bf2e6dc6cf5de325609beef650105d190378f3ca219cf7e"
@@ -2243,8 +2258,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 30841,
-      "sha256": "b3765a58eea7ce903ec67a3dd6465c2cb7fdd76f3f7c2b75e285266a9ba11955"
+      "bytes": 31196,
+      "sha256": "127808c2bd7e265a204d81378ba90ef8299e6f625ee916662f4a16d2362d0cb0"
     },
     {
       "path": "obligations.json",
@@ -2455,6 +2470,11 @@
       "path": "release-core/PaperB/ForestIntervals.lean",
       "bytes": 46350,
       "sha256": "0e7c48a5d13630d17a6bcc2e0aa533fe99b41c1c6595743fe4c4e2d4d4279967"
+    },
+    {
+      "path": "release-core/PaperB/ForestKeyInstall.lean",
+      "bytes": 18998,
+      "sha256": "319469b3cd90a09782be1a36de8adae4d45f6d81b0b031c22c3e7682ff0e1356"
     },
     {
       "path": "release-core/PaperB/ForestLayout.lean",
@@ -2758,8 +2778,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 2530,
-      "sha256": "d6751dddc1580b2dcb28f70d990c41500bc491d5a588628fd718aa63bd8e449d"
+      "bytes": 2557,
+      "sha256": "d26b94bc945e728aadd239ed3202ab6d110aaa80d417bce3ce5552fbbbdbbd6a"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -2863,8 +2883,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 58441,
-      "sha256": "cda18f586a37e0aad9b41c19d1d8e03cca345806985b06e7201fda854d810ed0"
+      "bytes": 58626,
+      "sha256": "bc49a93f4782519a4dc95969cf70218cfdd1cadefe90ac1df5d05cf6b42130a6"
     },
     {
       "path": "test_plan.py",
