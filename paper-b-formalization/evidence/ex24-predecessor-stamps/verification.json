@@ -1,0 +1,11 @@
+{
+  "base_commit": "01b7f5e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DistinctPredecessors.lean",
+  "sha256": "07d303faca2cfb8fbe95446a47e34654bfb38d234d521a6ce0d51b2a2a6acbb1",
+  "scope": "The array-stamp pass scans every incoming arc occurrence, drops only duplicate predecessor IDs from the test lists and preserves the original labelled rows. Exact counts bound initialization, lookups, retained predecessor entries and writes.",
+  "remaining": "Connect the prepared rows to the finite quotient transpose and growing forest sweep."
+}

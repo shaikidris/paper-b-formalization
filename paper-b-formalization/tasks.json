@@ -102,7 +102,8 @@
     "release-core/PaperB/ForestLayoutRefine.lean": "cuts",
     "release-core/PaperB/DomPredecessorFold.lean": "dominator",
     "release-core/PaperB/LastExit.lean": "dominator",
-    "release-core/PaperB/StructuralPaper.lean": "cuts"
+    "release-core/PaperB/StructuralPaper.lean": "cuts",
+    "release-core/PaperB/DistinctPredecessors.lean": "cuts"
   },
   "milestones": [
     {
@@ -775,9 +776,10 @@
         "evidence/ex24-dfs-exact-count/verification.json",
         "evidence/ex24-actual-trace-refinement/verification.json",
         "evidence/ex24-merge-keys/verification.json",
-        "evidence/ex24-dfs-array-values/verification.json"
+        "evidence/ex24-dfs-array-values/verification.json",
+        "evidence/ex24-predecessor-stamps/verification.json"
       ],
-      "progress": "Actual stack DFS arrays contain the exact preorder entry and exclusive subtree-end rank at every vertex, with two commands per vertex. Connect it to the known-node array query and finish compiled topological sweep and dictionary costs.",
+      "progress": "The array-stamp pass scans every incoming arc occurrence, drops only duplicate predecessor IDs from the test lists and preserves the original labelled rows. Exact counts bound initialization, lookups, retained predecessor entries and writes. Connect the prepared rows to the finite quotient transpose and growing forest sweep.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

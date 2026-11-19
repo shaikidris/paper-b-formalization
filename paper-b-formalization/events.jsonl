@@ -117,3 +117,4 @@
 {"at": "2026-11-19T21:30:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DomPredecessorFold", "tasks": ["EX1.5"], "evidence": "evidence/ex15-predecessor-fold/verification.json"}
 {"at": "2026-11-19T21:34:23+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "LastExit", "tasks": ["EX1.4"], "evidence": "evidence/ex14-third-block-lca/verification.json"}
 {"at": "2026-11-19T21:34:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StructuralPaper", "tasks": [], "evidence": "evidence/paper-31-forest-certified/verification.json"}
+{"at": "2026-11-19T21:38:31+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DistinctPredecessors", "tasks": ["EX2.4"], "evidence": "evidence/ex24-predecessor-stamps/verification.json"}

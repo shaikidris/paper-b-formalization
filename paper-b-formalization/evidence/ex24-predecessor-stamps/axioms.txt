@@ -1,0 +1,2 @@
+'EX24.prepare_head' depends on axioms: [propext, Quot.sound]
+'EX24.prepare_accounting' depends on axioms: [propext, Quot.sound]
