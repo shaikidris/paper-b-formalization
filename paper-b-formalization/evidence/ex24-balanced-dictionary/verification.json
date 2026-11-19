@@ -1,0 +1,11 @@
+{
+  "base_commit": "01b7f5e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PairDictionary.lean",
+  "sha256": "0676c670f702342eca1f3f4fd3a41b7479a087b0ea1dce39e15d75353a28c6f9",
+  "scope": "Balanced merging builds a deterministic sorted distinct candidate-key array with exact member semantics and a logarithmic comparison-depth bound. Disjoint bounded slot spans support a two-bank layout.",
+  "remaining": "Refine the list recursion to the bounded two-bank execution and integrate the candidate node pointer array."
+}

@@ -103,7 +103,8 @@
     "release-core/PaperB/DomPredecessorFold.lean": "dominator",
     "release-core/PaperB/LastExit.lean": "dominator",
     "release-core/PaperB/StructuralPaper.lean": "cuts",
-    "release-core/PaperB/DistinctPredecessors.lean": "cuts"
+    "release-core/PaperB/DistinctPredecessors.lean": "cuts",
+    "release-core/PaperB/PairDictionary.lean": "cuts"
   },
   "milestones": [
     {
@@ -777,9 +778,10 @@
         "evidence/ex24-actual-trace-refinement/verification.json",
         "evidence/ex24-merge-keys/verification.json",
         "evidence/ex24-dfs-array-values/verification.json",
-        "evidence/ex24-predecessor-stamps/verification.json"
+        "evidence/ex24-predecessor-stamps/verification.json",
+        "evidence/ex24-balanced-dictionary/verification.json"
       ],
-      "progress": "The array-stamp pass scans every incoming arc occurrence, drops only duplicate predecessor IDs from the test lists and preserves the original labelled rows. Exact counts bound initialization, lookups, retained predecessor entries and writes. Connect the prepared rows to the finite quotient transpose and growing forest sweep.",
+      "progress": "Balanced merging builds a deterministic sorted distinct candidate-key array with exact member semantics and a logarithmic comparison-depth bound. Disjoint bounded slot spans support a two-bank layout. Refine the list recursion to the bounded two-bank execution and integrate the candidate node pointer array.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

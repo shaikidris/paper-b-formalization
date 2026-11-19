@@ -244,7 +244,8 @@
         "release-core/PaperB/ForestLayoutTrace.lean",
         "release-core/PaperB/PairKeyMerge.lean",
         "release-core/PaperB/ForestLayoutRefine.lean",
-        "release-core/PaperB/DistinctPredecessors.lean"
+        "release-core/PaperB/DistinctPredecessors.lean",
+        "release-core/PaperB/PairDictionary.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -778,6 +779,14 @@
     {
       "path": "release-core/PaperB/DistinctPredecessors.lean",
       "local_imports": [],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PairDictionary.lean",
+      "local_imports": [
+        "release-core/PaperB/PairKeyMerge.lean"
+      ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
