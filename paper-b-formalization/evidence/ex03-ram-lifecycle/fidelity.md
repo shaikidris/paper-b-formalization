@@ -1,0 +1,7 @@
+# EX0.3 execution and storage model
+
+The checked model uses finite-width modular words. The word-capacity lemma covers original vertex IDs and explicit arc occurrence indices, including parallel arcs. The interpreter reads immutable input words and uses address-checked loads and stores, modular arithmetic, comparisons, branches and halt. Lowbit is expressed by word subtraction and bitwise AND. Successful runs give a unique trace and instruction count independent of excess fuel.
+
+The construction phase charges initialization and prefix copying. Its peak includes the explicit input, registers, workspace and sealed copy while all are live. The retained data is the actual copied array and is addressable at the same word width. The query phase starts from that array as its only readable input and receives the failure slots and target separately in four registers. It neither copies the index nor receives the original adjacency. Its work includes preallocated workspace initialization. Fixed setup, control words, live and retained header words, and result decoding have separate additive charges.
+
+The model observes four resources on the same construction and query runs. It applies to serialized graph input and chosen bytecode and capacities. Graph encoding and the data-dependent programs, layout fits, asymptotic analysis and semantic correctness remain obligations of EX1–EX6. Lean evaluation time is outside the abstract word-operation cost model.

@@ -6,13 +6,13 @@ The work packages come from tasks.json. Use their dependencies to schedule paral
 
 Pin the source and toolchain. Elaborate two candidate Lean types with their full quantifiers and cost units.
 
-Work packages: 3; planning audits complete: 1; verified proof packages: 1.
+Work packages: 3; planning audits complete: 1; verified proof packages: 2.
 
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
 | [EX0.1](TASKS.md#ex01) — Freeze paper identities and statement locations | contract | DONE_PLAN | none |
 | [EX0.2](TASKS.md#ex02) — Pin the environment and elaborate candidate interfaces | contract | VERIFIED | EX0.1 |
-| [EX0.3](TASKS.md#ex03) — Define execution and storage units | cost model | IN_PROGRESS | EX0.2 |
+| [EX0.3](TASKS.md#ex03) — Define execution and storage units | cost model | VERIFIED | EX0.2 |
 
 ## EX1 — Build the dominator and labelled quotient interface
 

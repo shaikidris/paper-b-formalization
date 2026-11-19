@@ -45,7 +45,7 @@ Planning/evidence references: [release-core/Challenge.lean](release-core/Challen
 
 ## EX0.3 — Define execution and storage units
 
-- Milestone: EX0; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
+- Milestone: EX0; status: **VERIFIED**; proof status: CERTIFIED.
 - Owner: cost model; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX0.2.
 - Proposed owner module: `release-core/PaperB/Machine.lean`.
@@ -58,9 +58,9 @@ Acceptance:
 - Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.
 - Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation.
 
-Lean verifies deterministic traces and the sealed build and query adapters separately, including construction peak and retained output, immutable index input and later query work. The lifecycle connecting them remains open.
+Lean verifies the executable fixed-width machine, trace determinism and exact peak. The same build and query runs measure construction operations, construction peak, retained words and later query operations on one sealed array. Fixed control and header costs are explicit. EX1–EX6 still need the paper’s programs, serialization, capacity and asymptotic bounds.
 
-Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json), [evidence/ex03-word-operations/verification.json](evidence/ex03-word-operations/verification.json), [evidence/ex03-ram-program/verification.json](evidence/ex03-ram-program/verification.json), [evidence/ex03-ram-traces/verification.json](evidence/ex03-ram-traces/verification.json), [evidence/ex03-sealed-build/verification.json](evidence/ex03-sealed-build/verification.json), [evidence/ex03-sealed-query/verification.json](evidence/ex03-sealed-query/verification.json).
+Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json), [evidence/ex03-word-operations/verification.json](evidence/ex03-word-operations/verification.json), [evidence/ex03-ram-program/verification.json](evidence/ex03-ram-program/verification.json), [evidence/ex03-ram-traces/verification.json](evidence/ex03-ram-traces/verification.json), [evidence/ex03-sealed-build/verification.json](evidence/ex03-sealed-build/verification.json), [evidence/ex03-sealed-query/verification.json](evidence/ex03-sealed-query/verification.json), [evidence/ex03-ram-lifecycle/verification.json](evidence/ex03-ram-lifecycle/verification.json).
 
 <a id="ex11"></a>
 

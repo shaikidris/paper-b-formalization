@@ -70,3 +70,4 @@
 {"at": "2026-11-19T20:37:28+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SealedQuery", "tasks": ["EX0.3"], "evidence": "evidence/ex03-sealed-query/verification.json"}
 {"at": "2026-11-19T20:37:30+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Kahn", "tasks": ["EX1.1"], "evidence": "evidence/ex11-kahn-loop/verification.json"}
 {"at": "2026-11-19T20:37:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PredecessorLCA", "tasks": ["EX1.5"], "evidence": "evidence/ex15-predecessor-lca/verification.json"}
+{"at": "2026-11-19T20:39:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamLifecycle", "tasks": ["EX0.3"], "evidence": "evidence/ex03-ram-lifecycle/verification.json"}

@@ -1,0 +1,11 @@
+{
+  "base_commit": "0043dc8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamLifecycle.lean",
+  "sha256": "6d2621a02ad482d4418553082d5ddfebef8e302db4394be47fb1bc8c8b894f58",
+  "scope": "Executable word-machine resource model. One actual build and one later query use the same sealed array. All four raw measurements and additive fixed overheads are defined and Lean-checked.",
+  "remaining": "Implement the paper’s graph serialization and programs, instantiate capacities and time/space budgets, and connect the four observations to the exact oracle theorem."
+}

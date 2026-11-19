@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 5285,
-      "sha256": "a9c364439f92ac7a0284ffd9e1717a3af4862bb3c72e846006eb8540fe411623"
+      "bytes": 5032,
+      "sha256": "f9a3b8c0dd14a2d7636547e7ab7fbcefb8b719bf4a3676a0d3c702f3c51afdca"
     },
     {
       "path": "DISPATCH.md",
@@ -23,8 +23,8 @@
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 2580,
-      "sha256": "d166e9493f50e6bbbe2be30e3faf972ae2d5e3cc165cce6414afe7a46f53d8db"
+      "bytes": 3138,
+      "sha256": "02ef9c5cec27c0810aa614b2a0f7dede5221bb43c56992fd09fbaa5eb9e639d1"
     },
     {
       "path": "INTERFACES.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5343,
-      "sha256": "b9260dc476c846424f6a69c00dbbf0f10fc071e8e4bbd838cbb82b0455cdca34"
+      "bytes": 5340,
+      "sha256": "0415ce2983c0b9a7af72df8f2441ab5207cb7e2d8bfa354e8176b4cfcbb5a461"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 31025,
-      "sha256": "e9c987a84f366f07df7b2236179e57426a11d25efb2ab30b65e12e1a10d156b9"
+      "bytes": 31256,
+      "sha256": "04e2d73965202ed037845d32705477a75b1e8b047e1daf89c08c315ed8a3baab"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 19170,
-      "sha256": "7e0b7c4235f140f8ba398482937468b27b9e9b2a589e1414187b7df0dc939e73"
+      "bytes": 19355,
+      "sha256": "eb5077ac61fd153fd5edcb476a30c3e7737e6e70c5f8d5d3aa42bf445c666f21"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -235,6 +235,26 @@
       "path": "evidence/ex03-machine-foundation/verification.json",
       "bytes": 826,
       "sha256": "9e33bc5a9e44a91201d9c45c42311257ae2a81812f5f72334004545035203e5b"
+    },
+    {
+      "path": "evidence/ex03-ram-lifecycle/Audit.lean",
+      "bytes": 323,
+      "sha256": "c39ccc046c9993e99f6ca5ed079ae25267ec10093213495691f0f4172efd8dd1"
+    },
+    {
+      "path": "evidence/ex03-ram-lifecycle/axioms.txt",
+      "bytes": 1675,
+      "sha256": "2a30bb21eb51459a157189c6cea2ac8970495dd6f83bb218cd632bc75615e0bf"
+    },
+    {
+      "path": "evidence/ex03-ram-lifecycle/fidelity.md",
+      "bytes": 1465,
+      "sha256": "9ae549f5b3ba3ff15b3bacb9f1984f8f1cdfe028c57d5a52d3af812af4516294"
+    },
+    {
+      "path": "evidence/ex03-ram-lifecycle/verification.json",
+      "bytes": 683,
+      "sha256": "253c238a069cb5790eaf86d6b5bcd64d5759d8c869bf62a6a5da5a99341ffafe"
     },
     {
       "path": "evidence/ex03-ram-program/Audit.lean",
@@ -918,8 +938,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 11504,
-      "sha256": "1db18b265b97847ea705aa7710cd2b4d8f4d506667b954e3c117e3e22072c7f5"
+      "bytes": 11817,
+      "sha256": "7ddec4408f66848ea6468c7ab8c0f955ff2b8a0e9f94add772c48d6d64288810"
     },
     {
       "path": "obligations.json",
@@ -1062,6 +1082,11 @@
       "sha256": "2ab707d8f0db3ce659b74cdbbce5fb029b8857bfd59debea34edf7f228e19adc"
     },
     {
+      "path": "release-core/PaperB/RamLifecycle.lean",
+      "bytes": 6013,
+      "sha256": "6d2621a02ad482d4418553082d5ddfebef8e302db4394be47fb1bc8c8b894f58"
+    },
+    {
       "path": "release-core/PaperB/RamProgram.lean",
       "bytes": 11352,
       "sha256": "c1938b744e847c24c139abc4948f3fb24ce12f24f3490f8c51824cf484f4164f"
@@ -1118,8 +1143,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 944,
-      "sha256": "9abcbe12b95c589bfcdbfbdd4611dfdce20c81d87a57842d2e4e3c4e5a012967"
+      "bytes": 967,
+      "sha256": "187c34834dbd76829ce9fd2f9ea6df1d507971deaf8b98899ef4afb22a176122"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -1223,8 +1248,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 44029,
-      "sha256": "d6b98977118cae293c9f5455aeb23db1b6da6a545042dea8ea4c4ca011f08db7"
+      "bytes": 44602,
+      "sha256": "2c2e5472b4c7df59adda604b5a0c7084dbec21fea965a707fafd1962367cf047"
     },
     {
       "path": "test_plan.py",

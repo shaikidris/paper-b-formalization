@@ -1,0 +1,21 @@
+'PaperB.RamLifecycle.readonly_words' does not depend on any axioms
+'PaperB.RamLifecycle.phase_eq_of_payload' does not depend on any axioms
+'PaperB.RamLifecycle.payload_fits' depends on axioms: [propext, Quot.sound]
+'PaperB.RamLifecycle.observe_spec' depends on axioms: [propext, Quot.sound]
+'PaperB.RamLifecycle.Readout.chargeFixed_le' does not depend on any axioms
+@PaperB.RamLifecycle.observe_spec : ∀ {bits : Nat} {L : PaperB.RamProgram.Layout bits}
+  {cfg : PaperB.SealedBuild.SealLayout L} {bc : PaperB.RamProgram.Program L} {words : Array (PaperB.Machine.Word bits)}
+  {hs : words.size = L.inputCap} {bf : Nat} {b : PaperB.SealedBuild.Observation bits},
+  PaperB.SealedBuild.build cfg bc words hs bf = some b →
+    ∀ {code : Array (PaperB.RamProgram.Instr bits 4)} {w : Nat} {hw : w ≤ 2 ^ bits} {hi : b.sealedWords.size ≤ 2 ^ bits}
+      {q : PaperB.SealedQuery.Params bits} {fuel : Nat} {answer : Bool} {m : PaperB.RamLifecycle.Readout},
+      PaperB.RamLifecycle.observe b code w hw hi q fuel = some (answer, m) →
+        have p := PaperB.RamLifecycle.phase b code w hw hi;
+        ∃ s br o qr,
+          PaperB.RamProgram.run bc { words := words, size_eq := hs } bf s = some br ∧
+            p.observe q fuel = some o ∧
+              PaperB.RamProgram.run p.code p.input fuel (p.initialState q) = some qr ∧
+                answer = o.answer ∧
+                  m.constructionOperations = br.executed + L.registerCount + L.workCap + cfg.k ∧
+                    m.peakConstructionWords = words.size + L.registerCount + L.workCap + cfg.k ∧
+                      m.retainedWords = b.sealedWords.size ∧ m.queryOperations = qr.executed + 4 + w

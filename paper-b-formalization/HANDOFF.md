@@ -10,9 +10,12 @@ Begin with [the dashboard](DASHBOARD.md), [the task ledger](TASKS.md), and [the 
 - [ForestBuild.lean](release-core/PaperB/ForestBuild.lean) proves conditional charging. Constructor execution and its space bounds remain open.
 - [PrefixProbe.lean](evidence/public-lean-prefix-probe/PrefixProbe.lean) implements the numeric prefix search and proves the probe count is bounded by fuel. The cutoff theorem and the width-to-fuel proof remain open.
 
-## Next EX2.4 checkpoint
+## Next checkpoints
 
-Connect the checked interval theorem to the executable forest constructor. Store node entries and subtree endpoints in arrays, prove the known-node query against the interval theorem, and account for its constant number of word accesses. The full EX2.4 contract also requires the prefix cutoff and logarithmic fuel, the deterministic pair dictionary and the v1.3 construction and space bounds.
+- EX0 is verified. The [oracle contract](release-core/PaperB/OracleContract.lean) fixes the quantifiers and the [word-machine lifecycle](release-core/PaperB/RamLifecycle.lean) defines the four resource observations from a sealed build and later query. The actual graph encoding, bytecode and asymptotic budgets belong to the implementation milestones.
+- EX1.1 has exact reachability marks for a supplied order and verified indegree preprocessing. Finish the Kahn queue invariant and prove the emitted order is topological, then construct and charge compact ID tables.
+- EX1.3 has original DAG sibling blocks, the path correspondence and abstract flatness. Finish the finite labelled adjacency representation, rank and occurrence bounds.
+- EX2.4 has exact logarithmic predecessor cutoff and an array-backed query for a correct layout. Finish the executable depth-indexed sweep, deterministic pair dictionary and layout construction, then connect the machine cost proof.
 
 Run from the repository root with Elan and Python 3 available.
 
@@ -20,7 +23,7 @@ Run from the repository root with Elan and Python 3 available.
 python3 -B paper-b-formalization/plan.py validate
 python3 -B paper-b-formalization/test_plan.py
 (cd paper-b-formalization/release-core && lake build)
-(cd paper-b-formalization/release-core && lake env lean ../evidence/ex24-ancestry-interval/IntervalAudit.lean)
+(cd paper-b-formalization/release-core && lake env lean ../evidence/ex03-ram-lifecycle/Audit.lean)
 ```
 
 Save each patch against its base and report the Lean build, theorem types, and axiom audit. Update `tasks.json` and run `plan.py render` after each checked checkpoint.

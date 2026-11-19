@@ -64,7 +64,8 @@
     "release-core/PaperB/SealedBuild.lean": "cost model",
     "release-core/PaperB/SealedQuery.lean": "cost model",
     "release-core/PaperB/Kahn.lean": "graph",
-    "release-core/PaperB/PredecessorLCA.lean": "dominator"
+    "release-core/PaperB/PredecessorLCA.lean": "dominator",
+    "release-core/PaperB/RamLifecycle.lean": "cost model"
   },
   "milestones": [
     {
@@ -221,8 +222,8 @@
         "3.2",
         "5.1"
       ],
-      "status": "IN_PROGRESS",
-      "proof_status": "NOT_CERTIFIED",
+      "status": "VERIFIED",
+      "proof_status": "CERTIFIED",
       "risk": "ordinary",
       "obligation": "Specify word size, addressable arrays, peak live words, retained index size and the available query input.",
       "acceptance": [
@@ -235,9 +236,17 @@
         "evidence/ex03-ram-program/verification.json",
         "evidence/ex03-ram-traces/verification.json",
         "evidence/ex03-sealed-build/verification.json",
-        "evidence/ex03-sealed-query/verification.json"
+        "evidence/ex03-sealed-query/verification.json",
+        "evidence/ex03-ram-lifecycle/verification.json"
       ],
-      "progress": "Lean verifies deterministic traces and the sealed build and query adapters separately, including construction peak and retained output, immutable index input and later query work. The lifecycle connecting them remains open."
+      "progress": "Lean verifies the executable fixed-width machine, trace determinism and exact peak. The same build and query runs measure construction operations, construction peak, retained words and later query operations on one sealed array. Fixed control and header costs are explicit. EX1–EX6 still need the paper’s programs, serialization, capacity and asymptotic bounds.",
+      "verification": {
+        "source_manifest": "artifact-manifest.json",
+        "build": "evidence/ex03-ram-lifecycle/verification.json",
+        "axioms": "evidence/ex03-ram-lifecycle/axioms.txt",
+        "fidelity": "evidence/ex03-ram-lifecycle/fidelity.md",
+        "dependencies": "external-inputs.json"
+      }
     },
     {
       "id": "EX1.1",
