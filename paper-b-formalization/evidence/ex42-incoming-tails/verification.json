@@ -1,0 +1,11 @@
+{
+  "base_commit": "9c90cd1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitIncoming.lean",
+  "sha256": "fd6f3e46e783f0e06c3e48f0c323094cd874d9d4a76c131ddb76415859130321",
+  "scope": "Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails.",
+  "remaining": "Build the executable map and base sweep over these labelled occurrences and its prefix invariant."
+}

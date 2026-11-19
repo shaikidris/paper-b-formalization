@@ -368,9 +368,9 @@ Acceptance:
 - Prove the induction for initial seeds, repeated seeds, artificial-root maps and all labelled incoming arcs.
 - The path above the already processed fresh endpoint has maps installed. For an earlier off-endpoint predecessor, propagate its base; for an endpoint arc add its own physical tail.
 
-The verified seed chronology applies to the actual computed forest and its exact proper-loss labels, including nested real parent and child nodes. Connect availability to stored base and map arrays, including artificial-root map and repeated seeds.
+Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant.
 
-Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json), [evidence/ex42-actual-seeds/verification.json](evidence/ex42-actual-seeds/verification.json).
+Planning/evidence references: [evidence/ex42-seed-chronology/verification.json](evidence/ex42-seed-chronology/verification.json), [evidence/ex42-actual-seeds/verification.json](evidence/ex42-actual-seeds/verification.json), [evidence/ex42-incoming-tails/verification.json](evidence/ex42-incoming-tails/verification.json).
 
 <a id="ex43"></a>
 

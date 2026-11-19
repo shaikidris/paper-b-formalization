@@ -1,0 +1,4 @@
+import PaperB.ExitIncoming
+
+#print axioms PaperB.ex42_exitTailMem_iff_incomingOccurrence
+#print axioms PaperB.ex42_exitTailMem_eq_incomingOccurrence

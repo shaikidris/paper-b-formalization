@@ -1,0 +1,2 @@
+'PaperB.ex42_exitTailMem_iff_incomingOccurrence' does not depend on any axioms
+'PaperB.ex42_exitTailMem_eq_incomingOccurrence' depends on axioms: [propext, Quot.sound]

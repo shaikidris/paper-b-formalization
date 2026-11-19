@@ -109,7 +109,8 @@
     "release-core/PaperB/LastExitBridge.lean": "dominator",
     "release-core/PaperB/SeedOrder.lean": "oracle",
     "release-core/PaperB/ArcOwnerTotal.lean": "dominator",
-    "release-core/PaperB/SeedOrderActual.lean": "oracle"
+    "release-core/PaperB/SeedOrderActual.lean": "oracle",
+    "release-core/PaperB/ExitIncoming.lean": "oracle"
   },
   "milestones": [
     {
@@ -992,9 +993,10 @@
       ],
       "evidence": [
         "evidence/ex42-seed-chronology/verification.json",
-        "evidence/ex42-actual-seeds/verification.json"
+        "evidence/ex42-actual-seeds/verification.json",
+        "evidence/ex42-incoming-tails/verification.json"
       ],
-      "progress": "The verified seed chronology applies to the actual computed forest and its exact proper-loss labels, including nested real parent and child nodes. Connect availability to stored base and map arrays, including artificial-root map and repeated seeds."
+      "progress": "Each physical exit-tail set is exactly the union of entering-arc contributions: direct exits from the endpoint and all valid earlier proper-loss predecessor tails. Build the executable map and base sweep over these labelled occurrences and its prefix invariant."
     },
     {
       "id": "EX4.3",
