@@ -1,0 +1,11 @@
+{
+  "base_commit": "0bb12bd",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestExactDictionary.lean",
+  "sha256": "ad19f56a7c9c012cb3c0253ba3763eb0377e501a84991b66eacc4ee1b8754ab3",
+  "scope": "The deterministic dictionary collects at most one canonical prepared key per vertex and includes every actual newPair emitted by a head. Lean proves exact membership, size, comparison bound and the existence of an installation when capacity and parent occupancy hold.",
+  "remaining": "Derive per-head parent occupancy and capacity in the complete topological induction and use the actual bounded arena to lower sorting."
+}

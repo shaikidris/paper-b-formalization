@@ -1,0 +1,4 @@
+'PaperB.ForestDictionary.dictionary_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestDictionary.dictionary_comparisons_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestDictionary.newPair_mem_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestDictionary.stepPrepared_dictionary_exists' depends on axioms: [propext, Classical.choice, Quot.sound]

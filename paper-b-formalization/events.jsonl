@@ -181,3 +181,4 @@
 {"at": "2026-11-19T23:02:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ThirdReachableRoute", "tasks": ["EX4.4"], "evidence": "evidence/third-leaf-audit/verification.json"}
 {"at": "2026-11-19T23:06:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestCompactFold", "tasks": ["EX2.4"], "evidence": "evidence/forest-compact-audit/verification.json"}
 {"at": "2026-11-19T23:06:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticTreeReader", "tasks": ["EX1.6"], "evidence": "evidence/static-tree-reader-audit/verification.json"}
+{"at": "2026-11-19T23:07:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestExactDictionary", "tasks": ["EX2.4"], "evidence": "evidence/forest-exact-dict-audit/verification.json"}

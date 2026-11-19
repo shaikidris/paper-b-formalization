@@ -1,0 +1,5 @@
+import PaperB.ForestExactDictionary
+#print axioms PaperB.ForestDictionary.dictionary_spec
+#print axioms PaperB.ForestDictionary.dictionary_comparisons_log
+#print axioms PaperB.ForestDictionary.newPair_mem_dictionary
+#print axioms PaperB.ForestDictionary.stepPrepared_dictionary_exists
