@@ -55,7 +55,8 @@
         "release-core/PaperB/SiblingPartition.lean",
         "release-core/PaperB/SiblingBlocks.lean",
         "release-core/PaperB/SiblingBlockSystem.lean",
-        "release-core/PaperB/SiblingArcOwnership.lean"
+        "release-core/PaperB/SiblingArcOwnership.lean",
+        "release-core/PaperB/SiblingEncoding.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -416,6 +417,14 @@
       "path": "release-core/PaperB/SiblingArcOwnership.lean",
       "local_imports": [
         "release-core/PaperB/SiblingBlockSystem.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SiblingEncoding.lean",
+      "local_imports": [
+        "release-core/PaperB/SiblingBlocks.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

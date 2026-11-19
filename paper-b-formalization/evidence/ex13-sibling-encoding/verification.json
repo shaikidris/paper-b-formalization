@@ -1,0 +1,11 @@
+{
+  "base_commit": "7f6b15443bad7194ef21305f8dcc6f615f0ddd5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SiblingEncoding.lean",
+  "sha256": "fd4ab06be18ea6a5847b1c719aad53436b76c795a7fb1fb4dc20ced8d08c4a22",
+  "scope": "The sibling key enumeration is duplicate-free and its Fin index and key maps are mutually inverse.",
+  "remaining": "Use these exact document IDs to transport adjacency, labels, failures and flatness."
+}

@@ -66,7 +66,8 @@
     "release-core/PaperB/Kahn.lean": "graph",
     "release-core/PaperB/PredecessorLCA.lean": "dominator",
     "release-core/PaperB/RamLifecycle.lean": "cost model",
-    "release-core/PaperB/SiblingArcOwnership.lean": "dominator"
+    "release-core/PaperB/SiblingArcOwnership.lean": "dominator",
+    "release-core/PaperB/SiblingEncoding.lean": "dominator"
   },
   "milestones": [
     {
@@ -361,9 +362,10 @@
         "evidence/ex13-failed-suffix/verification.json",
         "evidence/ex13-sibling-system/verification.json",
         "evidence/ex13-sibling-flatness/verification.json",
-        "evidence/ex13-arc-ownership/verification.json"
+        "evidence/ex13-arc-ownership/verification.json",
+        "evidence/ex13-sibling-encoding/verification.json"
       ],
-      "progress": "Lean verifies the concrete sibling quotient’s flatness, strict order by leader rank, and that each crossing arc belongs to a unique quotient, the ordinary parent of its head. Finite encoded adjacency and exact global occurrence accounting remain open."
+      "progress": "Lean verifies flatness and ownership of the original-DAG sibling quotient and a reversible Fin index for every actual block key. The labelled adjacency builder and counts remain open."
     },
     {
       "id": "EX1.4",

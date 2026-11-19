@@ -74,3 +74,4 @@
 {"at": "2026-11-19T20:39:49+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Kahn", "tasks": ["EX1.1"], "evidence": "evidence/ex11-kahn-row/verification.json"}
 {"at": "2026-11-19T20:45:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Kahn", "tasks": ["EX1.1"], "evidence": "evidence/ex11-kahn-prefix/verification.json"}
 {"at": "2026-11-19T20:45:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingArcOwnership", "tasks": ["EX1.3"], "evidence": "evidence/ex13-arc-ownership/verification.json"}
+{"at": "2026-11-19T20:45:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingEncoding", "tasks": ["EX1.3"], "evidence": "evidence/ex13-sibling-encoding/verification.json"}

@@ -1,0 +1,6 @@
+'PaperB.Digraph.siblingBlockKeys_nodup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.decodeSiblingBlockKey_encodeSiblingBlockKey' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.encodeSiblingBlockKey_decodeSiblingBlockKey' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperB.Digraph.encodeSiblingBlockKey_decodeSiblingBlockKey : ∀ (g : PaperB.Digraph) (r d : Fin g.vertexCount)
+  (parent : Fin g.vertexCount → Fin g.vertexCount) (i : Fin (g.siblingBlockKeys r d parent).length),
+  g.encodeSiblingBlockKey r d parent (g.decodeSiblingBlockKey r d parent i) = i
