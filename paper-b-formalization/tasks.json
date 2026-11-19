@@ -48,7 +48,8 @@
     "release-core/PaperB/PredecessorSearch.lean": "cuts",
     "release-core/PaperB/ImmediateDominator.lean": "dominator",
     "release-core/PaperB/ExitMap.lean": "oracle",
-    "release-core/PaperB/DominatorTree.lean": "dominator"
+    "release-core/PaperB/DominatorTree.lean": "dominator",
+    "release-core/PaperB/DominatorBoundary.lean": "dominator"
   },
   "milestones": [
     {
@@ -304,7 +305,7 @@
         "1.1",
         "2.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Assign each retained arc to its head parent, store its original tail, and prove flatness, projection and lifting.",
@@ -312,7 +313,10 @@
         "Any sequence of parallel labelled exits lifts. Sum all quotient sizes: at most 2n vertex copies and one quotient arc per arc.",
         "Prove unique outside-to-root entry and internal reachability, keep parallel tails distinguishable, and prove that every nonroot vertex of the quotient has the quotient root as immediate dominator."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex13-dominator-boundary/verification.json"
+      ],
+      "progress": "Lean verifies the unique entry point of an arc into a dominator subtree and preservation of within-subtree paths from the root. Labelled quotient construction, flatness, projection, lifting, and occurrence counts remain open."
     },
     {
       "id": "EX1.4",

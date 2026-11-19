@@ -1,0 +1,12 @@
+'PaperB.Digraph.dominates_reachable_predecessor_of_ne' does not depend on any axioms
+'PaperB.Digraph.eq_dominator_of_entering_subtree' does not depend on any axioms
+'PaperB.Digraph.dominates_and_stays_in_subtree_of_rank_le' does not depend on any axioms
+'PaperB.Digraph.survivingPath_within_dominator_subtree' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.Digraph.survivingPath_within_dominator_subtree : ∀ {g : PaperB.Digraph} {r d v : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat},
+  (∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y) →
+    ∀ {failed : Fin g.vertexCount → Prop},
+      g.InitiallyReachable r v →
+        g.Dominates r d v →
+          g.SurvivingPath failed d v →
+            g.SurvivingPath (fun x => failed x ∨ ¬(g.InitiallyReachable r x ∧ g.Dominates r d x)) d v

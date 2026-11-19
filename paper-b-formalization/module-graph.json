@@ -48,7 +48,8 @@
     {
       "path": "release-core/PaperB/Quotient.lean",
       "local_imports": [
-        "release-core/PaperB/Dom.lean"
+        "release-core/PaperB/Dom.lean",
+        "release-core/PaperB/DominatorBoundary.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -251,6 +252,14 @@
       "path": "release-core/PaperB/DominatorTree.lean",
       "local_imports": [
         "release-core/PaperB/ImmediateDominator.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DominatorBoundary.lean",
+      "local_imports": [
+        "release-core/PaperB/DominatorChain.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

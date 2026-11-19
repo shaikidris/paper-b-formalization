@@ -1,0 +1,7 @@
+import PaperB.DominatorBoundary
+
+#print axioms PaperB.Digraph.dominates_reachable_predecessor_of_ne
+#print axioms PaperB.Digraph.eq_dominator_of_entering_subtree
+#print axioms PaperB.Digraph.dominates_and_stays_in_subtree_of_rank_le
+#print axioms PaperB.Digraph.survivingPath_within_dominator_subtree
+#check @PaperB.Digraph.survivingPath_within_dominator_subtree

@@ -1,0 +1,11 @@
+{
+  "base_commit": "cef3140b16754c052418ea49ae7e8fa69e62285e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DominatorBoundary.lean",
+  "sha256": "2879d52ff8f53acbeb940bb57d29d4e372ab9406e8992f900ee2c61693f38edc",
+  "scope": "A directed arc from a reachable vertex outside a dominator subtree can enter it only at the root. Paths from that root to a dominated target stay within the subtree.",
+  "remaining": "Construct and count labelled arcs, prove flatness, and prove projection and lifting of original paths."
+}

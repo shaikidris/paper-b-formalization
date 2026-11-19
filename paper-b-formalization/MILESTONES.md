@@ -24,7 +24,7 @@ Work packages: 6; planning audits complete: 0; verified proof packages: 0.
 |---|---|---|---|
 | [EX1.1](TASKS.md#ex11) — Normalize original vertices and failure sets | graph | IN_PROGRESS | EX0.2 |
 | [EX1.2](TASKS.md#ex12) — Characterize the ordinary dominator tree | dominator | IN_PROGRESS | EX1.1 |
-| [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | PLANNED | EX1.2 |
+| [EX1.3](TASKS.md#ex13) — Project and lift labelled sibling paths | dominator | IN_PROGRESS | EX1.2 |
 | [EX1.4](TASKS.md#ex14) — Characterize partial-block reachability | dominator | PLANNED | EX1.3 |
 | [EX1.5](TASKS.md#ex15) — Construct the ordinary dominator tree within the oracle budget | dominator | PLANNED | EX1.2, EX0.3, EX2.3 |
 | [EX1.6](TASKS.md#ex16) — Implement static tree intervals, child lookup and LCA | dominator | PLANNED | EX1.2, EX0.3 |
