@@ -1,0 +1,16 @@
+'PaperB.exists_reachable_arc_predecessor' does not depend on any axioms
+'PaperB.CommonPredDom.ne_vertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.immediateDominator_iff_commonPredDom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.immediateDominator_iff_predecessor_lca' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PaperB.immediateDominator_iff_predecessor_lca : ∀ {g : PaperB.Digraph} {r v d : Fin g.vertexCount}
+  {rank : Fin g.vertexCount → Nat} {parent : Fin g.vertexCount → Fin g.vertexCount},
+  (∀ (x y : Fin g.vertexCount), g.HasArc x y → rank x < rank y) →
+    g.ParentSpec r parent →
+      g.InitiallyReachable r v →
+        v ≠ r →
+          (g.IsImmediateDominator r d v ↔
+            (∀ (u : Fin g.vertexCount), g.HasArc u v → g.InitiallyReachable r u → PaperB.Digraph.Ancestor parent d u) ∧
+              ∀ (a : Fin g.vertexCount),
+                (∀ (u : Fin g.vertexCount),
+                    g.HasArc u v → g.InitiallyReachable r u → PaperB.Digraph.Ancestor parent a u) →
+                  PaperB.Digraph.Ancestor parent a d)

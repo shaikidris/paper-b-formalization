@@ -146,7 +146,7 @@ Acceptance:
 
 ## EX1.5 — Construct the ordinary dominator tree within the oracle budget
 
-- Milestone: EX1; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX1; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: dominator; reviewers: statement fidelity, cost model; assigned worker: unassigned.
 - Dependencies: EX1.2, EX0.3, EX2.3.
 - Proposed owner module: `release-core/PaperB/DomBuild.lean`.
@@ -158,6 +158,10 @@ Acceptance:
 
 - Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.
 - For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established.
+
+Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.
+
+Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json).
 
 <a id="ex16"></a>
 

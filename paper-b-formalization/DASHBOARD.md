@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **2/27**. Planning audits **1** and verified proof packages **1**.
-- Remaining work packages **25**. 12 in progress, 13 planned.
+- Remaining work packages **25**. 13 in progress, 12 planned.
 - Milestones 2 in progress, 5 planned.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -23,6 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX1.1](TASKS.md#ex11) — Lean verifies exact reachable marks given a valid order and exact indegree counts. The Kahn loop executes and reports local traversal and stop specifications. Queue invariants, final order correctness and charged ID compaction remain open.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — Lean constructs the semantic sibling blocks of the original DAG, proves internal paths and unique entry, proves exact projection/lifting and verifies flatness under every single nonroot failure. The finite labelled adjacency representation and total occurrence budget remain open.
+- [EX1.5](TASKS.md#ex15) — Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.
 - [EX2.1](TASKS.md#ex21) — Lean identifies the two endpoints as exactly the distinct predecessors of an earliest proper loss. The characterization now feeds the topological sweep. Statement-level certification is pending.
 - [EX2.2](TASKS.md#ex22) — Lean verified the bundled semantic Lemma 3.1 on a flat quotient with a supplied injective topological rank. The construction has exactly the canonical effective keys, a single artificial root, exact inclusive ancestor labels, nesting, fresh endpoint order and at most one real node per vertex in the count. Paper-level certification awaits the dependent input representation and statement audit.
 - [EX2.3](TASKS.md#ex23) — Lean verified the growing-tree invariant, unique depth-target traversal, the logarithmic move bound, and the array-backed jump implementation under a preallocated word layout. A leaf insertion uses 14 word accesses. The traversal and ancestry test have explicit logarithmic word-read bounds. The full EX0.3 package and end-to-end statement audit remain open.

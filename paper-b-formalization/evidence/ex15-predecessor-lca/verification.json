@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PredecessorLCA.lean",
+  "sha256": "6ecd64aa0d7e4177e63311e60bdc7b0eeeb40aa2bdf96da876ec268d005a1491",
+  "scope": "For each initially reachable nonsource vertex, the immediate dominator is the strongest common dominator of its reachable predecessors, equivalently their lowest common ancestor in the ordinary dominator tree.",
+  "remaining": "Wire this criterion into executable growing-tree predecessor folding and account for total jumps."
+}

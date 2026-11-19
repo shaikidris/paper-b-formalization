@@ -1,0 +1,7 @@
+import PaperB.PredecessorLCA
+
+#print axioms PaperB.exists_reachable_arc_predecessor
+#print axioms PaperB.CommonPredDom.ne_vertex
+#print axioms PaperB.immediateDominator_iff_commonPredDom
+#print axioms PaperB.immediateDominator_iff_predecessor_lca
+#check @PaperB.immediateDominator_iff_predecessor_lca

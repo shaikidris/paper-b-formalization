@@ -63,7 +63,8 @@
     "release-core/PaperB/SiblingBlockSystem.lean": "dominator",
     "release-core/PaperB/SealedBuild.lean": "cost model",
     "release-core/PaperB/SealedQuery.lean": "cost model",
-    "release-core/PaperB/Kahn.lean": "graph"
+    "release-core/PaperB/Kahn.lean": "graph",
+    "release-core/PaperB/PredecessorLCA.lean": "dominator"
   },
   "milestones": [
     {
@@ -398,7 +399,7 @@
       "paper_consumers": [
         "1.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "resource bound",
       "obligation": "Implement a checked constructor for the semantic tree on explicit DAG input. The proposed DAG route uses growing-tree LCAs of predecessors.",
@@ -406,7 +407,10 @@
         "Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.",
         "For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex15-predecessor-lca/verification.json"
+      ],
+      "progress": "Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open."
     },
     {
       "id": "EX1.6",
