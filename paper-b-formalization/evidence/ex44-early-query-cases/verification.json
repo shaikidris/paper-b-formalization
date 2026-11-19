@@ -1,0 +1,11 @@
+{
+  "base_commit": "10e76c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SimpleOracleCases.lean",
+  "sha256": "53bbfede3b6d80f9832cc1def29cc9760f439d4929a267e51a5eeb772988073a",
+  "scope": "Source and target failure, initially unreachable targets, and comparable failures are handled by exact early decisions. Comparable failures require only their higher dominator, in both orders and for duplicates.",
+  "remaining": "Integrate with the retained index and incomparable-pair branch."
+}

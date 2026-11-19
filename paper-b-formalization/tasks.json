@@ -124,7 +124,8 @@
     "release-core/PaperB/ArcBuckets.lean": "cost model",
     "release-core/PaperB/ExitArraySweep.lean": "oracle",
     "release-core/PaperB/ActualJumpMaps.lean": "oracle",
-    "release-core/PaperB/StaticChildLookup.lean": "dominator"
+    "release-core/PaperB/StaticChildLookup.lean": "dominator",
+    "release-core/PaperB/SimpleOracleCases.lean": "oracle"
   },
   "milestones": [
     {
@@ -1081,7 +1082,7 @@
       "paper_consumers": [
         "1.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Implement the full case split once on the retained index; include missing pair keys and comparable failures.",
@@ -1089,7 +1090,10 @@
         "Prove output iff reachability after deletion for any subset of size at most two and any original target.",
         "Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex44-early-query-cases/verification.json"
+      ],
+      "progress": "Source and target failure, initially unreachable targets, and comparable failures are handled by exact early decisions. Comparable failures require only their higher dominator, in both orders and for duplicates. Integrate with the retained index and incomparable-pair branch."
     },
     {
       "id": "EX5.1",

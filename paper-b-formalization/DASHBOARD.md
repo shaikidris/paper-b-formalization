@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **14/27**. Planning audits **1** and verified proof packages **13**.
-- Remaining work packages **13**. 8 in progress, 5 planned.
+- Remaining work packages **13**. 9 in progress, 4 planned.
 - Milestones 5 in progress, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -25,6 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.
 - [EX4.2](TASKS.md#ex42) — A topological array driver installs a real pair map before its first base, preserves prior maps on repeated seeds and proves availability for actual fresh sources and earlier labelled predecessors. Instantiate the callbacks on the exact exit summary operations and charge the total graph scan and map traversals.
 - [EX4.3](TASKS.md#ex43) — Lean composes and evaluates stored map records on the actual skew jump trace. The logged move, record probes and map operations have the required logarithmic traversal bound. Exact full record installation remains open.
+- [EX4.4](TASKS.md#ex44) — Source and target failure, initially unreachable targets, and comparable failures are handled by exact early decisions. Comparable failures require only their higher dominator, in both orders and for duplicates. Integrate with the retained index and incomparable-pair branch.
 - [EX5.1](TASKS.md#ex51) — The linear array bucket pass groups actual occurrences by owner or target, preserving order and repeats. All row initialization, reads, prepends, final reversals and references are explicitly counted. Instantiate the grouping on the concrete graph normalization and the finite sibling arc emitter, then lower the executions.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 

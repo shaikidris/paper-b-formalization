@@ -397,7 +397,7 @@ Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json]
 
 ## EX4.4 — Decide arbitrary post-build queries
 
-- Milestone: EX4; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX4; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: oracle; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX1.4, EX4.3, EX1.5.
 - Proposed owner module: `release-core/PaperB/Oracle.lean`.
@@ -409,6 +409,10 @@ Acceptance:
 
 - Prove output iff reachability after deletion for any subset of size at most two and any original target.
 - Sort the two quotient endpoints and carry their corresponding original failures with them. Cover missing keys, pairs off the target label's ancestor chain, and zero-length paths.
+
+Source and target failure, initially unreachable targets, and comparable failures are handled by exact early decisions. Comparable failures require only their higher dominator, in both orders and for duplicates. Integrate with the retained index and incomparable-pair branch.
+
+Planning/evidence references: [evidence/ex44-early-query-cases/verification.json](evidence/ex44-early-query-cases/verification.json).
 
 <a id="ex51"></a>
 

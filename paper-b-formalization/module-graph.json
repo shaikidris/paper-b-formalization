@@ -162,7 +162,8 @@
       "path": "release-core/PaperB/Oracle.lean",
       "local_imports": [
         "release-core/PaperB/Index.lean",
-        "release-core/PaperB/DomBuild.lean"
+        "release-core/PaperB/DomBuild.lean",
+        "release-core/PaperB/SimpleOracleCases.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -970,6 +971,14 @@
       "path": "release-core/PaperB/StaticChildLookup.lean",
       "local_imports": [],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SimpleOracleCases.lean",
+      "local_imports": [
+        "release-core/PaperB/Dom.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],
