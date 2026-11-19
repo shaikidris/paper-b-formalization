@@ -122,7 +122,8 @@
         "release-core/PaperB/Machine.lean",
         "release-core/PaperB/WordOps.lean",
         "release-core/PaperB/RamProgram.lean",
-        "release-core/PaperB/SealedBuild.lean"
+        "release-core/PaperB/SealedBuild.lean",
+        "release-core/PaperB/SealedQuery.lean"
       ],
       "owner_role": "cost model",
       "admission": "ORACLE_CORE"
@@ -368,6 +369,14 @@
     },
     {
       "path": "release-core/PaperB/SealedBuild.lean",
+      "local_imports": [
+        "release-core/PaperB/RamProgram.lean"
+      ],
+      "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SealedQuery.lean",
       "local_imports": [
         "release-core/PaperB/RamProgram.lean"
       ],

@@ -67,3 +67,4 @@
 {"at": "2026-11-19T20:37:20+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingBlockSystem", "tasks": ["EX1.3"], "evidence": "evidence/ex13-sibling-system/verification.json"}
 {"at": "2026-11-19T20:37:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingBlockSystem", "tasks": ["EX1.3"], "evidence": "evidence/ex13-sibling-flatness/verification.json"}
 {"at": "2026-11-19T20:37:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SealedBuild", "tasks": ["EX0.3"], "evidence": "evidence/ex03-sealed-build/verification.json"}
+{"at": "2026-11-19T20:37:28+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SealedQuery", "tasks": ["EX0.3"], "evidence": "evidence/ex03-sealed-query/verification.json"}

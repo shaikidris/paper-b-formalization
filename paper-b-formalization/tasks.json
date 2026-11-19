@@ -61,7 +61,8 @@
     "release-core/PaperB/SiblingBlocks.lean": "dominator",
     "release-core/PaperB/Indegrees.lean": "graph",
     "release-core/PaperB/SiblingBlockSystem.lean": "dominator",
-    "release-core/PaperB/SealedBuild.lean": "cost model"
+    "release-core/PaperB/SealedBuild.lean": "cost model",
+    "release-core/PaperB/SealedQuery.lean": "cost model"
   },
   "milestones": [
     {
@@ -231,9 +232,10 @@
         "evidence/ex03-word-operations/verification.json",
         "evidence/ex03-ram-program/verification.json",
         "evidence/ex03-ram-traces/verification.json",
-        "evidence/ex03-sealed-build/verification.json"
+        "evidence/ex03-sealed-build/verification.json",
+        "evidence/ex03-sealed-query/verification.json"
       ],
-      "progress": "The interpreter, trace invariants and sealed build resource formulas check. The simultaneous seal-copy peak and retained prefix size follow from the actual allocation and copy. Query composition remains open."
+      "progress": "Lean verifies deterministic traces and the sealed build and query adapters separately, including construction peak and retained output, immutable index input and later query work. The lifecycle connecting them remains open."
     },
     {
       "id": "EX1.1",

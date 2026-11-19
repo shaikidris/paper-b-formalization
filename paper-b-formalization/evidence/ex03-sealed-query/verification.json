@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SealedQuery.lean",
+  "sha256": "c53adff7107de1f33e8ab51c72fcd8fec081c44f670e37143d965117f4b6c5d2",
+  "scope": "A later query runs from the actual sealed readonly index and four parameter registers. Its counts include register and workspace initialization, and the original input does not occur in the query interface.",
+  "remaining": "Compose the two phases and account for fixed metadata alongside word-slot charges."
+}

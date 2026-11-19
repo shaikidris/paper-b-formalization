@@ -1,0 +1,14 @@
+'PaperB.SealedQuery.Phase.input_words' does not depend on any axioms
+'PaperB.SealedQuery.Phase.originalInput_inaccessible' depends on axioms: [propext, Quot.sound]
+'PaperB.SealedQuery.Phase.observe_counts' depends on axioms: [propext, Quot.sound]
+@PaperB.SealedQuery.Phase.observe_counts : ∀ {bits : Nat} (p : PaperB.SealedQuery.Phase bits)
+  (q : PaperB.SealedQuery.Params bits) (fuel : Nat) {o : PaperB.SealedQuery.Observation},
+  p.observe q fuel = some o →
+    ∃ r,
+      PaperB.RamProgram.run p.code p.input fuel (p.initialState q) = some r ∧
+        o.executed = r.executed ∧
+          o.executed ≤ fuel ∧
+            o.initializedRegisters = 4 ∧
+              o.initializedWorkspace = p.workCap ∧
+                o.operations = o.executed + 4 + p.workCap ∧
+                  o.words = p.index.size + p.workCap + 4 ∧ PaperB.RamProgram.storageWords p.input r.finalState = o.words
