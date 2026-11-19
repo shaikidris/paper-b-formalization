@@ -1,0 +1,11 @@
+{
+  "base_commit": "10e76c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticChildLookup.lean",
+  "sha256": "4bfdee5e22f82586d092406fafb147ea84422950b2f9c6e7f8146edf6d2dae23",
+  "scope": "A binary search over sorted half-open child intervals returns exactly the child containing the queried preorder rank. Entry and exclusive stop endpoints, root and absence cases are checked.",
+  "remaining": "Wire the child ranges recorded by the actual ordinary tree and charge their construction."
+}

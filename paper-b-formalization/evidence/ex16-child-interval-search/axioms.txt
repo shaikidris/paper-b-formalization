@@ -1,0 +1,5 @@
+'PaperB.StaticChildLookup.pack_valid' depends on axioms: [propext, Quot.sound]
+'PaperB.StaticChildLookup.lookup_some_iff' depends on axioms: [propext, Quot.sound]
+'PaperB.StaticChildLookup.lookup_cost_le' depends on axioms: [propext, Quot.sound]
+'PaperB.StaticChildLookup.lookup_at_parent' depends on axioms: [propext, Quot.sound]
+'PaperB.StaticChildLookup.lookup_at_last_stop' depends on axioms: [propext, Quot.sound]

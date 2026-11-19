@@ -241,7 +241,8 @@
         "release-core/PaperB/Machine.lean",
         "release-core/PaperB/HeavyChild.lean",
         "release-core/PaperB/StaticHeavyLCA.lean",
-        "release-core/PaperB/StaticHeadSweep.lean"
+        "release-core/PaperB/StaticHeadSweep.lean",
+        "release-core/PaperB/StaticChildLookup.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -963,6 +964,12 @@
         "release-core/PaperB/Jumps.lean"
       ],
       "owner_role": "oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticChildLookup.lean",
+      "local_imports": [],
+      "owner_role": "dominator",
       "admission": "ORACLE_CORE"
     }
   ],

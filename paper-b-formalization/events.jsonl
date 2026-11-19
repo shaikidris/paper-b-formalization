@@ -143,3 +143,4 @@
 {"at": "2026-11-19T22:00:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitArraySweep", "tasks": ["EX4.2"], "evidence": "evidence/ex42-topological-array-sweep/verification.json"}
 {"at": "2026-11-19T22:05:01+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ActualJumpMaps", "tasks": ["EX4.3"], "evidence": "evidence/ex43-actual-skew-route/verification.json"}
 {"at": "2026-11-19T22:05:04+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "BatchSupport", "tasks": ["EX5.5"], "evidence": "evidence/ex55-v13-batch-bound/verification.json"}
+{"at": "2026-11-19T22:10:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticChildLookup", "tasks": ["EX1.6"], "evidence": "evidence/ex16-child-interval-search/verification.json"}
