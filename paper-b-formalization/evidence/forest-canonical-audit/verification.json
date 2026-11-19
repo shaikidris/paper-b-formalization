@@ -1,0 +1,11 @@
+{
+  "base_commit": "b95f68f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCanonicalLaws.lean",
+  "sha256": "80c405ad8336930f2b89ebae542134f470d6c410ef0158e14b4353c635c33b1b",
+  "scope": "The canonical loss forest satisfies every abstract chain law used by the executable predecessor kernel. Lean derives the laws from a flat forward quotient with distinct ranks, including exact parent prefixes, keys, lost tests and predecessor passes.",
+  "remaining": "Connect the concrete jump getters and discharge the initial and step endpoint contracts to obtain the full sweep."
+}

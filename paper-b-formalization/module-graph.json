@@ -285,7 +285,8 @@
         "release-core/PaperB/ForestKeyInstall.lean",
         "release-core/PaperB/SmallQuotient.lean",
         "release-core/PaperB/ForestReady.lean",
-        "release-core/PaperB/ForestEmbeddingStep.lean"
+        "release-core/PaperB/ForestEmbeddingStep.lean",
+        "release-core/PaperB/ForestCanonicalLaws.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1164,6 +1165,14 @@
         "release-core/PaperB/PackedStaticLayout.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestCanonicalLaws.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestReady.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

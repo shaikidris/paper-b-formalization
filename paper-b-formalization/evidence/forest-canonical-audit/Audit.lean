@@ -1,0 +1,2 @@
+import PaperB.ForestCanonicalLaws
+#print axioms EX24.PreStep.canonicalLaws_of_flat_forward

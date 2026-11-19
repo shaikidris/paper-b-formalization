@@ -1,0 +1,1 @@
+'EX24.PreStep.canonicalLaws_of_flat_forward' depends on axioms: [propext, Quot.sound]
