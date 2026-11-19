@@ -128,7 +128,8 @@
     "release-core/PaperB/SimpleOracleCases.lean": "oracle",
     "release-core/PaperB/OracleMemoryLayout.lean": "cost model",
     "release-core/PaperB/LastExitPaper.lean": "dominator",
-    "release-core/PaperB/FullDomScan.lean": "dominator"
+    "release-core/PaperB/FullDomScan.lean": "dominator",
+    "release-core/PaperB/JumpRegionInit.lean": "dominator"
   },
   "milestones": [
     {
@@ -551,9 +552,10 @@
         "evidence/ex15-predecessor-fold/verification.json",
         "evidence/ex15-dominator-step/verification.json",
         "evidence/ex15-concrete-jump-backend/verification.json",
-        "evidence/ex15-full-dom-sweep/verification.json"
+        "evidence/ex15-full-dom-sweep/verification.json",
+        "evidence/ex15-actual-root-word-region/verification.json"
       ],
-      "progress": "The complete topological scan using the concrete growing jump kernel constructs the correct parent map under exact incoming rows and valid initial region. It counts row occurrences, predecessor LCA applications and leaf writes. Instantiate the topological order with Kahn, actual incoming rows and initialized region and bound total work."
+      "progress": "The allocated packed jump region starts with exactly the root record and word-size header. The initialization and leaf storage fit within explicit linear word bounds. Use the actual initialized region with the full topological scan."
     },
     {
       "id": "EX1.6",

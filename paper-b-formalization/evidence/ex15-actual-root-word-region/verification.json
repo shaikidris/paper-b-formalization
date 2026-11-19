@@ -1,0 +1,11 @@
+{
+  "base_commit": "6266aaf",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/JumpRegionInit.lean",
+  "sha256": "a81b702783149551114c3b207f7b73c7867021dcba19e9c8bcf8303a768c2e38",
+  "scope": "The allocated packed jump region starts with exactly the root record and word-size header. The initialization and leaf storage fit within explicit linear word bounds.",
+  "remaining": "Use the actual initialized region with the full topological scan."
+}

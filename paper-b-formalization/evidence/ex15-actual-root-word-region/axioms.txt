@@ -1,0 +1,3 @@
+'PaperB.Jumps.ConcreteInit.init_layout' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Jumps.ConcreteInit.exact_allocated_words' depends on axioms: [propext, Quot.sound]
+'PaperB.Jumps.ConcreteInit.exact_init_charges' depends on axioms: [propext, Quot.sound]

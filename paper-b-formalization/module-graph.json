@@ -233,7 +233,8 @@
         "release-core/PaperB/DomPredecessorFold.lean",
         "release-core/PaperB/DomBuildStep.lean",
         "release-core/PaperB/ConcreteDomOps.lean",
-        "release-core/PaperB/FullDomScan.lean"
+        "release-core/PaperB/FullDomScan.lean",
+        "release-core/PaperB/JumpRegionInit.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -1007,6 +1008,14 @@
         "release-core/PaperB/DomBuildStep.lean",
         "release-core/PaperB/DomPredecessorFold.lean",
         "release-core/PaperB/ReachScan.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/JumpRegionInit.lean",
+      "local_imports": [
+        "release-core/PaperB/Jumps.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
