@@ -1,0 +1,11 @@
+{
+  "base_commit": "089514e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitSpanBridge.lean",
+  "sha256": "46b534ed9f212de109f915dce25e47847c376d87c6440da0570ecb67b42d833f",
+  "scope": "Two inverse-entry reads convert each stored nonempty rank span into actual retained endpoint witnesses without scanning physical tails. Lean proves exact min/max containment and handles empty and singleton spans.",
+  "remaining": "Instantiate the inverse read and retained coverage with the actual static builder and compiled exit-query records."
+}

@@ -140,7 +140,8 @@
         "release-core/PaperB/PhysicalExitModel.lean",
         "release-core/PaperB/ExitLinearSchedule.lean",
         "release-core/PaperB/ThirdReachableRoute.lean",
-        "release-core/PaperB/AllOrigOracleCases.lean"
+        "release-core/PaperB/AllOrigOracleCases.lean",
+        "release-core/PaperB/ExitSpanBridge.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -1321,6 +1322,14 @@
         "release-core/PaperB/StaticTreeReader.lean"
       ],
       "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitSpanBridge.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitSummary.lean"
+      ],
+      "owner_role": "oracle",
       "admission": "ORACLE_CORE"
     }
   ],

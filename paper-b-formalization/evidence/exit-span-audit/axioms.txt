@@ -1,0 +1,2 @@
+'PaperB.ExitSpanBridge.readEntry_rank' does not depend on any axioms
+'PaperB.ExitSpanBridge.refCoordinate_exact' depends on axioms: [propext, Quot.sound]
