@@ -198,7 +198,8 @@
         "release-core/PaperB/PredecessorLCA.lean",
         "release-core/PaperB/CompactIds.lean",
         "release-core/PaperB/CompactGraph.lean",
-        "release-core/PaperB/CompactPaths.lean"
+        "release-core/PaperB/CompactPaths.lean",
+        "release-core/PaperB/CompactFailures.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -561,6 +562,14 @@
         "release-core/PaperB/ForestLayout.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/CompactFailures.lean",
+      "local_imports": [
+        "release-core/PaperB/CompactGraph.lean"
+      ],
+      "owner_role": "graph",
       "admission": "ORACLE_CORE"
     }
   ],

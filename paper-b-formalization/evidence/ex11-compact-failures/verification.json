@@ -1,0 +1,11 @@
+{
+  "base_commit": "7b15f71",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/CompactFailures.lean",
+  "sha256": "0e987a2bc8d60632e4d9c7e6c52c1f183543d79340deccaaf0e9875cc0b3aee7",
+  "scope": "The executable at-most-two-failure translation skips absent IDs and agrees exactly with the failed predicate under inverse IDs; duplicate failures have the same membership.",
+  "remaining": "Compose with the compact query and the decreasing-order view."
+}
