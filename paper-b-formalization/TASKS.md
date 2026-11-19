@@ -533,7 +533,7 @@ Planning/evidence references: [evidence/ex61-guarded-witness/verification.json](
 
 ## EX6.2 — Account for all label and terminal incidences
 
-- Milestone: EX6; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX6; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: application; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX6.1, EX5.5.
 - Proposed owner module: `extensions/Guarded.lean`.
@@ -545,4 +545,8 @@ Acceptance:
 
 - Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.
 - Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion.
+
+Lean checks the linear grouping of supplied residual guard and terminal incidences on the existing decoder model. The per-label query has at most two distinct failures, all terminal occurrences, and exact residual semantics. Shared residual graph and whole-oracle instantiation remain open.
+
+Planning/evidence references: [evidence/guarded-incidences-audit/verification.json](evidence/guarded-incidences-audit/verification.json).
 

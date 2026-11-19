@@ -1355,7 +1355,7 @@
       "paper_consumers": [
         "6.1"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Encode each candidate with at most two residual guard failures and its full terminal list.",
@@ -1363,7 +1363,10 @@
         "Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.",
         "Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/guarded-incidences-audit/verification.json"
+      ],
+      "progress": "Lean checks the linear grouping of supplied residual guard and terminal incidences on the existing decoder model. The per-label query has at most two distinct failures, all terminal occurrences, and exact residual semantics. Shared residual graph and whole-oracle instantiation remain open."
     }
   ]
 }

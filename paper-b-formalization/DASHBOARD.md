@@ -13,7 +13,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## Completed and remaining
 
 - Completed work packages **16/27**. Planning audits **1** and verified proof packages **15**.
-- Remaining work packages **11**. 8 in progress, 3 planned.
+- Remaining work packages **11**. 9 in progress, 2 planned.
 - Milestones 5 in progress, 2 verified.
 - [EX2.2 unattended batch](unattended/README.md) has its own declaration-by-declaration status.
 
@@ -27,6 +27,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX5.1](TASKS.md#ex51) — The global sibling quotient emitter groups all retained original occurrences in one stable scan. Lean confirms exact row contents and lookup charges, without a graph scan per quotient. Wire the ordinary packed tree and fixed machine layouts.
 - [EX5.2](TASKS.md#ex52) — The arena and sealed prefix are reserved solely from declared input counts with the exact oracle contract bit width. Dense offsets, headers, retained words and legal query address ranges are bounded uniformly. Choose constant final block widths and instantiate the same built/queried machine programs in this layout.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
+- [EX6.2](TASKS.md#ex62) — Lean checks the linear grouping of supplied residual guard and terminal incidences on the existing decoder model. The per-label query has at most two distinct failures, all terminal occurrences, and exact residual semantics. Shared residual graph and whole-oracle instantiation remain open.
 
 See the [theorem chain](PLAN.md) and the [reusable Lean declarations](REUSE.md).
 

@@ -90,5 +90,5 @@ Work packages: 2; planning audits complete: 0; verified proof packages: 1.
 | Task | Owner | Status | Prerequisites |
 |---|---|---|---|
 | [EX6.1](TASKS.md#ex61) — Prove the guarded-path and shrinking-witness equivalence | application | VERIFIED | EX1.1 |
-| [EX6.2](TASKS.md#ex62) — Account for all label and terminal incidences | application | PLANNED | EX6.1, EX5.5 |
+| [EX6.2](TASKS.md#ex62) — Account for all label and terminal incidences | application | IN_PROGRESS | EX6.1, EX5.5 |
 

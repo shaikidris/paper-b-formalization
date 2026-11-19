@@ -1,0 +1,11 @@
+{
+  "base_commit": "5aeb7c8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "extensions/GuardedWitness.lean",
+  "sha256": "6480d9e8d652623d59f3d35d03dbaffe4521b54b5e8d1b6e7b0ec18a8817b72e",
+  "scope": "Executable linear scatter groups the residual guard and terminal incidences of the checked guarded decoder representation. Each label supplies at most two distinct guard failures and its full terminal list. Lean verifies exact counts and the listed-target observation against the residual predicate.",
+  "remaining": "Build the shared residual graph once from baseline guard deletion and connect the concrete batch oracle to detection and witness return."
+}
