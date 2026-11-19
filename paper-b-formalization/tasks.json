@@ -113,7 +113,8 @@
     "release-core/PaperB/ExitIncoming.lean": "oracle",
     "release-core/PaperB/ExitLCABridge.lean": "oracle",
     "release-core/PaperB/DomBuildStep.lean": "dominator",
-    "extensions/BatchSupport.lean": "application"
+    "extensions/BatchSupport.lean": "application",
+    "release-core/PaperB/ActualForestQuery.lean": "cuts"
   },
   "milestones": [
     {
@@ -799,9 +800,10 @@
         "evidence/ex24-merge-keys/verification.json",
         "evidence/ex24-dfs-array-values/verification.json",
         "evidence/ex24-predecessor-stamps/verification.json",
-        "evidence/ex24-balanced-dictionary/verification.json"
+        "evidence/ex24-balanced-dictionary/verification.json",
+        "evidence/ex24-actual-known-node-query/verification.json"
       ],
-      "progress": "Balanced merging builds a deterministic sorted distinct candidate-key array with exact member semantics and a logarithmic comparison-depth bound. Disjoint bounded slot spans support a two-bank layout. Refine the list recursion to the bounded two-bank execution and integrate the candidate node pointer array.",
+      "progress": "The constructed child buckets and counted DFS arrays answer exact proper-loss membership in a constant number of table reads for a known node. Pair lookup composition uses a supplied consistent sorted key table. Finish the growing per-head and whole-forest construction and lower the sorted key and array layout to the resource model.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

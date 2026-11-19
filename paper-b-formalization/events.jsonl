@@ -131,3 +131,4 @@
 {"at": "2026-11-19T21:50:49+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitLCABridge", "tasks": ["EX4.1"], "evidence": "evidence/ex41-exact-lca-summary/verification.json"}
 {"at": "2026-11-19T21:50:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DomBuildStep", "tasks": ["EX1.5"], "evidence": "evidence/ex15-dominator-step/verification.json"}
 {"at": "2026-11-19T21:50:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "BatchSupport", "tasks": ["EX5.5"], "evidence": "evidence/ex55-listed-batch-support/verification.json"}
+{"at": "2026-11-19T21:53:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ActualForestQuery", "tasks": ["EX2.4"], "evidence": "evidence/ex24-actual-known-node-query/verification.json"}

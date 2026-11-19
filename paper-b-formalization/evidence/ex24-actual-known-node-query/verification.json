@@ -1,0 +1,11 @@
+{
+  "base_commit": "9c90cd1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ActualForestQuery.lean",
+  "sha256": "1d2822946f9e3656aa38f5562d5cd61a3b61001ffdcbb73d64d74f03943d3816",
+  "scope": "The constructed child buckets and counted DFS arrays answer exact proper-loss membership in a constant number of table reads for a known node. Pair lookup composition uses a supplied consistent sorted key table.",
+  "remaining": "Finish the growing per-head and whole-forest construction and lower the sorted key and array layout to the resource model."
+}

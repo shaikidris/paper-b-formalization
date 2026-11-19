@@ -1,0 +1,3 @@
+'PaperB.properLossRetainedTables_query' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.properLossQueryReads_exact' does not depend on any axioms
+'PaperB.properLossRetainedTables_words' depends on axioms: [propext, Classical.choice, Quot.sound]
