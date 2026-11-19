@@ -114,7 +114,8 @@
     "release-core/PaperB/ExitLCABridge.lean": "oracle",
     "release-core/PaperB/DomBuildStep.lean": "dominator",
     "extensions/BatchSupport.lean": "application",
-    "release-core/PaperB/ActualForestQuery.lean": "cuts"
+    "release-core/PaperB/ActualForestQuery.lean": "cuts",
+    "release-core/PaperB/ForestHead.lean": "cuts"
   },
   "milestones": [
     {
@@ -801,9 +802,10 @@
         "evidence/ex24-dfs-array-values/verification.json",
         "evidence/ex24-predecessor-stamps/verification.json",
         "evidence/ex24-balanced-dictionary/verification.json",
-        "evidence/ex24-actual-known-node-query/verification.json"
+        "evidence/ex24-actual-known-node-query/verification.json",
+        "evidence/ex24-verified-head-step/verification.json"
       ],
-      "progress": "The constructed child buckets and counted DFS arrays answer exact proper-loss membership in a constant number of table reads for a known node. Pair lookup composition uses a supplied consistent sorted key table. Finish the growing per-head and whole-forest construction and lower the sorted key and array layout to the resource model.",
+      "progress": "The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes. Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -255,7 +255,8 @@
         "release-core/PaperB/ForestLayoutRefine.lean",
         "release-core/PaperB/DistinctPredecessors.lean",
         "release-core/PaperB/PairDictionary.lean",
-        "release-core/PaperB/ActualForestQuery.lean"
+        "release-core/PaperB/ActualForestQuery.lean",
+        "release-core/PaperB/ForestHead.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -875,6 +876,15 @@
         "release-core/PaperB/ForestLayoutRefine.lean",
         "release-core/PaperB/ForestIntervalQuery.lean",
         "release-core/PaperB/PairLookup.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestHead.lean",
+      "local_imports": [
+        "release-core/PaperB/Forest.lean",
+        "release-core/PaperB/PrefixProbe.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

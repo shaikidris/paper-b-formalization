@@ -1,0 +1,11 @@
+{
+  "base_commit": "dc425fa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestHead.lean",
+  "sha256": "cb6a14e827f52559d73d358b0ec2b6711b7d8b0280dd092293c845b0e6e23db0",
+  "scope": "The executable per-head prefix search and raw predecessor tests refine the semantic forest sweep step. The charged upper bound includes every depth call and the worst number of replayed predecessor probes.",
+  "remaining": "Instantiate the supplied node selectors on the jump arrays and implement the complete topological sweep."
+}
