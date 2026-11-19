@@ -1108,9 +1108,10 @@
         "evidence/ex42-topological-array-sweep/verification.json",
         "evidence/ex42-exact-exit-kernels/verification.json",
         "evidence/physical-exit-audit/verification.json",
-        "evidence/exit-indexed-audit/verification.json"
+        "evidence/exit-indexed-audit/verification.json",
+        "evidence/physical-entry-audit/verification.json"
       ],
-      "progress": "Lean checks the executable array schedule with one visit per vertex, at most one map installation and exact agreement with reference map/base semantics. The actual first-allocation schedule and physical reader bindings remain in progress."
+      "progress": "The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing."
     },
     {
       "id": "EX4.3",

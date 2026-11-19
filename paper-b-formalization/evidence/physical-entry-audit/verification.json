@@ -1,0 +1,11 @@
+{
+  "base_commit": "089514e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PhysicalExitModel.lean",
+  "sha256": "0194ecb666c273667592a2ed421e99ec4c7414519b03b65106be8c7dc665bb0b",
+  "scope": "Physical exit records use the caller's original DFS entry rank. The distinct topological rank still orders quotient vertices and justifies physical transfer.",
+  "remaining": "Bind DFS entry and its inverse to the actual original retained columns, then discharge exact packed spans on final queries."
+}

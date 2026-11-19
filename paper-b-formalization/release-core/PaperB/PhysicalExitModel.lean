@@ -231,9 +231,10 @@ structure InstalledIdentities {m : Nat}
           (finiteSiblingRank progress injective spec hd)).parent
             (installedNode slots size_eq i)) = some (parentAt i)
 
-/-- `rank` ranks physical tails. `finiteSiblingRank` is used for the
-quotient forest and its real-edge transfer theorem. -/
+/-- `entryRank` is the physical DFS entry rank. The topological
+`finiteSiblingRank` still orders the quotient forest and proves transfer. -/
 noncomputable def model {m : Nat}
+    (entryRank : Fin g.vertexCount → Nat)
     (slots : Array (Fin ((buildProperLossForest
       (finiteSiblingQuotient progress injective spec hd)
       (finiteSiblingRank progress injective spec hd)).realNodeCount + 1)))
@@ -255,7 +256,7 @@ noncomputable def model {m : Nat}
       incoming := incoming
       source := fun e => encodeSiblingBlockKey g r d parent e.source
       physicalTail := fun e => e.tail
-      rank := rank
+      rank := entryRank
       arc_iff := arc_iff_incoming progress injective spec hd incoming incoming_exact
       exit_iff := exit_iff_incoming progress injective spec hd incoming incoming_exact
       ends := ends progress injective spec hd
@@ -285,6 +286,7 @@ noncomputable def model {m : Nat}
   | grind
 
 variable {m : Nat}
+variable (entryRank : Fin g.vertexCount → Nat)
 variable
   (slots : Array (Fin ((buildProperLossForest
     (finiteSiblingQuotient progress injective spec hd)
@@ -295,18 +297,18 @@ variable (ids : InstalledIdentities progress injective spec hd slots size_eq
   childAt parentAt)
 
 @[simp] theorem model_child (i : Fin m) :
-    (model progress injective spec hd incoming incoming_exact
+    (model progress injective spec hd incoming incoming_exact entryRank
       slots size_eq childAt parentAt ids).child i = childAt i := by
   rfl
 
 @[simp] theorem model_parent (i : Fin m) :
-    (model progress injective spec hd incoming incoming_exact
+    (model progress injective spec hd incoming incoming_exact entryRank
       slots size_eq childAt parentAt ids).parent i = parentAt i := by
   rfl
 
 /-- Expected type of the EX2.4 route/site descriptors for this instance. -/
 abbrev KernelFor (deps : Deps (finiteSiblingQuotient progress injective spec hd).vertexCount m) :=
-  Kernel (model progress injective spec hd incoming incoming_exact
+  Kernel (model progress injective spec hd incoming incoming_exact entryRank
     slots size_eq childAt parentAt ids) deps
 
 end OriginalInstance
@@ -316,7 +318,7 @@ At the theorem 4.1 driver site, take `incoming` from the one-pass emitter's
 packed rows and `incoming_exact` from its independently proved membership
 certificate. Use
 
-  let W := model progress injective spec hd incoming incoming_exact
+  let W := model progress injective spec hd incoming incoming_exact entryRank
     slots size_eq childAt parentAt ids
 
 and specialize the EX2.4 descriptors `K` to

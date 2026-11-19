@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — The full successful-step invariant now checks for the actual packed callbacks. It constructs the new canonical embedding and preserves all old labels and physical slots. Totality and full increasing-order induction remain in progress.
-- [EX4.2](TASKS.md#ex42) — Lean checks the executable array schedule with one visit per vertex, at most one map installation and exact agreement with reference map/base semantics. The actual first-allocation schedule and physical reader bindings remain in progress.
+- [EX4.2](TASKS.md#ex42) — The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The complete original-input route proof passes for every optional original failure pair and target under exact table contracts. Repeated, discarded, comparable and incomparable failures all use the same executable route. Actual index instantiation remains in progress.
 - [EX5.1](TASKS.md#ex51) — The word-machine midpoint is now a checked three-instruction executable block with exact arithmetic and register preservation. The charged binary-search and whole build remain open.

@@ -1,0 +1,3 @@
+'PaperB.FiniteSiblingExitKernels.model' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.FiniteSiblingExitKernels.model_child' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.FiniteSiblingExitKernels.model_parent' depends on axioms: [propext, Classical.choice, Quot.sound]
