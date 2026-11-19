@@ -1,0 +1,4 @@
+import PaperB.ThirdBlockLift
+
+#print axioms PaperB.Digraph.lemma22_third_backward_from_exact_exit
+#print axioms PaperB.Digraph.lemma22_third_backward_of_exitTailMem

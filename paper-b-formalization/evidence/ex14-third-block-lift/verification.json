@@ -1,0 +1,11 @@
+{
+  "base_commit": "9f25e91",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ThirdBlockLift.lean",
+  "sha256": "377ba6f00665325ec87cb8ba62a2ce78500cbf53378441993046043feddacc28",
+  "scope": "Actual finite sibling quotient paths avoiding both failure blocks lift to original surviving paths. A reachable labelled exit tail with a clean continuation also lifts, including a direct last exit.",
+  "remaining": "Specialize the forward path decomposition on the same encoded quotient and pass the selected tails to the LCA test."
+}

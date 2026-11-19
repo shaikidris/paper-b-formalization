@@ -93,7 +93,8 @@
     "release-core/PaperB/CommonAncestorSearch.lean": "dominator",
     "release-core/PaperB/ForestLayoutTrace.lean": "cuts",
     "release-core/PaperB/ThirdBlockForward.lean": "dominator",
-    "release-core/PaperB/JumpLCA.lean": "dominator"
+    "release-core/PaperB/JumpLCA.lean": "dominator",
+    "release-core/PaperB/ThirdBlockLift.lean": "dominator"
   },
   "milestones": [
     {
@@ -449,9 +450,10 @@
       "evidence": [
         "evidence/ex14-last-exit-outside-own/verification.json",
         "evidence/ex14-both-exits/verification.json",
-        "evidence/ex14-forward-last-exit/verification.json"
+        "evidence/ex14-forward-last-exit/verification.json",
+        "evidence/ex14-third-block-lift/verification.json"
       ],
-      "progress": "Generic last-exit decomposition of a physical path gives a clean quotient route, or its original tail and outgoing arc, followed by a clean suffix. Covers direct last outgoing arcs. Specialize the forward implication to the actual finite sibling quotient, then finish the two-failure equivalence."
+      "progress": "Actual finite sibling quotient paths avoiding both failure blocks lift to original surviving paths. A reachable labelled exit tail with a clean continuation also lifts, including a direct last exit. Specialize the forward path decomposition on the same encoded quotient and pass the selected tails to the LCA test."
     },
     {
       "id": "EX1.5",
