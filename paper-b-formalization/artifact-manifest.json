@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3139,
-      "sha256": "26f34886674ab812d901be48715f998abd890d747a1befb82b35a34e4a43e8bb"
+      "bytes": 3368,
+      "sha256": "fccf7bb9d13ef2b07f5e6b153158756f352597ea06b8eb8dee1515dd9db15780"
     },
     {
       "path": "DISPATCH.md",
@@ -33,8 +33,8 @@
     },
     {
       "path": "MILESTONES.md",
-      "bytes": 5325,
-      "sha256": "d34404453cf1c0f6c6242a8afcad16f2ccfbb4569549e2b024a4963ebf225d8e"
+      "bytes": 5329,
+      "sha256": "ecf2736efc6a8dc5c9a207733f680d0ae0299a9bba55c58deedbbd1acec64298"
     },
     {
       "path": "PLAN.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 36864,
-      "sha256": "36681cc1fd2ee112c499f1499a599d0ba5d987b4a97891f788f3c8231228efc5"
+      "bytes": 37210,
+      "sha256": "eba49cbe8c56e727ddf4d6e2c894e05e02a2ffa8c4c60c51019d64c922f49a88"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 30504,
-      "sha256": "3f839ea17ea84f8db8f866354e458863b07ecf1e8069f361cc785d09eb419669"
+      "bytes": 30696,
+      "sha256": "3f649a2c28c556f44a68e2bcb8a58d61a00de947996ed71bd3d02f1fbb0362af"
     },
     {
       "path": "evidence/carbon-first-proper-loss/build.txt",
@@ -1702,6 +1702,21 @@
       "sha256": "ab5f7a99b764748447ad6855e37a92e5ea03947915c4a4c5bf652a4ec8384fc1"
     },
     {
+      "path": "evidence/ex55-listed-batch-support/Audit.lean",
+      "bytes": 175,
+      "sha256": "f7ceab880c6ee2aea4770c10b588772d512089f597f81f7923e93f88e4f5fab3"
+    },
+    {
+      "path": "evidence/ex55-listed-batch-support/axioms.txt",
+      "bytes": 291,
+      "sha256": "6788370607e4a8e40aa253f56272a21d1fe51e3f39acdc57369c3931bfca672a"
+    },
+    {
+      "path": "evidence/ex55-listed-batch-support/verification.json",
+      "bytes": 613,
+      "sha256": "7b24f17901c778f84caabe5f4c0d33b2789a0ad8b86957b27c6061e587003f29"
+    },
+    {
       "path": "evidence/exit-transfer-nested/build.txt",
       "bytes": 670,
       "sha256": "ff75ed18e0408723aa48c4c9bef997d21bfcb002a685cb51b81b4e8fdd918599"
@@ -1897,14 +1912,19 @@
       "sha256": "cc4b9fe4abd224003b26fe474a1e289f0cf931f2e9b3a35dabe1960fe93b051f"
     },
     {
+      "path": "extensions/BatchSupport.lean",
+      "bytes": 12747,
+      "sha256": "2f1fb190f912df446f39a6e27299ad16b7c9804319ecb201d9470e46c056b0f6"
+    },
+    {
       "path": "external-inputs.json",
       "bytes": 1805,
       "sha256": "ec2fd837d0db5296e45e4b5bf3c293b7969f403924af39cb70eb45d9da4f24d5"
     },
     {
       "path": "module-graph.json",
-      "bytes": 25937,
-      "sha256": "acd5ee08a7ecfede0d1f4a95491d52ce593c33f4e9a7aa12d2542950e7ea4056"
+      "bytes": 26130,
+      "sha256": "5028da393b7766f1d191a3b9b600c1bdae8d7bf6af4302f90a7b67acc28649e5"
     },
     {
       "path": "obligations.json",
@@ -2448,8 +2468,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 53525,
-      "sha256": "ec0cfd0d3c93d3f0556c85b090e36970dcdf559bd3481b48ce94a10aef7de1e6"
+      "bytes": 53875,
+      "sha256": "004148956b0807a522105d775328d230e140adfa037e8bd1ef0e04c8fce025b1"
     },
     {
       "path": "test_plan.py",

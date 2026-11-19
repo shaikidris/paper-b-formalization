@@ -112,7 +112,8 @@
     "release-core/PaperB/SeedOrderActual.lean": "oracle",
     "release-core/PaperB/ExitIncoming.lean": "oracle",
     "release-core/PaperB/ExitLCABridge.lean": "oracle",
-    "release-core/PaperB/DomBuildStep.lean": "dominator"
+    "release-core/PaperB/DomBuildStep.lean": "dominator",
+    "extensions/BatchSupport.lean": "application"
   },
   "milestones": [
     {
@@ -149,7 +150,7 @@
       "id": "EX5",
       "title": "Certify a single oracle and its resource bounds",
       "exit_gate": "Tie correctness and all four time and space bounds to the same build and query programs, and derive the batch corollary.",
-      "status": "PLANNED"
+      "status": "IN_PROGRESS"
     },
     {
       "id": "EX6",
@@ -1189,7 +1190,7 @@
       "paper_consumers": [
         "1.2"
       ],
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "proof_status": "NOT_CERTIFIED",
       "risk": "ordinary",
       "obligation": "Aggregate online memberships as disjunctions while charging list accesses and explicit output writes.",
@@ -1197,7 +1198,10 @@
         "Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M.",
         "Produce one Boolean per original list in order, prove the later-single-list bound, and allow logarithmic words in S+2."
       ],
-      "evidence": []
+      "evidence": [
+        "evidence/ex55-listed-batch-support/verification.json"
+      ],
+      "progress": "Lean verifies downstream list disjunctions, original output order, all target/count charges, and the cubic-log scaling from an exact single-target oracle. The whole-oracle instantiation remains open."
     },
     {
       "id": "EX6.1",

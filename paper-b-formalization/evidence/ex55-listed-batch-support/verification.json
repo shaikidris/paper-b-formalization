@@ -1,0 +1,11 @@
+{
+  "base_commit": "5e88284",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "extensions/BatchSupport.lean",
+  "sha256": "2f1fb190f912df446f39a6e27299ad16b7c9804319ecb201d9470e46c056b0f6",
+  "scope": "The executable listed-target aggregation preserves order and exact existential reachability, handles empty and repeated targets and gives the stated total and per-list explicit cost bounds under the supplied single-query oracle.",
+  "remaining": "Instantiate on the expected certified combined oracle under EX5.4."
+}

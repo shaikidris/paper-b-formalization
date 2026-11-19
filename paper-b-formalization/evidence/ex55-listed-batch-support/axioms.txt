@@ -1,0 +1,4 @@
+'PaperB.EX55.runBatch_correctAt' depends on axioms: [propext, Quot.sound]
+'PaperB.EX55.totalOperations_cubic' depends on axioms: [propext, Quot.sound]
+'PaperB.EX55.laterList_cubic' depends on axioms: [propext, Quot.sound]
+'PaperB.EX55.wordBudget_le' depends on axioms: [propext, Quot.sound]

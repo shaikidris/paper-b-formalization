@@ -184,7 +184,8 @@
     {
       "path": "extensions/Batch.lean",
       "local_imports": [
-        "release-core/Solution.lean"
+        "release-core/Solution.lean",
+        "extensions/BatchSupport.lean"
       ],
       "owner_role": "application",
       "admission": "DOWNSTREAM"
@@ -860,6 +861,12 @@
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "extensions/BatchSupport.lean",
+      "local_imports": [],
+      "owner_role": "application",
+      "admission": "DOWNSTREAM"
     }
   ],
   "structural_root": "release-core/PaperB/Exit.lean"

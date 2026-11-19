@@ -476,7 +476,7 @@ Acceptance:
 
 ## EX5.5 — Derive the listed-target Boolean vector
 
-- Milestone: EX5; status: **PLANNED**; proof status: NOT_CERTIFIED.
+- Milestone: EX5; status: **IN_PROGRESS**; proof status: NOT_CERTIFIED.
 - Owner: application; reviewers: statement fidelity, independent replay; assigned worker: unassigned.
 - Dependencies: EX5.4.
 - Proposed owner module: `extensions/Batch.lean`.
@@ -488,6 +488,10 @@ Acceptance:
 
 - Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M.
 - Produce one Boolean per original list in order, prove the later-single-list bound, and allow logarithmic words in S+2.
+
+Lean verifies downstream list disjunctions, original output order, all target/count charges, and the cubic-log scaling from an exact single-target oracle. The whole-oracle instantiation remains open.
+
+Planning/evidence references: [evidence/ex55-listed-batch-support/verification.json](evidence/ex55-listed-batch-support/verification.json).
 
 <a id="ex61"></a>
 
