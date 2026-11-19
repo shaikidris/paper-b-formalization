@@ -77,7 +77,8 @@
     "release-core/PaperB/FiniteSiblingFlat.lean": "dominator",
     "release-core/PaperB/QuotientArrayCounts.lean": "dominator",
     "release-core/PaperB/CompactGraph.lean": "graph",
-    "release-core/PaperB/FiniteSiblingBudget.lean": "dominator"
+    "release-core/PaperB/FiniteSiblingBudget.lean": "dominator",
+    "release-core/PaperB/ForestLayout.lean": "cuts"
   },
   "milestones": [
     {
@@ -684,9 +685,10 @@
         "evidence/ex24-prefix-cutoff/verification.json",
         "evidence/ex24-array-interval/verification.json",
         "evidence/ex24-predecessor-search/verification.json",
-        "evidence/ex24-pair-lookup/verification.json"
+        "evidence/ex24-pair-lookup/verification.json",
+        "evidence/ex24-dfs-array-builder/verification.json"
       ],
-      "progress": "Lean verifies logarithmic predecessor cutoff, fixed-layout proper-loss query and logarithmic exact lookup of lexicographic endpoint pairs in a sorted array. Candidate sorting, occupancy, executable depth-indexed sweep, interval construction and Word-RAM cost composition remain open.",
+      "progress": "Lean verifies exact predecessor cutoff, pair lookup and proper-loss query on a correct layout. A new executable DFS stack writes entry and exit arrays with verified per-step counts and sizes. Establish complete traversal and exact table values, then wire the sweep and costs.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

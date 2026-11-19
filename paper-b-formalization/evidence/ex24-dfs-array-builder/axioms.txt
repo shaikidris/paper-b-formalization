@@ -1,0 +1,9 @@
+'PaperB.ForestLayout.pushChildren_spec' depends on axioms: [propext]
+'PaperB.ForestLayout.advance_enter_spec' depends on axioms: [propext]
+'PaperB.ForestLayout.advance_exit_spec' depends on axioms: [propext]
+'PaperB.ForestLayout.advance_processed' depends on axioms: [propext]
+'PaperB.ForestLayout.run_processed_le' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestLayout.layout_sizes' depends on axioms: [propext]
+'PaperB.ForestLayout.layout_processed_le' depends on axioms: [propext, Quot.sound]
+@PaperB.ForestLayout.layout_processed_le : ∀ {N : Nat} (g : PaperB.ForestLayout.ChildLists N) (root : Fin N)
+  (fuel : Nat), (PaperB.ForestLayout.layout g root fuel).enters + (PaperB.ForestLayout.layout g root fuel).exits ≤ fuel

@@ -1,0 +1,11 @@
+{
+  "base_commit": "d62a60a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLayout.lean",
+  "sha256": "b7102274b3c1fbb34e09bc6edd21f1955e784081e69241c793ab57dba2859a80",
+  "scope": "A one-pass explicit stack command traversal emits DFS entry and exit arrays. Table capacities and per-command execution/probe counts derive from the actual execution.",
+  "remaining": "Prove termination at exactly 2N events and table values match the already-proved half-open interval semantics."
+}
