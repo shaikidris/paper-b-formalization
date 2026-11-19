@@ -129,4 +129,97 @@ theorem scanReachability_probes_le (g : Digraph) (source : Fin g.vertexCount)
   exact Nat.add_le_add (Nat.le_refl _)
     (scanReachability_adjacencyOccurrences_le g source order verified)
 
+private theorem markReachHeads_query {n : Nat} (heads : List (Fin n))
+    (marked : Array Bool) (hsize : marked.size = n) (u : Fin n) :
+    ((markReachHeads marked heads).1[u.val]?).getD false = true ↔
+      (marked[u.val]?).getD false = true ∨ u ∈ heads := by
+  induction heads generalizing marked with
+  | nil =>
+      simp [markReachHeads]
+  | cons v vs ih =>
+      have hv : v.val < marked.size := by
+        simpa only [hsize] using v.isLt
+      have hs : (marked.setIfInBounds v.val true).size = n := by
+        simpa using hsize
+      simp only [markReachHeads]
+      rw [ih (marked.setIfInBounds v.val true) hs]
+      by_cases h : v.val = u.val
+      · have he : v = u := Fin.ext h
+        subst v
+        rw [Array.getElem?_setIfInBounds_self_of_lt hv]
+        simp
+      · have hne : u ≠ v := fun he => h (congrArg Fin.val he.symm)
+        rw [Array.getElem?_setIfInBounds_ne h]
+        simp [List.mem_cons, hne]
+
+private theorem seedReachMarks_query (g : Digraph)
+    (source u : Fin g.vertexCount) :
+    ((seedReachMarks g source)[u.val]?).getD false = true ↔ u = source := by
+  unfold seedReachMarks
+  have hu : u.val < (Array.replicate g.vertexCount false).size := by
+    simp
+  by_cases h : source.val = u.val
+  · have he : source = u := Fin.ext h
+    subst source
+    rw [Array.getElem?_setIfInBounds_self_of_lt hu]
+    simp
+  · have hne : u ≠ source := fun he => h (congrArg Fin.val he.symm)
+    rw [Array.getElem?_setIfInBounds_ne h]
+    simp [u.isLt, hne]
+
+private theorem visitReachVertex_sound (g : Digraph)
+    (source u : Fin g.vertexCount) (marked : Array Bool)
+    (hsize : marked.size = g.vertexCount)
+    (hsound : ∀ v : Fin g.vertexCount,
+      (marked[v.val]?).getD false = true → g.InitiallyReachable source v)
+    (v : Fin g.vertexCount)
+    (hv : ((visitReachVertex g marked u).1[v.val]?).getD false = true) :
+    g.InitiallyReachable source v := by
+  unfold visitReachVertex at hv
+  split at hv
+  · rename_i hu
+    rcases (markReachHeads_query (g.outArcs u) marked hsize v).mp hv with
+      hmarked | hhead
+    · exact hsound v hmarked
+    · exact initiallyReachable_extend (hsound u hu) (show g.HasArc u v from hhead)
+  · exact hsound v hv
+
+/-- Every scan preserves soundness of its input marks, regardless of order. -/
+private theorem scanReachVertices_sound (g : Digraph)
+    (source : Fin g.vertexCount) (order : List (Fin g.vertexCount))
+    (marked : Array Bool) (hsize : marked.size = g.vertexCount)
+    (hsound : ∀ v : Fin g.vertexCount,
+      (marked[v.val]?).getD false = true → g.InitiallyReachable source v) :
+    ∀ v : Fin g.vertexCount,
+      ((scanReachVertices g marked order).marked[v.val]?).getD false = true →
+        g.InitiallyReachable source v := by
+  induction order generalizing marked with
+  | nil =>
+      simpa only [scanReachVertices] using hsound
+  | cons u us ih =>
+      have hstepSize : (visitReachVertex g marked u).1.size = g.vertexCount :=
+        (visitReachVertex_spec g marked u).1.trans hsize
+      simpa only [scanReachVertices] using
+        (ih (visitReachVertex g marked u).1 hstepSize
+          (visitReachVertex_sound g source u marked hsize hsound))
+
+/-- Every marked vertex is reachable from the original source. -/
+theorem scanReachability_sound (g : Digraph) (source : Fin g.vertexCount)
+    (order : List (Fin g.vertexCount)) (verified : g.IsTopologicalList order)
+    (u : Fin g.vertexCount)
+    (hu : ((g.scanReachability source order verified).marked[u.val]?).getD false =
+      true) :
+    g.InitiallyReachable source u := by
+  have hsize : (seedReachMarks g source).size = g.vertexCount := by
+    simp [seedReachMarks]
+  have hseed : ∀ v : Fin g.vertexCount,
+      ((seedReachMarks g source)[v.val]?).getD false = true →
+        g.InitiallyReachable source v := by
+    intro v hv
+    have he : v = source := (seedReachMarks_query g source v).mp hv
+    subst v
+    exact initiallyReachable_source g source
+  exact scanReachVertices_sound g source order (seedReachMarks g source) hsize
+    hseed u (by simpa only [scanReachability] using hu)
+
 end PaperB.Digraph

@@ -79,9 +79,9 @@ Acceptance:
 - Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers.
 - Relate arbitrary IDs and counted parallel input entries to the existing decreasing-index ReachAvoid specification. Charge constructing the ordering and reachability mask in the executable branch.
 
-Lean verifies semantic pruning under every failure predicate and preservation of parallel occurrences. A new array-based traversal of a supplied topological order checks its array size and exact occurrence visit bound. Mark correctness, construction of the order, and charged ID compaction remain open.
+Lean verifies semantic pruning and exact outgoing occurrence preservation, and checks that the executable topological scan has no false positives with its explicit traversal bound. Scan completeness, order construction and charged ID compaction remain open.
 
-Planning/evidence references: [evidence/ex11-retained-graph/verification.json](evidence/ex11-retained-graph/verification.json), [evidence/ex11-reach-scan/verification.json](evidence/ex11-reach-scan/verification.json).
+Planning/evidence references: [evidence/ex11-retained-graph/verification.json](evidence/ex11-retained-graph/verification.json), [evidence/ex11-reach-scan/verification.json](evidence/ex11-reach-scan/verification.json), [evidence/ex11-reach-sound/verification.json](evidence/ex11-reach-sound/verification.json).
 
 <a id="ex12"></a>
 

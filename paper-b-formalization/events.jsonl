@@ -59,3 +59,4 @@
 {"at": "2026-11-19T20:25:03+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DominatorChain", "tasks": ["EX1.3"], "evidence": "evidence/ex13-dominator-segment/verification.json"}
 {"at": "2026-11-19T20:25:05+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SiblingPartition", "tasks": ["EX1.3"], "evidence": "evidence/ex13-unique-child/verification.json"}
 {"at": "2026-11-19T20:25:08+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX0.3"], "evidence": "evidence/ex03-ram-traces/verification.json"}
+{"at": "2026-11-19T20:25:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ReachScan", "tasks": ["EX1.1"], "evidence": "evidence/ex11-reach-sound/verification.json"}

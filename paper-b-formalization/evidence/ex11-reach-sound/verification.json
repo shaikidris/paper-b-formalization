@@ -1,0 +1,11 @@
+{
+  "base_commit": "2f1010ac2aab4d5a037f0e34d2be8a9c9ebd0c09",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ReachScan.lean",
+  "sha256": "281efbdab09c587d709735ec2a02286fef84b02d691ef8954988078153e4a041",
+  "scope": "Actual array scan is sound. Every true mark is backed by an original-source directed path.",
+  "remaining": "Prove all reachable vertices are marked, implement and charge topological order construction, and construct compact identifier/adjacency tables."
+}

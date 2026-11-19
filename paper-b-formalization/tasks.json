@@ -259,9 +259,10 @@
       ],
       "evidence": [
         "evidence/ex11-retained-graph/verification.json",
-        "evidence/ex11-reach-scan/verification.json"
+        "evidence/ex11-reach-scan/verification.json",
+        "evidence/ex11-reach-sound/verification.json"
       ],
-      "progress": "Lean verifies semantic pruning under every failure predicate and preservation of parallel occurrences. A new array-based traversal of a supplied topological order checks its array size and exact occurrence visit bound. Mark correctness, construction of the order, and charged ID compaction remain open."
+      "progress": "Lean verifies semantic pruning and exact outgoing occurrence preservation, and checks that the executable topological scan has no false positives with its explicit traversal bound. Scan completeness, order construction and charged ID compaction remain open."
     },
     {
       "id": "EX1.2",
