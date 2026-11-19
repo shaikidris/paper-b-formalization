@@ -389,9 +389,9 @@ Acceptance:
 - Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
 - Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation.
 
-Stored parent and skew jump maps compose to the exact map over each ancestor segment. Executable folding over a checked trace performs one map step per move.
+Lean composes and evaluates stored map records on the actual skew jump trace. The logged move, record probes and map operations have the required logarithmic traversal bound. Exact full record installation remains open.
 
-Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json).
+Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json), [evidence/ex43-actual-skew-route/verification.json](evidence/ex43-actual-skew-route/verification.json).
 
 <a id="ex44"></a>
 

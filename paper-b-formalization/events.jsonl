@@ -141,3 +141,4 @@
 {"at": "2026-11-19T22:00:17+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticHeadSweep", "tasks": ["EX1.6"], "evidence": "evidence/ex16-static-head-words/verification.json"}
 {"at": "2026-11-19T22:00:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ArcBuckets", "tasks": ["EX5.1"], "evidence": "evidence/ex51-linear-occurrence-buckets/verification.json"}
 {"at": "2026-11-19T22:00:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitArraySweep", "tasks": ["EX4.2"], "evidence": "evidence/ex42-topological-array-sweep/verification.json"}
+{"at": "2026-11-19T22:05:01+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ActualJumpMaps", "tasks": ["EX4.3"], "evidence": "evidence/ex43-actual-skew-route/verification.json"}

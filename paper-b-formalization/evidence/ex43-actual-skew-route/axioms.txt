@@ -1,0 +1,4 @@
+'PaperB.ExitMap.JumpMapRoute.traceMoves_follows' depends on axioms: [propext]
+'PaperB.ExitMap.JumpMapRoute.foldTrace_spec' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.foldTrace_eval_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.foldTrace_cost' depends on axioms: [propext, Classical.choice, Quot.sound]

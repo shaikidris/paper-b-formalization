@@ -1,0 +1,11 @@
+{
+  "base_commit": "a97e353",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ActualJumpMaps.lean",
+  "sha256": "9bc9c307abc0bd3ce789354ce8f430744052b2671f9cf5e30d9c21ef32fa75fc",
+  "scope": "Actual skew jump traces follow the record parent/jump links and terminate at the proved ancestor. Folding exact stored maps along this trace yields the exact ancestor summary with one constant-width map operation per move.",
+  "remaining": "Install these maps and their per-target bases in the concrete built index and account the full execution."
+}
