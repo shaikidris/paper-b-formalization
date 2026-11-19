@@ -759,3 +759,171 @@ theorem ramMidpoint_steps {code : Program L} {input : Input L}
   · exact (show t.data = b.data from rfl).trans (hbdata.trans hadata)
 
 end PaperB.RamProgram
+
+namespace PaperB.RamProgram
+open PaperB.Machine (Word)
+open PaperB.WordOps (add sub band ltb)
+section FixedCodePlacement
+
+variable {bits : Nat} {L : Layout bits}
+
+/-- Relocate absolute targets at assembly time. All other instructions
+are copied verbatim. -/
+def relocateInstr {bits registerCount : Nat} (base : Nat) :
+    Instr bits registerCount → Instr bits registerCount
+  | .goto target => .goto (base + target)
+  | .branchLt lhs rhs ltPC gePC =>
+      .branchLt lhs rhs (base + ltPC) (base + gePC)
+  | op => op
+
+/-- Translate the PC without changing the registers or work data. -/
+def relocateStatePC (base : Nat) (s : State L) : State L :=
+  { s with pc := base + s.pc }
+
+/-- Every instruction of `localCode` is present at its relocated address
+in the already assembled `linkedCode`. -/
+def RelocatedSlice (localCode linkedCode : Program L) (base : Nat) : Prop :=
+  ∀ (i : Nat) (op : Instr bits L.registerCount),
+    localCode[i]? = some op →
+      linkedCode[base + i]? = some (relocateInstr base op)
+
+private theorem advance_relocated_next
+    {localCode linkedCode : Program L} {base p : Nat} {u t : State L}
+    (placed : RelocatedSlice (L := L) localCode linkedCode base)
+    (h : advance localCode u p = some (.next t)) :
+    advance linkedCode (relocateStatePC base u) (base + p) =
+      some (.next (relocateStatePC base t)) := by
+  by_cases hp : p < localCode.size
+  · have hf : localCode[p]? = some (localCode[p]'hp) :=
+      getElem?_pos localCode p hp
+    have hg := placed p (localCode[p]'hp) hf
+    have hq : base + p < linkedCode.size := by
+      by_cases hq : base + p < linkedCode.size
+      · exact hq
+      · rw [getElem?_neg linkedCode (base + p) hq] at hg
+        cases hg
+    rw [advance, if_pos hp] at h
+    have ht : { u with pc := p } = t :=
+      Transition.next.inj (Option.some.inj h)
+    subst t
+    rw [advance, if_pos hq] <;> rfl
+  · rw [advance, if_neg hp] at h
+    cases h
+
+/-- A successful non-halting local instruction takes exactly one step
+in the linked code, with the same register and data effects. -/
+theorem step_relocated_next
+    {localCode linkedCode : Program L} {input : Input L} {base : Nat}
+    {s t : State L}
+    (placed : RelocatedSlice (L := L) localCode linkedCode base)
+    (h : step localCode input s = some (.next t)) :
+    step linkedCode input (relocateStatePC base s) =
+      some (.next (relocateStatePC base t)) := by
+  have fallthrough (u : State L)
+      (hu : advance localCode u (s.pc + 1) = some (.next t)) :
+      advance linkedCode (relocateStatePC base u)
+          ((relocateStatePC base s).pc + 1) =
+        some (.next (relocateStatePC base t)) := by
+    have hpc : (relocateStatePC base s).pc + 1 = base + (s.pc + 1) :=
+      Nat.add_assoc base s.pc 1
+    rw [hpc]
+    exact advance_relocated_next (u := u) (p := s.pc + 1) placed hu
+  have load (dst : Fin L.registerCount) (value : Option (Word bits))
+      (hv : value.bind (fun w =>
+        advance localCode (writeReg s dst w) (s.pc + 1)) = some (.next t)) :
+      value.bind (fun w =>
+        advance linkedCode (relocateStatePC base (writeReg s dst w))
+          ((relocateStatePC base s).pc + 1)) =
+        some (.next (relocateStatePC base t)) := by
+    cases value with
+    | none =>
+      change (none : Option (Transition L)) = some (.next t) at hv
+      cases hv
+    | some w =>
+      exact fallthrough (writeReg s dst w) hv
+  cases hf : localCode[s.pc]? with
+  | none =>
+    unfold step at h
+    rw [hf] at h
+    change (none : Option (Transition L)) = some (.next t) at h
+    cases h
+  | some op =>
+    have hg : linkedCode[(relocateStatePC base s).pc]? =
+        some (relocateInstr base op) :=
+      placed s.pc op hf
+    unfold step at h ⊢
+    rw [hf] at h
+    rw [hg]
+    cases op with
+    | imm dst w =>
+      exact fallthrough (writeReg s dst w) h
+    | mov dst src =>
+      exact fallthrough (writeReg s dst (readReg s src)) h
+    | add dst x y =>
+      exact fallthrough (writeReg s dst (add (readReg s x) (readReg s y))) h
+    | sub dst x y =>
+      exact fallthrough (writeReg s dst (sub (readReg s x) (readReg s y))) h
+    | band dst x y =>
+      exact fallthrough (writeReg s dst (band (readReg s x) (readReg s y))) h
+    | loadInput dst addr =>
+      exact load dst (input.words[(readReg s addr).val]?) h
+    | loadData dst addr =>
+      exact load dst (s.data[(readReg s addr).val]?) h
+    | storeData addr src =>
+      let i := (readReg s addr).val
+      let update (hi : i < s.data.size) : State L :=
+        { s with
+          data := s.data.set i (readReg s src) hi
+          data_size := by simp only [Array.size_set, s.data_size] }
+      change
+        (if hi : i < s.data.size then
+          advance localCode (update hi) (s.pc + 1)
+        else none) = some (.next t) at h
+      change
+        (if hi : i < s.data.size then
+          advance linkedCode (relocateStatePC base (update hi))
+            ((relocateStatePC base s).pc + 1)
+        else none) = some (.next (relocateStatePC base t))
+      by_cases hi : i < s.data.size
+      · rw [dif_pos hi] at h ⊢
+        exact fallthrough (update hi) h
+      · rw [dif_neg hi] at h
+        cases h
+    | branchLt x y ltPC gePC =>
+      change advance localCode s
+        (if ltb (readReg s x) (readReg s y) then ltPC else gePC) =
+          some (.next t) at h
+      change advance linkedCode (relocateStatePC base s)
+        (if ltb (readReg s x) (readReg s y) then base + ltPC else base + gePC) =
+          some (.next (relocateStatePC base t))
+      by_cases hb : ltb (readReg s x) (readReg s y)
+      · rw [if_pos hb] at h ⊢
+        exact advance_relocated_next (u := s) (p := ltPC) placed h
+      · rw [if_neg hb] at h ⊢
+        exact advance_relocated_next (u := s) (p := gePC) placed h
+    | goto target =>
+      exact advance_relocated_next (u := s) (p := target) placed h
+    | halt =>
+      change some (Transition.halted s) = some (Transition.next t) at h
+      cases h
+    | shr1 dst src =>
+      exact fallthrough (writeReg s dst (shr1Word (readReg s src))) h
+
+/-- A placed slice reproduces a successful local non-halting execution
+with exactly the same instruction count. Execution uses only the fixed
+linked program; relocation is not a machine step. -/
+theorem Steps.relocate
+    {localCode linkedCode : Program L} {input : Input L} {base n : Nat}
+    {s t : State L}
+    (h : Steps localCode input n s t)
+    (placed : RelocatedSlice (L := L) localCode linkedCode base) :
+    Steps linkedCode input n (relocateStatePC base s) (relocateStatePC base t) := by
+  induction h with
+  | zero u =>
+    exact Steps.zero (relocateStatePC base u)
+  | cons head tail ih =>
+    exact Steps.cons (step_relocated_next placed head) ih
+
+end FixedCodePlacement
+
+end PaperB.RamProgram

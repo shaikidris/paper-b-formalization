@@ -1,0 +1,2 @@
+'PaperB.RamProgram.step_relocated_next' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.Steps.relocate' depends on axioms: [propext, Quot.sound]

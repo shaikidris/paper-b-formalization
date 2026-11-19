@@ -1307,9 +1307,10 @@
         "Give an O(L³) bound independent of graph density, target choice, batch size and previous queries."
       ],
       "evidence": [
-        "evidence/ram-static-lca-audit/verification.json"
+        "evidence/ram-static-lca-audit/verification.json",
+        "evidence/ram-fixed-relocation-audit/verification.json"
       ],
-      "progress": "The fixed RAM LCA worker is proved exact with ten registers, immutable head/parent/depth columns and 14k+19 executed instructions for k jumps. The complete sealed query remains in progress."
+      "progress": "Lean checks that fixed RAM code blocks can be placed at new addresses without changing any successful execution or its exact instruction count. Whole-query linking remains open."
     },
     {
       "id": "EX5.4",

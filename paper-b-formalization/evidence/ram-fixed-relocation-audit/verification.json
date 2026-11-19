@@ -1,0 +1,11 @@
+{
+  "base_commit": "0768140",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "d4bbba2b0d5c26368a32cfc079e4043cc6e176fc59878a36228a7e3dd04739e4",
+  "scope": "Verified fixed-code placement preserves every nonhalting machine step and instruction count, with absolute branch targets relocated before execution.",
+  "remaining": "Bind the placed LCA, search and exit-map workers into one fixed sealed query."
+}

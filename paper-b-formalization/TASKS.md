@@ -471,9 +471,9 @@ Acceptance:
 
 - Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
 
-The fixed RAM LCA worker is proved exact with ten registers, immutable head/parent/depth columns and 14k+19 executed instructions for k jumps. The complete sealed query remains in progress.
+Lean checks that fixed RAM code blocks can be placed at new addresses without changing any successful execution or its exact instruction count. Whole-query linking remains open.
 
-Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json).
+Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json).
 
 <a id="ex54"></a>
 
