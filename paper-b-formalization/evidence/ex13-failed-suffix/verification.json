@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DominatorChain.lean",
+  "sha256": "c189507b5455a75c7d87020832f9a3e021667b6dc1b51bcd3e723e44a38f8ec2",
+  "scope": "Every surviving path to a vertex dominated by d yields a surviving suffix from d under the same failures.",
+  "remaining": "Instantiate quotient flatness and finite adjacency."
+}

@@ -337,9 +337,10 @@
         "evidence/ex13-block-projection/verification.json",
         "evidence/ex13-dominator-segment/verification.json",
         "evidence/ex13-unique-child/verification.json",
-        "evidence/ex13-sibling-blocks/verification.json"
+        "evidence/ex13-sibling-blocks/verification.json",
+        "evidence/ex13-failed-suffix/verification.json"
       ],
-      "progress": "Lean verifies the semantic sibling blocks on original vertex IDs, including root membership, characterization by child dominance and each leader’s own assignment. Generic block projection/lifting and actual subtree entry lemmas build. Assemble the block system, finite quotient arrays, flatness, and exact occurrence budget next."
+      "progress": "Lean extracts the original path suffix starting at a dominator while preserving arbitrary failures. Labelled quotient construction and its occurrence bound remain open."
     },
     {
       "id": "EX1.4",

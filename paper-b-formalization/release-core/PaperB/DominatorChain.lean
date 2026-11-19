@@ -99,4 +99,12 @@ theorem initiallyReachable_suffix_of_dominates (hv : g.InitiallyReachable r v)
     (hd : g.Dominates r d v) : g.InitiallyReachable d v :=
   (split_of_dominates hv hd).2
 
+theorem survivingPath_suffix_of_dominates {failed : Fin g.vertexCount → Prop}
+    (path : g.SurvivingPath failed r v) (hd : g.Dominates r d v) :
+    g.SurvivingPath failed d v := by
+  have hPath : AvoidPath g.HasArc _ r v := path
+  rcases avoid_or_split (d := d) hPath with hAvoid | ⟨_, suffix⟩
+  · exact False.elim (hd (AvoidPath.mono hAvoid (fun _ he => Or.inr he)))
+  · exact suffix
+
 end PaperB.Digraph
