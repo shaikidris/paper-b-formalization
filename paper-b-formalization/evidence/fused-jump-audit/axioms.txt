@@ -1,0 +1,4 @@
+'PaperB.ExitMap.JumpMapRoute.foldFusedAux_registers' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.foldFused_eq_foldTrace' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.foldFused_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.foldFused_steps_le' depends on axioms: [propext, Classical.choice, Quot.sound]

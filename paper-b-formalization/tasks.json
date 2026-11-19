@@ -139,7 +139,8 @@
     "release-core/PaperB/ForestReady.lean": "cuts",
     "release-core/PaperB/OracleRuntimeProof.lean": "oracle",
     "release-core/PaperB/ActualChildRanges.lean": "dominator",
-    "release-core/PaperB/ForestEmbeddingStep.lean": "cuts"
+    "release-core/PaperB/ForestEmbeddingStep.lean": "cuts",
+    "release-core/PaperB/FusedJumpMaps.lean": "exit"
   },
   "milestones": [
     {
@@ -1091,9 +1092,10 @@
       ],
       "evidence": [
         "evidence/ex43-checked-map-fold/verification.json",
-        "evidence/ex43-actual-skew-route/verification.json"
+        "evidence/ex43-actual-skew-route/verification.json",
+        "evidence/fused-jump-audit/verification.json"
       ],
-      "progress": "Lean composes and evaluates stored map records on the actual skew jump trace. The logged move, record probes and map operations have the required logarithmic traversal bound. Exact full record installation remains open."
+      "progress": "The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress."
     },
     {
       "id": "EX4.4",

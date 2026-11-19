@@ -1,0 +1,11 @@
+{
+  "base_commit": "db2f100",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FusedJumpMaps.lean",
+  "sha256": "764fb3fa872f41a5862cc4862a6e8e22dd1f24a5f5a1c1a175ebcd059b553a4d",
+  "scope": "The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop and agrees with the ghost move trace, with one packed record probe and one summary composition per step.",
+  "remaining": "Install composed jump maps on the exact exit records and lower the fused query loop to the sealed indexed word machine."
+}
