@@ -1303,7 +1303,8 @@
         "release-core/PaperB/ForestEndpoints.lean",
         "release-core/PaperB/ForestPreparedHead.lean",
         "release-core/PaperB/ForestWordLaws.lean",
-        "release-core/PaperB/ForestCanonicalLaws.lean"
+        "release-core/PaperB/ForestCanonicalLaws.lean",
+        "release-core/PaperB/MeasuredCutRange.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

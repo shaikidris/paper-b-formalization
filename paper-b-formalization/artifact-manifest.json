@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3475,
-      "sha256": "8d97ef60df84cf52e27291fb8b141521c3d38713539055732dd718be97a3cd11"
+      "bytes": 3556,
+      "sha256": "e6bccc53f0e130f0f5a252dae4b721fd0fa0b6096d28285ba27761add61db763"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 45045,
-      "sha256": "e3b28a4f4260307df44ddc51ebf1d16d6911868767b6460e33ab107100b92238"
+      "bytes": 45228,
+      "sha256": "7342148ad1693908f3e693e14730bf04704051fe2a556bef932c492b58d55111"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 42607,
-      "sha256": "37f5f813c19260fbdb94db1ea0d3240d324a7261f72c9e436341307bf463d2da"
+      "bytes": 42799,
+      "sha256": "64c9d6f00d6cd8346b22c35b7063376b5a023d2ac8af41b05aba440105568130"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2657,6 +2657,21 @@
       "sha256": "66dd3a3932a2b24ecf2ba0350c9530d2b060562b109aeeeea9a9e6f2a0c76a28"
     },
     {
+      "path": "evidence/prepared-parent-audit/Audit.lean",
+      "bytes": 92,
+      "sha256": "ed841d71012cb5987de7a22a55e831463e2395686010b7e92ab85725ad8e061e"
+    },
+    {
+      "path": "evidence/prepared-parent-audit/axioms.txt",
+      "bytes": 108,
+      "sha256": "c8d65ac6532d501c7a4b2e22f9ef62db0b2c99c7f1f6b6f5316359268ed84ede"
+    },
+    {
+      "path": "evidence/prepared-parent-audit/verification.json",
+      "bytes": 681,
+      "sha256": "7d812a655e4767a30f12b0e56bc7af96e8ce2884ce46ff313906bff916a122da"
+    },
+    {
       "path": "evidence/public-lean-flatmap-split/FlatMapSplit.lean",
       "bytes": 364,
       "sha256": "bcd8a6c3ba5384b240d7650ffc7a0f8f7e2d5eac04e6bee94199d34e1ab69965"
@@ -2898,8 +2913,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 41429,
-      "sha256": "aff89e77704840852e559ea1e7fee965143c6a41a2aef4a42780a920adc91a31"
+      "bytes": 41482,
+      "sha256": "fd5e91e2739dce6687a099ec64d4124796368d2ebe20a2ad1ae7135738105bea"
     },
     {
       "path": "obligations.json",
@@ -3128,8 +3143,8 @@
     },
     {
       "path": "release-core/PaperB/ForestActualStep.lean",
-      "bytes": 8216,
-      "sha256": "51ad192561525c8cc5f04b530d84be705b6f112713240163c4b913ee071899c2"
+      "bytes": 12449,
+      "sha256": "4bda1a5d8f77984bcd1bb231701aa5dd4532289eff7fafff758174d14b4371e4"
     },
     {
       "path": "release-core/PaperB/ForestBuild.lean",
@@ -3688,8 +3703,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 63647,
-      "sha256": "89e3dce68f55f2cd111b3f576674d9ced93e1a0634d8a44d54ab7b9810b8c067"
+      "bytes": 63788,
+      "sha256": "f430d598987ffb346b8991cabb6709acacc20e7c0816136d2fe5e319d4fa8363"
     },
     {
       "path": "test_plan.py",

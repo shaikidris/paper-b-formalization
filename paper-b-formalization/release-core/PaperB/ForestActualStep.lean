@@ -1,3 +1,4 @@
+import PaperB.MeasuredCutRange
 import PaperB.ForestCompactFold
 import PaperB.ForestEndpoints
 import PaperB.ForestPreparedHead
@@ -212,3 +213,100 @@ theorem prepared_step_invariant
 
 end PreparedSweep
 end EX24
+
+namespace EX24.PreparedSweep
+
+open PaperB PaperB.ForestHead EX24.PreStep
+
+private theorem packed_nodeAt_lt_next
+    {H : LabelledQuotient} {F : JumpForest}
+    (c : Config H) (s : State H)
+    (g : Grounded c.usePackedWords F s.tables)
+    (a : Fin F.size) (d : Nat)
+    (hd : d ≤ (selectors c.usePackedWords s).depth a.val) :
+    nodeAt (selectors c.usePackedWords s) a.val d < s.tables.next := by
+  have w := wordLaws_of_packed_grounded c s g
+  rw [← g.size_eq]
+  by_cases hz : d = 0
+  · subst d
+    rw [w.node_zero a.val]
+    have ha := a.isLt
+    omega
+  · have hp : 0 < d := by omega
+    rw [w.node_pos a.val d hp hd, w.at_depth a d hp hd]
+    exact
+      (climb (boundedJumpParent g.layout.valid)
+        ((selectors c.usePackedWords s).depth a.val - d) a).isLt
+
+theorem runPrepared_parent_occupied
+    {H : LabelledQuotient} {c : Config H} {s : State H}
+    {F : JumpForest} {rank : Vertex H → Nat}
+    {up : Fin F.size → Fin F.size} {row : Row H}
+    (hc : c.usePackedWords = c)
+    (E : Embedding c s F rank up (fun v => rank v < rank row.head))
+    (g : Grounded c F s.tables)
+    (T : TestSpec row.head row.tests)
+    (rankArc : ∀ u v : Vertex H, H.HasQuotientArc u v → rank u < rank v) :
+    (ForestHead.runPrepared (selectors c s) rank row.head row.tests).step.parent
+      < s.tables.next := by
+  have gp : Grounded c.usePackedWords F s.tables := by
+    simpa only [hc] using g
+  -- At positive depth this is the occupancy consequence of packed WordLaws.at_depth.
+  have read_lt (a : Fin F.size) (d : Nat)
+      (hd : d ≤ (selectors c s).depth a.val) :
+      ForestHead.nodeAt (selectors c s) a.val d < s.tables.next := by
+    have hdp : d ≤ (selectors c.usePackedWords s).depth a.val := by
+      simpa only [hc] using hd
+    simpa only [hc] using packed_nodeAt_lt_next c s gp a d hdp
+  have hroot : 0 < s.tables.next := by
+    obtain ⟨_, inv⟩ := g.layout.valid.exists_forestInvariant
+    simpa only [g.size_eq] using inv.size_pos
+  cases hp : ForestHead.planPrepared rank row.head row.tests with
+  | none =>
+      simpa only [ForestHead.runPrepared, hp, ForestHead.stopped, ForestHead.finish]
+        using hroot
+  | some plan =>
+      rcases plan with ⟨m, key⟩
+      have hmax : PaperB.LabelledQuotient.maxByRank rank row.tests = some m := by
+        unfold ForestHead.planPrepared at hp
+        split at hp
+        · simp at hp
+        · split at hp
+          · simp at hp
+          · cases hm : PaperB.LabelledQuotient.maxByRank rank row.tests with
+            | none => simp [hm] at hp
+            | some a =>
+                simp only [hm, Option.map, Option.some.injEq] at hp
+                exact congrArg Option.some (congrArg Prod.fst hp)
+      have hmem : m ∈ row.tests := max_mem rank hmax
+      have harc : H.HasQuotientArc m row.head := by
+        first
+        | exact (T.cover m).mp hmem
+        | exact (T.cover m).mpr hmem
+        | exact T.cover.mp hmem
+        | exact T.cover.mpr hmem
+        | exact T.cover m hmem
+        | exact T.cover hmem
+        | exact arc_of_pred_mem ((T.cover m).mp hmem)
+        | exact arc_of_pred_mem ((T.cover m).mpr hmem)
+        | exact arc_of_pred_mem (by simpa only [T.cover] using hmem)
+        | exact arc_of_pred_mem (by simpa only [← T.cover] using hmem)
+      have hearlier : rank m < rank row.head := rankArc m row.head harc
+      have hlabel : (selectors c s).label m < F.size := by
+        first
+        | exact E.label_lt m hearlier
+        | exact E.label_lt hearlier
+      let d := (ForestHead.active (selectors c s) row.tests m key).search.cut
+      have hd : d ≤ (selectors c s).depth ((selectors c s).label m) := by
+        dsimp only [d, ForestHead.active, ForestHead.measuredLog]
+        exact Nat.le_of_lt_succ
+          (ForestHead.measuredSearch_cut_lt_hi _ _ 0 _ (Nat.zero_lt_succ _))
+      simp only [ForestHead.runPrepared, hp]
+      change ForestHead.nodeAt (selectors c s) ((selectors c s).label m) d
+        < s.tables.next
+      by_cases hz : d = 0
+      · simpa only [ForestHead.nodeAt, if_pos hz] using hroot
+      · simpa only [ForestHead.nodeAt, if_neg hz] using
+          read_lt (⟨(selectors c s).label m, hlabel⟩ : Fin F.size) d hd
+
+end EX24.PreparedSweep

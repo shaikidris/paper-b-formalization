@@ -901,9 +901,10 @@
         "evidence/forest-exact-dict-audit/verification.json",
         "evidence/forest-actual-step-audit/verification.json",
         "evidence/measured-cut-audit/verification.json",
-        "evidence/compact-loop-public-audit/verification.json"
+        "evidence/compact-loop-public-audit/verification.json",
+        "evidence/prepared-parent-audit/verification.json"
       ],
-      "progress": "The existing verified compact fold is exposed to the whole-run proof without duplicating the executable loop.",
+      "progress": "The selected parent is proved occupied before installation for every actual prepared head. The proof uses only always-valid range, the checked prefix mapping and exact packed ancestor reads.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

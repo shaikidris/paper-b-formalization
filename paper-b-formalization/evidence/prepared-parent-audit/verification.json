@@ -1,0 +1,11 @@
+{
+  "base_commit": "fa668da",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestActualStep.lean",
+  "sha256": "4bda1a5d8f77984bcd1bb231701aa5dd4532289eff7fafff758174d14b4371e4",
+  "scope": "Every active prepared head uses its exact earlier predecessor label and the actual measured search range, hence selects an occupied packed parent. Stopped heads select the occupied root. No search monotonicity premise or installation success is assumed.",
+  "remaining": "Apply this checked local result at each row of the totality theorem and tally all word accesses."
+}
