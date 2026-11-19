@@ -58,9 +58,9 @@ Acceptance:
 - Define all four resource observables, including construction temporaries and input-sized addresses for parallel arcs.
 - Use the existing word-machine definitions where the primitive bounds match. Check address fit, determinism, logarithmic word width, and the cost of comparisons, lowbit and allocation.
 
-Lean verifies bounded words and actual fixed-capacity interpreter traces. Successful execution and its exact count are independent of fuel, and the fixed-layout trace peak is checked. The sealed-index adapter, layout initialization and retained output still need charging.
+The interpreter, trace invariants and sealed build resource formulas check. The simultaneous seal-copy peak and retained prefix size follow from the actual allocation and copy. Query composition remains open.
 
-Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json), [evidence/ex03-word-operations/verification.json](evidence/ex03-word-operations/verification.json), [evidence/ex03-ram-program/verification.json](evidence/ex03-ram-program/verification.json), [evidence/ex03-ram-traces/verification.json](evidence/ex03-ram-traces/verification.json).
+Planning/evidence references: [evidence/ex03-machine-foundation/verification.json](evidence/ex03-machine-foundation/verification.json), [evidence/ex03-word-operations/verification.json](evidence/ex03-word-operations/verification.json), [evidence/ex03-ram-program/verification.json](evidence/ex03-ram-program/verification.json), [evidence/ex03-ram-traces/verification.json](evidence/ex03-ram-traces/verification.json), [evidence/ex03-sealed-build/verification.json](evidence/ex03-sealed-build/verification.json).
 
 <a id="ex11"></a>
 

@@ -1,0 +1,11 @@
+{
+  "base_commit": "fea770494aff649d9b548f29dc201c513253bfb5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SealedBuild.lean",
+  "sha256": "c967983dd6d96f8a0ea2dbfff57f03c654c9ff986f52008611d63b0fbd4c7195",
+  "scope": "A halted fixed-bytecode build seals exactly the selected prefix, counts initialized words and the copy, and measures simultaneous input, registers, workspace and sealed output.",
+  "remaining": "Compose both phases and charge fixed control metadata. Graph serialization and the actual algorithms remain separate."
+}

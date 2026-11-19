@@ -60,7 +60,8 @@
     "release-core/PaperB/SiblingPartition.lean": "dominator",
     "release-core/PaperB/SiblingBlocks.lean": "dominator",
     "release-core/PaperB/Indegrees.lean": "graph",
-    "release-core/PaperB/SiblingBlockSystem.lean": "dominator"
+    "release-core/PaperB/SiblingBlockSystem.lean": "dominator",
+    "release-core/PaperB/SealedBuild.lean": "cost model"
   },
   "milestones": [
     {
@@ -229,9 +230,10 @@
         "evidence/ex03-machine-foundation/verification.json",
         "evidence/ex03-word-operations/verification.json",
         "evidence/ex03-ram-program/verification.json",
-        "evidence/ex03-ram-traces/verification.json"
+        "evidence/ex03-ram-traces/verification.json",
+        "evidence/ex03-sealed-build/verification.json"
       ],
-      "progress": "Lean verifies bounded words and actual fixed-capacity interpreter traces. Successful execution and its exact count are independent of fuel, and the fixed-layout trace peak is checked. The sealed-index adapter, layout initialization and retained output still need charging."
+      "progress": "The interpreter, trace invariants and sealed build resource formulas check. The simultaneous seal-copy peak and retained prefix size follow from the actual allocation and copy. Query composition remains open."
     },
     {
       "id": "EX1.1",

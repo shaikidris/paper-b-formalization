@@ -1,0 +1,20 @@
+'PaperB.SealedBuild.copyPrefix_size' depends on axioms: [propext]
+'PaperB.SealedBuild.copyPrefix_fits' depends on axioms: [propext]
+'PaperB.SealedBuild.copyPrefix_getElem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.SealedBuild.build_spec' depends on axioms: [propext, Quot.sound]
+@PaperB.SealedBuild.build_spec : ∀ {bits : Nat} {L : PaperB.RamProgram.Layout bits}
+  {cfg : PaperB.SealedBuild.SealLayout L} {code : PaperB.RamProgram.Program L}
+  {words : Array (PaperB.Machine.Word bits)} {words_size : words.size = L.inputCap} {fuel : Nat}
+  {o : PaperB.SealedBuild.Observation bits},
+  PaperB.SealedBuild.build cfg code words words_size fuel = some o →
+    ∃ r,
+      PaperB.RamProgram.run code { words := words, size_eq := words_size } fuel (PaperB.SealedBuild.initialState L) =
+          some r ∧
+        o.sealedWords = PaperB.SealedBuild.copyPrefix cfg r.finalState ∧
+          o.sealedWords.size = cfg.k ∧
+            o.sealedWords.size ≤ 2 ^ bits ∧
+              o.steps = r.executed ∧
+                r.executed ≤ fuel ∧
+                  o.operations = o.steps + L.registerCount + L.workCap + cfg.k ∧
+                    o.peakConstructionWords = words.size + L.registerCount + L.workCap + cfg.k ∧
+                      o.retainedWords = o.sealedWords.size
