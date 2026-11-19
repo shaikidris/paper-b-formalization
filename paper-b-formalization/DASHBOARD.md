@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — Lean verifies executable Kahn ordering, reachability, compact ID maps and a compact adjacency array whose decoded rows equal the original rows including repeats. Original failure and target transport and full normalization accounting remain open.
+- [EX1.1](TASKS.md#ex11) — The path-preserving equivalence for the actual compact graph transports arbitrary deleted predicates through inverse IDs, including length-zero paths and endpoints. Combine with executable failure-set and target encoding and decreasing-index model.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — Lean verifies the actual finite quotient’s path equivalence and flatness. Across all distinct reachable roots the emitted adjacency arrays contain at most m original arc occurrences. The actual vertex-copy bound and formal task closure remain open.
 - [EX1.5](TASKS.md#ex15) — Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.

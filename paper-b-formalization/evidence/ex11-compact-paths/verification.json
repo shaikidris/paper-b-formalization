@@ -1,0 +1,11 @@
+{
+  "base_commit": "b0c75f1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/CompactPaths.lean",
+  "sha256": "f7927f304767fae3d1930c7d511b3ebd70857ab2c66b997d39d38fc8565c01c0",
+  "scope": "The path-preserving equivalence for the actual compact graph transports arbitrary deleted predicates through inverse IDs, including length-zero paths and endpoints.",
+  "remaining": "Combine with executable failure-set and target encoding and decreasing-index model."
+}

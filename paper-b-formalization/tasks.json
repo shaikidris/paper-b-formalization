@@ -78,7 +78,8 @@
     "release-core/PaperB/QuotientArrayCounts.lean": "dominator",
     "release-core/PaperB/CompactGraph.lean": "graph",
     "release-core/PaperB/FiniteSiblingBudget.lean": "dominator",
-    "release-core/PaperB/ForestLayout.lean": "cuts"
+    "release-core/PaperB/ForestLayout.lean": "cuts",
+    "release-core/PaperB/CompactPaths.lean": "graph"
   },
   "milestones": [
     {
@@ -301,9 +302,10 @@
         "evidence/ex11-kahn-topological/verification.json",
         "evidence/ex11-kahn-exact-counts/verification.json",
         "evidence/ex11-compact-id-maps/verification.json",
-        "evidence/ex11-compact-graph/verification.json"
+        "evidence/ex11-compact-graph/verification.json",
+        "evidence/ex11-compact-paths/verification.json"
       ],
-      "progress": "Lean verifies executable Kahn ordering, reachability, compact ID maps and a compact adjacency array whose decoded rows equal the original rows including repeats. Original failure and target transport and full normalization accounting remain open."
+      "progress": "The path-preserving equivalence for the actual compact graph transports arbitrary deleted predicates through inverse IDs, including length-zero paths and endpoints. Combine with executable failure-set and target encoding and decreasing-index model."
     },
     {
       "id": "EX1.2",
