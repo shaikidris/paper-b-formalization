@@ -184,9 +184,9 @@ Acceptance:
 - Prove interval ancestry and child lookup in O(1) and O(L) operations respectively, including both range endpoints.
 - Use maximum subtree-size heavy children to bound light-edge crossings; prove O(L) per original-tree LCA, O(n) shared words, and construction within the oracle budget.
 
-The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings. Construct and verify the actual head table and static child interval lookup.
+The executable head-table sweep writes exactly one head per vertex in preorder and produces a valid array-backed static heavy-path LCA lookup from correct parent and size arrays. Instantiate the ordinary-tree layout, add the child interval lookup and charge all packed array construction phases.
 
-Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json).
+Planning/evidence references: [evidence/ex16-heavy-child/verification.json](evidence/ex16-heavy-child/verification.json), [evidence/ex16-heavy-path-lca/verification.json](evidence/ex16-heavy-path-lca/verification.json), [evidence/ex16-static-head-words/verification.json](evidence/ex16-static-head-words/verification.json).
 
 <a id="ex21"></a>
 

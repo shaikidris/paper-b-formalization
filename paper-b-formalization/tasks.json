@@ -119,7 +119,8 @@
     "extensions/GuardedWitness.lean": "application",
     "release-core/PaperB/ExitMapRetention.lean": "oracle",
     "release-core/PaperB/JumpMapFold.lean": "oracle",
-    "release-core/PaperB/ConcreteDomOps.lean": "dominator"
+    "release-core/PaperB/ConcreteDomOps.lean": "dominator",
+    "release-core/PaperB/StaticHeadSweep.lean": "dominator"
   },
   "milestones": [
     {
@@ -565,9 +566,10 @@
       ],
       "evidence": [
         "evidence/ex16-heavy-child/verification.json",
-        "evidence/ex16-heavy-path-lca/verification.json"
+        "evidence/ex16-heavy-path-lca/verification.json",
+        "evidence/ex16-static-head-words/verification.json"
       ],
-      "progress": "The static heavy-path LCA kernel uses only supplied correct head, depth, parent and subtree-size tables. The proof checks exactness and logarithmic light-edge crossings. Construct and verify the actual head table and static child interval lookup."
+      "progress": "The executable head-table sweep writes exactly one head per vertex in preorder and produces a valid array-backed static heavy-path LCA lookup from correct parent and size arrays. Instantiate the ordinary-tree layout, add the child interval lookup and charge all packed array construction phases."
     },
     {
       "id": "EX2.1",

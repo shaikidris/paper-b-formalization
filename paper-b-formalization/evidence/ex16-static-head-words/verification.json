@@ -1,0 +1,11 @@
+{
+  "base_commit": "2928b5d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticHeadSweep.lean",
+  "sha256": "5fa167a6b0f7c7f8875aff8752f19b3f3a4e7d2ddaea2a1c1eac35b115a84fe9",
+  "scope": "The executable head-table sweep writes exactly one head per vertex in preorder and produces a valid array-backed static heavy-path LCA lookup from correct parent and size arrays.",
+  "remaining": "Instantiate the ordinary-tree layout, add the child interval lookup and charge all packed array construction phases."
+}

@@ -1,0 +1,3 @@
+'PaperB.StaticHeadSweep.build_read_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticHeadSweep.build_write_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticHeadSweep.valid' depends on axioms: [propext, Classical.choice, Quot.sound]

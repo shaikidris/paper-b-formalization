@@ -237,7 +237,8 @@
         "release-core/PaperB/Dom.lean",
         "release-core/PaperB/Machine.lean",
         "release-core/PaperB/HeavyChild.lean",
-        "release-core/PaperB/StaticHeavyLCA.lean"
+        "release-core/PaperB/StaticHeavyLCA.lean",
+        "release-core/PaperB/StaticHeadSweep.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
@@ -923,6 +924,15 @@
       "local_imports": [
         "release-core/PaperB/DomBuildStep.lean",
         "release-core/PaperB/DomPredecessorFold.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticHeadSweep.lean",
+      "local_imports": [
+        "release-core/PaperB/StaticHeavyLCA.lean",
+        "release-core/PaperB/HeavyChild.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"
