@@ -1,0 +1,11 @@
+{
+  "base_commit": "54bd61e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/CommonAncestorSearch.lean",
+  "sha256": "3e4d0067886cbf88932922e72e4520c5932a3fd7986ab3f0c114245a43350d07",
+  "scope": "Executable binary search for the deepest common depth under downward-closed ancestor agreement. At most logarithmically many two-getter tests and one output lookup, explicitly charged.",
+  "remaining": "Prove the exact monotonicity of calls to the existing jump word kernel and build the topological predecessor fold."
+}

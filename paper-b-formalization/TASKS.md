@@ -163,9 +163,9 @@ Acceptance:
 - Prove that the immediate dominator of a reachable nonroot equals the LCA of its predecessors in the partial tree and that leaf insertion preserves all earlier ancestor relations, or provide a costed Lengauer–Tarjan implementation.
 - For the DAG route, bound depth search, leaf insertion and all predecessor folds within O((n+m)L³) operations and O(n+m) peak words. State separately if the faster subroutine bound in Section 2 is established.
 
-Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.
+Lean verifies the predecessor-LCA characterization and the logarithmic deepest-common-depth search. Jump getter instantiation, topological fold and whole-constructor costs remain open.
 
-Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json).
+Planning/evidence references: [evidence/ex15-predecessor-lca/verification.json](evidence/ex15-predecessor-lca/verification.json), [evidence/ex15-common-depth-search/verification.json](evidence/ex15-common-depth-search/verification.json).
 
 <a id="ex16"></a>
 
