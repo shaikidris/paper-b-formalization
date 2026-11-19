@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX1.1](TASKS.md#ex11) — Lean verifies exact reachable marks given a valid order and exact indegree counts. The Kahn loop executes and reports local traversal and stop specifications. Queue invariants, final order correctness and charged ID compaction remain open.
+- [EX1.1](TASKS.md#ex11) — Lean checks the exact reachability scan, indegrees and executable Kahn queue. Each processing step subtracts exactly the multiplicities in the processed row and preserves the queue prefix. Global queue invariants, final topological order and executable compaction remain.
 - [EX1.2](TASKS.md#ex12) — Lean verifies the ordinary dominator tree semantically on every acyclic input, with ancestral equivalence on all reachable vertices. The proof refines any topological rank to an injective one and verifies strict descent for the parent. EX1.2’s tracker closure awaits EX1.1; the executable predecessor-LCA constructor remains under EX1.5.
 - [EX1.3](TASKS.md#ex13) — Lean constructs the semantic sibling blocks of the original DAG, proves internal paths and unique entry, proves exact projection/lifting and verifies flatness under every single nonroot failure. The finite labelled adjacency representation and total occurrence budget remain open.
 - [EX1.5](TASKS.md#ex15) — Lean verifies the semantic LCA recurrence on all reachable predecessors. The executable growing-tree fold and topological scan, resource costs and full constructor proof remain open.

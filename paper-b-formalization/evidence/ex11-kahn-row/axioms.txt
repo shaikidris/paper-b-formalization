@@ -1,0 +1,10 @@
+'PaperB.Kahn.visit_degree' depends on axioms: [propext]
+'PaperB.Kahn.visitRow_degree' depends on axioms: [propext]
+'PaperB.Kahn.visit_queue_toList' depends on axioms: [propext]
+'PaperB.Kahn.visitRow_queue_tail' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.visitRow_queue_prefix' depends on axioms: [propext, Quot.sound]
+'PaperB.Kahn.processHead_degree' depends on axioms: [propext]
+'PaperB.Kahn.processHead_queue_prefix' depends on axioms: [propext, Quot.sound]
+PaperB.Kahn.processHead_degree : ∀ (g : PaperB.Digraph) (s : PaperB.Kahn.State g.vertexCount)
+  (h : s.head < s.queue.size) (v : Fin g.vertexCount),
+  (PaperB.Kahn.processHead g s h).degree v = s.degree v - PaperB.Digraph.countOccurrence v (g.outArcs s.queue[s.head])

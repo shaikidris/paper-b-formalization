@@ -177,5 +177,96 @@ theorem run_stop_spec (g : Digraph) :
   unfold run
   exact scan_stop_spec g g.vertexCount _
 
+
+open Digraph
+
+private theorem remaining_getElem?_degree {n : Nat} (s : State n) (v : Fin n) :
+    s.remaining[v.val]? = some (s.degree v) := by
+  have hv : v.val < s.remaining.size := by
+    simpa only [s.remaining_size] using v.isLt
+  exact Array.getElem?_eq_getElem hv
+
+/-- Only the visited vertex's degree is decremented, with `Nat` saturation. -/
+theorem visit_degree {n : Nat} (s : State n) (w v : Fin n) :
+    (visit s w).degree v = s.degree v - (if w = v then 1 else 0) := by
+  apply Option.some.inj
+  rw [← remaining_getElem?_degree (visit s w) v]
+  change (s.remaining.setIfInBounds w.val (s.degree w - 1))[v.val]? =
+    some (s.degree v - (if w = v then 1 else 0))
+  by_cases h : w = v
+  · subst w
+    rw [ite_eq_left rfl]
+    exact Array.getElem?_setIfInBounds_self_of_lt
+      (by simpa only [s.remaining_size] using v.isLt)
+  · have hval : w.val ≠ v.val := fun he => h (Fin.ext he)
+    rw [ite_eq_right h, Nat.sub_zero, ← remaining_getElem?_degree s v]
+    first
+    | exact Array.getElem?_setIfInBounds_ne hval
+    | exact Array.getElem?_setIfInBounds_ne (Ne.symm hval)
+
+/-- Each occurrence contributes one to the total decrement, including repeats. -/
+theorem visitRow_degree {n : Nat} (row : List (Fin n)) (s : State n)
+    (v : Fin n) :
+    (visitRow row s).degree v = s.degree v - countOccurrence v row := by
+  induction row generalizing s with
+  | nil => simp [visitRow, countOccurrence]
+  | cons w ws ih =>
+      simp only [visitRow, ih, visit_degree, Nat.sub_sub, countOccurrence]
+
+theorem visit_queue_toList {n : Nat} (s : State n) (w : Fin n) :
+    (visit s w).queue.toList =
+      s.queue.toList ++ (if s.degree w = 1 then [w] else []) := by
+  by_cases h : s.degree w = 1 <;> simp [visit, h, Array.toList_push]
+
+/-- The old queue is an unchanged prefix. Every appended vertex occurs in the
+    row, had positive degree before the row, and has degree zero afterward. -/
+theorem visitRow_queue_tail {n : Nat} (row : List (Fin n)) (s : State n) :
+    ∃ tail : List (Fin n),
+      (visitRow row s).queue.toList = s.queue.toList ++ tail ∧
+      ∀ v ∈ tail, v ∈ row ∧ 0 < s.degree v ∧ (visitRow row s).degree v = 0 := by
+  induction row generalizing s with
+  | nil =>
+      exact ⟨[], by simp [visitRow], by simp⟩
+  | cons w ws ih =>
+      obtain ⟨tail, hq, ht⟩ := ih (visit s w)
+      refine ⟨(if s.degree w = 1 then [w] else []) ++ tail, ?_, ?_⟩
+      · change (visitRow ws (visit s w)).queue.toList = _
+        rw [hq, visit_queue_toList, List.append_assoc]
+      · intro v hv
+        rcases List.mem_append.mp hv with hv | hv
+        · by_cases h : s.degree w = 1
+          · have he : v = w := by simpa [h] using hv
+            subst v
+            refine ⟨by simp, by simp [h], ?_⟩
+            change (visitRow ws (visit s w)).degree w = 0
+            simp [visitRow_degree, visit_degree, h]
+          · simp [h] at hv
+        · obtain ⟨hm, hp, hz⟩ := ht v hv
+          rw [visit_degree] at hp
+          exact ⟨List.mem_cons_of_mem _ hm,
+            Nat.lt_of_lt_of_le hp (Nat.sub_le _ _), hz⟩
+
+theorem visitRow_queue_prefix {n : Nat} (row : List (Fin n)) (s : State n)
+    {i : Nat} (hi : i < s.queue.size) :
+    (visitRow row s).queue[i]? = s.queue[i]? := by
+  obtain ⟨tail, hq, _⟩ := visitRow_queue_tail row s
+  have hi' : i < s.queue.toList.length := by simpa using hi
+  have hp : (visitRow row s).queue.toList[i]? = s.queue.toList[i]? := by
+    rw [hq]
+    exact List.getElem?_append_left hi'
+  simpa using hp
+
+theorem processHead_degree (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) (v : Fin g.vertexCount) :
+    (processHead g s h).degree v =
+      s.degree v - countOccurrence v (g.outArcs (s.queue[s.head]'h)) :=
+  visitRow_degree (g.outArcs (s.queue[s.head]'h)) s v
+
+theorem processHead_queue_prefix (g : Digraph) (s : State g.vertexCount)
+    (h : s.head < s.queue.size) {i : Nat} (hi : i < s.queue.size) :
+    (processHead g s h).queue[i]? = s.queue[i]? :=
+  visitRow_queue_prefix (g.outArcs (s.queue[s.head]'h)) s hi
+
+
 end Kahn
 end PaperB

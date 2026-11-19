@@ -79,9 +79,9 @@ Acceptance:
 - Prove translation to the retained DAG preserves every original query, including failed targets and discarded identifiers.
 - Relate arbitrary IDs and counted parallel input entries to the existing decreasing-index ReachAvoid specification. Charge constructing the ordering and reachability mask in the executable branch.
 
-Lean verifies exact reachable marks given a valid order and exact indegree counts. The Kahn loop executes and reports local traversal and stop specifications. Queue invariants, final order correctness and charged ID compaction remain open.
+Lean checks the exact reachability scan, indegrees and executable Kahn queue. Each processing step subtracts exactly the multiplicities in the processed row and preserves the queue prefix. Global queue invariants, final topological order and executable compaction remain.
 
-Planning/evidence references: [evidence/ex11-retained-graph/verification.json](evidence/ex11-retained-graph/verification.json), [evidence/ex11-reach-scan/verification.json](evidence/ex11-reach-scan/verification.json), [evidence/ex11-reach-sound/verification.json](evidence/ex11-reach-sound/verification.json), [evidence/ex11-reach-scan-correct/verification.json](evidence/ex11-reach-scan-correct/verification.json), [evidence/ex11-indegree-prepass/verification.json](evidence/ex11-indegree-prepass/verification.json), [evidence/ex11-kahn-loop/verification.json](evidence/ex11-kahn-loop/verification.json).
+Planning/evidence references: [evidence/ex11-retained-graph/verification.json](evidence/ex11-retained-graph/verification.json), [evidence/ex11-reach-scan/verification.json](evidence/ex11-reach-scan/verification.json), [evidence/ex11-reach-sound/verification.json](evidence/ex11-reach-sound/verification.json), [evidence/ex11-reach-scan-correct/verification.json](evidence/ex11-reach-scan-correct/verification.json), [evidence/ex11-indegree-prepass/verification.json](evidence/ex11-indegree-prepass/verification.json), [evidence/ex11-kahn-loop/verification.json](evidence/ex11-kahn-loop/verification.json), [evidence/ex11-kahn-row/verification.json](evidence/ex11-kahn-row/verification.json).
 
 <a id="ex12"></a>
 

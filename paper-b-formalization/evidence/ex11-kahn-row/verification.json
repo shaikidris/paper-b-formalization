@@ -1,0 +1,11 @@
+{
+  "base_commit": "0043dc8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Kahn.lean",
+  "sha256": "fe2072551bd46a55ae62002d70faa6164a89a206809991e7f0f8b8f288eba602",
+  "scope": "One actual row visit subtracts exactly that row’s incoming occurrences per target and preserves the prior queue prefix.",
+  "remaining": "Prove no duplicate enqueue and exact zero-degree queue membership, lift to the global residual-graph invariant, prove resulting order and charge compaction."
+}
