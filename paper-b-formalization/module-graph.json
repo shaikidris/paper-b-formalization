@@ -313,7 +313,8 @@
         "release-core/PaperB/ForestActualFull.lean",
         "release-core/PaperB/ForestPhysicalReflection.lean",
         "release-core/PaperB/ForestMeasuredWork.lean",
-        "release-core/PaperB/ForestPhysicalIntervals.lean"
+        "release-core/PaperB/ForestPhysicalIntervals.lean",
+        "release-core/PaperB/ForestSiteDepth.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1439,6 +1440,15 @@
         "release-core/PaperB/ForestTopologicalTotal.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestSiteDepth.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestMeasuredWork.lean",
+        "release-core/PaperB/ForestPhysicalReflection.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

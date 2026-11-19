@@ -1,0 +1,11 @@
+{
+  "base_commit": "0768140",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestSiteDepth.lean",
+  "sha256": "54729327ba49ef26d042dbe20423b8974228cddb8d6324d096e1bf2da8e9ba4f",
+  "scope": "Grounded prepared prefixes satisfy the measured work local site premises. Physical parent indices bound the jump depth by the current occupied slot and hence by the quotient size.",
+  "remaining": "Propagate the local bound through the complete compact fold and meter the remaining exact word-level effects and workspace."
+}

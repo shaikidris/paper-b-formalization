@@ -205,3 +205,4 @@
 {"at": "2026-11-19T23:41:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPhysicalIntervals", "tasks": ["EX2.4"], "evidence": "evidence/forest-physical-intervals-audit/verification.json"}
 {"at": "2026-11-19T23:41:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestEventChronology", "tasks": ["EX4.2"], "evidence": "evidence/forest-event-chronology-audit/verification.json"}
 {"at": "2026-11-19T23:44:21+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX5.3"], "evidence": "evidence/ram-fixed-relocation-audit/verification.json"}
+{"at": "2026-11-19T23:44:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestSiteDepth", "tasks": ["EX2.4"], "evidence": "evidence/forest-site-depth-audit/verification.json"}

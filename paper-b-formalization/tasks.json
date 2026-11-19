@@ -172,7 +172,8 @@
     "release-core/PaperB/ForestPhysicalReflection.lean": "cuts",
     "release-core/PaperB/ForestMeasuredWork.lean": "cuts",
     "release-core/PaperB/ForestPhysicalIntervals.lean": "cuts",
-    "release-core/PaperB/ForestEventChronology.lean": "exit"
+    "release-core/PaperB/ForestEventChronology.lean": "exit",
+    "release-core/PaperB/ForestSiteDepth.lean": "cuts"
   },
   "milestones": [
     {
@@ -916,9 +917,10 @@
         "evidence/forest-actual-full-audit/verification.json",
         "evidence/forest-reflection-audit/verification.json",
         "evidence/forest-measured-work-audit/verification.json",
-        "evidence/forest-physical-intervals-audit/verification.json"
+        "evidence/forest-physical-intervals-audit/verification.json",
+        "evidence/forest-site-depth-audit/verification.json"
       ],
-      "progress": "The exact physical DFS membership reader is verified on the final grounded records. Known-node tests use constant-time entry/stop comparisons and dictionary lookup stays logarithmic.",
+      "progress": "Prepared heads now have checked local site premises and selected-pivot depth bounds from real grounded prefixes. Aggregate word-level accounting and full oracle integration remain in progress.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
