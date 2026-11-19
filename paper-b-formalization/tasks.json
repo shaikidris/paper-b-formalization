@@ -100,7 +100,8 @@
     "release-core/PaperB/PairKeyMerge.lean": "cuts",
     "release-core/PaperB/ThirdBlock.lean": "dominator",
     "release-core/PaperB/ForestLayoutRefine.lean": "cuts",
-    "release-core/PaperB/DomPredecessorFold.lean": "dominator"
+    "release-core/PaperB/DomPredecessorFold.lean": "dominator",
+    "release-core/PaperB/LastExit.lean": "dominator"
   },
   "milestones": [
     {
@@ -466,9 +467,10 @@
         "evidence/ex14-both-exits/verification.json",
         "evidence/ex14-forward-last-exit/verification.json",
         "evidence/ex14-third-block-lift/verification.json",
-        "evidence/ex14-third-block-equivalence/verification.json"
+        "evidence/ex14-third-block-equivalence/verification.json",
+        "evidence/ex14-third-block-lca/verification.json"
       ],
-      "progress": "Every original third-block query is equivalent to a failure-block-free path in the finite sibling quotient or a reachable physical exit tail for one of the failed blocks. Replace the reachable-tail disjunction by exact ordinary-tree LCA tests."
+      "progress": "Lean verifies the original third-block query using both unique actual physical-tail LCAs. It proves both tail lists nonempty, ties each tail to its original block, and checks the exact inclusive ancestry condition. Final named branch composition remains open."
     },
     {
       "id": "EX1.5",

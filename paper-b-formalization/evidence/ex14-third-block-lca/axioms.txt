@@ -1,0 +1,3 @@
+'PaperB.Digraph.lemma22_exitTail_provenance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_third_endpoint_tail_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Digraph.lemma22_third_properLoss_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -118,7 +118,8 @@
         "release-core/PaperB/SiblingVertexBudget.lean",
         "release-core/PaperB/ExitNonempty.lean",
         "release-core/PaperB/ThirdBlockLift.lean",
-        "release-core/PaperB/ThirdBlock.lean"
+        "release-core/PaperB/ThirdBlock.lean",
+        "release-core/PaperB/LastExit.lean"
       ],
       "owner_role": "oracle",
       "admission": "ORACLE_CORE"
@@ -742,6 +743,17 @@
       "local_imports": [
         "release-core/PaperB/JumpLCA.lean",
         "release-core/PaperB/Graph.lean"
+      ],
+      "owner_role": "dominator",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/LastExit.lean",
+      "local_imports": [
+        "release-core/PaperB/ThirdBlock.lean",
+        "release-core/PaperB/ExitNonempty.lean",
+        "release-core/PaperB/PartialBlock.lean",
+        "release-core/PaperB/SemanticLCA.lean"
       ],
       "owner_role": "dominator",
       "admission": "ORACLE_CORE"

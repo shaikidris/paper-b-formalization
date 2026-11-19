@@ -1,0 +1,11 @@
+{
+  "base_commit": "2220c91",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/LastExit.lean",
+  "sha256": "3ce77c5617c5631de280ae8d39fd2f6a26a0ff4365cfab9f5ccf7e0a60bc54ee",
+  "scope": "Both physical exit-tail lists on the actual proper-loss quotient are nonempty, and the two ordinary-tree LCA ancestry tests are necessary and sufficient for original survival.",
+  "remaining": "Bundle the outside, own-block and third-block cases for arbitrary incomparable failures at their ordinary-tree LCA."
+}
