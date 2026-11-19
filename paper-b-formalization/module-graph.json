@@ -303,7 +303,8 @@
         "release-core/PaperB/ForestEndpoints.lean",
         "release-core/PaperB/ForestCompactFold.lean",
         "release-core/PaperB/ForestExactDictionary.lean",
-        "release-core/PaperB/ForestActualStep.lean"
+        "release-core/PaperB/ForestActualStep.lean",
+        "release-core/PaperB/MeasuredCutRange.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1340,6 +1341,14 @@
         "release-core/PaperB/StaticHeavyLCA.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/MeasuredCutRange.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestHead.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -162,7 +162,8 @@
     "release-core/PaperB/AllOrigOracleCases.lean": "oracle",
     "release-core/PaperB/StaticOracleTree.lean": "dominator",
     "release-core/PaperB/ExitSpanBridge.lean": "oracle",
-    "release-core/PaperB/RamStaticLCA.lean": "cost model"
+    "release-core/PaperB/RamStaticLCA.lean": "cost model",
+    "release-core/PaperB/MeasuredCutRange.lean": "cuts"
   },
   "milestones": [
     {
@@ -898,9 +899,10 @@
         "evidence/forest-endpoints-audit/verification.json",
         "evidence/forest-compact-audit/verification.json",
         "evidence/forest-exact-dict-audit/verification.json",
-        "evidence/forest-actual-step-audit/verification.json"
+        "evidence/forest-actual-step-audit/verification.json",
+        "evidence/measured-cut-audit/verification.json"
       ],
-      "progress": "The full successful-step invariant now checks for the actual packed callbacks. It constructs the new canonical embedding and preserves all old labels and physical slots. Totality and full increasing-order induction remain in progress.",
+      "progress": "Lean checks that the actual measured binary search returns a cut below its upper sentinel for any test predicate. This supplies the final pre-installation selected-depth range.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

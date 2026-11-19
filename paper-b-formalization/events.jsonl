@@ -190,3 +190,4 @@
 {"at": "2026-11-19T23:19:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GuardedWitness", "tasks": ["EX6.2"], "evidence": "evidence/guarded-residual-graph-audit/verification.json"}
 {"at": "2026-11-19T23:19:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamStaticLCA", "tasks": ["EX5.3"], "evidence": "evidence/ram-static-lca-audit/verification.json"}
 {"at": "2026-11-19T23:21:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticFromDominators", "tasks": ["EX4.4"], "evidence": "evidence/held-id-audit/verification.json"}
+{"at": "2026-11-19T23:21:18+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "MeasuredCutRange", "tasks": ["EX2.4"], "evidence": "evidence/measured-cut-audit/verification.json"}

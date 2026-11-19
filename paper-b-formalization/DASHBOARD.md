@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The full successful-step invariant now checks for the actual packed callbacks. It constructs the new canonical embedding and preserves all old labels and physical slots. Totality and full increasing-order induction remain in progress.
+- [EX2.4](TASKS.md#ex24) — Lean checks that the actual measured binary search returns a cut below its upper sentinel for any test predicate. This supplies the final pre-installation selected-depth range.
 - [EX4.2](TASKS.md#ex42) — The physical model now uses original DFS entry rank for exit extrema and a separate topological rank for quotient order. This distinguishes the two physical computations required for exact interval testing.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual scan's packed original-to-held and held-to-original lookups have checked presence, absence and two-way inverse identities. These give the normalized query ID contracts once wired to the final index.

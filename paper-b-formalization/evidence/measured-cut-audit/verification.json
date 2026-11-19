@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea10691",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/MeasuredCutRange.lean",
+  "sha256": "c826982bf8921066da8b16774e3080b854f48e045e245bb73db4f33d22e0d862",
+  "scope": "The actual measured binary search never returns a cut at or beyond its upper sentinel, independently of the behavior of the test predicate. This supplies the selected ancestor depth range before successful installation.",
+  "remaining": "Use the strict cut range to discharge the packed parent totality premise at every prepared head."
+}
