@@ -1,0 +1,4 @@
+'PaperB.RetainedProperLoss.not_properLoss_of_checkedHit_none' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.known_true_iff_properLoss_of_checkedHit_some' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

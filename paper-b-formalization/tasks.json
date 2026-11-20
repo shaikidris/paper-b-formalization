@@ -1417,9 +1417,10 @@
         "evidence/original-child-laws/verification.json",
         "evidence/strict-child-domain/verification.json",
         "evidence/actual-original-tables/verification.json",
-        "evidence/actual-held-spans/verification.json"
+        "evidence/actual-held-spans/verification.json",
+        "evidence/exit-third-slot-miss-member/verification.json"
       ],
-      "progress": "The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans."
+      "progress": "The actual retained checked dictionary miss excludes proper loss; the known-slot ancestry read on a hit is exact for the ordered pair."
     },
     {
       "id": "EX5.1",

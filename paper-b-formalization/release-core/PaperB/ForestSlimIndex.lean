@@ -162,6 +162,66 @@ private theorem grounded_column_sizes
   obtain ⟨_, _, G, _, _⟩ := r.index.ok.2.2
   exact ⟨G.slot_size, G.back_size⟩
 
+/-- The checked dictionary address, using the same key as `Columns.contains`. -/
+def checkedHit (r : OrderedReaderResult p data size_data rank large)
+    (q : CutPair H) : Option Nat :=
+  (ofOrderedReader r).checked (encode q) q
+
+private theorem exists_checkedHit_known_iff_properLoss
+    (r : OrderedReaderResult p data size_data rank large)
+    (q : CutPair H) (y : Vertex H) (hq : q.fst < q.snd) :
+    (∃ a : Nat, checkedHit r q = some a ∧
+      (ofOrderedReader r).known a ((orderedConfig p large).vertexIndex y) = true) ↔
+      H.ProperLoss q y := by
+  have hc :
+      (ofOrderedReader r).contains q ((orderedConfig p large).vertexIndex y) =
+        true ↔ H.ProperLoss q y := by
+    rw [contains_eq r q y, r.contains_true_iff q y]
+    exact ⟨fun h => h.2, fun h => ⟨hq, h⟩⟩
+  have hb := contains_iff_back_and_known r q ((orderedConfig p large).vertexIndex y)
+  simpa only [checkedHit, checked_iff_back r q] using (hb.symm.trans hc)
+
+theorem not_properLoss_of_checkedHit_none
+    (r : OrderedReaderResult p data size_data rank large)
+    (q : CutPair H) (y : Vertex H) (hq : q.fst < q.snd)
+    (miss : checkedHit r q = none) :
+    ¬ H.ProperLoss q y := by
+  intro hl
+  obtain ⟨a, hit, _⟩ := (exists_checkedHit_known_iff_properLoss r q y hq).mpr hl
+  have impossible : (none : Option Nat) = some a := miss.symm.trans hit
+  cases impossible
+
+theorem known_true_iff_properLoss_of_checkedHit_some
+    (r : OrderedReaderResult p data size_data rank large)
+    (q : CutPair H) (y : Vertex H) (hq : q.fst < q.snd)
+    (a : Nat) (hit : checkedHit r q = some a) :
+    (ofOrderedReader r).known a ((orderedConfig p large).vertexIndex y) = true ↔
+      H.ProperLoss q y := by
+  have h := exists_checkedHit_known_iff_properLoss r q y hq
+  constructor
+  · intro hk
+    exact h.mp ⟨a, hit, hk⟩
+  · intro hl
+    obtain ⟨b, hit', hk⟩ := h.mpr hl
+    have hab : a = b := Option.some.inj (hit.symm.trans hit')
+    subst b
+    exact hk
+
+/-- A proper-loss target exists exactly when the checked lookup returns an
+    address whose retained `known` read is true at some vertex. -/
+theorem exists_properLoss_iff_checkedHit_known
+    (r : OrderedReaderResult p data size_data rank large)
+    (q : CutPair H) (hq : q.fst < q.snd) :
+    (∃ y : Vertex H, H.ProperLoss q y) ↔
+      ∃ (a : Nat) (y : Vertex H), checkedHit r q = some a ∧
+        (ofOrderedReader r).known a ((orderedConfig p large).vertexIndex y) = true := by
+  constructor
+  · rintro ⟨y, hl⟩
+    obtain ⟨a, hit, hk⟩ := (exists_checkedHit_known_iff_properLoss r q y hq).mpr hl
+    exact ⟨a, y, hit, hk⟩
+  · rintro ⟨a, y, hit, hk⟩
+    exact ⟨y, (known_true_iff_properLoss_of_checkedHit_some r q y hq a hit).mp hk⟩
+
 /-- The six arrays use at most `9 * H.vertexCount` elements in total. -/
 theorem arraySize_le (r : OrderedReaderResult p data size_data rank large) :
     (ofOrderedReader r).arraySize ≤ 9 * H.vertexCount := by

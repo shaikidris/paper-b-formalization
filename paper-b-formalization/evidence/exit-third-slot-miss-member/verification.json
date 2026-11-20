@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a288ef",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestSlimIndex.lean",
+  "sha256": "6aac827e784dc912e68b036dd261dc57678224cc42851ba1014dde14bbc30eb5",
+  "scope": "The actual retained checked dictionary miss excludes proper loss; the known-slot ancestry read on a hit is exact for the ordered pair.",
+  "remaining": "Link quotient IDs and orientation to the original third-block dispatcher and prove packed extrema."
+}

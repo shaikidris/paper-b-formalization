@@ -1,0 +1,3 @@
+import PaperB.ForestSlimIndex
+#print axioms PaperB.RetainedProperLoss.not_properLoss_of_checkedHit_none
+#print axioms PaperB.RetainedProperLoss.known_true_iff_properLoss_of_checkedHit_some
