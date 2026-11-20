@@ -267,7 +267,8 @@
     "release-core/PaperB/ForestNumericSweepSpace.lean": "forest",
     "release-core/PaperB/RamEqualityTailTransfer.lean": "ram",
     "release-core/PaperB/RamPlacedCalls.lean": "ram",
-    "release-core/PaperB/ExitPartialOccupancy.lean": "exit"
+    "release-core/PaperB/ExitPartialOccupancy.lean": "exit",
+    "release-core/PaperB/OriginalEntryInverse.lean": "exit"
   },
   "milestones": [
     {
@@ -1373,9 +1374,10 @@
         "evidence/original-static-full/verification.json",
         "evidence/original-child-laws/verification.json",
         "evidence/strict-child-domain/verification.json",
-        "evidence/actual-original-tables/verification.json"
+        "evidence/actual-original-tables/verification.json",
+        "evidence/actual-held-spans/verification.json"
       ],
-      "progress": "Every original-tree callback law for both-reachable routing now holds on the actual installed runtime."
+      "progress": "The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans."
     },
     {
       "id": "EX5.1",

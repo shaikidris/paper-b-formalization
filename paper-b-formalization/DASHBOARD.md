@@ -22,7 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — The actual sweep-phase live bound is now numerical in quotient vertices and arcs.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — Fused exit queries now have verified nonterminal safety and cost on the actual shape of a partially written bank.
-- [EX4.4](TASKS.md#ex44) — Every original-tree callback law for both-reachable routing now holds on the actual installed runtime.
+- [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
 - [EX5.1](TASKS.md#ex51) — Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound.
 - [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.
 - [EX5.3](TASKS.md#ex53) — Second and third fixed worker calls now execute correctly as one composed prefix with exact elapsed steps.

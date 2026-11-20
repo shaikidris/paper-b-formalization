@@ -1,0 +1,11 @@
+{
+  "base_commit": "b2ac865",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OriginalEntryInverse.lean",
+  "sha256": "762fdfda663a35d8e9ea8a0b3639b130fe32b9083679c686a6599a5ddf372bde",
+  "scope": "Actual one-pass inverse DFS column over reachable IDs and exact conversion of packed min/max ranks to actual held endpoint witnesses with provenance.",
+  "remaining": "Join the exact computed quotient value to these original spans and route requested endpoint order in third-block queries."
+}

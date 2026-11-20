@@ -1,0 +1,5 @@
+import PaperB.OriginalEntryInverse
+#print axioms PaperB.OriginalEntryInverse.build
+#print axioms PaperB.OriginalEntryInverse.inverse_read_endpoint
+#print axioms PaperB.OriginalEntryInverse.originalRank_roundTrip
+#print axioms PaperB.OriginalEntryInverse.originalSpan_exact

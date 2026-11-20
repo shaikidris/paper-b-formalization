@@ -261,7 +261,8 @@
         "release-core/PaperB/ForestNumericSweepSpace.lean",
         "release-core/PaperB/RamEqualityTailTransfer.lean",
         "release-core/PaperB/RamPlacedCalls.lean",
-        "release-core/PaperB/ExitPartialOccupancy.lean"
+        "release-core/PaperB/ExitPartialOccupancy.lean",
+        "release-core/PaperB/OriginalEntryInverse.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2376,6 +2377,16 @@
       "path": "release-core/PaperB/ExitPartialOccupancy.lean",
       "local_imports": [
         "release-core/PaperB/ExitPriorBase.lean"
+      ],
+      "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/OriginalEntryInverse.lean",
+      "local_imports": [
+        "release-core/PaperB/OriginalStaticFull.lean",
+        "release-core/PaperB/StaticLinearHead.lean",
+        "release-core/PaperB/ExitLCABridge.lean"
       ],
       "owner_role": "exit",
       "admission": "ORACLE_CORE"

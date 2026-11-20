@@ -1,0 +1,4 @@
+'PaperB.OriginalEntryInverse.build' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.OriginalEntryInverse.inverse_read_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.OriginalEntryInverse.originalRank_roundTrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.OriginalEntryInverse.originalSpan_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
