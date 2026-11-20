@@ -1356,9 +1356,10 @@
         "evidence/exit-actual-owner-column-min/verification.json",
         "evidence/exit-rank-prefix-iff-min/verification.json",
         "evidence/exit-actual-orientation-column-min/verification.json",
-        "evidence/exit-compact-actual-mapbefore-min/verification.json"
+        "evidence/exit-compact-actual-mapbefore-min/verification.json",
+        "evidence/exit-actual-slot-creator-min/verification.json"
       ],
-      "progress": "Prove the actual compact plan observes an earlier map when the physical event supplies the corresponding slot."
+      "progress": "Recover the exact actual fresh creation event from the physical slot lookup."
     },
     {
       "id": "EX4.3",

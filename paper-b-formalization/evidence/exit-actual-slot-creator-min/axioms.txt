@@ -1,0 +1,3 @@
+'PaperB.Exit.OrderedReaderResult.actualSlot_eq_some_exists_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

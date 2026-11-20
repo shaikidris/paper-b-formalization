@@ -177,5 +177,18 @@ theorem actualSlot_exact
       actualRankInjective full (Nat.le_antisymm hEy (hmin e.head heLabel))
     exact ⟨e, by simpa only [hy] using hit, hs⟩
 
+theorem actualSlot_eq_some_exists_event
+    (full : FullRows p rank (orderedRows p data size_data))
+    (ch : Chronology (orderedConfig p large) g r.out r.log)
+    (y : Vertex H) (i : Fin r.out.tables.next)
+    (h : actualSlot r y = some i) :
+    ∃ e : Event H,
+      e ∈ r.log ∧ e.head = y ∧ e.fresh = true ∧ e.node = i.val := by
+  obtain ⟨e, hLookup, hNode⟩ :=
+    (actualSlot_eq_some_iff_hit r full ch y i).mp h
+  obtain ⟨hMem, hFresh, _, hHead⟩ :=
+    (headLookup_eq_some_iff r full y e).mp hLookup
+  exact ⟨e, hMem, hHead, hFresh, hNode⟩
+
 end OrderedReaderResult
 end PaperB.Exit

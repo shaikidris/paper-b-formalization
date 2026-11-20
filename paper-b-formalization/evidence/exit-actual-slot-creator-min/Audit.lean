@@ -1,0 +1,2 @@
+import PaperB.ExitPhysicalSchedule
+#print axioms PaperB.Exit.OrderedReaderResult.actualSlot_eq_some_exists_event

@@ -1,0 +1,11 @@
+{
+  "base_commit": "6272ee3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalSchedule.lean",
+  "sha256": "a11c6d4c59096c11053e81f4dd0fedae3b2f935f19a7f01952f2bb4aa82e4427",
+  "scope": "Recover the exact actual fresh creation event from the physical slot lookup.",
+  "remaining": "Connect the source label and actual earlier rank to the scheduled map witness."
+}

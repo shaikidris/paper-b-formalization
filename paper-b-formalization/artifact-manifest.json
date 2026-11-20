@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3006,
-      "sha256": "e615505c5671caeacdee867b71dfccf572fc9a524b844d4747966a8a3cd10f1d"
+      "bytes": 2972,
+      "sha256": "8c3deb8a72ea3699606f4c7e43465239d62eed7942e21b19ae32883abd68d764"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 66144,
-      "sha256": "dc58e876528e076d26fba00aa77964837b6188c99e7a182da0237efcbef5a262"
+      "bytes": 66226,
+      "sha256": "e23aaf4124286c6c5331df182ae99f91a5a55e720b71f958fe3e292907e55b52"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 82570,
-      "sha256": "6d42b2e48cfae75fbfd90f369aba5e95406210025bcaac8eb64676b4c7c511cd"
+      "bytes": 82773,
+      "sha256": "fa9c526335117f916af92ca34d9ba93ed756d6942d4696eaa8d193bd4adfd096"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2680,6 +2680,21 @@
       "path": "evidence/exit-actual-owner-column-min/verification.json",
       "bytes": 503,
       "sha256": "30f1840cba400e95de7053ea60ae9b21a6a3fc67a6066e6672a66f27f225ef06"
+    },
+    {
+      "path": "evidence/exit-actual-slot-creator-min/Audit.lean",
+      "bytes": 113,
+      "sha256": "800c36815b77905e2f2c05eefd92e238e18c8f25522c3415371f5e9dbd390b22"
+    },
+    {
+      "path": "evidence/exit-actual-slot-creator-min/axioms.txt",
+      "bytes": 127,
+      "sha256": "053ab2649514a94c3efe2ca53429e4238ec6b381e6cf9ceefbee55f2d7682a93"
+    },
+    {
+      "path": "evidence/exit-actual-slot-creator-min/verification.json",
+      "bytes": 490,
+      "sha256": "1f495569e4767c99a1819b30e4da4d340e3505458e3544bd76d46ad7192e0a68"
     },
     {
       "path": "evidence/exit-array-schedule-audit/Audit.lean",
@@ -6408,8 +6423,8 @@
     },
     {
       "path": "release-core/PaperB/ExitPhysicalSchedule.lean",
-      "bytes": 7426,
-      "sha256": "277740085c941e75b2da0c49df6bcf2296c14d5538dd8afcec08a7a2cb5a17b6"
+      "bytes": 7992,
+      "sha256": "a11c6d4c59096c11053e81f4dd0fedae3b2f935f19a7f01952f2bb4aa82e4427"
     },
     {
       "path": "release-core/PaperB/ExitPhysicalSeedPass.lean",
@@ -7548,8 +7563,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 85932,
-      "sha256": "2ded2fdd2b79eb76a2da841f64a41442ef6c8e40cf2a180ef40305a03ce5cc24"
+      "bytes": 85965,
+      "sha256": "bb32d36baec6b39dcc2098c5b6ffae7a7133cc5e37d7a512b024e862addd3ec6"
     },
     {
       "path": "test_plan.py",
