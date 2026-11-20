@@ -1,0 +1,3 @@
+import PaperB.ActualThirdForestGeometry
+#print axioms PaperB.EX44.thirdForestGeometryOfFiniteSibling
+#print axioms PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.installedThirdGeometry

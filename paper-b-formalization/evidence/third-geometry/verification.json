@@ -1,0 +1,11 @@
+{
+  "base_commit": "f8d6fbe",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ActualThirdForestGeometry.lean",
+  "sha256": "038b88675721155300cb12eb6a94c944e2004917804baedacf1b848dbd183571",
+  "scope": "The original-ID static reader now instantiates all mathematical geometry fields used by the canonical third-forest proof. It uses the checked finite sibling quotient rank, flatness and source.",
+  "remaining": "Provide actual packed dictionary, ancestor and exit-tail callbacks for the ThirdForestTables fields."
+}

@@ -218,7 +218,8 @@
         "release-core/PaperB/ExitStoredCodec.lean",
         "release-core/PaperB/ExitWordArrayQuery.lean",
         "release-core/PaperB/ExitStoredWrite.lean",
-        "release-core/PaperB/RamPairWorkerCalls.lean"
+        "release-core/PaperB/RamPairWorkerCalls.lean",
+        "release-core/PaperB/ActualThirdForestGeometry.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1828,6 +1829,16 @@
         "release-core/PaperB/RamPairSliceBinding.lean"
       ],
       "owner_role": "cost",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ActualThirdForestGeometry.lean",
+      "local_imports": [
+        "release-core/PaperB/ThirdReachableRoute.lean",
+        "release-core/PaperB/FiniteSiblingFlat.lean",
+        "release-core/PaperB/OriginalStaticConnector.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

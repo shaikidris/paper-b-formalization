@@ -251,3 +251,4 @@
 {"at": "2026-11-20T00:52:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPairWorkerCalls", "tasks": ["EX5.3"], "evidence": "evidence/ram-pair-worker-calls/verification.json"}
 {"at": "2026-11-20T00:52:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX5.1"], "evidence": "evidence/dense-flatness/verification.json"}
 {"at": "2026-11-20T00:55:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFixedBankSort", "tasks": ["EX2.4"], "evidence": "evidence/sort-fork-recurrence/verification.json"}
+{"at": "2026-11-20T00:55:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ActualThirdForestGeometry", "tasks": ["EX4.4"], "evidence": "evidence/third-geometry/verification.json"}

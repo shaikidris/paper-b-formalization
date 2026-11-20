@@ -212,7 +212,8 @@
     "release-core/PaperB/ForestArrayMergeExact.lean": "cuts",
     "release-core/PaperB/ForestFixedBankSort.lean": "cuts",
     "release-core/PaperB/ExitStoredWrite.lean": "exit",
-    "release-core/PaperB/RamPairWorkerCalls.lean": "cost"
+    "release-core/PaperB/RamPairWorkerCalls.lean": "cost",
+    "release-core/PaperB/ActualThirdForestGeometry.lean": "exit"
   },
   "milestones": [
     {
@@ -1274,9 +1275,10 @@
         "evidence/held-id-audit/verification.json",
         "evidence/static-tree-held-audit/verification.json",
         "evidence/original-static-connector-audit/verification.json",
-        "evidence/original-parent-audit/verification.json"
+        "evidence/original-parent-audit/verification.json",
+        "evidence/third-geometry/verification.json"
       ],
-      "progress": "The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters."
+      "progress": "The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank."
     },
     {
       "id": "EX5.1",
