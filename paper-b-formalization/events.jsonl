@@ -269,3 +269,4 @@
 {"at": "2026-11-20T01:14:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamWorkerHaltPC", "tasks": ["EX5.3"], "evidence": "evidence/ram-worker-halt-pc/verification.json"}
 {"at": "2026-11-20T01:14:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalOneSlot", "tasks": ["EX4.3"], "evidence": "evidence/exit-root-seed/verification.json"}
 {"at": "2026-11-20T01:21:01+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestIncomingRaw", "tasks": ["EX2.4"], "evidence": "evidence/forest-raw-incoming/verification.json"}
+{"at": "2026-11-20T01:21:06+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitParentEarlier", "tasks": ["EX4.2"], "evidence": "evidence/exit-parent-earlier/verification.json"}

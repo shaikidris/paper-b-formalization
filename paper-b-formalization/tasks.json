@@ -229,7 +229,8 @@
     "release-core/PaperB/ForestFastOrderedReader.lean": "cuts",
     "release-core/PaperB/ForestLookupTolls.lean": "cuts",
     "release-core/PaperB/RamWorkerHaltPC.lean": "cost",
-    "release-core/PaperB/ForestIncomingRaw.lean": "cuts"
+    "release-core/PaperB/ForestIncomingRaw.lean": "cuts",
+    "release-core/PaperB/ExitParentEarlier.lean": "exit"
   },
   "milestones": [
     {
@@ -1217,9 +1218,10 @@
         "evidence/exit-raw-incoming-audit/verification.json",
         "evidence/exit-real-first-label-audit/verification.json",
         "evidence/exit-physical-schedule-audit/verification.json",
-        "evidence/exit-array-schedule-audit/verification.json"
+        "evidence/exit-array-schedule-audit/verification.json",
+        "evidence/exit-parent-earlier/verification.json"
       ],
-      "progress": "The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress."
+      "progress": "The actual forest allocation trace proves that each positive parent is on the earlier fresh-event prefix, with a consecutive slot-ID order."
     },
     {
       "id": "EX4.3",

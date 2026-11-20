@@ -227,7 +227,8 @@
         "release-core/PaperB/ExitPhysicalPass.lean",
         "release-core/PaperB/StaticGroupedTreeReader.lean",
         "release-core/PaperB/SharedLocalOrder.lean",
-        "release-core/PaperB/RamWorkerHaltPC.lean"
+        "release-core/PaperB/RamWorkerHaltPC.lean",
+        "release-core/PaperB/ExitParentEarlier.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1997,6 +1998,14 @@
         "release-core/PaperB/ArcBuckets.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitParentEarlier.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestEventChronology.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

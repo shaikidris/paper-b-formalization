@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — The raw incoming preparation now reads the real quotient graph and groups every labelled arc occurrence exactly once.
-- [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
+- [EX4.2](TASKS.md#ex42) — The actual forest allocation trace proves that each positive parent is on the earlier fresh-event prefix, with a consecutive slot-ID order.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
 - [EX5.1](TASKS.md#ex51) — Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner.

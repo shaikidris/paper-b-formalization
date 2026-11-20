@@ -1,0 +1,11 @@
+{
+  "base_commit": "31c94c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitParentEarlier.lean",
+  "sha256": "c8c56649af3da288cd222ece05249cb36bf013d847b396ebe65932498d96c6b2",
+  "scope": "For the actual chronological forest event log, fresh slots form a dense increasing interval. Every positive parent of a fresh slot has a uniquely earlier installation candidate, and its exact prefix split is checked.",
+  "remaining": "Add root/top-level seeds and the checked skew-read dependencies, and attach raw recurrence contributions to the actual chronological schedule."
+}
