@@ -1052,21 +1052,6 @@
       "sha256": "7b973c777f3f03d05e74dacfe0a045605d55cb12d35b155548d1e33c32884e21"
     },
     {
-      "path": "evidence/ex11-reach-scan-correct/Audit.lean",
-      "bytes": 174,
-      "sha256": "994de6b8a88fc1c6480cca1119386a3696d22bbe8d6548e0769353196ec9b16b"
-    },
-    {
-      "path": "evidence/ex11-reach-scan-correct/axioms.txt",
-      "bytes": 467,
-      "sha256": "78cf7ccc52aa9cb1657567703631c373f523832b819c78e5d0ceecb6fc17f3f3"
-    },
-    {
-      "path": "evidence/ex11-reach-scan-correct/verification.json",
-      "bytes": 622,
-      "sha256": "ee38bf19edb2058d79af71e0670d4654902179244f9b95ee702394ab12f7956e"
-    },
-    {
       "path": "evidence/ex11-reach-scan/Audit.lean",
       "bytes": 311,
       "sha256": "ce90f8dcc7dd98fee4a63644ebd4e73026cdb97861ec50a633819b4ee0299228"
@@ -1080,6 +1065,21 @@
       "path": "evidence/ex11-reach-scan/verification.json",
       "bytes": 696,
       "sha256": "acd9493fc928b0f0dfe590fe768c7d2a038da08b7b9f28bc4a847f747dbce172"
+    },
+    {
+      "path": "evidence/ex11-reach-scan-correct/Audit.lean",
+      "bytes": 174,
+      "sha256": "994de6b8a88fc1c6480cca1119386a3696d22bbe8d6548e0769353196ec9b16b"
+    },
+    {
+      "path": "evidence/ex11-reach-scan-correct/axioms.txt",
+      "bytes": 467,
+      "sha256": "78cf7ccc52aa9cb1657567703631c373f523832b819c78e5d0ceecb6fc17f3f3"
+    },
+    {
+      "path": "evidence/ex11-reach-scan-correct/verification.json",
+      "bytes": 622,
+      "sha256": "ee38bf19edb2058d79af71e0670d4654902179244f9b95ee702394ab12f7956e"
     },
     {
       "path": "evidence/ex11-reach-sound/Audit.lean",
@@ -3782,21 +3782,6 @@
       "sha256": "e54801ef36e3a1e3d46bd00fc605c7c82831df6df5be4031e23b5118049fb932"
     },
     {
-      "path": "evidence/fixed-bank-sort-exact/Audit.lean",
-      "bytes": 225,
-      "sha256": "0ea8488340dcc14af02274cfe8d658cd77efe88929dbfdd0279d9c26ec4c836b"
-    },
-    {
-      "path": "evidence/fixed-bank-sort-exact/axioms.txt",
-      "bytes": 309,
-      "sha256": "8cd3de8cf191b903a80b2f4d2c4a2d2ec9b0b0e83fbec53acc581eeb4b848a0b"
-    },
-    {
-      "path": "evidence/fixed-bank-sort-exact/verification.json",
-      "bytes": 733,
-      "sha256": "237c581d1527a73bf33df4fda457d5811dac6c8203473c3b97098a269fa76fb9"
-    },
-    {
       "path": "evidence/fixed-bank-sort/Audit.lean",
       "bytes": 172,
       "sha256": "7155e712c077ebe4bd741fae08b131e7e4a1c7d517fd40460309abddb8b8dc59"
@@ -3810,6 +3795,21 @@
       "path": "evidence/fixed-bank-sort/verification.json",
       "bytes": 658,
       "sha256": "082257598e8fbf6d94d3b909e66e5ffa9536e14164e124c019cd2f64f28ae112"
+    },
+    {
+      "path": "evidence/fixed-bank-sort-exact/Audit.lean",
+      "bytes": 225,
+      "sha256": "0ea8488340dcc14af02274cfe8d658cd77efe88929dbfdd0279d9c26ec4c836b"
+    },
+    {
+      "path": "evidence/fixed-bank-sort-exact/axioms.txt",
+      "bytes": 309,
+      "sha256": "8cd3de8cf191b903a80b2f4d2c4a2d2ec9b0b0e83fbec53acc581eeb4b848a0b"
+    },
+    {
+      "path": "evidence/fixed-bank-sort-exact/verification.json",
+      "bytes": 733,
+      "sha256": "237c581d1527a73bf33df4fda457d5811dac6c8203473c3b97098a269fa76fb9"
     },
     {
       "path": "evidence/fixed-sort-toll/Audit.lean",
@@ -7827,11 +7827,6 @@
       "sha256": "8485b0290c9ecc4c261890212d98d711174a04eb9f820ec4379f543605c3d49e"
     },
     {
-      "path": "sources/authority-retrieval.json",
-      "bytes": 4936,
-      "sha256": "d1a9143cc561070f4da6d3350a11b4eb3c74d244aef9d4f7c32439f49e08779d"
-    },
-    {
       "path": "sources/authority/palomar-contributing.md",
       "bytes": 59486,
       "sha256": "86865671b28515a9ba79202eec0c58dadd23dc6d832532bc01a8cdeb845ea401"
@@ -7865,6 +7860,11 @@
       "path": "sources/authority/zenodo-paper-b.json",
       "bytes": 6041,
       "sha256": "fdbdf23e56b187db970aa8e218b3ad3096cb8ffec9630df7a981855af94d20dc"
+    },
+    {
+      "path": "sources/authority-retrieval.json",
+      "bytes": 4936,
+      "sha256": "d1a9143cc561070f4da6d3350a11b4eb3c74d244aef9d4f7c32439f49e08779d"
     },
     {
       "path": "sources/paper-b-published-download.pdf",
