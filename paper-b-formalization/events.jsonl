@@ -265,3 +265,4 @@
 {"at": "2026-11-20T01:10:49+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SharedLocalOrder", "tasks": ["EX5.1"], "evidence": "evidence/shared-local-order/verification.json"}
 {"at": "2026-11-20T01:14:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedOrderedReader", "tasks": ["EX2.4"], "evidence": "evidence/packed-ordered-reader/verification.json"}
 {"at": "2026-11-20T01:14:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFastOrderedReader", "tasks": ["EX2.4"], "evidence": "evidence/packed-reader-fast/verification.json"}
+{"at": "2026-11-20T01:14:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestLookupTolls", "tasks": ["EX2.4"], "evidence": "evidence/forest-lookup-tolls/verification.json"}

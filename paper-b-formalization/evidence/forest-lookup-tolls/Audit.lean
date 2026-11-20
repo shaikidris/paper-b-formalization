@@ -1,0 +1,3 @@
+import PaperB.ForestLookupTolls
+#print axioms EX24.PreparedSweep.AggregateEX24.stepPrepared_pairLookupComparisons
+#print axioms EX24.PreparedSweep.AggregateEX24.WorkTrace.withPairLookups

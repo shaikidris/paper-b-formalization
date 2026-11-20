@@ -366,7 +366,8 @@
         "release-core/PaperB/ForestPackedOrderedSweep.lean",
         "release-core/PaperB/ForestIncomingEpoch.lean",
         "release-core/PaperB/ForestPackedOrderedReader.lean",
-        "release-core/PaperB/ForestFastOrderedReader.lean"
+        "release-core/PaperB/ForestFastOrderedReader.lean",
+        "release-core/PaperB/ForestLookupTolls.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1964,6 +1965,16 @@
         "release-core/PaperB/ForestPackedOrderedReader.lean",
         "release-core/PaperB/StaticGroupedTreeReader.lean",
         "release-core/PaperB/ForestSlimIndex.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestLookupTolls.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestInstallCapacity.lean",
+        "release-core/PaperB/ForestEventChronology.lean",
+        "release-core/PaperB/ForestMeasuredWork.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"

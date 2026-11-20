@@ -1,0 +1,2 @@
+'EX24.PreparedSweep.AggregateEX24.stepPrepared_pairLookupComparisons' depends on axioms: [propext, Quot.sound]
+'EX24.PreparedSweep.AggregateEX24.WorkTrace.withPairLookups' depends on axioms: [propext, Quot.sound]

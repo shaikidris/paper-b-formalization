@@ -1,0 +1,11 @@
+{
+  "base_commit": "74042d8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLookupTolls.lean",
+  "sha256": "1ff1a1bffd0dc6ac746e73e55ffee0bbe2630e4e1ea8e71df578a6d93783e1ce",
+  "scope": "An actual successful ordered sweep has one checked physical dictionary lookup per recorded request and a logarithmic comparison bound summed over those requests.",
+  "remaining": "Combine exact address instructions, row preparation, packed selector reads and the fixed-capacity DFS in one cost trace."
+}
