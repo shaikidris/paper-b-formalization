@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Prove the actual installed quotient rank callback fits the original vertex-count word domain.
 - [EX4.2](TASKS.md#ex42) — Recover the exact actual fresh creation event from the physical slot lookup.
-- [EX4.3](TASKS.md#ex43) — Prove compact driver index, actual physical slot, and canonical image all describe the same stored edge.
+- [EX4.3](TASKS.md#ex43) — Aggregate charged exit events using the exact scheduled raw arc mass and the per-event fused-call cap.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
 - [EX5.2](TASKS.md#ex52) — Serialize the actual two vertex-ID maps directly into a single array of bounded words and prove exact forward, inverse, and miss reads.

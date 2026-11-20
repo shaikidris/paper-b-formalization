@@ -50,12 +50,12 @@ normalization already build on the pinned Lean toolchain.
 - **EX5.5 and EX6.2.** Instantiate the checked listed-target and guarded
   detection reductions with the sealed oracle from EX5.4.
 
-EX0, EX1 and EX3 are verified. Current counts and individual proof evidence
-are in the [dashboard](DASHBOARD.md) and [task ledger](TASKS.md). Proof work
-streams through GPT-6.2 Sol high on the verified non-sharing Personal
-Default project. The tracker’s assigned-worker field records native worker
-assignments. API proof checkpoints have build, audit and commit evidence
-linked from the relevant tasks.
+EX0, EX1 and EX3 are verified. The [dashboard](DASHBOARD.md) and
+[task ledger](TASKS.md) record coverage and link each verified checkpoint.
+Eligible public or self-contained Lean tasks run through Personal Generic.
+Private source, unpublished proof work, and the private ledger stay in the
+local checkout during this Generic run. Checkpoint receipts record the API
+project and reported usage for new Generic calls.
 
 Run from the repository root with Elan and Python 3 available.
 
@@ -67,5 +67,4 @@ python3 -B paper-b-formalization/test_plan.py
 ```
 
 Record the exact declaration, build, statement audit and axioms before
-marking a result certified. The repository is private. Private Lean source
-and ledgers use the approved non-sharing route.
+marking a result certified. The repository is private.

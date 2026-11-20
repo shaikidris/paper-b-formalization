@@ -323,7 +323,8 @@
     "release-core/PaperB/ExitEarlierCreator.lean": "exit sweeps",
     "release-core/PaperB/ExitActualOrientation.lean": "exit sweeps",
     "release-core/PaperB/ExitCompactMapBefore.lean": "exit sweeps",
-    "release-core/PaperB/RamAppendLink.lean": "word machine"
+    "release-core/PaperB/RamAppendLink.lean": "word machine",
+    "release-core/PaperB/ExitSweepWorkSum.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1421,9 +1422,10 @@
         "evidence/exit-actual-generic-forest-inputs/verification.json",
         "evidence/exit-embedding-ancestor-address/verification.json",
         "evidence/exit-earlier-source-creator-min/verification.json",
-        "evidence/exit-driver-image-addr-min/verification.json"
+        "evidence/exit-driver-image-addr-min/verification.json",
+        "evidence/exit-generic-sweep-work-sum/verification.json"
       ],
-      "progress": "Prove compact driver index, actual physical slot, and canonical image all describe the same stored edge."
+      "progress": "Aggregate charged exit events using the exact scheduled raw arc mass and the per-event fused-call cap."
     },
     {
       "id": "EX4.4",

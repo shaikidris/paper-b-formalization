@@ -1,0 +1,28 @@
+{
+  "base_commit": "597fa69",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitSweepWorkSum.lean",
+  "sha256": "ca00ca25dbbbd97b1c8db30574b640a5b7c10a178734eb28cd304035bff845eb",
+  "scope": "Aggregate charged exit events using the exact scheduled raw arc mass and the per-event fused-call cap.",
+  "remaining": "Derive the per-event premises from the same executable sweep and certify the complete time and storage bounds.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 196,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      },
+      "cached_tokens": 0
+    },
+    "output_tokens": 1731,
+    "output_tokens_details": {
+      "reasoning_tokens": 1174
+    },
+    "total_tokens": 1927
+  }
+}
