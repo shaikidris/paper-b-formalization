@@ -211,7 +211,8 @@
         "release-core/PaperB/RamLexPairCuts.lean",
         "release-core/PaperB/ExitArraySchedule.lean",
         "release-core/PaperB/DensePackingCode.lean",
-        "release-core/PaperB/ExitPackedFused.lean"
+        "release-core/PaperB/ExitPackedFused.lean",
+        "release-core/PaperB/ExitSingleMap.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1720,6 +1721,14 @@
       "path": "release-core/PaperB/ExitPackedFused.lean",
       "local_imports": [
         "release-core/PaperB/FusedJumpMaps.lean"
+      ],
+      "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitSingleMap.lean",
+      "local_imports": [
+        "release-core/PaperB/ActualJumpMaps.lean"
       ],
       "owner_role": "exit",
       "admission": "ORACLE_CORE"

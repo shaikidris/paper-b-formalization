@@ -201,7 +201,8 @@
     "release-core/PaperB/DensePackingCode.lean": "quotient",
     "release-core/PaperB/ForestPackedReadSum.lean": "cuts",
     "release-core/PaperB/ForestInstallCapacity.lean": "cuts",
-    "release-core/PaperB/ExitPackedFused.lean": "exit"
+    "release-core/PaperB/ExitPackedFused.lean": "exit",
+    "release-core/PaperB/ExitSingleMap.lean": "exit"
   },
   "milestones": [
     {
@@ -1212,9 +1213,10 @@
         "evidence/ex43-checked-map-fold/verification.json",
         "evidence/ex43-actual-skew-route/verification.json",
         "evidence/fused-jump-audit/verification.json",
-        "evidence/exit-packed-fused-audit/verification.json"
+        "evidence/exit-packed-fused-audit/verification.json",
+        "evidence/exit-single-map-audit/verification.json"
       ],
-      "progress": "The compressed exit walk now has checked physical packed reads on each occupied hop. Correctness of the installed map table and final sealing remains open."
+      "progress": "Lean verifies both map installation branches and the exact parent/jump summaries from already checked edge maps. The whole map array invariant and sealed query remain open."
     },
     {
       "id": "EX4.4",

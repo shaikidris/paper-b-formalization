@@ -1,0 +1,11 @@
+{
+  "base_commit": "dbfec99",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitSingleMap.lean",
+  "sha256": "8b259728df5786d843141f7bef2ead5049787dc5b63ab657ec6db0b183a0ede4",
+  "scope": "One exit-map record constructed from physical parent and jump IDs has the exact next forest targets and checked composition. The skew branch reads only its two prior map records and preserves the certified decreasing paths.",
+  "remaining": "Join the one-slot update to the whole indexed build and prove chronological map availability and read charge."
+}
