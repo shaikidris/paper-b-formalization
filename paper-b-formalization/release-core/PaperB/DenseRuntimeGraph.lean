@@ -1,4 +1,5 @@
 import PaperB.DenseRealOwnership
+import PaperB.FastQuotientRows
 import PaperB.DenseArcRow
 import PaperB.QuotientArrays
 
@@ -76,7 +77,7 @@ theorem occurrence_labels :
     simp [occurrences, occurrenceAt, PackedLocalArcs.induced, physical]
 
 def build (hzero : 0 < rows.length u) : LabelledQuotient :=
-  QuotientArrays.ofOccurrences ⟨0, hzero⟩
+  FastQuotientRows.ofOccurrences ⟨0, hzero⟩
     (occurrences progress injective q originalRows hRows u hd hFind rows childOK)
 
 /-- Adjacency is the stable restriction of the occurrences, including duplicates. -/
@@ -84,7 +85,7 @@ theorem outArcs_build (hzero : 0 < rows.length u) (v : Fin (rows.length u)) :
     (build progress injective q originalRows hRows u hd hFind rows childOK hzero).outArcs v =
       QuotientArrays.groupedRow
         (occurrences progress injective q originalRows hRows u hd hFind rows childOK) v :=
-  QuotientArrays.outArcs_ofOccurrences ⟨0, hzero⟩
+  FastQuotientRows.outArcs_eq_groupedRow ⟨0, hzero⟩
     (occurrences progress injective q originalRows hRows u hd hFind rows childOK) v
 
 end PaperB.DenseOriginalQuotient

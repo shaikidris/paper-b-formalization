@@ -1,0 +1,3 @@
+import PaperB.DenseRuntimeGraph
+#print axioms PaperB.DenseOriginalQuotient.outArcs_build
+#print axioms PaperB.DenseOriginalQuotient.occurrence_labels

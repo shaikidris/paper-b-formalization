@@ -1291,9 +1291,10 @@
         "evidence/dense-real-ownership-audit/verification.json",
         "evidence/dense-runtime-graph-audit/verification.json",
         "evidence/dense-key-iso-audit/verification.json",
-        "evidence/quotient-fast-audit/verification.json"
+        "evidence/quotient-fast-audit/verification.json",
+        "evidence/dense-runtime-fast-audit/verification.json"
       ],
-      "progress": "The one-pass adjacency constructor is proved equal to the repeated-filter reference, with exact grouped work. It is replacing the dense runtime builder's previous adjacency implementation."
+      "progress": "The actual dense builder now groups local adjacency in one pass over its emitted row. The old repeated-filter helper is used only as a proof reference. Dense positions already have checked original key inverses."
     },
     {
       "id": "EX5.2",

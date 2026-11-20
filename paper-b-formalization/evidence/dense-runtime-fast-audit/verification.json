@@ -1,0 +1,11 @@
+{
+  "base_commit": "8af8e6d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseRuntimeGraph.lean",
+  "sha256": "92dc73005fa43ce4798d6679c7e5d59137e0c78acf4cc39a894edbe285f3a61a",
+  "scope": "The dense runtime quotient builds outgoing adjacency via the verified one-pass grouped constructor, reading only its already shared original bucket. Its labelled adjacency and physical-tail equalities are preserved.",
+  "remaining": "Transport labelled adjacency and topological order to the structural sibling quotient and charge the complete array index."
+}
