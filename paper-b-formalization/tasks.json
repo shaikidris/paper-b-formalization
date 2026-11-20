@@ -234,7 +234,8 @@
     "release-core/PaperB/RamWorkerReturn.lean": "cost",
     "release-core/PaperB/DenseQuotientLocalOrder.lean": "cost",
     "release-core/PaperB/ForestIncomingPrep.lean": "cuts",
-    "release-core/PaperB/LabelledTransport.lean": "exit"
+    "release-core/PaperB/LabelledTransport.lean": "exit",
+    "release-core/PaperB/RamPlacedTrace.lean": "cost"
   },
   "milestones": [
     {
@@ -1439,9 +1440,10 @@
         "evidence/ram-pair-worker-calls/verification.json",
         "evidence/ram-prehalt/verification.json",
         "evidence/ram-worker-halt-pc/verification.json",
-        "evidence/ram-linked-return/verification.json"
+        "evidence/ram-linked-return/verification.json",
+        "evidence/ram-wider-placement/verification.json"
       ],
-      "progress": "One actual scalar predecessor worker now has exact fixed-code relocation and return semantics without an extra instruction."
+      "progress": "Lean now checks exact embedding of placed instructions into a wider register frame, with untouched registers preserved."
     },
     {
       "id": "EX5.4",

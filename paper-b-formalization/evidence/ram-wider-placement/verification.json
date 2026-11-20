@@ -1,0 +1,11 @@
+{
+  "base_commit": "860f6d2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPlacedTrace.lean",
+  "sha256": "280fdf28bde362eae4ff1148c3ca32e5fa6f504ce6d9d4558191b776dcac43ca",
+  "scope": "A checked block can run inside a wider register program when the executed PCs contain the placed instructions. Exact steps, readonly data, PC and unrelated register values are preserved.",
+  "remaining": "Use placement and register frames together in a fixed pair lookup with the descriptor and result code."
+}

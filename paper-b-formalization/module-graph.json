@@ -231,7 +231,8 @@
         "release-core/PaperB/ExitParentEarlier.lean",
         "release-core/PaperB/RamWorkerReturn.lean",
         "release-core/PaperB/DenseQuotientLocalOrder.lean",
-        "release-core/PaperB/LabelledTransport.lean"
+        "release-core/PaperB/LabelledTransport.lean",
+        "release-core/PaperB/RamPlacedTrace.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2046,6 +2047,14 @@
         "release-core/Challenge.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamPlacedTrace.lean",
+      "local_imports": [
+        "release-core/PaperB/RamProgram.lean"
+      ],
+      "owner_role": "cost",
       "admission": "ORACLE_CORE"
     }
   ],
