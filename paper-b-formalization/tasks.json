@@ -286,7 +286,8 @@
     "release-core/PaperB/ExitPhysicalPrefixLive.lean": "exit sweeps",
     "release-core/PaperB/ForestBuiltQueryToll.lean": "quotient forest",
     "release-core/PaperB/FlatBackKey.lean": "packed oracle",
-    "release-core/PaperB/ExitCanonicalBank.lean": "exit sweeps"
+    "release-core/PaperB/ExitCanonicalBank.lean": "exit sweeps",
+    "release-core/PaperB/RamSealedTranslation.lean": "word machine"
   },
   "milestones": [
     {
@@ -1568,9 +1569,10 @@
         "evidence/ram-checked-row-tail/verification.json",
         "evidence/sealed-query-work-registers/verification.json",
         "evidence/ram-child-slice/verification.json",
-        "evidence/ram-pair-hit-row-all-way/verification.json"
+        "evidence/ram-pair-hit-row-all-way/verification.json",
+        "evidence/ram-translate-one-head/verification.json"
       ],
-      "progress": "One fixed program run halts with the true dictionary answer and exact matching row in register 3 when the key exists."
+      "progress": "Four fixed instructions read the header and translate an original ID from a sealed word column without address wrapping."
     },
     {
       "id": "EX5.4",

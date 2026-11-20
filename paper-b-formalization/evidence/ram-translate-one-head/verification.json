@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea58eb6",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamSealedTranslation.lean",
+  "sha256": "733f89cb671284143793fb3185e1b1d263bad6725dbfefbfd440158008b170d2",
+  "scope": "Four fixed instructions read the header and translate an original ID from a sealed word column without address wrapping.",
+  "remaining": "Link the translation helper into fixed original-vertex early decisions."
+}

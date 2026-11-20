@@ -351,3 +351,4 @@
 {"at": "2026-11-20T03:13:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestBuiltQueryToll", "tasks": ["EX2.4"], "evidence": "evidence/forest-actual-query-toll/verification.json"}
 {"at": "2026-11-20T03:13:21+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FlatBackKey", "tasks": ["EX5.2"], "evidence": "evidence/sealed-back-key-check/verification.json"}
 {"at": "2026-11-20T03:13:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitCanonicalBank", "tasks": ["EX4.3"], "evidence": "evidence/exit-canonical-shared-region/verification.json"}
+{"at": "2026-11-20T03:13:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamSealedTranslation", "tasks": ["EX5.3"], "evidence": "evidence/ram-translate-one-head/verification.json"}
