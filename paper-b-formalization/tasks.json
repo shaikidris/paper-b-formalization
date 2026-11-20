@@ -180,7 +180,8 @@
     "release-core/PaperB/ForestRealCounts.lean": "cuts",
     "release-core/PaperB/ExitGroupedFresh.lean": "exit",
     "release-core/PaperB/RamPredecessorWorker.lean": "cost model",
-    "release-core/PaperB/RamSearchCorrect.lean": "cost model"
+    "release-core/PaperB/RamSearchCorrect.lean": "cost model",
+    "release-core/PaperB/DenseArcRow.lean": "quotient"
   },
   "milestones": [
     {
@@ -1261,9 +1262,10 @@
         "evidence/ram-midpoint-audit/verification.json",
         "evidence/dense-quotient-audit/verification.json",
         "evidence/actual-sibling-emitter-audit/verification.json",
-        "evidence/dense-arc-local-slot-audit/verification.json"
+        "evidence/dense-arc-local-slot-audit/verification.json",
+        "evidence/dense-arc-row-audit/verification.json"
       ],
-      "progress": "A checked inverse translates the actual two-range global block code into a local quotient slot without scanning the child row or allocating a table per root. The dense arc fold and whole-arena proof remain open."
+      "progress": "Lean verifies exact local arc translation and identical payload order and multiplicity for typed original bucket endpoints. Binding actual arc buckets through ownership into the forest and exit build remains in progress."
     },
     {
       "id": "EX5.2",

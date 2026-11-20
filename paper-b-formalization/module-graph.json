@@ -197,7 +197,8 @@
         "release-core/PaperB/DenseArcRecode.lean",
         "release-core/PaperB/ExitGroupedFresh.lean",
         "release-core/PaperB/RamPredecessorWorker.lean",
-        "release-core/PaperB/RamSearchCorrect.lean"
+        "release-core/PaperB/RamSearchCorrect.lean",
+        "release-core/PaperB/DenseArcRow.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1517,6 +1518,15 @@
         "release-core/PaperB/RamPredecessorWorker.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseArcRow.lean",
+      "local_imports": [
+        "release-core/PaperB/DenseArcRecode.lean",
+        "release-core/PaperB/ActualSiblingEmitter.lean"
+      ],
+      "owner_role": "quotient",
       "admission": "ORACLE_CORE"
     }
   ],

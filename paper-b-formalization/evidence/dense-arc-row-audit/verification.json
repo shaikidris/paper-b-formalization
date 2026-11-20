@@ -1,0 +1,11 @@
+{
+  "base_commit": "c0ea9da",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseArcRow.lean",
+  "sha256": "a2241e4dd20a78246f707283f255562ebed8f143f7c504fd603811e6fb915f25",
+  "scope": "A checked dense row translator performs two bounded slot lookups per physical occurrence. For certified endpoints, it preserves every input position and original payload in order, including multiplicities. The ownership certificate has no runtime cost.",
+  "remaining": "Instantiate endpoint ownership from ActualSiblingEmitter and derive the executable family's local quotient graph representation."
+}

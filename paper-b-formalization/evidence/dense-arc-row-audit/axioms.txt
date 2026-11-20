@@ -1,0 +1,3 @@
+'PaperB.PackedLocalArcs.recode_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.PackedLocalArcs.recode_labels' depends on axioms: [propext, Quot.sound]
+'PaperB.PackedLocalArcs.ordinaryChild' depends on axioms: [propext, Quot.sound]
