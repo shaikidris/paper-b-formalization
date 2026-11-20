@@ -274,7 +274,8 @@
         "release-core/PaperB/ExitDirectDepthInv.lean",
         "release-core/PaperB/ForestCheckpointCertificate.lean",
         "release-core/PaperB/ExitClosedOverlay.lean",
-        "release-core/PaperB/SealedQueryRegisters.lean"
+        "release-core/PaperB/SealedQueryRegisters.lean",
+        "release-core/PaperB/RamChildRow.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2509,6 +2510,15 @@
       "path": "release-core/PaperB/SealedQueryRegisters.lean",
       "local_imports": [
         "release-core/PaperB/SealedQuery.lean"
+      ],
+      "owner_role": "word machine",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamChildRow.lean",
+      "local_imports": [
+        "release-core/PaperB/StaticChildLookup.lean",
+        "release-core/PaperB/RamSearchCorrect.lean"
       ],
       "owner_role": "word machine",
       "admission": "ORACLE_CORE"

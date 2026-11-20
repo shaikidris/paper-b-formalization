@@ -280,7 +280,8 @@
     "release-core/PaperB/ExitDirectDepthInv.lean": "exit sweeps",
     "release-core/PaperB/ForestCheckpointCertificate.lean": "quotient forest",
     "release-core/PaperB/ExitClosedOverlay.lean": "exit sweeps",
-    "release-core/PaperB/SealedQueryRegisters.lean": "word machine"
+    "release-core/PaperB/SealedQueryRegisters.lean": "word machine",
+    "release-core/PaperB/RamChildRow.lean": "word machine"
   },
   "milestones": [
     {
@@ -1552,9 +1553,10 @@
         "evidence/ram-full-pair-rom/verification.json",
         "evidence/ram-complete-boolean-pair-check/verification.json",
         "evidence/ram-checked-row-tail/verification.json",
-        "evidence/sealed-query-work-registers/verification.json"
+        "evidence/sealed-query-work-registers/verification.json",
+        "evidence/ram-child-slice/verification.json"
       ],
-      "progress": "The sealed query can initialize a fixed register bank large enough for the linked workers and receives only the retained array."
+      "progress": "An actual scalar RAM search over a physical child-entry row plus at most three column reads returns the exact child or a miss."
     },
     {
       "id": "EX5.4",

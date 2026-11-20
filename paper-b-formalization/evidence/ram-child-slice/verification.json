@@ -1,0 +1,11 @@
+{
+  "base_commit": "126d7be",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamChildRow.lean",
+  "sha256": "130b1fdf3ebbf2dce3e2a71e6e73018514b173cfb4baf71c87e7acc303f0802e",
+  "scope": "An actual scalar RAM search over a physical child-entry row plus at most three column reads returns the exact child or a miss.",
+  "remaining": "Lower the constant post-search reader and seal the child rows into the common query layout."
+}
