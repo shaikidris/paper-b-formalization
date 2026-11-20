@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.
 - [EX4.2](TASKS.md#ex42) — The computed compact driver array covers each actual proper-loss edge with real endpoints, using the actual retained checked dictionary.
-- [EX4.3](TASKS.md#ex43) — The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.
+- [EX4.3](TASKS.md#ex43) — A value-preserving tally charges one visit per actual raw occurrence, one fused call per qualifying predecessor, and at most two missing endpoint lookups per install.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
 - [EX5.2](TASKS.md#ex52) — Each base uses six words in the common bank; its direct read matches both actual intervals and supports the exact word-only fused callback.

@@ -299,7 +299,8 @@
         "release-core/PaperB/PackedContiguousSeal.lean",
         "release-core/PaperB/ExitDriverCoverage.lean",
         "release-core/PaperB/ExitSealedBase.lean",
-        "release-core/PaperB/RamMultiReturn.lean"
+        "release-core/PaperB/RamMultiReturn.lean",
+        "release-core/PaperB/ExitRawCallCounts.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2756,6 +2757,15 @@
         "release-core/PaperB/RamWorkerReturn.lean"
       ],
       "owner_role": "word machine",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitRawCallCounts.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitRawIncoming.lean",
+        "release-core/PaperB/ExitPackedRuntime.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],

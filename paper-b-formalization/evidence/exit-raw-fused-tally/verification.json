@@ -1,0 +1,11 @@
+{
+  "base_commit": "bfa4cde",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitRawCallCounts.lean",
+  "sha256": "4cb7c7705987e4c2fd99f1181ea0e99ecd6cf61ada3caec28746b0429cfaba0f",
+  "scope": "A value-preserving tally charges one visit per actual raw occurrence, one fused call per qualifying predecessor, and at most two missing endpoint lookups per install.",
+  "remaining": "Sum these charges along one actual interleaved sweep."
+}
