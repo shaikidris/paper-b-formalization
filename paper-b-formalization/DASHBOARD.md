@@ -25,7 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — The simplification now applies to every original-ID query including missing failures and targets.
 - [EX5.1](TASKS.md#ex51) — The physical dense local-order arrays now have checked exact domain coverage, cardinality and increasing rank.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
-- [EX5.3](TASKS.md#ex53) — Lean now checks exact embedding of placed instructions into a wider register frame, with untouched registers preserved.
+- [EX5.3](TASKS.md#ex53) — The relocated scalar search now embeds into the eventual wider query register bank and preserves unrelated registers.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 

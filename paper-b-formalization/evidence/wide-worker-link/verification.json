@@ -1,0 +1,11 @@
+{
+  "base_commit": "98a1cb2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamWideWorker.lean",
+  "sha256": "cdbf561ee7125b1ec270e58fd82bc5933071b6606f986dc9d85e8da27239e55b",
+  "scope": "A real scalar predecessor run executes inside a wider linked program with exactly the worker step count, same return value, and independent registers preserved.",
+  "remaining": "Instantiate three fixed call positions and price setup and final validation in one pair lookup program."
+}

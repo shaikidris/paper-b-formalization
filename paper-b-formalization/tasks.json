@@ -237,7 +237,8 @@
     "release-core/PaperB/LabelledTransport.lean": "exit",
     "release-core/PaperB/RamPlacedTrace.lean": "cost",
     "release-core/PaperB/ExitInterleavedPacked.lean": "exit",
-    "release-core/PaperB/ForestPreparedBuild.lean": "cuts"
+    "release-core/PaperB/ForestPreparedBuild.lean": "cuts",
+    "release-core/PaperB/RamWideWorker.lean": "cost"
   },
   "milestones": [
     {
@@ -1449,9 +1450,10 @@
         "evidence/ram-prehalt/verification.json",
         "evidence/ram-worker-halt-pc/verification.json",
         "evidence/ram-linked-return/verification.json",
-        "evidence/ram-wider-placement/verification.json"
+        "evidence/ram-wider-placement/verification.json",
+        "evidence/wide-worker-link/verification.json"
       ],
-      "progress": "Lean now checks exact embedding of placed instructions into a wider register frame, with untouched registers preserved."
+      "progress": "The relocated scalar search now embeds into the eventual wider query register bank and preserves unrelated registers."
     },
     {
       "id": "EX5.4",
