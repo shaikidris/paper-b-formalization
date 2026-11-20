@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Combined charged-site bound for exactly the implemented fast reader now holds.
+- [EX2.4](TASKS.md#ex24) — Raw gathering and every actual epoch-dedup prefix now have checked live storage receipts.
 - [EX4.2](TASKS.md#ex42) — Generic exit model now uses real incoming incidences, preserves every labelled last exit, and derives transfer from the canonical forest.
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
 - [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.

@@ -251,7 +251,8 @@
     "release-core/PaperB/ExitRouteStoredBridge.lean": "exit",
     "release-core/PaperB/ForestIntegratedSiteToll.lean": "forest",
     "release-core/PaperB/FamilyForestIndex.lean": "ram",
-    "release-core/PaperB/GenericRawExitModel.lean": "exit"
+    "release-core/PaperB/GenericRawExitModel.lean": "exit",
+    "release-core/PaperB/ForestInputPrepStorage.lean": "forest"
   },
   "milestones": [
     {
@@ -1026,9 +1027,10 @@
         "evidence/forest-same-reader-budget/verification.json",
         "evidence/fast-query-toll/verification.json",
         "evidence/forest-residual-sites/verification.json",
-        "evidence/forest-integrated-sites/verification.json"
+        "evidence/forest-integrated-sites/verification.json",
+        "evidence/raw-input-storage/verification.json"
       ],
-      "progress": "Combined charged-site bound for exactly the implemented fast reader now holds.",
+      "progress": "Raw gathering and every actual epoch-dedup prefix now have checked live storage receipts.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "12b9cf5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestInputPrepStorage.lean",
+  "sha256": "00006151cfc72d15ae6de209d5ef40b96f75240f009179090d0a4601db2d567d",
+  "scope": "Explicit live-state bounds for raw collection, grouping hand-off and every epoch-dedup prefix. The dedup receipt bounds labelled rows, projected rows, stamps and active/completed test cells together.",
+  "remaining": "Cover raw grouped scatter transient storage and dictionary, sweep and finish handoffs in one full peak argument."
+}

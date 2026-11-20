@@ -300,3 +300,4 @@
 {"at": "2026-11-20T02:04:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestIntegratedSiteToll", "tasks": ["EX2.4"], "evidence": "evidence/forest-integrated-sites/verification.json"}
 {"at": "2026-11-20T02:04:05+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FamilyForestIndex", "tasks": ["EX5.1"], "evidence": "evidence/family-forest-index/verification.json"}
 {"at": "2026-11-20T02:08:24+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "GenericRawExitModel", "tasks": ["EX4.2"], "evidence": "evidence/raw-exit-model/verification.json"}
+{"at": "2026-11-20T02:08:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestInputPrepStorage", "tasks": ["EX2.4"], "evidence": "evidence/raw-input-storage/verification.json"}
