@@ -1,0 +1,11 @@
+{
+  "base_commit": "dbfec99",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestInstallCapacity.lean",
+  "sha256": "ae5706aa4668676e735fa7842b2ab81de414243902854a5477c5003a21352332",
+  "scope": "Successful prepared heads refine the exact install branch, do one keyed lookup exactly when a key is requested, and preserve the packed memory, slot, reverse-key and label capacities. The jump-region append trace costs at most 14 accesses per allocation.",
+  "remaining": "Sum these costs and include dictionary, layout, planner and ephemeral scratch in the same executable resource certificate."
+}

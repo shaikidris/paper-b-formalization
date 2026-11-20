@@ -199,7 +199,8 @@
     "release-core/PaperB/FastQuotientRows.lean": "quotient",
     "release-core/PaperB/ExitArraySchedule.lean": "exit",
     "release-core/PaperB/DensePackingCode.lean": "quotient",
-    "release-core/PaperB/ForestPackedReadSum.lean": "cuts"
+    "release-core/PaperB/ForestPackedReadSum.lean": "cuts",
+    "release-core/PaperB/ForestInstallCapacity.lean": "cuts"
   },
   "milestones": [
     {
@@ -952,9 +953,10 @@
         "evidence/forest-packed-probe-audit/verification.json",
         "evidence/forest-packed-search-audit/verification.json",
         "evidence/forest-all-sizes-audit/verification.json",
-        "evidence/forest-read-sum-audit/verification.json"
+        "evidence/forest-read-sum-audit/verification.json",
+        "evidence/forest-install-capacity-audit/verification.json"
       ],
-      "progress": "Packed reads are now summed over the successful prepared trace, with every executed midpoint and predecessor test charged from its grounded prefix. The final ordered-run instantiation and non-read resources remain open.",
+      "progress": "Each actual installation has the verified lookup trace, append-access bound, and fixed array capacities. The complete duration and peak-workspace account remains open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

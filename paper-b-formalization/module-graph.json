@@ -339,7 +339,8 @@
         "release-core/PaperB/ForestPackedProbe.lean",
         "release-core/PaperB/ForestPackedSearch.lean",
         "release-core/PaperB/ForestAllSizes.lean",
-        "release-core/PaperB/ForestPackedReadSum.lean"
+        "release-core/PaperB/ForestPackedReadSum.lean",
+        "release-core/PaperB/ForestInstallCapacity.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1701,6 +1702,15 @@
       "local_imports": [
         "release-core/PaperB/ForestRealCounts.lean",
         "release-core/PaperB/ForestPackedSearch.lean"
+      ],
+      "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestInstallCapacity.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestEventChronology.lean",
+        "release-core/PaperB/ForestMeasuredWork.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
