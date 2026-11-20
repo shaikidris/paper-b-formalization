@@ -298,7 +298,8 @@
     "release-core/PaperB/ExitOrientedLookup.lean": "original queries",
     "release-core/PaperB/RamPairGuard.lean": "word machine",
     "release-core/PaperB/PackedSectionSeal.lean": "packed oracle",
-    "release-core/PaperB/ForestInitialCharges.lean": "quotient forest"
+    "release-core/PaperB/ForestInitialCharges.lean": "quotient forest",
+    "release-core/PaperB/ExitLiveForestRoutes.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1319,9 +1320,10 @@
         "evidence/raw-exit-model/verification.json",
         "evidence/exit-physical-keys/verification.json",
         "evidence/packed-transfer-drivers/verification.json",
-        "evidence/exit-incoming-law-from-sites/verification.json"
+        "evidence/exit-incoming-law-from-sites/verification.json",
+        "evidence/exit-route-from-live-ancestry/verification.json"
       ],
-      "progress": "Recover the raw incoming recurrence from actual endpoint contributions and exactly the prior-source footprint of the supplied row."
+      "progress": "A semantic ancestor path whose exact driver edges are all live gives a proof-only transfer route with exact composed reference value."
     },
     {
       "id": "EX4.3",

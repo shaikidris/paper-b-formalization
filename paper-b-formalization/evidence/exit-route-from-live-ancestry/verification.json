@@ -1,0 +1,11 @@
+{
+  "base_commit": "5771995",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitLiveForestRoutes.lean",
+  "sha256": "54c25d2742b9cfb7d5e21d93cd58fe1a8977fa4937211bcabbceb3c8d64e6142",
+  "scope": "A semantic ancestor path whose exact driver edges are all live gives a proof-only transfer route with exact composed reference value.",
+  "remaining": "Discharge real-edge driver coverage and chronological publication in the actual sweep."
+}
