@@ -1,0 +1,4 @@
+'PaperB.EX52.FlatEndpoints.serialize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX52.FlatEndpoints.header_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX52.FlatEndpoints.retained_words_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX52.FlatEndpoints.known_exact' depends on axioms: [propext, Classical.choice, Quot.sound]

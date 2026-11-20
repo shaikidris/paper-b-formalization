@@ -1,0 +1,11 @@
+{
+  "base_commit": "5a08346",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FlatEndpoints.lean",
+  "sha256": "fcc01caa01ba80ee4b8fe78b12ee9a17827f9d87a44918b7eef2e9ca5c077eba",
+  "scope": "Fixed flat finite-word encoding of the actual label and two DFS endpoint columns, with three header words, exact bounds and known-node equivalence.",
+  "remaining": "Discharge field-fit from actual reader bounds and add sorted keys, slot/back fields and packed exits."
+}

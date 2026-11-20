@@ -24,7 +24,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
 - [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.
 - [EX5.1](TASKS.md#ex51) — One real family build assembles every quotient membership index with exact correctness and aggregate retained slot accounting.
-- [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
+- [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.
 - [EX5.3](TASKS.md#ex53) — All three setup traces and register contracts now hold on the same concrete instruction vector.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.

@@ -254,7 +254,8 @@
     "release-core/PaperB/GenericRawExitModel.lean": "exit",
     "release-core/PaperB/ForestInputPrepStorage.lean": "forest",
     "release-core/PaperB/ForestSweepStorage.lean": "forest",
-    "release-core/PaperB/ExitPhysicalKeys.lean": "exit"
+    "release-core/PaperB/ExitPhysicalKeys.lean": "exit",
+    "release-core/PaperB/FlatEndpoints.lean": "ram"
   },
   "milestones": [
     {
@@ -1441,9 +1442,10 @@
       "evidence": [
         "evidence/ex52-exact-memory-layout/verification.json",
         "evidence/ex52-uniform-sealed-arena/verification.json",
-        "evidence/exit-stored-codec-audit/verification.json"
+        "evidence/exit-stored-codec-audit/verification.json",
+        "evidence/sealed-early-endpoints/verification.json"
       ],
-      "progress": "The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open."
+      "progress": "First physical slice of the sealed local index now has an executable encoder and reader with exact correctness."
     },
     {
       "id": "EX5.3",
