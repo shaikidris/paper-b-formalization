@@ -324,7 +324,8 @@
     "release-core/PaperB/ExitActualOrientation.lean": "exit sweeps",
     "release-core/PaperB/ExitCompactMapBefore.lean": "exit sweeps",
     "release-core/PaperB/RamAppendLink.lean": "word machine",
-    "release-core/PaperB/ExitSweepWorkSum.lean": "exit sweeps"
+    "release-core/PaperB/ExitSweepWorkSum.lean": "exit sweeps",
+    "release-core/PaperB/ExitCountedBase.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1423,9 +1424,10 @@
         "evidence/exit-embedding-ancestor-address/verification.json",
         "evidence/exit-earlier-source-creator-min/verification.json",
         "evidence/exit-driver-image-addr-min/verification.json",
-        "evidence/exit-generic-sweep-work-sum/verification.json"
+        "evidence/exit-generic-sweep-work-sum/verification.json",
+        "evidence/generic-counted-exit-base/verification.json"
       ],
-      "progress": "Aggregate charged exit events using the exact scheduled raw arc mass and the per-event fused-call cap."
+      "progress": "Prove exact values and per-row visits and fused-call bounds for the executable base calculation."
     },
     {
       "id": "EX4.4",

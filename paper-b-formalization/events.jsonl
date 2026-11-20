@@ -400,3 +400,4 @@
 {"at": "2026-11-20T04:17:14+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalSchedule", "tasks": ["EX4.2"], "evidence": "evidence/exit-actual-slot-creator-min/verification.json"}
 {"at": "2026-11-20T04:17:21+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualForestInputs", "tasks": ["EX4.3"], "evidence": "evidence/exit-driver-image-addr-min/verification.json"}
 {"at": "2026-11-20T18:19:18+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ExitSweepWorkSum", "tasks": ["EX4.3"], "evidence": "evidence/exit-generic-sweep-work-sum/verification.json"}
+{"at": "2026-11-20T18:24:03+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ExitCountedBase", "tasks": ["EX4.3"], "evidence": "evidence/generic-counted-exit-base/verification.json"}
