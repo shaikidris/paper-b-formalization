@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — The fixed-bank depth-first dictionary sort now builds with exact bank sizes, disjoint write spans and a bound on live recursion frames.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
-- [EX4.3](TASKS.md#ex43) — The fused walk now reads actual packed depth and 18-word map records from a single word array. Its result and per-step read costs are checked under the occupied representation invariant.
+- [EX4.3](TASKS.md#ex43) — Lean verifies exactly eighteen writes for each packed exit-map record, exact typed read-back and preservation of every other slot.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — Lean checks inverse vertex translations and exact labelled adjacency between the dense runtime graph and the finite structural quotient. The root/path/rank transport remains to be wired.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.

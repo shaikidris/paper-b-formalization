@@ -1,0 +1,4 @@
+import PaperB.ExitStoredWrite
+#print axioms PaperB.ExitStoredWrite.writeStoredAt_writes
+#print axioms PaperB.ExitStoredWrite.readStoredAt_writeStoredAt
+#print axioms PaperB.ExitStoredWrite.readStoredAt_writeStoredAt_other

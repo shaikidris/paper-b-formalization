@@ -1,0 +1,11 @@
+{
+  "base_commit": "c4c1eaa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitStoredWrite.lean",
+  "sha256": "a2a8f72c67bf6c3f8368fc6ced09a06b0c1d4e8ae9f1e2c5b0bb626f46142ac5",
+  "scope": "The finite-word exit-map write preserves the shared array size, performs exactly eighteen writes, reads back the same record and preserves other record slots.",
+  "remaining": "Connect the writer to sequential installation and prove that every packed record read by a transfer or query has been initialized."
+}

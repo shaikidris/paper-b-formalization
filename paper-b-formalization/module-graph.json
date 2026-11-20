@@ -216,7 +216,8 @@
         "release-core/PaperB/DenseLabelledArcIso.lean",
         "release-core/PaperB/RamPairSliceBinding.lean",
         "release-core/PaperB/ExitStoredCodec.lean",
-        "release-core/PaperB/ExitWordArrayQuery.lean"
+        "release-core/PaperB/ExitWordArrayQuery.lean",
+        "release-core/PaperB/ExitStoredWrite.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1809,6 +1810,14 @@
         "release-core/PaperB/PairDictionary.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitStoredWrite.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitStoredCodec.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

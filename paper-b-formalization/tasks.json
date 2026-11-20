@@ -210,7 +210,8 @@
     "release-core/PaperB/ForestArrayMerge.lean": "cuts",
     "release-core/PaperB/ExitWordArrayQuery.lean": "exit",
     "release-core/PaperB/ForestArrayMergeExact.lean": "cuts",
-    "release-core/PaperB/ForestFixedBankSort.lean": "cuts"
+    "release-core/PaperB/ForestFixedBankSort.lean": "cuts",
+    "release-core/PaperB/ExitStoredWrite.lean": "exit"
   },
   "milestones": [
     {
@@ -1227,9 +1228,10 @@
         "evidence/fused-jump-audit/verification.json",
         "evidence/exit-packed-fused-audit/verification.json",
         "evidence/exit-single-map-audit/verification.json",
-        "evidence/exit-word-query/verification.json"
+        "evidence/exit-word-query/verification.json",
+        "evidence/exit-stored-write/verification.json"
       ],
-      "progress": "The fused walk now reads actual packed depth and 18-word map records from a single word array. Its result and per-step read costs are checked under the occupied representation invariant."
+      "progress": "Lean verifies exactly eighteen writes for each packed exit-map record, exact typed read-back and preservation of every other slot."
     },
     {
       "id": "EX4.4",
