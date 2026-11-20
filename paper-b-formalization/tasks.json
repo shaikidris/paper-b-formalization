@@ -202,7 +202,8 @@
     "release-core/PaperB/ForestPackedReadSum.lean": "cuts",
     "release-core/PaperB/ForestInstallCapacity.lean": "cuts",
     "release-core/PaperB/ExitPackedFused.lean": "exit",
-    "release-core/PaperB/ExitSingleMap.lean": "exit"
+    "release-core/PaperB/ExitSingleMap.lean": "exit",
+    "release-core/PaperB/ForestOrderedReadBound.lean": "cuts"
   },
   "milestones": [
     {
@@ -956,9 +957,10 @@
         "evidence/forest-packed-search-audit/verification.json",
         "evidence/forest-all-sizes-audit/verification.json",
         "evidence/forest-read-sum-audit/verification.json",
-        "evidence/forest-install-capacity-audit/verification.json"
+        "evidence/forest-install-capacity-audit/verification.json",
+        "evidence/forest-ordered-read-bound-audit/verification.json"
       ],
-      "progress": "Each actual installation has the verified lookup trace, append-access bound, and fixed array capacities. The complete duration and peak-workspace account remains open.",
+      "progress": "The full actual ordered forest sweep has a verified quadratic-log packed selector-read bound. One-step install access and all fixed array capacities are also verified. End-to-end build work and peak space remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "dbfec99",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestOrderedReadBound.lean",
+  "sha256": "dbe67f098502d24b6dadbbb8434a659e79f5b81ec5202eb12fa14019a9d20cf1",
+  "scope": "Every actual packed selector read of the complete ordered build is covered by a quadratic-log bound over quotient vertices and tested predecessor entries. The physical Grounded and Embedding premises are supplied by the real execution and matched to its exact measured trace.",
+  "remaining": "Combine packed reads with actual install and planner costs, dictionary initialization, final DFS and peak-live accounting under one resource model."
+}
