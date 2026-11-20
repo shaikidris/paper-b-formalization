@@ -414,3 +414,4 @@
 {"at": "2026-11-20T18:49:50+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestPackedLookupRun", "tasks": ["EX2.4"], "evidence": "evidence/ex2-packed-fixed-run/verification.json"}
 {"at": "2026-11-20T18:50:00+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestBuildPackedWords", "tasks": ["EX2.4"], "evidence": "evidence/ex2-build-word-image/verification.json"}
 {"at": "2026-11-20T18:52:14+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "DenseLocalRankProbe", "tasks": ["EX2.4"], "evidence": "evidence/ex2-dense-rank-probes/verification.json"}
+{"at": "2026-11-20T18:53:58+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestBuildPackedQuerySpec", "tasks": ["EX2.4"], "evidence": "evidence/ex2-word-query-spec/verification.json"}

@@ -1,0 +1,32 @@
+{
+  "base_commit": "e4184db",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestBuildPackedQuerySpec.lean",
+  "sha256": "d91051954dcbccecccd3874604fc0aaf557fc63b91c35a37ffa8ddd26207cc71",
+  "scope": "Connect the actual packed builder output and checked hit continuation to canonical proper-loss membership.",
+  "remaining": "Verify every preprocessing operation and simultaneous live phase of the same finite-word builder.",
+  "unsuccessful_api_attempts": [
+    {
+      "task": "generic instrumented fallible fold",
+      "project": "Generic",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 268,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_12h_tokens": 0,
+            "ttl_30m_tokens": 0
+          },
+          "cached_tokens": 0
+        },
+        "output_tokens": 4600,
+        "output_tokens_details": {
+          "reasoning_tokens": 4600
+        },
+        "total_tokens": 4868
+      }
+    }
+  ],
+  "source_provenance": "Local assembly of verified packed builder and lookup proofs."
+}

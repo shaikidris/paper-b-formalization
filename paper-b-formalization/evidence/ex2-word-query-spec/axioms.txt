@@ -1,0 +1,2 @@
+'PaperB.ForestPreparedBuild.buildWords_afterHit_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWords_query_domain' depends on axioms: [propext, Classical.choice, Quot.sound]

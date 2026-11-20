@@ -1,0 +1,3 @@
+import PaperB.ForestBuildPackedQuerySpec
+#print axioms PaperB.ForestPreparedBuild.buildWords_afterHit_spec
+#print axioms PaperB.ForestPreparedBuild.buildWords_query_domain

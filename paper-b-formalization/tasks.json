@@ -338,7 +338,8 @@
     "release-core/PaperB/ForestPackedAfterHit.lean": "quotient forest",
     "release-core/PaperB/ForestPackedLookupRun.lean": "quotient forest",
     "release-core/PaperB/ForestBuildPackedWords.lean": "quotient forest",
-    "release-core/PaperB/DenseLocalRankProbe.lean": "quotient forest"
+    "release-core/PaperB/DenseLocalRankProbe.lean": "quotient forest",
+    "release-core/PaperB/ForestBuildPackedQuerySpec.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1143,9 +1144,10 @@
         "evidence/ex2-packed-after-hit/verification.json",
         "evidence/ex2-packed-fixed-run/verification.json",
         "evidence/ex2-build-word-image/verification.json",
-        "evidence/ex2-dense-rank-probes/verification.json"
+        "evidence/ex2-dense-rank-probes/verification.json",
+        "evidence/ex2-word-query-spec/verification.json"
       ],
-      "progress": "Prove the actual quotient rank callback is four ordered indexed record probes with exact returned rank.",
+      "progress": "Connect the actual packed builder output and checked hit continuation to canonical proper-loss membership.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
