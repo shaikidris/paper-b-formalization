@@ -1,0 +1,11 @@
+{
+  "base_commit": "c4c1eaa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestFixedBankSort.lean",
+  "sha256": "b315b0a01b74f408545c61a171712dd0e38d4eba37b0192b3f96d3a168e5e4e5",
+  "scope": "The executable depth-first dictionary sort uses two fixed-length banks, with frame and pending sibling locality and logarithmic depth of its recursive schedule.",
+  "remaining": "Connect the exact merge theorem to the actual sort for increasing output keys, count full execution and refine its recursive schedule into the fixed RAM allocator."
+}

@@ -209,7 +209,8 @@
     "release-core/PaperB/ExitStoredCodec.lean": "cost model",
     "release-core/PaperB/ForestArrayMerge.lean": "cuts",
     "release-core/PaperB/ExitWordArrayQuery.lean": "exit",
-    "release-core/PaperB/ForestArrayMergeExact.lean": "cuts"
+    "release-core/PaperB/ForestArrayMergeExact.lean": "cuts",
+    "release-core/PaperB/ForestFixedBankSort.lean": "cuts"
   },
   "milestones": [
     {
@@ -966,9 +967,10 @@
         "evidence/forest-install-capacity-audit/verification.json",
         "evidence/forest-ordered-read-bound-audit/verification.json",
         "evidence/forest-array-merge-audit/verification.json",
-        "evidence/forest-merge-exact/verification.json"
+        "evidence/forest-merge-exact/verification.json",
+        "evidence/fixed-bank-sort/verification.json"
       ],
-      "progress": "The actual two-bank merge trace now proves the exact sorted and deduplicated output for increasing input slices.",
+      "progress": "The fixed-bank depth-first dictionary sort now builds with exact bank sizes, disjoint write spans and a bound on live recursion frames.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

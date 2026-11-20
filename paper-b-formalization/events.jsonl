@@ -246,3 +246,4 @@
 {"at": "2026-11-20T00:42:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX5.1"], "evidence": "evidence/dense-structural-arc-transport-audit/verification.json"}
 {"at": "2026-11-20T00:47:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitWordArrayQuery", "tasks": ["EX4.3"], "evidence": "evidence/exit-word-query/verification.json"}
 {"at": "2026-11-20T00:47:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestArrayMergeExact", "tasks": ["EX2.4"], "evidence": "evidence/forest-merge-exact/verification.json"}
+{"at": "2026-11-20T00:50:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFixedBankSort", "tasks": ["EX2.4"], "evidence": "evidence/fixed-bank-sort/verification.json"}
