@@ -214,7 +214,8 @@
         "release-core/PaperB/ExitPackedFused.lean",
         "release-core/PaperB/ExitSingleMap.lean",
         "release-core/PaperB/DenseLabelledArcIso.lean",
-        "release-core/PaperB/RamPairSliceBinding.lean"
+        "release-core/PaperB/RamPairSliceBinding.lean",
+        "release-core/PaperB/ExitStoredCodec.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1759,6 +1760,15 @@
       "local_imports": [
         "release-core/PaperB/RamLexPairCuts.lean",
         "release-core/PaperB/RamSearchCorrect.lean"
+      ],
+      "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitStoredCodec.lean",
+      "local_imports": [
+        "release-core/PaperB/JumpMapFold.lean",
+        "release-core/PaperB/ExitMapRetention.lean"
       ],
       "owner_role": "cost model",
       "admission": "ORACLE_CORE"

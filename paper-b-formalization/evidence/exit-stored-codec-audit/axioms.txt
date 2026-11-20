@@ -1,0 +1,3 @@
+'PaperB.StoredPacking.stored_decode_encode' depends on axioms: [propext, Quot.sound]
+'PaperB.StoredPacking.stored_fits' depends on axioms: [propext, Quot.sound]
+'PaperB.StoredPacking.readStoredAt_exact' depends on axioms: [propext, Quot.sound]

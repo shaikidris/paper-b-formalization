@@ -241,3 +241,4 @@
 {"at": "2026-11-20T00:32:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestOrderedReadBound", "tasks": ["EX2.4"], "evidence": "evidence/forest-ordered-read-bound-audit/verification.json"}
 {"at": "2026-11-20T00:38:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX5.1"], "evidence": "evidence/dense-labelled-arc-audit/verification.json"}
 {"at": "2026-11-20T00:38:16+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPairSliceBinding", "tasks": ["EX5.3"], "evidence": "evidence/ram-pair-slice-audit/verification.json"}
+{"at": "2026-11-20T00:38:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitStoredCodec", "tasks": ["EX5.2"], "evidence": "evidence/exit-stored-codec-audit/verification.json"}

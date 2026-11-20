@@ -1,0 +1,11 @@
+{
+  "base_commit": "10bbed5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitStoredCodec.lean",
+  "sha256": "196a8d7f09f68ab16c5601217500a3cd8729a1dcc8711f6d3b244f6c7367f92c",
+  "scope": "One fixed 18-word record stores each exit node’s parent, jump and two composed maps. Lean verifies the round trip, numeric fit and exact packed array read with no wrap.",
+  "remaining": "Supply the actual normalized arena pointers, initialization, updates and the fused reader contract for the joined build/query program."
+}

@@ -451,9 +451,9 @@ Acceptance:
 - Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
 - Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs.
 
-The arena and sealed prefix are reserved solely from declared input counts with the exact oracle contract bit width. Dense offsets, headers, retained words and legal query address ranges are bounded uniformly. Choose constant final block widths and instantiate the same built/queried machine programs in this layout.
+The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 
-Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json).
+Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json), [evidence/exit-stored-codec-audit/verification.json](evidence/exit-stored-codec-audit/verification.json).
 
 <a id="ex53"></a>
 
