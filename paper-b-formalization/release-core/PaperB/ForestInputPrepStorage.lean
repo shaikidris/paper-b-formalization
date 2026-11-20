@@ -455,4 +455,89 @@ theorem build_receipt (H : LabelledQuotient) (cover : ForestIncomingPrep.Cover H
 -- copy-on-write, or allocator capacity slack. No dictionary construction
 -- or ordered sweep is included.
 
+-- Insert in ForestInputPrepStorage.lean, immediately before
+-- `end PaperB.EX24.InputPrepCheckpoint`.
+
+open EX51.Storage (ScatterAt FinishAt ReverseAt scatterRows rowMass)
+
+abbrev inputKey (H : LabelledQuotient) (e : ForestIncomingRaw.Entry H) :
+    Fin H.vertexCount :=
+  ForestIncomingRaw.arcHead e.2
+
+theorem inputSuppliedCount (H : LabelledQuotient) :
+    (supplied H).length = H.arcCount :=
+  (length_supplied H).trans (ForestPreparedBuild.arcTotal_eq_arcCount H)
+
+theorem inputPreparePhases (H : LabelledQuotient) :
+    prepare H = EX51.groupMap (inputKey H) id (supplied H) := rfl
+
+private theorem inputHeadsNodup (n : Nat) : (List.finRange n).Nodup := by
+  first | exact List.nodup_finRange n | exact List.nodup_finRange | simp
+
+-- Sum of independent reserves: gather, EX51, source conversion, dedup.
+-- In particular, neither the immutable adjacency nor a shared list spine
+-- is used to subsidize an allocation in another phase.
+def inputPeak (H : LabelledQuotient) (other : Nat) : Nat :=
+  immutableUnits H other + (10 * H.vertexCount + 27 * H.arcCount)
+
+def InputFits (H : LabelledQuotient) (other units : Nat) : Prop :=
+  immutableUnits H other + units ≤ inputPeak H other
+
+private theorem inputFits_of_le (H : LabelledQuotient) (other : Nat)
+    {units : Nat} (h : units ≤ 5 * H.vertexCount + 9 * H.arcCount) :
+    InputFits H other units := by
+  unfold InputFits inputPeak
+  omega
+
+theorem inputGatherPeak (H : LabelledQuotient) (other : Nat)
+    (done later : List (Fin H.vertexCount)) (u : Fin H.vertexCount)
+    (seen todo : List (QuotientArc H.origVertexCount H.vertexCount))
+    (heads : done ++ u :: later = List.finRange H.vertexCount)
+    (arcs : seen ++ todo = H.outArcs u) :
+    let acc := seen.foldl (gatherArc H u) (done.foldl (gatherRow H) [])
+    InputFits H other (H.vertexCount + 3 * acc.length) := by
+  dsimp only
+  have h := (gather_prefix H done later u seen todo heads arcs).2
+  exact inputFits_of_le H other (by omega)
+
+theorem inputScatterPeak (H : LabelledQuotient) (other : Nat)
+    {rest : List (ForestIncomingRaw.Entry H)}
+    {s : EX51.Rows H.vertexCount (ForestIncomingRaw.Entry H)} {r w : Nat}
+    (v : ScatterAt (inputKey H) id (supplied H) rest s r w) :
+    InputFits H other
+      (s.cells.size + 3 * (rowMass s + (supplied H).length + rest.length)) := by
+  obtain ⟨hs, hm, _, _⟩ := EX51.Storage.scatter_space v
+  have hn := inputSuppliedCount H
+  exact inputFits_of_le H other (by omega)
+
+theorem inputFinishPeak (H : LabelledQuotient) (other : Nat)
+    {s : EX51.Rows H.vertexCount (ForestIncomingRaw.Entry H)}
+    {t c : Nat} {h : t ≤ H.vertexCount}
+    (v : FinishAt (scatterRows (inputKey H) id (supplied H)) t h s c) :
+    InputFits H other (s.cells.size + 3 * (rowMass s + (supplied H).length)) := by
+  obtain ⟨hs, hm, _⟩ := EX51.Storage.finish_space v
+  have hn := inputSuppliedCount H
+  exact inputFits_of_le H other (by omega)
+
+theorem inputReversePeak (H : LabelledQuotient) (other : Nat)
+    {s : EX51.Rows H.vertexCount (ForestIncomingRaw.Entry H)}
+    {t c charge : Nat} {h : t + 1 ≤ H.vertexCount}
+    {unread acc : List (ForestIncomingRaw.Entry H)}
+    (v : FinishAt (scatterRows (inputKey H) id (supplied H)) (t + 1) h s c)
+    (a : ReverseAt (s.row ⟨t, h⟩) c unread acc charge) :
+    InputFits H other
+      (s.cells.size + 3 * (rowMass s + (supplied H).length +
+        (acc.length + unread.length))) := by
+  have hb := (EX51.Storage.reversal_space v a).2
+  have hs := s.size_eq
+  have hn := inputSuppliedCount H
+  exact inputFits_of_le H other (by omega)
+
+theorem inputRawHandoffPeak (H : LabelledQuotient) (other : Nat) :
+    InputFits H other
+      ((labelArray (prepare H)).size + 3 * labelMass H (prepare H) +
+        3 * (supplied H).length) := by
+  rw [raw_handoff_receipt]
+  exact inputFits_of_le H other (by omega)
+
 end PaperB.EX24.InputPrepCheckpoint

@@ -1,0 +1,11 @@
+{
+  "base_commit": "85658a7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestInputPrepStorage.lean",
+  "sha256": "985915eca691c6ca430b3bef84e28f8939e0a163a531191b234f5181b9169621",
+  "scope": "Raw incoming preparation now has grounded logical storage bounds at actual gather, scatter, finish, reversal, and handoff boundaries.",
+  "remaining": "Join this with dedup and retained build traces and the fixed-width cost evidence."
+}
