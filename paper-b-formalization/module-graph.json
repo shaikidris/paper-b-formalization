@@ -362,7 +362,8 @@
         "release-core/PaperB/ForestFixedBankSort.lean",
         "release-core/PaperB/ForestFixedBankSortExact.lean",
         "release-core/PaperB/ForestFixedBankSortToll.lean",
-        "release-core/PaperB/ForestPackedOrderedSweep.lean"
+        "release-core/PaperB/ForestPackedOrderedSweep.lean",
+        "release-core/PaperB/ForestIncomingEpoch.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1926,6 +1927,15 @@
         "release-core/PaperB/StaticTreeReader.lean"
       ],
       "owner_role": "cost",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestIncomingEpoch.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestHead.lean",
+        "release-core/PaperB/StaticHeadSweep.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

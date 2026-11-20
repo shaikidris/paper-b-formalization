@@ -261,3 +261,4 @@
 {"at": "2026-11-20T01:05:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedOrderedSweep", "tasks": ["EX2.4"], "evidence": "evidence/packed-ordered-sweep/verification.json"}
 {"at": "2026-11-20T01:05:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalPass", "tasks": ["EX4.3"], "evidence": "evidence/exit-job-pass/verification.json"}
 {"at": "2026-11-20T01:10:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticGroupedTreeReader", "tasks": ["EX5.1"], "evidence": "evidence/fast-static-reader/verification.json"}
+{"at": "2026-11-20T01:10:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestIncomingEpoch", "tasks": ["EX2.4"], "evidence": "evidence/epoch-dedup/verification.json"}

@@ -1,0 +1,2 @@
+'PaperB.ForestIncoming.run_spec' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestIncoming.testSpec' depends on axioms: [propext, Quot.sound]

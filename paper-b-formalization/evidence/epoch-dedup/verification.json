@@ -1,0 +1,11 @@
+{
+  "base_commit": "e8f5003",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestIncomingEpoch.lean",
+  "sha256": "d300756d7947247b7bc361ca83ddff3f7c707e811c9cc569cf3a2a2052401ab3",
+  "scope": "One shared epoch array deduplicates the supplied raw predecessor rows with exactly one counted visit per raw occurrence. Each resulting row has exact coverage and no repeated predecessors.",
+  "remaining": "Bind raw rows to actual dense quotient incoming occurrences; retain the original labelled raw rows for transfers."
+}

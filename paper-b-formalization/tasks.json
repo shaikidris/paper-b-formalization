@@ -222,7 +222,8 @@
     "release-core/PaperB/RamTracePreHalt.lean": "cost",
     "release-core/PaperB/ForestPackedOrderedSweep.lean": "cuts",
     "release-core/PaperB/ExitPhysicalPass.lean": "exit",
-    "release-core/PaperB/StaticGroupedTreeReader.lean": "cost"
+    "release-core/PaperB/StaticGroupedTreeReader.lean": "cost",
+    "release-core/PaperB/ForestIncomingEpoch.lean": "cuts"
   },
   "milestones": [
     {
@@ -984,9 +985,10 @@
         "evidence/sort-fork-recurrence/verification.json",
         "evidence/fixed-bank-sort-exact/verification.json",
         "evidence/fixed-sort-toll/verification.json",
-        "evidence/packed-ordered-sweep/verification.json"
+        "evidence/packed-ordered-sweep/verification.json",
+        "evidence/epoch-dedup/verification.json"
       ],
-      "progress": "The executable ordered sweep now has a verified entry point using only the fixed-bank packed dictionary builder. Its result equals the established sweep exactly.",
+      "progress": "A physical epoch-array scan builds certified deduplicated test rows. It uses one pass over all supplied raw predecessor occurrences.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
