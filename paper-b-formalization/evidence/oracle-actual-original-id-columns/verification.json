@@ -1,0 +1,11 @@
+{
+  "base_commit": "ef62039",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PackedOriginalIds.lean",
+  "sha256": "1e1eca8c0f825cf2d328d3cb65fe4f278c7b9ee3ed4556351a7bd862b9b28521",
+  "scope": "Pack the actual original-to-dense and dense-to-original translations into one indexed payload and prove exact read and alphabet-fit laws.",
+  "remaining": "Materialize the payload into the sealed word layout and run the fixed dispatcher."
+}

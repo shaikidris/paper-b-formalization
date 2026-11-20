@@ -1,0 +1,3 @@
+import PaperB.PackedOriginalIds
+#print axioms PaperB.EX16Assembly.OriginalIdTranslation.pack_word_fits
+#print axioms PaperB.EX16Assembly.OriginalIdTranslation.pack_has_slot_iff_reachable

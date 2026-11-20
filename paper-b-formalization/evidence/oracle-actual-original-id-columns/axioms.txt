@@ -1,0 +1,4 @@
+'PaperB.EX16Assembly.OriginalIdTranslation.pack_word_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX16Assembly.OriginalIdTranslation.pack_has_slot_iff_reachable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
