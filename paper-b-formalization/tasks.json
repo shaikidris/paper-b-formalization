@@ -301,7 +301,8 @@
     "release-core/PaperB/ForestInitialCharges.lean": "quotient forest",
     "release-core/PaperB/ExitLiveForestRoutes.lean": "exit sweeps",
     "release-core/PaperB/OriginalLcaWordColumns.lean": "packed oracle",
-    "release-core/PaperB/ExitDenseLookupTransport.lean": "original queries"
+    "release-core/PaperB/ExitDenseLookupTransport.lean": "original queries",
+    "release-core/PaperB/PackedContiguousSeal.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1539,9 +1540,10 @@
         "evidence/sealed-back-key-check/verification.json",
         "evidence/packed-carried-slice-rebase/verification.json",
         "evidence/packed-seal-linear-flatten/verification.json",
-        "evidence/oracle-actual-lca-columns/verification.json"
+        "evidence/oracle-actual-lca-columns/verification.json",
+        "evidence/packed-final-section-bank/verification.json"
       ],
-      "progress": "Serialize one original-tree head, parent, and depth payload with exact raw machine table agreement and linear per-cell work."
+      "progress": "One contiguous retained word array contains section offsets and data. Checked addressing recovers the exact original section word without scanning."
     },
     {
       "id": "EX5.3",

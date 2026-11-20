@@ -24,7 +24,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.3](TASKS.md#ex43) — The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
-- [EX5.2](TASKS.md#ex52) — Serialize one original-tree head, parent, and depth payload with exact raw machine table agreement and linear per-cell work.
+- [EX5.2](TASKS.md#ex52) — One contiguous retained word array contains section offsets and data. Checked addressing recovers the exact original section word without scanning.
 - [EX5.3](TASKS.md#ex53) — A fixed four-step run checks equality of two IDs, preserving all other registers and workspace.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.

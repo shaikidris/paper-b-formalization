@@ -1,0 +1,11 @@
+{
+  "base_commit": "a545103",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PackedContiguousSeal.lean",
+  "sha256": "ae880f058fb4588a8e7e79658d93f3d9accab6785418ec3ff16968a4172e8d62",
+  "scope": "One contiguous retained word array contains section offsets and data. Checked addressing recovers the exact original section word without scanning.",
+  "remaining": "Instantiate the complete actual original-plus-quotient blocks and all per-entry field bounds."
+}

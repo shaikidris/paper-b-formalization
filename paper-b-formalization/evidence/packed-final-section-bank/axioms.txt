@@ -1,0 +1,6 @@
+'PaperB.PairLookup.ColumnReduction.EX52Seal.Contiguous.seal_size' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.PairLookup.ColumnReduction.EX52Seal.Contiguous.seal_word' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
