@@ -1,0 +1,11 @@
+{
+  "base_commit": "12b9cf5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/GenericRawExitModel.lean",
+  "sha256": "986d699e313b4f4b18cc4b20a4e86f5b39d40860d98d3f37454534e8b73bcd50",
+  "scope": "The abstract transfer model can use the actual raw labelled quotient rows and physical DFS rank input. Canonical owner and edge-key agreement imply the transfer law for every flat quotient.",
+  "remaining": "Discharge those key agreements from actual transfer creation slots and connect the online callbacks."
+}

@@ -250,7 +250,8 @@
     "release-core/PaperB/ForestResidualTolls.lean": "forest",
     "release-core/PaperB/ExitRouteStoredBridge.lean": "exit",
     "release-core/PaperB/ForestIntegratedSiteToll.lean": "forest",
-    "release-core/PaperB/FamilyForestIndex.lean": "ram"
+    "release-core/PaperB/FamilyForestIndex.lean": "ram",
+    "release-core/PaperB/GenericRawExitModel.lean": "exit"
   },
   "milestones": [
     {
@@ -1249,9 +1250,10 @@
         "evidence/exit-array-schedule-audit/verification.json",
         "evidence/exit-parent-earlier/verification.json",
         "evidence/interleaved-packed-pass/verification.json",
-        "evidence/exit-prefix-occupancy/verification.json"
+        "evidence/exit-prefix-occupancy/verification.json",
+        "evidence/raw-exit-model/verification.json"
       ],
-      "progress": "The chronological sweep now has an exact prefix-occupancy model, with single fresh insertion and earlier/staged read bridges."
+      "progress": "Generic exit model now uses real incoming incidences, preserves every labelled last exit, and derives transfer from the canonical forest."
     },
     {
       "id": "EX4.3",
