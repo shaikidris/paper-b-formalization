@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — The actual forest allocation trace proves that each positive parent is on the earlier fresh-event prefix, with a consecutive slot-ID order.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
-- [EX5.1](TASKS.md#ex51) — Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner.
+- [EX5.1](TASKS.md#ex51) — The shared local-order emitter is wired to actual original ID and dense root/child slot reads, with exact grouped entries and increasing positions.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 - [EX5.3](TASKS.md#ex53) — One actual scalar predecessor worker now has exact fixed-code relocation and return semantics without an extra instruction.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.

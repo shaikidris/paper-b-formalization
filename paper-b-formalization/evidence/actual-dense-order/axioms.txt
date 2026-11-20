@@ -1,0 +1,3 @@
+'PaperB.DenseQuotientLocalOrder.one_at' depends on axioms: [propext, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.increasing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.row_entry_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

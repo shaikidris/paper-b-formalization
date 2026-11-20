@@ -1,0 +1,11 @@
+{
+  "base_commit": "860f6d2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseQuotientLocalOrder.lean",
+  "sha256": "db311e8e8447a64b09cc9d69f5dcdc10fe652c4cb47d1c8f347bbc190bb5f904",
+  "scope": "One original ID lookup yields the root and optional child schedule entries, each already a dense slot. Grouped rows are increasing in the supplied original topological position, under the stated exact coordinate laws.",
+  "remaining": "Establish all dense slots covered and integrate the actual Kahn inverse and static original reader."
+}

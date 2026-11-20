@@ -229,7 +229,8 @@
         "release-core/PaperB/SharedLocalOrder.lean",
         "release-core/PaperB/RamWorkerHaltPC.lean",
         "release-core/PaperB/ExitParentEarlier.lean",
-        "release-core/PaperB/RamWorkerReturn.lean"
+        "release-core/PaperB/RamWorkerReturn.lean",
+        "release-core/PaperB/DenseQuotientLocalOrder.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2013,6 +2014,16 @@
       "path": "release-core/PaperB/RamWorkerReturn.lean",
       "local_imports": [
         "release-core/PaperB/RamWorkerHaltPC.lean"
+      ],
+      "owner_role": "cost",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseQuotientLocalOrder.lean",
+      "local_imports": [
+        "release-core/PaperB/DenseQuotientRows.lean",
+        "release-core/PaperB/StaticOracleTree.lean",
+        "release-core/PaperB/SharedLocalOrder.lean"
       ],
       "owner_role": "cost",
       "admission": "ORACLE_CORE"

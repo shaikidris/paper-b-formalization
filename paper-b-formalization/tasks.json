@@ -231,7 +231,8 @@
     "release-core/PaperB/RamWorkerHaltPC.lean": "cost",
     "release-core/PaperB/ForestIncomingRaw.lean": "cuts",
     "release-core/PaperB/ExitParentEarlier.lean": "exit",
-    "release-core/PaperB/RamWorkerReturn.lean": "cost"
+    "release-core/PaperB/RamWorkerReturn.lean": "cost",
+    "release-core/PaperB/DenseQuotientLocalOrder.lean": "cost"
   },
   "milestones": [
     {
@@ -1360,9 +1361,10 @@
         "evidence/fast-child-bucket/verification.json",
         "evidence/physical-kahn/verification.json",
         "evidence/fast-static-reader/verification.json",
-        "evidence/shared-local-order/verification.json"
+        "evidence/shared-local-order/verification.json",
+        "evidence/actual-dense-order/verification.json"
       ],
-      "progress": "Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner."
+      "progress": "The shared local-order emitter is wired to actual original ID and dense root/child slot reads, with exact grouped entries and increasing positions."
     },
     {
       "id": "EX5.2",
