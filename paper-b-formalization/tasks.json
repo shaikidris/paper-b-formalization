@@ -207,7 +207,8 @@
     "release-core/PaperB/DenseLabelledArcIso.lean": "quotient",
     "release-core/PaperB/RamPairSliceBinding.lean": "cost model",
     "release-core/PaperB/ExitStoredCodec.lean": "cost model",
-    "release-core/PaperB/ForestArrayMerge.lean": "cuts"
+    "release-core/PaperB/ForestArrayMerge.lean": "cuts",
+    "release-core/PaperB/ExitWordArrayQuery.lean": "exit"
   },
   "milestones": [
     {
@@ -1221,9 +1222,10 @@
         "evidence/ex43-actual-skew-route/verification.json",
         "evidence/fused-jump-audit/verification.json",
         "evidence/exit-packed-fused-audit/verification.json",
-        "evidence/exit-single-map-audit/verification.json"
+        "evidence/exit-single-map-audit/verification.json",
+        "evidence/exit-word-query/verification.json"
       ],
-      "progress": "Lean verifies both map installation branches and the exact parent/jump summaries from already checked edge maps. The whole map array invariant and sealed query remain open."
+      "progress": "The fused walk now reads actual packed depth and 18-word map records from a single word array. Its result and per-step read costs are checked under the occupied representation invariant."
     },
     {
       "id": "EX4.4",

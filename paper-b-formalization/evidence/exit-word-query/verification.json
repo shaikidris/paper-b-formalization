@@ -1,0 +1,11 @@
+{
+  "base_commit": "89ff939",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitWordArrayQuery.lean",
+  "sha256": "04275d39340c3fe8229ed0bfe6cc1d12ab0ba263d4a833007fcf65c2ed10d1c2",
+  "scope": "The exact fused exit query reads depth and fixed-size map records directly from one shared finite word array. Lean checks the full result against the reference for valid occupied records and bounds its physical word reads by a constant per executed hop.",
+  "remaining": "Instantiate occupied record correctness from the actual two-pass exit builder, then lower the same reads and algebraic returns into the fixed query program."
+}

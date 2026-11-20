@@ -244,3 +244,4 @@
 {"at": "2026-11-20T00:38:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitStoredCodec", "tasks": ["EX5.2"], "evidence": "evidence/exit-stored-codec-audit/verification.json"}
 {"at": "2026-11-20T00:41:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestArrayMerge", "tasks": ["EX2.4"], "evidence": "evidence/forest-array-merge-audit/verification.json"}
 {"at": "2026-11-20T00:42:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX5.1"], "evidence": "evidence/dense-structural-arc-transport-audit/verification.json"}
+{"at": "2026-11-20T00:47:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitWordArrayQuery", "tasks": ["EX4.3"], "evidence": "evidence/exit-word-query/verification.json"}

@@ -389,9 +389,9 @@ Acceptance:
 - Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
 - Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation.
 
-Lean verifies both map installation branches and the exact parent/jump summaries from already checked edge maps. The whole map array invariant and sealed query remain open.
+The fused walk now reads actual packed depth and 18-word map records from a single word array. Its result and per-step read costs are checked under the occupied representation invariant.
 
-Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json), [evidence/ex43-actual-skew-route/verification.json](evidence/ex43-actual-skew-route/verification.json), [evidence/fused-jump-audit/verification.json](evidence/fused-jump-audit/verification.json), [evidence/exit-packed-fused-audit/verification.json](evidence/exit-packed-fused-audit/verification.json), [evidence/exit-single-map-audit/verification.json](evidence/exit-single-map-audit/verification.json).
+Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json), [evidence/ex43-actual-skew-route/verification.json](evidence/ex43-actual-skew-route/verification.json), [evidence/fused-jump-audit/verification.json](evidence/fused-jump-audit/verification.json), [evidence/exit-packed-fused-audit/verification.json](evidence/exit-packed-fused-audit/verification.json), [evidence/exit-single-map-audit/verification.json](evidence/exit-single-map-audit/verification.json), [evidence/exit-word-query/verification.json](evidence/exit-word-query/verification.json).
 
 <a id="ex44"></a>
 
