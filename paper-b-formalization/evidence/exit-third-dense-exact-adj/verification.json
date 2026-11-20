@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a288ef",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseLabelledArcIso.lean",
+  "sha256": "78ff89e6ddb3ce31ca11d73c5959d44c886e5dc3b99c409c599622fcea98f590",
+  "scope": "The emitted dense quotient satisfies the exact physical-tail adjacency transport to the structural sibling quotient.",
+  "remaining": "Apply this transport to the checked loss and exit readouts in arbitrary original-vertex queries."
+}

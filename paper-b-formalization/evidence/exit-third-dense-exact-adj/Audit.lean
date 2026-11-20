@@ -1,0 +1,2 @@
+import PaperB.DenseLabelledArcIso
+#print axioms PaperB.DenseOriginalQuotient.Transport.exactAdj_build_denseToOld

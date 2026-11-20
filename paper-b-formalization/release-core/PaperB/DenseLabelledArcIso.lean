@@ -1,3 +1,4 @@
+import PaperB.LabelledTransport
 import PaperB.FiniteSiblingFlat
 import PaperB.DenseRuntimeGraph
 import PaperB.DensePackingCode
@@ -484,6 +485,16 @@ theorem build_isFlat : (Dq).IsFlat := by
     intro j hj
     change dBackward j = b at hj
     exact (hright j).symm.trans (congrArg dForward hj)
+
+theorem exactAdj_build_denseToOld :
+    LabelledQuotient.Transport.ExactAdj dForward
+      (show (Dq).origVertexCount = (Sq).origVertexCount from rfl) := by
+  intro v w x
+  change
+    (⟨w, x⟩ : QuotientArc g.vertexCount (rows.length u)) ∈ (Dq).outArcs v ↔
+      ⟨dForward w, x⟩ ∈ (Sq).outArcs (dForward v)
+  exact mem_outArcs_build_mk_denseToOld_iff progress injective q originalRows hRows
+    u hd hFind rows childOK hzero spec v w x
 
 end DenseRootRankFlatness
 

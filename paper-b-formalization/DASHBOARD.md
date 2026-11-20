@@ -22,7 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — Certify actual packed-input extraction sizes, endpoint and head fills, size/row tabulations, inverse scatter/list and exact head writes on the deployed grouped reader.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.
-- [EX4.4](TASKS.md#ex44) — The actual retained checked dictionary miss excludes proper loss; the known-slot ancestry read on a hit is exact for the ordered pair.
+- [EX4.4](TASKS.md#ex44) — The emitted dense quotient satisfies the exact physical-tail adjacency transport to the structural sibling quotient.
 - [EX5.1](TASKS.md#ex51) — The actually installed quotient family has total number of vertices plus arcs at most twice the reachable vertex count plus all original arc occurrences.
 - [EX5.2](TASKS.md#ex52) — A sealed read view moves into a common word buffer with no copying and identical indexed values and comparison order.
 - [EX5.3](TASKS.md#ex53) — Any verified deployed RAM routine can replace its actual reached halt with a linked continuation, preserving the register data and the exact executed count.

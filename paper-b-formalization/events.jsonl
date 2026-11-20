@@ -358,3 +358,4 @@
 {"at": "2026-11-20T03:25:26+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitConcreteDepthContract", "tasks": ["EX4.3"], "evidence": "evidence/exit-concrete-depth-contract/verification.json"}
 {"at": "2026-11-20T03:25:31+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFinishAllocations", "tasks": ["EX2.4"], "evidence": "evidence/forest-extract-head-alloc/verification.json"}
 {"at": "2026-11-20T03:25:55+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestSlimIndex", "tasks": ["EX4.4"], "evidence": "evidence/exit-third-slot-miss-member/verification.json"}
+{"at": "2026-11-20T03:26:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX4.4"], "evidence": "evidence/exit-third-dense-exact-adj/verification.json"}

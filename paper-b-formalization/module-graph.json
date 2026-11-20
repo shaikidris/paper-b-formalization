@@ -1836,7 +1836,8 @@
       "local_imports": [
         "release-core/PaperB/DenseRuntimeGraph.lean",
         "release-core/PaperB/DensePackingCode.lean",
-        "release-core/PaperB/FiniteSiblingFlat.lean"
+        "release-core/PaperB/FiniteSiblingFlat.lean",
+        "release-core/PaperB/LabelledTransport.lean"
       ],
       "owner_role": "quotient",
       "admission": "ORACLE_CORE"
