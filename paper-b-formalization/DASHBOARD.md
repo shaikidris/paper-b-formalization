@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Count the exact lookup, back-key and known-ancestry reads of the retained implementation, retaining equality with the actual query.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
-- [EX4.3](TASKS.md#ex43) — A fresh packed slot preserves the exact old parent and jump maps and extends the decoded occupied bank with the certified new path.
+- [EX4.3](TASKS.md#ex43) — The canonical forest prefix counts all original creation events; the next dynamic address is that forest size. Restrict physical preseeded occupancy to the preceding logical forest to exclude future seeds.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
 - [EX5.1](TASKS.md#ex51) — The actually installed quotient family has total number of vertices plus arcs at most twice the reachable vertex count plus all original arc occurrences.
 - [EX5.2](TASKS.md#ex52) — One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.

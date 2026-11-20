@@ -1,0 +1,4 @@
+'PaperB.Exit.OrderedReaderResult.actualPrefix_live' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.actualDynamicSlot_eq_previousSize' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -282,7 +282,8 @@
     "release-core/PaperB/ExitClosedOverlay.lean": "exit sweeps",
     "release-core/PaperB/SealedQueryRegisters.lean": "word machine",
     "release-core/PaperB/RamChildRow.lean": "word machine",
-    "release-core/PaperB/RamPairHitRow.lean": "word machine"
+    "release-core/PaperB/RamPairHitRow.lean": "word machine",
+    "release-core/PaperB/ExitPhysicalPrefixLive.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1349,9 +1350,10 @@
         "evidence/exit-seed-closure/verification.json",
         "evidence/exit-depth-step-frame/verification.json",
         "evidence/exit-direct-depth-inv/verification.json",
-        "evidence/exit-closed-overlay/verification.json"
+        "evidence/exit-closed-overlay/verification.json",
+        "evidence/exit-prefix-seed-dense/verification.json"
       ],
-      "progress": "A fresh packed slot preserves the exact old parent and jump maps and extends the decoded occupied bank with the certified new path."
+      "progress": "The canonical forest prefix counts all original creation events; the next dynamic address is that forest size. Restrict physical preseeded occupancy to the preceding logical forest to exclude future seeds."
     },
     {
       "id": "EX4.4",

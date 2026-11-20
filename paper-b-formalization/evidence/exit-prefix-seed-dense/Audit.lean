@@ -1,0 +1,3 @@
+import PaperB.ExitPhysicalPrefixLive
+#print axioms PaperB.Exit.OrderedReaderResult.actualPrefix_live
+#print axioms PaperB.Exit.OrderedReaderResult.actualDynamicSlot_eq_previousSize

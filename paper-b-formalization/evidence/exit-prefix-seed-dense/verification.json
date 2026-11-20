@@ -1,0 +1,11 @@
+{
+  "base_commit": "08d9371",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalPrefixLive.lean",
+  "sha256": "7bc97c59ed53814f4100b96b74362a9e0c5db4a1dd3ee7168869905b9340b4bc",
+  "scope": "The canonical forest prefix counts all original creation events; the next dynamic address is that forest size. Restrict physical preseeded occupancy to the preceding logical forest to exclude future seeds.",
+  "remaining": "Build the logical live invariant for every chronological row and instantiate the bank-driven callbacks."
+}

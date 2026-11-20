@@ -346,3 +346,4 @@
 {"at": "2026-11-20T03:06:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseFamilyVertexBudget", "tasks": ["EX5.1"], "evidence": "evidence/dense-installed-arc-budget/verification.json"}
 {"at": "2026-11-20T03:06:51+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestCheckpointCertificate", "tasks": ["EX2.4"], "evidence": "evidence/forest-full-finish-accounting/verification.json"}
 {"at": "2026-11-20T03:08:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestSlimIndex", "tasks": ["EX2.4"], "evidence": "evidence/forest-query-retained-count/verification.json"}
+{"at": "2026-11-20T03:09:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalPrefixLive", "tasks": ["EX4.3"], "evidence": "evidence/exit-prefix-seed-dense/verification.json"}
