@@ -1,0 +1,11 @@
+{
+  "base_commit": "c4c1eaa",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPairWorkerCalls.lean",
+  "sha256": "59219b0f9f81c0d6a43f7e57fe04892c4b6e037feaf699e159d8571b3b8487d3",
+  "scope": "The three actual scalar word-RAM worker runs on the physical column slices implement the lookup and have a checked total logarithmic instruction count. Each run has an empty writable data array.",
+  "remaining": "Relocate the worker call sites into one fixed program and charge the actual descriptors, return branches and final lookup code."
+}

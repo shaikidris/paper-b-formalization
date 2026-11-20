@@ -211,7 +211,8 @@
     "release-core/PaperB/ExitWordArrayQuery.lean": "exit",
     "release-core/PaperB/ForestArrayMergeExact.lean": "cuts",
     "release-core/PaperB/ForestFixedBankSort.lean": "cuts",
-    "release-core/PaperB/ExitStoredWrite.lean": "exit"
+    "release-core/PaperB/ExitStoredWrite.lean": "exit",
+    "release-core/PaperB/RamPairWorkerCalls.lean": "cost"
   },
   "milestones": [
     {
@@ -1390,9 +1391,10 @@
         "evidence/ram-register-frame-audit/verification.json",
         "evidence/ram-register-trace-audit/verification.json",
         "evidence/ram-lex-pair-cuts-audit/verification.json",
-        "evidence/ram-pair-slice-audit/verification.json"
+        "evidence/ram-pair-slice-audit/verification.json",
+        "evidence/ram-pair-worker-calls/verification.json"
       ],
-      "progress": "The actual word-RAM search worker is bound to physical pair-key column slices with exact result and executed cost. The full three-cut runtime composition and graph query remain open."
+      "progress": "All scalar predecessor calls used by packed pair lookup now have exact run witnesses, zero writable arena and cumulative logarithmic work."
     },
     {
       "id": "EX5.4",

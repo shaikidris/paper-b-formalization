@@ -25,7 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — Lean checks inverse vertex translations and exact labelled adjacency between the dense runtime graph and the finite structural quotient. The root/path/rank transport remains to be wired.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
-- [EX5.3](TASKS.md#ex53) — The actual word-RAM search worker is bound to physical pair-key column slices with exact result and executed cost. The full three-cut runtime composition and graph query remain open.
+- [EX5.3](TASKS.md#ex53) — All scalar predecessor calls used by packed pair lookup now have exact run witnesses, zero writable arena and cumulative logarithmic work.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 
