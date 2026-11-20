@@ -251,7 +251,8 @@
         "release-core/PaperB/ExitPhysicalKeys.lean",
         "release-core/PaperB/FlatEndpoints.lean",
         "release-core/PaperB/RamEqualityTail.lean",
-        "release-core/PaperB/ForestPhaseBudget.lean"
+        "release-core/PaperB/ForestPhaseBudget.lean",
+        "release-core/PaperB/DenseFamilyVertexBudget.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2279,6 +2280,14 @@
         "release-core/PaperB/StaticGroupedTreeReader.lean"
       ],
       "owner_role": "forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseFamilyVertexBudget.lean",
+      "local_imports": [
+        "release-core/PaperB/FamilyForestIndex.lean"
+      ],
+      "owner_role": "ram",
       "admission": "ORACLE_CORE"
     }
   ],

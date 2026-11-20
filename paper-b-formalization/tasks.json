@@ -257,7 +257,8 @@
     "release-core/PaperB/ExitPhysicalKeys.lean": "exit",
     "release-core/PaperB/FlatEndpoints.lean": "ram",
     "release-core/PaperB/RamEqualityTail.lean": "ram",
-    "release-core/PaperB/ForestPhaseBudget.lean": "forest"
+    "release-core/PaperB/ForestPhaseBudget.lean": "forest",
+    "release-core/PaperB/DenseFamilyVertexBudget.lean": "ram"
   },
   "milestones": [
     {
@@ -1413,9 +1414,10 @@
         "evidence/dense-order-coverage/verification.json",
         "evidence/kahn-dense-binding/verification.json",
         "evidence/ranked-local-quotient/verification.json",
-        "evidence/family-forest-index/verification.json"
+        "evidence/family-forest-index/verification.json",
+        "evidence/dense-aggregate-membership/verification.json"
       ],
-      "progress": "One real family build assembles every quotient membership index with exact correctness and aggregate retained slot accounting."
+      "progress": "Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound."
     },
     {
       "id": "EX5.2",

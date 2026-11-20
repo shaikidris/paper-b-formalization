@@ -1,0 +1,3 @@
+import PaperB.DenseFamilyVertexBudget
+#print axioms PaperB.RankedDenseLocal.totalVertices_ofGroupedChildLists_exact
+#print axioms PaperB.RankedDenseLocal.ForestIndex.arraySize_build_ofGroupedChildLists_le

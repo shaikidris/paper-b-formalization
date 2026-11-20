@@ -1,0 +1,11 @@
+{
+  "base_commit": "4722d41",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseFamilyVertexBudget.lean",
+  "sha256": "e19a4f5273b7952ee83bf8f57b5d1ed347df02ce2552f6c7b437f9708f8f9e33",
+  "scope": "The actual grouped child layout and topological schedule have exactly N+(N−1) quotient vertices. Local forest membership uses at most 18N retained array elements plus the separate directory.",
+  "remaining": "Charge physical word codecs, all arcs and exit-transfer materialization in the global footprint."
+}

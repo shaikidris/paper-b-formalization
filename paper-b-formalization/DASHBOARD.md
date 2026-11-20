@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — Physical owner, child and parent key agreements now follow from the actual forest outputs.
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
 - [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.
-- [EX5.1](TASKS.md#ex51) — One real family build assembles every quotient membership index with exact correctness and aggregate retained slot accounting.
+- [EX5.1](TASKS.md#ex51) — Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound.
 - [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.
 - [EX5.3](TASKS.md#ex53) — The fixed equality-validation instructions are linked and their actual fetch equations hold.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
