@@ -253,7 +253,8 @@
     "release-core/PaperB/FamilyForestIndex.lean": "ram",
     "release-core/PaperB/GenericRawExitModel.lean": "exit",
     "release-core/PaperB/ForestInputPrepStorage.lean": "forest",
-    "release-core/PaperB/ForestSweepStorage.lean": "forest"
+    "release-core/PaperB/ForestSweepStorage.lean": "forest",
+    "release-core/PaperB/ExitPhysicalKeys.lean": "exit"
   },
   "milestones": [
     {
@@ -1255,9 +1256,10 @@
         "evidence/exit-parent-earlier/verification.json",
         "evidence/interleaved-packed-pass/verification.json",
         "evidence/exit-prefix-occupancy/verification.json",
-        "evidence/raw-exit-model/verification.json"
+        "evidence/raw-exit-model/verification.json",
+        "evidence/exit-physical-keys/verification.json"
       ],
-      "progress": "Generic exit model now uses real incoming incidences, preserves every labelled last exit, and derives transfer from the canonical forest."
+      "progress": "Physical owner, child and parent key agreements now follow from the actual forest outputs."
     },
     {
       "id": "EX4.3",

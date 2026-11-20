@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — Forest sweep prefix storage is bounded on the real fold, including columns, order and actual event log.
-- [EX4.2](TASKS.md#ex42) — Generic exit model now uses real incoming incidences, preserves every labelled last exit, and derives transfer from the canonical forest.
+- [EX4.2](TASKS.md#ex42) — Physical owner, child and parent key agreements now follow from the actual forest outputs.
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
 - [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.
 - [EX5.1](TASKS.md#ex51) — One real family build assembles every quotient membership index with exact correctness and aggregate retained slot accounting.

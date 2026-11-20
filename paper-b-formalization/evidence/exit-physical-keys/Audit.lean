@@ -1,0 +1,3 @@
+import PaperB.ExitPhysicalKeys
+#print axioms PaperB.Exit.OrderedReaderResult.exitDenseOwnerKey?_eq_canonical
+#print axioms PaperB.Exit.OrderedReaderResult.actualSlot_exitHeadKeys

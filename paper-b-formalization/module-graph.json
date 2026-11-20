@@ -247,7 +247,8 @@
         "release-core/PaperB/FamilyForestIndex.lean",
         "release-core/PaperB/GenericRawExitModel.lean",
         "release-core/PaperB/ForestInputPrepStorage.lean",
-        "release-core/PaperB/ForestSweepStorage.lean"
+        "release-core/PaperB/ForestSweepStorage.lean",
+        "release-core/PaperB/ExitPhysicalKeys.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2241,6 +2242,14 @@
         "release-core/PaperB/ForestActualFull.lean"
       ],
       "owner_role": "forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPhysicalKeys.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalSchedule.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

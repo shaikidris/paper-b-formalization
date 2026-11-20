@@ -1,0 +1,11 @@
+{
+  "base_commit": "5a08346",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalKeys.lean",
+  "sha256": "94cb4c3ed69810c00c0e11716299aafa0c0a887dfff044d91c784f6901b431c7",
+  "scope": "An actual scheduled exit slot rereads its nonzero parent and both canonical pair keys from the physical forest tables. The actual dense label returns the canonical owner key.",
+  "remaining": "Assemble the raw transfer model and earlier map/base callbacks over these actual key fields."
+}

@@ -1,0 +1,4 @@
+'PaperB.Exit.OrderedReaderResult.exitDenseOwnerKey?_eq_canonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.Exit.OrderedReaderResult.actualSlot_exitHeadKeys' depends on axioms: [propext, Classical.choice, Quot.sound]
