@@ -289,7 +289,8 @@
     "release-core/PaperB/ExitCanonicalBank.lean": "exit sweeps",
     "release-core/PaperB/RamSealedTranslation.lean": "word machine",
     "release-core/PaperB/RamLinkedReturn.lean": "word machine",
-    "release-core/PaperB/PackedSliceRebase.lean": "packed oracle"
+    "release-core/PaperB/PackedSliceRebase.lean": "packed oracle",
+    "release-core/PaperB/ExitConcreteDepthContract.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1361,9 +1362,10 @@
         "evidence/exit-direct-depth-inv/verification.json",
         "evidence/exit-closed-overlay/verification.json",
         "evidence/exit-prefix-seed-dense/verification.json",
-        "evidence/exit-canonical-shared-region/verification.json"
+        "evidence/exit-canonical-shared-region/verification.json",
+        "evidence/exit-concrete-depth-contract/verification.json"
       ],
-      "progress": "The actual depth and map readers use one bounded word buffer with disjoint fixed-width regions and record slots."
+      "progress": "The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract."
     },
     {
       "id": "EX4.4",

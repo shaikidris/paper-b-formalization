@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a288ef",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitConcreteDepthContract.lean",
+  "sha256": "0bb6d03fb8a28b354413bf8d91aaedb8405327c1a999af9555339e21a748b6ce",
+  "scope": "The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.",
+  "remaining": "Discharge every source path, incoming recurrence, and prefix installation prerequisite on the actual quotient schedule."
+}

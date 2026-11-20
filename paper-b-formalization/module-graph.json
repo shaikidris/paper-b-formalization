@@ -283,7 +283,8 @@
         "release-core/PaperB/ExitCanonicalBank.lean",
         "release-core/PaperB/RamSealedTranslation.lean",
         "release-core/PaperB/RamLinkedReturn.lean",
-        "release-core/PaperB/PackedSliceRebase.lean"
+        "release-core/PaperB/PackedSliceRebase.lean",
+        "release-core/PaperB/ExitConcreteDepthContract.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2600,6 +2601,17 @@
         "release-core/PaperB/RamLexPairCuts.lean"
       ],
       "owner_role": "packed oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitConcreteDepthContract.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPackedRuntime.lean",
+        "release-core/PaperB/ExitDirectDepthInv.lean",
+        "release-core/PaperB/ExitPartialOccupancy.lean",
+        "release-core/PaperB/ExitPhysicalDepthColumn.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],
