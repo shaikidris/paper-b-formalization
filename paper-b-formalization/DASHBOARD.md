@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Reuse the actual dictionary across the sweep and serialization, with Lean equality and generated-code verification.
+- [EX2.4](TASKS.md#ex24) — Checked an output-identical replay of all six word-packing passes and proved at most 19 n_H visits per quotient. The construction sweep and peak live storage still require a complete bound.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

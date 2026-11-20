@@ -1,0 +1,9 @@
+{
+  "base_commit": "2af99e9",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackingVisits.lean",
+  "sha256": "5590adb6bc9603a7a2b49c4f0dae96a9b1f1a3f420a6e907319b67447e009814",
+  "scope": "Replay the six array generation and map passes of the executable word packer with one charge per visit. Prove exact agreement with its output and at most 19 n_H visits, including the empty small-quotient branch.",
+  "remaining": "The replay counts only packing visits. Complete the source-wide construction work, peak-space accounting and integrated query contract before accepting EX2.4.",
+  "source_provenance": "Local assembly of the existing checked packer and Lean Core generator and map recurrences. No external API request for this checkpoint."
+}

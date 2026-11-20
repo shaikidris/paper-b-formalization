@@ -1,0 +1,4 @@
+'PackingVisits.ofFnM_tick' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PackingVisits.mapM_tick' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.packWordColumns_visits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWords_packing_visits' depends on axioms: [propext, Classical.choice, Quot.sound]
