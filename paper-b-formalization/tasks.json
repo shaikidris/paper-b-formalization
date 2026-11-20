@@ -275,7 +275,8 @@
     "release-core/PaperB/FlatPairDictionary.lean": "packed oracle",
     "release-core/PaperB/RamCheckedPairLookup.lean": "word machine",
     "release-core/PaperB/ExitPhysicalDepthColumn.lean": "exit sweeps",
-    "release-core/PaperB/PhysicalArcRowMass.lean": "shared quotient construction"
+    "release-core/PaperB/PhysicalArcRowMass.lean": "shared quotient construction",
+    "release-core/PaperB/ExitPhysicalSeedPass.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1335,9 +1336,10 @@
         "evidence/partial-exit-bank/verification.json",
         "evidence/exit-depth-column-frame/verification.json",
         "evidence/exit-decoded-live-bridge/verification.json",
-        "evidence/exit-depth-init/verification.json"
+        "evidence/exit-depth-init/verification.json",
+        "evidence/exit-seed-closure/verification.json"
       ],
-      "progress": "The initializer writes each physical depth word once, preserves all off-column words and proves exact decoded depth in the retained bank."
+      "progress": "Run seed installation once over the designated IDs, retain exact occupied records and exact 18-word-per-seed writes, and preserve the preceding depth column."
     },
     {
       "id": "EX4.4",

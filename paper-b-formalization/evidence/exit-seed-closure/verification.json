@@ -1,0 +1,11 @@
+{
+  "base_commit": "a6e7da9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalSeedPass.lean",
+  "sha256": "60f396688cd223058d6903e03bef73cc713a72380ba63e1d9ab34c1c55c302dc",
+  "scope": "Run seed installation once over the designated IDs, retain exact occupied records and exact 18-word-per-seed writes, and preserve the preceding depth column.",
+  "remaining": "Bind the finite seed IDs to the concrete quotient templates."
+}

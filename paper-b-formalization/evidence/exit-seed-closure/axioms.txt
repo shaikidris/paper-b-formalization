@@ -1,0 +1,3 @@
+'PaperB.ExitPhysicalSeedPass.run_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitPhysicalSeedPass.run_writes' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitPhysicalSeedPass.run_depth_cell' depends on axioms: [propext, Quot.sound]

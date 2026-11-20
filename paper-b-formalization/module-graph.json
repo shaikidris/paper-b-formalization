@@ -269,7 +269,8 @@
         "release-core/PaperB/FlatPairDictionary.lean",
         "release-core/PaperB/RamCheckedPairLookup.lean",
         "release-core/PaperB/ExitPhysicalDepthColumn.lean",
-        "release-core/PaperB/PhysicalArcRowMass.lean"
+        "release-core/PaperB/PhysicalArcRowMass.lean",
+        "release-core/PaperB/ExitPhysicalSeedPass.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2463,6 +2464,15 @@
         "release-core/PaperB/DensePhysicalArcCounts.lean"
       ],
       "owner_role": "shared quotient construction",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPhysicalSeedPass.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalOneSlot.lean",
+        "release-core/PaperB/ExitPhysicalPass.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],
