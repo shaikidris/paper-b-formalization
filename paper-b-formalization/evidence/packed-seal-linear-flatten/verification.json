@@ -1,0 +1,11 @@
+{
+  "base_commit": "383e5cc",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PackedSectionSeal.lean",
+  "sha256": "8c6d6f8a837147070eed1609e0b2207188ae0d2d1274db39e0e67423a348cc93",
+  "scope": "One global writer copies each packed section word exactly once and emits a direct offset header, preserving empty sections and retaining only header and payload.",
+  "remaining": "Instantiate on all actual oracle sections and bind operation/address budgets after complete sealing."
+}

@@ -365,3 +365,4 @@
 {"at": "2026-11-20T03:33:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitIncomingLaw", "tasks": ["EX4.2"], "evidence": "evidence/exit-incoming-law-from-sites/verification.json"}
 {"at": "2026-11-20T03:33:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitOrientedLookup", "tasks": ["EX4.4"], "evidence": "evidence/exit-key-orientation-actual/verification.json"}
 {"at": "2026-11-20T03:33:32+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPairGuard", "tasks": ["EX5.3"], "evidence": "evidence/ram-early-failure-guard/verification.json"}
+{"at": "2026-11-20T03:33:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedSectionSeal", "tasks": ["EX5.2"], "evidence": "evidence/packed-seal-linear-flatten/verification.json"}

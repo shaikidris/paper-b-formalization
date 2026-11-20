@@ -296,7 +296,8 @@
     "release-core/PaperB/DenseFamilyLogBudget.lean": "shared quotient construction",
     "release-core/PaperB/ExitIncomingLaw.lean": "exit sweeps",
     "release-core/PaperB/ExitOrientedLookup.lean": "original queries",
-    "release-core/PaperB/RamPairGuard.lean": "word machine"
+    "release-core/PaperB/RamPairGuard.lean": "word machine",
+    "release-core/PaperB/PackedSectionSeal.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1529,9 +1530,10 @@
         "evidence/sealed-early-endpoints/verification.json",
         "evidence/sealed-physical-pair-columns/verification.json",
         "evidence/sealed-back-key-check/verification.json",
-        "evidence/packed-carried-slice-rebase/verification.json"
+        "evidence/packed-carried-slice-rebase/verification.json",
+        "evidence/packed-seal-linear-flatten/verification.json"
       ],
-      "progress": "A sealed read view moves into a common word buffer with no copying and identical indexed values and comparison order."
+      "progress": "One global writer copies each packed section word exactly once and emits a direct offset header, preserving empty sections and retaining only header and payload."
     },
     {
       "id": "EX5.3",
