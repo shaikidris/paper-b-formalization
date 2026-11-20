@@ -201,7 +201,8 @@
         "release-core/PaperB/DenseArcRow.lean",
         "release-core/PaperB/ExitActualLog.lean",
         "release-core/PaperB/DenseRealOwnership.lean",
-        "release-core/PaperB/ExitEarliestLabel.lean"
+        "release-core/PaperB/ExitEarliestLabel.lean",
+        "release-core/PaperB/ExitRawIncoming.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1575,6 +1576,14 @@
         "release-core/PaperB/ForestRealCounts.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitRawIncoming.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitKernels.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "base_commit": "ee681eb",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitRawIncoming.lean",
+  "sha256": "611294b0aa096fa19ee2e22608649a171f31be8dee9b982d7d33958f8688a607",
+  "scope": "The executable raw exit fold reads each stored incoming arc occurrence once, including repeated values. It agrees with the structural action kernel under the exact endpoint, membership and fused-region read specifications, without materializing any path.",
+  "remaining": "Discharge all fused-reader callbacks using the installed physical record arrays and connect to the actual first-creation schedule."
+}
