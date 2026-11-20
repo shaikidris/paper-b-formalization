@@ -1,0 +1,9 @@
+import PaperB.ForestConstructionEnvelope
+
+#print axioms PhaseReceipt.totalWork_le_rate_mul_siteCap
+#print axioms PhaseReceipt.peak_le_cap
+#print axioms PaperB.PreparationWorkChecks.preparation_sites_exact
+#print axioms PaperB.ForestHead.searchControl_exact
+#print axioms PaperB.ForestHead.scanControl_exact
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_selected_work
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_boundary_peak

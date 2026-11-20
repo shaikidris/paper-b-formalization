@@ -1,0 +1,24 @@
+{
+  "base_commit": "84f44812b2fe5c71b22d889affa4b34408c3668a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestConstructionEnvelope.lean",
+  "sha256": "f34d2cd37b2aed9868ac969576d26bcf7bb96af51b4d12280efd183cf3dc7031",
+  "scope": "The actual dense-order packed builder has a bound for selected construction work including the updated input preparation and priced scan and search arithmetic. Its preparation, reached sweep boundaries, and finish reserve compose into one source peak.",
+  "remaining": "Prove a complete word-RAM refinement covering all construction instructions and all live allocations, including finish and serialization between the charged checkpoints.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 673,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "output_tokens": 3419,
+    "output_tokens_details": {
+      "reasoning_tokens": 2224
+    },
+    "total_tokens": 4092
+  }
+}

@@ -1,0 +1,11 @@
+'PhaseReceipt.totalWork_le_rate_mul_siteCap' depends on axioms: [propext, Quot.sound]
+'PhaseReceipt.peak_le_cap' depends on axioms: [propext]
+'PaperB.PreparationWorkChecks.preparation_sites_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestHead.searchControl_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestHead.scanControl_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_selected_work' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_boundary_peak' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

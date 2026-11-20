@@ -100,15 +100,12 @@ open PaperB.LabelledQuotient PaperB.ForestHead PaperB.Jumps
 open PaperB.RetainedProperLoss PaperB.EX24.FinalDFS PaperB.KahnDecreasing
 open PaperB.PairLookup AggregateEX24
 
-private def charge {used budget : Nat} (_ : used ≤ budget) : Nat := used
-
-/-- The input-preparation charge selects the concrete preparation passes
-already enumerated by the work theorem. It is a specification. -/
+/-- The concrete preparation passes already enumerated by the work theorem. -/
 def incomingSites (H : LabelledQuotient) : Nat :=
-  charge (PreparationWorkChecks.preparation_charge_bound H (by intro u v; rfl))
+  PreparationWorkChecks.preparationSites H (by intro u v; rfl)
 
 theorem incomingSites_le (H : LabelledQuotient) :
-    incomingSites H ≤ 9 * (H.vertexCount + H.arcCount) :=
+    incomingSites H ≤ 16 * (H.vertexCount + H.arcCount) :=
   PreparationWorkChecks.preparation_charge_bound H (by intro u v; rfl)
 
 /-- Root memory and the three initialized sweep columns. Row materialization
@@ -123,7 +120,7 @@ private theorem compact_sites_arithmetic {N E L init dict sweep finish pack : Na
     (hin : init ≤ 12 * N) (hd : dict ≤ 34 * N * (L + 1))
     (hs : sweep ≤ 90 * (N + E) * L ^ 2)
     (hf : finish ≤ 20 * (N + 1)) (hp : pack ≤ 19 * N)
-    {prep : Nat} (hprep : prep ≤ 9 * (N + E)) :
+    {prep : Nat} (hprep : prep ≤ 16 * (N + E)) :
     3 * N + prep + init + dict + sweep + finish + pack ≤
       256 * (N + E) * L ^ 2 := by
   let K := (N + E) * L ^ 2

@@ -27,14 +27,16 @@ normalization already build on the pinned Lean toolchain.
 ## Next checkpoints
 
 - **EX2.4.** The [packed builder](release-core/PaperB/ForestBuildPackedWords.lean)
-  retains at most 19 words per quotient vertex and agrees with the prepared
-  reader. [Known-node membership](release-core/PaperB/ForestPackedMembership.lean)
-  uses four word probes. The [fixed dictionary run](release-core/PaperB/ForestPackedLookupRun.lean)
-  has logarithmic fuel and feeds the checked query continuation. The
-  [construction certificate](release-core/PaperB/ForestCheckpointCertificate.lean)
-  accounts for selected operations and live storage on the actual reader.
-  EX2.4 still requires a complete work and peak-space bound for that same
-  construction, including the packed serialization pass.
+  retains at most 19 words per quotient vertex. Known-node membership uses four
+  word probes, and the fixed keyed search has logarithmic fuel.
+  The [construction phase bounds](release-core/PaperB/ForestConstructionEnvelope.lean)
+  price the scan and midpoint-search arithmetic, incorporate the updated
+  predecessor preparation charge, and compose the preparation, sweep-boundary
+  and finish reserves for the same packed build.
+  The [ownership review](evidence/ex2-construction-envelope/ownership.md) records
+  the consuming updates in the generated preparation code. Full word-RAM work and
+  peak-space certification still require coverage of operations and allocations
+  between the charged checkpoints, especially in the finish and packing path.
 - **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
   preserves the initialized depth column through packed writes.
   [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)

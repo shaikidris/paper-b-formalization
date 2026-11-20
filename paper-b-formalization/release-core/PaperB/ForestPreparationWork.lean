@@ -27,35 +27,53 @@ private theorem epoch_visits (H : LabelledQuotient)
   rw [ForestIncomingPrep.visits_supplied, supplied_length]
 
 -- One unit per requested fill slot, enumerated head, fold step,
--- row read, row write, and element mapped. This is a charge, not a counter.
+-- row read and row write. The generated list map also reverses its
+-- accumulator, so each mapped entry pays for both visits.
 private def sourceCharge (H : LabelledQuotient)
     (p : ForestIncomingRaw.Prepared H) : Nat :=
   let heads := (List.finRange H.vertexCount).length
   H.vertexCount + heads + heads + heads + heads +
-    ForestIncomingPrep.mapCalls H p
+    2 * ForestIncomingPrep.mapCalls H p
 
 private theorem source_charge_prepare (H : LabelledQuotient) :
     sourceCharge H (ForestIncomingRaw.prepare H) =
-      5 * H.vertexCount + H.arcCount := by
+      5 * H.vertexCount + 2 * H.arcCount := by
   simp only [sourceCharge, List.length_finRange, emitted_length] <;> omega
 
 private def groupCharge : EX51.Work → Nat
   | ⟨init, scatterRead, scatterWrite, reverse, finish⟩ =>
-    init + scatterRead + scatterWrite + reverse + finish
+    init + scatterRead + scatterWrite + reverse + 2 * finish
 
--- Supply charges head enumeration, the outer fold, and the arc scans.
--- Grouping and epoch visits use the counters returned by the actual routines.
-theorem preparation_charge_bound (H : LabelledQuotient)
+/-- Charge zero fills, head enumeration, the outer dedup loop, and the
+two row accesses per head. On every stamp visit, reserve a stamp read,
+the visit itself, a stamp write, and an emitted list cell. The last two
+charges cover the fresh branch and may be unused on a repeated stamp. -/
+private def epochCharge (H : LabelledQuotient) (visits : Nat) : Nat :=
+  6 * H.vertexCount + 4 * visits
+
+/-- The exact sum of the preparation charges, including padded site
+allowances. The counters are from the actual preparation, which never
+computes an adjacency length or measures the projected rows at runtime. -/
+def preparationSites (H : LabelledQuotient) (cover : ForestIncomingPrep.Cover H) : Nat :=
+  let heads := (List.finRange H.vertexCount).length
+  heads + heads + ForestIncomingRaw.arcTotal H +
+    groupCharge (ForestIncomingRaw.prepare H).2 +
+    sourceCharge H (ForestIncomingRaw.prepare H) +
+    epochCharge H (ForestIncomingPrep.build H cover).visits
+
+theorem preparation_sites_exact (H : LabelledQuotient)
     (cover : ForestIncomingPrep.Cover H) :
-    let heads := (List.finRange H.vertexCount).length
-    heads + heads + ForestIncomingRaw.arcTotal H +
-      groupCharge (ForestIncomingRaw.prepare H).2 +
-      sourceCharge H (ForestIncomingRaw.prepare H) +
-      (ForestIncomingPrep.build H cover).visits ≤
-        9 * (H.vertexCount + H.arcCount) := by
+    preparationSites H cover = 16 * H.vertexCount + 10 * H.arcCount := by
+  unfold preparationSites
   dsimp only
   rw [ForestPreparedBuild.arcTotal_eq_arcCount, prepare_work,
     source_charge_prepare, epoch_visits]
-  simp only [List.length_finRange, groupCharge] <;> omega
+  simp only [List.length_finRange, groupCharge, epochCharge] <;> omega
+
+theorem preparation_charge_bound (H : LabelledQuotient)
+    (cover : ForestIncomingPrep.Cover H) :
+    preparationSites H cover ≤ 16 * (H.vertexCount + H.arcCount) := by
+  rw [preparation_sites_exact]
+  omega
 
 end PaperB.PreparationWorkChecks

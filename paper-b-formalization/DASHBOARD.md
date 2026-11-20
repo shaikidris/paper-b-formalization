@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The predecessor scan and midpoint search now have checked scalar meters that agree with their implemented counters. The sweep writes and backing-array ownership were checked at the preceding checkpoint. Full construction-phase primitive accounting and the Lemma 3.2 resource certificate remain open.
+- [EX2.4](TASKS.md#ex24) — The actual dense-order packed builder has a bound for selected construction work including the updated input preparation and priced scan and search arithmetic. Its preparation, reached sweep boundaries, and finish reserve compose into one source peak. Prove a complete word-RAM refinement covering all construction instructions and all live allocations, including finish and serialization between the charged checkpoints.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

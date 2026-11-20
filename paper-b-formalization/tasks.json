@@ -349,7 +349,8 @@
     "release-core/PaperB/ForestDictionaryCollectionSpace.lean": "quotient forest",
     "release-core/PaperB/ForestCompactFinishSpace.lean": "quotient forest",
     "release-core/PaperB/ForestCompactPeak.lean": "quotient forest",
-    "release-core/PaperB/ForestScalarCost.lean": "quotient forest"
+    "release-core/PaperB/ForestScalarCost.lean": "quotient forest",
+    "release-core/PaperB/ForestConstructionEnvelope.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1175,9 +1176,10 @@
         "evidence/ex2-native-copy-removal/verification.json",
         "evidence/ex2-native-sort-ownership/verification.json",
         "evidence/ex2-sweep-ownership/verification.json",
-        "evidence/ex2-forest-scalar-cost/verification.json"
+        "evidence/ex2-forest-scalar-cost/verification.json",
+        "evidence/ex2-construction-envelope/verification.json"
       ],
-      "progress": "The predecessor scan and midpoint search now have checked scalar meters that agree with their implemented counters. The sweep writes and backing-array ownership were checked at the preceding checkpoint. Full construction-phase primitive accounting and the Lemma 3.2 resource certificate remain open.",
+      "progress": "The actual dense-order packed builder has a bound for selected construction work including the updated input preparation and priced scan and search arithmetic. Its preparation, reached sweep boundaries, and finish reserve compose into one source peak. Prove a complete word-RAM refinement covering all construction instructions and all live allocations, including finish and serialization between the charged checkpoints.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

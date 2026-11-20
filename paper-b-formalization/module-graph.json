@@ -343,7 +343,8 @@
         "release-core/PaperB/ForestDictionaryCollectionSpace.lean",
         "release-core/PaperB/ForestCompactFinishSpace.lean",
         "release-core/PaperB/ForestCompactPeak.lean",
-        "release-core/PaperB/ForestScalarCost.lean"
+        "release-core/PaperB/ForestScalarCost.lean",
+        "release-core/PaperB/ForestConstructionEnvelope.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -3183,6 +3184,16 @@
       "path": "release-core/PaperB/ForestScalarCost.lean",
       "local_imports": [
         "release-core/PaperB/ForestHead.lean"
+      ],
+      "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestConstructionEnvelope.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestCompactBuildWork.lean",
+        "release-core/PaperB/ForestCompactPeak.lean",
+        "release-core/PaperB/ForestScalarCost.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
