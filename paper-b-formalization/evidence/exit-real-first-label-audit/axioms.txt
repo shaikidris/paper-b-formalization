@@ -1,0 +1,3 @@
+'PaperB.Exit.OrderedReaderResult.earliest_of_headLookup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.exists_hit_of_occupied' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.slot_exact' depends on axioms: [propext, Classical.choice, Quot.sound]

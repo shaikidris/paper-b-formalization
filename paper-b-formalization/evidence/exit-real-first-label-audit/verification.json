@@ -1,0 +1,11 @@
+{
+  "base_commit": "ee681eb",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitRealFirstLabel.lean",
+  "sha256": "a3e821fa5e2ec2fff47ed546811747f814f3526a551c6988e5785bd96708e3a8",
+  "scope": "The actual fresh-event lookup returns the minimum-rank vertex with its physical label. Its slots exist exactly for positive occupied forest nodes with nonzero parent, with both the real key and final parent checked.",
+  "remaining": "Turn this exact characterization into a shared indexed schedule and bind the actual callbacks to the raw occurrence fold and map installer."
+}

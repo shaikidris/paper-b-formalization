@@ -188,7 +188,8 @@
     "release-core/PaperB/ExitEarliestLabel.lean": "exit",
     "release-core/PaperB/ForestPackedProbe.lean": "cuts",
     "release-core/PaperB/ExitRawIncoming.lean": "exit",
-    "release-core/PaperB/RamRegisterTrace.lean": "cost model"
+    "release-core/PaperB/RamRegisterTrace.lean": "cost model",
+    "release-core/PaperB/ExitRealFirstLabel.lean": "exit"
   },
   "milestones": [
     {
@@ -1156,9 +1157,10 @@
         "evidence/exit-grouped-fresh-audit/verification.json",
         "evidence/exit-real-log-audit/verification.json",
         "evidence/exit-earliest-label-audit/verification.json",
-        "evidence/exit-raw-incoming-audit/verification.json"
+        "evidence/exit-raw-incoming-audit/verification.json",
+        "evidence/exit-real-first-label-audit/verification.json"
       ],
-      "progress": "An exact physical incoming-arc fold now refines the semantic exit kernel under its three indexed read contracts. Connect this to the actual schedule and composed jump-map records."
+      "progress": "The real forest log now proves exact first-install vertices and occupancy for every non-top-level transfer record. The raw occurrence fold is also checked against its typed read contracts. The combined indexed schedule and actual mapped callbacks remain open."
     },
     {
       "id": "EX4.3",
