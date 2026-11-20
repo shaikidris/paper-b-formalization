@@ -1,0 +1,11 @@
+{
+  "base_commit": "3449d96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/BothReachableRoute.lean",
+  "sha256": "9b2ffda00cfbf7c3827debde2832a43ff1ff9266996506092f7811900f253d12",
+  "scope": "The callback domain is exactly the strict descendants in a sibling quotient. The LCA singleton remains a separate branch, and both distinct failed endpoints are proved strict.",
+  "remaining": "Instantiate the corrected BothTables on the actual original-runtime fields."
+}

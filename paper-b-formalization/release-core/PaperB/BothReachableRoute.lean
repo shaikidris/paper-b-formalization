@@ -45,7 +45,8 @@ structure BothTables (R : Runtime g.vertexCount n k B E) (W : World g n)
       g.Dominates (W.vertex R.source) c (W.vertex d)
   childDomain : ∀ d x,
     (∃ u, (R.fetch (.child d x)).value = some u) ↔
-    ∃ Z : BlockVertex R W d, Z.val = W.vertex x
+      (W.vertex x ≠ W.vertex d ∧
+        ∃ Z : BlockVertex R W d, Z.val = W.vertex x)
   childOutside : ∀ d x, (R.fetch (.child d x)).value = none ↔
     W.vertex x = W.vertex d ∨
       ¬ g.Dominates (W.vertex R.source) (W.vertex d) (W.vertex x)
@@ -262,8 +263,24 @@ theorem bothReachable_split
       rcases order with h | h
       · exact ⟨A, C, h.1, h.2, Or.inl ⟨rfl, rfl⟩⟩
       · exact ⟨C, A, h.2, h.1, Or.inr ⟨rfl, rfl⟩⟩
-    obtain ⟨u, cu⟩ := (T.childDomain d a).2 ⟨U, eqU⟩
-    obtain ⟨v, cv⟩ := (T.childDomain d b).2 ⟨V, eqV⟩
+    have commonAtD := (common (W.vertex d)).2
+      (show g.Dominates r (W.vertex d) (W.vertex d) from dominates_refl)
+    have aNeD : W.vertex a ≠ W.vertex d := by
+      intro h
+      apply ab
+      apply (T.treeInterval a b).1
+      apply (T.domInterval a b).2
+      rw [h]
+      exact commonAtD.2
+    have bNeD : W.vertex b ≠ W.vertex d := by
+      intro h
+      apply ba
+      apply (T.treeInterval b a).1
+      apply (T.domInterval b a).2
+      rw [h]
+      exact commonAtD.1
+    obtain ⟨u, cu⟩ := (T.childDomain d a).2 ⟨aNeD, ⟨U, eqU⟩⟩
+    obtain ⟨v, cv⟩ := (T.childDomain d b).2 ⟨bNeD, ⟨V, eqV⟩⟩
 
     have differentKeys : J.fst ≠ J.snd := by
       first
@@ -296,7 +313,7 @@ theorem bothReachable_split
       rw [blocks]
       simp [routeBlocks, Plan.run, *]
     | some y =>
-      obtain ⟨Z, eqZ⟩ := (T.childDomain d x).1 ⟨y, cy⟩
+      obtain ⟨Z, eqZ⟩ := ((T.childDomain d x).1 ⟨y, cy⟩).2
       have fiberU := T.childFiber d hD (Z := Z) (Z' := U) eqZ eqU cy cu
       have fiberV := T.childFiber d hD (Z := Z) (Z' := V) eqZ eqV cy cv
       have transport (i : Fin n) (K : BlockVertex R W d)

@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2831,
-      "sha256": "3521b02d57a4e28221c2df3a34cf78d8fc15127283ed7a1b418a6b404a0ab690"
+      "bytes": 2811,
+      "sha256": "9e7eb3e0067d99be8b3f4186e9d43c4f63b1bd3d3aea0f17b728d7ab63a8bc7f"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 56291,
-      "sha256": "63ef444f341e5061e1245489c6720b73e193b5d04742aa4b781dc6a714c90cb5"
+      "bytes": 56369,
+      "sha256": "874c334cc48b2cb2fc4a14867130086191f618aea4b908c408b329d286d6bb7f"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 65128,
-      "sha256": "ab6cddac9d9df066dc18c69ee5550b13c8e02004f3f47365ddc357c79d493254"
+      "bytes": 65320,
+      "sha256": "eb9cec4cb498b03f891640be6e2bb020a75348f36e97c3f567cf203fef755a4f"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -4562,6 +4562,21 @@
       "sha256": "40aec76dc445a5703186a2ef67bf51ee89ecd069d5d55ab82240afce60027364"
     },
     {
+      "path": "evidence/strict-child-domain/Audit.lean",
+      "bytes": 116,
+      "sha256": "bce708eb038a07528b40e90ad91d703b25eeac196cde3f6dcd4c8b7a8df3ebdf"
+    },
+    {
+      "path": "evidence/strict-child-domain/axioms.txt",
+      "bytes": 148,
+      "sha256": "5053987e130d617b01569ade44dd1ef59677e810bc60076e386d1d716e4146e8"
+    },
+    {
+      "path": "evidence/strict-child-domain/verification.json",
+      "bytes": 584,
+      "sha256": "11762664ad92f742dc9d2f0feaa22afd390320248bbcd9da237b4a8f63150ea3"
+    },
+    {
       "path": "evidence/third-geometry/Audit.lean",
       "bytes": 193,
       "sha256": "56a8daa26016c4c16352af08d85dca55c91a3380fa077fe1dd79b1955d4efa1a"
@@ -4718,8 +4733,8 @@
     },
     {
       "path": "release-core/PaperB/BothReachableRoute.lean",
-      "bytes": 14497,
-      "sha256": "fc15ab320bed36f104cab300baa2e74242ed566db7a1d7c427c7583954fd4b26"
+      "bytes": 15052,
+      "sha256": "9b2ffda00cfbf7c3827debde2832a43ff1ff9266996506092f7811900f253d12"
     },
     {
       "path": "release-core/PaperB/CommonAncestorSearch.lean",
@@ -5903,8 +5918,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 75677,
-      "sha256": "b1558acff2fce06977c2f466f454778c87055e41ce44322967fcdacaff321266"
+      "bytes": 75715,
+      "sha256": "5e06868eda1ba8ab6039974c3362a7ad34bda36cf9451f06be488a9c0e9d729a"
     },
     {
       "path": "test_plan.py",

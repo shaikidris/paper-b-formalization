@@ -1356,9 +1356,10 @@
         "evidence/direct-third-route/verification.json",
         "evidence/original-query-direct/verification.json",
         "evidence/original-static-full/verification.json",
-        "evidence/original-child-laws/verification.json"
+        "evidence/original-child-laws/verification.json",
+        "evidence/strict-child-domain/verification.json"
       ],
-      "progress": "The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields."
+      "progress": "Corrected the verified internal inconsistency at the LCA singleton, preserving the paper-level routing goal."
     },
     {
       "id": "EX5.1",

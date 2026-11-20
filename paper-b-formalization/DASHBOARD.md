@@ -22,7 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — Finite vertex enumeration now uses a verified linear tail loop at existing compiled call sites.
 - [EX4.2](TASKS.md#ex42) — Physical owner, child and parent key agreements now follow from the actual forest outputs.
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
-- [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.
+- [EX4.4](TASKS.md#ex44) — Corrected the verified internal inconsistency at the LCA singleton, preserving the paper-level routing goal.
 - [EX5.1](TASKS.md#ex51) — Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound.
 - [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.
 - [EX5.3](TASKS.md#ex53) — Each later fixed worker receives clean scratch registers from its actual preceding setup code.
