@@ -216,3 +216,161 @@ theorem buildGrouped_directory (x : PackedStaticLayout.Input N) :
     buildGrouped_buckets x]
 
 end PaperB.DenseQuotientRows
+
+namespace PaperB.ForestLayout
+
+open PaperB.LabelledQuotient
+open EX51 EX51.Storage
+
+variable {N : Nat}
+
+/-- This is the list passed to the single `groupMap` call. -/
+abbrev groupedChildInput (root : Fin N) : List (Fin N) :=
+  (selectNonRootRev root (finElems N) [] 0).1
+
+theorem groupedChildInput_length (root : Fin N) :
+    (groupedChildInput root).length = N - 1 := by
+  have h := filter_nonRoot_length root (finElems N)
+    (nodup_finElems N) (mem_finElems root)
+  rw [length_finElems N] at h
+  have hl :
+      ((finElems N).filter (fun u => decide (u ≠ root))).length = N - 1 := by
+    omega
+  simp only [groupedChildInput, selectNonRootRev_spec, List.append_nil,
+    List.length_reverse, hl]
+
+/--
+Logical list cells and bucket slots, excluding fixed-size scalar state.
+Use `reserve = 0` when the original enumeration is no longer retained,
+or `reserve = N` to charge it separately throughout. The selected list
+itself is already included in the grouping charges.
+-/
+def groupedChildListsPeak (n reserve : Nat) : Nat :=
+  reserve + (n + 3 * (n - 1))
+
+/-- Charge the completed enumeration, before filtering starts. This is
+the size of the enumeration list, not a backend allocation bound. -/
+theorem groupedChildLists_enumeration_space (reserve : Nat) :
+    (finElems N).length = N ∧
+      (finElems N).length ≤ groupedChildListsPeak N reserve := by
+  rw [length_finElems N]
+  unfold groupedChildListsPeak
+  exact ⟨rfl, by omega⟩
+
+/-- Actual recursive call boundaries of the private root selector. -/
+inductive SelectNonRootAt (root : Fin N) :
+    List (Fin N) → List (Fin N) → Nat → Prop where
+  | start : SelectNonRootAt root (finElems N) [] 0
+  | step {u : Fin N} {us acc : List (Fin N)} {visits : Nat} :
+      SelectNonRootAt root (u :: us) acc visits →
+      SelectNonRootAt root us (if u = root then acc else u :: acc) (visits + 1)
+
+theorem selectNonRootAt_resume {root : Fin N}
+    {unread acc : List (Fin N)} {visits : Nat}
+    (atCall : SelectNonRootAt root unread acc visits) :
+    selectNonRootRev root unread acc visits =
+      selectNonRootRev root (finElems N) [] 0 := by
+  induction atCall with
+  | start => rfl
+  | step _ ih => simpa only [selectNonRootRev] using ih
+
+theorem selectNonRootAt_partition {root : Fin N}
+    {unread acc : List (Fin N)} {visits : Nat}
+    (atCall : SelectNonRootAt root unread acc visits) :
+    unread.length + visits = N ∧ acc.length ≤ visits := by
+  induction atCall with
+  | start => simp [length_finElems]
+  | step _ ih =>
+      obtain ⟨hu, ha⟩ := ih
+      constructor
+      · simp only [List.length_cons] at hu
+        omega
+      · split <;> (try simp only [List.length_cons]) <;> omega
+
+theorem groupedChildLists_filter_space {root : Fin N}
+    {unread acc : List (Fin N)} {visits : Nat}
+    (atCall : SelectNonRootAt root unread acc visits) (reserve : Nat) :
+    unread.length + acc.length ≤ N ∧
+      reserve + (unread.length + acc.length) ≤ reserve + N ∧
+      reserve + (unread.length + acc.length) ≤ groupedChildListsPeak N reserve := by
+  obtain ⟨hu, ha⟩ := selectNonRootAt_partition atCall
+  unfold groupedChildListsPeak
+  exact ⟨by omega, by omega, by omega⟩
+
+/-- Includes the initial empty table (`ScatterAt.start`). Charge the
+whole selected input, not just its unread suffix. -/
+theorem groupedChildLists_scatter_space (root : Fin N) (parent : Fin N → Fin N)
+    {unread : List (Fin N)} {s : Rows N (Fin N)} {r w : Nat}
+    (atCall : ScatterAt parent id (groupedChildInput root) unread s r w)
+    (reserve : Nat) :
+    let live := reserve + (s.cells.size + rowMass s + (groupedChildInput root).length)
+    s.cells.size = N ∧ rowMass s + unread.length = N - 1 ∧
+      live ≤ reserve + (N + 2 * (N - 1)) ∧
+      live ≤ groupedChildListsPeak N reserve := by
+  obtain ⟨hs, hsplit, _, hspace⟩ := scatter_space atCall
+  have hm := groupedChildInput_length root
+  dsimp only
+  unfold groupedChildListsPeak
+  exact ⟨hs, by omega, by omega, by omega⟩
+
+/-- At a finish boundary there is no additional active reversal charge. -/
+theorem groupedChildLists_finish_space (root : Fin N) (parent : Fin N → Fin N)
+    {s : Rows N (Fin N)} {t c : Nat} {h : t ≤ N}
+    (atCall : FinishAt (scatterRows parent id (groupedChildInput root)) t h s c)
+    (reserve : Nat) :
+    let live := reserve + (s.cells.size + rowMass s + (groupedChildInput root).length)
+    s.cells.size = N ∧ rowMass s = N - 1 ∧
+      live = reserve + (N + 2 * (N - 1)) ∧
+      live ≤ groupedChildListsPeak N reserve := by
+  obtain ⟨hs, hmass, hspace⟩ := finish_space atCall
+  have hm := groupedChildInput_length root
+  dsimp only
+  unfold groupedChildListsPeak
+  exact ⟨hs, by omega, by omega, by omega⟩
+
+/-- The old row is still in `s`. Charge both the unread suffix and the
+accumulator on top of that table, even when the suffix shares cells. -/
+theorem groupedChildLists_reversal_space (root : Fin N) (parent : Fin N → Fin N)
+    {s : Rows N (Fin N)} {t c charge : Nat} {h : t + 1 ≤ N}
+    {unread acc : List (Fin N)}
+    (boundary : FinishAt (scatterRows parent id (groupedChildInput root))
+      (t + 1) h s c)
+    (active : ReverseAt (s.row ⟨t, h⟩) c unread acc charge)
+    (reserve : Nat) :
+    let live := reserve + (s.cells.size + rowMass s +
+      (groupedChildInput root).length + (acc.length + unread.length))
+    acc.length + unread.length = (s.row ⟨t, h⟩).length ∧
+      live = reserve + (N + 2 * (N - 1) + (s.row ⟨t, h⟩).length) ∧
+      live ≤ groupedChildListsPeak N reserve := by
+  obtain ⟨hs, hmass, _⟩ := finish_space boundary
+  obtain ⟨hsplit, hspace⟩ := reversal_space boundary active
+  have hm := groupedChildInput_length root
+  dsimp only
+  unfold groupedChildListsPeak
+  exact ⟨hsplit, by omega, by omega⟩
+
+/-- The completed finish prefix has exactly the array retained by
+`groupedChildLists`, and hence exactly the reference rows in order. -/
+theorem groupedChildLists_finish_result (root : Fin N) (parent : Fin N → Fin N)
+    {s : Rows N (Fin N)} {c : Nat} {h : 0 ≤ N}
+    (done : FinishAt (scatterRows parent id (groupedChildInput root)) 0 h s c) :
+    s.cells = (groupedChildLists root parent).1.rows ∧
+      s.cells = (bucketChildLists root parent).rows := by
+  have actual : s.cells = (groupedChildLists root parent).1.rows := by
+    change s.cells = (EX51.groupMap parent id (groupedChildInput root)).1.cells
+    rw [groupMap_phases, ← finish_resume done] <;> rfl
+  exact ⟨actual, actual.trans
+    (congrArg ChildLists.rows (groupedChildLists_eq_bucketChildLists root parent))⟩
+
+/-- Add immutable storage to any of the phase bounds. The caller supplies
+the recognized raw root's initialized size; neither it nor the input
+parent array is charged as grouping workspace. -/
+theorem groupedChildLists_add_immutable
+    (rawRootInitialized : Nat) (parents : Array (Fin N)) (hp : parents.size = N)
+    {live reserve : Nat} (hlive : live ≤ groupedChildListsPeak N reserve) :
+    (rawRootInitialized + parents.size) + live ≤
+      (rawRootInitialized + N) + groupedChildListsPeak N reserve := by
+  rw [hp]
+  exact Nat.add_le_add_left hlive _
+
+end PaperB.ForestLayout

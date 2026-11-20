@@ -1,0 +1,11 @@
+{
+  "base_commit": "2c8c92c",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FastOriginalChildBuckets.lean",
+  "sha256": "2474e6017803ba2258cd2622e899d4efe532cb46f4c5e7b00e142b3e035df7ef",
+  "scope": "Exact live source-level bounds for the actual grouped-child enumeration, filter, scatter, and reversal, including the original list reserve.",
+  "remaining": "Integrate these bounds with the same-run construction envelope and charge any missing initialization."
+}

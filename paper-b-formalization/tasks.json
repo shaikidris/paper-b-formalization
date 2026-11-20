@@ -1069,9 +1069,10 @@
         "evidence/forest-dictionary-peak/verification.json",
         "evidence/forest-unified-certificate/verification.json",
         "evidence/forest-full-finish-accounting/verification.json",
-        "evidence/forest-query-retained-count/verification.json"
+        "evidence/forest-query-retained-count/verification.json",
+        "evidence/forest-group-spaces/verification.json"
       ],
-      "progress": "Count the exact lookup, back-key and known-ancestry reads of the retained implementation, retaining equality with the actual query.",
+      "progress": "Exact live source-level bounds for the actual grouped-child enumeration, filter, scatter, and reversal, including the original list reserve.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

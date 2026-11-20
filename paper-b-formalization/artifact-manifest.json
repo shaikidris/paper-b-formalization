@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3098,
-      "sha256": "66b8f239df4b85680ecbfc5dcbffebc85b5341b1539141d59a092969770d2d8f"
+      "bytes": 3107,
+      "sha256": "e49e5ceba5df4ceaf9336995b5093432f20bf525c844e3387a9a9e21c2954a1b"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 60602,
-      "sha256": "23d03df9697d80b6c87d4300b2f10d50bef58ecc182568bb7298c15154dfd3bc"
+      "bytes": 60709,
+      "sha256": "d35956b548a25afa84670f03bec8b872cde015206e300752c8e7d293bb717894"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 72561,
-      "sha256": "ecc916cec1b111847ee720ee2a7f970febc6327ed5af39bb461c7c3c752c4dcd"
+      "bytes": 72759,
+      "sha256": "ea015dcb27498f27e475ff089e6c3e2e1a0a038b4ca53e05a381bd704b39a697"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -3387,6 +3387,21 @@
       "sha256": "3cf8fbf0fa439be95ba8a44326da1e4c55bf13a44fe037f32281446449ebcb91"
     },
     {
+      "path": "evidence/forest-group-spaces/Audit.lean",
+      "bytes": 171,
+      "sha256": "36b665a5f56773565fafa459a5fa543ef1d83892e074215cdea798c3231880b1"
+    },
+    {
+      "path": "evidence/forest-group-spaces/axioms.txt",
+      "bytes": 208,
+      "sha256": "ebad110d61a31cd68ae3b27051c50481d8f267a6ec33c7e4975732f725dd276c"
+    },
+    {
+      "path": "evidence/forest-group-spaces/verification.json",
+      "bytes": 581,
+      "sha256": "23be24331c7e2ad3b5350b4edeb9918c4f0f8bc0c3756d0fef32085014a72120"
+    },
+    {
       "path": "evidence/forest-incoming-prep/Audit.lean",
       "bytes": 200,
       "sha256": "3f162ecb12e052a697b73494ade31b9cb8b9564ebbf3a77ff3880e1b0068c5c4"
@@ -5633,8 +5648,8 @@
     },
     {
       "path": "release-core/PaperB/FastOriginalChildBuckets.lean",
-      "bytes": 8788,
-      "sha256": "26e418f864c493a610039722f360f140d575665783501e6b141f4682f42c7724"
+      "bytes": 15933,
+      "sha256": "2474e6017803ba2258cd2622e899d4efe532cb46f4c5e7b00e142b3e035df7ef"
     },
     {
       "path": "release-core/PaperB/FastQuotientRows.lean",
@@ -6598,8 +6613,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 80016,
-      "sha256": "0e9186816c57b0f7fb73706a2c03a083e84228277b73a965db78fb1464f5753f"
+      "bytes": 80083,
+      "sha256": "8211198242a44456d4bf113947850bbbfc1f90328988e189a72e74e0ce84cfbc"
     },
     {
       "path": "test_plan.py",
