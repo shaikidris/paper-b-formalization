@@ -26,17 +26,24 @@ normalization already build on the pinned Lean toolchain.
 
 ## Next checkpoints
 
-- EX1 is verified. The original DAG build produces the actual static tree
-  reader with exact inclusive dominance, child lookup, and LCA.
-- EX2 has the packed predecessor and dictionary builders, compact event
-  fold, and exact one-step embedding proof. Remaining work is totality and
-  the full topological induction with the component resource totals.
-- EX4 has a verified indexed exit schedule and all-case query semantics
-  under exact retained readers. Derive these readers and schedule from the
-  actual installed forest and physical exit tables.
-- EX5 connects the actual index builder and queries to one charged word
-  machine execution. EX6 reduces healthy-zero guarded outputs to the
-  listed-target interface.
+- EX0, EX1 and EX3 are verified. The original DAG build produces the
+  static reader with exact inclusive dominance, child lookup, and LCA.
+- EX2.4 now runs the complete executable ordered sweep, builds the exact
+  per-quotient DFS membership index and proves operation counts over its
+  real trace. The retained query reader projects only six arrays.
+  Prove that the counted calls pay for the packed word operations, account
+  for dictionary construction and DFS, and discharge peak workspace on
+  the same builder.
+- EX4 joins the verified chronological fresh-event index to the indexed
+  first-install schedule and the actual incoming-arc exit fold. Install
+  the composed jump maps, then bind the all-case original-vertex query
+  to the retained physical columns.
+- EX5 has verified fixed RAM workers for static LCA and binary search,
+  fixed-code relocation, a dense quotient slot layout and exact
+  occurrence ownership. Materialize the actual local quotient rows,
+  assemble one sealed build/query program and prove its full resource
+  bounds. Apply the accepted oracle to the guarded listed-target transfer
+  in EX5.5 and EX6.2.
 
 Run from the repository root with Elan and Python 3 available.
 

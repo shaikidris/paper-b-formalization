@@ -1,0 +1,11 @@
+{
+  "base_commit": "42f1b3b",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamProgram.lean",
+  "sha256": "928e272cee22730c72f46d1c411f32253332cfe63da3c5146f5d4e53ca113a40",
+  "scope": "Verified read-only RAM instruction embedding preserves register values, external register frame, data and halting behavior across different register banks.",
+  "remaining": "Compose whole executions with exact trace lengths and link the fixed query program."
+}

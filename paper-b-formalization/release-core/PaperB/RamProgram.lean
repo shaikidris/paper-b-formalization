@@ -927,3 +927,137 @@ theorem Steps.relocate
 end FixedCodePlacement
 
 end PaperB.RamProgram
+
+namespace PaperB.RamProgram
+open PaperB.Machine (Word)
+open PaperB.WordOps (add sub band)
+
+variable {bits : Nat} {L A : Layout bits}
+
+abbrev ArenaMap (L A : Layout bits) := Fin L.registerCount → Fin A.registerCount
+
+def embedInstr (ρ : ArenaMap L A) :
+    Instr bits L.registerCount → Instr bits A.registerCount
+  | .imm d w => .imm (ρ d) w
+  | .mov d r => .mov (ρ d) (ρ r)
+  | .add d x y => .add (ρ d) (ρ x) (ρ y)
+  | .sub d x y => .sub (ρ d) (ρ x) (ρ y)
+  | .band d x y => .band (ρ d) (ρ x) (ρ y)
+  | .loadInput d a => .loadInput (ρ d) (ρ a)
+  | .loadData d a => .loadData (ρ d) (ρ a)
+  | .storeData a r => .storeData (ρ a) (ρ r)
+  | .branchLt x y yes no => .branchLt (ρ x) (ρ y) yes no
+  | .goto p => .goto p
+  | .halt => .halt
+  | .shr1 d r => .shr1 (ρ d) (ρ r)
+
+structure ArenaAgreement (ρ : ArenaMap L A) (base : State A)
+    (s : State L) (t : State A) : Prop where
+  pc_eq : s.pc = t.pc
+  data_eq : s.data = t.data
+  reg_eq : ∀ r, reg s r = reg t (ρ r)
+  frame : ∀ r, (∀ q, ρ q ≠ r) → reg t r = reg base r
+
+def ArenaOutcome (ρ : ArenaMap L A) (base : State A) :
+    Option (Transition L) → Option (Transition A) → Prop
+  | none, none => True
+  | some (.next s), some (.next t) => ArenaAgreement ρ base s t
+  | some (.halted s), some (.halted t) => ArenaAgreement ρ base s t
+  | _, _ => False
+
+private theorem arenaAdvance {ρ : ArenaMap L A} {base t : State A} {s : State L}
+    {code : Program L} {wide : Program A} (hlen : code.size = wide.size)
+    (h : ArenaAgreement ρ base s t) {p q : Nat} (e : p = q) :
+    ArenaOutcome ρ base (advance code s p) (advance wide t q) := by
+  subst q
+  by_cases hp : p < code.size
+  · have hq : p < wide.size := by simpa only [← hlen] using hp
+    simpa only [advance, if_pos hp, if_pos hq, ArenaOutcome] using
+      (show ArenaAgreement ρ base { s with pc := p } { t with pc := p } from
+        ⟨rfl, h.data_eq, h.reg_eq, h.frame⟩)
+  · have hq : ¬ p < wide.size := by simpa only [← hlen] using hp
+    simp [advance, hp, hq, ArenaOutcome]
+
+private theorem arenaWrite {ρ : ArenaMap L A} {base t : State A} {s : State L}
+    (hinj : ∀ {a b}, ρ a = ρ b → a = b) (h : ArenaAgreement ρ base s t)
+    (d : Fin L.registerCount) (w : Word bits) :
+    ArenaAgreement ρ base (writeReg s d w) (writeReg t (ρ d) w) := by
+  refine ⟨h.pc_eq, h.data_eq, ?_, ?_⟩
+  · intro r
+    by_cases e : r = d
+    · subst r
+      simp only [reg_write_same]
+    · rw [reg_write_other s d r w e,
+          reg_write_other t (ρ d) (ρ r) w (fun k => e (hinj k))]
+      exact h.reg_eq r
+  · intro r hr
+    exact (reg_write_other t (ρ d) r w (Ne.symm (hr d))).trans (h.frame r hr)
+
+/-- Refine one fetched non-store instruction, preserving rejection, halt, and the arena frame. -/
+theorem step_embedInstr {ρ : ArenaMap L A} {base t : State A} {s : State L}
+    {code : Program L} {wide : Program A} {i : Input L} {j : Input A}
+    {op : Instr bits L.registerCount}
+    (hinj : ∀ {a b}, ρ a = ρ b → a = b)
+    (hlen : code.size = wide.size) (hi : i.words = j.words)
+    (h : ArenaAgreement ρ base s t)
+    (hf : code[s.pc]? = some op) (hg : wide[t.pc]? = some (embedInstr ρ op))
+    (hNoStore : ∀ a r : Fin L.registerCount, op ≠ Instr.storeData a r) :
+    ArenaOutcome ρ base (step code i s) (step wide j t) := by
+  have hn : s.pc + 1 = t.pc + 1 := congrArg (fun p => p + 1) h.pc_eq
+  have put (d : Fin L.registerCount) (w v : Word bits) (e : w = v) :
+      ArenaOutcome ρ base (advance code (writeReg s d w) (s.pc + 1))
+        (advance wide (writeReg t (ρ d) v) (t.pc + 1)) := by
+    subst v
+    exact arenaAdvance hlen (arenaWrite hinj h d w) hn
+  have load (d : Fin L.registerCount) (v u : Option (Word bits)) (e : v = u) :
+      ArenaOutcome ρ base
+        (v.bind fun w => advance code (writeReg s d w) (s.pc + 1))
+        (u.bind fun w => advance wide (writeReg t (ρ d) w) (t.pc + 1)) := by
+    subst u
+    cases v with
+    | none => exact True.intro
+    | some w => exact put d w w rfl
+  cases op
+  case storeData a r => exact False.elim (hNoStore a r rfl)
+  all_goals simp only [step, hf, hg, embedInstr]
+  case imm d w => exact put d w w rfl
+  case mov d r => exact put d (reg s r) (reg t (ρ r)) (h.reg_eq r)
+  case add d x y =>
+    refine put d (add (reg s x) (reg s y))
+      (add (reg t (ρ x)) (reg t (ρ y))) ?_
+    rw [h.reg_eq x, h.reg_eq y]
+  case sub d x y =>
+    refine put d (sub (reg s x) (reg s y))
+      (sub (reg t (ρ x)) (reg t (ρ y))) ?_
+    rw [h.reg_eq x, h.reg_eq y]
+  case band d x y =>
+    refine put d (band (reg s x) (reg s y))
+      (band (reg t (ρ x)) (reg t (ρ y))) ?_
+    rw [h.reg_eq x, h.reg_eq y]
+  case shr1 d r =>
+    refine put d (shr1Word (reg s r)) (shr1Word (reg t (ρ r))) ?_
+    rw [h.reg_eq r]
+  case loadInput d a =>
+    refine load d (i.words[(reg s a).val]?) (j.words[(reg t (ρ a)).val]?) ?_
+    calc
+      i.words[(reg s a).val]? = j.words[(reg s a).val]? :=
+        congrArg (fun ws : Array (Word bits) => ws[(reg s a).val]?) hi
+      _ = j.words[(reg t (ρ a)).val]? := by rw [h.reg_eq a]
+  case loadData d a =>
+    refine load d (s.data[(reg s a).val]?) (t.data[(reg t (ρ a)).val]?) ?_
+    calc
+      s.data[(reg s a).val]? = t.data[(reg s a).val]? :=
+        congrArg (fun ws : Array (Word bits) => ws[(reg s a).val]?) h.data_eq
+      _ = t.data[(reg t (ρ a)).val]? := by rw [h.reg_eq a]
+  case branchLt x y yes no =>
+    change ArenaOutcome ρ base
+      (advance code s (if PaperB.WordOps.ltb (reg s x) (reg s y) then yes else no))
+      (advance wide t
+        (if PaperB.WordOps.ltb (reg t (ρ x)) (reg t (ρ y)) then yes else no))
+    rw [h.reg_eq x, h.reg_eq y]
+    exact arenaAdvance hlen h rfl
+  case goto p =>
+    exact arenaAdvance (code := code) (wide := wide) hlen h (rfl : p = p)
+  case halt => exact h
+
+end PaperB.RamProgram
