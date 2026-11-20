@@ -1,0 +1,4 @@
+'PaperB.DenseQuotientRows.packing_positionToOriginal_eq_codeAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.DenseQuotientRows.packedEmission_positions' depends on axioms: [propext, Classical.choice, Quot.sound]

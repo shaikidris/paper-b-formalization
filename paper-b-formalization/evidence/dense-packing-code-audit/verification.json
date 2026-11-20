@@ -1,0 +1,11 @@
+{
+  "base_commit": "3158532",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DensePackingCode.lean",
+  "sha256": "c857d1de951ccf18ecc6977e43cde029af4a6f22a57cdfe986970f2f459c5575",
+  "scope": "The physical packed code of every original sibling key agrees with the decoded dense row slot. Translating both endpoints of an actual packed emission returns exactly the corresponding original key positions.",
+  "remaining": "Prove labelled adjacency correspondence for the genuine dense builder and instantiate the canonical exit and cut algorithms."
+}

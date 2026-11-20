@@ -1,0 +1,3 @@
+import PaperB.DensePackingCode
+#print axioms PaperB.DenseQuotientRows.packing_positionToOriginal_eq_codeAt
+#print axioms PaperB.DenseQuotientRows.packedEmission_positions

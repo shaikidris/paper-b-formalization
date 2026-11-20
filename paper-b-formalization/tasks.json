@@ -197,7 +197,8 @@
     "release-core/PaperB/ForestAllSizes.lean": "cuts",
     "release-core/PaperB/RamLexPairCuts.lean": "cost model",
     "release-core/PaperB/FastQuotientRows.lean": "quotient",
-    "release-core/PaperB/ExitArraySchedule.lean": "exit"
+    "release-core/PaperB/ExitArraySchedule.lean": "exit",
+    "release-core/PaperB/DensePackingCode.lean": "quotient"
   },
   "milestones": [
     {
@@ -1294,9 +1295,10 @@
         "evidence/dense-runtime-graph-audit/verification.json",
         "evidence/dense-key-iso-audit/verification.json",
         "evidence/quotient-fast-audit/verification.json",
-        "evidence/dense-runtime-fast-audit/verification.json"
+        "evidence/dense-runtime-fast-audit/verification.json",
+        "evidence/dense-packing-code-audit/verification.json"
       ],
-      "progress": "The actual dense builder now groups local adjacency in one pass over its emitted row. The old repeated-filter helper is used only as a proof reference. Dense positions already have checked original key inverses."
+      "progress": "The real emitted endpoint codes now agree exactly with the verified dense/original key inverse. The dense labelled graph correspondence and whole-arena accounting remain open."
     },
     {
       "id": "EX5.2",
