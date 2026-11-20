@@ -1,0 +1,11 @@
+{
+  "base_commit": "98a1cb2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPreparedBuild.lean",
+  "sha256": "5b65b2e8f950752bada9c01a15889eda03a383e23662b465ca04d051ca91eef3",
+  "scope": "One executable per-quotient builder prepares raw and deduplicated predecessors, runs the exact packed forest builder on large quotients and handles small quotients directly. Membership is exact, retained column size is linear and predecessor work is charged to every supplied occurrence.",
+  "remaining": "Complete the combined preprocessing and live ownership cost on this builder."
+}

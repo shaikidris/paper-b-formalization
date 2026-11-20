@@ -236,7 +236,8 @@
     "release-core/PaperB/ForestIncomingPrep.lean": "cuts",
     "release-core/PaperB/LabelledTransport.lean": "exit",
     "release-core/PaperB/RamPlacedTrace.lean": "cost",
-    "release-core/PaperB/ExitInterleavedPacked.lean": "exit"
+    "release-core/PaperB/ExitInterleavedPacked.lean": "exit",
+    "release-core/PaperB/ForestPreparedBuild.lean": "cuts"
   },
   "milestones": [
     {
@@ -1005,9 +1006,10 @@
         "evidence/forest-lookup-tolls/verification.json",
         "evidence/forest-raw-incoming/verification.json",
         "evidence/forest-incoming-prep/verification.json",
-        "evidence/dictionary-build-charge/verification.json"
+        "evidence/dictionary-build-charge/verification.json",
+        "evidence/forest-prepared-build/verification.json"
       ],
-      "progress": "Lean verifies the dictionary setup tally for key collection, bank allocation, merge operations and compact output.",
+      "progress": "The shared incoming prep and fast ordered reader now compose in one executable builder for all quotient sizes, with exact membership and incidence and retained-size bounds.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

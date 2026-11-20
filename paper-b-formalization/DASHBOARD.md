@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Lean verifies the dictionary setup tally for key collection, bank allocation, merge operations and compact output.
+- [EX2.4](TASKS.md#ex24) — The shared incoming prep and fast ordered reader now compose in one executable builder for all quotient sizes, with exact membership and incidence and retained-size bounds.
 - [EX4.2](TASKS.md#ex42) — A single interleaved executable sweep now threads the physical map bank and base column and maintains exact prefix state under its schedule contract.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — The simplification now applies to every original-ID query including missing failures and targets.

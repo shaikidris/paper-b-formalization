@@ -279,3 +279,4 @@
 {"at": "2026-11-20T01:32:06+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitInterleavedPacked", "tasks": ["EX4.2"], "evidence": "evidence/interleaved-packed-pass/verification.json"}
 {"at": "2026-11-20T01:32:12+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ThirdReachableRoute", "tasks": ["EX4.4"], "evidence": "evidence/direct-third-route/verification.json"}
 {"at": "2026-11-20T01:32:16+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "AllOrigOracleCases", "tasks": ["EX4.4"], "evidence": "evidence/original-query-direct/verification.json"}
+{"at": "2026-11-20T01:34:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPreparedBuild", "tasks": ["EX2.4"], "evidence": "evidence/forest-prepared-build/verification.json"}

@@ -376,7 +376,8 @@
         "release-core/PaperB/ForestFastOrderedReader.lean",
         "release-core/PaperB/ForestLookupTolls.lean",
         "release-core/PaperB/ForestIncomingRaw.lean",
-        "release-core/PaperB/ForestIncomingPrep.lean"
+        "release-core/PaperB/ForestIncomingPrep.lean",
+        "release-core/PaperB/ForestPreparedBuild.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -2066,6 +2067,17 @@
         "release-core/PaperB/ExitPhysicalPass.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestPreparedBuild.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestIncomingPrep.lean",
+        "release-core/PaperB/ForestFastOrderedReader.lean",
+        "release-core/PaperB/ForestOrderedReadBound.lean",
+        "release-core/PaperB/ForestAllSizes.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

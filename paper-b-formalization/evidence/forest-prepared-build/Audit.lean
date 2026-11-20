@@ -1,0 +1,5 @@
+import PaperB.ForestPreparedBuild
+#print axioms PaperB.ForestPreparedBuild.query_iff
+#print axioms PaperB.ForestPreparedBuild.arraySize_le
+#print axioms PaperB.ForestPreparedBuild.dedup_visits_eq_arcCount
+#print axioms PaperB.ForestPreparedBuild.entryTotal_le_arcTotal
