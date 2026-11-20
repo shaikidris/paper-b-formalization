@@ -1,0 +1,11 @@
+{
+  "base_commit": "3860a16",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseLabelledArcIso.lean",
+  "sha256": "11986c2d5051f0c9875703ad6ccb5fd3a637afb18f36eae52d6bc393e63b55dc",
+  "scope": "The materialized dense quotient preserves the structural root, quotient arcs, increasing ranks and entire rooted flatness property. Rank reads use the original leader coordinate.",
+  "remaining": "Build global packed topological order and reader buffers for all quotients, account for every row scan and integrate the ordered forest and exit passes."
+}

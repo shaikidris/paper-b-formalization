@@ -1322,9 +1322,10 @@
         "evidence/dense-runtime-fast-audit/verification.json",
         "evidence/dense-packing-code-audit/verification.json",
         "evidence/dense-labelled-arc-audit/verification.json",
-        "evidence/dense-structural-arc-transport-audit/verification.json"
+        "evidence/dense-structural-arc-transport-audit/verification.json",
+        "evidence/dense-flatness/verification.json"
       ],
-      "progress": "Lean checks inverse vertex translations and exact labelled adjacency between the dense runtime graph and the finite structural quotient. The root/path/rank transport remains to be wired."
+      "progress": "The dense runtime quotient now has kernel-checked root, arc, rank and rooted flatness transport from its finite structural quotient."
     },
     {
       "id": "EX5.2",

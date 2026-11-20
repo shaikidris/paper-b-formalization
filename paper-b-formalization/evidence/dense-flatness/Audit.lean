@@ -1,0 +1,6 @@
+import PaperB.DenseLabelledArcIso
+#print axioms PaperB.DenseOriginalQuotient.Transport.denseToOld_build_root
+#print axioms PaperB.DenseOriginalQuotient.Transport.hasQuotientArc_build_denseToOld_iff
+#print axioms PaperB.DenseOriginalQuotient.Transport.denseRank_lt_of_hasQuotientArc_build
+#print axioms PaperB.DenseOriginalQuotient.Transport.denseRank_injective
+#print axioms PaperB.DenseOriginalQuotient.Transport.build_isFlat

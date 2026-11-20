@@ -1,0 +1,11 @@
+'PaperB.DenseOriginalQuotient.Transport.denseToOld_build_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.DenseOriginalQuotient.Transport.hasQuotientArc_build_denseToOld_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.DenseOriginalQuotient.Transport.denseRank_lt_of_hasQuotientArc_build' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.DenseOriginalQuotient.Transport.denseRank_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseOriginalQuotient.Transport.build_isFlat' depends on axioms: [propext, Classical.choice, Quot.sound]

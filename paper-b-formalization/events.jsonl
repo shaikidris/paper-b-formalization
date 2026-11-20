@@ -249,3 +249,4 @@
 {"at": "2026-11-20T00:50:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFixedBankSort", "tasks": ["EX2.4"], "evidence": "evidence/fixed-bank-sort/verification.json"}
 {"at": "2026-11-20T00:52:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitStoredWrite", "tasks": ["EX4.3"], "evidence": "evidence/exit-stored-write/verification.json"}
 {"at": "2026-11-20T00:52:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPairWorkerCalls", "tasks": ["EX5.3"], "evidence": "evidence/ram-pair-worker-calls/verification.json"}
+{"at": "2026-11-20T00:52:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX5.1"], "evidence": "evidence/dense-flatness/verification.json"}

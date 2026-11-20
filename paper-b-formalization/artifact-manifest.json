@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3225,
-      "sha256": "f8b9ba9e9c07d04024bd6be8a0a78fc33a4ed336551d77ca523e6c5fa15e8d7e"
+      "bytes": 3171,
+      "sha256": "3fb55fb77d4ff825e306f12b01466db5951d8e6493bd7047ca90d98921b511b9"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 50835,
-      "sha256": "83a596fb81f4808353435e035eebf5b12717faf0f7ebef63db2ad3772c70e864"
+      "bytes": 50869,
+      "sha256": "7fd101bd99afc19dc400bd3e1a115f5ea518db1f53c3068cde1f5333223cb55e"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 53597,
-      "sha256": "5cadb7a5a9a7b2cb67b153fb3264d321be163dc9128aabf44b0b7b1169d3e786"
+      "bytes": 53785,
+      "sha256": "6c6752f8b46c1f6f4003bc7804b38b85d437dd62a07918e0667cdec9b28cc493"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -280,6 +280,21 @@
       "path": "evidence/dense-arc-row-audit/verification.json",
       "bytes": 707,
       "sha256": "fad378050cabeda8b30e7ae66b4c7f49f69cffb32db7ffed8d2db3175610174c"
+    },
+    {
+      "path": "evidence/dense-flatness/Audit.lean",
+      "bytes": 427,
+      "sha256": "e9a09f6143bf1b4d510c8bc81a9bb6917b69eb445a0c7595e0b6fac86af0b143"
+    },
+    {
+      "path": "evidence/dense-flatness/axioms.txt",
+      "bytes": 634,
+      "sha256": "71d84f70dec6ac4521c8621728ab88880f1043fa432f9ab66f225bb83af556ed"
+    },
+    {
+      "path": "evidence/dense-flatness/verification.json",
+      "bytes": 665,
+      "sha256": "5e7ea5003e86763829e04e08c8e1728dfd64955b3516e209e06b31c71c7f12b5"
     },
     {
       "path": "evidence/dense-key-iso-audit/Audit.lean",
@@ -3743,8 +3758,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 56962,
-      "sha256": "983ebc9e2b894a3ceb70b8833de576d9fcccb43602c6b1e1adfc46f05cf04ec0"
+      "bytes": 57016,
+      "sha256": "fe1dcad53b1cf2ce9eee46e63cc1bf41e1361f770759d890ae61ecd5c1114bd6"
     },
     {
       "path": "obligations.json",
@@ -3868,8 +3883,8 @@
     },
     {
       "path": "release-core/PaperB/DenseLabelledArcIso.lean",
-      "bytes": 14323,
-      "sha256": "10672956568611ce6b2317520eb1e6bd65f611c804117f2929f5847e320b15ea"
+      "bytes": 23114,
+      "sha256": "11986c2d5051f0c9875703ad6ccb5fd3a637afb18f36eae52d6bc393e63b55dc"
     },
     {
       "path": "release-core/PaperB/DensePackingCode.lean",
@@ -4773,8 +4788,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 69866,
-      "sha256": "c5a1736d769a1beb69398358dd861f72521b02de45a615c044d1d7b8107b760c"
+      "bytes": 69865,
+      "sha256": "bffd2e81458563cdd478802402011ec8b4366f802693dd841fd7ea7881b0f380"
     },
     {
       "path": "test_plan.py",

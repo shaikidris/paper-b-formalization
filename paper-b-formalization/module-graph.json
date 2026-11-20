@@ -1756,7 +1756,8 @@
       "path": "release-core/PaperB/DenseLabelledArcIso.lean",
       "local_imports": [
         "release-core/PaperB/DenseRuntimeGraph.lean",
-        "release-core/PaperB/DensePackingCode.lean"
+        "release-core/PaperB/DensePackingCode.lean",
+        "release-core/PaperB/FiniteSiblingFlat.lean"
       ],
       "owner_role": "quotient",
       "admission": "ORACLE_CORE"
