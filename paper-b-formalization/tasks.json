@@ -268,7 +268,8 @@
     "release-core/PaperB/RamEqualityTailTransfer.lean": "ram",
     "release-core/PaperB/RamPlacedCalls.lean": "ram",
     "release-core/PaperB/ExitPartialOccupancy.lean": "exit",
-    "release-core/PaperB/OriginalEntryInverse.lean": "exit"
+    "release-core/PaperB/OriginalEntryInverse.lean": "exit",
+    "release-core/PaperB/DensePhysicalArcCounts.lean": "shared quotient construction"
   },
   "milestones": [
     {
@@ -1438,9 +1439,10 @@
         "evidence/ranked-local-quotient/verification.json",
         "evidence/family-forest-index/verification.json",
         "evidence/dense-aggregate-membership/verification.json",
-        "evidence/group-raw-mass/verification.json"
+        "evidence/group-raw-mass/verification.json",
+        "evidence/dense-physical-arc-counts/verification.json"
       ],
-      "progress": "Actual stable grouping now exposes exact total output multiplicity for quotient and global arc accounting."
+      "progress": "Exact physical dense quotient arc count equals the row length produced by the static stable sibling emitter."
     },
     {
       "id": "EX5.2",

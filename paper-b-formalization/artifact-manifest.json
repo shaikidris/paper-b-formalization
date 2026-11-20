@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2868,
-      "sha256": "d2fd2846bea6b4b15641905fc6dfb767a4dbec07cae9e035831e925a5c715b04"
+      "bytes": 2870,
+      "sha256": "a4ac42fd55a4841c13bfde59434b4dca8d8dac2bccbb3b1721519cfa30b4445e"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 58150,
-      "sha256": "9dc5ae3e6a43edb748c01967921806c7639903872af3c088ce5e0f6e53bb9791"
+      "bytes": 58262,
+      "sha256": "641c378df49e174ba5a81186b40b517c96497721e0db6e93b8e739b043359935"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 68414,
-      "sha256": "43da985553c3f915d38b0e382b99f05d85fd80761f2081dd9dd7bdfefb55a651"
+      "bytes": 68616,
+      "sha256": "32a4702fbef1d2a6b740b80ca987139b01be05bfed79f27dc0fe12bfaf96b1d0"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -445,6 +445,21 @@
       "path": "evidence/dense-packing-code-audit/verification.json",
       "bytes": 664,
       "sha256": "4edc2615841f8ee36826e24a5b14e7e6d64b129c197cfe45de46a5448388e3ab"
+    },
+    {
+      "path": "evidence/dense-physical-arc-counts/Audit.lean",
+      "bytes": 117,
+      "sha256": "90ac4d1e70bb4ff5dba48e7ae94c8d8500321c25d5483d539a8f3e62fd24eb23"
+    },
+    {
+      "path": "evidence/dense-physical-arc-counts/axioms.txt",
+      "bytes": 129,
+      "sha256": "d68c9ebc6f12fe808ab333a8374110927d83e335657f856707114c94ac4c315d"
+    },
+    {
+      "path": "evidence/dense-physical-arc-counts/verification.json",
+      "bytes": 545,
+      "sha256": "d952a3de1f8c24c6f69b091de0c6643da4bcdbc4d95a8852894b241e8d2db237"
     },
     {
       "path": "evidence/dense-quotient-audit/Audit.lean",
@@ -4898,8 +4913,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 75838,
-      "sha256": "58c219a059e7008c2d6352236fa1fec9af90712dde914a6e743c17b6346e7c5d"
+      "bytes": 76203,
+      "sha256": "1c514ded2907925b9fea87db1ce6d04d561c3af619cc3bf007d547b126883a06"
     },
     {
       "path": "obligations.json",
@@ -5040,6 +5055,11 @@
       "path": "release-core/PaperB/DensePackingCode.lean",
       "bytes": 4381,
       "sha256": "c857d1de951ccf18ecc6977e43cde029af4a6f22a57cdfe986970f2f459c5575"
+    },
+    {
+      "path": "release-core/PaperB/DensePhysicalArcCounts.lean",
+      "bytes": 3106,
+      "sha256": "91f825436a760ec66b93712a6a623afbff735ba5aae25e6222b22bc423c046bf"
     },
     {
       "path": "release-core/PaperB/DenseQuotientLocalOrder.lean",
@@ -6103,8 +6123,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 6480,
-      "sha256": "3c4aa856590c6eef898dd5f50cb3997ce1784031c0b2b925d8fcb0615d17c185"
+      "bytes": 6513,
+      "sha256": "e93c8ef6e908f709dd107cdc9945c7db5d4a131caafb978152b57b33a3799852"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -6208,8 +6228,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 77433,
-      "sha256": "e6d006531f0e1d0951b05cae0c422d1d773962a538c030bbda84cda411206a51"
+      "bytes": 77586,
+      "sha256": "31ebc22a234a91b25fca91ec412b9ca960e95b28131997fc0da1afd2f7ff7f1e"
     },
     {
       "path": "test_plan.py",

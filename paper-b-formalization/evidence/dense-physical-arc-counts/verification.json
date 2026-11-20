@@ -1,0 +1,11 @@
+{
+  "base_commit": "8ab7686",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DensePhysicalArcCounts.lean",
+  "sha256": "91f825436a760ec66b93712a6a623afbff735ba5aae25e6222b22bc423c046bf",
+  "scope": "Exact physical dense quotient arc count equals the row length produced by the static stable sibling emitter.",
+  "remaining": "Close total preparation time and combine quotient work and memory in the complete compiled builder."
+}

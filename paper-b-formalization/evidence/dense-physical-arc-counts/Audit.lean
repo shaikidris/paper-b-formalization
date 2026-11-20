@@ -1,0 +1,2 @@
+import PaperB.DensePhysicalArcCounts
+#print axioms PaperB.DenseOriginalQuotient.arcCount_build_eq_emitAll_row_length
