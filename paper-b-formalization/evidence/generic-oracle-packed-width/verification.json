@@ -1,0 +1,28 @@
+{
+  "base_commit": "c3958c8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OraclePackedWidth.lean",
+  "sha256": "5b960ec084d7fb1e7c8e8f90b8a0d8224aef0db505f51a75a446dd9cc9f737c0",
+  "scope": "Prove a bounded linear payload fits the oracle contract word domain under a fixed multiplier bound.",
+  "remaining": "Instantiate the measured sealed image size and scratch addresses in the full build.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 180,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_30m_tokens": 0,
+        "ttl_12h_tokens": 0
+      }
+    },
+    "output_tokens": 1399,
+    "output_tokens_details": {
+      "reasoning_tokens": 1108
+    },
+    "total_tokens": 1579
+  }
+}

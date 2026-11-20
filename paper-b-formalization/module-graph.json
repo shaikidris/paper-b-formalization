@@ -319,7 +319,8 @@
         "release-core/PaperB/ExitCompactMapBefore.lean",
         "release-core/PaperB/RamAppendLink.lean",
         "release-core/PaperB/ExitSweepWorkSum.lean",
-        "release-core/PaperB/ExitCountedBase.lean"
+        "release-core/PaperB/ExitCountedBase.lean",
+        "release-core/PaperB/OraclePackedWidth.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2945,6 +2946,14 @@
         "release-core/PaperB/ExitRawCallCounts.lean"
       ],
       "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/OraclePackedWidth.lean",
+      "local_imports": [
+        "release-core/PaperB/OracleContract.lean"
+      ],
+      "owner_role": "word machine",
       "admission": "ORACLE_CORE"
     }
   ],

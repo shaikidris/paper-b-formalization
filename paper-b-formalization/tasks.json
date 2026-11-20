@@ -325,7 +325,8 @@
     "release-core/PaperB/ExitCompactMapBefore.lean": "exit sweeps",
     "release-core/PaperB/RamAppendLink.lean": "word machine",
     "release-core/PaperB/ExitSweepWorkSum.lean": "exit sweeps",
-    "release-core/PaperB/ExitCountedBase.lean": "exit sweeps"
+    "release-core/PaperB/ExitCountedBase.lean": "exit sweeps",
+    "release-core/PaperB/OraclePackedWidth.lean": "word machine"
   },
   "milestones": [
     {
@@ -1588,9 +1589,10 @@
         "evidence/packed-final-section-bank/verification.json",
         "evidence/exit-sealed-base-values/verification.json",
         "evidence/oracle-actual-original-id-columns/verification.json",
-        "evidence/oracle-materialize-translation-words/verification.json"
+        "evidence/oracle-materialize-translation-words/verification.json",
+        "evidence/generic-oracle-packed-width/verification.json"
       ],
-      "progress": "Serialize the actual two vertex-ID maps directly into a single array of bounded words and prove exact forward, inverse, and miss reads."
+      "progress": "Prove a bounded linear payload fits the oracle contract word domain under a fixed multiplier bound."
     },
     {
       "id": "EX5.3",
