@@ -283,7 +283,8 @@
     "release-core/PaperB/SealedQueryRegisters.lean": "word machine",
     "release-core/PaperB/RamChildRow.lean": "word machine",
     "release-core/PaperB/RamPairHitRow.lean": "word machine",
-    "release-core/PaperB/ExitPhysicalPrefixLive.lean": "exit sweeps"
+    "release-core/PaperB/ExitPhysicalPrefixLive.lean": "exit sweeps",
+    "release-core/PaperB/ForestBuiltQueryToll.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1070,9 +1071,10 @@
         "evidence/forest-unified-certificate/verification.json",
         "evidence/forest-full-finish-accounting/verification.json",
         "evidence/forest-query-retained-count/verification.json",
-        "evidence/forest-group-spaces/verification.json"
+        "evidence/forest-group-spaces/verification.json",
+        "evidence/forest-actual-query-toll/verification.json"
       ],
-      "progress": "Exact live source-level bounds for the actual grouped-child enumeration, filter, scatter, and reversal, including the original list reserve.",
+      "progress": "The counted exported membership query agrees with the returned index query and uses at most 10 times the paper logarithm of the quotient vertex count.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

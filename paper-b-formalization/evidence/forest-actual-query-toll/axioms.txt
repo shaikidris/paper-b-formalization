@@ -1,0 +1,2 @@
+'PaperB.QuotientMembership.Index.containsCounted_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.containsCounted_count_le' depends on axioms: [propext, Classical.choice, Quot.sound]

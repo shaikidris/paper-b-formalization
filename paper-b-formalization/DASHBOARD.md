@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Exact live source-level bounds for the actual grouped-child enumeration, filter, scatter, and reversal, including the original list reserve.
+- [EX2.4](TASKS.md#ex24) — The counted exported membership query agrees with the returned index query and uses at most 10 times the paper logarithm of the quotient vertex count.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — The canonical forest prefix counts all original creation events; the next dynamic address is that forest size. Restrict physical preseeded occupancy to the preceding logical forest to exclude future seeds.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.

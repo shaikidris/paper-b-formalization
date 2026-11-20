@@ -277,7 +277,8 @@
         "release-core/PaperB/SealedQueryRegisters.lean",
         "release-core/PaperB/RamChildRow.lean",
         "release-core/PaperB/RamPairHitRow.lean",
-        "release-core/PaperB/ExitPhysicalPrefixLive.lean"
+        "release-core/PaperB/ExitPhysicalPrefixLive.lean",
+        "release-core/PaperB/ForestBuiltQueryToll.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2544,6 +2545,15 @@
         "release-core/PaperB/ExitLinearSchedule.lean"
       ],
       "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestBuiltQueryToll.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestPreparedBuild.lean",
+        "release-core/PaperB/OracleContract.lean"
+      ],
+      "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
     }
   ],

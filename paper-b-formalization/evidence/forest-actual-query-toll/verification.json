@@ -1,0 +1,11 @@
+{
+  "base_commit": "2c8c92c",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestBuiltQueryToll.lean",
+  "sha256": "ccc7d7075e2a8c20107d27729e33f3d5116802271a58fe8b8850f6190d80ed3c",
+  "scope": "The counted exported membership query agrees with the returned index query and uses at most 10 times the paper logarithm of the quotient vertex count.",
+  "remaining": "Bind build and query in the full acceptance and word-cost certificate."
+}

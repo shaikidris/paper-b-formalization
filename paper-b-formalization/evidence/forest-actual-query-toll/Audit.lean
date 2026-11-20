@@ -1,0 +1,3 @@
+import PaperB.ForestBuiltQueryToll
+#print axioms PaperB.QuotientMembership.Index.containsCounted_value
+#print axioms PaperB.ForestPreparedBuild.containsCounted_count_le
