@@ -1,0 +1,2 @@
+import PaperB.ExitIncomingLaw
+#print axioms PaperB.BuiltExit.PackedRuntime.DirectIntegration.incomingLaw_of_occurrence

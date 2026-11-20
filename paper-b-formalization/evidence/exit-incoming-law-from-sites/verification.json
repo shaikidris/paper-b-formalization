@@ -1,0 +1,11 @@
+{
+  "base_commit": "383e5cc",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitIncomingLaw.lean",
+  "sha256": "76569fb5b0e42b0017d79bfc41352e09f7b836fa2a554a01b6ba8d186384fed6",
+  "scope": "Recover the raw incoming recurrence from actual endpoint contributions and exactly the prior-source footprint of the supplied row.",
+  "remaining": "Instantiate the proof-only occurrence site and source path at each real topological callback."
+}

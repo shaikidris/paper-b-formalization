@@ -293,7 +293,8 @@
     "release-core/PaperB/ExitConcreteDepthContract.lean": "exit sweeps",
     "release-core/PaperB/ForestFinishAllocations.lean": "quotient forest",
     "release-core/PaperB/ForestPreparationWork.lean": "quotient forest",
-    "release-core/PaperB/DenseFamilyLogBudget.lean": "shared quotient construction"
+    "release-core/PaperB/DenseFamilyLogBudget.lean": "shared quotient construction",
+    "release-core/PaperB/ExitIncomingLaw.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1312,9 +1313,10 @@
         "evidence/exit-prefix-occupancy/verification.json",
         "evidence/raw-exit-model/verification.json",
         "evidence/exit-physical-keys/verification.json",
-        "evidence/packed-transfer-drivers/verification.json"
+        "evidence/packed-transfer-drivers/verification.json",
+        "evidence/exit-incoming-law-from-sites/verification.json"
       ],
-      "progress": "All real transfer drivers are available in one exact compact runtime array, with canonical key provenance."
+      "progress": "Recover the raw incoming recurrence from actual endpoint contributions and exactly the prior-source footprint of the supplied row."
     },
     {
       "id": "EX4.3",

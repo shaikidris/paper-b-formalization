@@ -362,3 +362,4 @@
 {"at": "2026-11-20T03:30:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestInputPrepStorage", "tasks": ["EX2.4"], "evidence": "evidence/forest-input-prep-peak/verification.json"}
 {"at": "2026-11-20T03:30:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPreparationWork", "tasks": ["EX2.4"], "evidence": "evidence/forest-raw-actual-work/verification.json"}
 {"at": "2026-11-20T03:30:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseFamilyLogBudget", "tasks": ["EX5.1"], "evidence": "evidence/dense-family-log-budget/verification.json"}
+{"at": "2026-11-20T03:33:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitIncomingLaw", "tasks": ["EX4.2"], "evidence": "evidence/exit-incoming-law-from-sites/verification.json"}

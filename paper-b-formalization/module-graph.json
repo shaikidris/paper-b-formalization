@@ -287,7 +287,8 @@
         "release-core/PaperB/ExitConcreteDepthContract.lean",
         "release-core/PaperB/ForestFinishAllocations.lean",
         "release-core/PaperB/ForestPreparationWork.lean",
-        "release-core/PaperB/DenseFamilyLogBudget.lean"
+        "release-core/PaperB/DenseFamilyLogBudget.lean",
+        "release-core/PaperB/ExitIncomingLaw.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2642,6 +2643,16 @@
         "release-core/PaperB/OracleContract.lean"
       ],
       "owner_role": "shared quotient construction",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitIncomingLaw.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitConcreteDepthContract.lean",
+        "release-core/PaperB/ExitRawIncoming.lean",
+        "release-core/PaperB/GenericRawExitModel.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],
