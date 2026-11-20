@@ -1,0 +1,8 @@
+'PaperB.ExitMap.JumpMapRoute.StoredExit.foldStored_exact_live' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.StoredExit.foldStored_steps_le_live' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.StoredExit.run_exact_base_live' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.StoredExit.run_read_charge_live' depends on axioms: [propext, Classical.choice, Quot.sound]

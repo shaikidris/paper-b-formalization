@@ -1,0 +1,11 @@
+{
+  "base_commit": "b2ac865",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPartialOccupancy.lean",
+  "sha256": "755f86d565dd3f29b516bf32f1e3b7887ef7fd0f087806e48d7e8e3fcd331f25",
+  "scope": "The fixed fused reader works on live ancestor-closed positions of the partially filled bank, with the same exact result and logarithmic word-read bound. It does not inspect unrelated uninitialized slots.",
+  "remaining": "Derive these live depth and record premises for the actual chronological interleaved construction and call map."
+}
