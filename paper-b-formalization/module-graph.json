@@ -264,7 +264,8 @@
         "release-core/PaperB/ExitPartialOccupancy.lean",
         "release-core/PaperB/OriginalEntryInverse.lean",
         "release-core/PaperB/DensePhysicalArcCounts.lean",
-        "release-core/PaperB/RamFullPairPrefix.lean"
+        "release-core/PaperB/RamFullPairPrefix.lean",
+        "release-core/PaperB/StaticDfsLiveSpace.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2412,6 +2413,15 @@
         "release-core/PaperB/RamPlacedCalls.lean"
       ],
       "owner_role": "word machine",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/StaticDfsLiveSpace.lean",
+      "local_imports": [
+        "release-core/PaperB/StaticGroupedTreeReader.lean",
+        "release-core/PaperB/ForestLayoutTreeCost.lean"
+      ],
+      "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
     }
   ],

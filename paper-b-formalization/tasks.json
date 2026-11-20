@@ -270,7 +270,8 @@
     "release-core/PaperB/ExitPartialOccupancy.lean": "exit",
     "release-core/PaperB/OriginalEntryInverse.lean": "exit",
     "release-core/PaperB/DensePhysicalArcCounts.lean": "shared quotient construction",
-    "release-core/PaperB/RamFullPairPrefix.lean": "word machine"
+    "release-core/PaperB/RamFullPairPrefix.lean": "word machine",
+    "release-core/PaperB/StaticDfsLiveSpace.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1051,9 +1052,10 @@
         "evidence/assembled-forest-site-budget/verification.json",
         "evidence/linear-finite-enumeration/verification.json",
         "evidence/grouping-live-space/verification.json",
-        "evidence/numeric-forest-prefix/verification.json"
+        "evidence/numeric-forest-prefix/verification.json",
+        "evidence/forest-static-dfs-live-space/verification.json"
       ],
-      "progress": "The actual sweep-phase live bound is now numerical in quotient vertices and arcs.",
+      "progress": "The executed grouped DFS has a bounded pending-command stack at every prefix, for the actual strict rooted tree.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "0dfc71e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticDfsLiveSpace.lean",
+  "sha256": "68c826e1c45033ccd273b64a692baca4f8bfa72cb3e4ea90107733dac9c773e9",
+  "scope": "The executed grouped DFS has a bounded pending-command stack at every prefix, for the actual strict rooted tree.",
+  "remaining": "Combine live DFS cells with preparation and retained dictionary banks in the same run."
+}
