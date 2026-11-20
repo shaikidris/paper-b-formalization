@@ -1066,9 +1066,10 @@
         "evidence/numeric-forest-prefix/verification.json",
         "evidence/forest-static-dfs-live-space/verification.json",
         "evidence/forest-dictionary-peak/verification.json",
-        "evidence/forest-unified-certificate/verification.json"
+        "evidence/forest-unified-certificate/verification.json",
+        "evidence/forest-full-finish-accounting/verification.json"
       ],
-      "progress": "One actual forest-reader build supplies exact membership and retained entry count, charged work sites and a shared bound on selected preparation, dictionary and sweep roots.",
+      "progress": "Exact grouped row materialization, pending DFS command prefixes and inverse arrays and lists now share one linear source-level finish resource statement.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

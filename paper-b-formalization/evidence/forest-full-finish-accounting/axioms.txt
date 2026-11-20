@@ -1,0 +1,3 @@
+'PaperB.StaticGroupedTreeReader.finish_grouped_phase_resources' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

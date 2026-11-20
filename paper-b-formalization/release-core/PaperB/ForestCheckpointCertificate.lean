@@ -1,3 +1,4 @@
+import PaperB.StaticDfsLiveSpace
 import PaperB.ForestInputPrepStorage
 import PaperB.ForestNumericSweepSpace
 
@@ -89,6 +90,115 @@ private def finishSelectedCells
   let hi := actualFinishInverse h
   measured hr.1 + measured hr.2.1 + measured hr.2.2.1 +
     measured hi.2.2.1
+
+section FinishResourceGap
+
+variable {H : LabelledQuotient} {cfg : Config H}
+variable {rank : Vertex H → Nat} {out : State H}
+
+private theorem finishSelectedCells_le_occupied
+    (h : OutputOK cfg rank out) :
+    finishSelectedCells h ≤ 4 * nodeCount cfg out := by
+  let hr := actualFinishRows h
+  let hi := actualFinishInverse h
+  have hrows : measured hr.1 = nodeCount cfg out := hr.1
+  have hchildren : measured hr.2.1 = nodeCount cfg out - 1 := hr.2.1
+  have hranges : measured hr.2.2.1 = nodeCount cfg out := hr.2.2.1
+  have hlist : measured hi.2.2.1 = nodeCount cfg out := hi.2.2.1
+  change measured hr.1 + measured hr.2.1 + measured hr.2.2.1 +
+      measured hi.2.2.1 ≤ 4 * nodeCount cfg out
+  simp only [hrows, hchildren, hranges, hlist]
+  omega
+
+private theorem finishSelectedCells_le
+    (h : OutputOK cfg rank out) :
+    finishSelectedCells h ≤ 4 * (H.vertexCount + 1) := by
+  have hf := finishSelectedCells_le_occupied h
+  have hn := nodeCount_le h
+  omega
+
+end FinishResourceGap
+
+namespace StaticGroupedTreeReader
+
+open ForestLayout ForestHeavyPath LabelledQuotient StaticHeadSweep
+open ForestLayout.LiveCells
+
+private def finishScatterField : GroupedChildWork → Nat
+  | ⟨_, ⟨_, k, _, _, _⟩⟩ => k
+
+/-- One toll unit per recorded scatter in the deployed stable grouping.
+This does not charge enumeration, initialization, or row finalization. -/
+def finishChildScatterSites {N : Nat} (x : PackedStaticLayout.Input N) : Nat :=
+  finishScatterField (groupedChildLists x.root x.parent.read).2
+
+private theorem finishChildScatterSites_eq {N : Nat}
+    (x : PackedStaticLayout.Input N) :
+    finishChildScatterSites x = N - 1 := by
+  have h := congrArg finishScatterField
+    (groupedChildLists_work x.root x.parent.read)
+  change finishScatterField (groupedChildLists x.root x.parent.read).2 = N - 1
+  exact h
+
+/-- Selected phase resources for the deployed grouped finish. The bucket
+equality specifies stable row order; it does not execute the reference build.
+
+The grouping cell bound is for the materialized table at DFS handoff.
+`PrefixLive` keeps its existing DFS cell model. The inverse cell bound
+reserves both the array and its list conversion; its toll charges one entry
+read and one inverse write per scatter, excluding fill.
+
+These are phase-local bounds, not a whole-finish peak. They do not reserve
+transient grouping workspace, packed-input extraction or retained input/word
+storage, or the other reader roots across phases (endpoints outside the DFS
+charge, size/heavy tables, sweep/head state, and completed range rows).
+Allocation and copying overhead are not counted. -/
+theorem finish_grouped_phase_resources {N : Nat}
+    (x : PackedStaticLayout.Input N) (ht : PackedStaticLayout.InputOK x)
+    (tree : ValidDepthTree x.root x.parent.read x.depth.read) :
+    let b := (build x ht).layout
+    let g := b.buckets
+    let m := childScanLength g
+    let hi := finish_inverse x ht
+    let writes := measured hi.1
+    let arrayCells := measured hi.2.1
+    let listCells := measured hi.2.2.1
+    g = bucketChildLists x.root x.parent.read ∧
+    finishChildScatterSites x = N - 1 ∧
+    finishChildScatterSites x ≤ N ∧
+    g.rows.size + m ≤ 2 * N ∧
+    boundaryCells g m (initial x.root) ≤ 4 * N + 1 ∧
+    (let s := layout g x.root (2 * N)
+     s.stack = [] ∧ s.processed = 2 * N ∧
+       b.endpoints.entry.data = s.entries ∧
+       b.endpoints.stop.data = s.ends) ∧
+    b.endpoints.entry.data.size + b.endpoints.stop.data.size = 2 * N ∧
+    (∀ k : Nat, k ≤ 2 * N → PrefixLive g x.root m k) ∧
+    (arrayCells = N ∧ listCells = N ∧ arrayCells + listCells = 2 * N) ∧
+    (writes = N ∧ writes + writes = 2 * N) := by
+  dsimp only
+  have hg : (build x ht).layout.buckets =
+      bucketChildLists x.root x.parent.read := by
+    change (groupedChildLists x.root x.parent.read).1 =
+      bucketChildLists x.root x.parent.read
+    rw [groupedChildLists_eq_bucketChildLists]
+  have hs := finishChildScatterSites_eq x
+  have hs_le : finishChildScatterSites x ≤ N := by omega
+  obtain ⟨_, _, hgroup, hinit, hdone, hend, hprefix⟩ :=
+    finish_dfs_liveCells x ht tree
+  let hi := finish_inverse x ht
+  have hw : measured hi.1 = N := hi.1
+  have ha : measured hi.2.1 = N := hi.2.1
+  have hl : measured hi.2.2.1 = N := hi.2.2.1
+  refine ⟨hg, hs, hs_le, hgroup, hinit, hdone, hend, hprefix, ?_, ?_⟩
+  · refine ⟨ha, hl, ?_⟩
+    change measured hi.2.1 + measured hi.2.2.1 = 2 * N
+    rw [ha, hl] <;> omega
+  · refine ⟨hw, ?_⟩
+    change measured hi.1 + measured hi.1 = 2 * N
+    rw [hw] <;> omega
+
+end StaticGroupedTreeReader
 
 -- A conservative peak envelope for the selected roots: reserve every term
 -- even across phase boundaries. This does not require an early-release or

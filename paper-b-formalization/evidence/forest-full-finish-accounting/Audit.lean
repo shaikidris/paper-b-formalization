@@ -1,0 +1,2 @@
+import PaperB.ForestCheckpointCertificate
+#print axioms PaperB.StaticGroupedTreeReader.finish_grouped_phase_resources

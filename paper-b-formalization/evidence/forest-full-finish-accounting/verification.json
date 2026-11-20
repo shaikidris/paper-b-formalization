@@ -1,0 +1,11 @@
+{
+  "base_commit": "543baa5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCheckpointCertificate.lean",
+  "sha256": "ed04579cb160e1a627ef2f5689ee558d5242171a0542a1b82b8b80e6aff51579",
+  "scope": "Exact grouped row materialization, pending DFS command prefixes and inverse arrays and lists now share one linear source-level finish resource statement.",
+  "remaining": "Finish grouped allocation prefixes and compose the exported query cost and final build envelope."
+}

@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — One actual forest-reader build supplies exact membership and retained entry count, charged work sites and a shared bound on selected preparation, dictionary and sweep roots.
+- [EX2.4](TASKS.md#ex24) — Exact grouped row materialization, pending DFS command prefixes and inverse arrays and lists now share one linear source-level finish resource statement.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — A fresh packed slot preserves the exact old parent and jump maps and extends the decoded occupied bank with the certified new path.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
