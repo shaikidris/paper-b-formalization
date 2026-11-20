@@ -1,0 +1,11 @@
+{
+  "base_commit": "6272ee3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitActualForestInputs.lean",
+  "sha256": "cbf07dd66a9abf5375e597c1d48c5cefcf3ef1e23ddbdb360fa096120012341b",
+  "scope": "Prove compact driver index, actual physical slot, and canonical image all describe the same stored edge.",
+  "remaining": "Use the common physical address to verify the packed live-map invariant."
+}

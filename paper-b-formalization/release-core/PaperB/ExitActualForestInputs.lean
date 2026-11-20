@@ -164,4 +164,18 @@ theorem actualRawExitModel_driverCoverage
       full ch G hUp E rankArc flat hk hp
   exact ⟨j, hj⟩
 
+theorem actualForestInputs_driver_provenance
+    (j : Fin (exitTransferDrivers r).size) :
+    ∃ (a : Fin F.size) (y : Vertex H),
+      ((exitTransferDrivers r)[j.val]'(j.isLt)).address = a.val ∧
+      actualSlot r y = some ⟨a.val, by rw [← G.size_eq]; exact a.isLt⟩ ∧
+      (actualForestInputs (r := r) full ch G hUp E).edgeNode j = E.image a := by
+  have hd : (exitTransferDrivers r)[j.val]'(j.isLt) ∈ exitTransferDrivers r := by
+    apply Array.getElem_mem <;> exact j.isLt
+  obtain ⟨y, i, a, hs, _, hi, ha, _, _, _, _, _, _⟩ :=
+    exitTransferDrivers_provenance (r := r) full ch G hUp E hd
+  exact ⟨a, y, ha.symm,
+    hs.trans (congrArg some (Fin.ext (hi.trans ha.symm))),
+    actualForestInputs_edgeNode_eq_image (r := r) full ch G hUp E j a ha⟩
+
 end PaperB.Exit.OrderedReaderResult

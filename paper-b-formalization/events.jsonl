@@ -398,3 +398,4 @@
 {"at": "2026-11-20T04:14:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitCompactMapBefore", "tasks": ["EX4.2"], "evidence": "evidence/exit-compact-actual-mapbefore-min/verification.json"}
 {"at": "2026-11-20T04:14:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamAppendLink", "tasks": ["EX5.3"], "evidence": "evidence/ram-append-link-unique-halt/verification.json"}
 {"at": "2026-11-20T04:17:14+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalSchedule", "tasks": ["EX4.2"], "evidence": "evidence/exit-actual-slot-creator-min/verification.json"}
+{"at": "2026-11-20T04:17:21+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualForestInputs", "tasks": ["EX4.3"], "evidence": "evidence/exit-driver-image-addr-min/verification.json"}
