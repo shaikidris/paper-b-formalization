@@ -1,0 +1,11 @@
+{
+  "base_commit": "f8fd490",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamIntervalGuard.lean",
+  "sha256": "d0d0ab864c7c6366112b5b10cf37ae43a0b61fadc947820bb668df836a95b6e8",
+  "scope": "Verify the fixed 16-register interval comparison ROM, including its exact Boolean answer, register frame, and three or four instruction time.",
+  "remaining": "Load actual interval words and integrate the fixed query dispatcher."
+}

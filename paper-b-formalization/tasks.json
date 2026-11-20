@@ -312,7 +312,8 @@
     "release-core/PaperB/ExitCompactSchedule.lean": "exit sweeps",
     "release-core/PaperB/ExitPublishedSlotChronology.lean": "exit sweeps",
     "release-core/PaperB/ExitActualForestInputs.lean": "exit sweeps",
-    "release-core/PaperB/PackedOriginalIds.lean": "packed oracle"
+    "release-core/PaperB/PackedOriginalIds.lean": "packed oracle",
+    "release-core/PaperB/RamIntervalGuard.lean": "word machine"
   },
   "milestones": [
     {
@@ -1625,9 +1626,10 @@
         "evidence/ram-translate-one-head/verification.json",
         "evidence/ram-generic-return-slot/verification.json",
         "evidence/ram-early-failure-guard/verification.json",
-        "evidence/ram-link-multiple-halts/verification.json"
+        "evidence/ram-link-multiple-halts/verification.json",
+        "evidence/ram-interval-comparator/verification.json"
       ],
-      "progress": "One verified fixed routine may return through any reached halt slot, preserving exact run count and registers."
+      "progress": "Verify the fixed 16-register interval comparison ROM, including its exact Boolean answer, register frame, and three or four instruction time."
     },
     {
       "id": "EX5.4",
