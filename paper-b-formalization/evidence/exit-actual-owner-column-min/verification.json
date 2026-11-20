@@ -1,0 +1,11 @@
+{
+  "base_commit": "39260a9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitActualOwnerColumn.lean",
+  "sha256": "0805cde99f8827bd27ce5c9a29b71160556f971fb8b11467527b84114a70c5ab",
+  "scope": "Build the actual direct owner-slot array and prove every read, including the zero-label sentinel.",
+  "remaining": "Construct orientation and concrete sweep callbacks using these slots."
+}

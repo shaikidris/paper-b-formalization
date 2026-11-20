@@ -317,7 +317,8 @@
     "release-core/PaperB/ExitActualCompactSchedule.lean": "exit sweeps",
     "release-core/PaperB/ExitEmbeddingAncestry.lean": "exit sweeps",
     "release-core/PaperB/RamIntervalLoad.lean": "word machine",
-    "release-core/PaperB/ExitEventPrefixRank.lean": "exit sweeps"
+    "release-core/PaperB/ExitEventPrefixRank.lean": "exit sweeps",
+    "release-core/PaperB/ExitActualOwnerColumn.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1345,9 +1346,10 @@
         "evidence/exit-driver-address-uniqueness/verification.json",
         "evidence/exit-reindex-physical-schedule/verification.json",
         "evidence/exit-actual-compact-schedule-min/verification.json",
-        "evidence/exit-event-prefix-rank/verification.json"
+        "evidence/exit-event-prefix-rank/verification.json",
+        "evidence/exit-actual-owner-column-min/verification.json"
       ],
-      "progress": "Prove the actual physical event log is strictly rank ordered, covers every quotient vertex, and transports earlier log membership to earlier schedule rank."
+      "progress": "Build the actual direct owner-slot array and prove every read, including the zero-label sentinel."
     },
     {
       "id": "EX4.3",

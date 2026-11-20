@@ -389,3 +389,4 @@
 {"at": "2026-11-20T04:02:16+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamIntervalLoad", "tasks": ["EX5.3"], "evidence": "evidence/ram-interval-preload/verification.json"}
 {"at": "2026-11-20T04:05:24+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitEventPrefixRank", "tasks": ["EX4.2"], "evidence": "evidence/exit-event-prefix-rank/verification.json"}
 {"at": "2026-11-20T04:05:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamIntervalGuard", "tasks": ["EX5.3"], "evidence": "evidence/ram-interval-positional-guard/verification.json"}
+{"at": "2026-11-20T04:08:44+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualOwnerColumn", "tasks": ["EX4.2"], "evidence": "evidence/exit-actual-owner-column-min/verification.json"}
