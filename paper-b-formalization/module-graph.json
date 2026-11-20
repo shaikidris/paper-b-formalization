@@ -357,7 +357,8 @@
         "release-core/PaperB/ForestArrayMerge.lean",
         "release-core/PaperB/ForestArrayMergeExact.lean",
         "release-core/PaperB/ForestFixedBankSort.lean",
-        "release-core/PaperB/ForestFixedBankSortExact.lean"
+        "release-core/PaperB/ForestFixedBankSortExact.lean",
+        "release-core/PaperB/ForestFixedBankSortToll.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1879,6 +1880,14 @@
         "release-core/PaperB/StaticLinearHead.lean"
       ],
       "owner_role": "cost",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestFixedBankSortToll.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestFixedBankSort.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

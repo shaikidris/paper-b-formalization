@@ -217,7 +217,8 @@
     "release-core/PaperB/ExitPhysicalOneSlot.lean": "exit",
     "release-core/PaperB/ForestFixedBankSortExact.lean": "cuts",
     "release-core/PaperB/FastOriginalChildBuckets.lean": "cost",
-    "release-core/PaperB/KahnInverse.lean": "cost"
+    "release-core/PaperB/KahnInverse.lean": "cost",
+    "release-core/PaperB/ForestFixedBankSortToll.lean": "cuts"
   },
   "milestones": [
     {
@@ -977,9 +978,10 @@
         "evidence/forest-merge-exact/verification.json",
         "evidence/fixed-bank-sort/verification.json",
         "evidence/sort-fork-recurrence/verification.json",
-        "evidence/fixed-bank-sort-exact/verification.json"
+        "evidence/fixed-bank-sort-exact/verification.json",
+        "evidence/fixed-sort-toll/verification.json"
       ],
-      "progress": "The actual fixed-bank dictionary sort now proves its array output is strictly increasing and covers exactly the supplied keys. Integration and whole-EX2.4 accounting remain.",
+      "progress": "The actual sorter now has a logarithmic-depth trace bounding key reads, writes, comparisons and frames. This trace abstracts over address and control instructions.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

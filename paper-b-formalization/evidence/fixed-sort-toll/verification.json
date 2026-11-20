@@ -1,0 +1,11 @@
+{
+  "base_commit": "1b345df",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestFixedBankSortToll.lean",
+  "sha256": "4bf54f403fe972bbca4ba0c3913f91a0207462cbd003f63b9a636e4a0e8e98f6",
+  "scope": "The existing fixed-bank sort has a checked recursive operation trace bounding actual key reads, writes, comparisons and frames by six times width times one plus fuel, for a nonempty span.",
+  "remaining": "Collect and compact the dictionary directly in the forest builder and account for address and control instructions and the physical memory representation."
+}

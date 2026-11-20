@@ -1,0 +1,2 @@
+'PaperB.PairDictionary.FixedBank.runSpan_costTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.PairDictionary.FixedBank.runSpan_cost_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
