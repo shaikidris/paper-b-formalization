@@ -1,0 +1,11 @@
+{
+  "base_commit": "8af8e6d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitArraySchedule.lean",
+  "sha256": "5e840e9cb7caeea593a1c1d5abe16c81e97fa0bce0fc77c147b1ba4447f8d19c",
+  "scope": "The actual packed forest supplies an executable indexed exit schedule with one shared fresh-head index and one optional install slot per topological vertex. The schedule proves exact firstAt correspondence from the actual stored parent and labels.",
+  "remaining": "Instantiate the dependency-safe callbacks and run the actual exit kernel against physical map and base columns."
+}

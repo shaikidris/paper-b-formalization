@@ -196,7 +196,8 @@
     "release-core/PaperB/ForestPackedSearch.lean": "cuts",
     "release-core/PaperB/ForestAllSizes.lean": "cuts",
     "release-core/PaperB/RamLexPairCuts.lean": "cost model",
-    "release-core/PaperB/FastQuotientRows.lean": "quotient"
+    "release-core/PaperB/FastQuotientRows.lean": "quotient",
+    "release-core/PaperB/ExitArraySchedule.lean": "exit"
   },
   "milestones": [
     {
@@ -1168,9 +1169,10 @@
         "evidence/exit-earliest-label-audit/verification.json",
         "evidence/exit-raw-incoming-audit/verification.json",
         "evidence/exit-real-first-label-audit/verification.json",
-        "evidence/exit-physical-schedule-audit/verification.json"
+        "evidence/exit-physical-schedule-audit/verification.json",
+        "evidence/exit-array-schedule-audit/verification.json"
       ],
-      "progress": "Lean checks exact physical parent and earliest first-install slots from the actual forest. The collected schedule, exit contributions and map execution must still be joined."
+      "progress": "The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress."
     },
     {
       "id": "EX4.3",

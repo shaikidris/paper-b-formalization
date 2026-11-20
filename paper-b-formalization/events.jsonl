@@ -232,3 +232,4 @@
 {"at": "2026-11-20T00:21:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamLexPairCuts", "tasks": ["EX5.3"], "evidence": "evidence/ram-lex-pair-cuts-audit/verification.json"}
 {"at": "2026-11-20T00:24:09+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FastQuotientRows", "tasks": ["EX5.1"], "evidence": "evidence/quotient-fast-audit/verification.json"}
 {"at": "2026-11-20T00:24:14+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseRuntimeGraph", "tasks": ["EX5.1"], "evidence": "evidence/dense-runtime-fast-audit/verification.json"}
+{"at": "2026-11-20T00:24:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitArraySchedule", "tasks": ["EX4.2"], "evidence": "evidence/exit-array-schedule-audit/verification.json"}

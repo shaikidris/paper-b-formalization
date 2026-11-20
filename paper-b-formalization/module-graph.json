@@ -208,7 +208,8 @@
         "release-core/PaperB/DenseRuntimeGraph.lean",
         "release-core/PaperB/DenseSiblingKeyIso.lean",
         "release-core/PaperB/ExitPhysicalSchedule.lean",
-        "release-core/PaperB/RamLexPairCuts.lean"
+        "release-core/PaperB/RamLexPairCuts.lean",
+        "release-core/PaperB/ExitArraySchedule.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1673,6 +1674,15 @@
         "release-core/PaperB/ArcBuckets.lean"
       ],
       "owner_role": "quotient",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitArraySchedule.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalSchedule.lean",
+        "release-core/PaperB/ExitLinearSchedule.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

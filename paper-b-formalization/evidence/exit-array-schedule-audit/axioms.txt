@@ -1,0 +1,3 @@
+'PaperB.Exit.OrderedReaderResult.driverMapSlot_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.driverPlan_firstAt_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.actualArraySchedule' depends on axioms: [propext, Classical.choice, Quot.sound]

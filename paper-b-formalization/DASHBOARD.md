@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — All quotient sizes now use a single exact executable proper-loss reader, with at most nine retained array elements per vertex and verified per-head packed read cost. Full build operation and peak workspace bounds remain open.
-- [EX4.2](TASKS.md#ex42) — Lean checks exact physical parent and earliest first-install slots from the actual forest. The collected schedule, exit contributions and map execution must still be joined.
+- [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — The actual dense builder now groups local adjacency in one pass over its emitted row. The old repeated-filter helper is used only as a proof reference. Dense positions already have checked original key inverses.
