@@ -1,0 +1,11 @@
+{
+  "base_commit": "bb71ff1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalOneSlot.lean",
+  "sha256": "4db4ffdab9677c3d2a3101146306a4595b8b7ed841c9c0460ccb5a21de13add3",
+  "scope": "One exit jump-map install reads parent and prior skew records directly from the shared array and writes exactly eighteen words. The equality to the typed builder and preservation of every previously occupied slot are verified.",
+  "remaining": "Prove every required record is occupied at the corresponding physical topological event, derive the packed coverage invariant for all final queries and count the whole build."
+}

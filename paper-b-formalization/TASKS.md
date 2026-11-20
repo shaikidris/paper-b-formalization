@@ -389,9 +389,9 @@ Acceptance:
 - Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
 - Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation.
 
-Lean verifies exactly eighteen writes for each packed exit-map record, exact typed read-back and preservation of every other slot.
+The actual one-slot installer reads its dependencies from the same word array and preserves exactness of previously occupied records, under explicit readiness conditions.
 
-Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json), [evidence/ex43-actual-skew-route/verification.json](evidence/ex43-actual-skew-route/verification.json), [evidence/fused-jump-audit/verification.json](evidence/fused-jump-audit/verification.json), [evidence/exit-packed-fused-audit/verification.json](evidence/exit-packed-fused-audit/verification.json), [evidence/exit-single-map-audit/verification.json](evidence/exit-single-map-audit/verification.json), [evidence/exit-word-query/verification.json](evidence/exit-word-query/verification.json), [evidence/exit-stored-write/verification.json](evidence/exit-stored-write/verification.json).
+Planning/evidence references: [evidence/ex43-checked-map-fold/verification.json](evidence/ex43-checked-map-fold/verification.json), [evidence/ex43-actual-skew-route/verification.json](evidence/ex43-actual-skew-route/verification.json), [evidence/fused-jump-audit/verification.json](evidence/fused-jump-audit/verification.json), [evidence/exit-packed-fused-audit/verification.json](evidence/exit-packed-fused-audit/verification.json), [evidence/exit-single-map-audit/verification.json](evidence/exit-single-map-audit/verification.json), [evidence/exit-word-query/verification.json](evidence/exit-word-query/verification.json), [evidence/exit-stored-write/verification.json](evidence/exit-stored-write/verification.json), [evidence/exit-physical-install/verification.json](evidence/exit-physical-install/verification.json).
 
 <a id="ex44"></a>
 

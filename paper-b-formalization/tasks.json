@@ -213,7 +213,8 @@
     "release-core/PaperB/ForestFixedBankSort.lean": "cuts",
     "release-core/PaperB/ExitStoredWrite.lean": "exit",
     "release-core/PaperB/RamPairWorkerCalls.lean": "cost",
-    "release-core/PaperB/ActualThirdForestGeometry.lean": "exit"
+    "release-core/PaperB/ActualThirdForestGeometry.lean": "exit",
+    "release-core/PaperB/ExitPhysicalOneSlot.lean": "exit"
   },
   "milestones": [
     {
@@ -1232,9 +1233,10 @@
         "evidence/exit-packed-fused-audit/verification.json",
         "evidence/exit-single-map-audit/verification.json",
         "evidence/exit-word-query/verification.json",
-        "evidence/exit-stored-write/verification.json"
+        "evidence/exit-stored-write/verification.json",
+        "evidence/exit-physical-install/verification.json"
       ],
-      "progress": "Lean verifies exactly eighteen writes for each packed exit-map record, exact typed read-back and preservation of every other slot."
+      "progress": "The actual one-slot installer reads its dependencies from the same word array and preserves exactness of previously occupied records, under explicit readiness conditions."
     },
     {
       "id": "EX4.4",

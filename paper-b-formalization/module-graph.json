@@ -219,7 +219,8 @@
         "release-core/PaperB/ExitWordArrayQuery.lean",
         "release-core/PaperB/ExitStoredWrite.lean",
         "release-core/PaperB/RamPairWorkerCalls.lean",
-        "release-core/PaperB/ActualThirdForestGeometry.lean"
+        "release-core/PaperB/ActualThirdForestGeometry.lean",
+        "release-core/PaperB/ExitPhysicalOneSlot.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1837,6 +1838,15 @@
         "release-core/PaperB/ThirdReachableRoute.lean",
         "release-core/PaperB/FiniteSiblingFlat.lean",
         "release-core/PaperB/OriginalStaticConnector.lean"
+      ],
+      "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPhysicalOneSlot.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitSingleMap.lean",
+        "release-core/PaperB/ExitStoredWrite.lean"
       ],
       "owner_role": "exit",
       "admission": "ORACLE_CORE"
