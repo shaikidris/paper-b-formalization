@@ -348,7 +348,8 @@
         "release-core/PaperB/ForestPackedReadSum.lean",
         "release-core/PaperB/ForestInstallCapacity.lean",
         "release-core/PaperB/ForestOrderedReadBound.lean",
-        "release-core/PaperB/ForestArrayMerge.lean"
+        "release-core/PaperB/ForestArrayMerge.lean",
+        "release-core/PaperB/ForestArrayMergeExact.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1790,6 +1791,14 @@
         "release-core/PaperB/ExitStoredCodec.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestArrayMergeExact.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestArrayMerge.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

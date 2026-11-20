@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual dictionary merge has a fixed-bank cursor loop with exact address and work accounting. Matching the sorted unique reference and the full workspace schedule remain open.
+- [EX2.4](TASKS.md#ex24) — The actual two-bank merge trace now proves the exact sorted and deduplicated output for increasing input slices.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — The fused walk now reads actual packed depth and 18-word map records from a single word array. Its result and per-step read costs are checked under the occupied representation invariant.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.

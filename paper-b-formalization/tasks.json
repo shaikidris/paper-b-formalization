@@ -208,7 +208,8 @@
     "release-core/PaperB/RamPairSliceBinding.lean": "cost model",
     "release-core/PaperB/ExitStoredCodec.lean": "cost model",
     "release-core/PaperB/ForestArrayMerge.lean": "cuts",
-    "release-core/PaperB/ExitWordArrayQuery.lean": "exit"
+    "release-core/PaperB/ExitWordArrayQuery.lean": "exit",
+    "release-core/PaperB/ForestArrayMergeExact.lean": "cuts"
   },
   "milestones": [
     {
@@ -964,9 +965,10 @@
         "evidence/forest-read-sum-audit/verification.json",
         "evidence/forest-install-capacity-audit/verification.json",
         "evidence/forest-ordered-read-bound-audit/verification.json",
-        "evidence/forest-array-merge-audit/verification.json"
+        "evidence/forest-array-merge-audit/verification.json",
+        "evidence/forest-merge-exact/verification.json"
       ],
-      "progress": "The actual dictionary merge has a fixed-bank cursor loop with exact address and work accounting. Matching the sorted unique reference and the full workspace schedule remain open.",
+      "progress": "The actual two-bank merge trace now proves the exact sorted and deduplicated output for increasing input slices.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

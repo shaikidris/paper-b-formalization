@@ -1,0 +1,11 @@
+{
+  "base_commit": "89ff939",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestArrayMergeExact.lean",
+  "sha256": "cd9cf527c1c7f5b44668e2e1abecc7301e64028dd41969d1794cc3c71208eca1",
+  "scope": "The checked fixed-bank merge emits exactly the sorted duplicate-removing reference keys when the two source slices are strictly increasing. Its list trace is proof-only.",
+  "remaining": "Prove the physical mergesort recursion produces increasing child slices, compose write locality and count the scheduler."
+}
