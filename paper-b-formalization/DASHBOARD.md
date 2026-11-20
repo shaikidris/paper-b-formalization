@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The raw incoming preparation now reads the real quotient graph and groups every labelled arc occurrence exactly once.
+- [EX2.4](TASKS.md#ex24) — The raw and deduplicated predecessor paths are now connected. Exact aggregate deduplication visits equal the raw arc count.
 - [EX4.2](TASKS.md#ex42) — The actual forest allocation trace proves that each positive parent is on the earlier fresh-event prefix, with a consecutive slot-ID order.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.

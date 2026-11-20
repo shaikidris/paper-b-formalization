@@ -272,3 +272,4 @@
 {"at": "2026-11-20T01:21:06+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitParentEarlier", "tasks": ["EX4.2"], "evidence": "evidence/exit-parent-earlier/verification.json"}
 {"at": "2026-11-20T01:21:09+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamWorkerReturn", "tasks": ["EX5.3"], "evidence": "evidence/ram-linked-return/verification.json"}
 {"at": "2026-11-20T01:26:10+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseQuotientLocalOrder", "tasks": ["EX5.1"], "evidence": "evidence/actual-dense-order/verification.json"}
+{"at": "2026-11-20T01:26:16+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestIncomingPrep", "tasks": ["EX2.4"], "evidence": "evidence/forest-incoming-prep/verification.json"}

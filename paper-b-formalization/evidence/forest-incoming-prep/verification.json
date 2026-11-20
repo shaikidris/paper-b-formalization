@@ -1,0 +1,11 @@
+{
+  "base_commit": "860f6d2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestIncomingPrep.lean",
+  "sha256": "7f7bc3a219e0f7deb1f3235fbf07b54ea0ac1df1628fbc62c1df7b4fe45e8776",
+  "scope": "The actual incoming prepare step shares the labelled rows and the unlabelled source projection. Lean checks that the epoch scan visits exactly the supplied occurrence count and the deduplicated test-row total is bounded by it.",
+  "remaining": "Connect the prepared rows to the single packed forest reader and prove its whole trace and workspace bounds."
+}

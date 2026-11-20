@@ -232,7 +232,8 @@
     "release-core/PaperB/ForestIncomingRaw.lean": "cuts",
     "release-core/PaperB/ExitParentEarlier.lean": "exit",
     "release-core/PaperB/RamWorkerReturn.lean": "cost",
-    "release-core/PaperB/DenseQuotientLocalOrder.lean": "cost"
+    "release-core/PaperB/DenseQuotientLocalOrder.lean": "cost",
+    "release-core/PaperB/ForestIncomingPrep.lean": "cuts"
   },
   "milestones": [
     {
@@ -999,9 +1000,10 @@
         "evidence/packed-ordered-reader/verification.json",
         "evidence/packed-reader-fast/verification.json",
         "evidence/forest-lookup-tolls/verification.json",
-        "evidence/forest-raw-incoming/verification.json"
+        "evidence/forest-raw-incoming/verification.json",
+        "evidence/forest-incoming-prep/verification.json"
       ],
-      "progress": "The raw incoming preparation now reads the real quotient graph and groups every labelled arc occurrence exactly once.",
+      "progress": "The raw and deduplicated predecessor paths are now connected. Exact aggregate deduplication visits equal the raw arc count.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
