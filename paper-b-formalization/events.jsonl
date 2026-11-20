@@ -293,3 +293,4 @@
 {"at": "2026-11-20T01:49:17+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamThreeCalls", "tasks": ["EX5.3"], "evidence": "evidence/ram-setup-fetch/verification.json"}
 {"at": "2026-11-20T01:55:30+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamConcreteSetup", "tasks": ["EX5.3"], "evidence": "evidence/ram-concrete-setup/verification.json"}
 {"at": "2026-11-20T01:58:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalStaticFull", "tasks": ["EX4.4"], "evidence": "evidence/original-child-laws/verification.json"}
+{"at": "2026-11-20T01:58:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RankedDenseLocal", "tasks": ["EX5.1"], "evidence": "evidence/ranked-local-quotient/verification.json"}

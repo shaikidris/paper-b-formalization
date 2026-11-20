@@ -245,7 +245,8 @@
     "release-core/PaperB/ForestActualSweepBudget.lean": "cuts",
     "release-core/PaperB/ForestQueryToll.lean": "cuts",
     "release-core/PaperB/ExitPriorBase.lean": "exit",
-    "release-core/PaperB/RamConcreteSetup.lean": "ram"
+    "release-core/PaperB/RamConcreteSetup.lean": "ram",
+    "release-core/PaperB/RankedDenseLocal.lean": "ram"
   },
   "milestones": [
     {
@@ -1391,9 +1392,10 @@
         "evidence/shared-local-order/verification.json",
         "evidence/actual-dense-order/verification.json",
         "evidence/dense-order-coverage/verification.json",
-        "evidence/kahn-dense-binding/verification.json"
+        "evidence/kahn-dense-binding/verification.json",
+        "evidence/ranked-local-quotient/verification.json"
       ],
-      "progress": "The actual Kahn order/inverse and original ID reader now give exact checked increasing and covering local arrays directly."
+      "progress": "The dense graph and its grouped Kahn order are now bound as a verified family of actual local inputs."
     },
     {
       "id": "EX5.2",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "2280427",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RankedDenseLocal.lean",
+  "sha256": "b5ea4267f70c6e8ff11484a9f16019da77a68fe2de62f94c677c2e1f36c0ebc1",
+  "scope": "Each dense local quotient uses its actual grouped Kahn order and packed rank reads, and satisfies complete size, monotonicity and flatness. The array builder shares the original emission table.",
+  "remaining": "Instantiate this family in whole-build ownership and resource accounting, and construct the per-quotient indexes."
+}
