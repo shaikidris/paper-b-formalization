@@ -25,7 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — The actual canonical pair lookup determines loss in the supplied endpoint order and restores the original order of the two exit coordinates.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
 - [EX5.2](TASKS.md#ex52) — A sealed read view moves into a common word buffer with no copying and identical indexed values and comparison order.
-- [EX5.3](TASKS.md#ex53) — Any verified deployed RAM routine can replace its actual reached halt with a linked continuation, preserving the register data and the exact executed count.
+- [EX5.3](TASKS.md#ex53) — A fixed four-step run checks equality of two IDs, preserving all other registers and workspace.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 

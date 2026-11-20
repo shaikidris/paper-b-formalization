@@ -289,7 +289,8 @@
         "release-core/PaperB/ForestPreparationWork.lean",
         "release-core/PaperB/DenseFamilyLogBudget.lean",
         "release-core/PaperB/ExitIncomingLaw.lean",
-        "release-core/PaperB/ExitOrientedLookup.lean"
+        "release-core/PaperB/ExitOrientedLookup.lean",
+        "release-core/PaperB/RamPairGuard.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2663,6 +2664,14 @@
         "release-core/PaperB/OracleRuntime.lean"
       ],
       "owner_role": "original queries",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamPairGuard.lean",
+      "local_imports": [
+        "release-core/PaperB/RamProgram.lean"
+      ],
+      "owner_role": "word machine",
       "admission": "ORACLE_CORE"
     }
   ],

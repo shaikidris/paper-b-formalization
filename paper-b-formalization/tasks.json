@@ -295,7 +295,8 @@
     "release-core/PaperB/ForestPreparationWork.lean": "quotient forest",
     "release-core/PaperB/DenseFamilyLogBudget.lean": "shared quotient construction",
     "release-core/PaperB/ExitIncomingLaw.lean": "exit sweeps",
-    "release-core/PaperB/ExitOrientedLookup.lean": "original queries"
+    "release-core/PaperB/ExitOrientedLookup.lean": "original queries",
+    "release-core/PaperB/RamPairGuard.lean": "word machine"
   },
   "milestones": [
     {
@@ -1590,9 +1591,10 @@
         "evidence/ram-child-slice/verification.json",
         "evidence/ram-pair-hit-row-all-way/verification.json",
         "evidence/ram-translate-one-head/verification.json",
-        "evidence/ram-generic-return-slot/verification.json"
+        "evidence/ram-generic-return-slot/verification.json",
+        "evidence/ram-early-failure-guard/verification.json"
       ],
-      "progress": "Any verified deployed RAM routine can replace its actual reached halt with a linked continuation, preserving the register data and the exact executed count."
+      "progress": "A fixed four-step run checks equality of two IDs, preserving all other registers and workspace."
     },
     {
       "id": "EX5.4",

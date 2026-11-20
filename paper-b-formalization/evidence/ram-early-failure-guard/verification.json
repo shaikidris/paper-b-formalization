@@ -1,0 +1,11 @@
+{
+  "base_commit": "383e5cc",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPairGuard.lean",
+  "sha256": "0358bf38dc2cca6ba785422630aebed8caff20b32016b86c35d7b35488950855",
+  "scope": "A fixed four-step run checks equality of two IDs, preserving all other registers and workspace.",
+  "remaining": "Link the failure/root and failure/target guards and the original dispatcher."
+}
