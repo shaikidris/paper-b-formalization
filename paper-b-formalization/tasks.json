@@ -292,7 +292,8 @@
     "release-core/PaperB/PackedSliceRebase.lean": "packed oracle",
     "release-core/PaperB/ExitConcreteDepthContract.lean": "exit sweeps",
     "release-core/PaperB/ForestFinishAllocations.lean": "quotient forest",
-    "release-core/PaperB/ForestPreparationWork.lean": "quotient forest"
+    "release-core/PaperB/ForestPreparationWork.lean": "quotient forest",
+    "release-core/PaperB/DenseFamilyLogBudget.lean": "shared quotient construction"
   },
   "milestones": [
     {
@@ -1486,9 +1487,10 @@
         "evidence/group-raw-mass/verification.json",
         "evidence/dense-physical-arc-counts/verification.json",
         "evidence/dense-family-arc-mass/verification.json",
-        "evidence/dense-installed-arc-budget/verification.json"
+        "evidence/dense-installed-arc-budget/verification.json",
+        "evidence/dense-family-log-budget/verification.json"
       ],
-      "progress": "The actually installed quotient family has total number of vertices plus arcs at most twice the reachable vertex count plus all original arc occurrences."
+      "progress": "Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget."
     },
     {
       "id": "EX5.2",

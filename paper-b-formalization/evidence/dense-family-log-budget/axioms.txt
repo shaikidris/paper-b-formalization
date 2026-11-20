@@ -1,0 +1,2 @@
+'PaperB.RankedDenseLocal.installed_vertexCount_le_reachable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RankedDenseLocal.build_log_cost_sum_ofPrepared_le' depends on axioms: [propext, Classical.choice, Quot.sound]

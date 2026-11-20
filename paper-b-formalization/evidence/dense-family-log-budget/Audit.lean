@@ -1,0 +1,3 @@
+import PaperB.DenseFamilyLogBudget
+#print axioms PaperB.RankedDenseLocal.installed_vertexCount_le_reachable
+#print axioms PaperB.RankedDenseLocal.build_log_cost_sum_ofPrepared_le

@@ -361,3 +361,4 @@
 {"at": "2026-11-20T03:26:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLabelledArcIso", "tasks": ["EX4.4"], "evidence": "evidence/exit-third-dense-exact-adj/verification.json"}
 {"at": "2026-11-20T03:30:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestInputPrepStorage", "tasks": ["EX2.4"], "evidence": "evidence/forest-input-prep-peak/verification.json"}
 {"at": "2026-11-20T03:30:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPreparationWork", "tasks": ["EX2.4"], "evidence": "evidence/forest-raw-actual-work/verification.json"}
+{"at": "2026-11-20T03:30:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseFamilyLogBudget", "tasks": ["EX5.1"], "evidence": "evidence/dense-family-log-budget/verification.json"}

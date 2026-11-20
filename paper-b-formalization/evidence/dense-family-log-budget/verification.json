@@ -1,0 +1,11 @@
+{
+  "base_commit": "85658a7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseFamilyLogBudget.lean",
+  "sha256": "2aeb1dccce193289dcf66ba529c6cc675ac00d0f46b4ca613a1134eba2c68ce2",
+  "scope": "Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.",
+  "remaining": "Instantiate on each fully charged actual packed build and front-end passes."
+}

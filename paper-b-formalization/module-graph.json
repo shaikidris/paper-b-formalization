@@ -286,7 +286,8 @@
         "release-core/PaperB/PackedSliceRebase.lean",
         "release-core/PaperB/ExitConcreteDepthContract.lean",
         "release-core/PaperB/ForestFinishAllocations.lean",
-        "release-core/PaperB/ForestPreparationWork.lean"
+        "release-core/PaperB/ForestPreparationWork.lean",
+        "release-core/PaperB/DenseFamilyLogBudget.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2632,6 +2633,15 @@
         "release-core/PaperB/ForestInputPrepStorage.lean"
       ],
       "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseFamilyLogBudget.lean",
+      "local_imports": [
+        "release-core/PaperB/DenseFamilyVertexBudget.lean",
+        "release-core/PaperB/OracleContract.lean"
+      ],
+      "owner_role": "shared quotient construction",
       "admission": "ORACLE_CORE"
     }
   ],
