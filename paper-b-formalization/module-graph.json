@@ -235,7 +235,8 @@
         "release-core/PaperB/RamPlacedTrace.lean",
         "release-core/PaperB/ExitInterleavedPacked.lean",
         "release-core/PaperB/RamWideWorker.lean",
-        "release-core/PaperB/RamThreeCalls.lean"
+        "release-core/PaperB/RamThreeCalls.lean",
+        "release-core/PaperB/OriginalStaticFull.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2097,6 +2098,16 @@
         "release-core/PaperB/RamWideWorker.lean"
       ],
       "owner_role": "cost",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/OriginalStaticFull.lean",
+      "local_imports": [
+        "release-core/PaperB/StaticOracleTree.lean",
+        "release-core/PaperB/RetainedRouteProof.lean",
+        "release-core/PaperB/BothReachableRoute.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

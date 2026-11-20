@@ -239,7 +239,8 @@
     "release-core/PaperB/ExitInterleavedPacked.lean": "exit",
     "release-core/PaperB/ForestPreparedBuild.lean": "cuts",
     "release-core/PaperB/RamWideWorker.lean": "cost",
-    "release-core/PaperB/RamThreeCalls.lean": "cost"
+    "release-core/PaperB/RamThreeCalls.lean": "cost",
+    "release-core/PaperB/OriginalStaticFull.lean": "exit"
   },
   "milestones": [
     {
@@ -1321,9 +1322,10 @@
         "evidence/third-geometry/verification.json",
         "evidence/exact-label-transport/verification.json",
         "evidence/direct-third-route/verification.json",
-        "evidence/original-query-direct/verification.json"
+        "evidence/original-query-direct/verification.json",
+        "evidence/original-static-full/verification.json"
       ],
-      "progress": "The simplification now applies to every original-ID query including missing failures and targets."
+      "progress": "One runtime adapter supplies actual original-ID, dominance, LCA and child readers; full LCA and dominance correctness now hold on the original graph."
     },
     {
       "id": "EX5.1",

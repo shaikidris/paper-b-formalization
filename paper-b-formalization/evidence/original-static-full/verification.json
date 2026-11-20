@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea237b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OriginalStaticFull.lean",
+  "sha256": "8dbe30b2296fb33e8765b1136608c55cbface3db7e0205eaf5dceab175cb35ca",
+  "scope": "The actual normalized-slot static reads implement source, original IDs, dominance intervals and exact original LCA. The attached child callback uses the installed static tree reader.",
+  "remaining": "Finish original graph child lookup domain and sibling-fiber laws, then attach the concrete third-block index callbacks."
+}

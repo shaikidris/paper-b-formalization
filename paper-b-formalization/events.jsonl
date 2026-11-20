@@ -283,3 +283,4 @@
 {"at": "2026-11-20T01:34:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseQuotientLocalOrder", "tasks": ["EX5.1"], "evidence": "evidence/dense-order-coverage/verification.json"}
 {"at": "2026-11-20T01:34:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamWideWorker", "tasks": ["EX5.3"], "evidence": "evidence/wide-worker-link/verification.json"}
 {"at": "2026-11-20T01:43:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamThreeCalls", "tasks": ["EX5.3"], "evidence": "evidence/three-calls/verification.json"}
+{"at": "2026-11-20T01:43:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalStaticFull", "tasks": ["EX4.4"], "evidence": "evidence/original-static-full/verification.json"}
