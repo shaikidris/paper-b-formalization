@@ -259,3 +259,4 @@
 {"at": "2026-11-20T01:03:31+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFixedBankSortToll", "tasks": ["EX2.4"], "evidence": "evidence/fixed-sort-toll/verification.json"}
 {"at": "2026-11-20T01:03:34+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamTracePreHalt", "tasks": ["EX5.3"], "evidence": "evidence/ram-prehalt/verification.json"}
 {"at": "2026-11-20T01:05:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedOrderedSweep", "tasks": ["EX2.4"], "evidence": "evidence/packed-ordered-sweep/verification.json"}
+{"at": "2026-11-20T01:05:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalPass", "tasks": ["EX4.3"], "evidence": "evidence/exit-job-pass/verification.json"}

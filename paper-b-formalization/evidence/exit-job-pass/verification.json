@@ -1,0 +1,11 @@
+{
+  "base_commit": "30881b5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalPass.lean",
+  "sha256": "45a1ea3589231785139db685a103c5cb3c567662896655319ba0176225fb3db2",
+  "scope": "The sequential exit-map writer threads the same physical array through a certified chronological job list. All occupied records match the typed reference and the actual writes equal 18 times the number of jobs.",
+  "remaining": "Derive the job list and well-formed schedule from actual extraction events and prove the base/transfer read readiness chronology."
+}

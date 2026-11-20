@@ -220,7 +220,8 @@
     "release-core/PaperB/KahnInverse.lean": "cost",
     "release-core/PaperB/ForestFixedBankSortToll.lean": "cuts",
     "release-core/PaperB/RamTracePreHalt.lean": "cost",
-    "release-core/PaperB/ForestPackedOrderedSweep.lean": "cuts"
+    "release-core/PaperB/ForestPackedOrderedSweep.lean": "cuts",
+    "release-core/PaperB/ExitPhysicalPass.lean": "exit"
   },
   "milestones": [
     {
@@ -1243,9 +1244,10 @@
         "evidence/exit-single-map-audit/verification.json",
         "evidence/exit-word-query/verification.json",
         "evidence/exit-stored-write/verification.json",
-        "evidence/exit-physical-install/verification.json"
+        "evidence/exit-physical-install/verification.json",
+        "evidence/exit-job-pass/verification.json"
       ],
-      "progress": "The actual one-slot installer reads its dependencies from the same word array and preserves exactness of previously occupied records, under explicit readiness conditions."
+      "progress": "Lean checks whole sequential packed map installation and its exact write count for an erased chronological readiness certificate. Work remains to derive that certificate from actual forest events."
     },
     {
       "id": "EX4.4",

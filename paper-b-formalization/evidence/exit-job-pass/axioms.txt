@@ -1,0 +1,2 @@
+'PaperB.ExitPhysicalPass.run_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ExitPhysicalPass.run_writes' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -223,7 +223,8 @@
         "release-core/PaperB/ExitPhysicalOneSlot.lean",
         "release-core/PaperB/FastOriginalChildBuckets.lean",
         "release-core/PaperB/KahnInverse.lean",
-        "release-core/PaperB/RamTracePreHalt.lean"
+        "release-core/PaperB/RamTracePreHalt.lean",
+        "release-core/PaperB/ExitPhysicalPass.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1907,6 +1908,14 @@
         "release-core/PaperB/ForestFixedBankSortExact.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPhysicalPass.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalOneSlot.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

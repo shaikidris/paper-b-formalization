@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — The executable ordered sweep now has a verified entry point using only the fixed-bank packed dictionary builder. Its result equals the established sweep exactly.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
-- [EX4.3](TASKS.md#ex43) — The actual one-slot installer reads its dependencies from the same word array and preserves exactness of previously occupied records, under explicit readiness conditions.
+- [EX4.3](TASKS.md#ex43) — Lean checks whole sequential packed map installation and its exact write count for an erased chronological readiness certificate. Work remains to derive that certificate from actual forest events.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
 - [EX5.1](TASKS.md#ex51) — The actual Kahn order now has a checked linear-space inverse-position array with exact scatter count and a rank-increase proof for every arc.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
