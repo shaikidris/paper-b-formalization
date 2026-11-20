@@ -368,7 +368,8 @@
         "release-core/PaperB/ForestIncomingEpoch.lean",
         "release-core/PaperB/ForestPackedOrderedReader.lean",
         "release-core/PaperB/ForestFastOrderedReader.lean",
-        "release-core/PaperB/ForestLookupTolls.lean"
+        "release-core/PaperB/ForestLookupTolls.lean",
+        "release-core/PaperB/ForestIncomingRaw.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1987,6 +1988,15 @@
         "release-core/PaperB/RamPredecessorWorker.lean"
       ],
       "owner_role": "cost",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestIncomingRaw.lean",
+      "local_imports": [
+        "release-core/PaperB/QuotientArrays.lean",
+        "release-core/PaperB/ArcBuckets.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

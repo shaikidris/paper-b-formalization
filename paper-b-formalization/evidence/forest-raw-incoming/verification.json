@@ -1,0 +1,11 @@
+{
+  "base_commit": "31c94c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestIncomingRaw.lean",
+  "sha256": "8f71a215fcb2eee72911424915417561f300e8dfbf4c4bcd6b1828412b7655b3",
+  "scope": "One executable pass gathers each labelled outgoing occurrence, and a single physical grouping pass provides raw incoming rows with exact source and tail labels, including duplicates.",
+  "remaining": "Compose the epoch-dedup test branch over the same grouped rows and instantiate raw exit-map transfers."
+}

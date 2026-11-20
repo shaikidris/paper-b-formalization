@@ -228,7 +228,8 @@
     "release-core/PaperB/ForestPackedOrderedReader.lean": "cuts",
     "release-core/PaperB/ForestFastOrderedReader.lean": "cuts",
     "release-core/PaperB/ForestLookupTolls.lean": "cuts",
-    "release-core/PaperB/RamWorkerHaltPC.lean": "cost"
+    "release-core/PaperB/RamWorkerHaltPC.lean": "cost",
+    "release-core/PaperB/ForestIncomingRaw.lean": "cuts"
   },
   "milestones": [
     {
@@ -994,9 +995,10 @@
         "evidence/epoch-dedup/verification.json",
         "evidence/packed-ordered-reader/verification.json",
         "evidence/packed-reader-fast/verification.json",
-        "evidence/forest-lookup-tolls/verification.json"
+        "evidence/forest-lookup-tolls/verification.json",
+        "evidence/forest-raw-incoming/verification.json"
       ],
-      "progress": "The whole prepared-sweep trace includes actual pair lookup requests and verifies the sum of their comparisons.",
+      "progress": "The raw incoming preparation now reads the real quotient graph and groups every labelled arc occurrence exactly once.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
