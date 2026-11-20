@@ -1,3 +1,4 @@
+import PaperB.Machine
 import PaperB.StaticOracleTree
 import Lean.Elab.Tactic.Omega
 
@@ -116,7 +117,7 @@ theorem pack_read_forward (q : OriginalReader g r)
     (i : Fin g.vertexCount) (h : i.val < (pack q).words.size) :
     (pack q).words[i.val]'h = encode (q.ids.find i) := by
   have read := Array.getElem_ofFn (f := cell q) (i := i.val) (h := h)
-  exact read.trans (dif_pos i.isLt)
+  exact read.trans (dite_eq_left i.isLt)
 
 /-- Exact physical read at the dense ID plus the forward-row length. -/
 theorem pack_read_inverse (q : OriginalReader g r)
@@ -209,5 +210,169 @@ theorem pack_has_slot_iff_reachable (q : OriginalReader g r)
     exact pack_original_reachable q x
   · intro hi
     exact ⟨q.slot i hi, pack_find_slot q i hi⟩
+
+end PaperB.EX16Assembly.OriginalIdTranslation
+
+namespace PaperB.EX16Assembly.OriginalIdTranslation
+
+open PaperB.Machine (Word)
+
+/-- Forward words occupy `[0, n)` and inverse words occupy `[n, n + m)`.
+    Only the word array is stored at runtime. -/
+structure WordPayload (bits n m : Nat) where
+  words : Array (Word bits)
+  size_eq : words.size = n + m
+  inverse_lt : ∀ (x : Fin m) (h : n + x.val < words.size),
+    (words[n + x.val]'h).val < n
+
+namespace WordPayload
+
+variable {bits n m : Nat}
+
+theorem forwardIndex_lt (p : WordPayload bits n m) (i : Fin n) :
+    i.val < p.words.size := by
+  rw [p.size_eq]
+  have hi := i.isLt
+  omega
+
+theorem inverseIndex_lt (p : WordPayload bits n m) (x : Fin m) :
+    n + x.val < p.words.size := by
+  rw [p.size_eq]
+  exact Nat.add_lt_add_left x.isLt n
+
+def forwardWord (p : WordPayload bits n m) (i : Fin n) : Word bits :=
+  p.words[i.val]'(p.forwardIndex_lt i)
+
+def inverseWord (p : WordPayload bits n m) (x : Fin m) : Word bits :=
+  p.words[n + x.val]'(p.inverseIndex_lt x)
+
+/-- Read one word and decode the forward slot or miss. -/
+def find (p : WordPayload bits n m) (i : Fin n) : Option (Fin m) :=
+  decode m (p.forwardWord i).val
+
+/-- Read one word and recover the original ID with no additional bound check. -/
+def original (p : WordPayload bits n m) (x : Fin m) : Fin n :=
+  ⟨(p.inverseWord x).val, p.inverse_lt x (p.inverseIndex_lt x)⟩
+
+end WordPayload
+
+variable {g : Digraph} {r : Fin g.vertexCount} {bits : Nat}
+
+private theorem cell_fits (q : OriginalReader g r)
+    (hVertex : g.vertexCount ≤ 2 ^ bits)
+    (hCount : q.count < 2 ^ bits)
+    (k : Fin (g.vertexCount + q.count)) :
+    cell q k < 2 ^ bits := by
+  have hk : k.val < (pack q).words.size := by
+    rw [pack_size]
+    exact k.isLt
+  have hfit := pack_word_fits q hVertex hCount k.val hk
+  have read := Array.getElem_ofFn (f := cell q) (i := k.val) (h := hk)
+  change (Array.ofFn (cell q))[k.val]'hk < 2 ^ bits at hfit
+  rwa [read] at hfit
+
+private def wordCell (q : OriginalReader g r)
+    (hVertex : g.vertexCount ≤ 2 ^ bits)
+    (hCount : q.count < 2 ^ bits)
+    (k : Fin (g.vertexCount + q.count)) : Word bits :=
+  ⟨cell q k, cell_fits q hVertex hCount k⟩
+
+private theorem wordImage_read (q : OriginalReader g r)
+    (hVertex : g.vertexCount ≤ 2 ^ bits)
+    (hCount : q.count < 2 ^ bits)
+    (k : Nat)
+    (hw : k < (Array.ofFn (wordCell q hVertex hCount)).size)
+    (hn : k < (pack q).words.size) :
+    ((Array.ofFn (wordCell q hVertex hCount))[k]'hw).val =
+      (pack q).words[k]'hn := by
+  change ((Array.ofFn (wordCell q hVertex hCount))[k]'hw).val =
+    (Array.ofFn (cell q))[k]'hn
+  have read := Array.getElem_ofFn (f := cell q) (i := k) (h := hn)
+  rw [read]
+  simp only [Array.getElem_ofFn, wordCell]
+
+/-- Serialize both maps directly, without materializing the Nat payload. -/
+def packWords (q : OriginalReader g r)
+    (hVertex : g.vertexCount ≤ 2 ^ bits)
+    (hCount : q.count < 2 ^ bits) :
+    WordPayload bits g.vertexCount q.count where
+  words := Array.ofFn (wordCell q hVertex hCount)
+  size_eq := by simp
+  inverse_lt := by
+    intro x h
+    have hn := (pack q).inverseIndex_lt x
+    rw [wordImage_read q hVertex hCount (g.vertexCount + x.val) h hn]
+    exact (pack q).inverse_lt x hn
+
+variable (q : OriginalReader g r)
+  (hVertex : g.vertexCount ≤ 2 ^ bits) (hCount : q.count < 2 ^ bits)
+
+@[simp] theorem packWords_size :
+    (packWords q hVertex hCount).words.size = g.vertexCount + q.count :=
+  (packWords q hVertex hCount).size_eq
+
+/-- The physical word at an original ID carries its exact forward encoding. -/
+theorem packWords_read_forward (i : Fin g.vertexCount)
+    (h : i.val < (packWords q hVertex hCount).words.size) :
+    ((packWords q hVertex hCount).words[i.val]'h).val =
+      encode (q.ids.find i) := by
+  have hn := (pack q).forwardIndex_lt i
+  exact (wordImage_read q hVertex hCount i.val h hn).trans
+    (pack_read_forward q i hn)
+
+/-- The physical word at the inverse-row offset carries the original ID. -/
+theorem packWords_read_inverse (x : Fin q.count)
+    (h : g.vertexCount + x.val < (packWords q hVertex hCount).words.size) :
+    ((packWords q hVertex hCount).words[g.vertexCount + x.val]'h).val =
+      (q.ids.originals.read x).val := by
+  have hn := (pack q).inverseIndex_lt x
+  exact (wordImage_read q hVertex hCount (g.vertexCount + x.val) h hn).trans
+    (pack_read_inverse q x hn)
+
+theorem packWords_forwardWord_val (i : Fin g.vertexCount) :
+    ((packWords q hVertex hCount).forwardWord i).val =
+      encode (q.ids.find i) :=
+  packWords_read_forward q hVertex hCount i
+    ((packWords q hVertex hCount).forwardIndex_lt i)
+
+theorem packWords_inverseWord_val (x : Fin q.count) :
+    ((packWords q hVertex hCount).inverseWord x).val =
+      (q.ids.originals.read x).val :=
+  packWords_read_inverse q hVertex hCount x
+    ((packWords q hVertex hCount).inverseIndex_lt x)
+
+@[simp] theorem packWords_find (i : Fin g.vertexCount) :
+    (packWords q hVertex hCount).find i = q.ids.find i := by
+  rw [WordPayload.find, packWords_forwardWord_val]
+  exact decode_encode _
+
+@[simp] theorem packWords_original (x : Fin q.count) :
+    (packWords q hVertex hCount).original x = q.ids.originals.read x := by
+  apply Fin.ext
+  exact packWords_inverseWord_val q hVertex hCount x
+
+theorem packWords_find_eq_some_iff_original
+    (i : Fin g.vertexCount) (x : Fin q.count) :
+    (packWords q hVertex hCount).find i = some x ↔
+      (packWords q hVertex hCount).original x = i := by
+  rw [packWords_find, packWords_original]
+  exact q.find_eq_some_iff_original i x
+
+theorem packWords_find_original (x : Fin q.count) :
+    (packWords q hVertex hCount).find
+        ((packWords q hVertex hCount).original x) = some x := by
+  rw [packWords_original, packWords_find]
+  exact q.ids.slot_of_original x
+
+theorem packWords_find_slot (i : Fin g.vertexCount)
+    (hi : g.InitiallyReachable r i) :
+    (packWords q hVertex hCount).find i = some (q.slot i hi) :=
+  (packWords_find q hVertex hCount i).trans (q.find_slot i hi)
+
+theorem packWords_find_eq_none_iff (i : Fin g.vertexCount) :
+    (packWords q hVertex hCount).find i = none ↔
+      ¬ g.InitiallyReachable r i := by
+  rw [packWords_find]
+  exact q.ids.miss_iff i
 
 end PaperB.EX16Assembly.OriginalIdTranslation

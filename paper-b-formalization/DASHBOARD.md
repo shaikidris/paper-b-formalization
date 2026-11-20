@@ -24,7 +24,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.3](TASKS.md#ex43) — Connect actual compact driver rows to the canonical loss forest and prove key agreement and real-edge coverage for the raw model.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
-- [EX5.2](TASKS.md#ex52) — Pack the actual original-to-dense and dense-to-original translations into one indexed payload and prove exact read and alphabet-fit laws.
+- [EX5.2](TASKS.md#ex52) — Serialize the actual two vertex-ID maps directly into a single array of bounded words and prove exact forward, inverse, and miss reads.
 - [EX5.3](TASKS.md#ex53) — Verify the fixed 16-register interval comparison ROM, including its exact Boolean answer, register frame, and three or four instruction time.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.

@@ -1,0 +1,4 @@
+import PaperB.PackedOriginalIds
+#print axioms PaperB.EX16Assembly.OriginalIdTranslation.packWords_read_forward
+#print axioms PaperB.EX16Assembly.OriginalIdTranslation.packWords_read_inverse
+#print axioms PaperB.EX16Assembly.OriginalIdTranslation.packWords_find_eq_none_iff

@@ -2821,7 +2821,8 @@
     {
       "path": "release-core/PaperB/PackedOriginalIds.lean",
       "local_imports": [
-        "release-core/PaperB/StaticOracleTree.lean"
+        "release-core/PaperB/StaticOracleTree.lean",
+        "release-core/PaperB/Machine.lean"
       ],
       "owner_role": "packed oracle",
       "admission": "ORACLE_CORE"

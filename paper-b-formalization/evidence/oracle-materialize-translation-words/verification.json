@@ -1,0 +1,11 @@
+{
+  "base_commit": "e422de6",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PackedOriginalIds.lean",
+  "sha256": "b7ef3acdec591d0967ee40f4917562c1f201a8eac5deae559d3640a361dcec8b",
+  "scope": "Serialize the actual two vertex-ID maps directly into a single array of bounded words and prove exact forward, inverse, and miss reads.",
+  "remaining": "Place the word payload at the final sealed-image offset and bind the fixed translation ROM to that offset."
+}

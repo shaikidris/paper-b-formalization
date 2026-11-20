@@ -383,3 +383,4 @@
 {"at": "2026-11-20T03:55:31+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualForestInputs", "tasks": ["EX4.3"], "evidence": "evidence/exit-actual-generic-forest-inputs/verification.json"}
 {"at": "2026-11-20T03:55:36+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedOriginalIds", "tasks": ["EX5.2"], "evidence": "evidence/oracle-actual-original-id-columns/verification.json"}
 {"at": "2026-11-20T03:58:38+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamIntervalGuard", "tasks": ["EX5.3"], "evidence": "evidence/ram-interval-comparator/verification.json"}
+{"at": "2026-11-20T04:00:10+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedOriginalIds", "tasks": ["EX5.2"], "evidence": "evidence/oracle-materialize-translation-words/verification.json"}

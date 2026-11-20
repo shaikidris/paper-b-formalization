@@ -1562,9 +1562,10 @@
         "evidence/oracle-actual-lca-columns/verification.json",
         "evidence/packed-final-section-bank/verification.json",
         "evidence/exit-sealed-base-values/verification.json",
-        "evidence/oracle-actual-original-id-columns/verification.json"
+        "evidence/oracle-actual-original-id-columns/verification.json",
+        "evidence/oracle-materialize-translation-words/verification.json"
       ],
-      "progress": "Pack the actual original-to-dense and dense-to-original translations into one indexed payload and prove exact read and alphabet-fit laws."
+      "progress": "Serialize the actual two vertex-ID maps directly into a single array of bounded words and prove exact forward, inverse, and miss reads."
     },
     {
       "id": "EX5.3",
