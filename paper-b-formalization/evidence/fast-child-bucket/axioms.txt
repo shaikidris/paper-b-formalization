@@ -1,0 +1,3 @@
+'PaperB.ForestLayout.groupedChildLists_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientRows.buildGrouped_cells' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientRows.buildGrouped_directory' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -220,7 +220,8 @@
         "release-core/PaperB/ExitStoredWrite.lean",
         "release-core/PaperB/RamPairWorkerCalls.lean",
         "release-core/PaperB/ActualThirdForestGeometry.lean",
-        "release-core/PaperB/ExitPhysicalOneSlot.lean"
+        "release-core/PaperB/ExitPhysicalOneSlot.lean",
+        "release-core/PaperB/FastOriginalChildBuckets.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1859,6 +1860,15 @@
         "release-core/PaperB/ForestArrayMergeExact.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/FastOriginalChildBuckets.lean",
+      "local_imports": [
+        "release-core/PaperB/ArcBuckets.lean",
+        "release-core/PaperB/DenseQuotientRows.lean"
+      ],
+      "owner_role": "cost",
       "admission": "ORACLE_CORE"
     }
   ],

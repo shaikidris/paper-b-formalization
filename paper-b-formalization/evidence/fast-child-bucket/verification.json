@@ -1,0 +1,11 @@
+{
+  "base_commit": "5ed61e5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FastOriginalChildBuckets.lean",
+  "sha256": "26e418f864c493a610039722f360f140d575665783501e6b141f4682f42c7724",
+  "scope": "Construct child buckets by a physical root-filtering scan and a single stable physical grouping pass, with exact linear work counters. The dense layout produced from those rows has identical cells and descriptors.",
+  "remaining": "Use the grouped builder in the sealed oracle and count the global topological order split and downstream builds."
+}

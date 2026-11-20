@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — The actual one-slot installer reads its dependencies from the same word array and preserves exactness of previously occupied records, under explicit readiness conditions.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
-- [EX5.1](TASKS.md#ex51) — The dense runtime quotient now has kernel-checked root, arc, rank and rooted flatness transport from its finite structural quotient.
+- [EX5.1](TASKS.md#ex51) — Child lists and their dense layout can now be built from one physical pass and one grouping pass with exact linear counters, preserving old child order.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 - [EX5.3](TASKS.md#ex53) — All scalar predecessor calls used by packed pair lookup now have exact run witnesses, zero writable arena and cumulative logarithmic work.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
