@@ -1,0 +1,11 @@
+{
+  "base_commit": "e7a154d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitEarlierCreator.lean",
+  "sha256": "530b5123bd7ad49fb650b9afc5cd32e09b191f2341762515b912e4b30bd3462e",
+  "scope": "Prove a freshly created physical ancestor slot belongs to a prefix that already contains its source publication.",
+  "remaining": "Use final embedding and the actual source rank to instantiate the concrete live-path contract."
+}

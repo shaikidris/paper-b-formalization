@@ -319,7 +319,8 @@
     "release-core/PaperB/RamIntervalLoad.lean": "word machine",
     "release-core/PaperB/ExitEventPrefixRank.lean": "exit sweeps",
     "release-core/PaperB/ExitActualOwnerColumn.lean": "exit sweeps",
-    "release-core/PaperB/DenseLocalRankFit.lean": "quotient forest"
+    "release-core/PaperB/DenseLocalRankFit.lean": "quotient forest",
+    "release-core/PaperB/ExitEarlierCreator.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1411,9 +1412,10 @@
         "evidence/exit-scheduled-row-mass/verification.json",
         "evidence/exit-prefix-dominated-available/verification.json",
         "evidence/exit-actual-generic-forest-inputs/verification.json",
-        "evidence/exit-embedding-ancestor-address/verification.json"
+        "evidence/exit-embedding-ancestor-address/verification.json",
+        "evidence/exit-earlier-source-creator-min/verification.json"
       ],
-      "progress": "Reflect each canonical ancestor on an actual embedding path to a physical ancestor and a monotone slot address."
+      "progress": "Prove a freshly created physical ancestor slot belongs to a prefix that already contains its source publication."
     },
     {
       "id": "EX4.4",

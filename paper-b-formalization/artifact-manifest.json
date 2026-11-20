@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2961,
-      "sha256": "231e47fae4a09f04076e13dfd7b55e5a71ee8b24fed7530914f08fa7350253fa"
+      "bytes": 2962,
+      "sha256": "c2b6d20ce295cb00647ed3e613caa9c632a55b34e3504ac0af82c6cecd33c70c"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 65501,
-      "sha256": "885190d10d623eefa423eb212d1c59f57d3341ba738fb8b9959420be84e72992"
+      "bytes": 65624,
+      "sha256": "49820a6c320a8bcbdc6731ece2eae4116215d9f66bf153e60806ff99cae74ff4"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 81555,
-      "sha256": "32b4eeedeb28c8cfcfe4c313500746bd20444a50e073c2b0b91261156f469281"
+      "bytes": 81759,
+      "sha256": "cc632d9c2ee59c59dd8c3bb86d6b80a7876a61825bf04c573fcbefdbfc68d155"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2845,6 +2845,21 @@
       "path": "evidence/exit-drivers-complete-cover/verification.json",
       "bytes": 571,
       "sha256": "aa8374f784511ee7ef988fac5c1c0dd67bf6b9552f17edc40b0f37eb1a06b9c1"
+    },
+    {
+      "path": "evidence/exit-earlier-source-creator-min/Audit.lean",
+      "bytes": 112,
+      "sha256": "d72a0724d700c16269a3281a75c4f911868d6d8a99517f278d312cce870e5c0d"
+    },
+    {
+      "path": "evidence/exit-earlier-source-creator-min/axioms.txt",
+      "bytes": 128,
+      "sha256": "bd4b2cfe3e1d76909bc9f82dffe87ac7b4a22449f622c0e57f37db539038c79a"
+    },
+    {
+      "path": "evidence/exit-earlier-source-creator-min/verification.json",
+      "bytes": 540,
+      "sha256": "3dfc25f1ad8c2135c03823fcb0c0fca8ecd8e91ba23f0f86c417fe2034dcbc9c"
     },
     {
       "path": "evidence/exit-earliest-label-audit/Audit.lean",
@@ -5888,8 +5903,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 92684,
-      "sha256": "cd77ebaaa71fe51971e2d9132c8182cd6adf7d3e2a787189ed65bb4011a1788d"
+      "bytes": 92968,
+      "sha256": "b1db6be0642661f8c675798f00c6461e826500770022278a912e1169c9afba7b"
     },
     {
       "path": "obligations.json",
@@ -6190,6 +6205,11 @@
       "path": "release-core/PaperB/ExitDriverCoverage.lean",
       "bytes": 6669,
       "sha256": "74e0f0f1d13a2acec34454b430ada6fce64c4536d23318a7253bfe75f810762c"
+    },
+    {
+      "path": "release-core/PaperB/ExitEarlierCreator.lean",
+      "bytes": 716,
+      "sha256": "530b5123bd7ad49fb650b9afc5cd32e09b191f2341762515b912e4b30bd3462e"
     },
     {
       "path": "release-core/PaperB/ExitEarliestLabel.lean",
@@ -7348,8 +7368,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 8006,
-      "sha256": "cc8269aa71e28b3bb6ea57cc4b4a7eb50613811e94bee58e82882a15d2f2fc8f"
+      "bytes": 8035,
+      "sha256": "a490510b9f71433eed34efb5fa205f7c17c2d8efd5050d35d6b8892b2506bf1e"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -7453,8 +7473,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 85278,
-      "sha256": "a1f9e28d619a50864eb061068eea7299b5574f6a66cc9590870260fc331dca37"
+      "bytes": 85415,
+      "sha256": "2958db96cc0a44b67451e06485bfeb5365ec7be6c61ab055e55abd907bb94c34"
     },
     {
       "path": "test_plan.py",
