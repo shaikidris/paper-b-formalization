@@ -1,0 +1,3 @@
+'PaperB.ForestPreparedBuild.buildWords_of_large' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.build_of_large_readerForWords' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWords_retained' depends on axioms: [propext, Classical.choice, Quot.sound]

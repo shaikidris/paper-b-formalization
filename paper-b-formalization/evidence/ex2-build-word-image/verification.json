@@ -1,0 +1,9 @@
+{
+  "base_commit": "62c9fd4",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestBuildPackedWords.lean",
+  "sha256": "310527fd8d86c6bc171f211e942fc22b6096969fb63d8fb80c7f724a5579bd55",
+  "scope": "Construct the finite-word index from the actual ordered forest reader and prove the same-source relation and 19 n_H retained word bound, including small quotients.",
+  "remaining": "Bind indexed queries to this executable builder and give a full construction-time and peak-space certificate.",
+  "source_provenance": "Local integration of the existing fixed worker and checked Generic retained word encoding."
+}

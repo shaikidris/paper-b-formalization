@@ -1,0 +1,4 @@
+import PaperB.ForestBuildPackedWords
+#print axioms PaperB.ForestPreparedBuild.buildWords_of_large
+#print axioms PaperB.ForestPreparedBuild.build_of_large_readerForWords
+#print axioms PaperB.ForestPreparedBuild.buildWords_retained

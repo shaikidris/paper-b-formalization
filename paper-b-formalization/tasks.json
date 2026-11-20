@@ -336,7 +336,8 @@
     "release-core/PaperB/ForestPackedMembership.lean": "quotient forest",
     "release-core/PaperB/ForestPackedBackRead.lean": "quotient forest",
     "release-core/PaperB/ForestPackedAfterHit.lean": "quotient forest",
-    "release-core/PaperB/ForestPackedLookupRun.lean": "quotient forest"
+    "release-core/PaperB/ForestPackedLookupRun.lean": "quotient forest",
+    "release-core/PaperB/ForestBuildPackedWords.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1139,9 +1140,10 @@
         "evidence/ex2-packed-membership/verification.json",
         "evidence/ex2-packed-back-read/verification.json",
         "evidence/ex2-packed-after-hit/verification.json",
-        "evidence/ex2-packed-fixed-run/verification.json"
+        "evidence/ex2-packed-fixed-run/verification.json",
+        "evidence/ex2-build-word-image/verification.json"
       ],
-      "progress": "Tie the actual finite-word dictionary columns to the fixed pair worker and prove its logarithmic run bound and exact final query continuation.",
+      "progress": "Construct the finite-word index from the actual ordered forest reader and prove the same-source relation and 19 n_H retained word bound, including small quotients.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
