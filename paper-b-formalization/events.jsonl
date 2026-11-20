@@ -371,3 +371,4 @@
 {"at": "2026-11-20T03:42:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalLcaWordColumns", "tasks": ["EX5.2"], "evidence": "evidence/oracle-actual-lca-columns/verification.json"}
 {"at": "2026-11-20T03:42:23+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitDenseLookupTransport", "tasks": ["EX4.4"], "evidence": "evidence/exit-transport-local-to-original/verification.json"}
 {"at": "2026-11-20T03:42:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedContiguousSeal", "tasks": ["EX5.2"], "evidence": "evidence/packed-final-section-bank/verification.json"}
+{"at": "2026-11-20T03:48:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitDriverCoverage", "tasks": ["EX4.2"], "evidence": "evidence/exit-drivers-complete-cover/verification.json"}

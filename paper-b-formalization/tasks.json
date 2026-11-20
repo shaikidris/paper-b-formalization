@@ -302,7 +302,8 @@
     "release-core/PaperB/ExitLiveForestRoutes.lean": "exit sweeps",
     "release-core/PaperB/OriginalLcaWordColumns.lean": "packed oracle",
     "release-core/PaperB/ExitDenseLookupTransport.lean": "original queries",
-    "release-core/PaperB/PackedContiguousSeal.lean": "packed oracle"
+    "release-core/PaperB/PackedContiguousSeal.lean": "packed oracle",
+    "release-core/PaperB/ExitDriverCoverage.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1324,9 +1325,10 @@
         "evidence/exit-physical-keys/verification.json",
         "evidence/packed-transfer-drivers/verification.json",
         "evidence/exit-incoming-law-from-sites/verification.json",
-        "evidence/exit-route-from-live-ancestry/verification.json"
+        "evidence/exit-route-from-live-ancestry/verification.json",
+        "evidence/exit-drivers-complete-cover/verification.json"
       ],
-      "progress": "A semantic ancestor path whose exact driver edges are all live gives a proof-only transfer route with exact composed reference value."
+      "progress": "The computed compact driver array covers each actual proper-loss edge with real endpoints, using the actual retained checked dictionary."
     },
     {
       "id": "EX4.3",

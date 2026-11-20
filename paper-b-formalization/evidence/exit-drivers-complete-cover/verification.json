@@ -1,0 +1,11 @@
+{
+  "base_commit": "bfa4cde",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitDriverCoverage.lean",
+  "sha256": "74e0f0f1d13a2acec34454b430ada6fce64c4536d23318a7253bfe75f810762c",
+  "scope": "The computed compact driver array covers each actual proper-loss edge with real endpoints, using the actual retained checked dictionary.",
+  "remaining": "Connect covered physical events to their chronological publication and concrete callback path proofs."
+}

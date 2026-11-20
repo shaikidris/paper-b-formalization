@@ -296,7 +296,8 @@
         "release-core/PaperB/ExitLiveForestRoutes.lean",
         "release-core/PaperB/OriginalLcaWordColumns.lean",
         "release-core/PaperB/ExitDenseLookupTransport.lean",
-        "release-core/PaperB/PackedContiguousSeal.lean"
+        "release-core/PaperB/PackedContiguousSeal.lean",
+        "release-core/PaperB/ExitDriverCoverage.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2728,6 +2729,15 @@
         "release-core/PaperB/PackedSectionSeal.lean"
       ],
       "owner_role": "packed oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitDriverCoverage.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitCompactDrivers.lean",
+        "release-core/PaperB/ForestSlimIndex.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],
