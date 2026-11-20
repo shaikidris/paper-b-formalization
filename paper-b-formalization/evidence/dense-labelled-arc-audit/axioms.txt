@@ -1,0 +1,1 @@
+'PaperB.DenseOriginalQuotient.mem_outArcs_build_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

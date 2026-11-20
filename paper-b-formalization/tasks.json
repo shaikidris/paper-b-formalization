@@ -203,7 +203,8 @@
     "release-core/PaperB/ForestInstallCapacity.lean": "cuts",
     "release-core/PaperB/ExitPackedFused.lean": "exit",
     "release-core/PaperB/ExitSingleMap.lean": "exit",
-    "release-core/PaperB/ForestOrderedReadBound.lean": "cuts"
+    "release-core/PaperB/ForestOrderedReadBound.lean": "cuts",
+    "release-core/PaperB/DenseLabelledArcIso.lean": "quotient"
   },
   "milestones": [
     {
@@ -1306,9 +1307,10 @@
         "evidence/dense-key-iso-audit/verification.json",
         "evidence/quotient-fast-audit/verification.json",
         "evidence/dense-runtime-fast-audit/verification.json",
-        "evidence/dense-packing-code-audit/verification.json"
+        "evidence/dense-packing-code-audit/verification.json",
+        "evidence/dense-labelled-arc-audit/verification.json"
       ],
-      "progress": "The real emitted endpoint codes now agree exactly with the verified dense/original key inverse. The dense labelled graph correspondence and whole-arena accounting remain open."
+      "progress": "The real dense one-pass builder is now linked to exact original labelled sibling emissions, including physical tails. Root/path/rank transfer and whole-arena accounting remain open."
     },
     {
       "id": "EX5.2",

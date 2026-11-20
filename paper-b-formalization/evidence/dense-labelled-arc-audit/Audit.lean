@@ -1,0 +1,2 @@
+import PaperB.DenseLabelledArcIso
+#print axioms PaperB.DenseOriginalQuotient.mem_outArcs_build_iff

@@ -212,7 +212,8 @@
         "release-core/PaperB/ExitArraySchedule.lean",
         "release-core/PaperB/DensePackingCode.lean",
         "release-core/PaperB/ExitPackedFused.lean",
-        "release-core/PaperB/ExitSingleMap.lean"
+        "release-core/PaperB/ExitSingleMap.lean",
+        "release-core/PaperB/DenseLabelledArcIso.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1741,6 +1742,15 @@
         "release-core/PaperB/ForestRealCounts.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseLabelledArcIso.lean",
+      "local_imports": [
+        "release-core/PaperB/DenseRuntimeGraph.lean",
+        "release-core/PaperB/DensePackingCode.lean"
+      ],
+      "owner_role": "quotient",
       "admission": "ORACLE_CORE"
     }
   ],

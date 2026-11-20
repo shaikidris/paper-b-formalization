@@ -1,0 +1,11 @@
+{
+  "base_commit": "10bbed5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseLabelledArcIso.lean",
+  "sha256": "e1d101c79f1ad8cde4c11d98524073a55cec2c6e1b460f6eb3bc6a9ec9d2ef34",
+  "scope": "The actual dense one-pass graph builder has exactly the labelled adjacency of the structural sibling emissions under the original key inverse. The membership characterization preserves the physical tail, while the build preserves each occurrence and its order.",
+  "remaining": "Transport reachable paths, flatness, roots and ranks to the concrete graph and assemble all quotient readers."
+}
