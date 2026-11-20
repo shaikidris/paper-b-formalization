@@ -182,7 +182,8 @@
     "release-core/PaperB/RamPredecessorWorker.lean": "cost model",
     "release-core/PaperB/RamSearchCorrect.lean": "cost model",
     "release-core/PaperB/DenseArcRow.lean": "quotient",
-    "release-core/PaperB/ExitActualLog.lean": "exit"
+    "release-core/PaperB/ExitActualLog.lean": "exit",
+    "release-core/PaperB/ForestSlimIndex.lean": "cuts"
   },
   "milestones": [
     {
@@ -930,9 +931,10 @@
         "evidence/forest-site-depth-audit/verification.json",
         "evidence/forest-real-prefix-audit/verification.json",
         "evidence/forest-ordered-reader-audit/verification.json",
-        "evidence/forest-real-counts-audit/verification.json"
+        "evidence/forest-real-counts-audit/verification.json",
+        "evidence/forest-slim-index-audit/verification.json"
       ],
-      "progress": "Lean verifies the aggregate measured counts on the complete executable ordered sweep. The proof discharges the local site premises from the run itself. Word-level time and workspace remain open.",
+      "progress": "The actual retained proper-loss test uses only six explicit static columns. Lean checks array size and exact membership alongside the complete measured-count proof. Peak and word-time composition are still open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

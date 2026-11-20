@@ -1,0 +1,3 @@
+'PaperB.RetainedProperLoss.contains_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.arraySize_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.known_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

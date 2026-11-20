@@ -1,0 +1,11 @@
+{
+  "base_commit": "b6675c0",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestSlimIndex.lean",
+  "sha256": "05e6c3449da80822b9a91ba528cbfaf9ce420a0d3b3b652cb8e6cc0624232fb8",
+  "scope": "The static proper-loss reader projects exactly six arrays from actual construction. Lean checks at most nine elements per quotient vertex over all six columns and equality of all Boolean queries with the verified ordered reader. There are no graph, log, jump-region or closure fields in these retained columns.",
+  "remaining": "Bind precise packed word strides and aggregate lifecycle and work charges on the same executable builder."
+}
