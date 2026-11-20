@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.
 - [EX4.2](TASKS.md#ex42) — Reindex the scheduled physical sites through a direct checked inverse and recover retained physical addresses exactly.
-- [EX4.3](TASKS.md#ex43) — Prove physical ancestor creation is available through the publication of the source slot.
+- [EX4.3](TASKS.md#ex43) — Connect actual compact driver rows to the canonical loss forest and prove key agreement and real-edge coverage for the raw model.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
 - [EX5.2](TASKS.md#ex52) — Each base uses six words in the common bank; its direct read matches both actual intervals and supports the exact word-only fused callback.

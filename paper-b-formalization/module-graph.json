@@ -304,7 +304,8 @@
         "release-core/PaperB/ExitScheduledRowMass.lean",
         "release-core/PaperB/ExitCompactDriverIndex.lean",
         "release-core/PaperB/ExitCompactSchedule.lean",
-        "release-core/PaperB/ExitPublishedSlotChronology.lean"
+        "release-core/PaperB/ExitPublishedSlotChronology.lean",
+        "release-core/PaperB/ExitActualForestInputs.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2802,6 +2803,15 @@
       "path": "release-core/PaperB/ExitPublishedSlotChronology.lean",
       "local_imports": [
         "release-core/PaperB/ExitPhysicalPrefixLive.lean"
+      ],
+      "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitActualForestInputs.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitDriverCoverage.lean",
+        "release-core/PaperB/GenericRawExitModel.lean"
       ],
       "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"

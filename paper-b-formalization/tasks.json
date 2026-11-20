@@ -310,7 +310,8 @@
     "release-core/PaperB/ExitScheduledRowMass.lean": "exit sweeps",
     "release-core/PaperB/ExitCompactDriverIndex.lean": "exit sweeps",
     "release-core/PaperB/ExitCompactSchedule.lean": "exit sweeps",
-    "release-core/PaperB/ExitPublishedSlotChronology.lean": "exit sweeps"
+    "release-core/PaperB/ExitPublishedSlotChronology.lean": "exit sweeps",
+    "release-core/PaperB/ExitActualForestInputs.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1396,9 +1397,10 @@
         "evidence/exit-concrete-depth-contract/verification.json",
         "evidence/exit-raw-fused-tally/verification.json",
         "evidence/exit-scheduled-row-mass/verification.json",
-        "evidence/exit-prefix-dominated-available/verification.json"
+        "evidence/exit-prefix-dominated-available/verification.json",
+        "evidence/exit-actual-generic-forest-inputs/verification.json"
       ],
-      "progress": "Prove physical ancestor creation is available through the publication of the source slot."
+      "progress": "Connect actual compact driver rows to the canonical loss forest and prove key agreement and real-edge coverage for the raw model."
     },
     {
       "id": "EX4.4",

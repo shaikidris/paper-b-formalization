@@ -1,0 +1,11 @@
+{
+  "base_commit": "ef62039",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitActualForestInputs.lean",
+  "sha256": "c0d17e5f10c3686898ad8dd568a71933bc5a41197f1393bab28128c2d645ef58",
+  "scope": "Connect actual compact driver rows to the canonical loss forest and prove key agreement and real-edge coverage for the raw model.",
+  "remaining": "Instantiate route availability, exact extrema, and the full resource trace."
+}
