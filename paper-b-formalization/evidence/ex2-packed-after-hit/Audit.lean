@@ -1,0 +1,2 @@
+import PaperB.ForestPackedAfterHit
+#print axioms PaperB.RetainedProperLoss.packWordColumns_afterHit

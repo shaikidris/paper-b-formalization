@@ -334,7 +334,8 @@
     "release-core/PaperB/ForestRetainedFieldBounds.lean": "quotient forest",
     "release-core/PaperB/ForestRetainedWords.lean": "quotient forest",
     "release-core/PaperB/ForestPackedMembership.lean": "quotient forest",
-    "release-core/PaperB/ForestPackedBackRead.lean": "quotient forest"
+    "release-core/PaperB/ForestPackedBackRead.lean": "quotient forest",
+    "release-core/PaperB/ForestPackedAfterHit.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1135,9 +1136,10 @@
         "evidence/ex2-retained-field-bounds/verification.json",
         "evidence/ex2-generic-retained-words/verification.json",
         "evidence/ex2-packed-membership/verification.json",
-        "evidence/ex2-packed-back-read/verification.json"
+        "evidence/ex2-packed-back-read/verification.json",
+        "evidence/ex2-packed-after-hit/verification.json"
       ],
-      "progress": "Prove optional bounded-word back-key reads preserve both in-range equality and out-of-range misses.",
+      "progress": "Verify the retained-word query from the dictionary worker result through slot validation, back keys and interval membership.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

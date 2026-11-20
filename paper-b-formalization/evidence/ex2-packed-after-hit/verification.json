@@ -1,0 +1,9 @@
+{
+  "base_commit": "2569bb6",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedAfterHit.lean",
+  "sha256": "a534bf8863d4dfb318ae32bc206e6671dcc71b700125e3d0c8db3ceecf05baeb",
+  "scope": "Verify the retained-word query from the dictionary worker result through slot validation, back keys and interval membership.",
+  "remaining": "Instantiate the fixed dictionary worker and its row-count logarithmic bound on this packed image.",
+  "source_provenance": "Local composition of the already checked Generic word encoding and existing dictionary contracts."
+}
