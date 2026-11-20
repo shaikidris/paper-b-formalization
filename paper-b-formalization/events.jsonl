@@ -426,3 +426,4 @@
 {"at": "2026-11-20T19:38:59+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestCompactBuildWork", "tasks": ["EX2.4"], "evidence": "evidence/ex2-compact-construction-sites/verification.json"}
 {"at": "2026-11-20T19:44:09+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestExactDictionary", "tasks": ["EX2.4"], "evidence": "evidence/ex2-reserved-candidate-collector/verification.json"}
 {"at": "2026-11-20T19:44:15+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestDictionaryCollectionSpace", "tasks": ["EX2.4"], "evidence": "evidence/ex2-candidate-collection-space/verification.json"}
+{"at": "2026-11-20T19:44:21+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestCompactBuildWork", "tasks": ["EX2.4"], "evidence": "evidence/ex2-reserved-collection-charge/verification.json"}

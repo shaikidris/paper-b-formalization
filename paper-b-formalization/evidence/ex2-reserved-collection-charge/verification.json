@@ -1,0 +1,9 @@
+{
+  "base_commit": "3e315b5",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCompactBuildWork.lean",
+  "sha256": "e041c39f8e1d9f838a0ae695188a4e0eacd1247c05ef5fb7bfe3d4b5ea033018",
+  "scope": "Charge the reserved candidate array in the combined construction site bound while preserving the same 256 multiplier.",
+  "remaining": "Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.",
+  "source_provenance": "Local integration of Lean Core collection and existing forest traces. No external API call for this batch."
+}

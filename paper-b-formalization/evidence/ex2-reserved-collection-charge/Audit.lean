@@ -1,0 +1,3 @@
+import PaperB.ForestCompactBuildWork
+
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_phase_sites

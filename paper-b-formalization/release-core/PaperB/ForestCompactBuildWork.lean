@@ -113,14 +113,14 @@ theorem incomingSites_le (H : LabelledQuotient) :
 
 /-- Root memory and the three initialized sweep columns. Row materialization
 charges a read of the order, a read of the test row and one output cell
-per vertex. -/
+per vertex. The final term reserves the candidate accumulator backing slots. -/
 def initialSites {H : LabelledQuotient} (c : Config H) : Nat :=
   ConcreteInit.initCharge H.vertexCount + c.dict.size +
-    (c.region.maxNodes + 1) + H.vertexCount + 3 * H.vertexCount
+    (c.region.maxNodes + 1) + H.vertexCount + 3 * H.vertexCount + H.vertexCount
 
 private theorem compact_sites_arithmetic {N E L init dict sweep finish pack : Nat}
     (large : 3 ≤ N) (lpos : 1 ≤ L)
-    (hin : init ≤ 11 * N) (hd : dict ≤ 34 * N * (L + 1))
+    (hin : init ≤ 12 * N) (hd : dict ≤ 34 * N * (L + 1))
     (hs : sweep ≤ 90 * (N + E) * L ^ 2)
     (hf : finish ≤ 18 * (N + 1)) (hp : pack ≤ 19 * N)
     {prep : Nat} (hprep : prep ≤ 9 * (N + E)) :
@@ -234,7 +234,7 @@ theorem buildWordsFromOrder_phase_sites (large : 3 ≤ H.vertexCount) :
     have hcap : c.dict.size ≤ N :=
       (ForestDictionary.packedDictionary_spec p orderedPairCode).2.2
     have capN : c.region.maxNodes = N := rfl
-    have hin : initialSites c ≤ 11 * N := by
+    have hin : initialSites c ≤ 12 * N := by
       unfold initialSites
       rw [allocated_initCharge, capN]
       omega
