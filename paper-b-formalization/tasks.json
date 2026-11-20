@@ -249,7 +249,8 @@
     "release-core/PaperB/RankedDenseLocal.lean": "ram",
     "release-core/PaperB/ForestResidualTolls.lean": "forest",
     "release-core/PaperB/ExitRouteStoredBridge.lean": "exit",
-    "release-core/PaperB/ForestIntegratedSiteToll.lean": "forest"
+    "release-core/PaperB/ForestIntegratedSiteToll.lean": "forest",
+    "release-core/PaperB/FamilyForestIndex.lean": "ram"
   },
   "milestones": [
     {
@@ -1399,9 +1400,10 @@
         "evidence/actual-dense-order/verification.json",
         "evidence/dense-order-coverage/verification.json",
         "evidence/kahn-dense-binding/verification.json",
-        "evidence/ranked-local-quotient/verification.json"
+        "evidence/ranked-local-quotient/verification.json",
+        "evidence/family-forest-index/verification.json"
       ],
-      "progress": "The dense graph and its grouped Kahn order are now bound as a verified family of actual local inputs."
+      "progress": "One real family build assembles every quotient membership index with exact correctness and aggregate retained slot accounting."
     },
     {
       "id": "EX5.2",

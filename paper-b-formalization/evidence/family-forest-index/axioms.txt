@@ -1,0 +1,4 @@
+'PaperB.RankedDenseLocal.Local.orderCovers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RankedDenseLocal.ForestIndex.get_build' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RankedDenseLocal.ForestIndex.query_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RankedDenseLocal.ForestIndex.arraySize_build_le' depends on axioms: [propext, Classical.choice, Quot.sound]

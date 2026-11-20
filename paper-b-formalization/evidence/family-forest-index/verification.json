@@ -1,0 +1,11 @@
+{
+  "base_commit": "6a7184f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FamilyForestIndex.lean",
+  "sha256": "dcdc2c15a69077e6a8cbab38fbd58d0df6a6a847e25e155892e672317ce76eeb",
+  "scope": "The actual rank-certified local data builds one membership index per quotient, with exact loss queries and aggregate retained array-size bound by nine times total local vertices.",
+  "remaining": "Prove global sum of local vertices for the instantiated family and attach exit indexes and the sealed word representation."
+}
