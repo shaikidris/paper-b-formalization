@@ -1,0 +1,2 @@
+import PaperB.ExitPhysicalOneSlot
+#print axioms PaperB.ExitPhysicalOneSlot.step_cell_outside

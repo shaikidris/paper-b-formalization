@@ -325,4 +325,48 @@ theorem seedWrite_exact (bank : WriteResult bits words) (u : Nat)
     exact (readSlot_writeBuilt_other tags base layout bank u v hu hb
       (Ne.symm h) seedRecord fit).trans he
 
+private theorem writeBuilt_cell_outside (bank : WriteResult bits words) (u : Nat)
+    (hu : u < slots) (r : Stored) (hr : (storedCodec tags).valid r)
+    (cell : Nat) (hc : cell < words)
+    (hout : cell < base.val + 18 * u ∨ base.val + 18 * u + 18 ≤ cell) :
+    (writeBuilt tags base layout bank u hu r hr).mem[cell]'(
+      (writeBuilt tags base layout bank u hu r hr).lt_size hc) =
+      bank.mem[cell]'(bank.lt_size hc) := by
+  cases bank with
+  | mk mem hs n =>
+    exact writeStoredAt_outside tags mem base u (layout.addrAt hu)
+      (by rw [hs]; exact layout.memAt hu) r hr cell
+      (by rw [hs]; exact hc) hout
+
+theorem step_cell_outside (bank : WriteResult bits words) (j : Job)
+    (hu : j.slot < slots)
+    (fit : (storedCodec tags).valid (buildFromBank tags base layout bank j))
+    (cell : Nat) (hc : cell < words)
+    (hout : cell < base.val + 18 * j.slot ∨
+      base.val + 18 * j.slot + 18 ≤ cell) :
+    (step tags base layout bank j hu fit).mem[cell]'(
+      (step tags base layout bank j hu fit).lt_size hc) =
+      bank.mem[cell]'(bank.lt_size hc) :=
+  writeBuilt_cell_outside tags base layout bank j.slot hu
+    (buildFromBank tags base layout bank j) fit cell hc hout
+
+theorem seedWrite_cell_outside (bank : WriteResult bits words) (u : Nat)
+    (hu : u < slots) {F : JumpForest} (hs : SeedSlot F u)
+    (fit : (storedCodec tags).valid seedRecord)
+    (cell : Nat) (hc : cell < words)
+    (hout : cell < base.val + 18 * u ∨ base.val + 18 * u + 18 ≤ cell) :
+    (seedWrite tags base layout bank u hu hs fit).mem[cell]'(
+      (seedWrite tags base layout bank u hu hs fit).lt_size hc) =
+      bank.mem[cell]'(bank.lt_size hc) :=
+  writeBuilt_cell_outside tags base layout bank u hu seedRecord fit cell hc hout
+
+theorem Layout.depthCell_before_slot {bits words slots : Nat} {base : Word bits}
+    (l : Layout base words slots) {depthBase : Word bits}
+    {depthWords i : Nat} (hBefore : depthBase.val + depthWords ≤ base.val)
+    (hi : i < depthWords) (u : Nat) :
+    depthBase.val + i < words ∧ depthBase.val + i < base.val + 18 * u := by
+  have hcap := l.capacity
+  constructor <;> omega
+
+
 end PaperB.ExitPhysicalOneSlot

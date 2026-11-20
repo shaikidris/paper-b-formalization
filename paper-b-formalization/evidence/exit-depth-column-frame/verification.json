@@ -1,0 +1,11 @@
+{
+  "base_commit": "8ab7686",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalOneSlot.lean",
+  "sha256": "4ab94b6bc8a01e9e34299afe191c1b8874cb9adf2cb8a5d9880286b5d60c4516",
+  "scope": "Real exit-slot writes preserve all off-record depth cells.",
+  "remaining": "Assemble actual depth initialization and the chronological dynamic packed inventory."
+}

@@ -1323,9 +1323,10 @@
         "evidence/packed-route-exact/verification.json",
         "evidence/bank-aware-exit-sweep/verification.json",
         "evidence/packed-runtime-no-rescan/verification.json",
-        "evidence/partial-exit-bank/verification.json"
+        "evidence/partial-exit-bank/verification.json",
+        "evidence/exit-depth-column-frame/verification.json"
       ],
-      "progress": "Fused exit queries now have verified nonterminal safety and cost on the actual shape of a partially written bank."
+      "progress": "Real exit-slot writes preserve all off-record depth cells."
     },
     {
       "id": "EX4.4",
