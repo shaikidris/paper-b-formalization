@@ -1,0 +1,11 @@
+{
+  "base_commit": "5491881",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PackedSliceRebase.lean",
+  "sha256": "3b0bea331978e7b6f9a0362c9d49849b748f73055758aee34bcbb3c890e7b055",
+  "scope": "A sealed read view moves into a common word buffer with no copying and identical indexed values and comparison order.",
+  "remaining": "Use the transported views in the serialized global oracle."
+}

@@ -282,7 +282,8 @@
         "release-core/PaperB/FlatBackKey.lean",
         "release-core/PaperB/ExitCanonicalBank.lean",
         "release-core/PaperB/RamSealedTranslation.lean",
-        "release-core/PaperB/RamLinkedReturn.lean"
+        "release-core/PaperB/RamLinkedReturn.lean",
+        "release-core/PaperB/PackedSliceRebase.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2591,6 +2592,14 @@
         "release-core/PaperB/RamWorkerReturn.lean"
       ],
       "owner_role": "word machine",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/PackedSliceRebase.lean",
+      "local_imports": [
+        "release-core/PaperB/RamLexPairCuts.lean"
+      ],
+      "owner_role": "packed oracle",
       "admission": "ORACLE_CORE"
     }
   ],

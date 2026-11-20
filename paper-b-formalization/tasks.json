@@ -288,7 +288,8 @@
     "release-core/PaperB/FlatBackKey.lean": "packed oracle",
     "release-core/PaperB/ExitCanonicalBank.lean": "exit sweeps",
     "release-core/PaperB/RamSealedTranslation.lean": "word machine",
-    "release-core/PaperB/RamLinkedReturn.lean": "word machine"
+    "release-core/PaperB/RamLinkedReturn.lean": "word machine",
+    "release-core/PaperB/PackedSliceRebase.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1511,9 +1512,10 @@
         "evidence/exit-stored-codec-audit/verification.json",
         "evidence/sealed-early-endpoints/verification.json",
         "evidence/sealed-physical-pair-columns/verification.json",
-        "evidence/sealed-back-key-check/verification.json"
+        "evidence/sealed-back-key-check/verification.json",
+        "evidence/packed-carried-slice-rebase/verification.json"
       ],
-      "progress": "The physical back-key tag and endpoints take three words per row and validate the actual slot after a successful dictionary search."
+      "progress": "A sealed read view moves into a common word buffer with no copying and identical indexed values and comparison order."
     },
     {
       "id": "EX5.3",

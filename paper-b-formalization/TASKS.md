@@ -451,9 +451,9 @@ Acceptance:
 - Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
 - Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs.
 
-The physical back-key tag and endpoints take three words per row and validate the actual slot after a successful dictionary search.
+A sealed read view moves into a common word buffer with no copying and identical indexed values and comparison order.
 
-Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json), [evidence/exit-stored-codec-audit/verification.json](evidence/exit-stored-codec-audit/verification.json), [evidence/sealed-early-endpoints/verification.json](evidence/sealed-early-endpoints/verification.json), [evidence/sealed-physical-pair-columns/verification.json](evidence/sealed-physical-pair-columns/verification.json), [evidence/sealed-back-key-check/verification.json](evidence/sealed-back-key-check/verification.json).
+Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json), [evidence/exit-stored-codec-audit/verification.json](evidence/exit-stored-codec-audit/verification.json), [evidence/sealed-early-endpoints/verification.json](evidence/sealed-early-endpoints/verification.json), [evidence/sealed-physical-pair-columns/verification.json](evidence/sealed-physical-pair-columns/verification.json), [evidence/sealed-back-key-check/verification.json](evidence/sealed-back-key-check/verification.json), [evidence/packed-carried-slice-rebase/verification.json](evidence/packed-carried-slice-rebase/verification.json).
 
 <a id="ex53"></a>
 
