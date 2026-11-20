@@ -30,8 +30,8 @@ def secondSetup (bits : Nat) (hone : 1 < 2 ^ bits) :
      .mov 2 7,
      .mov 3 11,
      .imm 6 (setupOne bits hone),
-     .goto 27,
-     .goto 28]
+     .imm 4 (zero bits),
+     .imm 5 (zero bits)]
 
 def thirdSetup (bits : Nat) (hone : 1 < 2 ^ bits) :
     Vector (Instr bits 16) 8 :=
@@ -41,8 +41,8 @@ def thirdSetup (bits : Nat) (hone : 1 < 2 ^ bits) :
      .mov 3 12,
      .imm 0 (zero bits),
      .imm 6 (setupOne bits hone),
-     .goto 47,
-     .goto 48]
+     .imm 4 (zero bits),
+     .imm 5 (zero bits)]
 
 def concreteSetup (bits : Nat) (hone : 1 < 2 ^ bits) : Setup bits :=
   #v[firstSetup bits hone, secondSetup bits hone, thirdSetup bits hone]
@@ -262,10 +262,18 @@ private theorem setup_add_at {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
       else none) = _
   rw [if_pos ht]
 
+-- Keep the entry PC fixed in the total state transformers. In each trace,
+-- the eighth write already falls through to that PC; no jump is executed.
 private def setupJumpState {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
     (s : State (layout bits cap hcap)) (pc : Nat) :
     State (layout bits cap hcap) :=
   { s with pc := pc }
+
+private theorem setupJumpState_self {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
+    (s : State (layout bits cap hcap)) :
+    setupJumpState s s.pc = s := by
+  cases s
+  rfl
 
 private theorem setupReg_jump {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
     (s : State (layout bits cap hcap)) (pc : Nat) (r : Fin 16) :
@@ -285,7 +293,8 @@ private theorem setupReg_write_cases {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
       exact h (Fin.ext e.symm)
     simpa only [if_neg h] using (setupReg_write_ne (s := s) hne w)
 
-/-- The second worker's entry state, with the first result saved in r13. -/
+/-- The second worker's entry state, with the first result saved in r13
+and scratch registers r4 and r5 cleared. -/
 def secondSetupState {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
     (hone : 1 < 2 ^ bits) (s : State (layout bits cap hcap)) :
     State (layout bits cap hcap) :=
@@ -295,9 +304,12 @@ def secondSetupState {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
   let s4 := setupWriteNext s3 2 (setupReg s 7)
   let s5 := setupWriteNext s4 3 (setupReg s 11)
   let s6 := setupWriteNext s5 6 (setupOne bits hone)
-  setupJumpState s6 28
+  let s7 := setupWriteNext s6 4 (zero bits)
+  let s8 := setupWriteNext s7 5 (zero bits)
+  setupJumpState s8 28
 
-/-- The third worker's entry state, with the second result saved in r14.
+/-- The third worker's entry state, with the second result saved in r14
+and scratch registers r4 and r5 cleared.
 The writes compute the shifted base and interval length in word arithmetic. -/
 def thirdSetupState {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
     (hone : 1 < 2 ^ bits) (s : State (layout bits cap hcap)) :
@@ -311,9 +323,12 @@ def thirdSetupState {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
   let s4 := setupWriteNext s3 3 (setupReg s 12)
   let s5 := setupWriteNext s4 0 (zero bits)
   let s6 := setupWriteNext s5 6 (setupOne bits hone)
-  setupJumpState s6 48
+  let s7 := setupWriteNext s6 4 (zero bits)
+  let s8 := setupWriteNext s7 5 (zero bits)
+  setupJumpState s8 48
 
-/-- Exactly eight setup steps from PC 20 to the second worker at PC 28. -/
+/-- Exactly eight setup steps from PC 20, falling through to the second
+worker at PC 28 after clearing r4 and r5. -/
 theorem run_second_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
     (hone : 1 < 2 ^ bits) (input : Input (layout bits cap hcap))
     (s : State (layout bits cap hcap)) (hpc : s.pc = 20) :
@@ -326,8 +341,9 @@ theorem run_second_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   let s4 := setupWriteNext s3 2 (setupReg s 7)
   let s5 := setupWriteNext s4 3 (setupReg s 11)
   let s6 := setupWriteNext s5 6 (setupOne bits hone)
-  let s7 := setupJumpState s6 27
-  change Steps code input 8 s (setupJumpState s7 28)
+  let s7 := setupWriteNext s6 4 (zero bits)
+  let s8 := setupWriteNext s7 5 (zero bits)
+  change Steps code input 8 s (setupJumpState s8 28)
   have hsize : code.size = 61 := program_size hcap (concreteSetup bits hone)
   have hp1 : s1.pc = 21 := by change s.pc + 1 = 21; rw [hpc]
   have hp2 : s2.pc = 22 := by change s1.pc + 1 = 22; rw [hp1]
@@ -335,7 +351,11 @@ theorem run_second_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   have hp4 : s4.pc = 24 := by change s3.pc + 1 = 24; rw [hp3]
   have hp5 : s5.pc = 25 := by change s4.pc + 1 = 25; rw [hp4]
   have hp6 : s6.pc = 26 := by change s5.pc + 1 = 26; rw [hp5]
-  have hp7 : s7.pc = 27 := rfl
+  have hp7 : s7.pc = 27 := by change s6.pc + 1 = 27; rw [hp6]
+  have hp8 : s8.pc = 28 := by change s7.pc + 1 = 28; rw [hp7]
+  have hentry : setupJumpState s8 28 = s8 := by
+    simpa only [hp8] using (setupJumpState_self s8)
+
   have f0 : code[s.pc]? = some (.mov 13 0) := by
     rw [hpc] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (1 : Fin 3) (0 : Fin 8)
@@ -354,10 +374,10 @@ theorem run_second_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   have f5 : code[s5.pc]? = some (.imm 6 (setupOne bits hone)) := by
     rw [hp5] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (1 : Fin 3) (5 : Fin 8)
-  have f6 : code[s6.pc]? = some (.goto 27) := by
+  have f6 : code[s6.pc]? = some (.imm 4 (zero bits)) := by
     rw [hp6] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (1 : Fin 3) (6 : Fin 8)
-  have f7 : code[s7.pc]? = some (.goto 28) := by
+  have f7 : code[s7.pc]? = some (.imm 5 (zero bits)) := by
     rw [hp7] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (1 : Fin 3) (7 : Fin 8)
 
@@ -384,14 +404,16 @@ theorem run_second_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   have e5 : step code input s5 = some (.next s6) :=
     setup_imm_at (s := s5) (input := input) f5 (by rw [hp5, hsize] <;> decide)
   have e6 : step code input s6 = some (.next s7) :=
-    step_goto_at (s := s6) (input := input) f6 (by rw [hsize] <;> decide)
-  have e7 : step code input s7 = some (.next (setupJumpState s7 28)) :=
-    step_goto_at (s := s7) (input := input) f7 (by rw [hsize] <;> decide)
+    setup_imm_at (s := s6) (input := input) f6 (by rw [hp6, hsize] <;> decide)
+  have e7 : step code input s7 = some (.next s8) :=
+    setup_imm_at (s := s7) (input := input) f7 (by rw [hp7, hsize] <;> decide)
+  rw [hentry]
   exact Steps.cons e0
     (Steps.cons e1 (Steps.cons e2 (Steps.cons e3 (Steps.cons e4
       (Steps.cons e5 (Steps.cons e6 (Steps.cons e7 (Steps.zero _))))))))
 
-/-- Exactly eight setup steps from PC 40 to the third worker at PC 48. -/
+/-- Exactly eight setup steps from PC 40, falling through to the third
+worker at PC 48 after clearing r4 and r5. -/
 theorem run_third_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
     (hone : 1 < 2 ^ bits) (input : Input (layout bits cap hcap))
     (s : State (layout bits cap hcap)) (hpc : s.pc = 40) :
@@ -407,8 +429,9 @@ theorem run_third_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   let s4 := setupWriteNext s3 3 (setupReg s 12)
   let s5 := setupWriteNext s4 0 (zero bits)
   let s6 := setupWriteNext s5 6 (setupOne bits hone)
-  let s7 := setupJumpState s6 47
-  change Steps code input 8 s (setupJumpState s7 48)
+  let s7 := setupWriteNext s6 4 (zero bits)
+  let s8 := setupWriteNext s7 5 (zero bits)
+  change Steps code input 8 s (setupJumpState s8 48)
   have hsize : code.size = 61 := program_size hcap (concreteSetup bits hone)
   have hp1 : s1.pc = 41 := by change s.pc + 1 = 41; rw [hpc]
   have hp2 : s2.pc = 42 := by change s1.pc + 1 = 42; rw [hp1]
@@ -416,7 +439,11 @@ theorem run_third_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   have hp4 : s4.pc = 44 := by change s3.pc + 1 = 44; rw [hp3]
   have hp5 : s5.pc = 45 := by change s4.pc + 1 = 45; rw [hp4]
   have hp6 : s6.pc = 46 := by change s5.pc + 1 = 46; rw [hp5]
-  have hp7 : s7.pc = 47 := rfl
+  have hp7 : s7.pc = 47 := by change s6.pc + 1 = 47; rw [hp6]
+  have hp8 : s8.pc = 48 := by change s7.pc + 1 = 48; rw [hp7]
+  have hentry : setupJumpState s8 48 = s8 := by
+    simpa only [hp8] using (setupJumpState_self s8)
+
   have f0 : code[s.pc]? = some (.mov 14 0) := by
     rw [hpc] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (2 : Fin 3) (0 : Fin 8)
@@ -435,10 +462,10 @@ theorem run_third_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   have f5 : code[s5.pc]? = some (.imm 6 (setupOne bits hone)) := by
     rw [hp5] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (2 : Fin 3) (5 : Fin 8)
-  have f6 : code[s6.pc]? = some (.goto 47) := by
+  have f6 : code[s6.pc]? = some (.imm 4 (zero bits)) := by
     rw [hp6] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (2 : Fin 3) (6 : Fin 8)
-  have f7 : code[s7.pc]? = some (.goto 48) := by
+  have f7 : code[s7.pc]? = some (.imm 5 (zero bits)) := by
     rw [hp7] <;>
       exact fetch_setup_at hcap (concreteSetup bits hone) (2 : Fin 3) (7 : Fin 8)
 
@@ -469,18 +496,22 @@ theorem run_third_setup {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
   have e5 : step code input s5 = some (.next s6) :=
     setup_imm_at (s := s5) (input := input) f5 (by rw [hp5, hsize] <;> decide)
   have e6 : step code input s6 = some (.next s7) :=
-    step_goto_at (s := s6) (input := input) f6 (by rw [hsize] <;> decide)
-  have e7 : step code input s7 = some (.next (setupJumpState s7 48)) :=
-    step_goto_at (s := s7) (input := input) f7 (by rw [hsize] <;> decide)
+    setup_imm_at (s := s6) (input := input) f6 (by rw [hp6, hsize] <;> decide)
+  have e7 : step code input s7 = some (.next s8) :=
+    setup_imm_at (s := s7) (input := input) f7 (by rw [hp7, hsize] <;> decide)
+  rw [hentry]
   exact Steps.cons e0
     (Steps.cons e1 (Steps.cons e2 (Steps.cons e3 (Steps.cons e4
       (Steps.cons e5 (Steps.cons e6 (Steps.cons e7 (Steps.zero _))))))))
 
-/-- Every register at the second worker's entry, including the saved result. -/
+/-- Every register at the second worker's entry, including the saved result
+and the two cleared scratch registers. -/
 theorem secondSetupState_regs {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
     (hone : 1 < 2 ^ bits) (s : State (layout bits cap hcap)) (r : Fin 16) :
     setupReg (secondSetupState hone s) r =
-      if r = 6 then setupOne bits hone
+      if r = 5 then zero bits
+      else if r = 4 then zero bits
+      else if r = 6 then setupOne bits hone
       else if r = 3 then setupReg s 11
       else if r = 2 then setupReg s 7
       else if r = 1 then setupReg s 8
@@ -489,12 +520,14 @@ theorem secondSetupState_regs {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
       else setupReg s r := by
   simp only [secondSetupState, setupReg_jump, setupReg_write_cases]
 
-/-- Every register at the third worker's entry. In particular, r13 is
-unchanged and r14 holds the second worker's result. -/
+/-- Every register at the third worker's entry. In particular, r4 and r5
+are zero, r13 is unchanged, and r14 holds the second worker's result. -/
 theorem thirdSetupState_regs {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
     (hone : 1 < 2 ^ bits) (s : State (layout bits cap hcap)) (r : Fin 16) :
     setupReg (thirdSetupState hone s) r =
-      if r = 6 then setupOne bits hone
+      if r = 5 then zero bits
+      else if r = 4 then zero bits
+      else if r = 6 then setupOne bits hone
       else if r = 0 then zero bits
       else if r = 3 then setupReg s 12
       else if r = 1 then sub (setupReg s 0) (setupReg s 13)
@@ -502,6 +535,22 @@ theorem thirdSetupState_regs {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
       else if r = 14 then setupReg s 0
       else setupReg s r := by
   simp only [thirdSetupState, setupReg_jump, setupReg_write_cases]
+
+/-- The second worker starts with both scratch registers zero. -/
+theorem secondSetupState_scratch {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
+    (hone : 1 < 2 ^ bits) (s : State (layout bits cap hcap)) :
+    setupReg (secondSetupState hone s) 4 = zero bits ∧
+    setupReg (secondSetupState hone s) 5 = zero bits := by
+  constructor <;>
+    simp (disch := decide) only [secondSetupState_regs, if_pos, if_neg]
+
+/-- The third worker starts with both scratch registers zero. -/
+theorem thirdSetupState_scratch {bits cap : Nat} {hcap : cap ≤ 2 ^ bits}
+    (hone : 1 < 2 ^ bits) (s : State (layout bits cap hcap)) :
+    setupReg (thirdSetupState hone s) 4 = zero bits ∧
+    setupReg (thirdSetupState hone s) 5 = zero bits := by
+  constructor <;>
+    simp (disch := decide) only [thirdSetupState_regs, if_pos, if_neg]
 
 private theorem setup_add_val_of_lt {bits : Nat} (x y : Word bits)
     (h : x.val + y.val < 2 ^ bits) :

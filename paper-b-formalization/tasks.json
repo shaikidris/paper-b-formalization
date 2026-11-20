@@ -1496,9 +1496,10 @@
         "evidence/ram-setup-fetch/verification.json",
         "evidence/ram-concrete-setup/verification.json",
         "evidence/ram-all-setup-traces/verification.json",
-        "evidence/ram-validation-rom/verification.json"
+        "evidence/ram-validation-rom/verification.json",
+        "evidence/ram-reset-worker-scratch/verification.json"
       ],
-      "progress": "The fixed equality-validation instructions are linked and their actual fetch equations hold."
+      "progress": "Each later fixed worker receives clean scratch registers from its actual preceding setup code."
     },
     {
       "id": "EX5.4",

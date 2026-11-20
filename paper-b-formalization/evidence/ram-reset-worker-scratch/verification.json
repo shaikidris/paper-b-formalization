@@ -1,0 +1,11 @@
+{
+  "base_commit": "4722d41",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamConcreteSetup.lean",
+  "sha256": "db8880a2f3896de20c0518f7258e0bba17648af0a5377b0ab9f03b25e4258106",
+  "scope": "Second and third fixed callers reset both scalar scratch registers in their previous idle slots and still take exactly eight steps.",
+  "remaining": "Derive full entry state agreement and link the actual scalar traces."
+}
