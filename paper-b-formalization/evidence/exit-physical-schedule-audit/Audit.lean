@@ -1,0 +1,3 @@
+import PaperB.ExitPhysicalSchedule
+#print axioms PaperB.Exit.OrderedReaderResult.nonrootOccupied_iff_physicalParent
+#print axioms PaperB.Exit.OrderedReaderResult.actualSlot_exact

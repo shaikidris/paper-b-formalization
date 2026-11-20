@@ -1,0 +1,4 @@
+'PaperB.Exit.OrderedReaderResult.nonrootOccupied_iff_physicalParent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.Exit.OrderedReaderResult.actualSlot_exact' depends on axioms: [propext, Classical.choice, Quot.sound]

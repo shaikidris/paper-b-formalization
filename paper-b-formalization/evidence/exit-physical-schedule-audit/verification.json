@@ -1,0 +1,11 @@
+{
+  "base_commit": "aab62c1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalSchedule.lean",
+  "sha256": "277740085c941e75b2da0c49df6bcf2296c14d5538dd8afcec08a7a2cb5a17b6",
+  "scope": "The physical forest columns compute exact first-install eligibility for every vertex and map slot. Lean connects the actual parent reads, actual final labels and fresh-event lookup to the earliest rank characterization.",
+  "remaining": "Precompute the head lookup once, assemble indexed Schedule, then connect its callbacks and installed jump maps."
+}

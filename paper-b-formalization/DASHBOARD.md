@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — The actual packed read costs per probe are now bounded using grounded labels and tested predecessors. Compose across the depth search and meter the remaining work and peak space.
-- [EX4.2](TASKS.md#ex42) — The real forest log now proves exact first-install vertices and occupancy for every non-top-level transfer record. The raw occurrence fold is also checked against its typed read contracts. The combined indexed schedule and actual mapped callbacks remain open.
+- [EX4.2](TASKS.md#ex42) — Lean checks exact physical parent and earliest first-install slots from the actual forest. The collected schedule, exit contributions and map execution must still be joined.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — Concrete dense local positions and original structural sibling keys now have checked inverses. Transport labelled adjacency and topological order next.

@@ -191,7 +191,8 @@
     "release-core/PaperB/RamRegisterTrace.lean": "cost model",
     "release-core/PaperB/ExitRealFirstLabel.lean": "exit",
     "release-core/PaperB/DenseRuntimeGraph.lean": "quotient",
-    "release-core/PaperB/DenseSiblingKeyIso.lean": "quotient"
+    "release-core/PaperB/DenseSiblingKeyIso.lean": "quotient",
+    "release-core/PaperB/ExitPhysicalSchedule.lean": "exit"
   },
   "milestones": [
     {
@@ -1160,9 +1161,10 @@
         "evidence/exit-real-log-audit/verification.json",
         "evidence/exit-earliest-label-audit/verification.json",
         "evidence/exit-raw-incoming-audit/verification.json",
-        "evidence/exit-real-first-label-audit/verification.json"
+        "evidence/exit-real-first-label-audit/verification.json",
+        "evidence/exit-physical-schedule-audit/verification.json"
       ],
-      "progress": "The real forest log now proves exact first-install vertices and occupancy for every non-top-level transfer record. The raw occurrence fold is also checked against its typed read contracts. The combined indexed schedule and actual mapped callbacks remain open."
+      "progress": "Lean checks exact physical parent and earliest first-install slots from the actual forest. The collected schedule, exit contributions and map execution must still be joined."
     },
     {
       "id": "EX4.3",
