@@ -257,7 +257,8 @@
         "release-core/PaperB/ExitCompactDrivers.lean",
         "release-core/PaperB/RamSetupAgreement.lean",
         "release-core/PaperB/RamFirstSetupAgreement.lean",
-        "release-core/PaperB/ExitPackedRuntime.lean"
+        "release-core/PaperB/ExitPackedRuntime.lean",
+        "release-core/PaperB/ForestNumericSweepSpace.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2340,6 +2341,15 @@
         "release-core/PaperB/StaticHeadSweep.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestNumericSweepSpace.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestSweepStorage.lean",
+        "release-core/PaperB/ForestPhaseBudget.lean"
+      ],
+      "owner_role": "forest",
       "admission": "ORACLE_CORE"
     }
   ],

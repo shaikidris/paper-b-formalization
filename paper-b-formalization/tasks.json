@@ -263,7 +263,8 @@
     "release-core/PaperB/ExitCompactDrivers.lean": "exit",
     "release-core/PaperB/RamSetupAgreement.lean": "ram",
     "release-core/PaperB/RamFirstSetupAgreement.lean": "ram",
-    "release-core/PaperB/ExitPackedRuntime.lean": "exit"
+    "release-core/PaperB/ExitPackedRuntime.lean": "exit",
+    "release-core/PaperB/ForestNumericSweepSpace.lean": "forest"
   },
   "milestones": [
     {
@@ -1043,9 +1044,10 @@
         "evidence/forest-sweep-storage/verification.json",
         "evidence/assembled-forest-site-budget/verification.json",
         "evidence/linear-finite-enumeration/verification.json",
-        "evidence/grouping-live-space/verification.json"
+        "evidence/grouping-live-space/verification.json",
+        "evidence/numeric-forest-prefix/verification.json"
       ],
-      "progress": "Stable grouping now has a checked live storage bound across all actual scatter and reversal phases.",
+      "progress": "The actual sweep-phase live bound is now numerical in quotient vertices and arcs.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

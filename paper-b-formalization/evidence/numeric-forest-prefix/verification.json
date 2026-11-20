@@ -1,0 +1,11 @@
+{
+  "base_commit": "9506d60",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestNumericSweepSpace.lean",
+  "sha256": "ed8c2e4d1937c4d3bc81011b08a3e1ffff07673cdb8acdb85af9e57a614fceb4",
+  "scope": "Every visited forest sweep boundary has numeric storage at most 10N+E+5 with an additional N allowance for final reversal, on the actual prepared ordered rows.",
+  "remaining": "Finish static/sort temporary-space bounds and all execution-phase allocation and primitive work receipts."
+}
