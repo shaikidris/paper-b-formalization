@@ -184,7 +184,8 @@
     "release-core/PaperB/DenseArcRow.lean": "quotient",
     "release-core/PaperB/ExitActualLog.lean": "exit",
     "release-core/PaperB/ForestSlimIndex.lean": "cuts",
-    "release-core/PaperB/DenseRealOwnership.lean": "quotient"
+    "release-core/PaperB/DenseRealOwnership.lean": "quotient",
+    "release-core/PaperB/ExitEarliestLabel.lean": "exit"
   },
   "milestones": [
     {
@@ -1149,9 +1150,10 @@
         "evidence/physical-entry-audit/verification.json",
         "evidence/forest-event-chronology-audit/verification.json",
         "evidence/exit-grouped-fresh-audit/verification.json",
-        "evidence/exit-real-log-audit/verification.json"
+        "evidence/exit-real-log-audit/verification.json",
+        "evidence/exit-earliest-label-audit/verification.json"
       ],
-      "progress": "The real packed sweep supplies exact fresh event lookup with distinct heads and genuine final parents and keys. The physical firstAt schedule and exit record installation remain in progress."
+      "progress": "The chronology-to-rank minimum and fresh-event existence lemmas are checked. Binding real membership and read availability into the indexed schedule remains in progress."
     },
     {
       "id": "EX4.3",

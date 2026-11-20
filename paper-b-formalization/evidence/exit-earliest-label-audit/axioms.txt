@@ -1,0 +1,2 @@
+'PaperB.PhysicalLabelFirst.earliest_of_fresh' depends on axioms: [propext, Quot.sound]
+'PaperB.PhysicalLabelFirst.fresh_hit_of_occupied_split' depends on axioms: [propext]

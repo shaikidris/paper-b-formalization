@@ -1,0 +1,11 @@
+{
+  "base_commit": "42f1b3b",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitEarliestLabel.lean",
+  "sha256": "962e1c0fcce64375ce1bce96d87fddac0c2c4d44dd051c10cef3686d632376e4",
+  "scope": "In an ordered physical log, the first creating event is the minimum-rank vertex with that final label. A positive occupied slot with a real parent gives a corresponding fresh event from the canonical chronological split.",
+  "remaining": "Bind the verified ordered run and concrete event lookup to these lemmas and construct the actual indexed firstAt schedule."
+}

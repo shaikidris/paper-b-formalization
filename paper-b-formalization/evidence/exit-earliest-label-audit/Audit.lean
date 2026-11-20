@@ -1,0 +1,3 @@
+import PaperB.ExitEarliestLabel
+#print axioms PaperB.PhysicalLabelFirst.earliest_of_fresh
+#print axioms PaperB.PhysicalLabelFirst.fresh_hit_of_occupied_split
