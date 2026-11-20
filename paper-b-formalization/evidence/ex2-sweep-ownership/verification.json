@@ -1,0 +1,9 @@
+{
+  "base_commit": "3458fc5",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestKeyInstall.lean",
+  "sha256": "6b77a3f6ec8f1313880979ab86ac7ce94b3a226758e1954ae2f04ff924e55aa5",
+  "scope": "Prove exact successful-sweep writes and review the emitted mutable-bank ownership induction across planning, repeated and fresh dictionary hits, packed jump installation, label writes and state handoff.",
+  "remaining": "Verify primitive/control coverage and mutable ownership in input preparation and finish before closing Lemma 3.2.",
+  "source_provenance": "Local proof composition, emitted-C review and native validation. No new Generic generation."
+}

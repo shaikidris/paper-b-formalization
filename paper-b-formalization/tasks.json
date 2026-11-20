@@ -1172,9 +1172,10 @@
         "evidence/ex2-native-array-audit/verification.json",
         "evidence/ex2-extraction-reserve-sites/verification.json",
         "evidence/ex2-native-copy-removal/verification.json",
-        "evidence/ex2-native-sort-ownership/verification.json"
+        "evidence/ex2-native-sort-ownership/verification.json",
+        "evidence/ex2-sweep-ownership/verification.json"
       ],
-      "progress": "Verified the pre-sized dictionary bank and checked the emitted native sort's ownership chain. The remaining construction paths need all-input primitive coverage.",
+      "progress": "Proved one backing-array write per successful row plus six per fresh key. Audited the emitted sweep ownership chain and reran the ten pinned native fixtures. The remaining construction phases and full primitive coverage are still open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

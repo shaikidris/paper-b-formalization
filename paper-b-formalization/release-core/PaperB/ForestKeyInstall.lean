@@ -458,4 +458,35 @@ theorem step_request_semantics {H : LabelledQuotient}
   rw [(step_parts h).1]
   exact runHead_semantics (selectors c s) view rank y xs T rootView rankArc ready
 
+/-- The successful install branches always write one label. Only the
+fresh branch writes four jump words, two table slots and the next counter. -/
+theorem install_writes_exact {H : LabelledQuotient}
+    {c : Config H} {t : Tables H} {req : ForestHead.Step H} {out : Installed H}
+    (run : install c t req = some out) :
+    out.writes = 1 + 7 * out.delta := by
+  by_cases hp : req.parent < t.next
+  · cases pair : req.newPair with
+    | none =>
+      simp only [install, ite_eq_left hp, pair, Option.some.injEq] at run
+      subst out
+      rfl
+    | some q =>
+      cases hit : (PairLookup.lookup c.dict (c.code q)).1 with
+      | none => simp [install, hp, pair, hit] at run
+      | some i =>
+        by_cases hi : i < t.slots.size
+        · by_cases fresh : t.slotAt i = 0
+          · by_cases room : t.next < t.back.size
+            · simp only [install, ite_eq_left hp, pair, hit, dite_eq_left hi,
+                ite_eq_left fresh, dite_eq_left room, Option.some.injEq] at run
+              subst out
+              rfl
+            · simp [install, hp, pair, hit, hi, fresh, room] at run
+          · simp only [install, ite_eq_left hp, pair, hit, dite_eq_left hi,
+              ite_eq_right fresh, Option.some.injEq] at run
+            subst out
+            rfl
+        · simp [install, hp, pair, hit, hi] at run
+  · simp [install, hp] at run
+
 end EX24

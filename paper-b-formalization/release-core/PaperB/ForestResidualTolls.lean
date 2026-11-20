@@ -152,3 +152,52 @@ theorem toll_le {H : LabelledQuotient} {c : Config H}
   omega
 
 end EX24.PreparedSweep.ResidualUnit
+
+namespace EX24.PreparedSweep
+
+open PaperB PaperB.LabelledQuotient PaperB.ForestHead EX24.PreStep
+
+theorem stepPrepared_writes_exact {H : LabelledQuotient} {c : Config H}
+    {s : State H} {rank : Vertex H → Nat} {y : Vertex H} {xs : List (Vertex H)}
+    {r : HeadResult H} (run : stepPrepared c s rank y xs = some r) :
+    r.installed.writes = 1 + 7 * r.installed.delta := by
+  unfold stepPrepared at run
+  split at run
+  · dsimp only at run
+    let req := (runPrepared (selectors c s) rank y xs).step
+    cases hit : install c s.tables req with
+    | none => simp [req, hit] at run
+    | some a =>
+      change (install c s.tables req).map _ = _ at run
+      rw [hit] at run
+      have exactInstall := install_writes_exact hit
+      simp only [Option.map_some, Option.some.injEq] at run
+      subst r
+      exact exactInstall
+  · simp at run
+
+/-- The exact successful sweep count includes the next-slot scalar update.
+The backing-array writes are the label on every row and six per fresh key. -/
+theorem CountedTrace.writes_exact {H : LabelledQuotient}
+    {c : Config H} {rank : Vertex H → Nat} {s out : State H}
+    {rows : List (Row H)} {log : Log H} {n : Count}
+    (trace : CountedTrace c rank s rows out log n) :
+    n.writes = n.heads + 7 * n.allocations := by
+  induction trace with
+  | nil => rfl
+  | cons run _ ih =>
+    have writes := stepPrepared_writes_exact run
+    simp only [Count.prepend, writes, ih, Nat.mul_add]
+    omega
+
+/-- The logical next-slot counter is the sole non-array write in the
+per-row installation charge. -/
+theorem CountedTrace.backing_writes_exact {H : LabelledQuotient}
+    {c : Config H} {rank : Vertex H → Nat} {s out : State H}
+    {rows : List (Row H)} {log : Log H} {n : Count}
+    (trace : CountedTrace c rank s rows out log n) :
+    n.writes - n.allocations = n.heads + 6 * n.allocations := by
+  have exactCount := trace.writes_exact
+  omega
+
+end EX24.PreparedSweep

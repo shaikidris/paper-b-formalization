@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3027,
-      "sha256": "b75e360249850e2a89a0d31c2b539d274fbb4605e4c4087f25ff4b0c424a513a"
+      "bytes": 3101,
+      "sha256": "068ea20d0068ab2bdd4239f10176838386ac0271fc939c8e8e2d2cd19187cbe1"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 70093,
-      "sha256": "e64e9fff8aa5d5ce8ae7dbe55fc126d15b98af0de5871c625b1ea1f00bc57aba"
+      "bytes": 70265,
+      "sha256": "b622a8a306ebfddbe104514d6c2e037a6ead4b1938467bcb5fc403cdb7586f17"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 89749,
-      "sha256": "f94f5d345f89b5deb6c9ffbc6a2420eb640a09464e12baf70b207c758f0b45b7"
+      "bytes": 89939,
+      "sha256": "95c42b93035ee712ab56b75d05767db04818b3b7a89e6785b2d9a40ca8f3fa05"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2265,6 +2265,36 @@
       "path": "evidence/ex2-share-built-dictionary/verification.json",
       "bytes": 732,
       "sha256": "176c3ec9151069aff353120a90aaf2c788d9be5c6752f9bb1638f849ee808184"
+    },
+    {
+      "path": "evidence/ex2-sweep-ownership/Audit.lean",
+      "bytes": 260,
+      "sha256": "ac7a5c2227b922a1f274e7558fdc8e6433e0d972ed9f973ce9346076e1fcf801"
+    },
+    {
+      "path": "evidence/ex2-sweep-ownership/axioms.txt",
+      "bytes": 317,
+      "sha256": "e4699362dcf84ee8ea3c15606ef8db91655c41bb6e0816c8f0837e34826c9850"
+    },
+    {
+      "path": "evidence/ex2-sweep-ownership/emitted-code.sha256",
+      "bytes": 656,
+      "sha256": "9d9e9cc898792003aebdf87f46b9e54dbe2d9ca87a5a53a29683ee8a00797ba2"
+    },
+    {
+      "path": "evidence/ex2-sweep-ownership/native-results.txt",
+      "bytes": 882,
+      "sha256": "6683ea21c5871b40d5e341cc2cf4295fb4aa45e55f5a87e772cb0bbc9b7d327f"
+    },
+    {
+      "path": "evidence/ex2-sweep-ownership/ownership.md",
+      "bytes": 2776,
+      "sha256": "7ff985b8c3989fbbbf3efc6f419b92ab50563d6166542a56d1a2e3c166e4aad4"
+    },
+    {
+      "path": "evidence/ex2-sweep-ownership/verification.json",
+      "bytes": 682,
+      "sha256": "d24ee0e1f4ccb1772d9184d4e2d2308e8c679813bb5c9cd861c8eb34972bd18f"
     },
     {
       "path": "evidence/ex2-wire-interval-finish/Audit.lean",
@@ -7353,8 +7383,8 @@
     },
     {
       "path": "release-core/PaperB/ForestKeyInstall.lean",
-      "bytes": 18998,
-      "sha256": "319469b3cd90a09782be1a36de8adae4d45f6d81b0b031c22c3e7682ff0e1356"
+      "bytes": 20355,
+      "sha256": "6b77a3f6ec8f1313880979ab86ac7ce94b3a226758e1954ae2f04ff924e55aa5"
     },
     {
       "path": "release-core/PaperB/ForestKnownProbe.lean",
@@ -7523,8 +7553,8 @@
     },
     {
       "path": "release-core/PaperB/ForestResidualTolls.lean",
-      "bytes": 6511,
-      "sha256": "aa6cb60c8e526873acae290370ed44f2360badce0df97ccface88842d1b0eb05"
+      "bytes": 8432,
+      "sha256": "bd93ab2e89dd737f7d859c3473e571abf8132b0eeee551449f69dc6cd26dab1f"
     },
     {
       "path": "release-core/PaperB/ForestRetainedFieldBounds.lean",
@@ -8268,8 +8298,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 90027,
-      "sha256": "fd251a2837a5bf3877302f5b8da0d8ac5539d3b8b2da25e5cd8f5f0a90bcd61f"
+      "bytes": 90159,
+      "sha256": "5a51fa5bd2726d614647170245e0934c23651a6d87ec0a1fde332cad0abe2e93"
     },
     {
       "path": "test_plan.py",

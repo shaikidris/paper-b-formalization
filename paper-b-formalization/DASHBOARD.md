@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Verified the pre-sized dictionary bank and checked the emitted native sort's ownership chain. The remaining construction paths need all-input primitive coverage.
+- [EX2.4](TASKS.md#ex24) — Proved one backing-array write per successful row plus six per fresh key. Audited the emitted sweep ownership chain and reran the ten pinned native fixtures. The remaining construction phases and full primitive coverage are still open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

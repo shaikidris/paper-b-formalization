@@ -433,3 +433,4 @@
 {"at": "2026-11-20T19:57:24+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestCompactBuildWork", "tasks": ["EX2.4"], "evidence": "evidence/ex2-extraction-reserve-sites/verification.json"}
 {"at": "2026-11-20T20:00:38+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestLayout", "tasks": ["EX2.4"], "evidence": "evidence/ex2-native-copy-removal/verification.json"}
 {"at": "2026-11-20T20:04:58+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestPackedOrderedSweep", "tasks": ["EX2.4"], "evidence": "evidence/ex2-native-sort-ownership/verification.json"}
+{"at": "2026-11-20T20:10:08+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestKeyInstall", "tasks": ["EX2.4"], "evidence": "evidence/ex2-sweep-ownership/verification.json"}
