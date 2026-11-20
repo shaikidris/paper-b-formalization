@@ -1,0 +1,11 @@
+{
+  "base_commit": "08a92a1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamConcreteSetup.lean",
+  "sha256": "49ed3e73fdf2ab5db4c5c35cd163f67967a41598b11af8a8dc709d9bff04d768",
+  "scope": "Actual fixed instruction vectors at all three setup sites and exact first-setup trace, including the zero skip and wrapped-word predecessor check.",
+  "remaining": "Prove second and third traces, final pair equality, and link to the sealed query."
+}

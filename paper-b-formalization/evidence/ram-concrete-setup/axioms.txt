@@ -1,0 +1,2 @@
+'PaperB.RamProgram.ThreeCalls.run_first_setup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.setup_sub_one_val' depends on axioms: [propext, Quot.sound]

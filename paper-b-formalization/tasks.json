@@ -244,7 +244,8 @@
     "release-core/PaperB/ExitPrefixOccupancy.lean": "exit",
     "release-core/PaperB/ForestActualSweepBudget.lean": "cuts",
     "release-core/PaperB/ForestQueryToll.lean": "cuts",
-    "release-core/PaperB/ExitPriorBase.lean": "exit"
+    "release-core/PaperB/ExitPriorBase.lean": "exit",
+    "release-core/PaperB/RamConcreteSetup.lean": "ram"
   },
   "milestones": [
     {
@@ -1466,9 +1467,10 @@
         "evidence/ram-wider-placement/verification.json",
         "evidence/wide-worker-link/verification.json",
         "evidence/three-calls/verification.json",
-        "evidence/ram-setup-fetch/verification.json"
+        "evidence/ram-setup-fetch/verification.json",
+        "evidence/ram-concrete-setup/verification.json"
       ],
-      "progress": "The actual caller setup slots now have exact fetch equations for all three fixed search calls."
+      "progress": "Concrete setup instructions exist for all three calls. The exact first setup trace and no-wrap predecessor are Lean checked."
     },
     {
       "id": "EX5.4",

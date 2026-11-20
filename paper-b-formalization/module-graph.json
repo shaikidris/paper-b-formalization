@@ -238,7 +238,8 @@
         "release-core/PaperB/RamThreeCalls.lean",
         "release-core/PaperB/OriginalStaticFull.lean",
         "release-core/PaperB/ExitPrefixOccupancy.lean",
-        "release-core/PaperB/ExitPriorBase.lean"
+        "release-core/PaperB/ExitPriorBase.lean",
+        "release-core/PaperB/RamConcreteSetup.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2153,6 +2154,14 @@
         "release-core/PaperB/ExitKernels.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamConcreteSetup.lean",
+      "local_imports": [
+        "release-core/PaperB/RamThreeCalls.lean"
+      ],
+      "owner_role": "ram",
       "admission": "ORACLE_CORE"
     }
   ],

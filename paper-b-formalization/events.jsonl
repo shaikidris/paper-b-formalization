@@ -291,3 +291,4 @@
 {"at": "2026-11-20T01:49:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestQueryToll", "tasks": ["EX2.4"], "evidence": "evidence/fast-query-toll/verification.json"}
 {"at": "2026-11-20T01:49:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPriorBase", "tasks": ["EX4.3"], "evidence": "evidence/exit-prior-base/verification.json"}
 {"at": "2026-11-20T01:49:17+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamThreeCalls", "tasks": ["EX5.3"], "evidence": "evidence/ram-setup-fetch/verification.json"}
+{"at": "2026-11-20T01:55:30+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamConcreteSetup", "tasks": ["EX5.3"], "evidence": "evidence/ram-concrete-setup/verification.json"}
