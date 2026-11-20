@@ -1,0 +1,11 @@
+{
+  "base_commit": "1b058cb",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitEventPrefixRank.lean",
+  "sha256": "9c5ea62805891d3a400b081d6173274620c177cb328023d25f3707f5d4c0648e",
+  "scope": "Prove the actual physical event log is strictly rank ordered, covers every quotient vertex, and transports earlier log membership to earlier schedule rank.",
+  "remaining": "Combine earlier rank with canonical edge coverage and concrete callbacks."
+}

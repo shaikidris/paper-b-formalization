@@ -310,7 +310,8 @@
         "release-core/PaperB/RamIntervalGuard.lean",
         "release-core/PaperB/ExitActualCompactSchedule.lean",
         "release-core/PaperB/ExitEmbeddingAncestry.lean",
-        "release-core/PaperB/RamIntervalLoad.lean"
+        "release-core/PaperB/RamIntervalLoad.lean",
+        "release-core/PaperB/ExitEventPrefixRank.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2862,6 +2863,14 @@
         "release-core/PaperB/RamProgram.lean"
       ],
       "owner_role": "word machine",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitEventPrefixRank.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitActualLog.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],
