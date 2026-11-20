@@ -1,0 +1,3 @@
+'EX51.LocalSchedule.schedule_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.LocalSchedule.schedule_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.LocalSchedule.schedule_increasing' depends on axioms: [propext, Classical.choice, Quot.sound]

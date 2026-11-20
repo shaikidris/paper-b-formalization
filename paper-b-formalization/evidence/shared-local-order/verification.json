@@ -1,0 +1,11 @@
+{
+  "base_commit": "e8f5003",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SharedLocalOrder.lean",
+  "sha256": "42691f168aa00f81c18ffee9af11995eae3dac31fb77a0c7e75bf56ccfe9c9c7",
+  "scope": "One input stream emits at most two owner records per input, then performs one stable grouping pass. The grouped source-position rows stay strictly increasing under the one-record-per-owner condition.",
+  "remaining": "Instantiate the emitter with the normalized original topological order and the dense root and child slot lookup."
+}

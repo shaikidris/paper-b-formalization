@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — Lean checks whole sequential packed map installation and its exact write count for an erased chronological readiness certificate. Work remains to derive that certificate from actual forest events.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
-- [EX5.1](TASKS.md#ex51) — The exact static tree reader now has a fast implementation that shares a single physical child grouping between layout and heavy-range construction.
+- [EX5.1](TASKS.md#ex51) — Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 - [EX5.3](TASKS.md#ex53) — Actual successful RAM runs now expose exact Steps prefix and final halt separately. This provides the trace to link workers without halting the whole query.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.

@@ -225,7 +225,8 @@
         "release-core/PaperB/KahnInverse.lean",
         "release-core/PaperB/RamTracePreHalt.lean",
         "release-core/PaperB/ExitPhysicalPass.lean",
-        "release-core/PaperB/StaticGroupedTreeReader.lean"
+        "release-core/PaperB/StaticGroupedTreeReader.lean",
+        "release-core/PaperB/SharedLocalOrder.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1936,6 +1937,14 @@
         "release-core/PaperB/StaticHeadSweep.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/SharedLocalOrder.lean",
+      "local_imports": [
+        "release-core/PaperB/ArcBuckets.lean"
+      ],
+      "owner_role": "cost",
       "admission": "ORACLE_CORE"
     }
   ],

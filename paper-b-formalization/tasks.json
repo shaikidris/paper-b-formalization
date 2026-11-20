@@ -223,7 +223,8 @@
     "release-core/PaperB/ForestPackedOrderedSweep.lean": "cuts",
     "release-core/PaperB/ExitPhysicalPass.lean": "exit",
     "release-core/PaperB/StaticGroupedTreeReader.lean": "cost",
-    "release-core/PaperB/ForestIncomingEpoch.lean": "cuts"
+    "release-core/PaperB/ForestIncomingEpoch.lean": "cuts",
+    "release-core/PaperB/SharedLocalOrder.lean": "cost"
   },
   "milestones": [
     {
@@ -1345,9 +1346,10 @@
         "evidence/dense-flatness/verification.json",
         "evidence/fast-child-bucket/verification.json",
         "evidence/physical-kahn/verification.json",
-        "evidence/fast-static-reader/verification.json"
+        "evidence/fast-static-reader/verification.json",
+        "evidence/shared-local-order/verification.json"
       ],
-      "progress": "The exact static tree reader now has a fast implementation that shares a single physical child grouping between layout and heavy-range construction."
+      "progress": "Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner."
     },
     {
       "id": "EX5.2",
