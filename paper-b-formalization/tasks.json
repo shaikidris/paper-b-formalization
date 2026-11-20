@@ -256,7 +256,8 @@
     "release-core/PaperB/ForestSweepStorage.lean": "forest",
     "release-core/PaperB/ExitPhysicalKeys.lean": "exit",
     "release-core/PaperB/FlatEndpoints.lean": "ram",
-    "release-core/PaperB/RamEqualityTail.lean": "ram"
+    "release-core/PaperB/RamEqualityTail.lean": "ram",
+    "release-core/PaperB/ForestPhaseBudget.lean": "forest"
   },
   "milestones": [
     {
@@ -1033,9 +1034,10 @@
         "evidence/forest-residual-sites/verification.json",
         "evidence/forest-integrated-sites/verification.json",
         "evidence/raw-input-storage/verification.json",
-        "evidence/forest-sweep-storage/verification.json"
+        "evidence/forest-sweep-storage/verification.json",
+        "evidence/assembled-forest-site-budget/verification.json"
       ],
-      "progress": "Forest sweep prefix storage is bounded on the real fold, including columns, order and actual event log.",
+      "progress": "Sweep-site, installed dictionary and exact grouped finish budgets now compose at the paper logarithm.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

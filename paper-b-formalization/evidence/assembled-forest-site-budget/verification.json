@@ -1,0 +1,11 @@
+{
+  "base_commit": "4722d41",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPhaseBudget.lean",
+  "sha256": "895bea257c5241a791a3a5e5836468092e8e45ab1f5a085f723e53ffb1a558c5",
+  "scope": "OracleContract.L now pays the exact prepared-run sweep-site charges, installed packed dictionary construction and grouped finish counts together.",
+  "remaining": "Meter uncharged packed-input extraction and initialization and close full intermediate peak, including finite enumeration cost."
+}

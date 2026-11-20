@@ -250,7 +250,8 @@
         "release-core/PaperB/ForestSweepStorage.lean",
         "release-core/PaperB/ExitPhysicalKeys.lean",
         "release-core/PaperB/FlatEndpoints.lean",
-        "release-core/PaperB/RamEqualityTail.lean"
+        "release-core/PaperB/RamEqualityTail.lean",
+        "release-core/PaperB/ForestPhaseBudget.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2268,6 +2269,16 @@
         "release-core/PaperB/RamConcreteSetup.lean"
       ],
       "owner_role": "ram",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestPhaseBudget.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestIntegratedSiteToll.lean",
+        "release-core/PaperB/OracleContract.lean",
+        "release-core/PaperB/StaticGroupedTreeReader.lean"
+      ],
+      "owner_role": "forest",
       "admission": "ORACLE_CORE"
     }
   ],
