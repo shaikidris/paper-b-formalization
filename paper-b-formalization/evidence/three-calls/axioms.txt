@@ -1,0 +1,4 @@
+'PaperB.RamProgram.ThreeCalls.program_size' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.fetch_body' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.fetch_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.run_site' depends on axioms: [propext, Classical.choice, Quot.sound]

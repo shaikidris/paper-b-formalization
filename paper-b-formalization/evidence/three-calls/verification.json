@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea237b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamThreeCalls.lean",
+  "sha256": "7d16569a9351dbc7c756033de56a5eb30fa7845e6b77e1b4d836f93885f93473",
+  "scope": "A single fixed 61-instruction program contains three correctly relocated scalar predecessor sites with return PCs. Each actual site executes with the worker exact steps under its entry agreement. Setup blocks are caller-supplied.",
+  "remaining": "Install concrete descriptor setup, word bounds and final pair-key validation."
+}

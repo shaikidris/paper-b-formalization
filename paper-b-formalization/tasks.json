@@ -238,7 +238,8 @@
     "release-core/PaperB/RamPlacedTrace.lean": "cost",
     "release-core/PaperB/ExitInterleavedPacked.lean": "exit",
     "release-core/PaperB/ForestPreparedBuild.lean": "cuts",
-    "release-core/PaperB/RamWideWorker.lean": "cost"
+    "release-core/PaperB/RamWideWorker.lean": "cost",
+    "release-core/PaperB/RamThreeCalls.lean": "cost"
   },
   "milestones": [
     {
@@ -1451,9 +1452,10 @@
         "evidence/ram-worker-halt-pc/verification.json",
         "evidence/ram-linked-return/verification.json",
         "evidence/ram-wider-placement/verification.json",
-        "evidence/wide-worker-link/verification.json"
+        "evidence/wide-worker-link/verification.json",
+        "evidence/three-calls/verification.json"
       ],
-      "progress": "The relocated scalar search now embeds into the eventual wider query register bank and preserves unrelated registers."
+      "progress": "Three scalar workers are now placed and verified in one fixed program, with exact code size, return addresses and frame preservation."
     },
     {
       "id": "EX5.4",
