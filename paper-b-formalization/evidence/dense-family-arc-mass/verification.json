@@ -1,0 +1,11 @@
+{
+  "base_commit": "823adea",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/PhysicalArcRowMass.lean",
+  "sha256": "31844fbe51be6376a065072eeefe76db3382d244606643073d13b5d8b539527e",
+  "scope": "The sum of original emitted row lengths is exactly retained multiarc mass; any distinct original row subset respects the same original arc cap.",
+  "remaining": "Instantiate the bound on actual reachable owner enumeration and close full builder charges."
+}

@@ -1,0 +1,3 @@
+import PaperB.PhysicalArcRowMass
+#print axioms PaperB.Digraph.GlobalSibling.emitAll_total_original_row_lengths
+#print axioms PaperB.Digraph.GlobalSibling.emitAll_sum_nodup_row_lengths

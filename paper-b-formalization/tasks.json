@@ -274,7 +274,8 @@
     "release-core/PaperB/StaticDfsLiveSpace.lean": "quotient forest",
     "release-core/PaperB/FlatPairDictionary.lean": "packed oracle",
     "release-core/PaperB/RamCheckedPairLookup.lean": "word machine",
-    "release-core/PaperB/ExitPhysicalDepthColumn.lean": "exit sweeps"
+    "release-core/PaperB/ExitPhysicalDepthColumn.lean": "exit sweeps",
+    "release-core/PaperB/PhysicalArcRowMass.lean": "shared quotient construction"
   },
   "milestones": [
     {
@@ -1448,9 +1449,10 @@
         "evidence/family-forest-index/verification.json",
         "evidence/dense-aggregate-membership/verification.json",
         "evidence/group-raw-mass/verification.json",
-        "evidence/dense-physical-arc-counts/verification.json"
+        "evidence/dense-physical-arc-counts/verification.json",
+        "evidence/dense-family-arc-mass/verification.json"
       ],
-      "progress": "Exact physical dense quotient arc count equals the row length produced by the static stable sibling emitter."
+      "progress": "The sum of original emitted row lengths is exactly retained multiarc mass; any distinct original row subset respects the same original arc cap."
     },
     {
       "id": "EX5.2",
