@@ -1,0 +1,11 @@
+{
+  "base_commit": "f5b7f5a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedOrderedSweep.lean",
+  "sha256": "ab75629f1941922685c08610315f0c58c6e1ab30414b57d7ac49b3234325999f",
+  "scope": "The actual dictionary build has a trace for collecting keys, allocating its two banks, sorting and extracting the compact sorted prefix. The construction toll is logarithmic per input vertex.",
+  "remaining": "Combine the bound with all per-quotient preprocessing and simultaneous arena ownership."
+}

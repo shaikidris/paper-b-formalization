@@ -1003,9 +1003,10 @@
         "evidence/packed-reader-fast/verification.json",
         "evidence/forest-lookup-tolls/verification.json",
         "evidence/forest-raw-incoming/verification.json",
-        "evidence/forest-incoming-prep/verification.json"
+        "evidence/forest-incoming-prep/verification.json",
+        "evidence/dictionary-build-charge/verification.json"
       ],
-      "progress": "The raw and deduplicated predecessor paths are now connected. Exact aggregate deduplication visits equal the raw arc count.",
+      "progress": "Lean verifies the dictionary setup tally for key collection, bank allocation, merge operations and compact output.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

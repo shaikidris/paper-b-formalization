@@ -1,3 +1,4 @@
+import PaperB.ForestFixedBankSortToll
 import PaperB.ForestActualFull
 import PaperB.ForestFixedBankSortExact
 
@@ -193,5 +194,294 @@ theorem runOrderedPacked_eq {H : LabelledQuotient}
     (rank : Vertex H → Nat) (large : 3 ≤ H.vertexCount) :
     runOrderedPacked p data size_data rank large = runOrdered p data size_data rank large := by
   simp only [runOrderedPacked, runOrdered, packedOrderedConfig_eq]
+
+end EX24.PreparedSweep
+
+
+
+namespace PaperB.ForestDictionary
+
+open PaperB.LabelledQuotient PaperB.ForestHead
+open PaperB.PairLookup PaperB.PairLookup.KeyMerge PaperB.PairDictionary.FixedBank
+open PaperB.PairLookup.KeyMerge.Workspace (Span)
+
+/-- One visit for each original prepared row, including rows producing no key,
+and one emission for each key collected. The indices record the input vertices,
+the emitted keys, the visit count, and the emission count. -/
+inductive PreparedCollectCostTrace {H : LabelledQuotient} (p : Rows H)
+    (code : CutPair H → Key) :
+    List (Vertex H) → List Key → Nat → Nat → Prop where
+  | nil : PreparedCollectCostTrace p code [] [] 0 0
+  | skip {y : Vertex H} {ys : List (Vertex H)} {xs : List Key} {v k : Nat}
+      (h : preparedKey H (p.row y) = none) :
+      PreparedCollectCostTrace p code ys xs v k →
+      PreparedCollectCostTrace p code (y :: ys) xs (v + 1) k
+  | emit {y : Vertex H} {ys : List (Vertex H)} {xs : List Key}
+      {v k : Nat} {q : CutPair H}
+      (h : preparedKey H (p.row y) = some q) :
+      PreparedCollectCostTrace p code ys xs v k →
+      PreparedCollectCostTrace p code (y :: ys) (code q :: xs) (v + 1) (k + 1)
+
+private theorem preparedCollectCostTrace {H : LabelledQuotient} (p : Rows H)
+    (code : CutPair H → Key) (ys : List (Vertex H)) :
+    PreparedCollectCostTrace p code ys (collectFrom p code ys)
+      ys.length (collectFrom p code ys).length := by
+  induction ys with
+  | nil => exact PreparedCollectCostTrace.nil
+  | cons y ys ih =>
+    cases h : preparedKey H (p.row y) with
+    | none =>
+      simpa [collectFrom, List.filterMap, h] using
+        (PreparedCollectCostTrace.skip (p := p) (code := code) h ih)
+    | some q =>
+      simpa [collectFrom, List.filterMap, h] using
+        (PreparedCollectCostTrace.emit (p := p) (code := code) h ih)
+
+private theorem fullSpanCostWitness {k : Nat} (fuel : Nat) (s : Span k)
+    (dst : Bool) (a : Array Key) (ha : a.size = 2 * k)
+    (hw : s.width ≤ 2 ^ fuel) (hfull : s.width = k) :
+    let out := runSpan fuel s dst a ha hw
+    ∃ (s' : Span k) (cost : Nat), s'.width = k ∧ k ≤ 2 ^ fuel ∧
+      SpanCostTrace fuel s' dst a out.bank out.count cost := by
+  obtain ⟨cost, t⟩ := runSpan_costTrace fuel s dst a ha hw
+  exact ⟨s, cost, hfull, hfull ▸ hw, t⟩
+
+private theorem packedFullSpanCostWitness (k : Nat) (dst : Bool)
+    (a : Array Key) (ha : a.size = 2 * k) :
+    let out := runPacked k dst a ha
+    ∃ (s : Span k) (cost : Nat), s.width = k ∧ k ≤ 2 ^ ceilBinaryLog k ∧
+      SpanCostTrace (ceilBinaryLog k) s dst a out.bank out.count cost := by
+  unfold runPacked
+  apply fullSpanCostWitness
+  rfl
+
+private theorem packedWidth_le_pow (n : Nat) : n ≤ 2 ^ ceilBinaryLog n := by
+  obtain ⟨_, _, _, h, _⟩ := packedFullSpanCostWitness n false
+    (Array.replicate (2 * n) ((0, 0) : Key)) (by simp)
+  exact h
+
+private theorem packedTwoPow_mono {i j : Nat} (h : i ≤ j) :
+    2 ^ i ≤ 2 ^ j := by
+  induction h with
+  | refl => exact Nat.le_refl _
+  | step _ ih =>
+    rw [Nat.pow_succ]
+    omega
+
+/-- Bound the existing physical trace by any depth budget sufficient for its
+width. This does not change the fuel or the bank operations of the traced run. -/
+private theorem packedSpanCost_bound_at {k fuel : Nat} {s : Span k} {dst : Bool}
+    {a b : Array Key} {w cost : Nat}
+    (t : SpanCostTrace fuel s dst a b w cost) (L : Nat)
+    (hw : s.width ≤ 2 ^ L) :
+    cost ≤ 6 * s.width * (L + 1) + (if s.width = 0 then 1 else 0) := by
+  induction t generalizing L with
+  | @leaf fuel s dst a ha hw' hs =>
+    by_cases hz : s.width = 0
+    · simp [hz]
+    · have hp : 0 < s.width := by omega
+      simp only [ite_eq_right hz, ite_eq_left hp, Nat.add_zero]
+      rw [Nat.mul_add (6 * s.width) L 1, Nat.mul_one]
+      omega
+  | @fork n s dst a lb rb b lc rc w cl cr rd cp xs hs hl hr hrb
+      left right t _charge _actual ihl ihr =>
+    cases L with
+    | zero =>
+      change s.width ≤ 1 at hw
+      omega
+    | succ L =>
+      have hb : s.width ≤ 2 ^ L * 2 := by
+        simpa only [Nat.pow_succ] using hw
+      have hwl : s.left.width ≤ 2 ^ L := by
+        change s.width / 2 ≤ 2 ^ L
+        omega
+      have hwr : s.right.width ≤ 2 ^ L := by
+        change s.width - s.width / 2 ≤ 2 ^ L
+        omega
+      have hleft : s.left.width ≠ 0 := by
+        change s.width / 2 ≠ 0
+        omega
+      have hright : s.right.width ≠ 0 := by
+        change s.width - s.width / 2 ≠ 0
+        omega
+      have hsum : s.left.width + s.right.width = s.width := by
+        change s.width / 2 + (s.width - s.width / 2) = s.width
+        omega
+      have hcl := ihl L hwl
+      have hcr := ihr L hwr
+      simp only [ite_eq_right hleft, ite_eq_right hright, Nat.add_zero] at hcl hcr
+      have hadd :
+          6 * s.left.width * (L + 1) + 6 * s.right.width * (L + 1) =
+            6 * s.width * (L + 1) := by
+        rw [← Nat.add_mul, ← Nat.mul_add, hsum]
+      have hchildren : cl + cr ≤ 6 * s.width * (L + 1) := by
+        rw [← hadd]
+        exact Nat.add_le_add hcl hcr
+      obtain ⟨_, hrd, hcp, _, _⟩ := t.accounting
+      have hfit : w ≤ s.width := t.fits
+      have hmerge : rd + cp + w ≤ 5 * s.width := by omega
+      simp only [ite_eq_right (show s.width ≠ 0 by omega), Nat.add_zero]
+      rw [Nat.mul_add (6 * s.width) (L + 1) 1, Nat.mul_one]
+      omega
+
+/-- The non-sort portion of the local construction toll.
+
+* Each enumerated vertex pays one enumeration unit and one prepared-row visit.
+* Each collected key pays one emission unit and one list-length visit.
+* Each logical array destination pays one allocation unit per actual key
+  slot: the `toArray` input, the replicated padding, the protected two-bank
+  array, and the compact extract.
+* A key occupies two modeled words. `toArray`, the bank append, and the
+  compact extract pay two word reads and two word writes per copied key.
+  `replicate` pays two word writes per initialized key.
+
+Allocation here is a charge on the sizes of the concrete array values, not
+on allocator capacity or backing-store copies. -/
+def packedDictionaryNonSortToll (visits : Nat) (xs : List Key) (d : Array Key) :
+    Nat :=
+  let input := xs.toArray
+  let padding : Array Key := Array.replicate input.size (0, 0)
+  let banks := initialBanks xs
+  2 * visits + 2 * xs.length +
+    (input.size + padding.size + banks.size + d.size) +
+    (4 * input.size + 2 * padding.size + 4 * banks.size + 4 * d.size)
+
+theorem packedDictionaryNonSortToll_eq (visits : Nat) (xs : List Key)
+    (d : Array Key) :
+    packedDictionaryNonSortToll visits xs d =
+      2 * visits + 20 * xs.length + 5 * d.size := by
+  simp [packedDictionaryNonSortToll, initialBanks_size] <;> omega
+
+/-- A local certificate for the actual packed dictionary construction. The
+sort tally is exactly the `SpanCostTrace` tally: a unit per sort frame, a
+key read and write at each positive leaf, and the checked merge head reads,
+key comparisons, and output key writes. A zero-width leaf pays only its
+frame unit.
+
+Scope note for the unpublished proof: these are logical action and slot
+charges, not a Lean runtime or whole-sweep bound. The prepared rows and
+encoder are supplied; the visit and emission units do not analyze the
+internals of row access, `preparedKey`, or `code`. The trace does not price
+address and cursor arithmetic, reference counting, dynamic capacity, or
+backing-store copies. It does not include sweep initialization or execution. -/
+structure PackedDictionaryConstructionTrace {H : LabelledQuotient}
+    (p : Rows H) (code : CutPair H → Key) (d : Array Key)
+    (sortCost total : Nat) : Prop where
+  collection :
+    PreparedCollectCostTrace p code (List.finRange H.vertexCount)
+      (collect p code) H.vertexCount (collect p code).length
+  sort :
+    let xs := collect p code
+    let out := runPacked xs.length false (initialBanks xs) (initialBanks_size xs)
+    ∃ s : Span xs.length, s.width = xs.length ∧
+      SpanCostTrace (ceilBinaryLog xs.length) s false (initialBanks xs)
+        out.bank out.count sortCost
+  compact :
+    let xs := collect p code
+    let out := runPacked xs.length false (initialBanks xs) (initialBanks_size xs)
+    d = out.bank.extract 0 out.count ∧ d.size = out.count ∧ out.count ≤ xs.length
+  tally :
+    total = packedDictionaryNonSortToll H.vertexCount (collect p code) d + sortCost
+
+theorem packedDictionary_construction_trace {H : LabelledQuotient}
+    (p : Rows H) (code : CutPair H → Key) :
+    ∃ sortCost total,
+      PackedDictionaryConstructionTrace p code (packedDictionary p code)
+        sortCost total := by
+  let xs := collect p code
+  let out := runPacked xs.length false (initialBanks xs) (initialBanks_size xs)
+  obtain ⟨s, sortCost, hs, _, ht⟩ :=
+    packedFullSpanCostWitness xs.length false (initialBanks xs) (initialBanks_size xs)
+  have hsize : (out.bank.extract 0 out.count).size = out.count := by
+    have hb := out.size_eq
+    have hc : out.count ≤ xs.length := out.count_le
+    simp only [Array.size_extract, Nat.sub_zero]
+    omega
+  refine ⟨sortCost,
+    packedDictionaryNonSortToll H.vertexCount xs (packedDictionary p code) + sortCost,
+    ?_⟩
+  refine ⟨?_, ⟨s, hs, ht⟩, ⟨rfl, hsize, out.count_le⟩, rfl⟩
+  simpa [collect] using
+    (preparedCollectCostTrace p code (List.finRange H.vertexCount))
+
+/-- The only additive charge is the empty sort frame when no keys are
+collected. This form also applies when the vertex count is zero. -/
+theorem PackedDictionaryConstructionTrace.bound_with_empty
+    {H : LabelledQuotient} {p : Rows H} {code : CutPair H → Key}
+    {d : Array Key} {sortCost total : Nat}
+    (t : PackedDictionaryConstructionTrace p code d sortCost total)
+    (L : Nat) (hL : ceilBinaryLog H.vertexCount ≤ L) :
+    total ≤ 33 * H.vertexCount * (L + 1) +
+      (if (collect p code).length = 0 then 1 else 0) := by
+  have hK := collect_length_le p code
+  have hd : d.size ≤ (collect p code).length :=
+    Nat.le_trans (Nat.le_of_eq t.compact.2.1) t.compact.2.2
+  obtain ⟨s, hs, ht⟩ := t.sort
+  have hw : s.width ≤ 2 ^ L := by
+    rw [hs]
+    exact Nat.le_trans hK
+      (Nat.le_trans (packedWidth_le_pow H.vertexCount) (packedTwoPow_mono hL))
+  have hsort := packedSpanCost_bound_at ht L hw
+  rw [hs] at hsort
+  have hmul :=
+    Nat.mul_le_mul_right (L + 1) (Nat.mul_le_mul_left 6 hK)
+  have hsort' :
+      sortCost ≤ 6 * H.vertexCount * (L + 1) +
+        (if (collect p code).length = 0 then 1 else 0) := by
+    omega
+  have hns :
+      packedDictionaryNonSortToll H.vertexCount (collect p code) d ≤
+        27 * H.vertexCount := by
+    rw [packedDictionaryNonSortToll_eq]
+    omega
+  have hns' :
+      packedDictionaryNonSortToll H.vertexCount (collect p code) d ≤
+        27 * H.vertexCount * (L + 1) := by
+    rw [Nat.mul_add (27 * H.vertexCount) L 1, Nat.mul_one]
+    omega
+  rw [Nat.mul_assoc 6 H.vertexCount (L + 1)] at hsort'
+  rw [Nat.mul_assoc 27 H.vertexCount (L + 1)] at hns'
+  rw [t.tally, Nat.mul_assoc 33 H.vertexCount (L + 1)]
+  omega
+
+theorem packedDictionary_construction_budget {H : LabelledQuotient}
+    (p : Rows H) (code : CutPair H → Key) (L : Nat)
+    (hL : ceilBinaryLog H.vertexCount ≤ L) (hpos : 0 < H.vertexCount) :
+    ∃ sortCost total,
+      PackedDictionaryConstructionTrace p code (packedDictionary p code)
+        sortCost total ∧ total ≤ 34 * H.vertexCount * (L + 1) := by
+  obtain ⟨sortCost, total, t⟩ := packedDictionary_construction_trace p code
+  refine ⟨sortCost, total, t, ?_⟩
+  have hb := t.bound_with_empty L hL
+  have hframe : (if (collect p code).length = 0 then 1 else 0) ≤ 1 := by
+    split <;> omega
+  have hunit : 1 ≤ H.vertexCount * (L + 1) := by
+    rw [Nat.mul_add H.vertexCount L 1, Nat.mul_one]
+    omega
+  rw [Nat.mul_assoc 33 H.vertexCount (L + 1)] at hb
+  rw [Nat.mul_assoc 34 H.vertexCount (L + 1)]
+  omega
+
+end PaperB.ForestDictionary
+
+namespace EX24.PreparedSweep
+
+open PaperB EX24.PreStep PaperB.LabelledQuotient PaperB.ForestHead PaperB.Jumps
+open PaperB.PairLookup PaperB.PairLookup.KeyMerge
+
+/-- The budget applies to the dictionary installed by `packedOrderedConfig`,
+without replacing it by the extensionally equal list-built dictionary. -/
+theorem packedOrderedConfig_dictionary_construction_budget {H : LabelledQuotient}
+    (p : ForestDictionary.Rows H) (large : 3 ≤ H.vertexCount) (L : Nat)
+    (hL : ceilBinaryLog H.vertexCount ≤ L) :
+    ∃ sortCost total,
+      ForestDictionary.PackedDictionaryConstructionTrace p orderedPairCode
+        (packedOrderedConfig p large).dict sortCost total ∧
+      total ≤ 34 * H.vertexCount * (L + 1) := by
+  have hd : (packedOrderedConfig p large).dict =
+      ForestDictionary.packedDictionary p orderedPairCode := rfl
+  rw [hd]
+  exact ForestDictionary.packedDictionary_construction_budget
+    p orderedPairCode L hL (by omega)
 
 end EX24.PreparedSweep
