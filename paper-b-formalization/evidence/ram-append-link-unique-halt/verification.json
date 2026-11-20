@@ -1,0 +1,11 @@
+{
+  "base_commit": "9a4583f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamAppendLink.lean",
+  "sha256": "95ba5035961aa40941b9b3ed7cf649bc256eecb05985287a3c3648add458d38b",
+  "scope": "Link two fixed programs by replacing the chosen left halt with an actual jump and relocating right-side branch targets, with exact fetch laws.",
+  "remaining": "Compose the existing proof of each local run with this executable linker."
+}

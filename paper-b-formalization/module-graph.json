@@ -316,7 +316,8 @@
         "release-core/PaperB/DenseLocalRankFit.lean",
         "release-core/PaperB/ExitEarlierCreator.lean",
         "release-core/PaperB/ExitActualOrientation.lean",
-        "release-core/PaperB/ExitCompactMapBefore.lean"
+        "release-core/PaperB/ExitCompactMapBefore.lean",
+        "release-core/PaperB/RamAppendLink.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2918,6 +2919,14 @@
         "release-core/PaperB/ExitActualCompactSchedule.lean"
       ],
       "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamAppendLink.lean",
+      "local_imports": [
+        "release-core/PaperB/RamMultiReturn.lean"
+      ],
+      "owner_role": "word machine",
       "admission": "ORACLE_CORE"
     }
   ],

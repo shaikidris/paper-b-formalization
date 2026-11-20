@@ -322,7 +322,8 @@
     "release-core/PaperB/DenseLocalRankFit.lean": "quotient forest",
     "release-core/PaperB/ExitEarlierCreator.lean": "exit sweeps",
     "release-core/PaperB/ExitActualOrientation.lean": "exit sweeps",
-    "release-core/PaperB/ExitCompactMapBefore.lean": "exit sweeps"
+    "release-core/PaperB/ExitCompactMapBefore.lean": "exit sweeps",
+    "release-core/PaperB/RamAppendLink.lean": "word machine"
   },
   "milestones": [
     {
@@ -1649,9 +1650,10 @@
         "evidence/ram-interval-comparator/verification.json",
         "evidence/ram-interval-preload/verification.json",
         "evidence/ram-interval-positional-guard/verification.json",
-        "evidence/ram-lca-common-registers/verification.json"
+        "evidence/ram-lca-common-registers/verification.json",
+        "evidence/ram-append-link-unique-halt/verification.json"
       ],
-      "progress": "Align the verified LCA worker with the 16-register sealed query layout, keeping its fixed code and run theorem."
+      "progress": "Link two fixed programs by replacing the chosen left halt with an actual jump and relocating right-side branch targets, with exact fetch laws."
     },
     {
       "id": "EX5.4",

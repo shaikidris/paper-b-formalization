@@ -396,3 +396,4 @@
 {"at": "2026-11-20T04:11:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitEventPrefixRank", "tasks": ["EX4.2"], "evidence": "evidence/exit-rank-prefix-iff-min/verification.json"}
 {"at": "2026-11-20T04:11:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualOrientation", "tasks": ["EX4.2"], "evidence": "evidence/exit-actual-orientation-column-min/verification.json"}
 {"at": "2026-11-20T04:14:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitCompactMapBefore", "tasks": ["EX4.2"], "evidence": "evidence/exit-compact-actual-mapbefore-min/verification.json"}
+{"at": "2026-11-20T04:14:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamAppendLink", "tasks": ["EX5.3"], "evidence": "evidence/ram-append-link-unique-halt/verification.json"}

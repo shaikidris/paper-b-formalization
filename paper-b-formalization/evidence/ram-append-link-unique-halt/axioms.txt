@@ -1,0 +1,3 @@
+'PaperB.RamProgram.FixedROM.fetch_left' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.FixedROM.fetch_halt' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.FixedROM.relocated_right' depends on axioms: [propext, Quot.sound]
