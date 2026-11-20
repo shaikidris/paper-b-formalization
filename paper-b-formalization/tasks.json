@@ -183,7 +183,8 @@
     "release-core/PaperB/RamSearchCorrect.lean": "cost model",
     "release-core/PaperB/DenseArcRow.lean": "quotient",
     "release-core/PaperB/ExitActualLog.lean": "exit",
-    "release-core/PaperB/ForestSlimIndex.lean": "cuts"
+    "release-core/PaperB/ForestSlimIndex.lean": "cuts",
+    "release-core/PaperB/DenseRealOwnership.lean": "quotient"
   },
   "milestones": [
     {
@@ -1267,9 +1268,10 @@
         "evidence/dense-quotient-audit/verification.json",
         "evidence/actual-sibling-emitter-audit/verification.json",
         "evidence/dense-arc-local-slot-audit/verification.json",
-        "evidence/dense-arc-row-audit/verification.json"
+        "evidence/dense-arc-row-audit/verification.json",
+        "evidence/dense-real-ownership-audit/verification.json"
       ],
-      "progress": "Lean verifies exact local arc translation and identical payload order and multiplicity for typed original bucket endpoints. Binding actual arc buckets through ownership into the forest and exit build remains in progress."
+      "progress": "Actual original-arc buckets now satisfy the dense translator's endpoint ownership for every occurrence. Direct local graph construction and complete arena charging remain open."
     },
     {
       "id": "EX5.2",

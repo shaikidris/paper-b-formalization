@@ -1,0 +1,11 @@
+{
+  "base_commit": "b6675c0",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseRealOwnership.lean",
+  "sha256": "2a6fa5ecf4137ac8a5bef99e061d215bf14fd6b13bea014ceb4d421ae40c3f67",
+  "scope": "Every real original-arc emission has both packed endpoint keys in its owning quotient. The checked ordinary parent and inverse IDs establish ownership for both half-ranges, with no runtime searches.",
+  "remaining": "Build the original sibling's labelled dense graph from the emitted row and connect its rank and path proofs to the general quotient index."
+}

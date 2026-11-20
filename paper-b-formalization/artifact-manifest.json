@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3620,
-      "sha256": "d54dcf049df11e6971a91802b9e89e8ebaf3903081284f48d34605170f7fb6e7"
+      "bytes": 3576,
+      "sha256": "4357297c9c15df9a37b2f2f751f5a4ce1c5b07d4f49311419692655bcbc72257"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 47816,
-      "sha256": "3ea6f7ccc2e765db984b1822e8323baa3cccd33f64099097fea767c6659c6a6c"
+      "bytes": 47884,
+      "sha256": "c6252aa852400a8a6fdb5a787fcafd07d2cf2998982d0894e3c8b0e4223a0b53"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 47343,
-      "sha256": "2b0cae7c2ed335880b67bb4a02d7b1b22a653f31ab0db3e529ab632a82d33ad7"
+      "bytes": 47542,
+      "sha256": "6d66f6bc849afee8138caf7a130fd9309fe750d812ded3261082247a9ae2b526"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -295,6 +295,21 @@
       "path": "evidence/dense-quotient-audit/verification.json",
       "bytes": 764,
       "sha256": "0169d0206cbfc8b2e4c3bd6cf0a40e44263328e6303745e0cfe57091be47559d"
+    },
+    {
+      "path": "evidence/dense-real-ownership-audit/Audit.lean",
+      "bytes": 179,
+      "sha256": "8862ed43353262265d26c812fa6c25d01207b0071009d31e56187654ac6a3401"
+    },
+    {
+      "path": "evidence/dense-real-ownership-audit/axioms.txt",
+      "bytes": 224,
+      "sha256": "428c2077f01d894955f2d91cf00ddb08324971d0c98c9defa43958ab70bf7ba0"
+    },
+    {
+      "path": "evidence/dense-real-ownership-audit/verification.json",
+      "bytes": 670,
+      "sha256": "cdcdfc50a434679f164ad4422548dbe6cd0331476c59929ca6d03fcf8962d199"
     },
     {
       "path": "evidence/dom-from-original-audit/Audit.lean",
@@ -3263,8 +3278,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 47970,
-      "sha256": "9a4dad9600e721e9facbae6c8849a672e9cfbbb9320531b7a309bc3477f9fdf6"
+      "bytes": 48302,
+      "sha256": "a618db93e5dd23a05623c1ff74beaa0febc7ec9f8cadf88d0b8a0b082d001690"
     },
     {
       "path": "obligations.json",
@@ -3390,6 +3405,11 @@
       "path": "release-core/PaperB/DenseQuotientRows.lean",
       "bytes": 30189,
       "sha256": "712d586ea631f97d4648734278431609d8df891d28ea3169911cac0d6d961605"
+    },
+    {
+      "path": "release-core/PaperB/DenseRealOwnership.lean",
+      "bytes": 3602,
+      "sha256": "2a6fa5ecf4137ac8a5bef99e061d215bf14fd6b13bea014ceb4d421ae40c3f67"
     },
     {
       "path": "release-core/PaperB/DistinctPredecessors.lean",
@@ -4043,8 +4063,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 4002,
-      "sha256": "b0f27995c2b4ca09cd5bf98e15659caf4dc94abb1cac7ae3f7cd5ba6ab1e96f9"
+      "bytes": 4031,
+      "sha256": "3e7242ff4cecf00c28f19162bc6e9aea3058c6c809d68243d7daac5b701c5ec9"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -4148,8 +4168,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 66528,
-      "sha256": "1393fb70f3b5783d8084317ed23cb3500165976947f578b93bebb8687a9d78b1"
+      "bytes": 66612,
+      "sha256": "0abf1823b86a5a6980983253afd39ba1d6b2bb325edc6cd3819084e42bc6701b"
     },
     {
       "path": "test_plan.py",

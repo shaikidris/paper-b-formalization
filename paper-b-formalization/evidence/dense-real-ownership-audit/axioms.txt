@@ -1,0 +1,4 @@
+'PaperB.Digraph.GlobalSibling.ActualOwnership.packing_own' depends on axioms: [propext, Quot.sound]
+'PaperB.Digraph.GlobalSibling.ActualOwnership.emitAll_row_own' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

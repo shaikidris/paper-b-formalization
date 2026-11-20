@@ -217,3 +217,4 @@
 {"at": "2026-11-20T00:00:34+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseArcRow", "tasks": ["EX5.1"], "evidence": "evidence/dense-arc-row-audit/verification.json"}
 {"at": "2026-11-20T00:04:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualLog", "tasks": ["EX4.2"], "evidence": "evidence/exit-real-log-audit/verification.json"}
 {"at": "2026-11-20T00:04:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestSlimIndex", "tasks": ["EX2.4"], "evidence": "evidence/forest-slim-index-audit/verification.json"}
+{"at": "2026-11-20T00:04:38+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseRealOwnership", "tasks": ["EX5.1"], "evidence": "evidence/dense-real-ownership-audit/verification.json"}

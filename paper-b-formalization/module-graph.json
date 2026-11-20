@@ -199,7 +199,8 @@
         "release-core/PaperB/RamPredecessorWorker.lean",
         "release-core/PaperB/RamSearchCorrect.lean",
         "release-core/PaperB/DenseArcRow.lean",
-        "release-core/PaperB/ExitActualLog.lean"
+        "release-core/PaperB/ExitActualLog.lean",
+        "release-core/PaperB/DenseRealOwnership.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1547,6 +1548,15 @@
         "release-core/PaperB/ForestOrderedReader.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseRealOwnership.lean",
+      "local_imports": [
+        "release-core/PaperB/ActualSiblingEmitter.lean",
+        "release-core/PaperB/DenseArcRow.lean"
+      ],
+      "owner_role": "quotient",
       "admission": "ORACLE_CORE"
     }
   ],
