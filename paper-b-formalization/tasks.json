@@ -276,7 +276,8 @@
     "release-core/PaperB/RamCheckedPairLookup.lean": "word machine",
     "release-core/PaperB/ExitPhysicalDepthColumn.lean": "exit sweeps",
     "release-core/PaperB/PhysicalArcRowMass.lean": "shared quotient construction",
-    "release-core/PaperB/ExitPhysicalSeedPass.lean": "exit sweeps"
+    "release-core/PaperB/ExitPhysicalSeedPass.lean": "exit sweeps",
+    "release-core/PaperB/ExitDirectDepthInv.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1338,9 +1339,10 @@
         "evidence/exit-decoded-live-bridge/verification.json",
         "evidence/exit-depth-init/verification.json",
         "evidence/exit-seed-closure/verification.json",
-        "evidence/exit-depth-step-frame/verification.json"
+        "evidence/exit-depth-step-frame/verification.json",
+        "evidence/exit-direct-depth-inv/verification.json"
       ],
-      "progress": "The exact physical depth invariant is preserved across both runtime slot writers."
+      "progress": "Run the same direct stage-before-base path while preserving depth-column agreement through each actual packed stage and supplying it to both read callbacks."
     },
     {
       "id": "EX4.4",

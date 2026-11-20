@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
-- [EX4.3](TASKS.md#ex43) — The exact physical depth invariant is preserved across both runtime slot writers.
+- [EX4.3](TASKS.md#ex43) — Run the same direct stage-before-base path while preserving depth-column agreement through each actual packed stage and supplying it to both read callbacks.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
 - [EX5.1](TASKS.md#ex51) — The sum of original emitted row lengths is exactly retained multiarc mass; any distinct original row subset respects the same original arc cap.
 - [EX5.2](TASKS.md#ex52) — One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.

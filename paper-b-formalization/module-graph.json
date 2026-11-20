@@ -270,7 +270,8 @@
         "release-core/PaperB/RamCheckedPairLookup.lean",
         "release-core/PaperB/ExitPhysicalDepthColumn.lean",
         "release-core/PaperB/PhysicalArcRowMass.lean",
-        "release-core/PaperB/ExitPhysicalSeedPass.lean"
+        "release-core/PaperB/ExitPhysicalSeedPass.lean",
+        "release-core/PaperB/ExitDirectDepthInv.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2471,6 +2472,14 @@
       "local_imports": [
         "release-core/PaperB/ExitPhysicalOneSlot.lean",
         "release-core/PaperB/ExitPhysicalPass.lean"
+      ],
+      "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitDirectDepthInv.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitInterleavedPacked.lean"
       ],
       "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"

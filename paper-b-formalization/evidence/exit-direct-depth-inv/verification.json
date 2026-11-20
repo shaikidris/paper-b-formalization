@@ -1,0 +1,11 @@
+{
+  "base_commit": "a6e7da9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitDirectDepthInv.lean",
+  "sha256": "c2033048699c62897c38708ccec953bf59f6ac2a126061e2dc87be9da46eddb8",
+  "scope": "Run the same direct stage-before-base path while preserving depth-column agreement through each actual packed stage and supplying it to both read callbacks.",
+  "remaining": "Choose the actual initialized depth property and close each live map slot and prefix."
+}
