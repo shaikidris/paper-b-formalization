@@ -7,15 +7,14 @@ resource targets.
 
 ## API-first execution
 
-For work assigned API-first, including the current EX2.4 continuation, get the
-substantive Lean declarations from the authorized API. Use the installed
-`openai-invocation` skill and its runner. Before editing Lean, use
-`lean-artifact` to check the completed response against the authorized project,
-model, effort, and declaration names fixed for the package. An API-generated
-helper alone leaves the larger proof open. Keep local Codex to mechanical
-integration, Lean and axiom checks, the tracker, and Git. If the package needs
-private context or substantive proof repairs, route it only with the applicable
-approval or report the blocker. Carry this rule forward after a goal resumes.
+For API-first work, including EX2.4, use the installed `openai-invocation`
+remote milestone workflow. Local Codex submits one compact job for the goal
+and tracks its ID or receipt. The authorized worker owns analysis, Lean edits,
+assembly, builds, audits, tracker updates and Git checkpoints. A result that
+needs private context must use a separately authorized non-sharing route. If
+the worker, route, budget or full result is unavailable, report the blocker and
+wait. Local implementation or integration requires explicit approval. Carry
+this rule through goal continuations.
 
 ## Certified structural results
 
@@ -88,7 +87,7 @@ Private source, unpublished proof work, and the private ledger stay in the
 local checkout during this Generic run. Checkpoint receipts record the API
 project and reported usage for new Generic calls.
 
-Run from the repository root with Elan and Python 3 available.
+The worker runs these checks from the repository root with Elan and Python 3 available.
 
 ```sh
 python3 -B paper-b-formalization/plan.py validate
