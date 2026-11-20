@@ -1,0 +1,2 @@
+import PaperB.ForestCheckpointCertificate
+#print axioms PaperB.build_checkpoint_certificate

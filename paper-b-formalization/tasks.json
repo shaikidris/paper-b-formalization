@@ -277,7 +277,8 @@
     "release-core/PaperB/ExitPhysicalDepthColumn.lean": "exit sweeps",
     "release-core/PaperB/PhysicalArcRowMass.lean": "shared quotient construction",
     "release-core/PaperB/ExitPhysicalSeedPass.lean": "exit sweeps",
-    "release-core/PaperB/ExitDirectDepthInv.lean": "exit sweeps"
+    "release-core/PaperB/ExitDirectDepthInv.lean": "exit sweeps",
+    "release-core/PaperB/ForestCheckpointCertificate.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1060,9 +1061,10 @@
         "evidence/grouping-live-space/verification.json",
         "evidence/numeric-forest-prefix/verification.json",
         "evidence/forest-static-dfs-live-space/verification.json",
-        "evidence/forest-dictionary-peak/verification.json"
+        "evidence/forest-dictionary-peak/verification.json",
+        "evidence/forest-unified-certificate/verification.json"
       ],
-      "progress": "Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.",
+      "progress": "One actual forest-reader build supplies exact membership and retained entry count, charged work sites and a shared bound on selected preparation, dictionary and sweep roots.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

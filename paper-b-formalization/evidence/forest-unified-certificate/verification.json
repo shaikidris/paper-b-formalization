@@ -1,0 +1,11 @@
+{
+  "base_commit": "126d7be",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCheckpointCertificate.lean",
+  "sha256": "929a21e1616db20e8532f3ffe1c5f454b04ed360713fb95b652a206019e08501",
+  "scope": "One actual forest-reader build supplies exact membership and retained entry count, charged work sites and a shared bound on selected preparation, dictionary and sweep roots.",
+  "remaining": "Charge every grouped finishing root and the exact exported query on the same run before accepting EX2.4."
+}

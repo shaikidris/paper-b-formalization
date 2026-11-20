@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.
+- [EX2.4](TASKS.md#ex24) — One actual forest-reader build supplies exact membership and retained entry count, charged work sites and a shared bound on selected preparation, dictionary and sweep roots.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — Run the same direct stage-before-base path while preserving depth-column agreement through each actual packed stage and supplying it to both read callbacks.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
