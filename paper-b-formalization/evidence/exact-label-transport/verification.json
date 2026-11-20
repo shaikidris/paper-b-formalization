@@ -1,0 +1,11 @@
+{
+  "base_commit": "860f6d2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/LabelledTransport.lean",
+  "sha256": "865d45da8e084fb82900a3e56329063ca471d46c299ed619cea3eb4a564d330f",
+  "scope": "A rooted bijection with exact labelled adjacency preserves survival, proper loss and each ordered physical exit-tail set. Original labels are transported using equality of original graph sizes.",
+  "remaining": "Instantiate with the checked dense quotient bijection and connect the physical retained forest and exit columns to the original query cases."
+}

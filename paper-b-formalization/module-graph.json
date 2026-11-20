@@ -230,7 +230,8 @@
         "release-core/PaperB/RamWorkerHaltPC.lean",
         "release-core/PaperB/ExitParentEarlier.lean",
         "release-core/PaperB/RamWorkerReturn.lean",
-        "release-core/PaperB/DenseQuotientLocalOrder.lean"
+        "release-core/PaperB/DenseQuotientLocalOrder.lean",
+        "release-core/PaperB/LabelledTransport.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2037,6 +2038,14 @@
         "release-core/PaperB/ForestExactDictionary.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/LabelledTransport.lean",
+      "local_imports": [
+        "release-core/Challenge.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],
