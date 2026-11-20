@@ -451,9 +451,9 @@ Acceptance:
 - Prove O(n+m) construction words and O(n) retained words including original IDs, and discard input adjacency.
 - Prove a peak over all intermediate states, and a separate bound on storage reachable from the query index after disposal, including ID translation and copy or serialization costs.
 
-One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.
+The physical back-key tag and endpoints take three words per row and validate the actual slot after a successful dictionary search.
 
-Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json), [evidence/exit-stored-codec-audit/verification.json](evidence/exit-stored-codec-audit/verification.json), [evidence/sealed-early-endpoints/verification.json](evidence/sealed-early-endpoints/verification.json), [evidence/sealed-physical-pair-columns/verification.json](evidence/sealed-physical-pair-columns/verification.json).
+Planning/evidence references: [evidence/ex52-exact-memory-layout/verification.json](evidence/ex52-exact-memory-layout/verification.json), [evidence/ex52-uniform-sealed-arena/verification.json](evidence/ex52-uniform-sealed-arena/verification.json), [evidence/exit-stored-codec-audit/verification.json](evidence/exit-stored-codec-audit/verification.json), [evidence/sealed-early-endpoints/verification.json](evidence/sealed-early-endpoints/verification.json), [evidence/sealed-physical-pair-columns/verification.json](evidence/sealed-physical-pair-columns/verification.json), [evidence/sealed-back-key-check/verification.json](evidence/sealed-back-key-check/verification.json).
 
 <a id="ex53"></a>
 

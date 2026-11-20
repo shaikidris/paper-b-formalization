@@ -284,7 +284,8 @@
     "release-core/PaperB/RamChildRow.lean": "word machine",
     "release-core/PaperB/RamPairHitRow.lean": "word machine",
     "release-core/PaperB/ExitPhysicalPrefixLive.lean": "exit sweeps",
-    "release-core/PaperB/ForestBuiltQueryToll.lean": "quotient forest"
+    "release-core/PaperB/ForestBuiltQueryToll.lean": "quotient forest",
+    "release-core/PaperB/FlatBackKey.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1504,9 +1505,10 @@
         "evidence/ex52-uniform-sealed-arena/verification.json",
         "evidence/exit-stored-codec-audit/verification.json",
         "evidence/sealed-early-endpoints/verification.json",
-        "evidence/sealed-physical-pair-columns/verification.json"
+        "evidence/sealed-physical-pair-columns/verification.json",
+        "evidence/sealed-back-key-check/verification.json"
       ],
-      "progress": "One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns."
+      "progress": "The physical back-key tag and endpoints take three words per row and validate the actual slot after a successful dictionary search."
     },
     {
       "id": "EX5.3",

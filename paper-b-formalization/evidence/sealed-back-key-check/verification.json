@@ -1,0 +1,11 @@
+{
+  "base_commit": "2c8c92c",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FlatBackKey.lean",
+  "sha256": "61ea989ecd8d97a9bd943684e3c66c1bf9d72fa8f912f319b8d0baee11ae2a55",
+  "scope": "The physical back-key tag and endpoints take three words per row and validate the actual slot after a successful dictionary search.",
+  "remaining": "Fit and seal every block in one common query array."
+}

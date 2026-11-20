@@ -278,7 +278,8 @@
         "release-core/PaperB/RamChildRow.lean",
         "release-core/PaperB/RamPairHitRow.lean",
         "release-core/PaperB/ExitPhysicalPrefixLive.lean",
-        "release-core/PaperB/ForestBuiltQueryToll.lean"
+        "release-core/PaperB/ForestBuiltQueryToll.lean",
+        "release-core/PaperB/FlatBackKey.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2554,6 +2555,14 @@
         "release-core/PaperB/OracleContract.lean"
       ],
       "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/FlatBackKey.lean",
+      "local_imports": [
+        "release-core/PaperB/FlatPairDictionary.lean"
+      ],
+      "owner_role": "packed oracle",
       "admission": "ORACLE_CORE"
     }
   ],
