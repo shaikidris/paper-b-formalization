@@ -5,6 +5,18 @@ The statement ledger is pinned to [v1.2](https://doi.org/10.5281/zenodo.24339761
 Use [published v1.3](https://doi.org/10.5281/zenodo.24350515) for the current
 resource targets.
 
+## API-first execution
+
+For work assigned API-first, including the current EX2.4 continuation, get the
+substantive Lean declarations from the authorized API. Use the installed
+`openai-invocation` skill and its runner. Before editing Lean, use
+`lean-artifact` to check the completed response against the authorized project,
+model, effort, and declaration names fixed for the package. An API-generated
+helper alone leaves the larger proof open. Keep local Codex to mechanical
+integration, Lean and axiom checks, the tracker, and Git. If the package needs
+private context or substantive proof repairs, route it only with the applicable
+approval or report the blocker. Carry this rule forward after a goal resumes.
+
 ## Certified structural results
 
 - [Lemma 2.1](evidence/paper-21-siblings-certified/fidelity.md) certifies the
