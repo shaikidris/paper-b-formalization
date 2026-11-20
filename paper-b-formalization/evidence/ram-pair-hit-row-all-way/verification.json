@@ -1,0 +1,11 @@
+{
+  "base_commit": "126d7be",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPairHitRow.lean",
+  "sha256": "5024b740bae00c10eb1100874c6263a7871e1f08ccc5712a0ed3923f8354cea0",
+  "scope": "One fixed program run halts with the true dictionary answer and exact matching row in register 3 when the key exists.",
+  "remaining": "Connect that row to the sealed pair-slot payload and whole-graph routing."
+}

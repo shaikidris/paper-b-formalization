@@ -281,7 +281,8 @@
     "release-core/PaperB/ForestCheckpointCertificate.lean": "quotient forest",
     "release-core/PaperB/ExitClosedOverlay.lean": "exit sweeps",
     "release-core/PaperB/SealedQueryRegisters.lean": "word machine",
-    "release-core/PaperB/RamChildRow.lean": "word machine"
+    "release-core/PaperB/RamChildRow.lean": "word machine",
+    "release-core/PaperB/RamPairHitRow.lean": "word machine"
   },
   "milestones": [
     {
@@ -1554,9 +1555,10 @@
         "evidence/ram-complete-boolean-pair-check/verification.json",
         "evidence/ram-checked-row-tail/verification.json",
         "evidence/sealed-query-work-registers/verification.json",
-        "evidence/ram-child-slice/verification.json"
+        "evidence/ram-child-slice/verification.json",
+        "evidence/ram-pair-hit-row-all-way/verification.json"
       ],
-      "progress": "An actual scalar RAM search over a physical child-entry row plus at most three column reads returns the exact child or a miss."
+      "progress": "One fixed program run halts with the true dictionary answer and exact matching row in register 3 when the key exists."
     },
     {
       "id": "EX5.4",
