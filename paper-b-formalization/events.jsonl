@@ -403,3 +403,4 @@
 {"at": "2026-11-20T18:24:03+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ExitCountedBase", "tasks": ["EX4.3"], "evidence": "evidence/generic-counted-exit-base/verification.json"}
 {"at": "2026-11-20T18:24:09+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "OraclePackedWidth", "tasks": ["EX5.2"], "evidence": "evidence/generic-oracle-packed-width/verification.json"}
 {"at": "2026-11-20T18:24:14+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ExitValidParentOrder", "tasks": ["EX4.2"], "evidence": "evidence/generic-valid-exit-parent-order/verification.json"}
+{"at": "2026-11-20T18:34:24+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestBackPairCodec", "tasks": ["EX2.4"], "evidence": "evidence/ex2-generic-back-codec/verification.json"}

@@ -327,7 +327,8 @@
     "release-core/PaperB/ExitSweepWorkSum.lean": "exit sweeps",
     "release-core/PaperB/ExitCountedBase.lean": "exit sweeps",
     "release-core/PaperB/OraclePackedWidth.lean": "word machine",
-    "release-core/PaperB/ExitValidParentOrder.lean": "exit sweeps"
+    "release-core/PaperB/ExitValidParentOrder.lean": "exit sweeps",
+    "release-core/PaperB/ForestBackPairCodec.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1121,9 +1122,10 @@
         "evidence/forest-input-prep-peak/verification.json",
         "evidence/forest-raw-actual-work/verification.json",
         "evidence/forest-init-order-lean/verification.json",
-        "evidence/forest-actual-rank-fit-min/verification.json"
+        "evidence/forest-actual-rank-fit-min/verification.json",
+        "evidence/ex2-generic-back-codec/verification.json"
       ],
-      "progress": "Prove the actual installed quotient rank callback fits the original vertex-count word domain.",
+      "progress": "Prove a fixed two-word encoding preserves the actual retained reverse-key equality and handles empty slots.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

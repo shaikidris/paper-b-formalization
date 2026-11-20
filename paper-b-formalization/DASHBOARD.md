@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Prove the actual installed quotient rank callback fits the original vertex-count word domain.
+- [EX2.4](TASKS.md#ex24) — Prove a fixed two-word encoding preserves the actual retained reverse-key equality and handles empty slots.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

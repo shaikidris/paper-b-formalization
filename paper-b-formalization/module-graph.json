@@ -321,7 +321,8 @@
         "release-core/PaperB/ExitSweepWorkSum.lean",
         "release-core/PaperB/ExitCountedBase.lean",
         "release-core/PaperB/OraclePackedWidth.lean",
-        "release-core/PaperB/ExitValidParentOrder.lean"
+        "release-core/PaperB/ExitValidParentOrder.lean",
+        "release-core/PaperB/ForestBackPairCodec.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2963,6 +2964,14 @@
         "release-core/PaperB/ExitEmbeddingAncestry.lean"
       ],
       "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestBackPairCodec.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestSlimIndex.lean"
+      ],
+      "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
     }
   ],

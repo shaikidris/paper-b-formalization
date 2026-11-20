@@ -1,0 +1,2 @@
+'PaperB.RetainedProperLoss.encodeBackPair_eq_iff' depends on axioms: [propext]
+'PaperB.RetainedProperLoss.encodeBackPair_fits' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,3 @@
+import PaperB.ForestBackPairCodec
+#print axioms PaperB.RetainedProperLoss.encodeBackPair_eq_iff
+#print axioms PaperB.RetainedProperLoss.encodeBackPair_fits
