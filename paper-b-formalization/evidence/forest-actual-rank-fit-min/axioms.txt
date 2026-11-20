@@ -1,0 +1,1 @@
+'PaperB.DenseQuotientLocalOrder.slotRank_rankRead_lt_wordDomain' depends on axioms: [propext, Quot.sound]

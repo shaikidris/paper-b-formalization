@@ -312,7 +312,8 @@
         "release-core/PaperB/ExitEmbeddingAncestry.lean",
         "release-core/PaperB/RamIntervalLoad.lean",
         "release-core/PaperB/ExitEventPrefixRank.lean",
-        "release-core/PaperB/ExitActualOwnerColumn.lean"
+        "release-core/PaperB/ExitActualOwnerColumn.lean",
+        "release-core/PaperB/DenseLocalRankFit.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2881,6 +2882,14 @@
         "release-core/PaperB/StaticHeadSweep.lean"
       ],
       "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseLocalRankFit.lean",
+      "local_imports": [
+        "release-core/PaperB/RankedDenseLocal.lean"
+      ],
+      "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
     }
   ],

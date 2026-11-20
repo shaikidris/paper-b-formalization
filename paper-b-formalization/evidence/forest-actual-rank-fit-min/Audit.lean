@@ -1,0 +1,2 @@
+import PaperB.DenseLocalRankFit
+#print axioms PaperB.DenseQuotientLocalOrder.slotRank_rankRead_lt_wordDomain

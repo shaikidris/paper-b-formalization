@@ -318,7 +318,8 @@
     "release-core/PaperB/ExitEmbeddingAncestry.lean": "exit sweeps",
     "release-core/PaperB/RamIntervalLoad.lean": "word machine",
     "release-core/PaperB/ExitEventPrefixRank.lean": "exit sweeps",
-    "release-core/PaperB/ExitActualOwnerColumn.lean": "exit sweeps"
+    "release-core/PaperB/ExitActualOwnerColumn.lean": "exit sweeps",
+    "release-core/PaperB/DenseLocalRankFit.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1111,9 +1112,10 @@
         "evidence/forest-extract-head-alloc/verification.json",
         "evidence/forest-input-prep-peak/verification.json",
         "evidence/forest-raw-actual-work/verification.json",
-        "evidence/forest-init-order-lean/verification.json"
+        "evidence/forest-init-order-lean/verification.json",
+        "evidence/forest-actual-rank-fit-min/verification.json"
       ],
-      "progress": "Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.",
+      "progress": "Prove the actual installed quotient rank callback fits the original vertex-count word domain.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

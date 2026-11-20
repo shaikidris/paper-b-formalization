@@ -1,0 +1,11 @@
+{
+  "base_commit": "39260a9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseLocalRankFit.lean",
+  "sha256": "bdbd4585a8523fb5da8a8df598cdef304d572a709813d329f333a93f58c97b6d",
+  "scope": "Prove the actual installed quotient rank callback fits the original vertex-count word domain.",
+  "remaining": "Lower the four actual callback reads and their arithmetic into the charged source construction."
+}

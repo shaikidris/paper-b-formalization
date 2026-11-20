@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.
+- [EX2.4](TASKS.md#ex24) — Prove the actual installed quotient rank callback fits the original vertex-count word domain.
 - [EX4.2](TASKS.md#ex42) — Build the actual direct owner-slot array and prove every read, including the zero-label sentinel.
 - [EX4.3](TASKS.md#ex43) — Reflect each canonical ancestor on an actual embedding path to a physical ancestor and a monotone slot address.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
