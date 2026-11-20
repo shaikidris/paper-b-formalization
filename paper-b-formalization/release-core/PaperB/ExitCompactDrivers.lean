@@ -1,3 +1,4 @@
+import PaperB.ExitArraySchedule
 import PaperB.ExitPhysicalSchedule
 import PaperB.ExitLinearSchedule
 import PaperB.ExitPhysicalKeys
@@ -156,5 +157,143 @@ theorem exitTransferDrivers_provenance
   refine ⟨y, i, a, hit, firstAt, hi, ha.trans hi, ?_⟩
   rw [← hi]
   exact ⟨hp0, hup, hcs, hps, hck, hpk⟩
+
+private theorem transfer_filterMap_addresses_nodup
+    {α β γ : Type _} (read : α → Option β) (address : β → γ)
+    (once : ∀ {a b x y}, read a = some x → read b = some y →
+      address x = address y → a = b)
+    (xs : List α) (hx : xs.Nodup) :
+    ((xs.filterMap read).map address).Nodup := by
+  induction xs with
+  | nil => simp
+  | cons a xs ih =>
+    have hx' := List.nodup_cons.mp hx
+    cases ha : read a with
+    | none =>
+      simpa only [List.filterMap_cons, ha] using ih hx'.2
+    | some x =>
+      simp only [List.filterMap_cons, ha, List.map_cons]
+      refine List.nodup_cons.mpr ⟨?_, ih hx'.2⟩
+      intro hm
+      obtain ⟨y, hy, haddr⟩ := List.mem_map.mp hm
+      obtain ⟨b, hb, hby⟩ := List.mem_filterMap.mp hy
+      have hab : a = b := once ha hby haddr.symm
+      subst b
+      exact hx'.1 hb
+
+private theorem transfer_getElem_inj_of_nodup
+    {α : Type _} {xs : List α} (hn : xs.Nodup) {i j : Nat}
+    (hi : i < xs.length) (hj : j < xs.length)
+    (h : xs[i]'hi = xs[j]'hj) : i = j := by
+  induction xs generalizing i j with
+  | nil => simp at hi
+  | cons x xs ih =>
+    have hn' := List.nodup_cons.mp hn
+    cases i with
+    | zero =>
+      cases j with
+      | zero => rfl
+      | succ j =>
+        have hj' : j < xs.length := Nat.lt_of_succ_lt_succ hj
+        change x = xs[j]'hj' at h
+        have hm : xs[j]'hj' ∈ xs := by
+          apply List.getElem_mem <;> exact hj'
+        exact (hn'.1 (h.symm ▸ hm)).elim
+    | succ i =>
+      have hi' : i < xs.length := Nat.lt_of_succ_lt_succ hi
+      cases j with
+      | zero =>
+        change xs[i]'hi' = x at h
+        have hm : xs[i]'hi' ∈ xs := by
+          apply List.getElem_mem <;> exact hi'
+        exact (hn'.1 (h ▸ hm)).elim
+      | succ j =>
+        have hj' : j < xs.length := Nat.lt_of_succ_lt_succ hj
+        change xs[i]'hi' = xs[j]'hj' at h
+        exact congrArg Nat.succ (ih hn'.2 hi' hj' h)
+
+/-- Each compact row carries the address of its successful physical-slot read. -/
+theorem exitTransferDrivers_address_lt
+    (j : Fin (exitTransferDrivers r).size) :
+    (exitTransferDrivers r)[j.val].address < r.out.tables.next := by
+  have hm : (exitTransferDrivers r)[j.val] ∈ exitTransferDrivers r := by
+    apply Array.getElem_mem <;> exact j.isLt
+  obtain ⟨_, i, _, hi, _⟩ :=
+    (mem_exitTransferDrivers_iff_order r _).mp hm
+  rw [← hi]
+  exact i.isLt
+
+section ScheduledAddresses
+
+variable
+  (increasing : ∀ (a b : Fin H.vertexCount), a.val < b.val →
+    (actualP r).rank ((actualP r).orderAt a) <
+      (actualP r).rank ((actualP r).orderAt b))
+  (covers : ∀ y : Vertex H, ∃ j : Fin H.vertexCount,
+    (actualP r).orderAt j = y)
+  (full : FullRows p rank (orderedRows p data size_data))
+  (chronology : Chronology (orderedConfig p large) g r.out r.log)
+
+include increasing covers full chronology
+
+private theorem transfer_actualSlot_once
+    {a b : Fin H.vertexCount} {i : Fin r.out.tables.next}
+    (ha : actualSlot r ((actualP r).orderAt a) = some i)
+    (hb : actualSlot r ((actualP r).orderAt b) = some i) :
+    a = b := by
+  let S := actualArraySchedule r
+    (increasing := increasing) (covers := covers) full chronology
+  have haS : S.mapSlot.read (S.vertex a) = some i := by
+    change (driverMapSlot r).read ((driverOrder r).get a) = some i
+    simpa only [driverMapSlot_read, driverOrder_get] using ha
+  have hbS : S.mapSlot.read (S.vertex b) = some i := by
+    change (driverMapSlot r).read ((driverOrder r).get b) = some i
+    simpa only [driverMapSlot_read, driverOrder_get] using hb
+  -- The same first/rank comparison as PrefixOcc.slot_once.
+  have fa := (S.slot_exact _ _).1 haS
+  have fb := (S.slot_exact _ _).1 hbS
+  have hab : ¬ a.val < b.val := fun h =>
+    fb.2 ⟨S.vertex a, S.increasing a b h, fa.1⟩
+  have hba : ¬ b.val < a.val := fun h =>
+    fa.2 ⟨S.vertex b, S.increasing b a h, fb.1⟩
+  exact Fin.ext (by omega)
+
+/-- Distinct compact rows have distinct physical addresses. -/
+theorem exitTransferDrivers_addresses_nodup :
+    ((exitTransferDrivers r).toList.map ExitTransferDriver.address).Nodup := by
+  let read : Fin H.vertexCount → Option (ExitTransferDriver H) := fun j =>
+    (transferSlot? r (headLookup r) ((actualP r).orderAt j)).bind
+      (transferAt? r)
+  have once : ∀ {a b x y}, read a = some x → read b = some y →
+      x.address = y.address → a = b := by
+    intro a b x y hx hy haddr
+    obtain ⟨i, hi, hix, _⟩ :=
+      (transferRead?_eq_some_iff r ((actualP r).orderAt a) x).mp hx
+    obtain ⟨k, hk, hky, _⟩ :=
+      (transferRead?_eq_some_iff r ((actualP r).orderAt b) y).mp hy
+    have hik : i = k := Fin.ext (hix.trans (haddr.trans hky.symm))
+    subst k
+    exact transfer_actualSlot_once r increasing covers full chronology hi hk
+  have hsrc : (List.finRange H.vertexCount).Nodup := by
+    apply List.nodup_finRange
+  simpa [exitTransferDrivers, read] using
+    transfer_filterMap_addresses_nodup read ExitTransferDriver.address
+      once (List.finRange H.vertexCount) hsrc
+
+theorem exitTransferDrivers_address_injective :
+    ∀ ⦃i j : Fin (exitTransferDrivers r).size⦄,
+      (exitTransferDrivers r)[i.val].address =
+        (exitTransferDrivers r)[j.val].address → i = j := by
+  intro i j hij
+  let xs := (exitTransferDrivers r).toList.map ExitTransferDriver.address
+  have hn : xs.Nodup :=
+    exitTransferDrivers_addresses_nodup r increasing covers full chronology
+  have hi : i.val < xs.length := by simpa [xs] using i.isLt
+  have hj : j.val < xs.length := by simpa [xs] using j.isLt
+  have he : xs[i.val]'hi = xs[j.val]'hj := by
+    simpa only [xs, List.getElem_map, Array.getElem_toList] using hij
+  exact Fin.ext (transfer_getElem_inj_of_nodup hn hi hj he)
+
+end ScheduledAddresses
 
 end PaperB.Exit.OrderedReaderResult

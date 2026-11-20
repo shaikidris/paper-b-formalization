@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3043,
-      "sha256": "c932d36303df63dd92960108dbee07fef35c8ca92954fa2926d15ced19fbd7e7"
+      "bytes": 3011,
+      "sha256": "c739ad638763536fa6d88b463611247f2bd9be71dd3420199be977e075539c34"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 63827,
-      "sha256": "576b455edabd4159133eb25e594cda35e1bce331be31552bfa178b96d83cb42a"
+      "bytes": 63915,
+      "sha256": "0d62adbfa2097b451f9ef812fce5f587dc0edf3865aec250b2a075a5b1d552c2"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 78520,
-      "sha256": "2dd7c4edb68c77356880ba9c99f5ab0fcff03115956600d813812849fcfedb51"
+      "bytes": 78723,
+      "sha256": "5de23f6d8fbcbd9ab7b7b5653d89987d4c553fb59c1cd5342dc35ab984a21746"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2770,6 +2770,21 @@
       "path": "evidence/exit-direct-depth-inv/verification.json",
       "bytes": 575,
       "sha256": "431aa9657bba8a22518ebf2e27de81126938569dc16a05687e811949564073e7"
+    },
+    {
+      "path": "evidence/exit-driver-address-uniqueness/Audit.lean",
+      "bytes": 194,
+      "sha256": "7242ccb0995a701e23073f6658f35e7278a852824dd87a91b4f5abccd0cebf61"
+    },
+    {
+      "path": "evidence/exit-driver-address-uniqueness/axioms.txt",
+      "bytes": 259,
+      "sha256": "f6951c101049bd544fb2b5806e163a597644aaf98fb207f405d2c1f9843e6358"
+    },
+    {
+      "path": "evidence/exit-driver-address-uniqueness/verification.json",
+      "bytes": 477,
+      "sha256": "c62592b53e922937ce1526f6883c10e5e744bd824a96d2ed0ac8f86ae6f32fbf"
     },
     {
       "path": "evidence/exit-drivers-complete-cover/Audit.lean",
@@ -5663,8 +5678,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 89199,
-      "sha256": "4424fe76ad1096103dc17a269c696894278cb982241e0ac1016b8e05d6da25ce"
+      "bytes": 89253,
+      "sha256": "866898ca597149f17e120d91ab0745d2dec7dbae183376bf6950fbeae9788708"
     },
     {
       "path": "obligations.json",
@@ -5918,8 +5933,8 @@
     },
     {
       "path": "release-core/PaperB/ExitCompactDrivers.lean",
-      "bytes": 6876,
-      "sha256": "1f9b35529e5db07a869dc0c8bbb9ba95020e67de25d0fc4ccf68ee1fea403659"
+      "bytes": 12629,
+      "sha256": "b620a8517351986e8592e5fbc9c3a58cb081865c8a36e033a0fed2355221c9ee"
     },
     {
       "path": "release-core/PaperB/ExitConcreteDepthContract.lean",
@@ -7173,8 +7188,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 83592,
-      "sha256": "c4503726aa216be8bc6337ceee7e99f49677e24c507a47fe9b66faf6771fad0c"
+      "bytes": 83629,
+      "sha256": "fe78137862542903cd4fbf0fdee78157c7d20d8d32e0063cf20363b52e6463a4"
     },
     {
       "path": "test_plan.py",

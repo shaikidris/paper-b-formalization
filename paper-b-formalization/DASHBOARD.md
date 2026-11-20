@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.
-- [EX4.2](TASKS.md#ex42) — Build a direct physical-to-compact driver index with one array write per supplied driver and exact round trips.
+- [EX4.2](TASKS.md#ex42) — Prove that actual transfer drivers have unique and in-range physical addresses.
 - [EX4.3](TASKS.md#ex43) — Raw labelled occurrence mass sums to the supplied arc count in the actual topological schedule, or no more when filtered to active owners.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.

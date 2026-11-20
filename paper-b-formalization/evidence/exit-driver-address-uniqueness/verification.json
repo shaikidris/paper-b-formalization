@@ -1,0 +1,11 @@
+{
+  "base_commit": "ef62039",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitCompactDrivers.lean",
+  "sha256": "b620a8517351986e8592e5fbc9c3a58cb081865c8a36e033a0fed2355221c9ee",
+  "scope": "Prove that actual transfer drivers have unique and in-range physical addresses.",
+  "remaining": "Connect the direct inverse table to the actual compact schedule."
+}

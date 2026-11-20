@@ -2355,7 +2355,8 @@
       "local_imports": [
         "release-core/PaperB/ExitPhysicalSchedule.lean",
         "release-core/PaperB/ExitLinearSchedule.lean",
-        "release-core/PaperB/ExitPhysicalKeys.lean"
+        "release-core/PaperB/ExitPhysicalKeys.lean",
+        "release-core/PaperB/ExitArraySchedule.lean"
       ],
       "owner_role": "exit",
       "admission": "ORACLE_CORE"
