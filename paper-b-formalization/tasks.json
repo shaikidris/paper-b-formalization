@@ -353,7 +353,8 @@
     "release-core/PaperB/ForestConstructionEnvelope.lean": "quotient forest",
     "release-core/PaperB/RamSliceCopy.lean": "quotient forest",
     "release-core/PaperB/RamForestStack.lean": "quotient forest",
-    "release-core/PaperB/RamPushChildRow.lean": "quotient forest"
+    "release-core/PaperB/RamPushChildRow.lean": "quotient forest",
+    "release-core/PaperB/RamForestDispatch.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1183,9 +1184,10 @@
         "evidence/ex2-construction-envelope/verification.json",
         "evidence/ex2-ram-payload-copy/verification.json",
         "evidence/ex2-ram-dfs-stack/verification.json",
-        "evidence/ex2-ram-child-row/verification.json"
+        "evidence/ex2-ram-child-row/verification.json",
+        "evidence/ex2-ram-dispatch/verification.json"
       ],
-      "progress": "The child-row block executes in eight instructions per child plus one exit guard, preserving the child row, all out-of-slice cells and all untouched registers. The encoded stack order agrees with the compact DFS. The DFS dispatcher and whole finish, payload staging and allocating caller, and the earlier construction trace must be linked for Lemma 3.2.",
+      "progress": "API-generated proofs establish the one-instruction command dispatcher, its exact composition with either branch, and the three-instruction decoded exit write. These run in the existing word-RAM semantics and preserve the corresponding frames. Link the complete DFS driver to the compact interval result and encode the staged payload. The allocating caller and earlier construction still need the full trace for Lemma 3.2.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

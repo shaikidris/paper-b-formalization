@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3219,
-      "sha256": "531b378d653f1b02c2f302579631d2af39bee8a84a0c3babb2b1365ca5ee3f81"
+      "bytes": 3287,
+      "sha256": "69bf184b43049036d7d6f2cdcbe7c308b424844cdc729318d4bf36ac846f502a"
     },
     {
       "path": "DISPATCH.md",
@@ -23,8 +23,8 @@
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 4793,
-      "sha256": "b5a45e074199ed7c8790a98de2dab97f57bb14b3f7683acacfa0c1325999dc3a"
+      "bytes": 5036,
+      "sha256": "067e50590332c3a1b8f8b13cff7e944c27a7debf41edbcfdf919c47a36870f74"
     },
     {
       "path": "INTERFACES.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 70885,
-      "sha256": "02b9d823c90718165ef2f8297c81f7343772bc8843e09d3fb32908c754f2ad88"
+      "bytes": 71045,
+      "sha256": "75418edd2c9e4703e95463f2e7fbd342f90f6285098fa3b92ffffdb4206dc50f"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 90898,
-      "sha256": "735a38862d1637476b7519d6f1c9edc263dbcfcefe384a0396ee954a8b133460"
+      "bytes": 91086,
+      "sha256": "0c5ec703059ea18d7adafa6106749fb548f8edb6a85fdf51c53ccbca411e40b8"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2255,6 +2255,21 @@
       "path": "evidence/ex2-ram-dfs-stack/verification.json",
       "bytes": 922,
       "sha256": "98acf99ec5388a239f7c06f64e2613f60ec80b39407704f683a3e0faeff64bc1"
+    },
+    {
+      "path": "evidence/ex2-ram-dispatch/Audit.lean",
+      "bytes": 193,
+      "sha256": "e35dad3a6fc1441886ee5b77cdeb11a52e0358aef5b6735c3278880d02093f57"
+    },
+    {
+      "path": "evidence/ex2-ram-dispatch/axioms.txt",
+      "bytes": 247,
+      "sha256": "8085f7c6e651726d9e8c52a105adf4a880f1775f18f6c28bf3cf0adbefaa793e"
+    },
+    {
+      "path": "evidence/ex2-ram-dispatch/verification.json",
+      "bytes": 1189,
+      "sha256": "1df9f1f6330f1a3b246b67d4c95db341f7263e20849d2785fd5a66b4736952a8"
     },
     {
       "path": "evidence/ex2-ram-payload-copy/Audit.lean",
@@ -6673,8 +6688,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 104225,
-      "sha256": "c7e3d58e842504c7231371886d1486d305ccef19e52c73bd84453d571e4c8d15"
+      "bytes": 104504,
+      "sha256": "3bb4c228f60b1f3c8466062fb0a0ee7e738ed546a3f54692fc76b57241e3b7b6"
     },
     {
       "path": "obligations.json",
@@ -7972,6 +7987,11 @@
       "sha256": "8362651c1c7ce86f1bbf6d425a5da1e8c8788f806394c2e9e423add72d857db0"
     },
     {
+      "path": "release-core/PaperB/RamForestDispatch.lean",
+      "bytes": 8278,
+      "sha256": "5ada98b53d07af4a2a14e4de455ea9d577af8b60590789dfa5d949a59e9dfd4f"
+    },
+    {
       "path": "release-core/PaperB/RamForestStack.lean",
       "bytes": 11909,
       "sha256": "16c8fe0fefa534dc0a1e1d7345f99a727a08c1ed06abb85b103947fe9afed088"
@@ -8303,8 +8323,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 9036,
-      "sha256": "595fc72a2ff9fcf47db02ab24611e6fb4201f63c1d3fd9bd1d27956cd8145481"
+      "bytes": 9064,
+      "sha256": "80c84d7c7a8bc8aea4335373c2aa79cc788fc4fe1d9912218a2c984b86977607"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -8408,8 +8428,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 90916,
-      "sha256": "bddfd6e7391b21d5d334092b77910563244a1efac7593c4217fbbd8a29fd47fb"
+      "bytes": 91108,
+      "sha256": "d8e2f39f1592ccaa402c1552c9b4dd92ba3229fd47857d6220e55edfc91d9712"
     },
     {
       "path": "test_plan.py",

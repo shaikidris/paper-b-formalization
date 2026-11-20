@@ -1,0 +1,28 @@
+{
+  "base_commit": "12940594f5ea1129d826046e751fab16b1c3483e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamForestDispatch.lean",
+  "sha256": "5ada98b53d07af4a2a14e4de455ea9d577af8b60590789dfa5d949a59e9dfd4f",
+  "scope": "API-generated proofs establish the one-instruction command dispatcher, its exact composition with either branch, and the three-instruction decoded exit write. These run in the existing word-RAM semantics and preserve the corresponding frames.",
+  "remaining": "Link the complete DFS driver to the compact interval result and encode the staged payload. The allocating caller and earlier construction still need the full trace for Lemma 3.2.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 2448,
+    "input_tokens_details": {
+      "cached_tokens": 1096,
+      "cache_write_tokens": 1346,
+      "cache_write_tokens_details": {
+        "ttl_30m_tokens": 1346,
+        "ttl_12h_tokens": 0
+      }
+    },
+    "output_tokens": 8603,
+    "output_tokens_details": {
+      "reasoning_tokens": 5731
+    },
+    "total_tokens": 11051
+  }
+}

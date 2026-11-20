@@ -40,9 +40,12 @@ normalization already build on the pinned Lean toolchain.
   component has a budget of 12 instructions per occupied node. The
   [child-row loop](release-core/PaperB/RamPushChildRow.lean) preserves the
   existing depth-first order and takes eight instructions per child plus
-  one exit guard. The next refinement must link the dispatcher, encode the
-  staged columns, and compose the finish with the allocating caller and
-  earlier construction before certifying Lemma 3.2.
+  one exit guard. The [dispatcher and exit block](release-core/PaperB/RamForestDispatch.lean)
+  have exact machine traces. The dispatcher preserves data and registers and
+  charges one instruction. The exit block decodes its node and writes the
+  stop time in three instructions. The next refinement must link the
+  complete DFS driver, encode the staged columns, and compose the finish
+  with the allocating caller and earlier construction.
 - **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
   preserves the initialized depth column through packed writes.
   [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)
