@@ -273,7 +273,8 @@
     "release-core/PaperB/RamFullPairPrefix.lean": "word machine",
     "release-core/PaperB/StaticDfsLiveSpace.lean": "quotient forest",
     "release-core/PaperB/FlatPairDictionary.lean": "packed oracle",
-    "release-core/PaperB/RamCheckedPairLookup.lean": "word machine"
+    "release-core/PaperB/RamCheckedPairLookup.lean": "word machine",
+    "release-core/PaperB/ExitPhysicalDepthColumn.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1332,9 +1333,10 @@
         "evidence/packed-runtime-no-rescan/verification.json",
         "evidence/partial-exit-bank/verification.json",
         "evidence/exit-depth-column-frame/verification.json",
-        "evidence/exit-decoded-live-bridge/verification.json"
+        "evidence/exit-decoded-live-bridge/verification.json",
+        "evidence/exit-depth-init/verification.json"
       ],
-      "progress": "Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array."
+      "progress": "The initializer writes each physical depth word once, preserves all off-column words and proves exact decoded depth in the retained bank."
     },
     {
       "id": "EX4.4",

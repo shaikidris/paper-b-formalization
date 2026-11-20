@@ -267,7 +267,8 @@
         "release-core/PaperB/RamFullPairPrefix.lean",
         "release-core/PaperB/StaticDfsLiveSpace.lean",
         "release-core/PaperB/FlatPairDictionary.lean",
-        "release-core/PaperB/RamCheckedPairLookup.lean"
+        "release-core/PaperB/RamCheckedPairLookup.lean",
+        "release-core/PaperB/ExitPhysicalDepthColumn.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2442,6 +2443,15 @@
         "release-core/PaperB/RamEqualityTailTransfer.lean"
       ],
       "owner_role": "word machine",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPhysicalDepthColumn.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalOneSlot.lean",
+        "release-core/PaperB/ExitWordArrayQuery.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "base_commit": "823adea",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalDepthColumn.lean",
+  "sha256": "4ff1e47b92bcc75c2f78ce080af19482aac2c933d197b096d096e3dd51d5b333",
+  "scope": "The initializer writes each physical depth word once, preserves all off-column words and proves exact decoded depth in the retained bank.",
+  "remaining": "Thread depth agreement into the chronological bank-driven callbacks."
+}

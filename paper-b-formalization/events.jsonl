@@ -332,3 +332,4 @@
 {"at": "2026-11-20T02:51:06+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedOrderedSweep", "tasks": ["EX2.4"], "evidence": "evidence/forest-dictionary-peak/verification.json"}
 {"at": "2026-11-20T02:51:12+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "FlatPairDictionary", "tasks": ["EX5.2"], "evidence": "evidence/sealed-physical-pair-columns/verification.json"}
 {"at": "2026-11-20T02:55:00+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamCheckedPairLookup", "tasks": ["EX5.3"], "evidence": "evidence/ram-complete-boolean-pair-check/verification.json"}
+{"at": "2026-11-20T02:55:03+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalDepthColumn", "tasks": ["EX4.3"], "evidence": "evidence/exit-depth-init/verification.json"}

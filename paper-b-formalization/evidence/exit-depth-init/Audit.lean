@@ -1,0 +1,3 @@
+import PaperB.ExitPhysicalDepthColumn
+#print axioms PaperB.ExitPhysicalDepthColumn.writeDepthColumn_depthAgrees
+#print axioms PaperB.ExitPhysicalDepthColumn.writeDepthColumn_cell_outside

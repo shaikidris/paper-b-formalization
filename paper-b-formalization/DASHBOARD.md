@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
-- [EX4.3](TASKS.md#ex43) — Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array.
+- [EX4.3](TASKS.md#ex43) — The initializer writes each physical depth word once, preserves all off-column words and proves exact decoded depth in the retained bank.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
 - [EX5.1](TASKS.md#ex51) — Exact physical dense quotient arc count equals the row length produced by the static stable sibling emitter.
 - [EX5.2](TASKS.md#ex52) — One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.
