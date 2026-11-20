@@ -254,7 +254,8 @@
         "release-core/PaperB/ForestPhaseBudget.lean",
         "release-core/PaperB/DenseFamilyVertexBudget.lean",
         "release-core/PaperB/OriginalBothTables.lean",
-        "release-core/PaperB/ExitCompactDrivers.lean"
+        "release-core/PaperB/ExitCompactDrivers.lean",
+        "release-core/PaperB/RamSetupAgreement.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2308,6 +2309,15 @@
         "release-core/PaperB/ExitPhysicalKeys.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamSetupAgreement.lean",
+      "local_imports": [
+        "release-core/PaperB/RamConcreteSetup.lean",
+        "release-core/PaperB/RamPairSliceBinding.lean"
+      ],
+      "owner_role": "ram",
       "admission": "ORACLE_CORE"
     }
   ],

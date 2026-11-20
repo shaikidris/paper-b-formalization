@@ -260,7 +260,8 @@
     "release-core/PaperB/ForestPhaseBudget.lean": "forest",
     "release-core/PaperB/DenseFamilyVertexBudget.lean": "ram",
     "release-core/PaperB/OriginalBothTables.lean": "exit",
-    "release-core/PaperB/ExitCompactDrivers.lean": "exit"
+    "release-core/PaperB/ExitCompactDrivers.lean": "exit",
+    "release-core/PaperB/RamSetupAgreement.lean": "ram"
   },
   "milestones": [
     {
@@ -1504,9 +1505,10 @@
         "evidence/ram-all-setup-traces/verification.json",
         "evidence/ram-validation-rom/verification.json",
         "evidence/ram-reset-worker-scratch/verification.json",
-        "evidence/ram-validation-trace/verification.json"
+        "evidence/ram-validation-trace/verification.json",
+        "evidence/fixed-worker-entry/verification.json"
       ],
-      "progress": "The actual validation tail now has a checked fixed-step execution proof and exact output bit."
+      "progress": "Second and third setup states now enter the actual scalar worker with a complete register and memory agreement."
     },
     {
       "id": "EX5.4",

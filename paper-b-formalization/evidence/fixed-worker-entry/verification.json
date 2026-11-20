@@ -1,0 +1,11 @@
+{
+  "base_commit": "1ba92b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamSetupAgreement.lean",
+  "sha256": "2362efa241562017a426fae946644178d5ce5edb0ee52d734cfc3ab30bfa3871",
+  "scope": "Full register, memory and program-counter agreement between actual fixed setup execution states and both subsequent scalar worker entry states.",
+  "remaining": "Concatenate placed worker traces and the verified validation tail."
+}

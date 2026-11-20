@@ -1,0 +1,3 @@
+'PaperB.RamProgram.ThreeCalls.predecessor_init_agreement' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.secondSetupState_init_agreement' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.thirdSetupState_init_agreement' depends on axioms: [propext, Quot.sound]

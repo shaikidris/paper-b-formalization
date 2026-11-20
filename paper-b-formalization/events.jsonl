@@ -313,3 +313,4 @@
 {"at": "2026-11-20T02:21:11+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamEqualityTail", "tasks": ["EX5.3"], "evidence": "evidence/ram-validation-trace/verification.json"}
 {"at": "2026-11-20T02:25:28+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalBothTables", "tasks": ["EX4.4"], "evidence": "evidence/actual-original-tables/verification.json"}
 {"at": "2026-11-20T02:25:33+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitCompactDrivers", "tasks": ["EX4.2"], "evidence": "evidence/packed-transfer-drivers/verification.json"}
+{"at": "2026-11-20T02:25:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamSetupAgreement", "tasks": ["EX5.3"], "evidence": "evidence/fixed-worker-entry/verification.json"}

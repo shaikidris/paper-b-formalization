@@ -1,0 +1,4 @@
+import PaperB.RamSetupAgreement
+#print axioms PaperB.RamProgram.ThreeCalls.predecessor_init_agreement
+#print axioms PaperB.RamProgram.ThreeCalls.secondSetupState_init_agreement
+#print axioms PaperB.RamProgram.ThreeCalls.thirdSetupState_init_agreement
