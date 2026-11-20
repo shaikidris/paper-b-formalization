@@ -255,7 +255,8 @@
     "release-core/PaperB/ForestInputPrepStorage.lean": "forest",
     "release-core/PaperB/ForestSweepStorage.lean": "forest",
     "release-core/PaperB/ExitPhysicalKeys.lean": "exit",
-    "release-core/PaperB/FlatEndpoints.lean": "ram"
+    "release-core/PaperB/FlatEndpoints.lean": "ram",
+    "release-core/PaperB/RamEqualityTail.lean": "ram"
   },
   "milestones": [
     {
@@ -1490,9 +1491,10 @@
         "evidence/three-calls/verification.json",
         "evidence/ram-setup-fetch/verification.json",
         "evidence/ram-concrete-setup/verification.json",
-        "evidence/ram-all-setup-traces/verification.json"
+        "evidence/ram-all-setup-traces/verification.json",
+        "evidence/ram-validation-rom/verification.json"
       ],
-      "progress": "All three setup traces and register contracts now hold on the same concrete instruction vector."
+      "progress": "The fixed equality-validation instructions are linked and their actual fetch equations hold."
     },
     {
       "id": "EX5.4",

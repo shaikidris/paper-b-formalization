@@ -1,0 +1,11 @@
+{
+  "base_commit": "5a08346",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamEqualityTail.lean",
+  "sha256": "d26edbe3a4ca3ab07799bb568f502c6788f4ba153b0d50fab662d2baf2e13eec",
+  "scope": "Concrete read-only equality validation tail in the fixed pair-search ROM, with exact fetch at its tail and preserved fetch at all earlier instructions.",
+  "remaining": "Finish trace proof and link the three scalar call results to the validation input."
+}
