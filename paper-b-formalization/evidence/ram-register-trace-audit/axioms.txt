@@ -1,0 +1,2 @@
+'PaperB.RamProgram.Steps.embedRegisterFrames' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.Steps.embedRegisterFrames_thenHalt' depends on axioms: [propext, Quot.sound]

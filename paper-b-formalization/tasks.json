@@ -187,7 +187,8 @@
     "release-core/PaperB/DenseRealOwnership.lean": "quotient",
     "release-core/PaperB/ExitEarliestLabel.lean": "exit",
     "release-core/PaperB/ForestPackedProbe.lean": "cuts",
-    "release-core/PaperB/ExitRawIncoming.lean": "exit"
+    "release-core/PaperB/ExitRawIncoming.lean": "exit",
+    "release-core/PaperB/RamRegisterTrace.lean": "cost model"
   },
   "milestones": [
     {
@@ -1340,9 +1341,10 @@
         "evidence/ram-fixed-relocation-audit/verification.json",
         "evidence/ram-predecessor-worker-audit/verification.json",
         "evidence/ram-search-correct-audit/verification.json",
-        "evidence/ram-register-frame-audit/verification.json"
+        "evidence/ram-register-frame-audit/verification.json",
+        "evidence/ram-register-trace-audit/verification.json"
       ],
-      "progress": "Lean checks register remapping for every instruction used by the read-only query workers, preserving data and registers outside the chosen bank. The whole fixed query composition remains in progress."
+      "progress": "The complete register-remapped worker trace preserves every executed step, its halt and the external register frame. Linked code and actual sealed index reads remain open."
     },
     {
       "id": "EX5.4",

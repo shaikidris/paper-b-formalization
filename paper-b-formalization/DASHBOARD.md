@@ -25,7 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
 - [EX5.1](TASKS.md#ex51) — Actual original-arc buckets now satisfy the dense translator's endpoint ownership for every occurrence. Direct local graph construction and complete arena charging remain open.
 - [EX5.2](TASKS.md#ex52) — The arena and sealed prefix are reserved solely from declared input counts with the exact oracle contract bit width. Dense offsets, headers, retained words and legal query address ranges are bounded uniformly. Choose constant final block widths and instantiate the same built/queried machine programs in this layout.
-- [EX5.3](TASKS.md#ex53) — Lean checks register remapping for every instruction used by the read-only query workers, preserving data and registers outside the chosen bank. The whole fixed query composition remains in progress.
+- [EX5.3](TASKS.md#ex53) — The complete register-remapped worker trace preserves every executed step, its halt and the external register frame. Linked code and actual sealed index reads remain open.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 

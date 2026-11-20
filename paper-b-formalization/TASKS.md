@@ -471,9 +471,9 @@ Acceptance:
 
 - Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
 
-Lean checks register remapping for every instruction used by the read-only query workers, preserving data and registers outside the chosen bank. The whole fixed query composition remains in progress.
+The complete register-remapped worker trace preserves every executed step, its halt and the external register frame. Linked code and actual sealed index reads remain open.
 
-Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json), [evidence/ram-search-correct-audit/verification.json](evidence/ram-search-correct-audit/verification.json), [evidence/ram-register-frame-audit/verification.json](evidence/ram-register-frame-audit/verification.json).
+Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json), [evidence/ram-search-correct-audit/verification.json](evidence/ram-search-correct-audit/verification.json), [evidence/ram-register-frame-audit/verification.json](evidence/ram-register-frame-audit/verification.json), [evidence/ram-register-trace-audit/verification.json](evidence/ram-register-trace-audit/verification.json).
 
 <a id="ex54"></a>
 

@@ -1,0 +1,11 @@
+{
+  "base_commit": "ee681eb",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamRegisterTrace.lean",
+  "sha256": "adbe10f8fdb5040754b4752d296204dad11f304c7fd03cf3d7524abf2e70840e",
+  "scope": "Whole successful fixed read-only worker traces embed into a common wider register bank with identical steps and halt, preserving everything outside the worker’s register window.",
+  "remaining": "Use fixed relocation and embedded workers for the same retained-array query program."
+}
