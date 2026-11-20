@@ -1,0 +1,3 @@
+'PaperB.ForestLayout.initial_csimp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PairColumns.getElem_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.packWordColumns_visits' depends on axioms: [propext, Classical.choice, Quot.sound]

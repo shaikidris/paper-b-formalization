@@ -32,6 +32,21 @@ def initial (root : Fin N) : State N :=
   ⟨[.enter root], Array.replicate N 0, Array.replicate N 0,
     by simp, by simp, 0, 0, 0⟩
 
+/-- Allocate the two zero-filled banks independently in the compiled DFS. -/
+def initialIndependent (root : Fin N) : State N :=
+  ⟨[.enter root], Array.replicate N 0, Array.ofFn (fun _ : Fin N => 0),
+    by simp, by simp, 0, 0, 0⟩
+
+@[csimp] theorem initial_csimp : @initial = @initialIndependent := by
+  funext n root
+  have same : Array.replicate n (0 : Nat) = Array.ofFn (fun _ : Fin n => 0) := by
+    apply Array.ext
+    · simp
+    · intro i h₁ h₂
+      simp
+  unfold initial initialIndependent
+  congr
+
 /-- Prepend the child commands in order and count them in the same fold. -/
 def pushChildren (kids : List (Fin N)) (tail : List (Command N)) :
     List (Command N) × Nat :=

@@ -1170,9 +1170,10 @@
         "evidence/ex2-compact-finish-space/verification.json",
         "evidence/ex2-compact-peak-receipts/verification.json",
         "evidence/ex2-native-array-audit/verification.json",
-        "evidence/ex2-extraction-reserve-sites/verification.json"
+        "evidence/ex2-extraction-reserve-sites/verification.json",
+        "evidence/ex2-native-copy-removal/verification.json"
       ],
-      "progress": "Count the two extraction capacity reservations in the composed construction-site bound, retaining the 256 multiplier. Native backing-array evidence is recorded in the preceding checkpoint. A complete all-input primitive-work and backing-array ownership proof remains open.",
+      "progress": "Removed the two recurring copy sites found by the native audit. Checked logical equivalence and exact packing visits, and verified zero observed shared-array and growth copies across the ten native fixtures. All-input primitive-work coverage is still open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

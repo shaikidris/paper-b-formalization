@@ -1,0 +1,9 @@
+{
+  "base_commit": "d18aef2",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestLayout.lean",
+  "sha256": "55fb9b12b048ab8a6a6af89fc8903ef2aee73393f4d04339354651977c8bd908",
+  "scope": "Allocate the two interval arrays independently and write the first back-key output into its fresh destination. Replay actual packing passes in Lean and check zero shared-array and growth copies at instrumented sites on the ten native fixtures.",
+  "remaining": "The finite native checks support the ownership audit. Complete the all-input primitive cost and live allocation argument on the actual construction path.",
+  "source_provenance": "Local implementation integration, Lean replay and native verification. No new Generic generation."
+}

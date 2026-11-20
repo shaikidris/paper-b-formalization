@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Count the two extraction capacity reservations in the composed construction-site bound, retaining the 256 multiplier. Native backing-array evidence is recorded in the preceding checkpoint. A complete all-input primitive-work and backing-array ownership proof remains open.
+- [EX2.4](TASKS.md#ex24) — Removed the two recurring copy sites found by the native audit. Checked logical equivalence and exact packing visits, and verified zero observed shared-array and growth copies across the ten native fixtures. All-input primitive-work coverage is still open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

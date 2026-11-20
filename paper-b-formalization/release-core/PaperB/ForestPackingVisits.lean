@@ -47,12 +47,14 @@ theorem ofFn_pass {n : Nat} (f : Fin n → α) :
   exact ⟨Array.ofFnM (fun i => tick (f i)), fun c => by
     rw [ofFnM_tick, Array.size_ofFn]⟩
 
-theorem map_passes {γ : Type} (xs : Array α) (f : α → β) (g : α → γ) :
+theorem generated_map_passes {γ : Type} (xs : Array α)
+    (f : Fin xs.size → β) (g : α → γ) :
     ∃ first : StateM Nat (Array β), ∃ second : StateM Nat (Array γ), ∀ c,
-      first.run c = (xs.map f, c + (xs.map f).size) ∧
+      first.run c = (Array.ofFn f, c + (Array.ofFn f).size) ∧
       second.run c = (xs.map g, c + (xs.map g).size) := by
-  exact ⟨xs.mapM (fun x => tick (f x)), xs.mapM (fun x => tick (g x)), fun c => by
-    constructor <;> rw [mapM_tick, Array.size_map]⟩
+  obtain ⟨first, exactFirst⟩ := ofFn_pass f
+  exact ⟨first, xs.mapM (fun x => tick (g x)), fun c =>
+    ⟨exactFirst c, by rw [mapM_tick, Array.size_map]⟩⟩
 
 end PackingVisits
 
@@ -75,7 +77,7 @@ private theorem back_passes (s : Columns H) (h : H.vertexCount < 2 ^ bits) :
       second.run c = ((packBackWords s h).second, c + (packBackWords s h).second.size) := by
   unfold packBackWords PairColumns.left PairColumns.right
   dsimp only
-  exact map_passes _ _ _
+  exact generated_map_passes _ _ _
 
 private theorem scalar_pass (xs : Array Nat) (lim : Nat)
     (fits : ∀ i : Fin xs.size, xs[i.val]'(i.isLt) < lim) :

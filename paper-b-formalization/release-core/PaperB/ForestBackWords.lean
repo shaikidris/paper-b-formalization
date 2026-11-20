@@ -9,15 +9,17 @@ universe u v w
 
 variable {α : Type u} {β : Type v} {γ : Type w}
 
+/-- Write the first output directly into a fresh array. The second pass
+can then consume the original backing array. -/
 def left (a : Array α) (f : α → β × γ) : Array β :=
-  a.map (fun x => (f x).1)
+  Array.ofFn fun i : Fin a.size => (f (a[i.val]'i.isLt)).1
 
 def right (a : Array α) (f : α → β × γ) : Array γ :=
   a.map (fun x => (f x).2)
 
 theorem size_left (a : Array α) (f : α → β × γ) :
     (left a f).size = a.size := by
-  simp only [left, Array.size_map]
+  simp only [left, Array.size_ofFn]
 
 theorem size_right (a : Array α) (f : α → β × γ) :
     (right a f).size = a.size := by
@@ -26,7 +28,7 @@ theorem size_right (a : Array α) (f : α → β × γ) :
 theorem getElem_left (a : Array α) (f : α → β × γ) (i : Fin a.size) :
     (left a f)[i.val]'(by simpa only [size_left] using i.isLt) =
       (f (a[i.val]'(i.isLt))).1 := by
-  simp only [left, Array.getElem_map]
+  simp only [left, Array.getElem_ofFn]
 
 theorem getElem_right (a : Array α) (f : α → β × γ) (i : Fin a.size) :
     (right a f)[i.val]'(by simpa only [size_right] using i.isLt) =
