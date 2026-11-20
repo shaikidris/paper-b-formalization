@@ -1,0 +1,4 @@
+'EX42.ArraySweep.Packed.directEvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX42.ArraySweep.Packed.directEvent_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX42.ArraySweep.Packed.directFoldTo_succ_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX42.ArraySweep.Packed.directRunPrefix' depends on axioms: [propext, Classical.choice, Quot.sound]

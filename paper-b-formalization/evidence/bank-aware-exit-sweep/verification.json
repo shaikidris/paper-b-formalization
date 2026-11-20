@@ -1,0 +1,11 @@
+{
+  "base_commit": "4dde95a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitInterleavedPacked.lean",
+  "sha256": "c5eadb19fe3cdd08a80acbda9da1b4fd70fe0732abc00319b5981bb1306d5ce6",
+  "scope": "Physical exit callbacks execute directly on the pre-install packed bank, and the base sees the staged bank without copying earlier bases. One measured stage and one base-cell write are explicit.",
+  "remaining": "Instantiate direct refinements with actual local forests and the fresh fused endpoint and raw-base readers."
+}

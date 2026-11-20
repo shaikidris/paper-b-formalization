@@ -1312,9 +1312,10 @@
         "evidence/exit-job-pass/verification.json",
         "evidence/exit-root-seed/verification.json",
         "evidence/exit-prior-base/verification.json",
-        "evidence/packed-route-exact/verification.json"
+        "evidence/packed-route-exact/verification.json",
+        "evidence/bank-aware-exit-sweep/verification.json"
       ],
-      "progress": "The real fused exit reader now refines a logical route from local stored edge agreements."
+      "progress": "The actual packed interleaved induction now supports bank-aware fused callbacks without a reference map reader."
     },
     {
       "id": "EX4.4",
