@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — All quotient sizes now use a single exact executable proper-loss reader, with at most nine retained array elements per vertex and verified per-head packed read cost. Full build operation and peak workspace bounds remain open.
+- [EX2.4](TASKS.md#ex24) — Packed reads are now summed over the successful prepared trace, with every executed midpoint and predecessor test charged from its grounded prefix. The final ordered-run instantiation and non-read resources remain open.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.

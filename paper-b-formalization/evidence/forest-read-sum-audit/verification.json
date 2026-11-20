@@ -1,0 +1,11 @@
+{
+  "base_commit": "3158532",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedReadSum.lean",
+  "sha256": "5cf8ff14aa63150a36d7aafebcd2195a9c38bfa0e604e9c3e0d5835fe1594ba8",
+  "scope": "Lean checks the exact packed read-count sum on a successful prepared sweep trace, using real branch projections and physically occupied predecessor labels. The bound includes every active head, midpoint and repeated predecessor test.",
+  "remaining": "Instantiate the grounded local trace with the concrete ordered run and combine with the dictionary, install and peak-memory resource bounds."
+}
