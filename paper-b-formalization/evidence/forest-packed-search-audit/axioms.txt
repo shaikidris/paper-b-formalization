@@ -1,0 +1,4 @@
+'PaperB.LabelledQuotient.ForestPackedSearch.packedActive_project' depends on axioms: [propext, Quot.sound]
+'PaperB.LabelledQuotient.ForestPackedSearch.packedActive_charge_of_prefix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,11 @@
+{
+  "base_commit": "b5e9986",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedSearch.lean",
+  "sha256": "d072e554b63441a2a361794da9c4d7117ad3e0c26edbda6e4ad28aa6718b99bb",
+  "scope": "The actual packed active kernel has exact probe and final selector read counts. Its charge is bounded by 22L times comparisons plus tests plus one, with grounded prefix and exponent hypotheses.",
+  "remaining": "Sum the exact head charges across the actual trace. Include build-time dictionary, install, DFS arithmetic and peak scratch."
+}

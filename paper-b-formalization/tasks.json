@@ -192,7 +192,8 @@
     "release-core/PaperB/ExitRealFirstLabel.lean": "exit",
     "release-core/PaperB/DenseRuntimeGraph.lean": "quotient",
     "release-core/PaperB/DenseSiblingKeyIso.lean": "quotient",
-    "release-core/PaperB/ExitPhysicalSchedule.lean": "exit"
+    "release-core/PaperB/ExitPhysicalSchedule.lean": "exit",
+    "release-core/PaperB/ForestPackedSearch.lean": "cuts"
   },
   "milestones": [
     {
@@ -942,9 +943,10 @@
         "evidence/forest-ordered-reader-audit/verification.json",
         "evidence/forest-real-counts-audit/verification.json",
         "evidence/forest-slim-index-audit/verification.json",
-        "evidence/forest-packed-probe-audit/verification.json"
+        "evidence/forest-packed-probe-audit/verification.json",
+        "evidence/forest-packed-search-audit/verification.json"
       ],
-      "progress": "The actual packed read costs per probe are now bounded using grounded labels and tested predecessors. Compose across the depth search and meter the remaining work and peak space.",
+      "progress": "The metered depth search agrees with the executable search and bounds actual packed reads, including the final unguarded nodeAt call. Summation across heads and remaining build/peak accounting are open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
