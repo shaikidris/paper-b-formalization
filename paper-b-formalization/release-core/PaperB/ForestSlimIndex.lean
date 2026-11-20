@@ -212,3 +212,108 @@ theorem arraySize_le (r : OrderedReaderResult p data size_data rank large) :
 
 end RetainedProperLoss
 end PaperB
+
+-- Append this section to ForestSlimIndex.lean, where the private `encode`
+-- used by Columns.contains is in scope.
+
+namespace PaperB
+
+open _root_.EX24 _root_.EX24.PreStep _root_.EX24.PreparedSweep
+open PaperB.LabelledQuotient PaperB.ForestHead PaperB.EX24.FinalDFS
+
+namespace RetainedProperLoss
+
+namespace Columns
+
+variable {H : LabelledQuotient}
+
+/-- Use the actual lookup result and probe count. A hit reads `slots`;
+    only a nonzero address proceeds to the `back` read. -/
+def checkedCounted [DecidableEq (CutPair H)]
+    (s : Columns H) (key : EncodedKey) (q : CutPair H) : Option Nat × Nat :=
+  let r := PairLookup.lookup s.dict key
+  match r.1 with
+  | none => (none, r.2)
+  | some i =>
+      let a := (s.slots[i]?).getD 0
+      if a ≠ 0 then
+        (if s.back[a]? = some (some q) then some a else none, r.2 + 2)
+      else
+        (none, r.2 + 1)
+
+theorem checkedCounted_value [DecidableEq (CutPair H)]
+    (s : Columns H) (key : EncodedKey) (q : CutPair H) :
+    (s.checkedCounted key q).1 = s.checked key q := by
+  cases h : (PairLookup.lookup s.dict key).1 with
+  | none => simp [checkedCounted, checked, h]
+  | some i =>
+      by_cases ha : (s.slots[i]?).getD 0 ≠ 0 <;>
+        simp [checkedCounted, checked, h, ha]
+
+theorem checkedCounted_count_le [DecidableEq (CutPair H)]
+    (s : Columns H) (key : EncodedKey) (q : CutPair H) :
+    (s.checkedCounted key q).2 ≤ (PairLookup.lookup s.dict key).2 + 2 := by
+  cases h : (PairLookup.lookup s.dict key).1 with
+  | none => simp [checkedCounted, h]
+  | some i =>
+      by_cases ha : (s.slots[i]?).getD 0 ≠ 0 <;>
+        simp [checkedCounted, h, ha] <;> omega
+
+/-- Four array accesses in the charged interval test: `labels[i]`,
+    `entry[label]`, `entry[a]`, and `stop[a]`. Bind both endpoints before
+    combining the comparison results. -/
+def knownCounted (s : Columns H) (a i : Nat) : Bool × Nat :=
+  let label := s.labelAt i
+  let k := (s.entry[label]?).getD 0
+  let lo := (s.entry[a]?).getD 0
+  let hi := (s.stop[a]?).getD 0
+  (decide (lo ≤ k) && decide (k < hi), 4)
+
+theorem knownCounted_value (s : Columns H) (a i : Nat) :
+    (s.knownCounted a i).1 = s.known a i := rfl
+
+theorem knownCounted_count (s : Columns H) (a i : Nat) :
+    (s.knownCounted a i).2 = 4 := rfl
+
+def containsCounted [DecidableEq (CutPair H)]
+    (s : Columns H) (q : CutPair H) (i : Nat) : Bool × Nat :=
+  let r := s.checkedCounted (encode q) q
+  match r.1 with
+  | none => (false, r.2)
+  | some a =>
+      let t := s.knownCounted a i
+      (t.1, r.2 + t.2)
+
+theorem containsCounted_value [DecidableEq (CutPair H)]
+    (s : Columns H) (q : CutPair H) (i : Nat) :
+    (s.containsCounted q i).1 = s.contains q i := by
+  simp only [containsCounted, contains, checkedCounted_value]
+  cases s.checked (encode q) q <;> rfl
+
+theorem containsCounted_count_le [DecidableEq (CutPair H)]
+    (s : Columns H) (q : CutPair H) (i : Nat) :
+    (s.containsCounted q i).2 ≤ Nat.log2 (s.dict.size + 1) + 8 := by
+  have hc := checkedCounted_count_le s (encode q) q
+  have hl := PairLookup.lookup_count_le s.dict (encode q)
+  have hi :
+      (s.containsCounted q i).2 ≤ (s.checkedCounted (encode q) q).2 + 4 := by
+    cases h : (s.checkedCounted (encode q) q).1 with
+    | none => simp [containsCounted, h]
+    | some a => simp [containsCounted, h, knownCounted_count]
+  omega
+
+end Columns
+
+/-- The dictionary bound is for the actual retained dictionary and encoder. -/
+theorem ofOrderedReader_dict_size_le
+    {H : LabelledQuotient} {p : ForestDictionary.Rows H}
+    {data : Array (Vertex H)} {size_data : data.size = H.vertexCount}
+    {rank : Vertex H → Nat} {large : 3 ≤ H.vertexCount}
+    [DecidableEq (CutPair H)]
+    (r : OrderedReaderResult p data size_data rank large) :
+    (ofOrderedReader r).dict.size ≤ H.vertexCount := by
+  change (ForestDictionary.dictionary p (encode (H := H))).size ≤ H.vertexCount
+  exact (ForestDictionary.dictionary_spec p (encode (H := H))).2.2
+
+end RetainedProperLoss
+end PaperB

@@ -1067,9 +1067,10 @@
         "evidence/forest-static-dfs-live-space/verification.json",
         "evidence/forest-dictionary-peak/verification.json",
         "evidence/forest-unified-certificate/verification.json",
-        "evidence/forest-full-finish-accounting/verification.json"
+        "evidence/forest-full-finish-accounting/verification.json",
+        "evidence/forest-query-retained-count/verification.json"
       ],
-      "progress": "Exact grouped row materialization, pending DFS command prefixes and inverse arrays and lists now share one linear source-level finish resource statement.",
+      "progress": "Count the exact lookup, back-key and known-ancestry reads of the retained implementation, retaining equality with the actual query.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

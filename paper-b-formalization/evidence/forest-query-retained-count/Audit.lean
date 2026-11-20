@@ -1,0 +1,4 @@
+import PaperB.ForestSlimIndex
+#print axioms PaperB.RetainedProperLoss.Columns.containsCounted_value
+#print axioms PaperB.RetainedProperLoss.Columns.knownCounted_count
+#print axioms PaperB.RetainedProperLoss.ofOrderedReader_dict_size_le

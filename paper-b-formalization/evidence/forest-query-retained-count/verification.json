@@ -1,0 +1,11 @@
+{
+  "base_commit": "08d9371",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestSlimIndex.lean",
+  "sha256": "2f803436b679a8e3fe73d72393e53b247c820da8304b0d16490269b6f524d7d5",
+  "scope": "Count the exact lookup, back-key and known-ancestry reads of the retained implementation, retaining equality with the actual query.",
+  "remaining": "Finish the top-level logarithmic contract and all grouped loops in one build certificate."
+}

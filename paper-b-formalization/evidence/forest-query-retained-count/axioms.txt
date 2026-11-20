@@ -1,0 +1,3 @@
+'PaperB.RetainedProperLoss.Columns.containsCounted_value' depends on axioms: [propext]
+'PaperB.RetainedProperLoss.Columns.knownCounted_count' does not depend on any axioms
+'PaperB.RetainedProperLoss.ofOrderedReader_dict_size_le' depends on axioms: [propext, Classical.choice, Quot.sound]
