@@ -25,7 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — Every original-tree callback law for both-reachable routing now holds on the actual installed runtime.
 - [EX5.1](TASKS.md#ex51) — Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound.
 - [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.
-- [EX5.3](TASKS.md#ex53) — Second and third setup states now enter the actual scalar worker with a complete register and memory agreement.
+- [EX5.3](TASKS.md#ex53) — First fixed setup now gives exact worker agreement for the predecessor key and the correct zero-case frame.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 

@@ -1,0 +1,11 @@
+{
+  "base_commit": "4dde95a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamFirstSetupAgreement.lean",
+  "sha256": "8362651c1c7ce86f1bbf6d425a5da1e8c8788f806394c2e9e423add72d857db0",
+  "scope": "Full fixed first caller trace and scratch/descriptor preservation, with exact zero skip or nonzero entry agreement for x−1.",
+  "remaining": "Combine first call, both later traces, and the final fixed validation ROM."
+}

@@ -1,0 +1,4 @@
+import PaperB.RamFirstSetupAgreement
+#print axioms PaperB.RamProgram.ThreeCalls.run_first_setup_zero_entry
+#print axioms PaperB.RamProgram.ThreeCalls.run_first_setup_nonzero_entry
+#print axioms PaperB.RamProgram.ThreeCalls.firstSetupState_caller_regs

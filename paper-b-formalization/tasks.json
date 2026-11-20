@@ -261,7 +261,8 @@
     "release-core/PaperB/DenseFamilyVertexBudget.lean": "ram",
     "release-core/PaperB/OriginalBothTables.lean": "exit",
     "release-core/PaperB/ExitCompactDrivers.lean": "exit",
-    "release-core/PaperB/RamSetupAgreement.lean": "ram"
+    "release-core/PaperB/RamSetupAgreement.lean": "ram",
+    "release-core/PaperB/RamFirstSetupAgreement.lean": "ram"
   },
   "milestones": [
     {
@@ -1508,9 +1509,10 @@
         "evidence/ram-validation-rom/verification.json",
         "evidence/ram-reset-worker-scratch/verification.json",
         "evidence/ram-validation-trace/verification.json",
-        "evidence/fixed-worker-entry/verification.json"
+        "evidence/fixed-worker-entry/verification.json",
+        "evidence/first-worker-agreement/verification.json"
       ],
-      "progress": "Second and third setup states now enter the actual scalar worker with a complete register and memory agreement."
+      "progress": "First fixed setup now gives exact worker agreement for the predecessor key and the correct zero-case frame."
     },
     {
       "id": "EX5.4",

@@ -316,3 +316,4 @@
 {"at": "2026-11-20T02:25:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamSetupAgreement", "tasks": ["EX5.3"], "evidence": "evidence/fixed-worker-entry/verification.json"}
 {"at": "2026-11-20T02:26:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ArcBuckets", "tasks": ["EX2.4"], "evidence": "evidence/grouping-live-space/verification.json"}
 {"at": "2026-11-20T02:32:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitInterleavedPacked", "tasks": ["EX4.3"], "evidence": "evidence/bank-aware-exit-sweep/verification.json"}
+{"at": "2026-11-20T02:32:43+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamFirstSetupAgreement", "tasks": ["EX5.3"], "evidence": "evidence/first-worker-agreement/verification.json"}
