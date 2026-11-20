@@ -1,0 +1,11 @@
+{
+  "base_commit": "5ed61e5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestFixedBankSortExact.lean",
+  "sha256": "b3c5a3f6c43de73b9881d777718850ae130f3dd528013965692630d3ce92732c",
+  "scope": "The actual fixed-bank recursion emits a strictly increasing prefix with exactly the support of the original bank-zero contents, for every span and capacity. List views are used only in proofs.",
+  "remaining": "Replace the current ordered forest dictionary constructor with this verified packed sorter, discharge sorting work and physical allocator bounds, and combine them with the actual counted ordered sweep."
+}

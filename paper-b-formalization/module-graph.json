@@ -354,7 +354,8 @@
         "release-core/PaperB/ForestOrderedReadBound.lean",
         "release-core/PaperB/ForestArrayMerge.lean",
         "release-core/PaperB/ForestArrayMergeExact.lean",
-        "release-core/PaperB/ForestFixedBankSort.lean"
+        "release-core/PaperB/ForestFixedBankSort.lean",
+        "release-core/PaperB/ForestFixedBankSortExact.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1849,6 +1850,15 @@
         "release-core/PaperB/ExitStoredWrite.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestFixedBankSortExact.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestFixedBankSort.lean",
+        "release-core/PaperB/ForestArrayMergeExact.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

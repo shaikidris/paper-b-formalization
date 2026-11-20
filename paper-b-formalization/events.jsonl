@@ -253,3 +253,4 @@
 {"at": "2026-11-20T00:55:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFixedBankSort", "tasks": ["EX2.4"], "evidence": "evidence/sort-fork-recurrence/verification.json"}
 {"at": "2026-11-20T00:55:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ActualThirdForestGeometry", "tasks": ["EX4.4"], "evidence": "evidence/third-geometry/verification.json"}
 {"at": "2026-11-20T00:58:12+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalOneSlot", "tasks": ["EX4.3"], "evidence": "evidence/exit-physical-install/verification.json"}
+{"at": "2026-11-20T00:59:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestFixedBankSortExact", "tasks": ["EX2.4"], "evidence": "evidence/fixed-bank-sort-exact/verification.json"}
