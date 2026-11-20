@@ -200,7 +200,8 @@
     "release-core/PaperB/ExitArraySchedule.lean": "exit",
     "release-core/PaperB/DensePackingCode.lean": "quotient",
     "release-core/PaperB/ForestPackedReadSum.lean": "cuts",
-    "release-core/PaperB/ForestInstallCapacity.lean": "cuts"
+    "release-core/PaperB/ForestInstallCapacity.lean": "cuts",
+    "release-core/PaperB/ExitPackedFused.lean": "exit"
   },
   "milestones": [
     {
@@ -1210,9 +1211,10 @@
       "evidence": [
         "evidence/ex43-checked-map-fold/verification.json",
         "evidence/ex43-actual-skew-route/verification.json",
-        "evidence/fused-jump-audit/verification.json"
+        "evidence/fused-jump-audit/verification.json",
+        "evidence/exit-packed-fused-audit/verification.json"
       ],
-      "progress": "The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress."
+      "progress": "The compressed exit walk now has checked physical packed reads on each occupied hop. Correctness of the installed map table and final sealing remains open."
     },
     {
       "id": "EX4.4",

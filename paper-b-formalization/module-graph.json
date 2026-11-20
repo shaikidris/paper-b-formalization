@@ -210,7 +210,8 @@
         "release-core/PaperB/ExitPhysicalSchedule.lean",
         "release-core/PaperB/RamLexPairCuts.lean",
         "release-core/PaperB/ExitArraySchedule.lean",
-        "release-core/PaperB/DensePackingCode.lean"
+        "release-core/PaperB/DensePackingCode.lean",
+        "release-core/PaperB/ExitPackedFused.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1713,6 +1714,14 @@
         "release-core/PaperB/ForestMeasuredWork.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPackedFused.lean",
+      "local_imports": [
+        "release-core/PaperB/FusedJumpMaps.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

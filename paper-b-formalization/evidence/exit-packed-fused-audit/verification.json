@@ -1,0 +1,11 @@
+{
+  "base_commit": "dbfec99",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPackedFused.lean",
+  "sha256": "cd8384b9e30387686637055e14499186257c84346e08374408493b9b7083abf2",
+  "scope": "The real packed depth and map readers refine the fixed-register fused exit walk on occupied nodes. The measurable read charge uses a constant number of records per jump and does not build a route list.",
+  "remaining": "Connect these occupied record getters to the actual installed exit-map array and all-case query."
+}

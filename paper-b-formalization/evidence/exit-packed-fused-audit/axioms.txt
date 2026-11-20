@@ -1,0 +1,4 @@
+'PaperB.ExitMap.JumpMapRoute.PackedExit.foldPacked_eq_foldFused' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.ExitMap.JumpMapRoute.PackedExit.foldPacked_readCharge' depends on axioms: [propext, Quot.sound]
