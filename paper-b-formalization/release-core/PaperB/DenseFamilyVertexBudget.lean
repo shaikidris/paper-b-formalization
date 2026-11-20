@@ -1,3 +1,4 @@
+import PaperB.PhysicalArcRowMass
 import PaperB.FamilyForestIndex
 
 namespace PaperB.RankedDenseLocal
@@ -58,7 +59,77 @@ theorem totalVertices_ofPrepared_le
   rw [totalVertices_ofPrepared_exact q rows childOK p progress injective spec hg]
   omega
 
-/-- The retained index columns use at most nine words per stored local vertex. -/
+private theorem prepared_nodup_ofFn {α : Type _} {n : Nat}
+    (f : Fin n → α) (hf : Function.Injective f) :
+    (List.ofFn f).Nodup := by
+  induction n with
+  | zero =>
+      simp
+  | succ n ih =>
+      rw [List.ofFn_succ, List.nodup_cons]
+      constructor
+      · intro hm
+        obtain ⟨i, hi, he⟩ := List.mem_iff_getElem.mp hm
+        simp only [List.getElem_ofFn, Function.comp_apply] at he
+        have hv := congrArg Fin.val (hf he)
+        change i + 1 = 0 at hv
+        omega
+      · apply ih
+        intro i j hij
+        apply Fin.ext
+        have hv := congrArg Fin.val (hf hij)
+        change i.val + 1 = j.val + 1 at hv
+        omega
+
+theorem get_ofPrepared_arcCount (u : Fin q.count) :
+    ((ofPrepared q rows childOK p progress injective spec).get u).graph.arcCount =
+      (((StaticOriginalSiblingEmitter.emitAll q).1).row
+        (q.ids.originals.read u)).length := by
+  have hz : 0 < rows.length u := by
+    rw [rows.length_exact]
+    omega
+  rw [get_ofPrepared]
+  exact DenseOriginalQuotient.arcCount_build_eq_emitAll_row_length
+    progress injective q (StaticOriginalSiblingEmitter.emitAll q).1 rfl
+    u (q.ids.original_reachable u) (q.ids.slot_of_original u)
+    rows childOK hz
+
+theorem totalArcs_ofPrepared_le :
+    (List.ofFn (fun u : Fin q.count =>
+      ((ofPrepared q rows childOK p progress injective spec).get u).graph.arcCount
+    )).sum ≤ g.arcCount := by
+  let owners := List.ofFn (fun u : Fin q.count => q.ids.originals.read u)
+  have hn : owners.Nodup := by
+    apply prepared_nodup_ofFn
+    intro i j hij
+    have h := congrArg (fun v => q.ids.find v) hij
+    rw [q.ids.slot_of_original i, q.ids.slot_of_original j] at h
+    exact Option.some.inj h
+  have hm :
+      (owners.map (fun d =>
+        (((StaticOriginalSiblingEmitter.emitAll q).1).row d).length)).sum ≤
+        g.arcCount := by
+    have physical (T : Digraph.GlobalSibling.Getters g (2 * q.count)) :
+        (owners.map (fun d =>
+          (((Digraph.GlobalSibling.emitAll T).1).row d).length)).sum ≤
+          g.arcCount :=
+      (Digraph.GlobalSibling.emitAll_sum_nodup_row_lengths T owners hn).1
+    unfold StaticOriginalSiblingEmitter.emitAll
+    apply physical
+  simp only [get_ofPrepared_arcCount]
+  simpa only [owners, List.map_ofFn, Function.comp_def] using hm
+
+theorem totalVertices_add_totalArcs_ofPrepared_le
+    (hg : HasCanonicalBuckets rows q.input.root q.input.parent.read) :
+    (ofPrepared q rows childOK p progress injective spec).totalVertices +
+      (List.ofFn (fun u : Fin q.count =>
+        ((ofPrepared q rows childOK p progress injective spec).get u).graph.arcCount
+      )).sum ≤ 2 * q.count + g.arcCount :=
+  Nat.add_le_add
+    (totalVertices_ofPrepared_le q rows childOK p progress injective spec hg)
+    (totalArcs_ofPrepared_le q rows childOK p progress injective spec)
+
+/-- The retained index has at most nine array entries per stored local vertex. -/
 theorem ForestIndex.arraySize_build_ofPrepared_le
     (hg : HasCanonicalBuckets rows q.input.root q.input.parent.read) :
     (ForestIndex.build (ofPrepared q rows childOK p progress injective spec)).arraySize ≤

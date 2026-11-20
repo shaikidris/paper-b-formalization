@@ -1,0 +1,11 @@
+{
+  "base_commit": "543baa5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseFamilyVertexBudget.lean",
+  "sha256": "68e120dce12d840b82784c39882f28a4f8e5e62d9303ee220b4d7c9f4bbbf454",
+  "scope": "The actually installed quotient family has total number of vertices plus arcs at most twice the reachable vertex count plus all original arc occurrences.",
+  "remaining": "Use that bound for the full executable preprocessing and peak charges."
+}

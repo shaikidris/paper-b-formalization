@@ -343,3 +343,4 @@
 {"at": "2026-11-20T03:03:01+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "SealedQueryRegisters", "tasks": ["EX5.3"], "evidence": "evidence/sealed-query-work-registers/verification.json"}
 {"at": "2026-11-20T03:03:04+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamChildRow", "tasks": ["EX5.3"], "evidence": "evidence/ram-child-slice/verification.json"}
 {"at": "2026-11-20T03:03:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPairHitRow", "tasks": ["EX5.3"], "evidence": "evidence/ram-pair-hit-row-all-way/verification.json"}
+{"at": "2026-11-20T03:06:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseFamilyVertexBudget", "tasks": ["EX5.1"], "evidence": "evidence/dense-installed-arc-budget/verification.json"}

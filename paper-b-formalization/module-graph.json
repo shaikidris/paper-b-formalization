@@ -2309,7 +2309,8 @@
     {
       "path": "release-core/PaperB/DenseFamilyVertexBudget.lean",
       "local_imports": [
-        "release-core/PaperB/FamilyForestIndex.lean"
+        "release-core/PaperB/FamilyForestIndex.lean",
+        "release-core/PaperB/PhysicalArcRowMass.lean"
       ],
       "owner_role": "ram",
       "admission": "ORACLE_CORE"

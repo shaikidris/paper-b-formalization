@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — A fresh packed slot preserves the exact old parent and jump maps and extends the decoded occupied bank with the certified new path.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
-- [EX5.1](TASKS.md#ex51) — The sum of original emitted row lengths is exactly retained multiarc mass; any distinct original row subset respects the same original arc cap.
+- [EX5.1](TASKS.md#ex51) — The actually installed quotient family has total number of vertices plus arcs at most twice the reachable vertex count plus all original arc occurrences.
 - [EX5.2](TASKS.md#ex52) — One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.
 - [EX5.3](TASKS.md#ex53) — One fixed program run halts with the true dictionary answer and exact matching row in register 3 when the key exists.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.

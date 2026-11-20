@@ -1462,9 +1462,10 @@
         "evidence/dense-aggregate-membership/verification.json",
         "evidence/group-raw-mass/verification.json",
         "evidence/dense-physical-arc-counts/verification.json",
-        "evidence/dense-family-arc-mass/verification.json"
+        "evidence/dense-family-arc-mass/verification.json",
+        "evidence/dense-installed-arc-budget/verification.json"
       ],
-      "progress": "The sum of original emitted row lengths is exactly retained multiarc mass; any distinct original row subset respects the same original arc cap."
+      "progress": "The actually installed quotient family has total number of vertices plus arcs at most twice the reachable vertex count plus all original arc occurrences."
     },
     {
       "id": "EX5.2",

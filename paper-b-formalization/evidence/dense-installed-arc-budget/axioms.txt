@@ -1,0 +1,4 @@
+'PaperB.RankedDenseLocal.totalArcs_ofPrepared_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RankedDenseLocal.totalVertices_add_totalArcs_ofPrepared_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

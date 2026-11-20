@@ -1,0 +1,3 @@
+import PaperB.DenseFamilyVertexBudget
+#print axioms PaperB.RankedDenseLocal.totalArcs_ofPrepared_le
+#print axioms PaperB.RankedDenseLocal.totalVertices_add_totalArcs_ofPrepared_le
