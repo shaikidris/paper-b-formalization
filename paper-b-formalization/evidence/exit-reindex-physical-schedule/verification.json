@@ -1,0 +1,11 @@
+{
+  "base_commit": "ef62039",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitCompactSchedule.lean",
+  "sha256": "efcf336c05793b08b304a7d324f55c296c274def45625d514c1dc97ded730ec8",
+  "scope": "Reindex the scheduled physical sites through a direct checked inverse and recover retained physical addresses exactly.",
+  "remaining": "Instantiate the schedule at actual driver addresses."
+}

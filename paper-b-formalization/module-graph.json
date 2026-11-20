@@ -302,7 +302,8 @@
         "release-core/PaperB/RamMultiReturn.lean",
         "release-core/PaperB/ExitRawCallCounts.lean",
         "release-core/PaperB/ExitScheduledRowMass.lean",
-        "release-core/PaperB/ExitCompactDriverIndex.lean"
+        "release-core/PaperB/ExitCompactDriverIndex.lean",
+        "release-core/PaperB/ExitCompactSchedule.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2784,6 +2785,14 @@
       "path": "release-core/PaperB/ExitCompactDriverIndex.lean",
       "local_imports": [
         "release-core/PaperB/ExitCompactDrivers.lean"
+      ],
+      "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitCompactSchedule.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitLinearSchedule.lean"
       ],
       "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"

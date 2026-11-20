@@ -308,7 +308,8 @@
     "release-core/PaperB/RamMultiReturn.lean": "word machine",
     "release-core/PaperB/ExitRawCallCounts.lean": "exit sweeps",
     "release-core/PaperB/ExitScheduledRowMass.lean": "exit sweeps",
-    "release-core/PaperB/ExitCompactDriverIndex.lean": "exit sweeps"
+    "release-core/PaperB/ExitCompactDriverIndex.lean": "exit sweeps",
+    "release-core/PaperB/ExitCompactSchedule.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1333,9 +1334,10 @@
         "evidence/exit-route-from-live-ancestry/verification.json",
         "evidence/exit-drivers-complete-cover/verification.json",
         "evidence/exit-compact-driver-index/verification.json",
-        "evidence/exit-driver-address-uniqueness/verification.json"
+        "evidence/exit-driver-address-uniqueness/verification.json",
+        "evidence/exit-reindex-physical-schedule/verification.json"
       ],
-      "progress": "Prove that actual transfer drivers have unique and in-range physical addresses."
+      "progress": "Reindex the scheduled physical sites through a direct checked inverse and recover retained physical addresses exactly."
     },
     {
       "id": "EX4.3",

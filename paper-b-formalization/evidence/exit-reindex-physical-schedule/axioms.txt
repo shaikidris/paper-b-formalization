@@ -1,0 +1,2 @@
+'EX42.ArraySweep.Schedule.compactSites' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX42.ArraySweep.Schedule.compactSites_read_back' depends on axioms: [propext, Classical.choice, Quot.sound]
