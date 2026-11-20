@@ -1,0 +1,11 @@
+{
+  "base_commit": "5491881",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamLinkedReturn.lean",
+  "sha256": "6895ed7db30ae0c6435bfb07f079c773390e84b12435d2bc0823112c7aeeb677",
+  "scope": "Any verified deployed RAM routine can replace its actual reached halt with a linked continuation, preserving the register data and the exact executed count.",
+  "remaining": "Instantiate the result on the main oracle dispatcher and each physical worker."
+}

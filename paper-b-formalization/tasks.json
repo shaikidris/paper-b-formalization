@@ -287,7 +287,8 @@
     "release-core/PaperB/ForestBuiltQueryToll.lean": "quotient forest",
     "release-core/PaperB/FlatBackKey.lean": "packed oracle",
     "release-core/PaperB/ExitCanonicalBank.lean": "exit sweeps",
-    "release-core/PaperB/RamSealedTranslation.lean": "word machine"
+    "release-core/PaperB/RamSealedTranslation.lean": "word machine",
+    "release-core/PaperB/RamLinkedReturn.lean": "word machine"
   },
   "milestones": [
     {
@@ -1571,9 +1572,10 @@
         "evidence/sealed-query-work-registers/verification.json",
         "evidence/ram-child-slice/verification.json",
         "evidence/ram-pair-hit-row-all-way/verification.json",
-        "evidence/ram-translate-one-head/verification.json"
+        "evidence/ram-translate-one-head/verification.json",
+        "evidence/ram-generic-return-slot/verification.json"
       ],
-      "progress": "Four fixed instructions read the header and translate an original ID from a sealed word column without address wrapping."
+      "progress": "Any verified deployed RAM routine can replace its actual reached halt with a linked continuation, preserving the register data and the exact executed count."
     },
     {
       "id": "EX5.4",

@@ -353,3 +353,4 @@
 {"at": "2026-11-20T03:13:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitCanonicalBank", "tasks": ["EX4.3"], "evidence": "evidence/exit-canonical-shared-region/verification.json"}
 {"at": "2026-11-20T03:13:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamSealedTranslation", "tasks": ["EX5.3"], "evidence": "evidence/ram-translate-one-head/verification.json"}
 {"at": "2026-11-20T03:21:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestCheckpointCertificate", "tasks": ["EX2.4"], "evidence": "evidence/forest-acceptance-compose/verification.json"}
+{"at": "2026-11-20T03:21:17+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamLinkedReturn", "tasks": ["EX5.3"], "evidence": "evidence/ram-generic-return-slot/verification.json"}
