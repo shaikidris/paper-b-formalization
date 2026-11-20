@@ -26,32 +26,36 @@ normalization already build on the pinned Lean toolchain.
 
 ## Next checkpoints
 
-- **EX2.4.** The [fast ordered reader](release-core/PaperB/ForestFastOrderedReader.lean)
-  composes the fixed-bank dictionary sort and grouped static-tree layout.
-  Its query proves exact proper loss, and the six retained columns have
-  linear size. The raw incoming rows preserve labelled occurrences. The
-  epoch-array pass visits each supplied predecessor occurrence once and
-  removes duplicate predecessors only for forest tests. Finish their
-  shared preparation and prove the complete preprocessing and peak-space
-  bounds for that executable reader.
-- **EX4.2–EX4.4.** An actual fresh event’s positive parent occurs earlier.
-  The packed writer checks exact occupied records, including the artificial
-  root and top-level identity records, and charges 18 word writes per job.
-  Derive the chronological jobs and base values from the actual first
-  labels and incoming rows. Connect the resulting records and intervals
-  to the all-case original-vertex query.
-- **EX5.1–EX5.4.** The dense runtime quotient preserves labelled adjacency,
-  the root and topological rank. A shared stable grouping emits at most two
-  local order entries per original vertex. The fixed RAM workers for LCA
-  and search have checked costs, and the scalar search now returns from a
-  relocated instruction slot. Instantiate the local orders and compose one
-  fixed sealed builder and query. The oracle contract requires bounds and
-  correctness for that same build and every later query.
+- **EX2.4.** The [construction certificate](release-core/PaperB/ForestCheckpointCertificate.lean)
+  ties correctness, the retained entry count, and the checked preparation,
+  dictionary and sweep charges to one actual forest-reader build. The
+  [grouped DFS bound](release-core/PaperB/StaticDfsLiveSpace.lean) counts
+  live commands at every prefix. Finish the remaining grouped-layout
+  allocations and charge the exported lookup, including its back-key check
+  and interval reads.
+- **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
+  preserves the initialized depth column through packed writes.
+  [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)
+  extends the decoded live records while preserving prior paths.
+  Instantiate the invariant on the chronological quotient forest, including
+  root and top-level seeds, and bind the certified reads to
+  [all original-vertex cases](release-core/PaperB/AllOrigOracleCases.lean).
+- **EX5.1–EX5.4.** [Physical row accounting](release-core/PaperB/PhysicalArcRowMass.lean)
+  preserves arc multiplicity across the shared emitter. The [fixed pair search](release-core/PaperB/RamPairHitRow.lean)
+  halts within logarithmic fuel and returns the exact hit row, and the
+  [child search](release-core/PaperB/RamChildRow.lean) binds the scalar worker
+  to physical child intervals. Complete all sealed columns, link the fixed
+  query and builder, and prove the [oracle contract](release-core/PaperB/OracleContract.lean)
+  for the same build and every later query.
 - **EX5.5 and EX6.2.** Instantiate the checked listed-target and guarded
   detection reductions with the sealed oracle from EX5.4.
 
 EX0, EX1 and EX3 are verified. Current counts and individual proof evidence
-are in the [dashboard](DASHBOARD.md) and [task ledger](TASKS.md).
+are in the [dashboard](DASHBOARD.md) and [task ledger](TASKS.md). Proof work
+streams through GPT-6.2 Sol high on the verified non-sharing Personal
+Default project. The tracker’s assigned-worker field records native worker
+assignments. API proof checkpoints have build, audit and commit evidence
+linked from the relevant tasks.
 
 Run from the repository root with Elan and Python 3 available.
 
