@@ -269,7 +269,8 @@
     "release-core/PaperB/RamPlacedCalls.lean": "ram",
     "release-core/PaperB/ExitPartialOccupancy.lean": "exit",
     "release-core/PaperB/OriginalEntryInverse.lean": "exit",
-    "release-core/PaperB/DensePhysicalArcCounts.lean": "shared quotient construction"
+    "release-core/PaperB/DensePhysicalArcCounts.lean": "shared quotient construction",
+    "release-core/PaperB/RamFullPairPrefix.lean": "word machine"
   },
   "milestones": [
     {
@@ -1527,9 +1528,10 @@
         "evidence/fixed-worker-entry/verification.json",
         "evidence/first-worker-agreement/verification.json",
         "evidence/ram-prefix-transfer/verification.json",
-        "evidence/placed-two-scalar-calls/verification.json"
+        "evidence/placed-two-scalar-calls/verification.json",
+        "evidence/ram-full-pair-rom/verification.json"
       ],
-      "progress": "Second and third fixed worker calls now execute correctly as one composed prefix with exact elapsed steps."
+      "progress": "Fixed ROM reaches its equality validation entry from PC0 via the three actual worker traces and preserves packed columns and input words."
     },
     {
       "id": "EX5.4",

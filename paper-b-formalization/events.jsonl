@@ -327,3 +327,4 @@
 {"at": "2026-11-20T02:49:40+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalOneSlot", "tasks": ["EX4.3"], "evidence": "evidence/exit-depth-column-frame/verification.json"}
 {"at": "2026-11-20T02:49:46+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPartialOccupancy", "tasks": ["EX4.3"], "evidence": "evidence/exit-decoded-live-bridge/verification.json"}
 {"at": "2026-11-20T02:49:52+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DensePhysicalArcCounts", "tasks": ["EX5.1"], "evidence": "evidence/dense-physical-arc-counts/verification.json"}
+{"at": "2026-11-20T02:50:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamFullPairPrefix", "tasks": ["EX5.3"], "evidence": "evidence/ram-full-pair-rom/verification.json"}

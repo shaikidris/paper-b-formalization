@@ -1,0 +1,11 @@
+{
+  "base_commit": "0dfc71e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamFullPairPrefix.lean",
+  "sha256": "90c84724d0df187736ef4f277f23ad72cc59702597a89ad97988164c68196534",
+  "scope": "Fixed ROM reaches its equality validation entry from PC0 via the three actual worker traces and preserves packed columns and input words.",
+  "remaining": "Compose the actual equality validation tail and preserve the hit row for packed slot access."
+}

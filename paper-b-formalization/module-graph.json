@@ -263,7 +263,8 @@
         "release-core/PaperB/RamPlacedCalls.lean",
         "release-core/PaperB/ExitPartialOccupancy.lean",
         "release-core/PaperB/OriginalEntryInverse.lean",
-        "release-core/PaperB/DensePhysicalArcCounts.lean"
+        "release-core/PaperB/DensePhysicalArcCounts.lean",
+        "release-core/PaperB/RamFullPairPrefix.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2402,6 +2403,15 @@
         "release-core/PaperB/FiniteSiblingBudget.lean"
       ],
       "owner_role": "shared quotient construction",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamFullPairPrefix.lean",
+      "local_imports": [
+        "release-core/PaperB/RamFirstSetupAgreement.lean",
+        "release-core/PaperB/RamPlacedCalls.lean"
+      ],
+      "owner_role": "word machine",
       "admission": "ORACLE_CORE"
     }
   ],
