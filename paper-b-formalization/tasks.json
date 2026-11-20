@@ -242,7 +242,8 @@
     "release-core/PaperB/RamThreeCalls.lean": "cost",
     "release-core/PaperB/OriginalStaticFull.lean": "exit",
     "release-core/PaperB/ExitPrefixOccupancy.lean": "exit",
-    "release-core/PaperB/ForestActualSweepBudget.lean": "cuts"
+    "release-core/PaperB/ForestActualSweepBudget.lean": "cuts",
+    "release-core/PaperB/ForestQueryToll.lean": "cuts"
   },
   "milestones": [
     {
@@ -1014,9 +1015,10 @@
         "evidence/dictionary-build-charge/verification.json",
         "evidence/forest-prepared-build/verification.json",
         "evidence/fast-static-finish-cost/verification.json",
-        "evidence/forest-same-reader-budget/verification.json"
+        "evidence/forest-same-reader-budget/verification.json",
+        "evidence/fast-query-toll/verification.json"
       ],
-      "progress": "The actual fast reader output aligns with a single checked sweep tally for packed reads, lookups and incoming occurrence passes, with a quadratic-log bound.",
+      "progress": "The actual retained forest has checked constant-time known-node reads and logarithmic key lookup work.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

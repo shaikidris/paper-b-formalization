@@ -1,0 +1,3 @@
+'PaperB.RetainedProperLoss.Columns.knownMetered_eq' does not depend on any axioms
+'PaperB.RetainedProperLoss.Columns.checkedMetered_spec' depends on axioms: [propext, Quot.sound]
+'PaperB.RetainedProperLoss.Columns.containsMetered_count_le' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,11 @@
+{
+  "base_commit": "5be29e3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestQueryToll.lean",
+  "sha256": "31229480c5062327595de0fa5ef9b572b7255cba6a8c8d9a5c56f8e1db82fac8",
+  "scope": "The exact retained query uses a real dictionary lookup and the actual optional slot/key checks. The metered known-node branch reads four cells, and total counted lookup comparisons and direct reads are logarithmic.",
+  "remaining": "Bind the retained word encoding and the later sealed machine execution to the same query operations."
+}

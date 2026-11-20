@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual fast reader output aligns with a single checked sweep tally for packed reads, lookups and incoming occurrence passes, with a quadratic-log bound.
+- [EX2.4](TASKS.md#ex24) — The actual retained forest has checked constant-time known-node reads and logarithmic key lookup work.
 - [EX4.2](TASKS.md#ex42) — The chronological sweep now has an exact prefix-occupancy model, with single fresh insertion and earlier/staged read bridges.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — One runtime adapter supplies actual original-ID, dominance, LCA and child readers; full LCA and dominance correctness now hold on the original graph.
