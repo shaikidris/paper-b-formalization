@@ -3099,7 +3099,8 @@
       "path": "release-core/PaperB/ForestOrderRank.lean",
       "local_imports": [
         "release-core/PaperB/ForestBuildPackedWords.lean",
-        "release-core/PaperB/KahnDecreasing.lean"
+        "release-core/PaperB/KahnDecreasing.lean",
+        "release-core/PaperB/ForestEndpointFinish.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"

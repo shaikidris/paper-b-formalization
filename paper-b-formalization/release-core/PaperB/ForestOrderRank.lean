@@ -1,4 +1,5 @@
 import PaperB.ForestBuildPackedWords
+import PaperB.ForestEndpointFinish
 import PaperB.KahnDecreasing
 
 set_option autoImplicit false
@@ -96,13 +97,11 @@ by the caller. The packed output does not retain the inverse rank table. -/
 def buildWordsFromOrder
     (topo : IsTopologicalOrder data size_data) (flat : H.IsFlat) :
     Option (WordColumns (OracleContract.wordBits 5 H.vertexCount 0)) :=
-  if large : 3 ≤ H.vertexCount then
+  if 3 ≤ H.vertexCount then
     let t := orderRanks data unique
-    some (packWordColumns
-      (readerForWords data size_data (readRank t)
-        (orderRanks_increasing data size_data unique) covers
-        (orderRanks_rankArc data size_data unique covers topo) flat large)
-      (local_word_columns_fit H.vertexCount))
+    buildWordsCompact data size_data (readRank t)
+      (orderRanks_increasing data size_data unique) covers
+      (orderRanks_rankArc data size_data unique covers topo) flat
   else
     none
 
@@ -111,8 +110,11 @@ theorem buildWordsFromOrder_eq
     buildWordsFromOrder data size_data unique covers topo flat =
       buildWords data size_data (readRank (orderRanks data unique))
         (orderRanks_increasing data size_data unique) covers
-        (orderRanks_rankArc data size_data unique covers topo) flat :=
-  rfl
+        (orderRanks_rankArc data size_data unique covers topo) flat := by
+  unfold buildWordsFromOrder
+  by_cases large : 3 ≤ H.vertexCount
+  · simp only [ite_eq_left large, buildWordsCompact_eq]
+  · simp only [ite_eq_right large, buildWords, dite_eq_right large]
 
 theorem buildWordsFromOrder_retained
     (topo : IsTopologicalOrder data size_data) (flat : H.IsFlat) :

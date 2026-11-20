@@ -1153,9 +1153,10 @@
         "evidence/ex2-word-packing-visits/verification.json",
         "evidence/ex2-packed-query-integration/verification.json",
         "evidence/ex2-dense-build-order/verification.json",
-        "evidence/ex2-interval-only-finish/verification.json"
+        "evidence/ex2-interval-only-finish/verification.json",
+        "evidence/ex2-wire-interval-finish/verification.json"
       ],
-      "progress": "Construct the exact packed output with a single ordered sweep and a direct preorder interval finish. Lean proves that the packed word arrays equal the previous full-reader output, and checks exact grouping counts, DFS commands and live prefix bounds. Wire the compact finish into the dense-order entry point, then join the phase bounds for the full construction.",
+      "progress": "Use the interval-only finish on the executable dense-order construction path, with checked equality to the existing query proofs and retained size bound. Join the complete construction-work and peak live-storage bounds.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -1,0 +1,4 @@
+import PaperB.ForestOrderRank
+
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_eq
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_retained

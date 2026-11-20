@@ -420,3 +420,4 @@
 {"at": "2026-11-20T19:09:56+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestPackedLookupRun", "tasks": ["EX2.4"], "evidence": "evidence/ex2-packed-query-integration/verification.json"}
 {"at": "2026-11-20T19:14:41+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestOrderRank", "tasks": ["EX2.4"], "evidence": "evidence/ex2-dense-build-order/verification.json"}
 {"at": "2026-11-20T19:23:30+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestEndpointFinish", "tasks": ["EX2.4"], "evidence": "evidence/ex2-interval-only-finish/verification.json"}
+{"at": "2026-11-20T19:23:39+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestOrderRank", "tasks": ["EX2.4"], "evidence": "evidence/ex2-wire-interval-finish/verification.json"}

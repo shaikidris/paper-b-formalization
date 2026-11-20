@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Construct the exact packed output with a single ordered sweep and a direct preorder interval finish. Lean proves that the packed word arrays equal the previous full-reader output, and checks exact grouping counts, DFS commands and live prefix bounds. Wire the compact finish into the dense-order entry point, then join the phase bounds for the full construction.
+- [EX2.4](TASKS.md#ex24) — Use the interval-only finish on the executable dense-order construction path, with checked equality to the existing query proofs and retained size bound. Join the complete construction-work and peak live-storage bounds.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

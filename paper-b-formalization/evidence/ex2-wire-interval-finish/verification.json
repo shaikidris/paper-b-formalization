@@ -1,0 +1,9 @@
+{
+  "base_commit": "d7343a8",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestOrderRank.lean",
+  "sha256": "9f9086094e523b4639134b5dcf5f28ee8d9c6e45f85b24c5c6a0f6e9513c0c6f",
+  "scope": "Use the interval-only finish on the executable dense-order construction path, with checked equality to the existing query proofs and retained size bound.",
+  "remaining": "Join the complete construction-work and peak live-storage bounds.",
+  "source_provenance": "Local integration of the checked compact finish with the dense inverse-rank builder."
+}
