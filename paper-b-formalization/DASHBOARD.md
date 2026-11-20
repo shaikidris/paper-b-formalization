@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual short-circuit predecessor scan has a prefix invariant that bounds suspended call frames and remaining tests together by the row length. The dense-order builder uses the verified interval-only finish. Compose the full construction budget, including temporary roots and scalar operations beyond these charged sites.
+- [EX2.4](TASKS.md#ex24) — Verified the active probe workspace bound on reached sweep rows, including binary-search and scan frames and ancestry trace cells. Full construction work and the peak across all phases remain open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

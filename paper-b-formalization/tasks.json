@@ -343,7 +343,8 @@
     "release-core/PaperB/ForestPackingVisits.lean": "quotient forest",
     "release-core/PaperB/ForestOrderRank.lean": "quotient forest",
     "release-core/PaperB/ForestEndpointFinish.lean": "quotient forest",
-    "release-core/PaperB/ForestScanPrefixSpace.lean": "quotient forest"
+    "release-core/PaperB/ForestScanPrefixSpace.lean": "quotient forest",
+    "release-core/PaperB/ForestProbeWorkspace.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1156,9 +1157,10 @@
         "evidence/ex2-dense-build-order/verification.json",
         "evidence/ex2-interval-only-finish/verification.json",
         "evidence/ex2-wire-interval-finish/verification.json",
-        "evidence/ex2-scan-prefix-space/verification.json"
+        "evidence/ex2-scan-prefix-space/verification.json",
+        "evidence/ex2-probe-live-workspace/verification.json"
       ],
-      "progress": "The actual short-circuit predecessor scan has a prefix invariant that bounds suspended call frames and remaining tests together by the row length. The dense-order builder uses the verified interval-only finish. Compose the full construction budget, including temporary roots and scalar operations beyond these charged sites.",
+      "progress": "Verified the active probe workspace bound on reached sweep rows, including binary-search and scan frames and ancestry trace cells. Full construction work and the peak across all phases remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

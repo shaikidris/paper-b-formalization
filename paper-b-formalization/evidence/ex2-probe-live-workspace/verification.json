@@ -1,0 +1,9 @@
+{
+  "base_commit": "ccbd80e",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestProbeWorkspace.lean",
+  "sha256": "1e0b903aeddf2ef1f85a37b5a0ceff14bbca0ed127d152116b76c51248269afb",
+  "scope": "Track both branches of the actual binary search and packed ancestry traversals on reached prefixes. Bind their frames, unread predecessor suffix, and live read-trace cells to the sweep checkpoint and its dense rank table. The combined bound is 11 n_H + 2 m_H + 37 L + 13 charge units at an active probe.",
+  "remaining": "Compose the input, dictionary, sweep entry and exit, interval finish, and packing peaks, and complete word and control work coverage.",
+  "source_provenance": "Local integration of the existing checked sweep and packed selector traces with the previously accepted Generic scan-prefix lemma. The next managed plan exceeded its input cap before submission."
+}

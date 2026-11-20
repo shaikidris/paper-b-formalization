@@ -1,0 +1,7 @@
+'PaperB.ForestHead.SearchAt.accounting' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestHead.probe_search_cursor_cells' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Jumps.ReadCursor.accounting' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Jumps.ancestor_read_prefix_cells' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Jumps.ancestor_test_prefix_cells' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX24.PreparedSweep.LocalTrace.site_at_visit' depends on axioms: [propext]
+'EX24.PreparedSweep.probe_workspace_at_visit' depends on axioms: [propext, Classical.choice, Quot.sound]
