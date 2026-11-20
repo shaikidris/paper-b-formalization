@@ -308,3 +308,4 @@
 {"at": "2026-11-20T02:17:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPhaseBudget", "tasks": ["EX2.4"], "evidence": "evidence/assembled-forest-site-budget/verification.json"}
 {"at": "2026-11-20T02:17:49+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseFamilyVertexBudget", "tasks": ["EX5.1"], "evidence": "evidence/dense-aggregate-membership/verification.json"}
 {"at": "2026-11-20T02:17:53+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamConcreteSetup", "tasks": ["EX5.3"], "evidence": "evidence/ram-reset-worker-scratch/verification.json"}
+{"at": "2026-11-20T02:20:58+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "Forest", "tasks": ["EX2.4"], "evidence": "evidence/linear-finite-enumeration/verification.json"}

@@ -1,0 +1,11 @@
+{
+  "base_commit": "3449d96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/Forest.lean",
+  "sha256": "285ccf917715d0d855d153df9ae0e717f32e2684efe5d9ad3a4e6f6b34811084",
+  "scope": "Replace compilation of quadratic recursive remapping with an equal tail loop. Its actual counted specialization performs one cons per vertex, with the same order as the original proof specification.",
+  "remaining": "Include the measured enumeration in concrete per-phase operation and live-space receipts."
+}

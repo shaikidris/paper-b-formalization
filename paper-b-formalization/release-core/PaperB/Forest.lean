@@ -276,6 +276,104 @@ theorem length_finElems (n : Nat) : (finElems n).length = n := by
       dsimp [finElems]
       rw [List.length_map, ih]
 
+/-! ### Linear executable enumeration
+
+The loop visits `k - 1, …, 0`. Prepending each visited index produces
+`0, …, k - 1` in front of the original accumulator.
+-/
+
+@[specialize] private def finElems_loop {σ : Type} (n : Nat)
+    (push : Fin n → σ → σ) : (k : Nat) → k ≤ n → σ → σ
+  | 0, _, acc => acc
+  | k + 1, hk, acc =>
+      finElems_loop n push k (Nat.le_trans (Nat.le_succ k) hk)
+        (push ⟨k, hk⟩ acc)
+
+/-- Enumerate `Fin n` in increasing order with one cons per iteration. -/
+def finElems_linear (n : Nat) : List (Fin n) :=
+  finElems_loop n List.cons n (Nat.le_refl n) []
+
+private def finElems_widen {k n : Nat} (h : k ≤ n) (i : Fin k) : Fin n :=
+  ⟨i.val, Nat.lt_of_lt_of_le i.isLt h⟩
+
+private theorem finElems_snoc (k : Nat) :
+    finElems (k + 1) =
+      (finElems k).map (finElems_widen (Nat.le_succ k)) ++
+        [⟨k, Nat.lt_succ_self k⟩] := by
+  induction k with
+  | zero => rfl
+  | succ k ih =>
+      change
+        (⟨0, Nat.zero_lt_succ (k + 1)⟩ : Fin (k + 1 + 1)) ::
+            (finElems (k + 1)).map finSucc =
+          List.map (finElems_widen (Nat.le_succ (k + 1)))
+            ((⟨0, Nat.zero_lt_succ k⟩ : Fin (k + 1)) ::
+              (finElems k).map finSucc) ++
+            [⟨k + 1, Nat.lt_succ_self (k + 1)⟩]
+      simp only [ih, List.map_append, List.map_cons, List.map_nil,
+        List.cons_append, List.map_map] <;> rfl
+
+private theorem finElems_loop_prefix (n k : Nat) (hk : k ≤ n)
+    (acc : List (Fin n)) :
+    finElems_loop n List.cons k hk acc =
+      (finElems k).map (finElems_widen hk) ++ acc := by
+  induction k generalizing acc with
+  | zero =>
+      simp only [finElems_loop, finElems, List.map_nil, List.nil_append]
+  | succ k ih =>
+      rw [finElems_loop, ih, finElems_snoc k]
+      simp only [List.map_append, List.map_map, List.map_cons, List.map_nil,
+        List.append_assoc, List.cons_append, List.nil_append] <;> rfl
+
+theorem finElems_linear_eq (n : Nat) : finElems_linear n = finElems n := by
+  rw [finElems_linear, finElems_loop_prefix, List.append_nil]
+  have hw : finElems_widen (Nat.le_refl n) = (id : Fin n → Fin n) := by
+    funext i
+    exact Fin.ext rfl
+  rw [hw, List.map_id]
+
+@[csimp] theorem finElems_csimp : finElems = finElems_linear := by
+  funext n
+  exact (finElems_linear_eq n).symm
+
+/-- The same loop with one counter increment per cons. The initial empty
+list and the terminating branch are not charged. -/
+def finElems_linear_counted (n : Nat) : List (Fin n) × Nat :=
+  finElems_loop n
+    (fun i (s : List (Fin n) × Nat) => (i :: s.1, s.2 + 1))
+    n (Nat.le_refl n) ([], 0)
+
+private theorem finElems_loop_counted (n k : Nat) (hk : k ≤ n)
+    (acc : List (Fin n)) (c : Nat) :
+    finElems_loop n
+        (fun i (s : List (Fin n) × Nat) => (i :: s.1, s.2 + 1))
+        k hk (acc, c) =
+      (finElems_loop n List.cons k hk acc, c + k) := by
+  induction k generalizing acc c with
+  | zero =>
+      simp only [finElems_loop, Nat.add_zero]
+  | succ k ih =>
+      simp only [finElems_loop]
+      rw [ih, Nat.add_right_comm c 1 k] <;> rfl
+
+/-- Exactly `n` nonterminal iterations and `n` list cons constructions,
+with the same output as the uninstrumented executable loop. -/
+theorem finElems_linear_budget (n : Nat) :
+    finElems_linear_counted n = (finElems_linear n, n) := by
+  unfold finElems_linear_counted finElems_linear
+  rw [finElems_loop_counted, Nat.zero_add]
+
+/-- Explicit source-level substitution under a list consumer. -/
+theorem finElems_linear_under.{u} {n : Nat} {α : Sort u}
+    (use : List (Fin n) → α) :
+    use (finElems_linear n) = use (finElems n) :=
+  congrArg use (finElems_linear_eq n)
+
+/-- Predecessor selection can call `keepBool p (finElems_linear n)` directly. -/
+theorem keepBool_finElems_linear_eq (n : Nat) (p : Fin n → Bool) :
+    keepBool p (finElems_linear n) = keepBool p (finElems n) :=
+  finElems_linear_under (keepBool p)
+
 theorem mem_finElems {n : Nat} (x : Fin n) : x ∈ finElems n := by
   induction n with
   | zero =>

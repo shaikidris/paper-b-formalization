@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Sweep-site, installed dictionary and exact grouped finish budgets now compose at the paper logarithm.
+- [EX2.4](TASKS.md#ex24) — Finite vertex enumeration now uses a verified linear tail loop at existing compiled call sites.
 - [EX4.2](TASKS.md#ex42) — Physical owner, child and parent key agreements now follow from the actual forest outputs.
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
 - [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.
