@@ -235,7 +235,8 @@
     "release-core/PaperB/DenseQuotientLocalOrder.lean": "cost",
     "release-core/PaperB/ForestIncomingPrep.lean": "cuts",
     "release-core/PaperB/LabelledTransport.lean": "exit",
-    "release-core/PaperB/RamPlacedTrace.lean": "cost"
+    "release-core/PaperB/RamPlacedTrace.lean": "cost",
+    "release-core/PaperB/ExitInterleavedPacked.lean": "exit"
   },
   "milestones": [
     {
@@ -1226,9 +1227,10 @@
         "evidence/exit-real-first-label-audit/verification.json",
         "evidence/exit-physical-schedule-audit/verification.json",
         "evidence/exit-array-schedule-audit/verification.json",
-        "evidence/exit-parent-earlier/verification.json"
+        "evidence/exit-parent-earlier/verification.json",
+        "evidence/interleaved-packed-pass/verification.json"
       ],
-      "progress": "The actual forest allocation trace proves that each positive parent is on the earlier fresh-event prefix, with a consecutive slot-ID order."
+      "progress": "A single interleaved executable sweep now threads the physical map bank and base column and maintains exact prefix state under its schedule contract."
     },
     {
       "id": "EX4.3",

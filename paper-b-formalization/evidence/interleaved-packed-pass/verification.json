@@ -1,0 +1,11 @@
+{
+  "base_commit": "f5b7f5a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitInterleavedPacked.lean",
+  "sha256": "18b6bd4660266e8430608b76640984eadd68bace093641eec742523b8b90cd51",
+  "scope": "One actual prefix fold threads a single packed map bank and a direct base column, computing each map before the current base. Validity and map callback exactness are explicit erased inputs.",
+  "remaining": "Instantiate with the physical forest chronology and real incoming recurrence; account for both maps and bases."
+}
