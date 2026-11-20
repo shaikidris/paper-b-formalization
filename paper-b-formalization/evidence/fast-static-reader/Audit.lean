@@ -1,0 +1,3 @@
+import PaperB.StaticGroupedTreeReader
+#print axioms PaperB.StaticGroupedTreeReader.buildLayout_eq
+#print axioms PaperB.StaticGroupedTreeReader.build_eq

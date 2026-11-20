@@ -1,0 +1,2 @@
+'PaperB.StaticGroupedTreeReader.buildLayout_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticGroupedTreeReader.build_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

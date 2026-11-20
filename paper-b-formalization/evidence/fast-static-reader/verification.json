@@ -1,0 +1,11 @@
+{
+  "base_commit": "e8f5003",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticGroupedTreeReader.lean",
+  "sha256": "312ff25a3fc501b662c7377e028d37990272545ce4cad006a778ed8fe0a0e6e6",
+  "scope": "The static tree reader runs layout and the heavy-range sweep on physically grouped buckets. Its complete result equals the established static tree reader.",
+  "remaining": "Use the optimized reader in the actual original, forest and quotient builders and bind the performed physical column costs."
+}
