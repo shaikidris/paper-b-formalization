@@ -314,7 +314,8 @@
         "release-core/PaperB/ExitEventPrefixRank.lean",
         "release-core/PaperB/ExitActualOwnerColumn.lean",
         "release-core/PaperB/DenseLocalRankFit.lean",
-        "release-core/PaperB/ExitEarlierCreator.lean"
+        "release-core/PaperB/ExitEarlierCreator.lean",
+        "release-core/PaperB/ExitActualOrientation.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2897,6 +2898,15 @@
       "path": "release-core/PaperB/ExitEarlierCreator.lean",
       "local_imports": [
         "release-core/PaperB/ExitParentEarlier.lean"
+      ],
+      "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitActualOrientation.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalKeys.lean",
+        "release-core/PaperB/ExitPackedRuntime.lean"
       ],
       "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"

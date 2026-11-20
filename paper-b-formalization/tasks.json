@@ -320,7 +320,8 @@
     "release-core/PaperB/ExitEventPrefixRank.lean": "exit sweeps",
     "release-core/PaperB/ExitActualOwnerColumn.lean": "exit sweeps",
     "release-core/PaperB/DenseLocalRankFit.lean": "quotient forest",
-    "release-core/PaperB/ExitEarlierCreator.lean": "exit sweeps"
+    "release-core/PaperB/ExitEarlierCreator.lean": "exit sweeps",
+    "release-core/PaperB/ExitActualOrientation.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1351,9 +1352,10 @@
         "evidence/exit-actual-compact-schedule-min/verification.json",
         "evidence/exit-event-prefix-rank/verification.json",
         "evidence/exit-actual-owner-column-min/verification.json",
-        "evidence/exit-rank-prefix-iff-min/verification.json"
+        "evidence/exit-rank-prefix-iff-min/verification.json",
+        "evidence/exit-actual-orientation-column-min/verification.json"
       ],
-      "progress": "Show an earlier actual event rank is equivalent to membership in the schedule prefix before the current event."
+      "progress": "Pack each actual physical slot orientation and prove both endpoint reads agree with its actual cut key."
     },
     {
       "id": "EX4.3",
