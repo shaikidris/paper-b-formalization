@@ -1499,9 +1499,10 @@
         "evidence/ram-concrete-setup/verification.json",
         "evidence/ram-all-setup-traces/verification.json",
         "evidence/ram-validation-rom/verification.json",
-        "evidence/ram-reset-worker-scratch/verification.json"
+        "evidence/ram-reset-worker-scratch/verification.json",
+        "evidence/ram-validation-trace/verification.json"
       ],
-      "progress": "Each later fixed worker receives clean scratch registers from its actual preceding setup code."
+      "progress": "The actual validation tail now has a checked fixed-step execution proof and exact output bit."
     },
     {
       "id": "EX5.4",

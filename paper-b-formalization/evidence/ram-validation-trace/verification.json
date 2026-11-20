@@ -1,0 +1,11 @@
+{
+  "base_commit": "3449d96",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamEqualityTail.lean",
+  "sha256": "f2fcd96d5fc30eb2cc770ea3f3020859053ad5b1f0cc63faedbb4c0492dd14d9",
+  "scope": "The actual linked equality tail implements its nonzero and two-word equality specification in at most 15 instructions, including halt.",
+  "remaining": "Join the scalar traces to this tail and then to the whole oracle routing program."
+}
