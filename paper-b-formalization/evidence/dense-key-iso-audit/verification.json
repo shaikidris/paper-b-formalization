@@ -1,0 +1,11 @@
+{
+  "base_commit": "aab62c1",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseSiblingKeyIso.lean",
+  "sha256": "00116ee31472fb4957b2cce87110a60cef9b4249b7e8a5574b14db2a897004f9",
+  "scope": "The root-local held row positions and canonical original sibling block keys are in computable bijection. Lean checks both inverse directions without enumerating keys.",
+  "remaining": "Transport actual labelled adjacency and rank across the bijection, then assemble the original graph to all quotient indexes."
+}

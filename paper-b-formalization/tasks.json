@@ -190,7 +190,8 @@
     "release-core/PaperB/ExitRawIncoming.lean": "exit",
     "release-core/PaperB/RamRegisterTrace.lean": "cost model",
     "release-core/PaperB/ExitRealFirstLabel.lean": "exit",
-    "release-core/PaperB/DenseRuntimeGraph.lean": "quotient"
+    "release-core/PaperB/DenseRuntimeGraph.lean": "quotient",
+    "release-core/PaperB/DenseSiblingKeyIso.lean": "quotient"
   },
   "milestones": [
     {
@@ -1280,9 +1281,10 @@
         "evidence/dense-arc-local-slot-audit/verification.json",
         "evidence/dense-arc-row-audit/verification.json",
         "evidence/dense-real-ownership-audit/verification.json",
-        "evidence/dense-runtime-graph-audit/verification.json"
+        "evidence/dense-runtime-graph-audit/verification.json",
+        "evidence/dense-key-iso-audit/verification.json"
       ],
-      "progress": "The actual local quotient graph now materializes from an already shared original-arc table and shared vertex layout. Lean checks stable adjacency and every physical tail. The original structural correspondence and overall accounting remain open."
+      "progress": "Concrete dense local positions and original structural sibling keys now have checked inverses. Transport labelled adjacency and topological order next."
     },
     {
       "id": "EX5.2",

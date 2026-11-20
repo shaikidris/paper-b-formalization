@@ -205,7 +205,8 @@
         "release-core/PaperB/ExitRawIncoming.lean",
         "release-core/PaperB/RamRegisterTrace.lean",
         "release-core/PaperB/ExitRealFirstLabel.lean",
-        "release-core/PaperB/DenseRuntimeGraph.lean"
+        "release-core/PaperB/DenseRuntimeGraph.lean",
+        "release-core/PaperB/DenseSiblingKeyIso.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1613,6 +1614,15 @@
         "release-core/PaperB/DenseRealOwnership.lean",
         "release-core/PaperB/DenseArcRow.lean",
         "release-core/PaperB/QuotientArrays.lean"
+      ],
+      "owner_role": "quotient",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseSiblingKeyIso.lean",
+      "local_imports": [
+        "release-core/PaperB/DenseRealOwnership.lean",
+        "release-core/PaperB/DenseArcRecode.lean"
       ],
       "owner_role": "quotient",
       "admission": "ORACLE_CORE"
