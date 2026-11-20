@@ -1,0 +1,9 @@
+'PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.child_some' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.childLabel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.childOutside' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

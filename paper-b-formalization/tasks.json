@@ -1333,9 +1333,10 @@
         "evidence/exact-label-transport/verification.json",
         "evidence/direct-third-route/verification.json",
         "evidence/original-query-direct/verification.json",
-        "evidence/original-static-full/verification.json"
+        "evidence/original-static-full/verification.json",
+        "evidence/original-child-laws/verification.json"
       ],
-      "progress": "One runtime adapter supplies actual original-ID, dominance, LCA and child readers; full LCA and dominance correctness now hold on the original graph."
+      "progress": "The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields."
     },
     {
       "id": "EX5.1",

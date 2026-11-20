@@ -257,6 +257,128 @@ private theorem slot_fixed_eq_root (q : OriginalReader g r) (u : Fin q.count)
   exact vertexInj q ((h u hf).trans (h q.input.root (static_root_fixed q)).symm)
 
 
+private theorem walk_domain {N : Nat} {root : Fin N}
+    {p : Fin N → Fin N} {depth : Fin N → Nat}
+    {A : Fin N → Fin N → Prop}
+    (pr : p root = root)
+    (ds : ∀ u, u ≠ root → depth u = depth (p u) + 1)
+    (F : Nat → Fin N → Fin N)
+    (ha : ∀ u v, A u v ↔ ∃ n, F n v = u)
+    (hz : ∀ v, F 0 v = v)
+    (hs : ∀ n v, F (n + 1) v = p (F n v)) :
+    ∀ d x, (∃ u, u ≠ root ∧ p u = d ∧ A u x) ↔
+      x ≠ d ∧ A d x := by
+  intro d x
+  simp only [ha]
+  constructor
+  · rintro ⟨u, hu, hp, n, hn⟩
+    have hle (m : Nat) : depth (F m x) ≤ depth x := by
+      induction m with
+      | zero => simpa only [hz] using Nat.le_refl (depth x)
+      | succ m ih =>
+          rw [hs]
+          by_cases hm : F m x = root
+          · simpa only [hm, pr] using ih
+          · have hstep := ds (F m x) hm
+            omega
+    have h := hle n
+    rw [hn] at h
+    have hstep := ds u hu
+    rw [hp] at hstep
+    refine ⟨?_, n + 1, (hs n x).trans ((congrArg p hn).trans hp)⟩
+    intro he
+    rw [he] at h
+    omega
+  · rintro ⟨hne, n, hn⟩
+    induction n with
+    | zero => exact (hne ((hz x).symm.trans hn)).elim
+    | succ n ih =>
+        have hp : p (F n x) = d := (hs n x).symm.trans hn
+        by_cases h : F n x = root
+        · rw [h, pr] at hp
+          exact ih (h.trans hp)
+        · exact ⟨F n x, h, hp, n, rfl⟩
+
+private theorem static_child_domain (q : OriginalReader g r) :
+    ∀ d x : Fin q.count,
+      (∃ u, u ≠ q.input.root ∧ q.input.parent.read u = d ∧
+        (world q).Inside u x) ↔ x ≠ d ∧ (world q).Inside d x := by
+  simp only [inside_interval]
+  refine walk_domain (A := fun u v =>
+    q.reader.entry u ≤ q.reader.entry v ∧ q.reader.entry v < q.reader.stop u)
+    q.reader.input_ok.parent_root q.reader.input_ok.depth_step
+    (PaperB.EX15.WholeScan.PackedInput.parentIter q.input) ?_ ?_ ?_
+  · intro u v
+    rw [← q.reader.ancestor_iff_interval u v]
+    exact (parentIter_iff_readerAncestor q.input q.reader.input_ok.parent_root u v).symm
+  · intro v
+    rfl
+  · intro n v
+    first
+    | rfl
+    | induction n generalizing v with
+      | zero => rfl
+      | succ n ih => exact ih (q.input.parent.read v)
+
+theorem child_some (q : OriginalReader g r)
+    (hr : g.InitiallyReachable r r)
+    (base : Runtime g.vertexCount q.count k B E)
+    (debit : Nat) (hdebit : debit ≤ B)
+    (progress : Progress g rank) (injRank : RankInjective g rank)
+    (d x u : Fin q.count) :
+    ((install q hr base debit hdebit).fetch (.child d x)).value = some u ↔
+      u ≠ d ∧ q.parent ((world q).vertex u) = (world q).vertex d ∧
+        Ancestor q.parent ((world q).vertex u) ((world q).vertex x) := by
+  change q.reader.child d x = some u ↔ _
+  have hp : q.parent ((world q).vertex u) =
+      (world q).vertex (q.input.parent.read u) := q.parent_at_original u
+  have he : q.parent ((world q).vertex u) = (world q).vertex d ↔
+      q.input.parent.read u = d := by
+    rw [hp]
+    exact ⟨fun h => vertexInj q h, congrArg (world q).vertex⟩
+  rw [q.reader.child_some_iff, he, q.reader.ancestor_iff_interval u x,
+    ← inside_interval q u x, treeInterval q progress injRank u x]
+  constructor
+  · rintro ⟨hu, hp', hx⟩
+    refine ⟨?_, hp', hx⟩
+    intro hud
+    have hs := q.reader.input_ok.depth_step u hu
+    rw [hp', ← hud] at hs
+    omega
+  · rintro ⟨hu, hp', hx⟩
+    refine ⟨?_, hp', hx⟩
+    intro hur
+    subst u
+    exact hu (q.reader.input_ok.parent_root.symm.trans hp')
+
+theorem childLabel (q : OriginalReader g r)
+    (hr : g.InitiallyReachable r r)
+    (base : Runtime g.vertexCount q.count k B E)
+    (debit : Nat) (hdebit : debit ≤ B)
+    (progress : Progress g rank) (injRank : RankInjective g rank)
+    (d x u : Fin q.count) :
+    ((install q hr base debit hdebit).fetch (.child d x)).value = some u →
+      u ≠ d ∧ q.parent ((world q).vertex u) = (world q).vertex d ∧
+        Ancestor q.parent ((world q).vertex u) ((world q).vertex x) :=
+  (child_some q hr base debit hdebit progress injRank d x u).mp
+
+theorem childOutside (q : OriginalReader g r)
+    (hr : g.InitiallyReachable r r)
+    (base : Runtime g.vertexCount q.count k B E)
+    (debit : Nat) (hdebit : debit ≤ B) (d x : Fin q.count) :
+    ((install q hr base debit hdebit).fetch (.child d x)).value = none ↔
+      (world q).vertex x = (world q).vertex d ∨
+        ¬ g.Dominates ((world q).vertex (install q hr base debit hdebit).source)
+          ((world q).vertex d) ((world q).vertex x) := by
+  change q.reader.child d x = none ↔ _
+  rw [source_vertex q hr base debit hdebit, q.reader.child_none_iff]
+  have he : (world q).vertex x = (world q).vertex d ↔ x = d :=
+    ⟨fun h => vertexInj q h, congrArg (world q).vertex⟩
+  rw [he, held_dominance q d x]
+  simp only [q.reader.ancestor_iff_interval, ← inside_interval,
+    static_child_domain q d x]
+  by_cases h : x = d <;> simp [h]
+
 end OriginalStaticConnector.Full
 
 end PaperB.EX44.RetainedRouteProof

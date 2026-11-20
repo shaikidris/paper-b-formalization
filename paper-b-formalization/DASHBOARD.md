@@ -22,7 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — The actual retained forest has checked constant-time known-node reads and logarithmic key lookup work.
 - [EX4.2](TASKS.md#ex42) — The chronological sweep now has an exact prefix-occupancy model, with single fresh insertion and earlier/staged read bridges.
 - [EX4.3](TASKS.md#ex43) — The fused prior-base callback now executes without building a reference route, with exact evaluation and word-read bounds under its occupancy invariant.
-- [EX4.4](TASKS.md#ex44) — One runtime adapter supplies actual original-ID, dominance, LCA and child readers; full LCA and dominance correctness now hold on the original graph.
+- [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.
 - [EX5.1](TASKS.md#ex51) — The actual Kahn order/inverse and original ID reader now give exact checked increasing and covering local arrays directly.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 - [EX5.3](TASKS.md#ex53) — Concrete setup instructions exist for all three calls. The exact first setup trace and no-wrap predecessor are Lean checked.

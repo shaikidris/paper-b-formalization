@@ -1,0 +1,11 @@
+{
+  "base_commit": "2280427",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OriginalStaticFull.lean",
+  "sha256": "8ad00bb7db7f1e827ca20e41866e1f721be707ff6a3a1cde03495fa64f617b9d",
+  "scope": "The actual original child reader returns exactly the immediate child with the queried descendant in its subtree. A miss is exactly equal input IDs or absence of dominance.",
+  "remaining": "Connect these field laws to the instantiated both-reachable query assembly and the third-block exit data."
+}
