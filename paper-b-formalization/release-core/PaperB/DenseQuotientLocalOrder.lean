@@ -221,4 +221,189 @@ private theorem childEntry_key (c : Fin q.count) (hc : c ≠ q.input.root) (n : 
     ⟨.inr c, (childOK _ c).mpr ⟨hc, rfl⟩⟩)
 
 
+private abbrev actual (u : Fin q.count) :=
+  (build q rows childOK order).rows.row u
+
+private theorem rowOwner (u : Fin q.count) (e : Entry rows.length)
+    (he : e ∈ actual q rows childOK order u) : e.owner = u := by
+  change e ∈ (build q rows childOK order).rows.row u at he
+  rw [stable, List.mem_filter, decide_eq_true_eq] at he
+  exact he.2
+
+private def ownedSlot (u : Fin q.count) (e : Entry rows.length)
+    (h : e.owner = u) : Fin (rows.length u) :=
+  ⟨e.slot.val, by rw [← h]; exact e.slot.isLt⟩
+
+private theorem ownedSlot_key (u : Fin q.count) (e : Entry rows.length)
+    (h : e.owner = u) :
+    rows.key u (ownedSlot q rows u e h) = keyOf q rows e := by
+  subst u
+  rfl
+
+def slotRank (u : Fin q.count) (i : Fin (rows.length u)) : Nat :=
+  rank (q.ids.originals.read (Sum.elim id id (rows.key u i)))
+
+private theorem aligned (laws : Laws q order rank) (u : Fin q.count)
+    (e : Entry rows.length) (he : e ∈ actual q rows childOK order u) :
+    slotRank q rows rank u
+      (ownedSlot q rows u e (rowOwner q rows childOK order u e he)) = e.source := by
+  unfold slotRank
+  rw [ownedSlot_key]
+  rcases (row_entry_iff q rows childOK order rank laws u e).mp he with h | ⟨c, hc, _, h⟩
+  · rw [h, rootEntry_key] <;> rfl
+  · rw [h, childEntry_key] <;> rfl
+
+private theorem actual_cover (laws : Laws q order rank) (u : Fin q.count)
+    (i : Fin (rows.length u)) :
+    ∃ e, ∃ he : e ∈ actual q rows childOK order u,
+      ownedSlot q rows u e (rowOwner q rows childOK order u e he) = i := by
+  have hd : Occurs buckets u (rows.key u i) := (rows.decode u i).property
+  cases hk : rows.key u i with
+  | inl d =>
+      have hu := ((rows.key_is_root_iff u d i).mp hk).2
+      subst d
+      let e := rootEntry q rows u (rank (q.ids.originals.read u))
+      have he := (row_entry_iff q rows childOK order rank laws u e).mpr (Or.inl rfl)
+      refine ⟨e, he, rows.key_injective u ?_⟩
+      exact (ownedSlot_key q rows u e _).trans ((rootEntry_key q rows u _).trans hk.symm)
+  | inr c =>
+      obtain ⟨hc, hp⟩ := (childOK u c).mp (by simpa only [hk] using hd)
+      let e := childEntry q rows childOK c hc (rank (q.ids.originals.read c))
+      have he := (row_entry_iff q rows childOK order rank laws u e).mpr
+        (Or.inr ⟨c, hc, hp, rfl⟩)
+      refine ⟨e, he, rows.key_injective u ?_⟩
+      exact (ownedSlot_key q rows u e _).trans
+        ((childEntry_key q rows childOK c hc _).trans hk.symm)
+
+private def project {α β : Type} {P : α → Prop} (f : ∀ a, P a → β) :
+    (xs : List α) → (∀ a ∈ xs, P a) → List β
+  | [], _ => []
+  | a :: xs, h =>
+      f a (h a (List.mem_cons.mpr (Or.inl rfl))) ::
+        project f xs (fun b hb => h b (List.mem_cons.mpr (Or.inr hb)))
+
+private theorem project_mem {α β : Type} {P : α → Prop} (f : ∀ a, P a → β)
+    (xs : List α) (h : ∀ a ∈ xs, P a) (a : α) (ha : a ∈ xs) :
+    f a (h a ha) ∈ project f xs h := by
+  induction xs with
+  | nil => cases ha
+  | cons b xs ih =>
+      simp only [project, List.mem_cons]
+      rcases List.mem_cons.mp ha with rfl | hb
+      · exact Or.inl rfl
+      · exact Or.inr (ih _ hb)
+
+private theorem map_project {α β γ : Type} {P : α → Prop}
+    (f : ∀ a, P a → β) (s : α → γ) (t : β → γ)
+    (xs : List α) (h : ∀ a ∈ xs, P a)
+    (H : ∀ a (ha : a ∈ xs), t (f a (h a ha)) = s a) :
+    (project f xs h).map t = xs.map s := by
+  induction xs with
+  | nil => rfl
+  | cons a xs ih =>
+      simp only [project, List.map_cons]
+      rw [H a (List.mem_cons.mpr (Or.inl rfl))]
+      exact congrArg (List.cons (s a))
+        (ih _ (fun b hb => H b (List.mem_cons.mpr (Or.inr hb))))
+
+def extractSlots (s : Schedule rows.length) (u : Fin q.count)
+    (owns : ∀ e ∈ s.rows.row u, e.owner = u) : Array (Fin (rows.length u)) :=
+  (project (ownedSlot q rows u) (s.rows.row u) owns).toArray
+
+def slotArray (u : Fin q.count) : Array (Fin (rows.length u)) :=
+  extractSlots q rows (build q rows childOK order) u (rowOwner q rows childOK order u)
+
+def slotArrays : Array (Σ u : Fin q.count, Array (Fin (rows.length u))) :=
+  let s := build q rows childOK order
+  Array.ofFn (fun u : Fin q.count => ⟨u, extractSlots q rows s u
+    (rowOwner q rows childOK order u)⟩)
+
+private theorem slotArray_list (u : Fin q.count) :
+    (slotArray q rows childOK order u).toList =
+      project (ownedSlot q rows u) (actual q rows childOK order u)
+        (rowOwner q rows childOK order u) := by
+  simp [slotArray, extractSlots]
+
+theorem slotArray_mem (laws : Laws q order rank) (u : Fin q.count)
+    (i : Fin (rows.length u)) : i ∈ (slotArray q rows childOK order u).toList := by
+  obtain ⟨e, he, hi⟩ := actual_cover q rows childOK order rank laws u i
+  rw [slotArray_list, ← hi]
+  exact project_mem _ _ _ e he
+
+theorem slotArray_covers (laws : Laws q order rank) (u : Fin q.count)
+    (i : Fin (rows.length u)) :
+    ∃ (j : Nat) (hj : j < (slotArray q rows childOK order u).size),
+      (slotArray q rows childOK order u)[j]'hj = i := by
+  obtain ⟨j, hj, he⟩ := List.mem_iff_getElem.mp
+    (slotArray_mem q rows childOK order rank laws u i)
+  exact ⟨j, by simpa using hj, by simpa using he⟩
+
+variable (noSelf : ∀ c : Fin q.count, c ≠ q.input.root → q.input.parent.read c ≠ c)
+
+include noSelf in
+theorem slotArray_increasing (laws : Laws q order rank) (u : Fin q.count) :
+    ((slotArray q rows childOK order u).toList.map (slotRank q rows rank u)).Pairwise
+      (· < ·) := by
+  rw [slotArray_list, map_project _ (fun e => e.source) _ _ _
+    (aligned q rows childOK order rank laws u)]
+  exact increasing q rows childOK order noSelf u
+
+include noSelf in
+theorem slotArray_nodup (laws : Laws q order rank) (u : Fin q.count) :
+    (slotArray q rows childOK order u).toList.Nodup := by
+  have h := List.pairwise_map.mp (slotArray_increasing q rows childOK order rank noSelf laws u)
+  apply h.imp
+  intro a b hab he
+  subst b
+  exact (Nat.lt_irrefl _) hab
+
+private theorem pullSlot {α : Type} (a : α) (ys : List α) (ha : a ∈ ys) :
+    ∃ zs, ys.Perm (a :: zs) := by
+  induction ys with
+  | nil => cases ha
+  | cons b ys ih =>
+      rcases List.mem_cons.mp ha with rfl | ht
+      · exact ⟨ys, List.Perm.refl _⟩
+      · obtain ⟨zs, hp⟩ := ih ht
+        exact ⟨b :: zs, (List.Perm.cons b hp).trans (by
+          first | exact List.Perm.swap a b zs | exact List.Perm.swap b a zs)⟩
+
+private theorem coverPerm {α : Type} (xs ys : List α) (hx : xs.Nodup)
+    (hy : ys.Nodup) (H : ∀ a, a ∈ xs ↔ a ∈ ys) : xs.Perm ys := by
+  induction xs generalizing ys with
+  | nil =>
+      cases ys with
+      | nil => exact .nil
+      | cons a ys => exact False.elim (List.not_mem_nil ((H a).mpr (by simp)))
+  | cons a xs ih =>
+      obtain ⟨zs, hp⟩ := pullSlot a ys ((H a).mp (by simp))
+      have hz := List.nodup_cons.mp (hp.nodup_iff.mp hy)
+      have ht := List.nodup_cons.mp hx
+      refine (List.Perm.cons a (ih zs ht.2 hz.2 ?_)).trans hp.symm
+      intro b
+      by_cases h : b = a
+      · subst b
+        exact iff_of_false ht.1 hz.1
+      · simpa only [List.mem_cons, h, false_or] using (H b).trans hp.mem_iff
+
+include noSelf in
+theorem slotArray_perm (laws : Laws q order rank) (u : Fin q.count) :
+    (slotArray q rows childOK order u).toList.Perm (List.finRange (rows.length u)) := by
+  have hm (i : Fin (rows.length u)) : i ∈ List.finRange (rows.length u) := by
+    exact List.mem_iff_getElem.mpr ⟨i.val, by simpa using i.isLt, by simp⟩
+  apply coverPerm _ _ (slotArray_nodup q rows childOK order rank noSelf laws u)
+  · first
+    | exact List.nodup_finRange _
+    | change List.Pairwise (· ≠ ·) _
+      rw [List.pairwise_iff_getElem]
+      intro i j hi hj hij he
+      have hv := congrArg Fin.val he
+      simp at hv <;> omega
+  · exact fun i => ⟨fun _ => hm i, fun _ => slotArray_mem q rows childOK order rank laws u i⟩
+
+include noSelf in
+theorem slotArray_size (laws : Laws q order rank) (u : Fin q.count) :
+    (slotArray q rows childOK order u).size = rows.length u := by
+  simpa using (slotArray_perm q rows childOK order rank noSelf laws u).length_eq
+
 end PaperB.DenseQuotientLocalOrder

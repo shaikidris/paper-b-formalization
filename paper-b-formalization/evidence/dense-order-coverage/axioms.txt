@@ -1,0 +1,4 @@
+'PaperB.DenseQuotientLocalOrder.slotArray_covers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.slotArray_increasing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.slotArray_perm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.slotArray_size' depends on axioms: [propext, Classical.choice, Quot.sound]

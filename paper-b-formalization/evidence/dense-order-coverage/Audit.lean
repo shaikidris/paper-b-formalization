@@ -1,0 +1,5 @@
+import PaperB.DenseQuotientLocalOrder
+#print axioms PaperB.DenseQuotientLocalOrder.slotArray_covers
+#print axioms PaperB.DenseQuotientLocalOrder.slotArray_increasing
+#print axioms PaperB.DenseQuotientLocalOrder.slotArray_perm
+#print axioms PaperB.DenseQuotientLocalOrder.slotArray_size

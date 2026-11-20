@@ -1374,9 +1374,10 @@
         "evidence/physical-kahn/verification.json",
         "evidence/fast-static-reader/verification.json",
         "evidence/shared-local-order/verification.json",
-        "evidence/actual-dense-order/verification.json"
+        "evidence/actual-dense-order/verification.json",
+        "evidence/dense-order-coverage/verification.json"
       ],
-      "progress": "The shared local-order emitter is wired to actual original ID and dense root/child slot reads, with exact grouped entries and increasing positions."
+      "progress": "The physical dense local-order arrays now have checked exact domain coverage, cardinality and increasing rank."
     },
     {
       "id": "EX5.2",

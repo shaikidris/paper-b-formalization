@@ -1,0 +1,11 @@
+{
+  "base_commit": "98a1cb2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseQuotientLocalOrder.lean",
+  "sha256": "f29aee1de62c5f1cbfc94928b20a45a804530fbf3d5cff8a2f5c78585f2c9dd0",
+  "scope": "Each actual local schedule contains each dense slot exactly once and in increasing decoded leader rank. Slot arrays are extracted from a shared grouping result.",
+  "remaining": "Bind the input order laws to the actual Kahn scan and use the resulting per-quotient coverage directly."
+}
