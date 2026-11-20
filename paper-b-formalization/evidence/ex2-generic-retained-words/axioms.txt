@@ -1,0 +1,3 @@
+'PaperB.RetainedProperLoss.dictionary_fits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.packWordColumns_count_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.packWordColumns_known' depends on axioms: [propext, Classical.choice, Quot.sound]

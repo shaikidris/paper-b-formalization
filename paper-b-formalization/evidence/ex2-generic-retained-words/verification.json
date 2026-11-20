@@ -1,0 +1,28 @@
+{
+  "base_commit": "e61dbb7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestRetainedWords.lean",
+  "sha256": "62effbeaf9028a989e20874c324cac4cca6e88485ea028459edf87c64167c966",
+  "scope": "Pack the actual final forest reader into bounded-word storage with at most 1 + 18 n_H words and exact known-node comparison.",
+  "remaining": "Bind the fixed keyed lookup to the packed image and charge the full construction and peak storage.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 172,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      },
+      "cached_tokens": 0
+    },
+    "output_tokens": 2648,
+    "output_tokens_details": {
+      "reasoning_tokens": 2156
+    },
+    "total_tokens": 2820
+  }
+}

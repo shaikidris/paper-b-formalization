@@ -1,0 +1,4 @@
+import PaperB.ForestRetainedWords
+#print axioms PaperB.RetainedProperLoss.dictionary_fits
+#print axioms PaperB.RetainedProperLoss.packWordColumns_count_le
+#print axioms PaperB.RetainedProperLoss.packWordColumns_known

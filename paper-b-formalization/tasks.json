@@ -331,7 +331,8 @@
     "release-core/PaperB/ForestBackPairCodec.lean": "quotient forest",
     "release-core/PaperB/ForestKnownProbe.lean": "quotient forest",
     "release-core/PaperB/ForestBackWords.lean": "quotient forest",
-    "release-core/PaperB/ForestRetainedFieldBounds.lean": "quotient forest"
+    "release-core/PaperB/ForestRetainedFieldBounds.lean": "quotient forest",
+    "release-core/PaperB/ForestRetainedWords.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1129,9 +1130,10 @@
         "evidence/ex2-generic-back-codec/verification.json",
         "evidence/ex2-generic-known-probes/verification.json",
         "evidence/ex2-generic-back-words/verification.json",
-        "evidence/ex2-retained-field-bounds/verification.json"
+        "evidence/ex2-retained-field-bounds/verification.json",
+        "evidence/ex2-generic-retained-words/verification.json"
       ],
-      "progress": "Verify concrete dictionary IDs, slots, labels, and DFS interval fields are bounded on the actual final reader.",
+      "progress": "Pack the actual final forest reader into bounded-word storage with at most 1 + 18 n_H words and exact known-node comparison.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -407,3 +407,4 @@
 {"at": "2026-11-20T18:34:29+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestKnownProbe", "tasks": ["EX2.4"], "evidence": "evidence/ex2-generic-known-probes/verification.json"}
 {"at": "2026-11-20T18:34:35+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestBackWords", "tasks": ["EX2.4"], "evidence": "evidence/ex2-generic-back-words/verification.json"}
 {"at": "2026-11-20T18:38:24+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestRetainedFieldBounds", "tasks": ["EX2.4"], "evidence": "evidence/ex2-retained-field-bounds/verification.json"}
+{"at": "2026-11-20T18:38:30+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestRetainedWords", "tasks": ["EX2.4"], "evidence": "evidence/ex2-generic-retained-words/verification.json"}
