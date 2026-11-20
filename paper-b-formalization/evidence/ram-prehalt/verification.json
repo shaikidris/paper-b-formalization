@@ -1,0 +1,11 @@
+{
+  "base_commit": "1b345df",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamTracePreHalt.lean",
+  "sha256": "d1f16f7db09389ae95de277960869a30063dfa5b56ed6a94db82a1be762653eb",
+  "scope": "A successful physical RAM run has a checked exact nonhalting prefix whose length plus one equals the run's executed count.",
+  "remaining": "Specialize the last instruction to the scalar search worker and replace halt with a fixed return target under relocation and embedding."
+}
