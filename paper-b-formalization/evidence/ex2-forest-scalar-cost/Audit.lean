@@ -1,0 +1,8 @@
+import PaperB.ForestScalarCost
+
+#print axioms StepCostCertificate.meteredListAny_output
+#print axioms StepCostCertificate.meteredListAny_cost_le
+#print axioms StepCostCertificate.meteredBinarySearch_output
+#print axioms StepCostCertificate.meteredBinarySearch_cost_le
+#print axioms PaperB.ForestHead.scan_scalar_meter
+#print axioms PaperB.ForestHead.search_scalar_meter

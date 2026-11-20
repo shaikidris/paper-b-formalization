@@ -1,0 +1,6 @@
+'StepCostCertificate.meteredListAny_output' depends on axioms: [propext]
+'StepCostCertificate.meteredListAny_cost_le' depends on axioms: [propext, Quot.sound]
+'StepCostCertificate.meteredBinarySearch_output' depends on axioms: [propext]
+'StepCostCertificate.meteredBinarySearch_cost_le' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestHead.scan_scalar_meter' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestHead.search_scalar_meter' depends on axioms: [propext, Quot.sound]
