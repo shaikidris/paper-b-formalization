@@ -57,9 +57,13 @@ normalization already build on the pinned Lean toolchain.
   charges one instruction. The exit block decodes its node and writes the
   stop time in three instructions. The [driver guard and work accounting](release-core/PaperB/RamForestDriverCost.lean)
   prove the exact stack-empty branch and express the traversal cost through the
-  completed enter, exit, and child-push counters. The next refinement must
-  compose the full machine run, discharge the enter/exit block contracts,
-  encode the staged columns, and link the finish to the full constructor.
+  completed enter, exit, and child-push counters. The
+  [driver theorem](release-core/PaperB/RamForestDriver.lean) composes guarded
+  body traces into a successful machine run, including the terminal guard
+  and halt. It returns the reference final state relation and the exact
+  peak across every reached machine state. Instantiate its hypotheses on
+  the placed DFS code and arena, encode the staged columns, and link that
+  finish to the full constructor.
 - **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
   preserves the initialized depth column through packed writes.
   [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)

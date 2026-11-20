@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The API-generated driver guard selects the empty or nonempty stack branch in exactly one machine instruction, preserving data and registers. The traversal work recurrence equals the change in the enter, exit and child-push potential of the actual compact DFS reference run. The first execution reached its output cap before emitting the full driver theorem. Compose the executable guard and body traces, bind the physical DFS branches, and link serialization and the allocating constructor before certifying Lemma 3.2.
+- [EX2.4](TASKS.md#ex24) — The driver theorem composes exact guard and body traces for the compact reference traversal. The exact completed run charges traversal work plus the terminal guard and halt, preserves the final refinement relation up to the PC, and has peak equal to the fixed arena footprint. Instantiate the guard and body hypotheses for one linked DFS program and the concrete arena. Then bind the encoder and complete construction trace before certifying Lemma 3.2.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

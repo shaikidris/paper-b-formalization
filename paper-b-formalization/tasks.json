@@ -355,7 +355,8 @@
     "release-core/PaperB/RamForestStack.lean": "quotient forest",
     "release-core/PaperB/RamPushChildRow.lean": "quotient forest",
     "release-core/PaperB/RamForestDispatch.lean": "quotient forest",
-    "release-core/PaperB/RamForestDriverCost.lean": "quotient forest"
+    "release-core/PaperB/RamForestDriverCost.lean": "quotient forest",
+    "release-core/PaperB/RamForestDriver.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1187,9 +1188,10 @@
         "evidence/ex2-ram-dfs-stack/verification.json",
         "evidence/ex2-ram-child-row/verification.json",
         "evidence/ex2-ram-dispatch/verification.json",
-        "evidence/ex2-ram-driver-cost/verification.json"
+        "evidence/ex2-ram-driver-cost/verification.json",
+        "evidence/ex2-ram-driver-run/verification.json"
       ],
-      "progress": "The API-generated driver guard selects the empty or nonempty stack branch in exactly one machine instruction, preserving data and registers. The traversal work recurrence equals the change in the enter, exit and child-push potential of the actual compact DFS reference run. The first execution reached its output cap before emitting the full driver theorem. Compose the executable guard and body traces, bind the physical DFS branches, and link serialization and the allocating constructor before certifying Lemma 3.2.",
+      "progress": "The driver theorem composes exact guard and body traces for the compact reference traversal. The exact completed run charges traversal work plus the terminal guard and halt, preserves the final refinement relation up to the PC, and has peak equal to the fixed arena footprint. Instantiate the guard and body hypotheses for one linked DFS program and the concrete arena. Then bind the encoder and complete construction trace before certifying Lemma 3.2.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
