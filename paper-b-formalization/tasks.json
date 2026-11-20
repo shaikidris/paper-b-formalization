@@ -189,7 +189,8 @@
     "release-core/PaperB/ForestPackedProbe.lean": "cuts",
     "release-core/PaperB/ExitRawIncoming.lean": "exit",
     "release-core/PaperB/RamRegisterTrace.lean": "cost model",
-    "release-core/PaperB/ExitRealFirstLabel.lean": "exit"
+    "release-core/PaperB/ExitRealFirstLabel.lean": "exit",
+    "release-core/PaperB/DenseRuntimeGraph.lean": "quotient"
   },
   "milestones": [
     {
@@ -1278,9 +1279,10 @@
         "evidence/actual-sibling-emitter-audit/verification.json",
         "evidence/dense-arc-local-slot-audit/verification.json",
         "evidence/dense-arc-row-audit/verification.json",
-        "evidence/dense-real-ownership-audit/verification.json"
+        "evidence/dense-real-ownership-audit/verification.json",
+        "evidence/dense-runtime-graph-audit/verification.json"
       ],
-      "progress": "Actual original-arc buckets now satisfy the dense translator's endpoint ownership for every occurrence. Direct local graph construction and complete arena charging remain open."
+      "progress": "The actual local quotient graph now materializes from an already shared original-arc table and shared vertex layout. Lean checks stable adjacency and every physical tail. The original structural correspondence and overall accounting remain open."
     },
     {
       "id": "EX5.2",

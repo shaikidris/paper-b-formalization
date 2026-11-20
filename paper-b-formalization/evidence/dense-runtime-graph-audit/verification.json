@@ -1,0 +1,11 @@
+{
+  "base_commit": "21a1f11",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseRuntimeGraph.lean",
+  "sha256": "ff547e68aa2b3e681a2b9009ae66383933646f344c9724298fe9df2aabe5059f",
+  "scope": "The concrete dense quotient builder reads a single row from an already shared arc emission table, preserves every original tail in order, and forms stable local adjacency with a dense root-zero representation. It consumes one shared dense vertex layout and does not re-run either global construction.",
+  "remaining": "Prove the isomorphism with the original structural sibling quotient and assemble the all-quotient resource bound."
+}
