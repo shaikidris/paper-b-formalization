@@ -462,3 +462,246 @@ theorem both_routed_answer_correct
 end
 
 end PaperB.EX44
+
+namespace PaperB.EX44
+
+open PaperB PaperB.Digraph PaperB.Digraph.EX44 PaperB.LabelledQuotient
+
+noncomputable section
+
+variable {g : PaperB.Digraph} {n k B E : Nat}
+variable {R : Runtime g.vertexCount n k B E} {W : World g n}
+variable {rank : Fin g.vertexCount → Nat}
+variable {parent : Fin g.vertexCount → Fin g.vertexCount}
+variable (progress : ∀ i j, g.HasArc i j → rank i < rank j)
+variable (injRank : ∀ ⦃i j⦄, rank i = rank j → i = j)
+variable (spec : ParentSpec g (W.vertex R.source) parent)
+
+private theorem thirdMapCast_rfl {m : Nat} (xs : List (Fin m)) :
+    xs.map (Fin.cast (rfl : m = m)) = xs := by
+  induction xs with
+  | nil => rfl
+  | cons x xs ih =>
+    have hx : Fin.cast (rfl : m = m) x = x := by
+      cases x
+      rfl
+    simp only [List.map_cons, hx, ih]
+
+/-- The facts consumed by the third leaf proof, in query order. -/
+structure DirectThirdFacts
+    (R : Runtime g.vertexCount n k B E) (W : World g n)
+    (d u v y : Fin n) (Q : LabelledQuotient) (J : CutPair Q)
+    (hOrig : Q.origVertexCount = g.vertexCount)
+    (s t z : Fin Q.vertexCount) : Prop where
+  missing : (R.pairKey d u v).value = none → ¬ Q.ProperLoss J z
+  member : ∀ hit, (R.pairKey d u v).value = some hit →
+    ((R.pairMember hit.key y).value = true ↔ Q.ProperLoss J z)
+  extrema : ∀ hit, (R.pairKey d u v).value = some hit →
+    (R.pairMember hit.key y).value = true →
+    SpanExact W.entry (ThirdMapped W ((lemma22ExitTails Q J s z).map (Fin.cast hOrig)))
+        (requested R y hit).1 ∧
+      SpanExact W.entry (ThirdMapped W ((lemma22ExitTails Q J t z).map (Fin.cast hOrig)))
+        (requested R y hit).2
+
+/-- Rootedness is geometric. The table laws relate the actual reads to
+the structural sibling quotient without decoding any forest node. -/
+structure DirectThirdTables : Prop where
+  rooted : ∀ (d : Fin n)
+    (hd : g.InitiallyReachable (W.vertex R.source) (W.vertex d)),
+    let Q := thirdQ progress injRank spec d hd
+    ∀ z : Fin Q.vertexCount, AvoidPath Q.HasQuotientArc (fun _ => False) Q.root z
+  laws : ∀ (d : Fin n)
+    (hd : g.InitiallyReachable (W.vertex R.source) (W.vertex d))
+    (a b u v x y : Fin n) (U V Z : ThirdVertex R W d)
+    (J : CutPair (thirdQ progress injRank spec d hd)),
+    ThirdChild R W d a u U → ThirdChild R W d b v V → ThirdChild R W d x y Z →
+    ThirdEnds J (thirdIndex progress injRank spec d hd U)
+      (thirdIndex progress injRank spec d hd V) →
+    DirectThirdFacts R W d u v y (thirdQ progress injRank spec d hd) J rfl
+      (thirdIndex progress injRank spec d hd U)
+      (thirdIndex progress injRank spec d hd V)
+      (thirdIndex progress injRank spec d hd Z)
+
+/-- The legacy dictionary and ancestry bookkeeping is one way to prove
+the direct laws; it is not needed by the leaf proof. -/
+theorem ThirdForestTables.toDirect
+    {G : ThirdForestGeometry R W progress injRank spec}
+    (D : ThirdForestTables progress injRank spec G) :
+    DirectThirdTables progress injRank spec := by
+  refine ⟨G.rooted, ?_⟩
+  intro d hd a b u v x y U V Z J repU repV repZ jEnds
+  let ix := thirdIndex (R := R) (W := W) progress injRank spec d hd
+  obtain ⟨K, asc, sameEnds⟩ := thirdAscending J
+  have kEnds : ThirdEnds K (ix U) (ix V) := by
+    rcases sameEnds with h | h <;> rcases jEnds with j | j
+    · exact Or.inl ⟨h.1.trans j.1, h.2.trans j.2⟩
+    · exact Or.inr ⟨h.1.trans j.1, h.2.trans j.2⟩
+    · exact Or.inr ⟨h.1.trans j.2, h.2.trans j.1⟩
+    · exact Or.inl ⟨h.1.trans j.2, h.2.trans j.1⟩
+  have lossEq := thirdLossCongr sameEnds (ix Z)
+  have dict := D.dictionary d hd a b u v U V K repU repV asc kEnds
+  constructor
+  · intro hk loss
+    simp only [hk] at dict
+    obtain ⟨i, hi, _⟩ :=
+      (buildProperLossForest_properLoss_iff_ancestor
+        (G.rankArc d hd) (G.rankInj d hd) (G.flat d hd) asc (ix Z)).mp
+        (lossEq.mpr loss)
+    exact dict i hi
+  · intro hit hk
+    simp only [hk] at dict
+    obtain ⟨i, dec, node, _⟩ := dict
+    have ancestry := buildProperLossForest_properLoss_iff_of_node
+      (G.rankArc d hd) (G.rankInj d hd) (G.flat d hd) node (ix Z)
+    exact (D.member d hd hit.key x y Z i dec repZ).trans (ancestry.symm.trans lossEq)
+  · intro hit hk hm
+    simp only [hk] at dict
+    obtain ⟨i, dec, node, orient⟩ := dict
+    let s := (R.exitExtrema hit.key y).value
+    let tails : Fin (thirdQ progress injRank spec d hd).vertexCount → List (Fin g.vertexCount) :=
+      fun p => lemma22ExitTails (thirdQ progress injRank spec d hd) J p (ix Z)
+    have raw : SpanExact W.entry (ThirdMapped W (tails K.fst)) s.1 ∧
+        SpanExact W.entry (ThirdMapped W (tails K.snd)) s.2 :=
+      D.extrema d hd hit.key x y Z i K J dec node sameEnds repZ hm
+    change SpanExact W.entry
+        (ThirdMapped W ((tails (ix U)).map (Fin.cast (rfl : g.vertexCount = g.vertexCount))))
+          (requested R y hit).1 ∧
+      SpanExact W.entry
+        (ThirdMapped W ((tails (ix V)).map (Fin.cast (rfl : g.vertexCount = g.vertexCount))))
+          (requested R y hit).2
+    simp only [thirdMapCast_rfl]
+    change SpanExact W.entry (ThirdMapped W (tails (ix U))) (hit.orientation.order s).1 ∧
+      SpanExact W.entry (ThirdMapped W (tails (ix V))) (hit.orientation.order s).2
+    rw [orient s]
+    rcases kEnds with h | h
+    · rw [if_pos h.1.symm]
+      simpa only [h.1, h.2] using raw
+    · rw [if_neg (show ix U ≠ K.fst from fun e => K.ne (h.2.trans e).symm)]
+      exact ⟨by simpa only [h.2] using raw.2, by simpa only [h.1] using raw.1⟩
+
+theorem third_route_leaf_contract_direct
+    (D : DirectThirdTables progress injRank spec)
+    (T : BothTables R W progress injRank spec) {d u v a b x y : Fin n}
+    (input : BothThirdInput (R := R) (W := W) progress injRank spec d u v a b x y) :
+    LeafContract R W (some (W.vertex a)) (some (W.vertex b)) (W.vertex x)
+      ((routeThird d u v a b y).run R).value := by
+  classical
+  obtain ⟨hd, A, C, Z, J, order, eqZ, keyA, keyC, noA, noC, branches⟩ := input.paper
+  let Q := thirdQ (R := R) (W := W) progress injRank spec d hd
+  let ix := thirdIndex (R := R) (W := W) progress injRank spec d hd
+  let S := siblingBlockSystem progress injRank spec hd
+  let r := W.vertex R.source
+  let F : Fin g.vertexCount → Prop := fun z => z = W.vertex a ∨ z = W.vertex b
+  have ka : J.fst = ix A := keyA
+  have kc : J.snd = ix C := keyC
+  have nA : ix Z ≠ J.fst := noA
+  have nC : ix Z ≠ J.snd := noC
+  have blockA : S.block Z ≠ S.block A := by
+    intro h
+    exact nA ((congrArg (encodeSiblingBlockKey g r (W.vertex d) parent) h).trans ka.symm)
+  have blockC : S.block Z ≠ S.block C := by
+    intro h
+    exact nC ((congrArg (encodeSiblingBlockKey g r (W.vertex d) parent) h).trans kc.symm)
+  unfold LastExitTestBranches at branches
+  have third := branches.2.2.2.2 Z blockA blockC
+  have goalZ : Goal R W (some (W.vertex a)) (some (W.vertex b)) (W.vertex x) ↔
+      g.SurvivingPath F r Z.val := by
+    have hf : Fails (some (W.vertex a)) (some (W.vertex b)) = F := by
+      funext z
+      apply propext
+      simp [Fails, F]
+    change g.SurvivingPath (Fails (some (W.vertex a)) (some (W.vertex b))) r (W.vertex x) ↔ _
+    rw [hf, eqZ]
+  have live (h : ¬ Q.ProperLoss J (ix Z)) :
+      Goal R W (some (W.vertex a)) (some (W.vertex b)) (W.vertex x) :=
+    goalZ.mpr (third.2.1 (thirdClean J (ix Z) (D.rooted d hd (ix Z)) nA nC h))
+  obtain ⟨U, V, valU, valV, perm⟩ :
+      ∃ U V : ThirdVertex R W d, U.val = W.vertex a ∧ V.val = W.vertex b ∧
+        ((U = A ∧ V = C) ∨ (U = C ∧ V = A)) := by
+    rcases order with h | h
+    · exact ⟨A, C, h.1, h.2, Or.inl ⟨rfl, rfl⟩⟩
+    · exact ⟨C, A, h.2, h.1, Or.inr ⟨rfl, rfl⟩⟩
+  have ends : ThirdEnds J (ix U) (ix V) := by
+    rcases perm with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+    · exact Or.inl ⟨ka, kc⟩
+    · exact Or.inr ⟨ka, kc⟩
+  have laws := D.laws d hd a b u v x y U V Z J
+    ⟨valU, input.firstChild⟩ ⟨valV, input.secondChild⟩ ⟨eqZ, input.targetChild⟩ ends
+  cases hk : (R.pairKey d u v).value with
+  | none =>
+    have hk' : (R.fetch (.key d u v)).value = none := hk
+    rw [show ((routeThird d u v a b y).run R).value = .thirdMissing by
+      simp [routeThird, Plan.run, hk', hk]]
+    exact live (laws.missing hk)
+  | some hit =>
+    have hk' : (R.fetch (.key d u v)).value = some hit := hk
+    cases hm : (R.pairMember hit.key y).value with
+    | false =>
+      have hm' : (R.fetch (.member hit.key y)).value = false := hm
+      rw [show ((routeThird d u v a b y).run R).value = .thirdNonmember by
+        simp [routeThird, Plan.run, hk', hk, hm', hm]]
+      apply live
+      intro loss
+      have marked := (laws.member hit hk).mpr loss
+      rw [hm] at marked
+      cases marked
+    | true =>
+      have hm' : (R.fetch (.member hit.key y)).value = true := hm
+      rw [show ((routeThird d u v a b y).run R).value = .thirdExits d u v a b y hit by
+        simp [routeThird, Plan.run, hk', hk, hm', hm]]
+      let tails : Fin Q.vertexCount → List (Fin g.vertexCount) :=
+        fun s => lemma22ExitTails Q J s (ix Z)
+      obtain ⟨_, _, _, _, _, _, commonA, commonC, survives, _⟩ :=
+        third.2.2 ((laws.member hit hk).mp hm)
+      have paper : Goal R W (some (W.vertex a)) (some (W.vertex b)) (W.vertex x) ↔
+          (¬ g.CommonDominator r (tails J.fst) A.val) ∨
+          (¬ g.CommonDominator r (tails J.snd) C.val) :=
+        goalZ.trans (survives.trans (or_congr (commonA A.val).symm (commonC C.val).symm))
+      have mapU := thirdMapped_iff progress injRank spec T a (tails (ix U))
+      have mapV := thirdMapped_iff progress injRank spec T b (tails (ix V))
+      have spans := laws.extrema hit hk hm
+      change SpanExact W.entry
+          (ThirdMapped W ((tails (ix U)).map (Fin.cast (rfl : g.vertexCount = g.vertexCount))))
+            (requested R y hit).1 ∧
+        SpanExact W.entry
+          (ThirdMapped W ((tails (ix V)).map (Fin.cast (rfl : g.vertexCount = g.vertexCount))))
+            (requested R y hit).2 at spans
+      simp only [thirdMapCast_rfl] at spans
+      refine ⟨hk, hm, ThirdMapped W (tails (ix U)), ThirdMapped W (tails (ix V)),
+        spans.1, spans.2, ?_⟩
+      rcases perm with h | h
+      · rw [ka, kc, ← h.1, ← h.2, valU, valV] at paper
+        exact paper.trans (or_congr mapU mapV)
+      · rw [ka, kc, ← h.2, ← h.1, valV, valU] at paper
+        exact paper.trans ((or_congr mapV mapU).trans or_comm)
+
+theorem both_route_leaf_contract_direct
+    (D : DirectThirdTables progress injRank spec) (T : BothTables R W progress injRank spec)
+    (acyclic : g.IsAcyclic) (a b : Fin n)
+    (ab : ¬ Ancestor parent (W.vertex a) (W.vertex b))
+    (ba : ¬ Ancestor parent (W.vertex b) (W.vertex a)) (t : Fin g.vertexCount) :
+    LeafContract R W (some (W.vertex a)) (some (W.vertex b)) t
+      ((route R.source (some (W.vertex a)) (some (W.vertex b)) t).run R).value := by
+  cases bothReachable_split progress injRank spec T acyclic a b ab ba t with
+  | no tag dead => rcases tag with h | h | h <;> rw [h] <;> exact dead
+  | yes tag live => rw [tag]; exact live
+  | withinFirst x target tag criterion => rw [tag]; exact criterion
+  | withinSecond x target tag criterion => rw [tag]; exact criterion
+  | third d u v x y target tag input =>
+    rw [tag, ← target]
+    exact third_route_leaf_contract_direct progress injRank spec D T input
+
+theorem both_routed_answer_correct_direct
+    (D : DirectThirdTables progress injRank spec) (T : BothTables R W progress injRank spec)
+    (acyclic : g.IsAcyclic) (a b : Fin n)
+    (ab : ¬ Ancestor parent (W.vertex a) (W.vertex b))
+    (ba : ¬ Ancestor parent (W.vertex b) (W.vertex a)) (t : Fin g.vertexCount) :
+    ((answer
+      ((route R.source (some (W.vertex a)) (some (W.vertex b)) t).run R).value).run R).value
+        = true ↔ Goal R W (some (W.vertex a)) (some (W.vertex b)) t :=
+  answer_correct T.intervals _
+    (both_route_leaf_contract_direct progress injRank spec D T acyclic a b ab ba t)
+
+end
+
+end PaperB.EX44

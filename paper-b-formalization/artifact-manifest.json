@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3100,
-      "sha256": "b2fa7279f1dd44216b26aa42da0347010541c102b30cc5de324bc9a744c96a91"
+      "bytes": 3106,
+      "sha256": "6a095b0b1085b6ab4861bd0a8d0770f1fd2c539585e3a3eba4015712f664965c"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 53380,
-      "sha256": "525e0a7220d04409e4aaad1ebe0c99849366bb53ef4880b3461b5018a9ee87fc"
+      "bytes": 53482,
+      "sha256": "5ae8de0c1f81e012447d16671b49f6f641d3c6b556774a791181001d99864895"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 58974,
-      "sha256": "b50415578f0097d74cd759dbd19163fbd81326c73fc857a7141182b6686644f3"
+      "bytes": 59166,
+      "sha256": "fb77fe90c2d04fbb087cedca577f430d97c030e7535364ce8d99fa1ead2201b4"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -445,6 +445,21 @@
       "path": "evidence/dictionary-build-charge/verification.json",
       "bytes": 618,
       "sha256": "f064adf1e52ad5e9635f8b20a69e6649a6c4dfc462daf80aec71aaeaa259418c"
+    },
+    {
+      "path": "evidence/direct-third-route/Audit.lean",
+      "bytes": 206,
+      "sha256": "923866de60b258e3bfb5d47dd1a2ca48a709ae6304216712f6e36fe10ce127d5"
+    },
+    {
+      "path": "evidence/direct-third-route/axioms.txt",
+      "bytes": 313,
+      "sha256": "a194a040ae4c7edd7d6551fb397ec184778370c8fdde72f22d0e5c4be3a93497"
+    },
+    {
+      "path": "evidence/direct-third-route/verification.json",
+      "bytes": 638,
+      "sha256": "c82b2853579905b2ba6ec48cb6137cff5d7607a2d935fbe0de303bd46e5f2a9a"
     },
     {
       "path": "evidence/dom-from-original-audit/Audit.lean",
@@ -5183,8 +5198,8 @@
     },
     {
       "path": "release-core/PaperB/ThirdReachableRoute.lean",
-      "bytes": 19576,
-      "sha256": "2dc7d5514fc9e7286085f721fb3d11c4813c7cb96d7f17986240b8abf39614d7"
+      "bytes": 31523,
+      "sha256": "5a748a044ec00621b06e8a26223a4b38c57bc83004efd28d9cebe388760ac2ff"
     },
     {
       "path": "release-core/PaperB/TopologicalRank.lean",
@@ -5313,8 +5328,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 72773,
-      "sha256": "9f31b93e0cd5e26e4d83a4d85068db4f06a2aebe9dcd31b019408650e9568ebc"
+      "bytes": 72836,
+      "sha256": "666ae8656deaad5661aa1fba6564b917c303085bda72c4ae65357d943e1f02ff"
     },
     {
       "path": "test_plan.py",

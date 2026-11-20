@@ -1315,9 +1315,10 @@
         "evidence/original-static-connector-audit/verification.json",
         "evidence/original-parent-audit/verification.json",
         "evidence/third-geometry/verification.json",
-        "evidence/exact-label-transport/verification.json"
+        "evidence/exact-label-transport/verification.json",
+        "evidence/direct-third-route/verification.json"
       ],
-      "progress": "There is now exact proof-only transport of proper loss and ordered exit-tail sets through a rooted label-preserving quotient bijection."
+      "progress": "Third-block query correctness now requires semantic membership and ordered exit extrema directly, avoiding a canonical forest-node bijection."
     },
     {
       "id": "EX5.1",

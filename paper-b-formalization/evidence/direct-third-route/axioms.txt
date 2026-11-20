@@ -1,0 +1,3 @@
+'PaperB.EX44.ThirdForestTables.toDirect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX44.third_route_leaf_contract_direct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.EX44.both_routed_answer_correct_direct' depends on axioms: [propext, Classical.choice, Quot.sound]

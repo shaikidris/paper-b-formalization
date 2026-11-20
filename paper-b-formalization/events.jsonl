@@ -277,3 +277,4 @@
 {"at": "2026-11-20T01:26:22+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPlacedTrace", "tasks": ["EX5.3"], "evidence": "evidence/ram-wider-placement/verification.json"}
 {"at": "2026-11-20T01:31:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedOrderedSweep", "tasks": ["EX2.4"], "evidence": "evidence/dictionary-build-charge/verification.json"}
 {"at": "2026-11-20T01:32:06+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitInterleavedPacked", "tasks": ["EX4.2"], "evidence": "evidence/interleaved-packed-pass/verification.json"}
+{"at": "2026-11-20T01:32:12+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ThirdReachableRoute", "tasks": ["EX4.4"], "evidence": "evidence/direct-third-route/verification.json"}

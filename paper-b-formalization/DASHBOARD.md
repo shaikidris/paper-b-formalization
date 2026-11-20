@@ -22,7 +22,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX2.4](TASKS.md#ex24) — Lean verifies the dictionary setup tally for key collection, bank allocation, merge operations and compact output.
 - [EX4.2](TASKS.md#ex42) — A single interleaved executable sweep now threads the physical map bank and base column and maintains exact prefix state under its schedule contract.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
-- [EX4.4](TASKS.md#ex44) — There is now exact proof-only transport of proper loss and ordered exit-tail sets through a rooted label-preserving quotient bijection.
+- [EX4.4](TASKS.md#ex44) — Third-block query correctness now requires semantic membership and ordered exit extrema directly, avoiding a canonical forest-node bijection.
 - [EX5.1](TASKS.md#ex51) — The shared local-order emitter is wired to actual original ID and dense root/child slot reads, with exact grouped entries and increasing positions.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 - [EX5.3](TASKS.md#ex53) — Lean now checks exact embedding of placed instructions into a wider register frame, with untouched registers preserved.

@@ -1,0 +1,11 @@
+{
+  "base_commit": "f5b7f5a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ThirdReachableRoute.lean",
+  "sha256": "5a748a044ec00621b06e8a26223a4b38c57bc83004efd28d9cebe388760ac2ff",
+  "scope": "The original third-block routes can be proved directly from the verified membership and ordered exit-tail facts, without decoding a transport of canonical forest nodes. The earlier contracts imply these direct laws.",
+  "remaining": "Bind the direct facts to actual retained dense dictionary slots and packed exit extrema."
+}
