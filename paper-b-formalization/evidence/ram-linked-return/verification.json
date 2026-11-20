@@ -1,0 +1,11 @@
+{
+  "base_commit": "31c94c2",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamWorkerReturn.lean",
+  "sha256": "7bd883614b557d62249a33a255e175f8885ba131c64ce147dfde49b40bd61e69",
+  "scope": "Run the actual scalar predecessor worker at a relocated fixed instruction slot with a goto replacing halt. The checked step trace has the original length and same terminal state except the return PC, with no writable data.",
+  "remaining": "Assemble three fixed call sites with register setup and return handling and instantiate their physical pair lookup result program."
+}

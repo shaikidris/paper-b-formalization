@@ -1,0 +1,2 @@
+'PaperB.RamProgram.worker_return_of_trace' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.worker_linked_return' depends on axioms: [propext, Quot.sound]

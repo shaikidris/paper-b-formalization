@@ -230,7 +230,8 @@
     "release-core/PaperB/ForestLookupTolls.lean": "cuts",
     "release-core/PaperB/RamWorkerHaltPC.lean": "cost",
     "release-core/PaperB/ForestIncomingRaw.lean": "cuts",
-    "release-core/PaperB/ExitParentEarlier.lean": "exit"
+    "release-core/PaperB/ExitParentEarlier.lean": "exit",
+    "release-core/PaperB/RamWorkerReturn.lean": "cost"
   },
   "milestones": [
     {
@@ -1431,9 +1432,10 @@
         "evidence/ram-pair-slice-audit/verification.json",
         "evidence/ram-pair-worker-calls/verification.json",
         "evidence/ram-prehalt/verification.json",
-        "evidence/ram-worker-halt-pc/verification.json"
+        "evidence/ram-worker-halt-pc/verification.json",
+        "evidence/ram-linked-return/verification.json"
       ],
-      "progress": "Lean verifies the scalar worker halt PC and that patching only the halt slot preserves every nonhalting instruction."
+      "progress": "One actual scalar predecessor worker now has exact fixed-code relocation and return semantics without an extra instruction."
     },
     {
       "id": "EX5.4",
