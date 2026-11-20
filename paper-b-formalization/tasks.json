@@ -1169,9 +1169,10 @@
         "evidence/ex2-reserved-collection-charge/verification.json",
         "evidence/ex2-compact-finish-space/verification.json",
         "evidence/ex2-compact-peak-receipts/verification.json",
-        "evidence/ex2-native-array-audit/verification.json"
+        "evidence/ex2-native-array-audit/verification.json",
+        "evidence/ex2-extraction-reserve-sites/verification.json"
       ],
-      "progress": "Reserve the parent and depth extraction banks once. Run the instrumented native compact builder on adjacent-hub and deep ladder quotients and check elimination of measured buffer-growth copies. A complete all-input primitive-work and backing-array ownership proof remains open.",
+      "progress": "Count the two extraction capacity reservations in the composed construction-site bound, retaining the 256 multiplier. Native backing-array evidence is recorded in the preceding checkpoint. A complete all-input primitive-work and backing-array ownership proof remains open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

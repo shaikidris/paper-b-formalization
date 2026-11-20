@@ -59,20 +59,20 @@ open PackedStaticLayout (Input)
 variable {N : Nat}
 
 /-- Selected units of the executable interval finish. Include parent/depth
-extraction (two reads and two output writes per occupied slot), the actual
+extraction (two reads, two reserved slots and two output writes per occupied slot), the actual
 grouping counters, two endpoint fills, both commands and endpoint writes,
 and every child command queued by the layout. -/
 def endpointSites (x : Input N) : Nat :=
   let grouped := groupedChildLists x.root x.parent.read
   let s := layout grouped.1 x.root (2 * N)
   let w := grouped.2.grouping
-  4 * N + grouped.2.rootFilterVisits +
+  6 * N + grouped.2.rootFilterVisits +
     (w.initCells + w.scatterReads + w.scatterWrites + w.reverseCells + w.finishRows) +
     2 * N + 2 * s.processed + s.childrenQueued
 
 theorem endpointSites_le (x : Input N)
     (tree : ValidDepthTree x.root x.parent.read x.depth.read) :
-    endpointSites x ≤ 18 * N := by
+    endpointSites x ≤ 20 * N := by
   let g := (groupedChildLists x.root x.parent.read).1
   have hg : g = bucketChildLists x.root x.parent.read :=
     groupedChildLists_eq_bucketChildLists _ _
@@ -84,9 +84,9 @@ theorem endpointSites_le (x : Input N)
   change (layout g x.root (2 * N)).processed = 2 * N at worked
   unfold endpointSites
   dsimp only
-  change 4 * N + (groupedChildLists x.root x.parent.read).2.rootFilterVisits +
+  change 6 * N + (groupedChildLists x.root x.parent.read).2.rootFilterVisits +
     _ + 2 * N + 2 * (layout g x.root (2 * N)).processed +
-      (layout g x.root (2 * N)).childrenQueued ≤ 18 * N
+      (layout g x.root (2 * N)).childrenQueued ≤ 20 * N
   rw [worked, groupedChildLists_work]
   dsimp only
   omega
@@ -122,7 +122,7 @@ private theorem compact_sites_arithmetic {N E L init dict sweep finish pack : Na
     (large : 3 ≤ N) (lpos : 1 ≤ L)
     (hin : init ≤ 12 * N) (hd : dict ≤ 34 * N * (L + 1))
     (hs : sweep ≤ 90 * (N + E) * L ^ 2)
-    (hf : finish ≤ 18 * (N + 1)) (hp : pack ≤ 19 * N)
+    (hf : finish ≤ 20 * (N + 1)) (hp : pack ≤ 19 * N)
     {prep : Nat} (hprep : prep ≤ 9 * (N + E)) :
     3 * N + prep + init + dict + sweep + finish + pack ≤
       256 * (N + E) * L ^ 2 := by
@@ -251,7 +251,7 @@ theorem buildWordsFromOrder_phase_sites (large : 3 ≤ H.vertexCount) :
       have ht := packedInput_ok ok
       first | exact ht | exact ht.tree | exact ht.1 | exact ht.2 | exact?
     have hfinish := Nat.le_trans (StaticGroupedTreeReader.endpointSites_le (packedInput ok) htree)
-      (Nat.mul_le_mul_left 18 (nodeCount_le ok))
+      (Nat.mul_le_mul_left 20 (nodeCount_le ok))
     rw [show N + N + N = 3 * N by omega]
     exact compact_sites_arithmetic large (OracleContract.one_le_L N) hin hd hsw
       hfinish hwSize (incomingSites_le H)

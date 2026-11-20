@@ -1,0 +1,9 @@
+{
+  "base_commit": "7b2fb91",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCompactBuildWork.lean",
+  "sha256": "26e5b3609de4137fcfc6cccaef0c16fed1eb9a5ab291fe922e1c17ca4d9d50fd",
+  "scope": "Count the two extraction capacity reservations in the composed construction-site bound, retaining the 256 multiplier. Native backing-array evidence is recorded in the preceding checkpoint.",
+  "remaining": "A complete all-input primitive-work and backing-array ownership proof remains open.",
+  "source_provenance": "Local native audit and exact-capacity integration. No new Generic generation."
+}

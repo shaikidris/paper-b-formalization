@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Reserve the parent and depth extraction banks once. Run the instrumented native compact builder on adjacent-hub and deep ladder quotients and check elimination of measured buffer-growth copies. A complete all-input primitive-work and backing-array ownership proof remains open.
+- [EX2.4](TASKS.md#ex24) — Count the two extraction capacity reservations in the composed construction-site bound, retaining the 256 multiplier. Native backing-array evidence is recorded in the preceding checkpoint. A complete all-input primitive-work and backing-array ownership proof remains open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
