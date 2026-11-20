@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea237b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticGroupedTreeReader.lean",
+  "sha256": "4782a531c628d7266cfc4ea70d191602e94811cded20445e2f02b322ba429cee",
+  "scope": "The actual grouped static reader has checked DFS event, child row and inverse-scatter counts. It shares one physical grouping across the relevant traversals.",
+  "remaining": "Join these static finish operation counts and capacity to the actual forest build resource theorem."
+}

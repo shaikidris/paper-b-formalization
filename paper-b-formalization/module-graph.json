@@ -1943,7 +1943,8 @@
       "path": "release-core/PaperB/StaticGroupedTreeReader.lean",
       "local_imports": [
         "release-core/PaperB/FastOriginalChildBuckets.lean",
-        "release-core/PaperB/StaticTreeReader.lean"
+        "release-core/PaperB/StaticTreeReader.lean",
+        "release-core/PaperB/ForestLayoutTreeCost.lean"
       ],
       "owner_role": "cost",
       "admission": "ORACLE_CORE"

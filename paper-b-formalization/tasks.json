@@ -1011,9 +1011,10 @@
         "evidence/forest-raw-incoming/verification.json",
         "evidence/forest-incoming-prep/verification.json",
         "evidence/dictionary-build-charge/verification.json",
-        "evidence/forest-prepared-build/verification.json"
+        "evidence/forest-prepared-build/verification.json",
+        "evidence/fast-static-finish-cost/verification.json"
       ],
-      "progress": "The shared incoming prep and fast ordered reader now compose in one executable builder for all quotient sizes, with exact membership and incidence and retained-size bounds.",
+      "progress": "The fast final static layout now has exact DFS command counts and linear child and inverse-array costs.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

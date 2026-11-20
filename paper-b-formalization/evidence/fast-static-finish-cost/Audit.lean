@@ -1,0 +1,4 @@
+import PaperB.StaticGroupedTreeReader
+#print axioms PaperB.StaticGroupedTreeReader.finish_dfs
+#print axioms PaperB.StaticGroupedTreeReader.finish_rows
+#print axioms PaperB.StaticGroupedTreeReader.finish_inverse
