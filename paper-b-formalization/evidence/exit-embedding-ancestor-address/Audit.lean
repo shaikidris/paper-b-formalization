@@ -1,0 +1,3 @@
+import PaperB.ExitEmbeddingAncestry
+#print axioms PaperB.FinalEmbeddingAncestry.physical_le_of_image
+#print axioms PaperB.FinalEmbeddingAncestry.physical_ancestor_of_image

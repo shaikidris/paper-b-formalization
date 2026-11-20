@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.
 - [EX4.2](TASKS.md#ex42) — Construct the compact transfer schedule from actual drivers, a direct inverse table, and the proven physical schedule.
-- [EX4.3](TASKS.md#ex43) — Connect actual compact driver rows to the canonical loss forest and prove key agreement and real-edge coverage for the raw model.
+- [EX4.3](TASKS.md#ex43) — Reflect each canonical ancestor on an actual embedding path to a physical ancestor and a monotone slot address.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.
 - [EX5.2](TASKS.md#ex52) — Serialize the actual two vertex-ID maps directly into a single array of bounded words and prove exact forward, inverse, and miss reads.

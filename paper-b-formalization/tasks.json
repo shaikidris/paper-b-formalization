@@ -314,7 +314,8 @@
     "release-core/PaperB/ExitActualForestInputs.lean": "exit sweeps",
     "release-core/PaperB/PackedOriginalIds.lean": "packed oracle",
     "release-core/PaperB/RamIntervalGuard.lean": "word machine",
-    "release-core/PaperB/ExitActualCompactSchedule.lean": "exit sweeps"
+    "release-core/PaperB/ExitActualCompactSchedule.lean": "exit sweeps",
+    "release-core/PaperB/ExitEmbeddingAncestry.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1402,9 +1403,10 @@
         "evidence/exit-raw-fused-tally/verification.json",
         "evidence/exit-scheduled-row-mass/verification.json",
         "evidence/exit-prefix-dominated-available/verification.json",
-        "evidence/exit-actual-generic-forest-inputs/verification.json"
+        "evidence/exit-actual-generic-forest-inputs/verification.json",
+        "evidence/exit-embedding-ancestor-address/verification.json"
       ],
-      "progress": "Connect actual compact driver rows to the canonical loss forest and prove key agreement and real-edge coverage for the raw model."
+      "progress": "Reflect each canonical ancestor on an actual embedding path to a physical ancestor and a monotone slot address."
     },
     {
       "id": "EX4.4",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "3f477e7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitEmbeddingAncestry.lean",
+  "sha256": "903e9ac96c4b5fc99ad644cfd52bc4b9ffbb46474c5a3352986778877491dfd9",
+  "scope": "Reflect each canonical ancestor on an actual embedding path to a physical ancestor and a monotone slot address.",
+  "remaining": "Use the exact publication event and compact driver calendar to identify the available installed map."
+}

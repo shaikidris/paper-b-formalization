@@ -1,0 +1,2 @@
+'PaperB.FinalEmbeddingAncestry.physical_le_of_image' depends on axioms: [propext]
+'PaperB.FinalEmbeddingAncestry.physical_ancestor_of_image' depends on axioms: [propext]
