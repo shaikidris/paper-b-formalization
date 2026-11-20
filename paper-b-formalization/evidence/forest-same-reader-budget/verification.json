@@ -1,0 +1,11 @@
+{
+  "base_commit": "5be29e3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestActualSweepBudget.lean",
+  "sha256": "7e3a548751544cdec7ab0574194c0ecf25077a0a678edea7daedc47a5647d6fe",
+  "scope": "The actual fast ordered reader shares its exact output and log with the checked selector and dictionary traces. Together the reads, comparisons, raw occurrence enumeration and dedup visits satisfy the verified quadratic-log tally.",
+  "remaining": "Join the dictionary-build, static layout and residual control charges and measure peak ownership for the same run."
+}

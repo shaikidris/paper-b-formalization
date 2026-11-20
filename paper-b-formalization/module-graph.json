@@ -381,7 +381,8 @@
         "release-core/PaperB/ForestLookupTolls.lean",
         "release-core/PaperB/ForestIncomingRaw.lean",
         "release-core/PaperB/ForestIncomingPrep.lean",
-        "release-core/PaperB/ForestPreparedBuild.lean"
+        "release-core/PaperB/ForestPreparedBuild.lean",
+        "release-core/PaperB/ForestActualSweepBudget.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -2120,6 +2121,19 @@
         "release-core/PaperB/ExitInterleavedPacked.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestActualSweepBudget.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestFastOrderedReader.lean",
+        "release-core/PaperB/ForestRealCounts.lean",
+        "release-core/PaperB/ForestOrderedReadBound.lean",
+        "release-core/PaperB/ForestLookupTolls.lean",
+        "release-core/PaperB/ForestPreparedBuild.lean",
+        "release-core/PaperB/ForestExactDictionary.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

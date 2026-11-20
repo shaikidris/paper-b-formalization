@@ -241,7 +241,8 @@
     "release-core/PaperB/RamWideWorker.lean": "cost",
     "release-core/PaperB/RamThreeCalls.lean": "cost",
     "release-core/PaperB/OriginalStaticFull.lean": "exit",
-    "release-core/PaperB/ExitPrefixOccupancy.lean": "exit"
+    "release-core/PaperB/ExitPrefixOccupancy.lean": "exit",
+    "release-core/PaperB/ForestActualSweepBudget.lean": "cuts"
   },
   "milestones": [
     {
@@ -1012,9 +1013,10 @@
         "evidence/forest-incoming-prep/verification.json",
         "evidence/dictionary-build-charge/verification.json",
         "evidence/forest-prepared-build/verification.json",
-        "evidence/fast-static-finish-cost/verification.json"
+        "evidence/fast-static-finish-cost/verification.json",
+        "evidence/forest-same-reader-budget/verification.json"
       ],
-      "progress": "The fast final static layout now has exact DFS command counts and linear child and inverse-array costs.",
+      "progress": "The actual fast reader output aligns with a single checked sweep tally for packed reads, lookups and incoming occurrence passes, with a quadratic-log bound.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
