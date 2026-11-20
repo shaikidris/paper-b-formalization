@@ -120,4 +120,16 @@ theorem run_site (c : Fin 3)
     ok (bank_inj hcap) hi (fetch_body hcap setup c)
     (fetch_return hcap setup c) (return_in_bounds hcap setup c) ha
 
+theorem fetch_setup_at {bits cap : Nat} (hcap : cap ≤ 2 ^ bits)
+    (setup : Setup bits) (c : Fin 3) (k : Fin 8) :
+    (program hcap setup)[20 * c.val + k.val]? =
+      some ((setup[c.val]'(c.isLt))[k.val]'(k.isLt)) := by
+  have hc := c.isLt
+  have hk := k.isLt
+  have hp : 20 * c.val + k.val < 60 := by omega
+  have hq : (20 * c.val + k.val) / 20 = c.val := by omega
+  have hm : (20 * c.val + k.val) % 20 = k.val := by omega
+  rw [fetch_program hcap setup (by omega : 20 * c.val + k.val < 61)]
+  simp [cell, hp, hq, hm, hk]
+
 end PaperB.RamProgram.ThreeCalls

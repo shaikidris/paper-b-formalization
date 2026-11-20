@@ -1465,9 +1465,10 @@
         "evidence/ram-linked-return/verification.json",
         "evidence/ram-wider-placement/verification.json",
         "evidence/wide-worker-link/verification.json",
-        "evidence/three-calls/verification.json"
+        "evidence/three-calls/verification.json",
+        "evidence/ram-setup-fetch/verification.json"
       ],
-      "progress": "Three scalar workers are now placed and verified in one fixed program, with exact code size, return addresses and frame preservation."
+      "progress": "The actual caller setup slots now have exact fetch equations for all three fixed search calls."
     },
     {
       "id": "EX5.4",

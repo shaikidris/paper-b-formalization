@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3044,
-      "sha256": "c738fe35492850c9c384d7e5102d75bf1827bd70bbac37b4633c103256436764"
+      "bytes": 3005,
+      "sha256": "ffbb59e1300460449b63a221db031d80fe8df67f506da677b922c8e5534b3ad0"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 54592,
-      "sha256": "95bd5b6ca6e64b6ebe02fb8a8d4f0e01af3fb4abb854362eb14b4ad407369d12"
+      "bytes": 54643,
+      "sha256": "271e6fdeaf8abf0dea706af62330a4d91beee96dffed649d6fb980ef980b4c76"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 61472,
-      "sha256": "857ae070d3a87a09a9d5e18ae0d88f6129cb180ee71b36c2e86771b62d439455"
+      "bytes": 61655,
+      "sha256": "6796819962bec853af7c2c785d5c31e45d0a53eacc35b705e1abf9c8364616d8"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -4102,6 +4102,21 @@
       "sha256": "81586ed1aa92022439ca2ce0b504d403d38445584296b5b598ff82b9ab889270"
     },
     {
+      "path": "evidence/ram-setup-fetch/Audit.lean",
+      "bytes": 86,
+      "sha256": "4f37aee89a32684b895824ffda48a1f222fb025f5cebe2f64444bee128519e1b"
+    },
+    {
+      "path": "evidence/ram-setup-fetch/axioms.txt",
+      "bytes": 105,
+      "sha256": "38c9212fe91347966d0f015272a68c1aed7046e9006309b9c6793801f913ce01"
+    },
+    {
+      "path": "evidence/ram-setup-fetch/verification.json",
+      "bytes": 535,
+      "sha256": "ff2fba963b741307a572014b710ad0d1dac9c15ddb28406ea5110e75c66aebc6"
+    },
+    {
       "path": "evidence/ram-static-lca-audit/Audit.lean",
       "bytes": 144,
       "sha256": "03898806ec86d004e420996314fbb3dee56558562f17b4949f691cf6367f88f5"
@@ -5243,8 +5258,8 @@
     },
     {
       "path": "release-core/PaperB/RamThreeCalls.lean",
-      "bytes": 4769,
-      "sha256": "7d16569a9351dbc7c756033de56a5eb30fa7845e6b77e1b4d836f93885f93473"
+      "bytes": 5297,
+      "sha256": "9ad8bf03309339624703485326dd65bf991c70c3ebfc35ebc572a971c1818c14"
     },
     {
       "path": "release-core/PaperB/RamTracePreHalt.lean",
@@ -5548,8 +5563,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 73929,
-      "sha256": "3beafc2ccb7a35b35357a02d0c62d2ca6d7c70f16855ade3e4a982fa641b09b6"
+      "bytes": 73944,
+      "sha256": "979b66d6f65e4c8c9ec9176035b31031d495fb255e6a6b8ab42e80670fb5945f"
     },
     {
       "path": "test_plan.py",

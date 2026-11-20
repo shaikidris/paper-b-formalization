@@ -1,0 +1,11 @@
+{
+  "base_commit": "5be29e3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamThreeCalls.lean",
+  "sha256": "9ad8bf03309339624703485326dd65bf991c70c3ebfc35ebc572a971c1818c14",
+  "scope": "Every caller setup instruction is fetched at its exact location in the actual linked three-site program.",
+  "remaining": "Install and execute the concrete descriptor setup instructions, then validate the final pair equality."
+}
