@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The counted exported membership query agrees with the returned index query and uses at most 10 times the paper logarithm of the quotient vertex count.
+- [EX2.4](TASKS.md#ex24) — One actual build and query certificate jointly establishes correctness, logarithmic exported query probes, constant known reads, bounded selected construction sites and bounded selected live roots including grouping and DFS.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — The actual depth and map readers use one bounded word buffer with disjoint fixed-width regions and record slots.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.

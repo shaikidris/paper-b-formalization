@@ -1075,9 +1075,10 @@
         "evidence/forest-full-finish-accounting/verification.json",
         "evidence/forest-query-retained-count/verification.json",
         "evidence/forest-group-spaces/verification.json",
-        "evidence/forest-actual-query-toll/verification.json"
+        "evidence/forest-actual-query-toll/verification.json",
+        "evidence/forest-acceptance-compose/verification.json"
       ],
-      "progress": "The counted exported membership query agrees with the returned index query and uses at most 10 times the paper logarithm of the quotient vertex count.",
+      "progress": "One actual build and query certificate jointly establishes correctness, logarithmic exported query probes, constant known reads, bounded selected construction sites and bounded selected live roots including grouping and DFS.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

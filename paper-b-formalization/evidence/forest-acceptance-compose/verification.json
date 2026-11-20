@@ -1,0 +1,11 @@
+{
+  "base_commit": "5491881",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCheckpointCertificate.lean",
+  "sha256": "d6d36b5ce10b15dbd4fc79672d1f2b15eab80368b2d9b06185eae9a0f73b3c9d",
+  "scope": "One actual build and query certificate jointly establishes correctness, logarithmic exported query probes, constant known reads, bounded selected construction sites and bounded selected live roots including grouping and DFS.",
+  "remaining": "Cover excluded allocation, input preparation and head-sweep sites before certifying the full per-quotient resource statement."
+}

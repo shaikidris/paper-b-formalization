@@ -2500,7 +2500,8 @@
       "local_imports": [
         "release-core/PaperB/ForestInputPrepStorage.lean",
         "release-core/PaperB/ForestNumericSweepSpace.lean",
-        "release-core/PaperB/StaticDfsLiveSpace.lean"
+        "release-core/PaperB/StaticDfsLiveSpace.lean",
+        "release-core/PaperB/ForestBuiltQueryToll.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"

@@ -1,3 +1,4 @@
+import PaperB.ForestBuiltQueryToll
 import PaperB.StaticDfsLiveSpace
 import PaperB.ForestInputPrepStorage
 import PaperB.ForestNumericSweepSpace
@@ -261,7 +262,7 @@ theorem build_checkpoint_certificate
           11 * H.vertexCount + H.arcCount + 5) ∧
       proofType (ForestDictionary.packedDictionary_construction_space
         p orderedPairCode 1) ∧
-      ∃ (q : Nat) (cnt : Count) (w : Work) (qs : List (CutPair H))
+      ∃ (q : Nat) (cnt : Count) (w : AggregateEX24.Work) (qs : List (CutPair H))
           (a d sortCost total frames : Nat),
         runOrdered p data size_data rank large = some (r.out, r.log) ∧
         PackedReads.packedReadSum c rank s rows = some q ∧
@@ -413,4 +414,350 @@ Unclosed obligations; none is hidden in coveredRootSum.
   estimate is used as a substitute for that trace.
 -/
 
+end PaperB
+
+namespace PaperB
+
+open _root_.EX24 _root_.EX24.PreStep _root_.EX24.PreparedSweep
+open _root_.EX24.PreparedSweep.Storage
+open PaperB.LabelledQuotient PaperB.ForestHead PaperB.EX24.FinalDFS PaperB.Jumps
+open PaperB.PairLookup PaperB.PairLookup.KeyMerge AggregateEX24
+
+namespace ForestSourceExecution
+
+open _root_.EX51 _root_.EX51.Storage ForestLayout ForestHeavyPath StaticHeadSweep
+open StaticGroupedTreeReader (childScanLength)
+open ForestLayout.LiveCells
+
+/-- A valid-index array read has one source probe. Finding the index is
+not part of this operation. -/
+def readKnown {α : Type _} (a : Array α) (i : Fin a.size) : α × Nat :=
+  (a[i.val]'i.isLt, 1)
+
+/-- Logical roots at the indicated call boundaries of stable child grouping.
+The active row reversal is charged in addition to the old table. -/
+inductive GroupingCellsAt {n : Nat} (root : Fin n) (parent : Fin n → Fin n) :
+    Nat → Prop where
+  | enumerate : GroupingCellsAt root parent
+      (boundLeft (groupedChildLists_enumeration_space (N := n) 0).2)
+  | filter {unread acc : List (Fin n)} {k : Nat} :
+      SelectNonRootAt root unread acc k →
+      GroupingCellsAt root parent (unread.length + acc.length)
+  | scatter {unread : List (Fin n)} {s : Rows n (Fin n)} {r w : Nat} :
+      ScatterAt parent id (groupedChildInput root) unread s r w →
+      GroupingCellsAt root parent
+        (s.cells.size + rowMass s + (groupedChildInput root).length)
+  | finish {s : Rows n (Fin n)} {t c : Nat} {ht : t ≤ n} :
+      FinishAt (scatterRows parent id (groupedChildInput root)) t ht s c →
+      GroupingCellsAt root parent
+        (s.cells.size + rowMass s + (groupedChildInput root).length)
+  | reverseRow {s : Rows n (Fin n)} {t c charge : Nat} {ht : t + 1 ≤ n}
+      {unread acc : List (Fin n)} :
+      FinishAt (scatterRows parent id (groupedChildInput root)) (t + 1) ht s c →
+      ReverseAt (s.row ⟨t, ht⟩) c unread acc charge →
+      GroupingCellsAt root parent
+        (s.cells.size + rowMass s + (groupedChildInput root).length +
+          (acc.length + unread.length))
+
+private theorem groupingCellsAt_le {n : Nat} {root : Fin n}
+    {parent : Fin n → Fin n} {cells : Nat}
+    (atCall : GroupingCellsAt root parent cells) :
+    cells ≤ groupedChildListsPeak n 0 := by
+  cases atCall with
+  | enumerate => exact (groupedChildLists_enumeration_space (N := n) 0).2
+  | filter h =>
+      simpa only [Nat.zero_add] using (groupedChildLists_filter_space h 0).2.2
+  | scatter h =>
+      simpa only [Nat.zero_add] using
+        (groupedChildLists_scatter_space root parent h 0).2.2.2
+  | finish h =>
+      simpa only [Nat.zero_add] using
+        (groupedChildLists_finish_space root parent h 0).2.2.2
+  | reverseRow h₁ h₂ =>
+      simpa only [Nat.zero_add] using
+        (groupedChildLists_reversal_space root parent h₁ h₂ 0).2.2
+
+private def buckets {n : Nat} (x : PackedStaticLayout.Input n)
+    (ht : PackedStaticLayout.InputOK x) :=
+  (StaticGroupedTreeReader.build x ht).layout.buckets
+
+/-- Phase-local charges for the installed grouped reader, not for the
+reference bucket build. The inverse case reserves both output forms. -/
+inductive FinishCellsAt {n : Nat} (x : PackedStaticLayout.Input n)
+    (ht : PackedStaticLayout.InputOK x) : Nat → Prop where
+  | grouping {cells : Nat} :
+      GroupingCellsAt x.root x.parent.read cells → FinishCellsAt x ht cells
+  | handoff : FinishCellsAt x ht
+      ((buckets x ht).rows.size + childScanLength (buckets x ht))
+  | dfs (k : Nat) : k ≤ 2 * n → FinishCellsAt x ht
+      (boundaryCells (buckets x ht) (childScanLength (buckets x ht))
+        (layout (buckets x ht) x.root k))
+  | endpoints : FinishCellsAt x ht
+      ((StaticGroupedTreeReader.build x ht).layout.endpoints.entry.data.size +
+       (StaticGroupedTreeReader.build x ht).layout.endpoints.stop.data.size)
+  | inverse : FinishCellsAt x ht
+      (let hi := StaticGroupedTreeReader.finish_inverse x ht
+       measured hi.2.1 + measured hi.2.2.1)
+
+section Finish
+
+variable {H : LabelledQuotient} {cfg : Config H}
+variable {rank : Vertex H → Nat} {out : State H}
+
+private theorem finishTree (h : OutputOK cfg rank out) :
+    let x := packedInput h
+    ValidDepthTree x.root x.parent.read x.depth.read := by
+  dsimp only
+  have ht := packedInput_ok h
+  first
+  | exact ht
+  | exact ht.tree
+  | exact ht.validTree
+  | exact ht.1
+  | exact ht.2
+  | exact?
+  | (cases ht <;> solve_by_elim)
+  | (unfold PackedStaticLayout.InputOK at ht; grind)
+
+private def phaseReceipt (h : OutputOK cfg rank out) :=
+  StaticGroupedTreeReader.finish_grouped_phase_resources
+    (packedInput h) (packedInput_ok h) (finishTree h)
+
+/-- A separate allowance for grouping scatters, completed DFS events, and
+the entry read and inverse write at each inverse scatter. This allowance
+may overlap sites already in `chargedGroupedFinish`. -/
+def finishPhaseSites (h : OutputOK cfg rank out) : Nat :=
+  let x := packedInput h
+  let g := buckets x (packedInput_ok h)
+  let writes := measured (actualFinishInverse h).1
+  StaticGroupedTreeReader.finishChildScatterSites x +
+    (layout g x.root (2 * nodeCount cfg out)).processed + (writes + writes)
+
+private theorem finishPhaseSites_le (h : OutputOK cfg rank out) :
+    finishPhaseSites h ≤ 5 * (H.vertexCount + 1) := by
+  have hp := phaseReceipt h
+  dsimp only at hp
+  obtain ⟨_, _, hscatter, _, _, hdfs, _, _, _, hinv⟩ := hp
+  have hd := hdfs.2.1
+  have hi := hinv.2
+  have hn := nodeCount_le h
+  unfold finishPhaseSites buckets
+  dsimp only
+  omega
+
+private theorem finishCellsAt_le (h : OutputOK cfg rank out) {cells : Nat}
+    (atCall : FinishCellsAt (packedInput h) (packedInput_ok h) cells) :
+    cells ≤ 32 * nodeCount cfg out + 8 := by
+  have hp := phaseReceipt h
+  dsimp only at hp
+  obtain ⟨_, _, _, htable, _, _, hend, hprefix, hinv, _⟩ := hp
+  cases atCall with
+  | grouping hg =>
+      have hb := groupingCellsAt_le hg
+      unfold groupedChildListsPeak at hb
+      omega
+  | handoff =>
+      unfold buckets
+      omega
+  | dfs k hk =>
+      have hb := hprefix k hk
+      unfold buckets
+      first
+      | (unfold PrefixLive at hb; dsimp only at hb; grind)
+      | (cases hb; dsimp only at *; omega)
+      | (cases hb; grind [boundaryCells])
+      | (unfold PrefixLive at hb; dsimp only at hb; grind [boundaryCells])
+  | endpoints => omega
+  | inverse =>
+      have hi := hinv.2.2
+      dsimp only
+      omega
+
+end Finish
+
+private theorem prepCells_le {H : LabelledQuotient}
+    (data : Array (Vertex H)) (hs : data.size = H.vertexCount) :
+    prepHandOffCells H data.size ≤ 64 * (H.vertexCount + H.arcCount) := by
+  apply Nat.le_trans
+    (PaperB.EX24.InputPrepCheckpoint.build_receipt
+      H (certificateCover H) data.size).2.2
+  rw [hs]
+  unfold PaperB.EX24.InputPrepCheckpoint.immutableUnits
+  rw [H.adj_size]
+  omega
+
+private theorem one_le_log (n : Nat) : 1 ≤ OracleContract.L n := by
+  exact OracleContract.one_le_L n
+
+private theorem uniformSites {n e l : Nat} (hn : 1 ≤ n) (hl : 1 ≤ l) :
+    (90 * (n + e) * l ^ 2 + 34 * n * (l + 1)) + 11 * (n + 1) +
+      5 * (n + 1) ≤ 200 * (n + e) * l ^ 2 := by
+  have hl₂ : l ≤ l ^ 2 := by
+    simpa only [Nat.mul_one, Nat.pow_succ, Nat.pow_zero, Nat.one_mul] using Nat.mul_le_mul_left l hl
+  have hbase : n + e ≤ (n + e) * l ^ 2 := by
+    simpa only [Nat.mul_one] using Nat.mul_le_mul_left (n + e) (Nat.le_trans hl hl₂)
+  have hdict : n * (l + 1) ≤ 2 * ((n + e) * l ^ 2) := calc
+    _ ≤ (n + e) * (2 * l ^ 2) :=
+      Nat.mul_le_mul (by omega) (by omega)
+    _ = _ := Nat.mul_left_comm _ _ _
+  simp only [Nat.mul_assoc]
+  omega
+
+/--
+Source-site and logical-cell certificate for the exported build. The prep
+visit and handoff charges apply also when the result is `none`; the theorem
+does not require the compiler to preserve or eliminate that prep evaluation.
+
+The build-site sum counts the packed reads, pair comparisons, supplied
+occurrences, dedup visits, residual toll, dictionary construction trace,
+grouped finish toll, and the explicit finish phase allowance. No build
+operations outside those selectors are charged: in particular this is not
+an EX51 prep-scatter toll, an inverse-fill toll, or a toll for allocation,
+copying, arbitrary rank evaluation, or scalar and control operations.
+The counted query is the exported probe trace; the known-slot read does not
+charge slot discovery.
+
+The live inequality reserves the indicated roots even across phases.
+It covers prep handoff (including its immutable charge), not the preceding
+EX51 scatter or an all-reached-cursors prep peak. The dedup receipts retain
+their premises. The dictionary space charge starts at the collected list.
+The finish charge covers the enumerator, filter, scatter, row finalization
+and active row reversal boundaries, DFS boundaries, and the indicated
+outputs. It does not reserve a separate selector-output reversal workspace,
+packed-input extraction or retained input/word storage, size/heavy or
+head-sweep roots, or other simultaneous reader roots not in the selected
+sum. The inverse charge is a reserve for the array and list outputs, not a
+trace of fill or conversion prefixes. No allocator, copying, or fixed-VM
+peak is asserted.
+-/
+theorem build_certificate
+    {H : LabelledQuotient}
+    (data : Array (Vertex H)) (size_data : data.size = H.vertexCount)
+    (rank : Vertex H → Nat)
+    [DecidableEq (CutPair H)]
+    (increasing : ∀ i j : Fin H.vertexCount, i.val < j.val →
+      rank (orderedVertexAt data size_data i) <
+        rank (orderedVertexAt data size_data j))
+    (covers : ∀ v : Vertex H, ∃ i : Fin H.vertexCount,
+      orderedVertexAt data size_data i = v)
+    (rankArc : ∀ u v : Vertex H, H.HasQuotientArc u v → rank u < rank v)
+    (flat : H.IsFlat) :
+    let N := H.vertexCount
+    let E := H.arcCount
+    let L := OracleContract.L N
+    let prep := ForestIncomingPrep.build H (certificateCover H)
+    let p := prep.tests
+    let b := ForestPreparedBuild.build
+      data size_data rank increasing covers rankArc flat
+    (∀ (q : CutPair H) (v : Vertex H),
+      let z := QuotientMembership.Index.containsCounted b q v
+      z.1 = QuotientMembership.Index.contains b q v ∧
+      (z.1 = true ↔ q.fst < q.snd ∧ H.ProperLoss q v) ∧
+      z.2 ≤ 10 * L) ∧
+    QuotientMembership.Index.arraySize b ≤ 9 * N ∧
+    (∀ (s : RetainedProperLoss.Columns H), b = some s →
+      ∀ i : Fin s.dict.size,
+        (readKnown s.dict i).1 = s.dict[i.val]'i.isLt ∧
+        (readKnown s.dict i).2 = 1) ∧
+    prep.visits = E ∧ E + prep.visits ≤ 200 * (N + E) * L ^ 2 ∧
+    prepHandOffCells H data.size ≤ 64 * (N + E) ∧
+    proofType (PaperB.EX24.InputPrepCheckpoint.dedup_row_boundary_receipt H) ∧
+    proofType (PaperB.EX24.InputPrepCheckpoint.dedup_prefix_receipt H) ∧
+    (if large : 3 ≤ N then
+      let c := orderedConfig p large
+      let rows := orderedRows p data size_data
+      let s := initial c (ConcreteInit.initImage N).1 N
+      let r := runOrderedReaderFast p data size_data rank large
+        increasing covers rankArc flat
+      b = some (RetainedProperLoss.ofOrderedReader r) ∧
+      r = runOrderedReaderPacked p data size_data rank large
+        increasing covers rankArc flat
+        (fun {c} {out} h => buildGrouped (c := c) (out := out) h)
+        (fun {c} {out} h => buildGrouped_eq (c := c) (out := out) h) ∧
+      ∃ (q : Nat) (cnt : Count) (w : AggregateEX24.Work) (qs : List (CutPair H))
+          (a d sortCost total frames : Nat),
+        runOrdered p data size_data rank large = some (r.out, r.log) ∧
+        PackedReads.packedReadSum c rank s rows = some q ∧
+        CountedTrace c rank s rows r.out r.log cnt ∧
+        WorkTrace c rank s rows r.out r.log cnt w ∧
+        PairLookupTrace c rank s rows r.out r.log cnt w qs ∧
+        ResidualUnit.AppendTrace c rank s rows r.out r.log cnt a d ∧
+        (packedOrderedConfig p large).dict =
+          ForestDictionary.packedDictionary p orderedPairCode ∧
+        ForestDictionary.PackedDictionaryConstructionTrace p orderedPairCode
+          (packedOrderedConfig p large).dict sortCost total ∧
+        dictionaryFrameTrace p frames ∧
+        (∀ {cfg : Config H} {out : State H} (h : OutputOK cfg rank out),
+          ChargedGroupedFinishFacts h ∧
+          proofType (actualFinishRows h) ∧ proofType (actualFinishInverse h) ∧
+          proofType (phaseReceipt h) ∧
+          buildOperationSites q (pairLookupComparisons c qs)
+            E prep.visits (ResidualUnit.toll L cnt w a) total
+            (chargedGroupedFinish h) + finishPhaseSites h ≤
+              200 * (N + E) * L ^ 2 ∧
+          (∀ {todo : List (Row H)} {t : State H} {rev : Log H} {k cells : Nat},
+            Visit c rank rows s [] todo t rev k →
+            FinishCellsAt (packedInput h) (packedInput_ok h) cells →
+            coveredRootSum
+              (prepHandOffCells H data.size) (dictionarySortCells p frames)
+              (checkpointCells c data rows t rev + N)
+              (finishSelectedCells h + cells)
+              (QuotientMembership.Index.arraySize b) ≤ 160 * (N + E)))
+    else
+      b = none ∧ QuotientMembership.Index.arraySize b = 0) := by
+  intro N E L prep p b
+  obtain ⟨hquery, hret, hprep, hrow, hdedup, hbranch⟩ :=
+    build_checkpoint_certificate data size_data rank increasing covers rankArc flat
+  have hvis : prep.visits = E := by
+    first
+    | exact hprep.1
+    | exact hprep.2.1
+    | exact hprep.1.symm
+    | exact hprep.2.1.symm
+  have hpc := prepCells_le data size_data
+  have hl : 1 ≤ L := one_le_log N
+  have hl₂ : L ≤ L ^ 2 := by
+    simpa only [Nat.mul_one, Nat.pow_succ, Nat.pow_zero, Nat.one_mul] using Nat.mul_le_mul_left L hl
+  have hbase : N + E ≤ (N + E) * L ^ 2 := by
+    simpa only [Nat.mul_one] using Nat.mul_le_mul_left (N + E) (Nat.le_trans hl hl₂)
+  refine ⟨?_, hret, ?_, hvis, ?_, hpc, hrow, hdedup, ?_⟩
+  · intro q v z
+    have hz : z.1 = QuotientMembership.Index.contains b q v := by
+      dsimp only [z]
+      first
+      | rfl
+      | exact?
+      | (symm; exact?)
+    exact ⟨hz, hz ▸ hquery q v,
+      ForestPreparedBuild.containsCounted_count_le
+        data size_data rank increasing covers rankArc flat q v⟩
+  · intro s _ i
+    exact ⟨rfl, rfl⟩
+  · rw [hvis, Nat.mul_assoc]
+    omega
+  · by_cases large : 3 ≤ N
+    · rw [dite_eq_left large] at hbranch ⊢
+      dsimp only at hbranch ⊢
+      obtain ⟨hb, hr, hpref, _, q, cnt, w, qs, a, d, sortCost, total, frames,
+        hrun, hread, hcnt, hwork, _, hlookup, _, _, happ, _, _, hdict, _,
+        hframe, _, hsort, hfinish⟩ := hbranch
+      refine ⟨hb, hr, q, cnt, w, qs, a, d, sortCost, total, frames,
+        hrun, hread, hcnt, hwork, hlookup, happ, rfl, hdict, hframe, ?_⟩
+      intro cfg out h
+      obtain ⟨hf, hs, _⟩ := hfinish h
+      have hn : 1 ≤ N := by omega
+      refine ⟨hf, actualFinishRows h, actualFinishInverse h, phaseReceipt h, ?_, ?_⟩
+      · exact Nat.le_trans (Nat.add_le_add hs (finishPhaseSites_le h)) (uniformSites hn hl)
+      · intro todo t rev k cells hv hc
+        have hsw := (hpref hv).2
+        have hsel := finishSelectedCells_le h
+        have hfc := finishCellsAt_le h hc
+        have hnodes := nodeCount_le h
+        unfold coveredRootSum
+        dsimp only [p, prep, b, N, E]
+        omega
+    · rw [dite_eq_right large] at hbranch ⊢
+      exact hbranch
+
+end ForestSourceExecution
 end PaperB
