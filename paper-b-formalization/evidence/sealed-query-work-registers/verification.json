@@ -1,0 +1,11 @@
+{
+  "base_commit": "126d7be",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/SealedQueryRegisters.lean",
+  "sha256": "7385ded764b42776b6d2018876ac11ea2942b719ce2fa2e789c800b08fd5af16",
+  "scope": "The sealed query can initialize a fixed register bank large enough for the linked workers and receives only the retained array.",
+  "remaining": "Use its fixed layouts for the complete query bytecode and prove the one-run cost."
+}
