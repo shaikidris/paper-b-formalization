@@ -271,7 +271,8 @@
     "release-core/PaperB/OriginalEntryInverse.lean": "exit",
     "release-core/PaperB/DensePhysicalArcCounts.lean": "shared quotient construction",
     "release-core/PaperB/RamFullPairPrefix.lean": "word machine",
-    "release-core/PaperB/StaticDfsLiveSpace.lean": "quotient forest"
+    "release-core/PaperB/StaticDfsLiveSpace.lean": "quotient forest",
+    "release-core/PaperB/FlatPairDictionary.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1477,9 +1478,10 @@
         "evidence/ex52-exact-memory-layout/verification.json",
         "evidence/ex52-uniform-sealed-arena/verification.json",
         "evidence/exit-stored-codec-audit/verification.json",
-        "evidence/sealed-early-endpoints/verification.json"
+        "evidence/sealed-early-endpoints/verification.json",
+        "evidence/sealed-physical-pair-columns/verification.json"
       ],
-      "progress": "First physical slice of the sealed local index now has an executable encoder and reader with exact correctness."
+      "progress": "One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns."
     },
     {
       "id": "EX5.3",

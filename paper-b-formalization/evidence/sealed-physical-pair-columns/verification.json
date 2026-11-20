@@ -1,0 +1,11 @@
+{
+  "base_commit": "0dfc71e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FlatPairDictionary.lean",
+  "sha256": "650122c8e87452b2a80dc54a82b0d18c3c1b8c2a64ddcf5b3c69781a1fd09d99",
+  "scope": "One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.",
+  "remaining": "Pack paired back-keys where needed and combine with the whole sealed oracle."
+}

@@ -24,7 +24,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.3](TASKS.md#ex43) — Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
 - [EX5.1](TASKS.md#ex51) — Exact physical dense quotient arc count equals the row length produced by the static stable sibling emitter.
-- [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.
+- [EX5.2](TASKS.md#ex52) — One finite-word buffer contains dictionary length, both key columns and slot addresses; worker slice reads and exact hit-slot reads relate to serialized actual columns.
 - [EX5.3](TASKS.md#ex53) — Fixed ROM reaches its equality validation entry from PC0 via the three actual worker traces and preserves packed columns and input words.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.

@@ -1,0 +1,4 @@
+'PaperB.ForestSlimIndex.FlatPairDictionary.serialize_represents' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.ForestSlimIndex.FlatPairDictionary.worker_hit_slot_eq' depends on axioms: [propext, Quot.sound]
