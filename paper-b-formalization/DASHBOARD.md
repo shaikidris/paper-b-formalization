@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Charge the reserved candidate array in the combined construction site bound while preserving the same 256 multiplier. Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.
+- [EX2.4](TASKS.md#ex24) — Verified the sweep-to-finish space envelope on the actual dense-order constructor, including both old and packed columns together. Early-phase peak composition and complete primitive work coverage remain open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

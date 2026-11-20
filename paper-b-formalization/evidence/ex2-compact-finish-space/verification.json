@@ -1,0 +1,9 @@
+{
+  "base_commit": "74fd817",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCompactFinishSpace.lean",
+  "sha256": "6f5975f6c88cd32e394a0b05d419e08efbab1977d22ed34bda7bfa30efb7a1c5",
+  "scope": "Bound the checked sweep-to-finish handoff while reserving the rank bank, reversed and returned event logs, parent/depth extraction, grouped child construction and DFS prefixes, original columns and packed output. The sum of these charges is at most 80 (n_H + m_H) on the actual dense-order result.",
+  "remaining": "Compose the earlier preparation, collection, sorting and active sweep storage bounds with the finish bound. Full primitive construction coverage still requires a backing-array copy audit.",
+  "source_provenance": "Local composition of previously checked phase proofs. No external API call for this checkpoint."
+}

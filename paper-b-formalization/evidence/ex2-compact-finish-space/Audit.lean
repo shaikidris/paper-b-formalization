@@ -1,0 +1,3 @@
+import PaperB.ForestCompactFinishSpace
+
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_finish_space

@@ -346,7 +346,8 @@
     "release-core/PaperB/ForestScanPrefixSpace.lean": "quotient forest",
     "release-core/PaperB/ForestProbeWorkspace.lean": "quotient forest",
     "release-core/PaperB/ForestCompactBuildWork.lean": "quotient forest",
-    "release-core/PaperB/ForestDictionaryCollectionSpace.lean": "quotient forest"
+    "release-core/PaperB/ForestDictionaryCollectionSpace.lean": "quotient forest",
+    "release-core/PaperB/ForestCompactFinishSpace.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1164,9 +1165,10 @@
         "evidence/ex2-compact-construction-sites/verification.json",
         "evidence/ex2-reserved-candidate-collector/verification.json",
         "evidence/ex2-candidate-collection-space/verification.json",
-        "evidence/ex2-reserved-collection-charge/verification.json"
+        "evidence/ex2-reserved-collection-charge/verification.json",
+        "evidence/ex2-compact-finish-space/verification.json"
       ],
-      "progress": "Charge the reserved candidate array in the combined construction site bound while preserving the same 256 multiplier. Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.",
+      "progress": "Verified the sweep-to-finish space envelope on the actual dense-order constructor, including both old and packed columns together. Early-phase peak composition and complete primitive work coverage remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
