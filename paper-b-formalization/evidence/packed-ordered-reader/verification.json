@@ -1,0 +1,11 @@
+{
+  "base_commit": "74042d8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedOrderedReader.lean",
+  "sha256": "fc454b57ed8f2d7af433c1eefaba56882db010a3d306784cdf2d84cf256871f1",
+  "scope": "Run the ordered sweep with a single shared packed dictionary and preserve the full existing reader result contract. A supplied exact final constructor builds the retained DFS index.",
+  "remaining": "Instantiate the final constructor by the physical grouped reader and charge all preprocessing."
+}

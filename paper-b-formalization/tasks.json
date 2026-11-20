@@ -224,7 +224,8 @@
     "release-core/PaperB/ExitPhysicalPass.lean": "exit",
     "release-core/PaperB/StaticGroupedTreeReader.lean": "cost",
     "release-core/PaperB/ForestIncomingEpoch.lean": "cuts",
-    "release-core/PaperB/SharedLocalOrder.lean": "cost"
+    "release-core/PaperB/SharedLocalOrder.lean": "cost",
+    "release-core/PaperB/ForestPackedOrderedReader.lean": "cuts"
   },
   "milestones": [
     {
@@ -987,9 +988,10 @@
         "evidence/fixed-bank-sort-exact/verification.json",
         "evidence/fixed-sort-toll/verification.json",
         "evidence/packed-ordered-sweep/verification.json",
-        "evidence/epoch-dedup/verification.json"
+        "evidence/epoch-dedup/verification.json",
+        "evidence/packed-ordered-reader/verification.json"
       ],
-      "progress": "A physical epoch-array scan builds certified deduplicated test rows. It uses one pass over all supplied raw predecessor occurrences.",
+      "progress": "The queried forest reader now uses one shared packed config for the ordered sweep and carries the original correctness contract.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
