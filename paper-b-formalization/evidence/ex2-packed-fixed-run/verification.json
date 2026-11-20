@@ -1,0 +1,9 @@
+{
+  "base_commit": "62c9fd4",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedLookupRun.lean",
+  "sha256": "9c27e5dad86749b1dcdf491fe4a298ace02375b0116083f0dad3c39f1318daf8",
+  "scope": "Tie the actual finite-word dictionary columns to the fixed pair worker and prove its logarithmic run bound and exact final query continuation.",
+  "remaining": "Account for the constant-register setup and post-hit primitive operations with the same executable index and close the construction bound.",
+  "source_provenance": "Local integration of the existing fixed worker and checked Generic retained word encoding."
+}

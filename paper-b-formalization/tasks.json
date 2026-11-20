@@ -335,7 +335,8 @@
     "release-core/PaperB/ForestRetainedWords.lean": "quotient forest",
     "release-core/PaperB/ForestPackedMembership.lean": "quotient forest",
     "release-core/PaperB/ForestPackedBackRead.lean": "quotient forest",
-    "release-core/PaperB/ForestPackedAfterHit.lean": "quotient forest"
+    "release-core/PaperB/ForestPackedAfterHit.lean": "quotient forest",
+    "release-core/PaperB/ForestPackedLookupRun.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1137,9 +1138,10 @@
         "evidence/ex2-generic-retained-words/verification.json",
         "evidence/ex2-packed-membership/verification.json",
         "evidence/ex2-packed-back-read/verification.json",
-        "evidence/ex2-packed-after-hit/verification.json"
+        "evidence/ex2-packed-after-hit/verification.json",
+        "evidence/ex2-packed-fixed-run/verification.json"
       ],
-      "progress": "Verify the retained-word query from the dictionary worker result through slot validation, back keys and interval membership.",
+      "progress": "Tie the actual finite-word dictionary columns to the fixed pair worker and prove its logarithmic run bound and exact final query continuation.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
