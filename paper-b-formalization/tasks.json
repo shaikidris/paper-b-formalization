@@ -326,7 +326,8 @@
     "release-core/PaperB/RamAppendLink.lean": "word machine",
     "release-core/PaperB/ExitSweepWorkSum.lean": "exit sweeps",
     "release-core/PaperB/ExitCountedBase.lean": "exit sweeps",
-    "release-core/PaperB/OraclePackedWidth.lean": "word machine"
+    "release-core/PaperB/OraclePackedWidth.lean": "word machine",
+    "release-core/PaperB/ExitValidParentOrder.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1360,9 +1361,10 @@
         "evidence/exit-rank-prefix-iff-min/verification.json",
         "evidence/exit-actual-orientation-column-min/verification.json",
         "evidence/exit-compact-actual-mapbefore-min/verification.json",
-        "evidence/exit-actual-slot-creator-min/verification.json"
+        "evidence/exit-actual-slot-creator-min/verification.json",
+        "evidence/generic-valid-exit-parent-order/verification.json"
       ],
-      "progress": "Recover the exact actual fresh creation event from the physical slot lookup."
+      "progress": "Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest."
     },
     {
       "id": "EX4.3",

@@ -1,0 +1,3 @@
+import PaperB.ExitValidParentOrder
+#print axioms PaperB.FinalEmbeddingAncestry.valid_parent_slot_order
+#print axioms PaperB.FinalEmbeddingAncestry.physical_le_of_valid_image

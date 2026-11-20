@@ -1,0 +1,2 @@
+'PaperB.FinalEmbeddingAncestry.valid_parent_slot_order' depends on axioms: [propext, Quot.sound]
+'PaperB.FinalEmbeddingAncestry.physical_le_of_valid_image' depends on axioms: [propext, Quot.sound]
