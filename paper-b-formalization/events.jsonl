@@ -393,3 +393,4 @@
 {"at": "2026-11-20T04:08:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseLocalRankFit", "tasks": ["EX2.4"], "evidence": "evidence/forest-actual-rank-fit-min/verification.json"}
 {"at": "2026-11-20T04:08:55+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamStaticLCA", "tasks": ["EX5.3"], "evidence": "evidence/ram-lca-common-registers/verification.json"}
 {"at": "2026-11-20T04:11:48+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitEarlierCreator", "tasks": ["EX4.3"], "evidence": "evidence/exit-earlier-source-creator-min/verification.json"}
+{"at": "2026-11-20T04:11:54+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitEventPrefixRank", "tasks": ["EX4.2"], "evidence": "evidence/exit-rank-prefix-iff-min/verification.json"}

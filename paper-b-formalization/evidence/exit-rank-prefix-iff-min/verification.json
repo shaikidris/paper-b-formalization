@@ -1,0 +1,11 @@
+{
+  "base_commit": "e7a154d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitEventPrefixRank.lean",
+  "sha256": "33d838538c5c9dc3d2066bee3af3607825936cd7ef9af9dbd6b9f6b376381cd1",
+  "scope": "Show an earlier actual event rank is equivalent to membership in the schedule prefix before the current event.",
+  "remaining": "Transport actual driver first-at observations across the physical cursor."
+}

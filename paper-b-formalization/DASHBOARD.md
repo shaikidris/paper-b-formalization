@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — Prove the actual installed quotient rank callback fits the original vertex-count word domain.
-- [EX4.2](TASKS.md#ex42) — Build the actual direct owner-slot array and prove every read, including the zero-label sentinel.
+- [EX4.2](TASKS.md#ex42) — Show an earlier actual event rank is equivalent to membership in the schedule prefix before the current event.
 - [EX4.3](TASKS.md#ex43) — Prove a freshly created physical ancestor slot belongs to a prefix that already contains its source publication.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
 - [EX5.1](TASKS.md#ex51) — Every installed dense quotient has at most the reachable original vertex count; uniform selected per-quotient squared-log charges sum in the original graph budget.

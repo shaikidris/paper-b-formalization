@@ -1350,9 +1350,10 @@
         "evidence/exit-reindex-physical-schedule/verification.json",
         "evidence/exit-actual-compact-schedule-min/verification.json",
         "evidence/exit-event-prefix-rank/verification.json",
-        "evidence/exit-actual-owner-column-min/verification.json"
+        "evidence/exit-actual-owner-column-min/verification.json",
+        "evidence/exit-rank-prefix-iff-min/verification.json"
       ],
-      "progress": "Build the actual direct owner-slot array and prove every read, including the zero-label sentinel."
+      "progress": "Show an earlier actual event rank is equivalent to membership in the schedule prefix before the current event."
     },
     {
       "id": "EX4.3",

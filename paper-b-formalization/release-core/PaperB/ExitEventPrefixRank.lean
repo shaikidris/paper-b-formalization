@@ -35,4 +35,17 @@ theorem logHeadCovers (y : Vertex H) : ∃ e ∈ r.log, e.head = y := by
     exact List.mem_map.mpr ⟨src, hsrc, hy⟩
   exact List.mem_map.mp hm
 
+theorem mem_log_prefix_of_rank_lt {pre post : List (Event H)} {source row : Event H}
+    (hsplit : r.log = pre ++ row :: post) (hsource : source ∈ r.log)
+    (hlt : rank source.head < rank row.head) : source ∈ pre := by
+  have h := logRankPairwise r full
+  rw [hsplit, List.pairwise_append] at h
+  rw [hsplit] at hsource
+  rcases List.mem_append.mp hsource with hpre | htail
+  · exact hpre
+  · rcases List.mem_cons.mp htail with rfl | hpost
+    · exact (Nat.lt_irrefl _ hlt).elim
+    · have hrow := (List.pairwise_cons.mp h.2.1).1 source hpost
+      exact (Nat.lt_irrefl _ (Nat.lt_trans hlt hrow)).elim
+
 end PaperB.OrderedFreshHeads

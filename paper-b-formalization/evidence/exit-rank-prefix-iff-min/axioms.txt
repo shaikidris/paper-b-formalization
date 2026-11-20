@@ -1,0 +1,2 @@
+'PaperB.OrderedFreshHeads.mem_log_prefix_of_rank_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.OrderedFreshHeads.rank_lt_of_mem_log_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]

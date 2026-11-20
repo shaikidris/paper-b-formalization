@@ -1,0 +1,3 @@
+import PaperB.ExitEventPrefixRank
+#print axioms PaperB.OrderedFreshHeads.mem_log_prefix_of_rank_lt
+#print axioms PaperB.OrderedFreshHeads.rank_lt_of_mem_log_prefix
