@@ -1,0 +1,5 @@
+'PaperB.ForestDictionary.CollectAt.resume' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestDictionary.CollectAt.complete' depends on axioms: [propext]
+'PaperB.ForestDictionary.collect_push_fits' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestDictionary.collect_push_words' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestDictionary.collect_handoff_words' depends on axioms: [propext, Quot.sound]

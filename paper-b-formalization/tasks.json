@@ -345,7 +345,8 @@
     "release-core/PaperB/ForestEndpointFinish.lean": "quotient forest",
     "release-core/PaperB/ForestScanPrefixSpace.lean": "quotient forest",
     "release-core/PaperB/ForestProbeWorkspace.lean": "quotient forest",
-    "release-core/PaperB/ForestCompactBuildWork.lean": "quotient forest"
+    "release-core/PaperB/ForestCompactBuildWork.lean": "quotient forest",
+    "release-core/PaperB/ForestDictionaryCollectionSpace.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1161,9 +1162,10 @@
         "evidence/ex2-scan-prefix-space/verification.json",
         "evidence/ex2-probe-live-workspace/verification.json",
         "evidence/ex2-compact-construction-sites/verification.json",
-        "evidence/ex2-reserved-candidate-collector/verification.json"
+        "evidence/ex2-reserved-candidate-collector/verification.json",
+        "evidence/ex2-candidate-collection-space/verification.json"
       ],
-      "progress": "Preallocate one candidate slot per vertex on the executable dictionary collector and verify equality to the original collection. Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.",
+      "progress": "Prove capacity and initialized-word bounds at reached collection cursors and tie the final accumulator to the sort input. Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

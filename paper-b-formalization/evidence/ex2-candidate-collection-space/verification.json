@@ -1,0 +1,9 @@
+{
+  "base_commit": "3e315b5",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestDictionaryCollectionSpace.lean",
+  "sha256": "a7beff349fe5c3a6781461f60000a2b23b2003db07ba36c286c8a411f77f1fbd",
+  "scope": "Prove capacity and initialized-word bounds at reached collection cursors and tie the final accumulator to the sort input.",
+  "remaining": "Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.",
+  "source_provenance": "Local integration of Lean Core collection and existing forest traces. No external API call for this batch."
+}
