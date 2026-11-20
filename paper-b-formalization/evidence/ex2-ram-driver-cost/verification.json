@@ -1,0 +1,36 @@
+{
+  "base_commit": "69eab3445b5f3ea0de17fd077f4eb2145e88f401",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamForestDriverCost.lean",
+  "sha256": "130f2f65404f13f44fbe8a3038f1086c22695ff0b205a3abe9125bcb2f60689c",
+  "scope": "The API-generated driver guard selects the empty or nonempty stack branch in exactly one machine instruction, preserving data and registers. The traversal work recurrence equals the change in the enter, exit and child-push potential of the actual compact DFS reference run.",
+  "remaining": "The first execution reached its output cap before emitting the full driver theorem. Compose the executable guard and body traces, bind the physical DFS branches, and link serialization and the allocating constructor before certifying Lemma 3.2.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 2833,
+    "input_tokens_details": {
+      "cached_tokens": 1325,
+      "cache_write_tokens": 1502,
+      "cache_write_tokens_details": {
+        "ttl_30m_tokens": 1502,
+        "ttl_12h_tokens": 0
+      }
+    },
+    "output_tokens": 9599,
+    "output_tokens_details": {
+      "reasoning_tokens": 7670
+    },
+    "total_tokens": 12432
+  },
+  "unsuccessful_api_attempts": [
+    {
+      "status": "incomplete",
+      "reason": "max_output_tokens",
+      "completed_declarations_checked": 3,
+      "output_tokens": 9500
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+'PaperB.RamForestDriverCost.guard_step' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestDriverCost.potential_advance' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestDriverCost.traversalWork_accounting' depends on axioms: [propext, Quot.sound]

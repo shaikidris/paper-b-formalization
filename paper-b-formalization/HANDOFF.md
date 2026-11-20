@@ -43,9 +43,11 @@ normalization already build on the pinned Lean toolchain.
   one exit guard. The [dispatcher and exit block](release-core/PaperB/RamForestDispatch.lean)
   have exact machine traces. The dispatcher preserves data and registers and
   charges one instruction. The exit block decodes its node and writes the
-  stop time in three instructions. The next refinement must link the
-  complete DFS driver, encode the staged columns, and compose the finish
-  with the allocating caller and earlier construction.
+  stop time in three instructions. The [driver guard and work accounting](release-core/PaperB/RamForestDriverCost.lean)
+  prove the exact stack-empty branch and express the traversal cost through the
+  completed enter, exit, and child-push counters. The next refinement must
+  compose the full machine run, discharge the enter/exit block contracts,
+  encode the staged columns, and link the finish to the full constructor.
 - **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
   preserves the initialized depth column through packed writes.
   [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)

@@ -354,7 +354,8 @@
     "release-core/PaperB/RamSliceCopy.lean": "quotient forest",
     "release-core/PaperB/RamForestStack.lean": "quotient forest",
     "release-core/PaperB/RamPushChildRow.lean": "quotient forest",
-    "release-core/PaperB/RamForestDispatch.lean": "quotient forest"
+    "release-core/PaperB/RamForestDispatch.lean": "quotient forest",
+    "release-core/PaperB/RamForestDriverCost.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1185,9 +1186,10 @@
         "evidence/ex2-ram-payload-copy/verification.json",
         "evidence/ex2-ram-dfs-stack/verification.json",
         "evidence/ex2-ram-child-row/verification.json",
-        "evidence/ex2-ram-dispatch/verification.json"
+        "evidence/ex2-ram-dispatch/verification.json",
+        "evidence/ex2-ram-driver-cost/verification.json"
       ],
-      "progress": "API-generated proofs establish the one-instruction command dispatcher, its exact composition with either branch, and the three-instruction decoded exit write. These run in the existing word-RAM semantics and preserve the corresponding frames. Link the complete DFS driver to the compact interval result and encode the staged payload. The allocating caller and earlier construction still need the full trace for Lemma 3.2.",
+      "progress": "The API-generated driver guard selects the empty or nonempty stack branch in exactly one machine instruction, preserving data and registers. The traversal work recurrence equals the change in the enter, exit and child-push potential of the actual compact DFS reference run. The first execution reached its output cap before emitting the full driver theorem. Compose the executable guard and body traces, bind the physical DFS branches, and link serialization and the allocating constructor before certifying Lemma 3.2.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
