@@ -1,0 +1,11 @@
+{
+  "base_commit": "39260a9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamStaticLCA.lean",
+  "sha256": "4a7ef02726893e6a2720201b5b545aabf8c630b3261a33f4608471886824e974",
+  "scope": "Align the verified LCA worker with the 16-register sealed query layout, keeping its fixed code and run theorem.",
+  "remaining": "Bind common sealed header registers and link the worker to the dispatcher."
+}

@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2989,
-      "sha256": "dd3e1f9e78a43c598e26a0f0125f4bab948011dc7604a2aba65b7be5dae97e69"
+      "bytes": 2961,
+      "sha256": "231e47fae4a09f04076e13dfd7b55e5a71ee8b24fed7530914f08fa7350253fa"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 65421,
-      "sha256": "498e7d955e0fc74e4163c19d251630ed28d9f0c738a8929239f84fd40ca03cb7"
+      "bytes": 65501,
+      "sha256": "885190d10d623eefa423eb212d1c59f57d3341ba738fb8b9959420be84e72992"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 81364,
-      "sha256": "4af37d8950084f66a17c9669e33d42069eb89916805a05ba57435a085ede7e97"
+      "bytes": 81555,
+      "sha256": "32b4eeedeb28c8cfcfe4c313500746bd20444a50e073c2b0b91261156f469281"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -5227,6 +5227,21 @@
       "sha256": "fbb57ea65006635971ca0ed86757dc5429ca0f7f25dc903e9a77c707c996137d"
     },
     {
+      "path": "evidence/ram-lca-common-registers/Audit.lean",
+      "bytes": 63,
+      "sha256": "d1373c5b995716a2ddf4ffb79eb5885e31f38858d99f2f66f083dc37eb915229"
+    },
+    {
+      "path": "evidence/ram-lca-common-registers/axioms.txt",
+      "bytes": 83,
+      "sha256": "f5b76f78adb31133e0f304d88f0847f34977f694fc6ada828ddeb1417e49bac5"
+    },
+    {
+      "path": "evidence/ram-lca-common-registers/verification.json",
+      "bytes": 513,
+      "sha256": "3f5864cb598331fb33cc36372594cc4cc76c88d2f35cf0314fd3c2bcdf7d11df"
+    },
+    {
       "path": "evidence/ram-lex-pair-cuts-audit/Audit.lean",
       "bytes": 148,
       "sha256": "41d3206acdcdfbd0349388e4f324b6fcaa30e93b16a83daef3431e9bc5d740b5"
@@ -7114,7 +7129,7 @@
     {
       "path": "release-core/PaperB/RamStaticLCA.lean",
       "bytes": 23642,
-      "sha256": "66df1e61f464e2efe41a599f305cab685a3a165dce257f0f2d58ac700a31b530"
+      "sha256": "4a7ef02726893e6a2720201b5b545aabf8c630b3261a33f4608471886824e974"
     },
     {
       "path": "release-core/PaperB/RamThreeCalls.lean",
@@ -7438,8 +7453,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 85243,
-      "sha256": "41960d0a3f5f41eaab93b7fb2428bd224b3d375c2a14192b685828ed385704bd"
+      "bytes": 85278,
+      "sha256": "a1f9e28d619a50864eb061068eea7299b5574f6a66cc9590870260fc331dca37"
     },
     {
       "path": "test_plan.py",

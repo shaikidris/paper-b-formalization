@@ -1641,9 +1641,10 @@
         "evidence/ram-link-multiple-halts/verification.json",
         "evidence/ram-interval-comparator/verification.json",
         "evidence/ram-interval-preload/verification.json",
-        "evidence/ram-interval-positional-guard/verification.json"
+        "evidence/ram-interval-positional-guard/verification.json",
+        "evidence/ram-lca-common-registers/verification.json"
       ],
-      "progress": "Generalize the verified interval ROM to chosen operand registers and provide the exact contract for the three interval-loader destinations."
+      "progress": "Align the verified LCA worker with the 16-register sealed query layout, keeping its fixed code and run theorem."
     },
     {
       "id": "EX5.4",

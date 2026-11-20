@@ -9,9 +9,9 @@ open PaperB.RamProgram
 set_option maxHeartbeats 2000000
 
 abbrev layout (bits cap : Nat) (fit : cap ≤ 2 ^ bits) : Layout bits :=
-  ⟨10, cap, 0, fit, Nat.zero_le _⟩
+  ⟨16, cap, 0, fit, Nat.zero_le _⟩
 
-abbrev R := Fin 10
+abbrev R := Fin 16
 abbrev Bank (bits : Nat) := R → Word bits
 
 abbrev rx : R := ⟨0, by decide⟩
