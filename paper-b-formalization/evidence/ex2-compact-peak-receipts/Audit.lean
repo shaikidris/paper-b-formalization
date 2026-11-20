@@ -1,0 +1,7 @@
+import PaperB.ForestCompactPeak
+
+#print axioms PaperB.ForestPreparedBuild.source_conversion_reserve
+#print axioms PaperB.ForestPreparedBuild.dedup_phase_reserve
+#print axioms PaperB.ForestPreparedBuild.dictionary_phase_reserve
+#print axioms PaperB.ForestPreparedBuild.active_sweep_phase_reserve
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_peak_receipts

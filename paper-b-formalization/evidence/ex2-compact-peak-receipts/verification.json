@@ -1,0 +1,9 @@
+{
+  "base_commit": "a951258",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCompactPeak.lean",
+  "sha256": "483016a4f129c7dcec9d0fe6b809a2ad5c4b6a838f72f0920e36e61f98c05eaa",
+  "scope": "Compose source storage receipts under a common 128 (n_H + m_H) budget, including immutable input, rank storage, actual preparation and dedup cursor reserves, collection allocation and fixed-bank sort, all reached sweep checkpoints, active probes, and interval and packing handoff.",
+  "remaining": "Establish primitive-work and storage fidelity for backing-array copies and any uncharged control/allocation steps before certifying the complete implementation contract.",
+  "source_provenance": "Local assembly of previously verified storage receipts. No new Generic generation."
+}

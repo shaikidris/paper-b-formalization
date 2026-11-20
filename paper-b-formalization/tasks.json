@@ -347,7 +347,8 @@
     "release-core/PaperB/ForestProbeWorkspace.lean": "quotient forest",
     "release-core/PaperB/ForestCompactBuildWork.lean": "quotient forest",
     "release-core/PaperB/ForestDictionaryCollectionSpace.lean": "quotient forest",
-    "release-core/PaperB/ForestCompactFinishSpace.lean": "quotient forest"
+    "release-core/PaperB/ForestCompactFinishSpace.lean": "quotient forest",
+    "release-core/PaperB/ForestCompactPeak.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1166,9 +1167,10 @@
         "evidence/ex2-reserved-candidate-collector/verification.json",
         "evidence/ex2-candidate-collection-space/verification.json",
         "evidence/ex2-reserved-collection-charge/verification.json",
-        "evidence/ex2-compact-finish-space/verification.json"
+        "evidence/ex2-compact-finish-space/verification.json",
+        "evidence/ex2-compact-peak-receipts/verification.json"
       ],
-      "progress": "Verified the sweep-to-finish space envelope on the actual dense-order constructor, including both old and packed columns together. Early-phase peak composition and complete primitive work coverage remain open.",
+      "progress": "Checked the common 128 (n_H + m_H) source-cell reserve for the prepared input, dictionary, reached sweep and compact finish receipts. The implementation proof still requires backing-array copy and complete primitive coverage.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

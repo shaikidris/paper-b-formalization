@@ -1,0 +1,7 @@
+'PaperB.ForestPreparedBuild.source_conversion_reserve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.dedup_phase_reserve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.dictionary_phase_reserve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.active_sweep_phase_reserve' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_peak_receipts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
