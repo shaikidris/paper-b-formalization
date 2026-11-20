@@ -1,0 +1,2 @@
+import PaperB.ExitActualCompactSchedule
+#print axioms PaperB.Exit.OrderedReaderResult.actualCompactArraySchedule

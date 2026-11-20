@@ -1,0 +1,11 @@
+{
+  "base_commit": "3f477e7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitActualCompactSchedule.lean",
+  "sha256": "36b8a38d95e4e9c3d69daccbba9b249bc8418f6c4f0b891d1ce4dea068d6bbf8",
+  "scope": "Construct the compact transfer schedule from actual drivers, a direct inverse table, and the proven physical schedule.",
+  "remaining": "Bind this schedule to the concrete exit fold and its installed-map invariant."
+}
