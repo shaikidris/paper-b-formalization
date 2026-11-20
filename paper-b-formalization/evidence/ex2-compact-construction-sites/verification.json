@@ -1,0 +1,9 @@
+{
+  "base_commit": "c496a86",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestCompactBuildWork.lean",
+  "sha256": "dc089d77c55e91e7d693f35a479528d4456fd234d459029a75e05032d0465d86",
+  "scope": "Compose actual source-site charges for dense rank and incoming preparation, initialization and row generation, a shared dictionary and its reached sweep, the interval-only finish, and emitted packed words. The exact dense-order output is tied to the same raw sweep and has total selected-site charge at most 256 times (n_H + m_H) L^2.",
+  "remaining": "Discharge full primitive work coverage, including any backing-array copying, and the peak across all construction phases before certifying Lemma 3.2.",
+  "source_provenance": "Local composition of the verified preparation, dense-order, sweep, dictionary, endpoint and packing components. No external API request for this checkpoint."
+}

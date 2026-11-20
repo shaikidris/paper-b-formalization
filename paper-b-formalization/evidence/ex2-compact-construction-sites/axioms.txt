@@ -1,0 +1,5 @@
+'PaperB.ForestLayout.exit_pending_run' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestLayout.layout_childrenQueued_le' depends on axioms: [propext, Quot.sound]
+'PaperB.StaticGroupedTreeReader.endpointSites_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.incomingSites_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_phase_sites' depends on axioms: [propext, Classical.choice, Quot.sound]

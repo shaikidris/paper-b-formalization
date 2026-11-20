@@ -338,7 +338,8 @@
         "release-core/PaperB/ForestOrderRank.lean",
         "release-core/PaperB/ForestEndpointFinish.lean",
         "release-core/PaperB/ForestScanPrefixSpace.lean",
-        "release-core/PaperB/ForestProbeWorkspace.lean"
+        "release-core/PaperB/ForestProbeWorkspace.lean",
+        "release-core/PaperB/ForestCompactBuildWork.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -3131,6 +3132,18 @@
         "release-core/PaperB/OracleContract.lean",
         "release-core/PaperB/Jumps.lean",
         "release-core/PaperB/ForestNumericSweepSpace.lean"
+      ],
+      "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestCompactBuildWork.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestOrderRank.lean",
+        "release-core/PaperB/ForestNumericSweepSpace.lean",
+        "release-core/PaperB/ForestPreparationWork.lean",
+        "release-core/PaperB/ForestInitialCharges.lean",
+        "release-core/PaperB/ForestPackingVisits.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"

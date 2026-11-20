@@ -344,7 +344,8 @@
     "release-core/PaperB/ForestOrderRank.lean": "quotient forest",
     "release-core/PaperB/ForestEndpointFinish.lean": "quotient forest",
     "release-core/PaperB/ForestScanPrefixSpace.lean": "quotient forest",
-    "release-core/PaperB/ForestProbeWorkspace.lean": "quotient forest"
+    "release-core/PaperB/ForestProbeWorkspace.lean": "quotient forest",
+    "release-core/PaperB/ForestCompactBuildWork.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1158,9 +1159,10 @@
         "evidence/ex2-interval-only-finish/verification.json",
         "evidence/ex2-wire-interval-finish/verification.json",
         "evidence/ex2-scan-prefix-space/verification.json",
-        "evidence/ex2-probe-live-workspace/verification.json"
+        "evidence/ex2-probe-live-workspace/verification.json",
+        "evidence/ex2-compact-construction-sites/verification.json"
       ],
-      "progress": "Verified the active probe workspace bound on reached sweep rows, including binary-search and scan frames and ancestry trace cells. Full construction work and the peak across all phases remain open.",
+      "progress": "Checked a joint source-site bound for all named construction phases of the actual dense-order builder, including child enqueues in the compact interval finish. Complete primitive work coverage and the cross-phase peak still need verification.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

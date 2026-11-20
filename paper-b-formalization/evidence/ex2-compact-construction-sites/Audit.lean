@@ -1,0 +1,7 @@
+import PaperB.ForestCompactBuildWork
+
+#print axioms PaperB.ForestLayout.exit_pending_run
+#print axioms PaperB.ForestLayout.layout_childrenQueued_le
+#print axioms PaperB.StaticGroupedTreeReader.endpointSites_le
+#print axioms PaperB.ForestPreparedBuild.incomingSites_le
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_phase_sites
