@@ -1,0 +1,3 @@
+'PaperB.Exit.OrderedReaderResult.actualCompactPlan_mapBefore_of_actualSlot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,11 @@
+{
+  "base_commit": "9a4583f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitCompactMapBefore.lean",
+  "sha256": "fc687de01ed1b86faa18511a6f25f86d325c657f7796b910d778cacdd892bb83",
+  "scope": "Prove the actual compact plan observes an earlier map when the physical event supplies the corresponding slot.",
+  "remaining": "Bind physical event chronology and canonical along-path reads to this concrete condition."
+}

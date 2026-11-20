@@ -321,7 +321,8 @@
     "release-core/PaperB/ExitActualOwnerColumn.lean": "exit sweeps",
     "release-core/PaperB/DenseLocalRankFit.lean": "quotient forest",
     "release-core/PaperB/ExitEarlierCreator.lean": "exit sweeps",
-    "release-core/PaperB/ExitActualOrientation.lean": "exit sweeps"
+    "release-core/PaperB/ExitActualOrientation.lean": "exit sweeps",
+    "release-core/PaperB/ExitCompactMapBefore.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1353,9 +1354,10 @@
         "evidence/exit-event-prefix-rank/verification.json",
         "evidence/exit-actual-owner-column-min/verification.json",
         "evidence/exit-rank-prefix-iff-min/verification.json",
-        "evidence/exit-actual-orientation-column-min/verification.json"
+        "evidence/exit-actual-orientation-column-min/verification.json",
+        "evidence/exit-compact-actual-mapbefore-min/verification.json"
       ],
-      "progress": "Pack each actual physical slot orientation and prove both endpoint reads agree with its actual cut key."
+      "progress": "Prove the actual compact plan observes an earlier map when the physical event supplies the corresponding slot."
     },
     {
       "id": "EX4.3",
