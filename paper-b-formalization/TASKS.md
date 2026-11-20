@@ -471,9 +471,9 @@ Acceptance:
 
 - Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
 
-The mathematical three-search pair-key reduction is exact, including empty bands and absent keys. Use the verified scalar RAM worker to realize it on the sealed dictionary columns.
+The actual word-RAM search worker is bound to physical pair-key column slices with exact result and executed cost. The full three-cut runtime composition and graph query remain open.
 
-Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json), [evidence/ram-search-correct-audit/verification.json](evidence/ram-search-correct-audit/verification.json), [evidence/ram-register-frame-audit/verification.json](evidence/ram-register-frame-audit/verification.json), [evidence/ram-register-trace-audit/verification.json](evidence/ram-register-trace-audit/verification.json), [evidence/ram-lex-pair-cuts-audit/verification.json](evidence/ram-lex-pair-cuts-audit/verification.json).
+Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json), [evidence/ram-search-correct-audit/verification.json](evidence/ram-search-correct-audit/verification.json), [evidence/ram-register-frame-audit/verification.json](evidence/ram-register-frame-audit/verification.json), [evidence/ram-register-trace-audit/verification.json](evidence/ram-register-trace-audit/verification.json), [evidence/ram-lex-pair-cuts-audit/verification.json](evidence/ram-lex-pair-cuts-audit/verification.json), [evidence/ram-pair-slice-audit/verification.json](evidence/ram-pair-slice-audit/verification.json).
 
 <a id="ex54"></a>
 

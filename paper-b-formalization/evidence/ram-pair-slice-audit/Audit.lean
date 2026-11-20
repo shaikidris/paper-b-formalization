@@ -1,0 +1,3 @@
+import PaperB.RamPairSliceBinding
+#print axioms PaperB.RamPairSliceBinding.toPredecessor_answer_iff
+#print axioms PaperB.RamPairSliceBinding.worker_correct_on_column

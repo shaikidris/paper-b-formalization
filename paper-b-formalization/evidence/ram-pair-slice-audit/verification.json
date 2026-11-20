@@ -1,0 +1,11 @@
+{
+  "base_commit": "10bbed5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPairSliceBinding.lean",
+  "sha256": "e03e8d1ab93dc5b8158ea9af091c0a9eee787183f057ede7c27f2bcaa4f85323",
+  "scope": "The exact fixed search worker can consume physical pair-key column slices over the same input words. Sortedness and upper-bound predicates agree with the mathematical three-cut proof, with logarithmic instruction count and no writable data arena.",
+  "remaining": "Link the three cuts, final candidate check and other query cases into one fixed retained-index program."
+}
