@@ -1,0 +1,11 @@
+{
+  "base_commit": "b5e9986",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamLexPairCuts.lean",
+  "sha256": "a2619dfef032d2c815391ed3786bb3138601a235770b91bacfbc089a33b45524",
+  "scope": "Three scalar upper-bound cut contracts are sufficient to recover exact original lexicographic pair dictionary lookup. Only the equal first-word band needs the second columns sorted, and both words of a candidate are checked.",
+  "remaining": "Instantiate the scalar cut contracts with the verified binary-search workers over actual word columns and link them into the fixed query."
+}

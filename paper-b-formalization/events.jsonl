@@ -229,3 +229,4 @@
 {"at": "2026-11-20T00:19:02+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalSchedule", "tasks": ["EX4.2"], "evidence": "evidence/exit-physical-schedule-audit/verification.json"}
 {"at": "2026-11-20T00:20:59+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedSearch", "tasks": ["EX2.4"], "evidence": "evidence/forest-packed-search-audit/verification.json"}
 {"at": "2026-11-20T00:21:04+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestAllSizes", "tasks": ["EX2.4"], "evidence": "evidence/forest-all-sizes-audit/verification.json"}
+{"at": "2026-11-20T00:21:07+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamLexPairCuts", "tasks": ["EX5.3"], "evidence": "evidence/ram-lex-pair-cuts-audit/verification.json"}

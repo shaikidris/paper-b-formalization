@@ -207,7 +207,8 @@
         "release-core/PaperB/ExitRealFirstLabel.lean",
         "release-core/PaperB/DenseRuntimeGraph.lean",
         "release-core/PaperB/DenseSiblingKeyIso.lean",
-        "release-core/PaperB/ExitPhysicalSchedule.lean"
+        "release-core/PaperB/ExitPhysicalSchedule.lean",
+        "release-core/PaperB/RamLexPairCuts.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -1654,6 +1655,14 @@
         "release-core/PaperB/SmallQuotient.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamLexPairCuts.lean",
+      "local_imports": [
+        "release-core/PaperB/PairLookup.lean"
+      ],
+      "owner_role": "cost model",
       "admission": "ORACLE_CORE"
     }
   ],

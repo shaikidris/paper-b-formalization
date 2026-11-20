@@ -194,7 +194,8 @@
     "release-core/PaperB/DenseSiblingKeyIso.lean": "quotient",
     "release-core/PaperB/ExitPhysicalSchedule.lean": "exit",
     "release-core/PaperB/ForestPackedSearch.lean": "cuts",
-    "release-core/PaperB/ForestAllSizes.lean": "cuts"
+    "release-core/PaperB/ForestAllSizes.lean": "cuts",
+    "release-core/PaperB/RamLexPairCuts.lean": "cost model"
   },
   "milestones": [
     {
@@ -1354,9 +1355,10 @@
         "evidence/ram-predecessor-worker-audit/verification.json",
         "evidence/ram-search-correct-audit/verification.json",
         "evidence/ram-register-frame-audit/verification.json",
-        "evidence/ram-register-trace-audit/verification.json"
+        "evidence/ram-register-trace-audit/verification.json",
+        "evidence/ram-lex-pair-cuts-audit/verification.json"
       ],
-      "progress": "The complete register-remapped worker trace preserves every executed step, its halt and the external register frame. Linked code and actual sealed index reads remain open."
+      "progress": "The mathematical three-search pair-key reduction is exact, including empty bands and absent keys. Use the verified scalar RAM worker to realize it on the sealed dictionary columns."
     },
     {
       "id": "EX5.4",
