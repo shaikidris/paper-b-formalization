@@ -195,7 +195,8 @@
     "release-core/PaperB/ExitPhysicalSchedule.lean": "exit",
     "release-core/PaperB/ForestPackedSearch.lean": "cuts",
     "release-core/PaperB/ForestAllSizes.lean": "cuts",
-    "release-core/PaperB/RamLexPairCuts.lean": "cost model"
+    "release-core/PaperB/RamLexPairCuts.lean": "cost model",
+    "release-core/PaperB/FastQuotientRows.lean": "quotient"
   },
   "milestones": [
     {
@@ -1289,9 +1290,10 @@
         "evidence/dense-arc-row-audit/verification.json",
         "evidence/dense-real-ownership-audit/verification.json",
         "evidence/dense-runtime-graph-audit/verification.json",
-        "evidence/dense-key-iso-audit/verification.json"
+        "evidence/dense-key-iso-audit/verification.json",
+        "evidence/quotient-fast-audit/verification.json"
       ],
-      "progress": "Concrete dense local positions and original structural sibling keys now have checked inverses. Transport labelled adjacency and topological order next."
+      "progress": "The one-pass adjacency constructor is proved equal to the repeated-filter reference, with exact grouped work. It is replacing the dense runtime builder's previous adjacency implementation."
     },
     {
       "id": "EX5.2",

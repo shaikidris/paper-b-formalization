@@ -1617,7 +1617,8 @@
       "local_imports": [
         "release-core/PaperB/DenseRealOwnership.lean",
         "release-core/PaperB/DenseArcRow.lean",
-        "release-core/PaperB/QuotientArrays.lean"
+        "release-core/PaperB/QuotientArrays.lean",
+        "release-core/PaperB/FastQuotientRows.lean"
       ],
       "owner_role": "quotient",
       "admission": "ORACLE_CORE"
@@ -1663,6 +1664,15 @@
         "release-core/PaperB/PairLookup.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/FastQuotientRows.lean",
+      "local_imports": [
+        "release-core/PaperB/QuotientArrays.lean",
+        "release-core/PaperB/ArcBuckets.lean"
+      ],
+      "owner_role": "quotient",
       "admission": "ORACLE_CORE"
     }
   ],

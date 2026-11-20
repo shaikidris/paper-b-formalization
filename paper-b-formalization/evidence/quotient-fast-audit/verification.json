@@ -1,0 +1,11 @@
+{
+  "base_commit": "8af8e6d",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/FastQuotientRows.lean",
+  "sha256": "a2a37304a38fb38f6ade4976bb2f81474bea0f9557a017062ef6fc63b973a1f3",
+  "scope": "One stable grouped scatter creates the complete labelled adjacency array. Lean checks exact equality to the original specification, including duplicate arcs, and the scatter and finishing work.",
+  "remaining": "Use this constructor in the actual dense original quotient build."
+}

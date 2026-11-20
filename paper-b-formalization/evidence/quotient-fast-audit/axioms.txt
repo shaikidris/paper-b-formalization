@@ -1,0 +1,3 @@
+'PaperB.FastQuotientRows.ofOccurrencesWithWork_work' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.FastQuotientRows.ofOccurrences_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.FastQuotientRows.outArcs_eq_groupedRow' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,4 @@
+import PaperB.FastQuotientRows
+#print axioms PaperB.FastQuotientRows.ofOccurrencesWithWork_work
+#print axioms PaperB.FastQuotientRows.ofOccurrences_eq
+#print axioms PaperB.FastQuotientRows.outArcs_eq_groupedRow
