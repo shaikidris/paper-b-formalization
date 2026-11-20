@@ -1,0 +1,11 @@
+{
+  "base_commit": "30881b5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedOrderedSweep.lean",
+  "sha256": "fffff7fe2ef8df74223ea78cc9ca66b85cfb8f29ff2ebce5e1cb71fbbed1a508",
+  "scope": "The actual ordered sweep can use the verified fixed-bank sorting kernel from its collected keys and extract the compact result directly as an array. Lean proves identical result to the established ordered sweep.",
+  "remaining": "Retain the packed configuration in the reader without rerunning the dictionary build. Add complete charged collection, allocation, compaction and final DFS over actual grouped rows."
+}

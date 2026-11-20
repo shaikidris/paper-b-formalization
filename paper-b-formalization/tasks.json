@@ -219,7 +219,8 @@
     "release-core/PaperB/FastOriginalChildBuckets.lean": "cost",
     "release-core/PaperB/KahnInverse.lean": "cost",
     "release-core/PaperB/ForestFixedBankSortToll.lean": "cuts",
-    "release-core/PaperB/RamTracePreHalt.lean": "cost"
+    "release-core/PaperB/RamTracePreHalt.lean": "cost",
+    "release-core/PaperB/ForestPackedOrderedSweep.lean": "cuts"
   },
   "milestones": [
     {
@@ -980,9 +981,10 @@
         "evidence/fixed-bank-sort/verification.json",
         "evidence/sort-fork-recurrence/verification.json",
         "evidence/fixed-bank-sort-exact/verification.json",
-        "evidence/fixed-sort-toll/verification.json"
+        "evidence/fixed-sort-toll/verification.json",
+        "evidence/packed-ordered-sweep/verification.json"
       ],
-      "progress": "The actual sorter now has a logarithmic-depth trace bounding key reads, writes, comparisons and frames. This trace abstracts over address and control instructions.",
+      "progress": "The executable ordered sweep now has a verified entry point using only the fixed-bank packed dictionary builder. Its result equals the established sweep exactly.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
