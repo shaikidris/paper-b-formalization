@@ -1,0 +1,1 @@
+'PaperB.ForestDictionary.collect_csimp' depends on axioms: [propext, Quot.sound]

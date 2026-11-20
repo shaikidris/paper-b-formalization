@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Checked a joint source-site bound for all named construction phases of the actual dense-order builder, including child enqueues in the compact interval finish. Complete primitive work coverage and the cross-phase peak still need verification.
+- [EX2.4](TASKS.md#ex24) — Preallocate one candidate slot per vertex on the executable dictionary collector and verify equality to the original collection. Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

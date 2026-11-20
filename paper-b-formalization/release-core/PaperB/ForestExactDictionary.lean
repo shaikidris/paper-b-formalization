@@ -54,6 +54,19 @@ def collect {H : LabelledQuotient} (rows : Rows H)
     (code : CutPair H → Key) : List Key :=
   collectFrom rows code (List.finRange H.vertexCount)
 
+/-- The prepared row test emits at most one key per vertex. Reserve
+that many accumulator slots before visiting the first row. -/
+def collectReserved {H : LabelledQuotient} (rows : Rows H)
+    (code : CutPair H → Key) : List Key :=
+  List.filterMapTR.go (fun y => (preparedKey H (rows.row y)).map code)
+    (List.finRange H.vertexCount) (Array.emptyWithCapacity H.vertexCount)
+
+@[csimp] theorem collect_csimp : @collect = @collectReserved := by
+  funext H rows code
+  unfold collect collectFrom collectReserved
+  rw [List.filterMap_eq_filterMapTR]
+  rfl
+
 theorem mem_collect {H : LabelledQuotient} (rows : Rows H)
     (code : CutPair H → Key) (k : Key) :
     k ∈ collect rows code ↔

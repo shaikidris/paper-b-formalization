@@ -1,0 +1,9 @@
+{
+  "base_commit": "3e315b5",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestExactDictionary.lean",
+  "sha256": "d54823d1d6cb6b1588d2430232612715cac2474df75c51ffb73649902a8d52d6",
+  "scope": "Preallocate one candidate slot per vertex on the executable dictionary collector and verify equality to the original collection.",
+  "remaining": "Complete cross-phase peak and primitive-work coverage for the rest of the compact construction.",
+  "source_provenance": "Local integration of Lean Core collection and existing forest traces. No external API call for this batch."
+}
