@@ -240,7 +240,8 @@
         "release-core/PaperB/ExitPrefixOccupancy.lean",
         "release-core/PaperB/ExitPriorBase.lean",
         "release-core/PaperB/RamConcreteSetup.lean",
-        "release-core/PaperB/RankedDenseLocal.lean"
+        "release-core/PaperB/RankedDenseLocal.lean",
+        "release-core/PaperB/ForestResidualTolls.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2172,6 +2173,15 @@
         "release-core/PaperB/DenseQuotientLocalOrder.lean"
       ],
       "owner_role": "ram",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestResidualTolls.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestRealCounts.lean",
+        "release-core/PaperB/ForestInstallCapacity.lean"
+      ],
+      "owner_role": "forest",
       "admission": "ORACLE_CORE"
     }
   ],

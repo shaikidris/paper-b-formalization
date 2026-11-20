@@ -246,7 +246,8 @@
     "release-core/PaperB/ForestQueryToll.lean": "cuts",
     "release-core/PaperB/ExitPriorBase.lean": "exit",
     "release-core/PaperB/RamConcreteSetup.lean": "ram",
-    "release-core/PaperB/RankedDenseLocal.lean": "ram"
+    "release-core/PaperB/RankedDenseLocal.lean": "ram",
+    "release-core/PaperB/ForestResidualTolls.lean": "forest"
   },
   "milestones": [
     {
@@ -1019,9 +1020,10 @@
         "evidence/forest-prepared-build/verification.json",
         "evidence/fast-static-finish-cost/verification.json",
         "evidence/forest-same-reader-budget/verification.json",
-        "evidence/fast-query-toll/verification.json"
+        "evidence/fast-query-toll/verification.json",
+        "evidence/forest-residual-sites/verification.json"
       ],
-      "progress": "The actual retained forest has checked constant-time known-node reads and logarithmic key lookup work.",
+      "progress": "Installation access and residual site toll bounds have checked proofs with no unproved delta allowance.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

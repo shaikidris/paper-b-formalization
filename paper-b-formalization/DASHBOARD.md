@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual retained forest has checked constant-time known-node reads and logarithmic key lookup work.
+- [EX2.4](TASKS.md#ex24) — Installation access and residual site toll bounds have checked proofs with no unproved delta allowance.
 - [EX4.2](TASKS.md#ex42) — The chronological sweep now has an exact prefix-occupancy model, with single fresh insertion and earlier/staged read bridges.
 - [EX4.3](TASKS.md#ex43) — The fused prior-base callback now executes without building a reference route, with exact evaluation and word-read bounds under its occupancy invariant.
 - [EX4.4](TASKS.md#ex44) — The original static reader now supplies exact child-hit and child-miss laws in addition to the verified ancestor and LCA fields.

@@ -1,0 +1,11 @@
+{
+  "base_commit": "3f572c7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestResidualTolls.lean",
+  "sha256": "aa6cb60c8e526873acae290370ed44f2360badce0df97ccface88842d1b0eb05",
+  "scope": "Exact correspondence between per-head install append deltas and counted allocations, with residual site charges bounded by 44 times vertices plus arcs times the squared log budget.",
+  "remaining": "Bind measured sites to the actual fast reader and cover temporary layouts and peak space."
+}
