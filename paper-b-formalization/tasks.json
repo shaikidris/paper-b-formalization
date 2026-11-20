@@ -303,7 +303,8 @@
     "release-core/PaperB/OriginalLcaWordColumns.lean": "packed oracle",
     "release-core/PaperB/ExitDenseLookupTransport.lean": "original queries",
     "release-core/PaperB/PackedContiguousSeal.lean": "packed oracle",
-    "release-core/PaperB/ExitDriverCoverage.lean": "exit sweeps"
+    "release-core/PaperB/ExitDriverCoverage.lean": "exit sweeps",
+    "release-core/PaperB/ExitSealedBase.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1543,9 +1544,10 @@
         "evidence/packed-carried-slice-rebase/verification.json",
         "evidence/packed-seal-linear-flatten/verification.json",
         "evidence/oracle-actual-lca-columns/verification.json",
-        "evidence/packed-final-section-bank/verification.json"
+        "evidence/packed-final-section-bank/verification.json",
+        "evidence/exit-sealed-base-values/verification.json"
       ],
-      "progress": "One contiguous retained word array contains section offsets and data. Checked addressing recovers the exact original section word without scanning."
+      "progress": "Each base uses six words in the common bank; its direct read matches both actual intervals and supports the exact word-only fused callback."
     },
     {
       "id": "EX5.3",

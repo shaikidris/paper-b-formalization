@@ -1,0 +1,11 @@
+{
+  "base_commit": "bfa4cde",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitSealedBase.lean",
+  "sha256": "a3071345ced75fc1d8390f395f9024b35d188f3af18be01aca133ff9a34c8113",
+  "scope": "Each base uses six words in the common bank; its direct read matches both actual intervals and supports the exact word-only fused callback.",
+  "remaining": "Seal all actual base, depth and map sections and bound original ranks."
+}
