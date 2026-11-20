@@ -294,7 +294,8 @@
         "release-core/PaperB/PackedSectionSeal.lean",
         "release-core/PaperB/ForestInitialCharges.lean",
         "release-core/PaperB/ExitLiveForestRoutes.lean",
-        "release-core/PaperB/OriginalLcaWordColumns.lean"
+        "release-core/PaperB/OriginalLcaWordColumns.lean",
+        "release-core/PaperB/ExitDenseLookupTransport.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2708,6 +2709,16 @@
         "release-core/PaperB/RamStaticLCA.lean"
       ],
       "owner_role": "packed oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitDenseLookupTransport.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitOrientedLookup.lean",
+        "release-core/PaperB/DenseLabelledArcIso.lean",
+        "release-core/PaperB/LabelledTransport.lean"
+      ],
+      "owner_role": "original queries",
       "admission": "ORACLE_CORE"
     }
   ],

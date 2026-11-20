@@ -300,7 +300,8 @@
     "release-core/PaperB/PackedSectionSeal.lean": "packed oracle",
     "release-core/PaperB/ForestInitialCharges.lean": "quotient forest",
     "release-core/PaperB/ExitLiveForestRoutes.lean": "exit sweeps",
-    "release-core/PaperB/OriginalLcaWordColumns.lean": "packed oracle"
+    "release-core/PaperB/OriginalLcaWordColumns.lean": "packed oracle",
+    "release-core/PaperB/ExitDenseLookupTransport.lean": "original queries"
   },
   "milestones": [
     {
@@ -1434,9 +1435,10 @@
         "evidence/actual-held-spans/verification.json",
         "evidence/exit-third-slot-miss-member/verification.json",
         "evidence/exit-third-dense-exact-adj/verification.json",
-        "evidence/exit-key-orientation-actual/verification.json"
+        "evidence/exit-key-orientation-actual/verification.json",
+        "evidence/exit-transport-local-to-original/verification.json"
       ],
-      "progress": "The actual canonical pair lookup determines loss in the supplied endpoint order and restores the original order of the two exit coordinates."
+      "progress": "Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient."
     },
     {
       "id": "EX5.1",

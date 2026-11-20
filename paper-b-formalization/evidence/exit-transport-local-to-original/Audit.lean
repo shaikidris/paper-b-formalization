@@ -1,0 +1,2 @@
+import PaperB.ExitDenseLookupTransport
+#print axioms PaperB.LabelledQuotient.LocalOrderedChecked.query_transport

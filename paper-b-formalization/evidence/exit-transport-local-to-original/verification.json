@@ -1,0 +1,11 @@
+{
+  "base_commit": "a545103",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitDenseLookupTransport.lean",
+  "sha256": "c955caccff7837858410aacf7df3a5ddde60ffe16e73c33cc372fa2275f0d0d3",
+  "scope": "Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.",
+  "remaining": "Bind original child slot translations and actual packed extrema to complete the arbitrary-query theorem."
+}
