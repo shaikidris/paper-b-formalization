@@ -1,0 +1,7 @@
+'SliceCopy.Prefix.advance' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.step_add_at' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.indexedDataRead_steps' depends on axioms: [propext, Quot.sound]
+'PaperB.RamSliceCopy.copy_steps' depends on axioms: [propext, Quot.sound]
+'PaperB.RamSliceCopy.standalone_exact' depends on axioms: [propext, Quot.sound]
+'PaperB.RetainedProperLoss.WordColumns.seal_payload_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_seal_budget' depends on axioms: [propext, Classical.choice, Quot.sound]

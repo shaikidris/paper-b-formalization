@@ -1,0 +1,24 @@
+{
+  "base_commit": "4f53655e337da03fbe5b8fde53926cef53fdecdc",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamSliceCopy.lean",
+  "sha256": "667c679cbc395c7ad70fc709180291ad7ff0f86b39b8d5962cf6b9ecf3449fda",
+  "scope": "The EX0.3 RAM runs a linkable copy loop for the compact output's six staged word banks. The exact standalone count is seven instructions per retained word plus the exit and halt. Every traced state uses the input and work arenas and seven registers. The proof reuses the 19-word-per-vertex bound for the actual builder result.",
+  "remaining": "The allocating caller, word encoders and interval finish must be implemented and linked to the construction trace. The copy starts from an already prepared arena and registers. The full Lemma 3.2 refinement remains open.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 590,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    },
+    "output_tokens": 3835,
+    "output_tokens_details": {
+      "reasoning_tokens": 2882
+    },
+    "total_tokens": 4425
+  }
+}

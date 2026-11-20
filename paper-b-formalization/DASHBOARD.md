@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual dense-order packed builder has a bound for selected construction work including the updated input preparation and priced scan and search arithmetic. Its preparation, reached sweep boundaries, and finish reserve compose into one source peak. Prove a complete word-RAM refinement covering all construction instructions and all live allocations, including finish and serialization between the charged checkpoints.
+- [EX2.4](TASKS.md#ex24) — The EX0.3 RAM runs a linkable copy loop for the compact output's six staged word banks. The exact standalone count is seven instructions per retained word plus the exit and halt. Every traced state uses the input and work arenas and seven registers. The proof reuses the 19-word-per-vertex bound for the actual builder result. The allocating caller, word encoders and interval finish must be implemented and linked to the construction trace. The copy starts from an already prepared arena and registers. The full Lemma 3.2 refinement remains open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

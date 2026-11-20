@@ -350,7 +350,8 @@
     "release-core/PaperB/ForestCompactFinishSpace.lean": "quotient forest",
     "release-core/PaperB/ForestCompactPeak.lean": "quotient forest",
     "release-core/PaperB/ForestScalarCost.lean": "quotient forest",
-    "release-core/PaperB/ForestConstructionEnvelope.lean": "quotient forest"
+    "release-core/PaperB/ForestConstructionEnvelope.lean": "quotient forest",
+    "release-core/PaperB/RamSliceCopy.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1177,9 +1178,10 @@
         "evidence/ex2-native-sort-ownership/verification.json",
         "evidence/ex2-sweep-ownership/verification.json",
         "evidence/ex2-forest-scalar-cost/verification.json",
-        "evidence/ex2-construction-envelope/verification.json"
+        "evidence/ex2-construction-envelope/verification.json",
+        "evidence/ex2-ram-payload-copy/verification.json"
       ],
-      "progress": "The actual dense-order packed builder has a bound for selected construction work including the updated input preparation and priced scan and search arithmetic. Its preparation, reached sweep boundaries, and finish reserve compose into one source peak. Prove a complete word-RAM refinement covering all construction instructions and all live allocations, including finish and serialization between the charged checkpoints.",
+      "progress": "The EX0.3 RAM runs a linkable copy loop for the compact output's six staged word banks. The exact standalone count is seven instructions per retained word plus the exit and halt. Every traced state uses the input and work arenas and seven registers. The proof reuses the 19-word-per-vertex bound for the actual builder result. The allocating caller, word encoders and interval finish must be implemented and linked to the construction trace. The copy starts from an already prepared arena and registers. The full Lemma 3.2 refinement remains open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

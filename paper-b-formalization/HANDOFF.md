@@ -26,17 +26,18 @@ normalization already build on the pinned Lean toolchain.
 
 ## Next checkpoints
 
-- **EX2.4.** The [packed builder](release-core/PaperB/ForestBuildPackedWords.lean)
+- **EX2.4.** The [compact builder](release-core/PaperB/ForestOrderRank.lean)
   retains at most 19 words per quotient vertex. Known-node membership uses four
   word probes, and the fixed keyed search has logarithmic fuel.
   The [construction phase bounds](release-core/PaperB/ForestConstructionEnvelope.lean)
-  price the scan and midpoint-search arithmetic, incorporate the updated
-  predecessor preparation charge, and compose the preparation, sweep-boundary
-  and finish reserves for the same packed build.
-  The [ownership review](evidence/ex2-construction-envelope/ownership.md) records
-  the consuming updates in the generated preparation code. Full word-RAM work and
-  peak-space certification still require coverage of operations and allocations
-  between the charged checkpoints, especially in the finish and packing path.
+  cover charged work and simultaneous source-cell reserves at named boundaries.
+  The [RAM copy stage](release-core/PaperB/RamSliceCopy.lean) now has an exact
+  instruction trace and peak across every state. It copies the compact output's
+  six staged banks, preserves other cells, and has linear cost on the actual
+  builder result. The caller still has to stage those encoded words, allocate the
+  arena and initialize the registers. The interval finish and the other builder
+  phases still need a linked fixed word-RAM program and refinement to the same
+  packed output before certifying Lemma 3.2.
 - **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
   preserves the initialized depth column through packed writes.
   [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)

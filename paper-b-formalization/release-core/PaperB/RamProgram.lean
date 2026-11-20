@@ -1061,3 +1061,71 @@ theorem step_embedInstr {ρ : ArenaMap L A} {base t : State A} {s : State L}
   case halt => exact h
 
 end PaperB.RamProgram
+
+namespace PaperB.RamProgram
+
+open PaperB.WordOps (add)
+variable {bits : Nat} {L : Layout bits}
+
+def indexedDataRead {w r : Nat} (dst base index : Fin r) : List (Instr w r) :=
+  [.add dst base index, .loadData dst dst]
+
+/-- Advance one instruction and expose all effects of a register addition. -/
+theorem step_add_at {code : Program L} {input : Input L} {s : State L}
+    {dst lhs rhs : Fin L.registerCount}
+    (hf : code[s.pc]? = some (.add dst lhs rhs))
+    (hnext : s.pc + 1 < code.size) :
+    ∃ t : State L, step code input s = some (.next t) ∧ t.pc = s.pc + 1 ∧
+      reg t dst = add (reg s lhs) (reg s rhs) ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  let w := add (reg s lhs) (reg s rhs)
+  let t := { (writeReg s dst w) with pc := s.pc + 1 }
+  refine ⟨t, ?_, rfl, reg_write_same _ _ _, ?_, rfl⟩
+  · simp [step, hf, advance, hnext, t, w, reg]
+  · intro r h
+    exact reg_write_other _ _ _ _ h
+
+/-- Fetch a word from mutable data without changing the data arena. -/
+theorem indexedDataRead_steps {code : Program L} {input : Input L}
+    {s : State L} {entry : Nat} {dst base index : Fin L.registerCount}
+    (placed : Placed code entry (indexedDataRead dst base index))
+    (hpc : s.pc = entry) (hexit : entry + 2 < code.size)
+    (hbound : (reg s base).val + (reg s index).val < L.workCap) :
+    ∃ t, Steps code input 2 s t ∧ t.pc = entry + 2 ∧
+      some (reg t dst) =
+        s.data[(reg s base).val + (reg s index).val]? ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  have hf₀ : code[entry]? = some (.add dst base index) :=
+    placed 0 (.add dst base index) (by simp [indexedDataRead])
+  have hf₁ : code[entry + 1]? = some (.loadData dst dst) :=
+    placed 1 (.loadData dst dst) (by simp [indexedDataRead])
+  have hmid := fetch_in_bounds hf₁
+  let a := (reg s base).val + (reg s index).val
+  let w := add (reg s base) (reg s index)
+  have hw : w.val = a :=
+    PaperB.WordOps.add_no_wrap _ _ (Nat.lt_of_lt_of_le hbound L.workFits)
+  have ha : a < s.data.size := by
+    simpa only [a, s.data_size] using hbound
+  let v := s.data[a]'ha
+  have hv : s.data[a]? = some v := by
+    simp [ha, v]
+  let u : State L := { (writeReg s dst w) with pc := entry + 1 }
+  let t : State L := { (writeReg u dst v) with pc := entry + 2 }
+  have huPC : u.pc = entry + 1 := rfl
+  have huReg : readReg u dst = w := reg_write_same s dst w
+  have huAddr : (readReg u dst).val = a := (congrArg Fin.val huReg).trans hw
+  have hs₀ : step code input s = some (.next u) := by
+    simp [step, hpc, hf₀, advance, hmid, u, w, reg]
+  have hs₁ : step code input u = some (.next t) := by
+    simp [step, huPC, hf₁, huAddr, show u.data = s.data from rfl, hv, advance, hexit, t]
+  refine ⟨t, Steps.cons hs₀ (Steps.cons hs₁ (Steps.zero t)), rfl,
+    ?_, ?_, rfl⟩
+  · have htReg : reg t dst = v := reg_write_same u dst v
+    exact (congrArg some htReg).trans hv.symm
+  · intro r hr
+    exact (reg_write_other u dst r v hr).trans
+      (reg_write_other s dst r w hr)
+
+end PaperB.RamProgram
