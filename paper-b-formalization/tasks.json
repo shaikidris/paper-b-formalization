@@ -264,7 +264,8 @@
     "release-core/PaperB/RamSetupAgreement.lean": "ram",
     "release-core/PaperB/RamFirstSetupAgreement.lean": "ram",
     "release-core/PaperB/ExitPackedRuntime.lean": "exit",
-    "release-core/PaperB/ForestNumericSweepSpace.lean": "forest"
+    "release-core/PaperB/ForestNumericSweepSpace.lean": "forest",
+    "release-core/PaperB/RamEqualityTailTransfer.lean": "ram"
   },
   "milestones": [
     {
@@ -1514,9 +1515,10 @@
         "evidence/ram-reset-worker-scratch/verification.json",
         "evidence/ram-validation-trace/verification.json",
         "evidence/fixed-worker-entry/verification.json",
-        "evidence/first-worker-agreement/verification.json"
+        "evidence/first-worker-agreement/verification.json",
+        "evidence/ram-prefix-transfer/verification.json"
       ],
-      "progress": "First fixed setup now gives exact worker agreement for the predecessor key and the correct zero-case frame."
+      "progress": "Worker prefix traces now transfer exactly to the fixed equality-validation program."
     },
     {
       "id": "EX5.4",

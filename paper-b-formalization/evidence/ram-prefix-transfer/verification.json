@@ -1,0 +1,11 @@
+{
+  "base_commit": "9506d60",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamEqualityTailTransfer.lean",
+  "sha256": "a3febd0aa26c571266ea7db371f555d20b63c0bf1a81aa61247404f2f107d0d6",
+  "scope": "Every actual non-halting step and trace of the three-worker ROM remains valid when its final halt is replaced by the verified equality program.",
+  "remaining": "Concatenate the actual three worker calls and use the result to feed the equality validation tail."
+}

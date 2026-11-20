@@ -1,0 +1,3 @@
+import PaperB.RamEqualityTailTransfer
+#print axioms PaperB.RamEqualityTailTransfer.step_checkedProgram
+#print axioms PaperB.RamEqualityTailTransfer.steps_checkedProgram

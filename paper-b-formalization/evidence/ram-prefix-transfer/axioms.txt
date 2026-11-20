@@ -1,0 +1,2 @@
+'PaperB.RamEqualityTailTransfer.step_checkedProgram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamEqualityTailTransfer.steps_checkedProgram' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -258,7 +258,8 @@
         "release-core/PaperB/RamSetupAgreement.lean",
         "release-core/PaperB/RamFirstSetupAgreement.lean",
         "release-core/PaperB/ExitPackedRuntime.lean",
-        "release-core/PaperB/ForestNumericSweepSpace.lean"
+        "release-core/PaperB/ForestNumericSweepSpace.lean",
+        "release-core/PaperB/RamEqualityTailTransfer.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2350,6 +2351,14 @@
         "release-core/PaperB/ForestPhaseBudget.lean"
       ],
       "owner_role": "forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamEqualityTailTransfer.lean",
+      "local_imports": [
+        "release-core/PaperB/RamEqualityTail.lean"
+      ],
+      "owner_role": "ram",
       "admission": "ORACLE_CORE"
     }
   ],
