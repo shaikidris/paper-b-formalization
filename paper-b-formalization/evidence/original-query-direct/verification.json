@@ -1,0 +1,11 @@
+{
+  "base_commit": "f5b7f5a",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/AllOrigOracleCases.lean",
+  "sha256": "e52f8bc99f8c05f43266eeb91d9abb7263f9d11db019ae9ddca5c1c374a506c4",
+  "scope": "One all-case original-ID proof covers initial reachability, comparable failures and both incomparable cases using the direct third-block contract. The established public theorem is retained as a corollary.",
+  "remaining": "Construct the direct contracts and the original static callbacks from the single sealed index."
+}

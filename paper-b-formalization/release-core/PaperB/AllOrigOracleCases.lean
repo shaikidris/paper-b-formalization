@@ -121,15 +121,14 @@ private theorem routePair_right_value
 
 /-- The executable answer agrees with the surviving-path query on the original
 IDs. Only two translated failures with both ancestor bits false use the
-quotient and third-forest proof. -/
-theorem original_routed_answer_correct
+quotient and direct third-table laws. -/
+theorem original_routed_answer_correct_direct
     {rank : Fin g.vertexCount → Nat}
     {parent : Fin g.vertexCount → Fin g.vertexCount}
     (progress : ∀ i j, g.HasArc i j → rank i < rank j)
     (injRank : ∀ ⦃i j⦄, rank i = rank j → i = j)
     (spec : ParentSpec g (W.vertex R.source) parent)
-    {G : ThirdForestGeometry R W progress injRank spec}
-    (D : ThirdForestTables progress injRank spec G)
+    (D : DirectThirdTables (R := R) (W := W) progress injRank spec)
     (T : BothTables R W progress injRank spec)
     (acyclic : g.IsAcyclic)
     (p q : Option (Fin g.vertexCount)) (t : Fin g.vertexCount) :
@@ -250,7 +249,25 @@ theorem original_routed_answer_correct
                   have bad := hba.symm.trans ((treeBit b a).mpr h)
                   cases bad
                 rw [original_of_translated_some I ha, original_of_translated_some I hb]
-                exact both_routed_answer_correct progress injRank spec D T
+                exact both_routed_answer_correct_direct progress injRank spec D T
                   acyclic a b ab ba t
+
+/-- The all-case correctness theorem for legacy third-forest tables. -/
+theorem original_routed_answer_correct
+    {rank : Fin g.vertexCount → Nat}
+    {parent : Fin g.vertexCount → Fin g.vertexCount}
+    (progress : ∀ i j, g.HasArc i j → rank i < rank j)
+    (injRank : ∀ ⦃i j⦄, rank i = rank j → i = j)
+    (spec : ParentSpec g (W.vertex R.source) parent)
+    {G : ThirdForestGeometry R W progress injRank spec}
+    (D : ThirdForestTables progress injRank spec G)
+    (T : BothTables R W progress injRank spec)
+    (acyclic : g.IsAcyclic)
+    (p q : Option (Fin g.vertexCount)) (t : Fin g.vertexCount) :
+    ((answer ((route R.source p q t).run R).value).run R).value = true ↔
+      Goal R W p q t :=
+  original_routed_answer_correct_direct progress injRank spec
+    (ThirdForestTables.toDirect (progress := progress) (injRank := injRank) (spec := spec) D)
+    T acyclic p q t
 
 end PaperB.EX44

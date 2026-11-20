@@ -1316,9 +1316,10 @@
         "evidence/original-parent-audit/verification.json",
         "evidence/third-geometry/verification.json",
         "evidence/exact-label-transport/verification.json",
-        "evidence/direct-third-route/verification.json"
+        "evidence/direct-third-route/verification.json",
+        "evidence/original-query-direct/verification.json"
       ],
-      "progress": "Third-block query correctness now requires semantic membership and ordered exit extrema directly, avoiding a canonical forest-node bijection."
+      "progress": "The simplification now applies to every original-ID query including missing failures and targets."
     },
     {
       "id": "EX5.1",
