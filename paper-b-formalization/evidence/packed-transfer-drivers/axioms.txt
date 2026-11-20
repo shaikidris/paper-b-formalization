@@ -1,0 +1,6 @@
+'PaperB.Exit.OrderedReaderResult.exitTransferDrivers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.mem_exitTransferDrivers_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.exitTransferDrivers_size_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.Exit.OrderedReaderResult.exitTransferDrivers_provenance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,5 @@
+import PaperB.ExitCompactDrivers
+#print axioms PaperB.Exit.OrderedReaderResult.exitTransferDrivers
+#print axioms PaperB.Exit.OrderedReaderResult.mem_exitTransferDrivers_iff
+#print axioms PaperB.Exit.OrderedReaderResult.exitTransferDrivers_size_le
+#print axioms PaperB.Exit.OrderedReaderResult.exitTransferDrivers_provenance

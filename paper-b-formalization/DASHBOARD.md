@@ -20,7 +20,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 ## In progress
 
 - [EX2.4](TASKS.md#ex24) — Finite vertex enumeration now uses a verified linear tail loop at existing compiled call sites.
-- [EX4.2](TASKS.md#ex42) — Physical owner, child and parent key agreements now follow from the actual forest outputs.
+- [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — The real fused exit reader now refines a logical route from local stored edge agreements.
 - [EX4.4](TASKS.md#ex44) — Every original-tree callback law for both-reachable routing now holds on the actual installed runtime.
 - [EX5.1](TASKS.md#ex51) — Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound.

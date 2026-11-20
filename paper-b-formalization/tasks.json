@@ -259,7 +259,8 @@
     "release-core/PaperB/RamEqualityTail.lean": "ram",
     "release-core/PaperB/ForestPhaseBudget.lean": "forest",
     "release-core/PaperB/DenseFamilyVertexBudget.lean": "ram",
-    "release-core/PaperB/OriginalBothTables.lean": "exit"
+    "release-core/PaperB/OriginalBothTables.lean": "exit",
+    "release-core/PaperB/ExitCompactDrivers.lean": "exit"
   },
   "milestones": [
     {
@@ -1264,9 +1265,10 @@
         "evidence/interleaved-packed-pass/verification.json",
         "evidence/exit-prefix-occupancy/verification.json",
         "evidence/raw-exit-model/verification.json",
-        "evidence/exit-physical-keys/verification.json"
+        "evidence/exit-physical-keys/verification.json",
+        "evidence/packed-transfer-drivers/verification.json"
       ],
-      "progress": "Physical owner, child and parent key agreements now follow from the actual forest outputs."
+      "progress": "All real transfer drivers are available in one exact compact runtime array, with canonical key provenance."
     },
     {
       "id": "EX4.3",

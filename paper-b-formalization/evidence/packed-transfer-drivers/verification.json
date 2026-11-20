@@ -1,0 +1,11 @@
+{
+  "base_commit": "1ba92b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitCompactDrivers.lean",
+  "sha256": "1f9b35529e5db07a869dc0c8bbb9ba95020e67de25d0fc4ccf68ee1fea403659",
+  "scope": "Collect actual transfers once from the indexed topological heads. Exact membership, capacity and canonical provenance preserve the physical child slot and both keys.",
+  "remaining": "Bind dense IDs and use the online prior-packed bank and base columns to calculate new exact map values."
+}
