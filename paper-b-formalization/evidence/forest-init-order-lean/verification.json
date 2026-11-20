@@ -1,0 +1,11 @@
+{
+  "base_commit": "5771995",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestInitialCharges.lean",
+  "sha256": "c3d383e86a6f3705ef6b883417e41ee5efa726ab079165342f9275b3017843d3",
+  "scope": "Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.",
+  "remaining": "Combine with all phase measurements, width and scalar accounting on the same run."
+}

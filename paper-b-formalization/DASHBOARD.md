@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Actual source enumeration and row conversion sizes, stable raw grouping counters, and epoch visits satisfy the single linear preparation work estimate.
+- [EX2.4](TASKS.md#ex24) — Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.
 - [EX4.2](TASKS.md#ex42) — Recover the raw incoming recurrence from actual endpoint contributions and exactly the prior-source footprint of the supplied row.
 - [EX4.3](TASKS.md#ex43) — The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.
 - [EX4.4](TASKS.md#ex44) — The actual canonical pair lookup determines loss in the supplied endpoint order and restores the original order of the two exit coordinates.

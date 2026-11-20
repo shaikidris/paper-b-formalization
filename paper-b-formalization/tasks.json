@@ -297,7 +297,8 @@
     "release-core/PaperB/ExitIncomingLaw.lean": "exit sweeps",
     "release-core/PaperB/ExitOrientedLookup.lean": "original queries",
     "release-core/PaperB/RamPairGuard.lean": "word machine",
-    "release-core/PaperB/PackedSectionSeal.lean": "packed oracle"
+    "release-core/PaperB/PackedSectionSeal.lean": "packed oracle",
+    "release-core/PaperB/ForestInitialCharges.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1089,9 +1090,10 @@
         "evidence/forest-acceptance-compose/verification.json",
         "evidence/forest-extract-head-alloc/verification.json",
         "evidence/forest-input-prep-peak/verification.json",
-        "evidence/forest-raw-actual-work/verification.json"
+        "evidence/forest-raw-actual-work/verification.json",
+        "evidence/forest-init-order-lean/verification.json"
       ],
-      "progress": "Actual source enumeration and row conversion sizes, stable raw grouping counters, and epoch visits satisfy the single linear preparation work estimate.",
+      "progress": "Exact initial table capacities, actual sweep log and reversal length, and collection visit and output counts on the supplied order.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

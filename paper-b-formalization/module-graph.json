@@ -291,7 +291,8 @@
         "release-core/PaperB/ExitIncomingLaw.lean",
         "release-core/PaperB/ExitOrientedLookup.lean",
         "release-core/PaperB/RamPairGuard.lean",
-        "release-core/PaperB/PackedSectionSeal.lean"
+        "release-core/PaperB/PackedSectionSeal.lean",
+        "release-core/PaperB/ForestInitialCharges.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2681,6 +2682,14 @@
         "release-core/PaperB/PackedSliceRebase.lean"
       ],
       "owner_role": "packed oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestInitialCharges.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestPackedOrderedReader.lean"
+      ],
+      "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
     }
   ],
