@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The fixed-bank depth-first dictionary sort now builds with exact bank sizes, disjoint write spans and a bound on live recursion frames.
+- [EX2.4](TASKS.md#ex24) — The actual sort fork now exposes formal equations for child slices and merge output, with the first child's output unchanged by the second child.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — Lean verifies exactly eighteen writes for each packed exit-map record, exact typed read-back and preservation of every other slot.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.

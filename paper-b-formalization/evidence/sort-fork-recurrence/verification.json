@@ -1,0 +1,11 @@
+{
+  "base_commit": "f8d6fbe",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestFixedBankSort.lean",
+  "sha256": "6a9a42017c8fa19bac22e970616a3cda22bcc3b682a3c506b9fd4995eecd8fc3",
+  "scope": "The fixed-bank sort has checked proof-level equations for its recursive result and the exact physical input slices of its merge. The second child preserves the first child's emitted keys.",
+  "remaining": "Complete the induction for increasing support and charge the full recursive sort in the concrete RAM model."
+}

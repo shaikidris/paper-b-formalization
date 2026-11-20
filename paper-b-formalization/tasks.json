@@ -970,9 +970,10 @@
         "evidence/forest-ordered-read-bound-audit/verification.json",
         "evidence/forest-array-merge-audit/verification.json",
         "evidence/forest-merge-exact/verification.json",
-        "evidence/fixed-bank-sort/verification.json"
+        "evidence/fixed-bank-sort/verification.json",
+        "evidence/sort-fork-recurrence/verification.json"
       ],
-      "progress": "The fixed-bank depth-first dictionary sort now builds with exact bank sizes, disjoint write spans and a bound on live recursion frames.",
+      "progress": "The actual sort fork now exposes formal equations for child slices and merge output, with the first child's output unchanged by the second child.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
