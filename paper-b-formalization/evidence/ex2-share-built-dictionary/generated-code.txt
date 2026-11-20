@@ -1,0 +1,4 @@
+ForestPackedOrderedReader.c calls lp_paperB_EX24_PreparedSweep_packedOrderedConfig___redArg once.
+ForestOrderedReader.c calls lp_paperB_EX24_PreparedSweep_orderedConfig___redArg once.
+ForestRetainedWords.c calls lp_paperB_PaperB_RetainedProperLoss_ofOrderedReaderShared___redArg once.
+The shared retained-column projection reads the reader fields and makes no configuration call.

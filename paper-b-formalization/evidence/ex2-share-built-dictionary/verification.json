@@ -1,0 +1,9 @@
+{
+  "base_commit": "f64db16",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestSlimIndex.lean",
+  "sha256": "5d10be4a4b0f9b780b6d91ca99e645838879ba0746e5718d2e27b03993a1dccc",
+  "scope": "Share the already constructed dictionary between the actual ordered sweep and retained word serialization. The compiler substitution preserves the exact source result and eliminates the additional sort.",
+  "remaining": "Prove full construction work and simultaneous live storage for the executable builder, including its single dictionary construction and serialization.",
+  "source_provenance": "Local integration of the checked packed constructor and retained projection, with generated C inspection."
+}

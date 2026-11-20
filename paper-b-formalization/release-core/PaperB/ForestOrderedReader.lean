@@ -14,6 +14,8 @@ structure OrderedReaderResult {H : LabelledQuotient}
   out : State H
   log : Log H
   index : Index (orderedConfig p large) rank out
+  dictionary : Array PaperB.PairLookup.Key
+  dictionary_eq : dictionary = (orderedConfig p large).dict
   ran : runOrdered p data size_data rank large = some (out, log)
   trace :
     Trace (orderedConfig p large) rank
@@ -97,7 +99,8 @@ def runOrderedReader {H : LabelledQuotient}
       · exact False.elim ((Nat.ne_of_lt (increasing j i hji)) hr.symm)
     have hij : i = j := Fin.ext hval
     exact hi.symm.trans ((congrArg (orderedVertexAt data size_data) hij).trans hj)
-  match hRun : runOrdered p data size_data rank large with
+  match hRun : fromRoot c rank
+      (PaperB.Jumps.ConcreteInit.initImage H.vertexCount).1 H.vertexCount rows with
   | none => False.elim (by
       obtain ⟨out, log, hSome, _⟩ := total
       have hBad : (none : Option (State H × Log H)) = some (out, log) :=
@@ -122,6 +125,8 @@ def runOrderedReader {H : LabelledQuotient}
       { out := out
         log := log
         index := I
+        dictionary := c.dict
+        dictionary_eq := rfl
         ran := hRun
         trace := cert.1
         logHeads := cert.2.1

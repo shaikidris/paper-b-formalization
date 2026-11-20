@@ -74,6 +74,21 @@ def ofOrderedReader (r : OrderedReaderResult p data size_data rank large) :
   entry := r.index.reader.layout.endpoints.entry.data
   stop := r.index.reader.layout.endpoints.stop.data
 
+/-- The executable projection shares the dictionary constructed by the sweep. -/
+def ofOrderedReaderShared (r : OrderedReaderResult p data size_data rank large) :
+    Columns H where
+  dict := r.dictionary
+  slots := r.out.tables.slots
+  back := r.out.tables.back
+  labels := r.out.labels
+  entry := r.index.reader.layout.endpoints.entry.data
+  stop := r.index.reader.layout.endpoints.stop.data
+
+@[csimp] theorem ofOrderedReader_csimp : @ofOrderedReader = @ofOrderedReaderShared := by
+  funext H p data size_data rank large inst r
+  unfold ofOrderedReader ofOrderedReaderShared
+  rw [r.dictionary_eq]
+
 theorem dict_sorted (r : OrderedReaderResult p data size_data rank large) :
     PairLookup.StrictSorted (ofOrderedReader r).dict :=
   (orderedConfig p large).sorted

@@ -128,6 +128,8 @@ def runOrderedReaderPacked {H : LabelledQuotient}
       { out := out
         log := log
         index := I
+        dictionary := c.dict
+        dictionary_eq := congrArg Config.dict hc
         ran := ran
         trace := cert.trace
         logHeads := cert.logHeads

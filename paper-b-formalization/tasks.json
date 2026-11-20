@@ -1145,9 +1145,10 @@
         "evidence/ex2-packed-fixed-run/verification.json",
         "evidence/ex2-build-word-image/verification.json",
         "evidence/ex2-dense-rank-probes/verification.json",
-        "evidence/ex2-word-query-spec/verification.json"
+        "evidence/ex2-word-query-spec/verification.json",
+        "evidence/ex2-share-built-dictionary/verification.json"
       ],
-      "progress": "Connect the actual packed builder output and checked hit continuation to canonical proper-loss membership.",
+      "progress": "Reuse the actual dictionary across the sweep and serialization, with Lean equality and generated-code verification.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
