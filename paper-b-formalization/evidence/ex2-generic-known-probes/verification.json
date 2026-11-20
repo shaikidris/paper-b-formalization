@@ -1,0 +1,28 @@
+{
+  "base_commit": "869ea67",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestKnownProbe.lean",
+  "sha256": "65393181f5e449ba74bcc1b5f57cbc36c66c8073845764ba035ce061bcbd6437",
+  "scope": "Tie the exact known-node membership result to four explicit probes of the actual retained arrays.",
+  "remaining": "Connect the bounded-field layout to these word reads and account for the keyed lookup wrapper.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 183,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      },
+      "cached_tokens": 0
+    },
+    "output_tokens": 2993,
+    "output_tokens_details": {
+      "reasoning_tokens": 2065
+    },
+    "total_tokens": 3176
+  }
+}
