@@ -1,0 +1,9 @@
+{
+  "base_commit": "cd023d7",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestOrderRank.lean",
+  "sha256": "35ce393525a9c84688fc24516b46c8ee57544e521fba7765e20b9423a92a583e",
+  "scope": "Build the packed forest from a supplied topological permutation using the existing inverse-array scatter. Verify exactly one input read and inverse write per vertex, a one-probe rank evaluator with bounded rank values, preservation of topological order, and the existing packed output contract.",
+  "remaining": "Compose this linear rank phase with the input, sweep and finish traces, including peak live roots and complete word/control charges.",
+  "source_provenance": "Local integration of the checked inverse-rank scatter, prepared reader and retained-word proofs. No external API call for this checkpoint."
+}

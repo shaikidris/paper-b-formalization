@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Verified keyed membership on the actual prebuilt word image with at most 33 L + 39 search instructions and nine additional retained-bank probes. Known-node membership uses four probes. The construction sweep and peak live storage still require a complete bound.
+- [EX2.4](TASKS.md#ex24) — Bounded the actual sweep rank callback by constructing a dense inverse rank array once from the topological order. Exact scatter counts and one-probe rank reads are checked. Complete construction work and peak live storage still need a composed bound.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

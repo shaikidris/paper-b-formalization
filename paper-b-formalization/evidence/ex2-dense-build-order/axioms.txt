@@ -1,0 +1,6 @@
+'PaperB.ForestPreparedBuild.isTopologicalOrder_of_rank' does not depend on any axioms
+'PaperB.ForestPreparedBuild.orderRanks_scatter' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestPreparedBuild.orderRankProbed_exact' depends on axioms: [propext]
+'PaperB.ForestPreparedBuild.orderRank_lt' depends on axioms: [propext, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsFromOrder_retained' depends on axioms: [propext, Classical.choice, Quot.sound]

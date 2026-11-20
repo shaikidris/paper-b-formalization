@@ -340,7 +340,8 @@
     "release-core/PaperB/ForestBuildPackedWords.lean": "quotient forest",
     "release-core/PaperB/DenseLocalRankProbe.lean": "quotient forest",
     "release-core/PaperB/ForestBuildPackedQuerySpec.lean": "quotient forest",
-    "release-core/PaperB/ForestPackingVisits.lean": "quotient forest"
+    "release-core/PaperB/ForestPackingVisits.lean": "quotient forest",
+    "release-core/PaperB/ForestOrderRank.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1149,9 +1150,10 @@
         "evidence/ex2-word-query-spec/verification.json",
         "evidence/ex2-share-built-dictionary/verification.json",
         "evidence/ex2-word-packing-visits/verification.json",
-        "evidence/ex2-packed-query-integration/verification.json"
+        "evidence/ex2-packed-query-integration/verification.json",
+        "evidence/ex2-dense-build-order/verification.json"
       ],
-      "progress": "Verified keyed membership on the actual prebuilt word image with at most 33 L + 39 search instructions and nine additional retained-bank probes. Known-node membership uses four probes. The construction sweep and peak live storage still require a complete bound.",
+      "progress": "Bounded the actual sweep rank callback by constructing a dense inverse rank array once from the topological order. Exact scatter counts and one-probe rank reads are checked. Complete construction work and peak live storage still need a composed bound.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

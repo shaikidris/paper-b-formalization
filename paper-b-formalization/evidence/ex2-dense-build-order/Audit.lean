@@ -1,0 +1,8 @@
+import PaperB.ForestOrderRank
+
+#print axioms PaperB.ForestPreparedBuild.isTopologicalOrder_of_rank
+#print axioms PaperB.ForestPreparedBuild.orderRanks_scatter
+#print axioms PaperB.ForestPreparedBuild.orderRankProbed_exact
+#print axioms PaperB.ForestPreparedBuild.orderRank_lt
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_eq
+#print axioms PaperB.ForestPreparedBuild.buildWordsFromOrder_retained
