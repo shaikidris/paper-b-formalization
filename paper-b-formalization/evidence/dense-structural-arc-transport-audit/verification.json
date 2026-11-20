@@ -1,0 +1,11 @@
+{
+  "base_commit": "7bd9cd7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseLabelledArcIso.lean",
+  "sha256": "10672956568611ce6b2317520eb1e6bd65f611c804117f2929f5847e320b15ea",
+  "scope": "The actual dense builder and the reference sibling quotient have inverse vertex maps and equivalent labelled adjacency under those maps, preserving the original physical tail.",
+  "remaining": "Transport root, path, flatness and topological order to the actual dense builder and compose the retained indexes."
+}

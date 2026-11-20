@@ -1312,9 +1312,10 @@
         "evidence/quotient-fast-audit/verification.json",
         "evidence/dense-runtime-fast-audit/verification.json",
         "evidence/dense-packing-code-audit/verification.json",
-        "evidence/dense-labelled-arc-audit/verification.json"
+        "evidence/dense-labelled-arc-audit/verification.json",
+        "evidence/dense-structural-arc-transport-audit/verification.json"
       ],
-      "progress": "The real dense one-pass builder is now linked to exact original labelled sibling emissions, including physical tails. Root/path/rank transfer and whole-arena accounting remain open."
+      "progress": "Lean checks inverse vertex translations and exact labelled adjacency between the dense runtime graph and the finite structural quotient. The root/path/rank transport remains to be wired."
     },
     {
       "id": "EX5.2",

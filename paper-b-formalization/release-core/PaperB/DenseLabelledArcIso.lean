@@ -203,3 +203,101 @@ theorem mem_outArcs_build_iff
         a s.source s.destination s.tail hentry v e.head e.origTail).mpr h⟩
 
 end PaperB.DenseOriginalQuotient
+
+
+namespace PaperB.DenseOriginalQuotient.Transport
+
+open PaperB.Digraph PaperB.DenseQuotientRows PaperB.EX16Assembly PaperB.ForestLayout
+
+noncomputable def denseToOld {g : Digraph} {r : Fin g.vertexCount}
+    (q : OriginalReader g r) (u : Fin q.count) {buckets : ChildLists q.count}
+    (childOK : ∀ c : Fin q.count, c ∈ buckets.get u ↔ q.input.parent.read c = u ∧ c ≠ u)
+    (rows : Layout buckets) :=
+  fun (i : Fin (rows.length u)) =>
+    encodeSiblingBlockKey g r _ _
+      (positionToOriginal q u childOK rows i)
+
+noncomputable def oldToDense {g : Digraph} {r : Fin g.vertexCount}
+    (q : OriginalReader g r) (u : Fin q.count) {buckets : ChildLists q.count}
+    (childOK : ∀ c : Fin q.count, c ∈ buckets.get u ↔ q.input.parent.read c = u ∧ c ≠ u)
+    (rows : Layout buckets) :=
+  fun (j : Fin (siblingBlockKeys g r (q.ids.originals.read u) q.parent).length) =>
+    originalToPosition q u childOK rows
+      (decodeSiblingBlockKey g r _ _ j)
+
+private theorem decode_encode {g : Digraph} {r d : Fin g.vertexCount}
+    {parent : Fin g.vertexCount → Fin g.vertexCount}
+    (k : SiblingBlockKey g r d parent) :
+    decodeSiblingBlockKey g r d parent
+      (encodeSiblingBlockKey g r d parent k) = k := by
+  first
+  | apply decodeSiblingBlockKey_encodeSiblingBlockKey
+  | exact?
+
+@[simp] theorem oldToDense_denseToOld {g : Digraph} {r : Fin g.vertexCount}
+    (q : OriginalReader g r) (u : Fin q.count) {buckets : ChildLists q.count}
+    (childOK : ∀ c : Fin q.count, c ∈ buckets.get u ↔ q.input.parent.read c = u ∧ c ≠ u)
+    (rows : Layout buckets) (i : Fin (rows.length u)) :
+    oldToDense (g := g) (r := r) q u childOK rows
+      (denseToOld (g := g) (r := r) q u childOK rows i) = i := by
+  simp only [oldToDense, denseToOld, decode_encode,
+    originalToPosition_positionToOriginal]
+
+@[simp] theorem denseToOld_oldToDense {g : Digraph} {r : Fin g.vertexCount}
+    (q : OriginalReader g r) (u : Fin q.count) {buckets : ChildLists q.count}
+    (childOK : ∀ c : Fin q.count, c ∈ buckets.get u ↔ q.input.parent.read c = u ∧ c ≠ u)
+    (rows : Layout buckets) (j : Fin (siblingBlockKeys g r (q.ids.originals.read u) q.parent).length) :
+    denseToOld (g := g) (r := r) q u childOK rows
+      (oldToDense (g := g) (r := r) q u childOK rows j) = j := by
+  simp only [denseToOld, oldToDense, positionToOriginal_originalToPosition,
+    encodeSiblingBlockKey_decodeSiblingBlockKey]
+
+/-- Read the original rank directly from the decoded key, without enumerating
+the sibling block keys. -/
+def denseRank {g : Digraph} {r : Fin g.vertexCount}
+    (rank : Fin g.vertexCount → Nat) (q : OriginalReader g r) (u : Fin q.count) {buckets : ChildLists q.count}
+    (childOK : ∀ c : Fin q.count, c ∈ buckets.get u ↔ q.input.parent.read c = u ∧ c ≠ u)
+    (rows : Layout buckets) :=
+  fun (i : Fin (rows.length u)) =>
+    rank (positionToOriginal q u childOK rows i :
+      SiblingBlockKey g r _ _).val
+
+/-- Transport both quotient endpoints and keep the physical tail unchanged. -/
+theorem mem_outArcs_build_denseToOld_iff
+    {g : Digraph} {r : Fin g.vertexCount}
+    {rank : Fin g.vertexCount → Nat}
+    (progress : ∀ x y, g.HasArc x y → rank x < rank y)
+    (injective : ∀ ⦃x y⦄, rank x = rank y → x = y)
+    (q : OriginalReader g r)
+    (originalRows : EX51.Rows g.vertexCount (Digraph.GlobalSibling.Entry g (2 * q.count)))
+    (hRows : originalRows = (StaticOriginalSiblingEmitter.emitAll q).1)
+    (u : Fin q.count) (hd : g.InitiallyReachable r (q.ids.originals.read u))
+    (hFind : q.ids.find (q.ids.originals.read u) = some u)
+    {buckets : ChildLists q.count} (rows : Layout buckets)
+    (childOK : ∀ d c : Fin q.count,
+      c ∈ buckets.get d ↔ c ≠ q.input.root ∧ q.input.parent.read c = d)
+    (hzero : 0 < rows.length u) (spec : ParentSpec g r q.parent)
+    (v : Fin (rows.length u)) (e : QuotientArc g.vertexCount (rows.length u)) :
+    e ∈ (build progress injective q originalRows hRows u hd hFind
+      rows childOK hzero).outArcs v ↔
+    (⟨denseToOld (g := g) (r := r) q u (positionChildOK q u childOK)
+        rows e.head, e.origTail⟩ : QuotientArc g.vertexCount _) ∈
+      (finiteSiblingQuotient progress injective spec hd).outArcs
+        (denseToOld (g := g) (r := r) q u (positionChildOK q u childOK)
+          rows v) := by
+  rw [mem_outArcs_build_iff (spec := spec),
+    mem_outArcs_finiteSiblingQuotient_iff_raw]
+  simp only [denseToOld, decode_encode]
+  constructor
+  · rintro ⟨a, ha, ⟨s, t, x⟩, he, hs, ht, hx⟩
+    change s = _ at hs
+    change t = _ at ht
+    change x = _ at hx
+    subst s
+    subst t
+    subst x
+    exact ⟨a, ha, he⟩
+  · rintro ⟨a, ha, he⟩
+    exact ⟨a, ha, _, he, rfl, rfl, rfl⟩
+
+end PaperB.DenseOriginalQuotient.Transport

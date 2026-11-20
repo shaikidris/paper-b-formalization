@@ -1,0 +1,4 @@
+import PaperB.DenseLabelledArcIso
+#print axioms PaperB.DenseOriginalQuotient.Transport.oldToDense_denseToOld
+#print axioms PaperB.DenseOriginalQuotient.Transport.denseToOld_oldToDense
+#print axioms PaperB.DenseOriginalQuotient.Transport.mem_outArcs_build_denseToOld_iff
