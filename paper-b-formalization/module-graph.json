@@ -242,7 +242,8 @@
         "release-core/PaperB/RamConcreteSetup.lean",
         "release-core/PaperB/RankedDenseLocal.lean",
         "release-core/PaperB/ForestResidualTolls.lean",
-        "release-core/PaperB/ExitRouteStoredBridge.lean"
+        "release-core/PaperB/ExitRouteStoredBridge.lean",
+        "release-core/PaperB/ForestIntegratedSiteToll.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2191,6 +2192,15 @@
         "release-core/PaperB/ExitPriorBase.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestIntegratedSiteToll.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestActualSweepBudget.lean",
+        "release-core/PaperB/ForestResidualTolls.lean"
+      ],
+      "owner_role": "forest",
       "admission": "ORACLE_CORE"
     }
   ],

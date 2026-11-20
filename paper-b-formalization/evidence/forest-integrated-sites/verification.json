@@ -1,0 +1,11 @@
+{
+  "base_commit": "6a7184f",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestIntegratedSiteToll.lean",
+  "sha256": "ad136cda855738b96814f4e1b8ff54328bb4f169be2bbfe39b11fa5d13b58e98",
+  "scope": "The real prepared fast-reader run has one combined budget for packed selector reads, pair-key comparisons, physical arc visits, installation accesses and explicitly enumerated control sites.",
+  "remaining": "Compose dictionary and static finish charges and verify peak temporary storage."
+}

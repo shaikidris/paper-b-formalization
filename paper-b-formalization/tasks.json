@@ -248,7 +248,8 @@
     "release-core/PaperB/RamConcreteSetup.lean": "ram",
     "release-core/PaperB/RankedDenseLocal.lean": "ram",
     "release-core/PaperB/ForestResidualTolls.lean": "forest",
-    "release-core/PaperB/ExitRouteStoredBridge.lean": "exit"
+    "release-core/PaperB/ExitRouteStoredBridge.lean": "exit",
+    "release-core/PaperB/ForestIntegratedSiteToll.lean": "forest"
   },
   "milestones": [
     {
@@ -1022,9 +1023,10 @@
         "evidence/fast-static-finish-cost/verification.json",
         "evidence/forest-same-reader-budget/verification.json",
         "evidence/fast-query-toll/verification.json",
-        "evidence/forest-residual-sites/verification.json"
+        "evidence/forest-residual-sites/verification.json",
+        "evidence/forest-integrated-sites/verification.json"
       ],
-      "progress": "Installation access and residual site toll bounds have checked proofs with no unproved delta allowance.",
+      "progress": "Combined charged-site bound for exactly the implemented fast reader now holds.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
