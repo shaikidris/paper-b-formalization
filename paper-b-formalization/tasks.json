@@ -225,7 +225,8 @@
     "release-core/PaperB/StaticGroupedTreeReader.lean": "cost",
     "release-core/PaperB/ForestIncomingEpoch.lean": "cuts",
     "release-core/PaperB/SharedLocalOrder.lean": "cost",
-    "release-core/PaperB/ForestPackedOrderedReader.lean": "cuts"
+    "release-core/PaperB/ForestPackedOrderedReader.lean": "cuts",
+    "release-core/PaperB/ForestFastOrderedReader.lean": "cuts"
   },
   "milestones": [
     {
@@ -989,9 +990,10 @@
         "evidence/fixed-sort-toll/verification.json",
         "evidence/packed-ordered-sweep/verification.json",
         "evidence/epoch-dedup/verification.json",
-        "evidence/packed-ordered-reader/verification.json"
+        "evidence/packed-ordered-reader/verification.json",
+        "evidence/packed-reader-fast/verification.json"
       ],
-      "progress": "The queried forest reader now uses one shared packed config for the ordered sweep and carries the original correctness contract.",
+      "progress": "The actual fast forest reader now has an end-to-end exact query result and retained column bounds using the packed sorter and physical tree grouping.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

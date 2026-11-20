@@ -1,0 +1,11 @@
+{
+  "base_commit": "74042d8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestFastOrderedReader.lean",
+  "sha256": "83ed7f549a5a3edbf058908c1da45b1bdc1d03fe14b3de7b3509c7d4e78300e8",
+  "scope": "The fast ordered forest reader runs the fixed-bank dictionary and finishes via the grouped physical static layout. The query correctness and six retained column bounds instantiate directly.",
+  "remaining": "Finish the exact combined input, sweep, DFS, compaction and peak accounting in the fixed RAM."
+}
