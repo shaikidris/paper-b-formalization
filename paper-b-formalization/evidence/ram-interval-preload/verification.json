@@ -1,0 +1,11 @@
+{
+  "base_commit": "3f477e7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamIntervalLoad.lean",
+  "sha256": "4b89adf7f146c950726d217e8b2c084bfa83932c20a74bd25e37135386566a95",
+  "scope": "Load the three actual sealed interval words in six instructions, then halt, with exact read and register frame laws.",
+  "remaining": "Link these reads to the interval guard and dispatch; prove offsets from the sealed layout."
+}

@@ -315,7 +315,8 @@
     "release-core/PaperB/PackedOriginalIds.lean": "packed oracle",
     "release-core/PaperB/RamIntervalGuard.lean": "word machine",
     "release-core/PaperB/ExitActualCompactSchedule.lean": "exit sweeps",
-    "release-core/PaperB/ExitEmbeddingAncestry.lean": "exit sweeps"
+    "release-core/PaperB/ExitEmbeddingAncestry.lean": "exit sweeps",
+    "release-core/PaperB/RamIntervalLoad.lean": "word machine"
   },
   "milestones": [
     {
@@ -1632,9 +1633,10 @@
         "evidence/ram-generic-return-slot/verification.json",
         "evidence/ram-early-failure-guard/verification.json",
         "evidence/ram-link-multiple-halts/verification.json",
-        "evidence/ram-interval-comparator/verification.json"
+        "evidence/ram-interval-comparator/verification.json",
+        "evidence/ram-interval-preload/verification.json"
       ],
-      "progress": "Verify the fixed 16-register interval comparison ROM, including its exact Boolean answer, register frame, and three or four instruction time."
+      "progress": "Load the three actual sealed interval words in six instructions, then halt, with exact read and register frame laws."
     },
     {
       "id": "EX5.4",
