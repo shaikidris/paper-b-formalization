@@ -1,0 +1,6 @@
+'PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.bothTables_install' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.bothTables_actual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -258,7 +258,8 @@
     "release-core/PaperB/FlatEndpoints.lean": "ram",
     "release-core/PaperB/RamEqualityTail.lean": "ram",
     "release-core/PaperB/ForestPhaseBudget.lean": "forest",
-    "release-core/PaperB/DenseFamilyVertexBudget.lean": "ram"
+    "release-core/PaperB/DenseFamilyVertexBudget.lean": "ram",
+    "release-core/PaperB/OriginalBothTables.lean": "exit"
   },
   "milestones": [
     {
@@ -1357,9 +1358,10 @@
         "evidence/original-query-direct/verification.json",
         "evidence/original-static-full/verification.json",
         "evidence/original-child-laws/verification.json",
-        "evidence/strict-child-domain/verification.json"
+        "evidence/strict-child-domain/verification.json",
+        "evidence/actual-original-tables/verification.json"
       ],
-      "progress": "Corrected the verified internal inconsistency at the LCA singleton, preserving the paper-level routing goal."
+      "progress": "Every original-tree callback law for both-reachable routing now holds on the actual installed runtime."
     },
     {
       "id": "EX5.1",

@@ -1,0 +1,3 @@
+import PaperB.OriginalBothTables
+#print axioms PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.bothTables_install
+#print axioms PaperB.EX44.RetainedRouteProof.OriginalStaticConnector.Full.bothTables_actual

@@ -1,0 +1,11 @@
+{
+  "base_commit": "1ba92b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OriginalBothTables.lean",
+  "sha256": "a1a5cac274f385289b6adb0808fa190036739ec1659bcd70e99cd436b91c86a8",
+  "scope": "The actual original-ID tree reader now discharges every corrected BothTables field, including strict child domain and block-fiber equivalence.",
+  "remaining": "Attach actual third-block loss and exit extrema callbacks."
+}
