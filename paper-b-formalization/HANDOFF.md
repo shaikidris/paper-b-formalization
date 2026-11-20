@@ -26,24 +26,32 @@ normalization already build on the pinned Lean toolchain.
 
 ## Next checkpoints
 
-- EX0, EX1 and EX3 are verified. The original DAG build produces the
-  static reader with exact inclusive dominance, child lookup, and LCA.
-- EX2.4 now runs the complete executable ordered sweep, builds the exact
-  per-quotient DFS membership index and proves operation counts over its
-  real trace. The retained query reader projects only six arrays.
-  Prove that the counted calls pay for the packed word operations, account
-  for dictionary construction and DFS, and discharge peak workspace on
-  the same builder.
-- EX4 joins the verified chronological fresh-event index to the indexed
-  first-install schedule and the actual incoming-arc exit fold. Install
-  the composed jump maps, then bind the all-case original-vertex query
-  to the retained physical columns.
-- EX5 has verified fixed RAM workers for static LCA and binary search,
-  fixed-code relocation, a dense quotient slot layout and exact
-  occurrence ownership. Materialize the actual local quotient rows,
-  assemble one sealed build/query program and prove its full resource
-  bounds. Apply the accepted oracle to the guarded listed-target transfer
-  in EX5.5 and EX6.2.
+- **EX2.4.** The [fast ordered reader](release-core/PaperB/ForestFastOrderedReader.lean)
+  composes the fixed-bank dictionary sort and grouped static-tree layout.
+  Its query proves exact proper loss, and the six retained columns have
+  linear size. The raw incoming rows preserve labelled occurrences. The
+  epoch-array pass visits each supplied predecessor occurrence once and
+  removes duplicate predecessors only for forest tests. Finish their
+  shared preparation and prove the complete preprocessing and peak-space
+  bounds for that executable reader.
+- **EX4.2–EX4.4.** An actual fresh event’s positive parent occurs earlier.
+  The packed writer checks exact occupied records, including the artificial
+  root and top-level identity records, and charges 18 word writes per job.
+  Derive the chronological jobs and base values from the actual first
+  labels and incoming rows. Connect the resulting records and intervals
+  to the all-case original-vertex query.
+- **EX5.1–EX5.4.** The dense runtime quotient preserves labelled adjacency,
+  the root and topological rank. A shared stable grouping emits at most two
+  local order entries per original vertex. The fixed RAM workers for LCA
+  and search have checked costs, and the scalar search now returns from a
+  relocated instruction slot. Instantiate the local orders and compose one
+  fixed sealed builder and query. The oracle contract requires bounds and
+  correctness for that same build and every later query.
+- **EX5.5 and EX6.2.** Instantiate the checked listed-target and guarded
+  detection reductions with the sealed oracle from EX5.4.
+
+EX0, EX1 and EX3 are verified. Current counts and individual proof evidence
+are in the [dashboard](DASHBOARD.md) and [task ledger](TASKS.md).
 
 Run from the repository root with Elan and Python 3 available.
 
