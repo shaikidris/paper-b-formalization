@@ -23,7 +23,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.2](TASKS.md#ex42) — The chronological sweep now has an exact prefix-occupancy model, with single fresh insertion and earlier/staged read bridges.
 - [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — One runtime adapter supplies actual original-ID, dominance, LCA and child readers; full LCA and dominance correctness now hold on the original graph.
-- [EX5.1](TASKS.md#ex51) — The physical dense local-order arrays now have checked exact domain coverage, cardinality and increasing rank.
+- [EX5.1](TASKS.md#ex51) — The actual Kahn order/inverse and original ID reader now give exact checked increasing and covering local arrays directly.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
 - [EX5.3](TASKS.md#ex53) — Three scalar workers are now placed and verified in one fixed program, with exact code size, return addresses and frame preservation.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.

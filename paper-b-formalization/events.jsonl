@@ -286,3 +286,4 @@
 {"at": "2026-11-20T01:43:19+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalStaticFull", "tasks": ["EX4.4"], "evidence": "evidence/original-static-full/verification.json"}
 {"at": "2026-11-20T01:43:24+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPrefixOccupancy", "tasks": ["EX4.2"], "evidence": "evidence/exit-prefix-occupancy/verification.json"}
 {"at": "2026-11-20T01:43:34+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "StaticGroupedTreeReader", "tasks": ["EX2.4"], "evidence": "evidence/fast-static-finish-cost/verification.json"}
+{"at": "2026-11-20T01:43:39+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseQuotientLocalOrder", "tasks": ["EX5.1"], "evidence": "evidence/kahn-dense-binding/verification.json"}

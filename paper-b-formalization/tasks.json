@@ -1382,9 +1382,10 @@
         "evidence/fast-static-reader/verification.json",
         "evidence/shared-local-order/verification.json",
         "evidence/actual-dense-order/verification.json",
-        "evidence/dense-order-coverage/verification.json"
+        "evidence/dense-order-coverage/verification.json",
+        "evidence/kahn-dense-binding/verification.json"
       ],
-      "progress": "The physical dense local-order arrays now have checked exact domain coverage, cardinality and increasing rank."
+      "progress": "The actual Kahn order/inverse and original ID reader now give exact checked increasing and covering local arrays directly."
     },
     {
       "id": "EX5.2",

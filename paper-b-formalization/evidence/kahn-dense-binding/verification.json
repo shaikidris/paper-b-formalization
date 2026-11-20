@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea237b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseQuotientLocalOrder.lean",
+  "sha256": "115ca9968aa29bde75f0e9f7dcb867138170717a7d503f0b6144eb6045714b2c",
+  "scope": "The stored Kahn inverse and original retained reader now instantiate the actual local quotient schedule with no independently supplied rank or coverage evidence. The grouped array is prepared once.",
+  "remaining": "Compose this rank and schedule with actual dense quotient construction, and apply global scan accounting."
+}

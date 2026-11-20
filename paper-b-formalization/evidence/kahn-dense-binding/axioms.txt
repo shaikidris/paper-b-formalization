@@ -1,0 +1,3 @@
+'PaperB.DenseQuotientLocalOrder.BoundKahnOrder.laws' depends on axioms: [propext, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.KahnLocals.increasing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.DenseQuotientLocalOrder.KahnLocals.covers' depends on axioms: [propext, Classical.choice, Quot.sound]

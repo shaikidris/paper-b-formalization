@@ -2034,7 +2034,9 @@
       "local_imports": [
         "release-core/PaperB/DenseQuotientRows.lean",
         "release-core/PaperB/StaticOracleTree.lean",
-        "release-core/PaperB/SharedLocalOrder.lean"
+        "release-core/PaperB/SharedLocalOrder.lean",
+        "release-core/PaperB/Kahn.lean",
+        "release-core/PaperB/KahnInverse.lean"
       ],
       "owner_role": "cost",
       "admission": "ORACLE_CORE"

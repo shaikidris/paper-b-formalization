@@ -1,3 +1,5 @@
+import PaperB.Kahn
+import PaperB.KahnInverse
 import PaperB.DenseQuotientRows
 import PaperB.StaticOracleTree
 import PaperB.SharedLocalOrder
@@ -405,5 +407,105 @@ include noSelf in
 theorem slotArray_size (laws : Laws q order rank) (u : Fin q.count) :
     (slotArray q rows childOK order u).size = rows.length u := by
   simpa using (slotArray_perm q rows childOK order rank noSelf laws u).length_eq
+
+open Kahn StaticLinearHead StaticHeadSweep
+
+structure BoundKahnOrder (graph : Digraph) where
+  result : Kahn.Result graph.vertexCount
+  size_eq : result.order.size = graph.vertexCount
+  top : graph.IsTopologicalList result.order.toList
+  slots : Slots graph.vertexCount (Fin graph.vertexCount)
+  slots_eq : slots = (KahnInverse.build result.order size_eq).slots
+
+private theorem topOrderSize (xs : Array (Fin g.vertexCount))
+    (ht : g.IsTopologicalList xs.toList) : xs.size = g.vertexCount := by
+  have hn : (List.ofFn (id : Fin g.vertexCount → Fin g.vertexCount)).Nodup := by
+    change List.Pairwise (· ≠ ·) _
+    rw [List.pairwise_iff_getElem]
+    intro i j hi hj hij
+    simp only [List.getElem_ofFn, id_eq]
+    intro he
+    have hij' : i = j := congrArg Fin.val he
+    omega
+  have hp := (List.perm_ext_iff_of_nodup ht.1 hn).2
+    (fun v => ⟨fun _ => List.mem_ofFn.mpr ⟨v, rfl⟩, fun _ => ht.2.1 v⟩)
+  simpa using hp.length_eq
+
+def BoundKahnOrder.ofResult (res : Kahn.Result g.vertexCount)
+    (ht : g.IsTopologicalList res.order.toList) : BoundKahnOrder g :=
+  let hs := topOrderSize res.order ht
+  let inverse := KahnInverse.build res.order hs
+  ⟨res, hs, ht, inverse.slots, rfl⟩
+
+def BoundKahnOrder.ofRun (hacyc : g.IsAcyclic) : BoundKahnOrder g :=
+  let res := Kahn.run g
+  BoundKahnOrder.ofResult res (Kahn.run_isTopologicalList g hacyc)
+
+def BoundKahnOrder.rankRead (b : BoundKahnOrder g) (v : Fin g.vertexCount) : Nat :=
+  (b.slots.read v).val
+
+theorem BoundKahnOrder.laws (b : BoundKahnOrder g) :
+    Laws q b.result.order b.rankRead := by
+  constructor
+  · intro i hi
+    let j : Fin g.vertexCount := ⟨i, by simpa [b.size_eq] using hi⟩
+    have he := congrArg Fin.val
+      (KahnInverse.rank_vertexAt b.result.order b.size_eq b.top.1 j)
+    simpa only [BoundKahnOrder.rankRead, b.slots_eq, KahnInverse.rank,
+      KahnInverse.vertexAt, Array.getElem_toList, j] using he
+  · intro c
+    exact b.top.2.1 (q.ids.originals.read c)
+  · exact q.find_eq_some_iff_original
+
+private theorem checkedNoSelf (c : Fin q.count) (hc : c ≠ q.input.root) :
+    q.input.parent.read c ≠ c := by
+  intro he
+  have hok := q.reader.input_ok
+  obtain ⟨d, hd⟩ : ∃ d : Fin q.count → Nat,
+      d c = d (q.input.parent.read c) + 1 := by
+    first
+    | exact ⟨_, hok.depth_step c hc⟩
+    | exact ⟨_, hok.1.depth_step c hc⟩
+    | exact ⟨_, hok.tree.depth_step c hc⟩
+  rw [he] at hd
+  omega
+
+structure KahnLocals where
+  bound : BoundKahnOrder g
+  arrays : Array (Σ u : Fin q.count, Array (Fin (rows.length u)))
+  arrays_eq : arrays = slotArrays q rows childOK bound.result.order
+
+def KahnLocals.prepare (b : BoundKahnOrder g) : KahnLocals q rows childOK :=
+  let arrays := slotArrays q rows childOK b.result.order
+  ⟨b, arrays, rfl⟩
+
+theorem KahnLocals.size (p : KahnLocals q rows childOK) :
+    p.arrays.size = q.count := by
+  simp [p.arrays_eq, slotArrays]
+
+theorem KahnLocals.get_eq (p : KahnLocals q rows childOK) (u : Fin q.count) :
+    p.arrays[u.val]'(by simpa only [KahnLocals.size q rows childOK p] using u.isLt) =
+      ⟨u, slotArray q rows childOK p.bound.result.order u⟩ := by
+  rcases p with ⟨b, a, ha⟩
+  subst a
+  simp [slotArrays, slotArray, Array.getElem_ofFn]
+
+theorem KahnLocals.increasing (p : KahnLocals q rows childOK) (u : Fin q.count) :
+    let e := p.arrays[u.val]'(by
+      simpa only [KahnLocals.size q rows childOK p] using u.isLt)
+    (e.2.toList.map (slotRank q rows p.bound.rankRead e.1)).Pairwise (· < ·) := by
+  dsimp only
+  rw [KahnLocals.get_eq q rows childOK p u]
+  exact slotArray_increasing q rows childOK p.bound.result.order p.bound.rankRead
+    (checkedNoSelf q) (BoundKahnOrder.laws q p.bound) u
+
+theorem KahnLocals.covers (p : KahnLocals q rows childOK) (u : Fin q.count) :
+    let e := p.arrays[u.val]'(by
+      simpa only [KahnLocals.size q rows childOK p] using u.isLt)
+    ∀ i : Fin (rows.length e.1), ∃ (j : Nat) (hj : j < e.2.size), e.2[j]'hj = i := by
+  dsimp only
+  rw [KahnLocals.get_eq q rows childOK p u]
+  exact slotArray_covers q rows childOK p.bound.result.order p.bound.rankRead
+    (BoundKahnOrder.laws q p.bound) u
 
 end PaperB.DenseQuotientLocalOrder
