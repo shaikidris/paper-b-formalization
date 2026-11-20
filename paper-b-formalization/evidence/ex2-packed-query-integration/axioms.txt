@@ -1,0 +1,4 @@
+'PaperB.RetainedProperLoss.WordColumns.afterHitProbed_spec' depends on axioms: [propext, Quot.sound]
+'PaperB.RetainedProperLoss.packWordColumns_keyedProbed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWords_keyedProbed_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWords_knownProbed_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

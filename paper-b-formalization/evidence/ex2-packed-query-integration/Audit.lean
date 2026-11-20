@@ -1,0 +1,6 @@
+import PaperB.ForestPackedLookupRun
+
+#print axioms PaperB.RetainedProperLoss.WordColumns.afterHitProbed_spec
+#print axioms PaperB.RetainedProperLoss.packWordColumns_keyedProbed
+#print axioms PaperB.ForestPreparedBuild.buildWords_keyedProbed_spec
+#print axioms PaperB.ForestPreparedBuild.buildWords_knownProbed_spec

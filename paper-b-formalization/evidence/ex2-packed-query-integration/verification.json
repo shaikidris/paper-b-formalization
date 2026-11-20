@@ -1,0 +1,9 @@
+{
+  "base_commit": "4aab308",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedLookupRun.lean",
+  "sha256": "c224119a613ffd16dd7829188420a2b7bd4b5d14cb37062bfd20659bdc10a416",
+  "scope": "Execute the fixed dictionary search on the actual prebuilt words and finish the membership test from the same image. Verify proper-loss semantics for canonical keys, at most 33 L + 39 fixed-program instructions and at most nine additional probes of retained banks. A known checked slot uses exactly four probes.",
+  "remaining": "Finish deterministic source-wide construction work and peak live storage. The keyed query counts fixed-program instructions and retained-bank probes, with fixed-size setup and control in the host function.",
+  "source_provenance": "Local composition of the checked fixed search program, packed hit validation and retained-word probe lemmas. No external API call for this checkpoint."
+}

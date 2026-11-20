@@ -1148,9 +1148,10 @@
         "evidence/ex2-dense-rank-probes/verification.json",
         "evidence/ex2-word-query-spec/verification.json",
         "evidence/ex2-share-built-dictionary/verification.json",
-        "evidence/ex2-word-packing-visits/verification.json"
+        "evidence/ex2-word-packing-visits/verification.json",
+        "evidence/ex2-packed-query-integration/verification.json"
       ],
-      "progress": "Checked an output-identical replay of all six word-packing passes and proved at most 19 n_H visits per quotient. The construction sweep and peak live storage still require a complete bound.",
+      "progress": "Verified keyed membership on the actual prebuilt word image with at most 33 L + 39 search instructions and nine additional retained-bank probes. Known-node membership uses four probes. The construction sweep and peak live storage still require a complete bound.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

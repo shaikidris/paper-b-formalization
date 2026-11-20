@@ -3052,7 +3052,8 @@
       "path": "release-core/PaperB/ForestPackedLookupRun.lean",
       "local_imports": [
         "release-core/PaperB/ForestPackedAfterHit.lean",
-        "release-core/PaperB/RamPairHitRow.lean"
+        "release-core/PaperB/RamPairHitRow.lean",
+        "release-core/PaperB/ForestBuildPackedWords.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"

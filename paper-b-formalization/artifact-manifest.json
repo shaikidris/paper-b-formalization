@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3055,
-      "sha256": "8d40ff34b388573aec354beade3f5f1b6f327d857f73d6f5ecca6bebd6d71b54"
+      "bytes": 3127,
+      "sha256": "d0209849a983c3bb176952ec13eeb6eadc5a4d9fb35caed4af43895be39385e3"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 68339,
-      "sha256": "d6c76f8c0c16d3306edb79c706afccf7c6c3f82d8840617fb81094ba0744985b"
+      "bytes": 68527,
+      "sha256": "b6dd271bbd936716a7b50222e636b155720b5177be0177a0afaede87d8236ef6"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 86531,
-      "sha256": "38873a1f7a203e3abe51312e575e88b235196b8210b7189cb99c6a5bb7f0b5a2"
+      "bytes": 86735,
+      "sha256": "8cd4edd7f624ccf808a9005409fda217a5bb0ef2c996dd97ff7c661a55b0615d"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -1955,6 +1955,21 @@
       "path": "evidence/ex2-packed-membership/verification.json",
       "bytes": 574,
       "sha256": "c43c803132391e27f85372da9b0c40829f33022a2d613e0fc7798651a0ba5d11"
+    },
+    {
+      "path": "evidence/ex2-packed-query-integration/Audit.lean",
+      "bytes": 315,
+      "sha256": "de1888195c2c983763e861f6fd7db108d60c832f09947633907e444412f90abe"
+    },
+    {
+      "path": "evidence/ex2-packed-query-integration/axioms.txt",
+      "bytes": 448,
+      "sha256": "70c898bbc058246333323df6bb861f93e0a04169bc1c2c8f17d700fdd5c8a3d8"
+    },
+    {
+      "path": "evidence/ex2-packed-query-integration/verification.json",
+      "bytes": 947,
+      "sha256": "85eba2c3fb2b947e53f54c35b17bb2a3640008f82f70fbbb502b91fecd49d381"
     },
     {
       "path": "evidence/ex2-retained-field-bounds/Audit.lean",
@@ -6268,8 +6283,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 99381,
-      "sha256": "4612de8a44b5cd650a33fd866d74e0656de78c04f9804efa4e4deceed90f1133"
+      "bytes": 99440,
+      "sha256": "e7f4b70d225e4e0d812e951cb485030fcc33213db5c2153769d45997d974a6c3"
     },
     {
       "path": "obligations.json",
@@ -7108,8 +7123,8 @@
     },
     {
       "path": "release-core/PaperB/ForestPackedLookupRun.lean",
-      "bytes": 4230,
-      "sha256": "9c27e5dad86749b1dcdf491fe4a298ace02375b0116083f0dad3c39f1318daf8"
+      "bytes": 14883,
+      "sha256": "c224119a613ffd16dd7829188420a2b7bd4b5d14cb37062bfd20659bdc10a416"
     },
     {
       "path": "release-core/PaperB/ForestPackedMembership.lean",
@@ -7938,8 +7953,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 88434,
-      "sha256": "2ac05df6f2f3be9c2a444f3535bc084b312523f77513cb71dc6a7846f36c9481"
+      "bytes": 88573,
+      "sha256": "2bdac5b47dbbfd076ec32a0bbb795407044d4b3af3f4a55d5ef4dc06c23d876a"
     },
     {
       "path": "test_plan.py",
