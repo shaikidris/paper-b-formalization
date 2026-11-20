@@ -1,0 +1,28 @@
+{
+  "base_commit": "d7343a8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestScanPrefixSpace.lean",
+  "sha256": "18cbe7a82522ea8bdd00e64b6360dee8cc9139bea821f473da0d73a4255677da",
+  "scope": "The actual short-circuit predecessor scan has a prefix invariant that bounds suspended call frames and remaining tests together by the row length. The dense-order builder uses the verified interval-only finish.",
+  "remaining": "Compose the full construction budget, including temporary roots and scalar operations beyond these charged sites.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 318,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      },
+      "cached_tokens": 0
+    },
+    "output_tokens": 1855,
+    "output_tokens_details": {
+      "reasoning_tokens": 1346
+    },
+    "total_tokens": 2173
+  }
+}
