@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — The whole prepared-sweep trace includes actual pair lookup requests and verifies the sum of their comparisons.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
-- [EX4.3](TASKS.md#ex43) — Lean checks whole sequential packed map installation and its exact write count for an erased chronological readiness certificate. Work remains to derive that certificate from actual forest events.
+- [EX4.3](TASKS.md#ex43) — The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot.
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
 - [EX5.1](TASKS.md#ex51) — Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.

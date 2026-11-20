@@ -1,0 +1,11 @@
+{
+  "base_commit": "74042d8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalOneSlot.lean",
+  "sha256": "d0eb9c8408093ba06f10881a2c799a2c0f187a247d9b21c6691d15d4ce1553bd",
+  "scope": "The root and top-level seed writes install exact identity records without representing any real exit edge; a positive-depth fold stops before crossing that artificial edge.",
+  "remaining": "Schedule these seed writes together with real map installs and raw incoming base/transfer reads."
+}

@@ -235,4 +235,94 @@ theorem step_exact (bank : WriteResult bits words) (j : Job)
   · exact ⟨hu, by simpa only [Job.overlay, if_pos (Eq.refl j.slot), if_true] using added⟩
 
 
+
+/-- Root and top-level slots have the same payload, at distinct addresses. -/
+def seedRecord : Stored := Stored.parentOnly 0 Map.identity
+
+theorem seedRecord_fields :
+    seedRecord.parent = 0 ∧ seedRecord.jump = 0 ∧
+      seedRecord.parentMap = Map.identity ∧ seedRecord.jumpMap = Map.identity :=
+  ⟨rfl, rfl, rfl, rfl⟩
+
+def SeedSlot (F : JumpForest) (u : Nat) : Prop :=
+  u = 0 ∨ (0 < u ∧ u < F.size ∧ F.parentOf u = 0)
+
+theorem rootSeed_ok {read : Store} {depth : Nat → Nat}
+    (hd : depth 0 = 0) (hr : read 0 = seedRecord) :
+    depth 0 = 0 ∧ (read 0).parent = 0 ∧ (read 0).jump = 0 ∧
+      (read 0).jumpMap = Map.identity ∧ JumpOK read depth 0 := by
+  refine ⟨hd, congrArg Stored.parent hr, congrArg Stored.jump hr,
+    congrArg Stored.jumpMap hr, ?_⟩
+  change ParentPath read depth 0 (read 0).jump (read 0).jumpMap
+  have hp : ParentPath read depth 0 0 Map.identity := by constructor
+  simpa only [hr, seedRecord, Stored.parentOnly] using hp
+
+/-- Unlike the root loop, this certificate uses one strict parent edge. -/
+theorem topSeed_jumpOK {read : Store} {depth : Nat → Nat} {u : Nat}
+    (hd : depth 0 = 0) (live : 0 < depth u) (hr : read u = seedRecord) :
+    JumpOK read depth u := by
+  have down : depth (read u).parent < depth u := by
+    simpa only [hr, seedRecord, Stored.parentOnly, hd] using live
+  have hp : ParentPath read depth u (read u).parent (read u).parentMap :=
+    parent_segment down
+  change ParentPath read depth u (read u).jump (read u).jumpMap
+  simpa only [hr, seedRecord, Stored.parentOnly] using hp
+
+/-- A positive-depth query at a depth-one slot never takes the artificial edge. -/
+theorem topSeed_trace_nil (F : JumpForest) (fuel u d : Nat)
+    (hu : F.depthOf u = 1) (hd : 0 < d) :
+    F.traceMovesAux fuel u d = [] := by
+  have h : ¬ d < F.depthOf u := by omega
+  cases fuel with
+  | zero => simp only [JumpForest.traceMovesAux_zero]
+  | succ fuel => simp only [JumpForest.traceMovesAux_succ, if_neg h]
+
+theorem seedRecord_fits {bits ids endpoints : Nat}
+    (w : Width bits (max ids endpoints)) (hi : 0 < ids)
+    (hm : MapBound endpoints Map.identity) :
+    (storedCodec w.tags).valid seedRecord :=
+  stored_fits (ids := ids) (endpoints := endpoints) w seedRecord hi hi hm hm
+
+/-- The caller supplies the physical slot. The forest witness is proof-only. -/
+def seedWrite (bank : WriteResult bits words) (u : Nat) (hu : u < slots)
+    {F : JumpForest} (_hs : SeedSlot F u)
+    (fit : (storedCodec tags).valid seedRecord) : WriteResult bits words :=
+  writeBuilt tags base layout bank u hu seedRecord fit
+
+theorem seedWrite_writes (bank : WriteResult bits words) (u : Nat)
+    (hu : u < slots) {F : JumpForest} (hs : SeedSlot F u)
+    (fit : (storedCodec tags).valid seedRecord) :
+    (seedWrite tags base layout bank u hu hs fit).writes = bank.writes + 18 :=
+  writeBuilt_writes tags base layout bank u hu seedRecord fit
+
+theorem seedWrite_roundTrip (bank : WriteResult bits words) (u : Nat)
+    (hu : u < slots) {F : JumpForest} (hs : SeedSlot F u)
+    (fit : (storedCodec tags).valid seedRecord) :
+    readSlot tags base layout (seedWrite tags base layout bank u hu hs fit) u hu =
+      seedRecord :=
+  readSlot_writeBuilt_same tags base layout bank u hu seedRecord fit
+
+/-- Publish the seed and keep every other occupied slot exact. -/
+theorem seedWrite_exact (bank : WriteResult bits words) (u : Nat)
+    (hu : u < slots) {F : JumpForest} (hs : SeedSlot F u)
+    (fit : (storedCodec tags).valid seedRecord)
+    {occupied : Nat → Prop} {old : Store}
+    (hex : OccupiedExact tags base layout bank occupied old) :
+    OccupiedExact tags base layout (seedWrite tags base layout bank u hu hs fit)
+      (fun v => occupied v ∨ v = u)
+      (fun v => if v = u then seedRecord else old v) := by
+  intro v hv
+  change occupied v ∨ v = u at hv
+  by_cases h : v = u
+  · subst v
+    exact ⟨hu, by
+      simpa only [if_pos (Eq.refl u), if_true] using
+        seedWrite_roundTrip tags base layout bank u hu hs fit⟩
+  · obtain ⟨hb, he⟩ := hex v (hv.resolve_right h)
+    refine ⟨hb, ?_⟩
+    dsimp only
+    rw [if_neg h]
+    exact (readSlot_writeBuilt_other tags base layout bank u v hu hb
+      (Ne.symm h) seedRecord fit).trans he
+
 end PaperB.ExitPhysicalOneSlot

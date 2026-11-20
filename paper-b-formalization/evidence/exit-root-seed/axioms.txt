@@ -1,0 +1,4 @@
+'PaperB.ExitPhysicalOneSlot.rootSeed_ok' depends on axioms: [propext]
+'PaperB.ExitPhysicalOneSlot.topSeed_jumpOK' depends on axioms: [propext]
+'PaperB.ExitPhysicalOneSlot.topSeed_trace_nil' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitPhysicalOneSlot.seedWrite_exact' depends on axioms: [propext, Quot.sound]

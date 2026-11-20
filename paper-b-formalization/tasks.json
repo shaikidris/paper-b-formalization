@@ -1256,9 +1256,10 @@
         "evidence/exit-word-query/verification.json",
         "evidence/exit-stored-write/verification.json",
         "evidence/exit-physical-install/verification.json",
-        "evidence/exit-job-pass/verification.json"
+        "evidence/exit-job-pass/verification.json",
+        "evidence/exit-root-seed/verification.json"
       ],
-      "progress": "Lean checks whole sequential packed map installation and its exact write count for an erased chronological readiness certificate. Work remains to derive that certificate from actual forest events."
+      "progress": "The packed exit-map builder now has exact root and top-level identity writes, so skew reads can use verified old records even when no real transfer exists at a top-level slot."
     },
     {
       "id": "EX4.4",
