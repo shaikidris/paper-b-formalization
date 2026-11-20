@@ -329,7 +329,8 @@
     "release-core/PaperB/OraclePackedWidth.lean": "word machine",
     "release-core/PaperB/ExitValidParentOrder.lean": "exit sweeps",
     "release-core/PaperB/ForestBackPairCodec.lean": "quotient forest",
-    "release-core/PaperB/ForestKnownProbe.lean": "quotient forest"
+    "release-core/PaperB/ForestKnownProbe.lean": "quotient forest",
+    "release-core/PaperB/ForestBackWords.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1125,9 +1126,10 @@
         "evidence/forest-init-order-lean/verification.json",
         "evidence/forest-actual-rank-fit-min/verification.json",
         "evidence/ex2-generic-back-codec/verification.json",
-        "evidence/ex2-generic-known-probes/verification.json"
+        "evidence/ex2-generic-known-probes/verification.json",
+        "evidence/ex2-generic-back-words/verification.json"
       ],
-      "progress": "Tie the exact known-node membership result to four explicit probes of the actual retained arrays.",
+      "progress": "Materialize the actual retained reverse-key column into two bounded-word arrays and verify exact back-key comparisons.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

@@ -1,0 +1,2 @@
+'PaperB.RetainedProperLoss.packBackWords_size' depends on axioms: [propext, Quot.sound]
+'PaperB.RetainedProperLoss.packBackWords_check' depends on axioms: [propext, Quot.sound]

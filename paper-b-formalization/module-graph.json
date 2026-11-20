@@ -323,7 +323,8 @@
         "release-core/PaperB/OraclePackedWidth.lean",
         "release-core/PaperB/ExitValidParentOrder.lean",
         "release-core/PaperB/ForestBackPairCodec.lean",
-        "release-core/PaperB/ForestKnownProbe.lean"
+        "release-core/PaperB/ForestKnownProbe.lean",
+        "release-core/PaperB/ForestBackWords.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2979,6 +2980,14 @@
       "path": "release-core/PaperB/ForestKnownProbe.lean",
       "local_imports": [
         "release-core/PaperB/ForestSlimIndex.lean"
+      ],
+      "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestBackWords.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestBackPairCodec.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"

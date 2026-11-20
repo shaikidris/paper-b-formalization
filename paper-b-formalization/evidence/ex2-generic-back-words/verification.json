@@ -1,0 +1,50 @@
+{
+  "base_commit": "869ea67",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": true,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestBackWords.lean",
+  "sha256": "78190d1dbe27a0356060bbc77e2fb91317417457632997dfa6dc42b448fdf095",
+  "scope": "Materialize the actual retained reverse-key column into two bounded-word arrays and verify exact back-key comparisons.",
+  "remaining": "Encode the remaining dictionary and scalar columns and sum the actual word allocation.",
+  "api_project": "Generic",
+  "api_usage": {
+    "input_tokens": 127,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_30m_tokens": 0,
+        "ttl_12h_tokens": 0
+      }
+    },
+    "output_tokens": 830,
+    "output_tokens_details": {
+      "reasoning_tokens": 464
+    },
+    "total_tokens": 957
+  },
+  "unsuccessful_api_attempts": [
+    {
+      "task": "generic fixed-stride serialization",
+      "status": "response.incomplete",
+      "usage": {
+        "input_tokens": 164,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "cache_write_tokens_details": {
+            "ttl_30m_tokens": 0,
+            "ttl_12h_tokens": 0
+          }
+        },
+        "output_tokens": 4000,
+        "output_tokens_details": {
+          "reasoning_tokens": 4000
+        },
+        "total_tokens": 4164
+      }
+    }
+  ]
+}

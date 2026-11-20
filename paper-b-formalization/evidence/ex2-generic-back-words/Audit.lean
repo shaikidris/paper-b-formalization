@@ -1,0 +1,3 @@
+import PaperB.ForestBackWords
+#print axioms PaperB.RetainedProperLoss.packBackWords_size
+#print axioms PaperB.RetainedProperLoss.packBackWords_check
