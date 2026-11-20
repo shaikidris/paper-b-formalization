@@ -227,7 +227,8 @@
     "release-core/PaperB/SharedLocalOrder.lean": "cost",
     "release-core/PaperB/ForestPackedOrderedReader.lean": "cuts",
     "release-core/PaperB/ForestFastOrderedReader.lean": "cuts",
-    "release-core/PaperB/ForestLookupTolls.lean": "cuts"
+    "release-core/PaperB/ForestLookupTolls.lean": "cuts",
+    "release-core/PaperB/RamWorkerHaltPC.lean": "cost"
   },
   "milestones": [
     {
@@ -1424,9 +1425,10 @@
         "evidence/ram-lex-pair-cuts-audit/verification.json",
         "evidence/ram-pair-slice-audit/verification.json",
         "evidence/ram-pair-worker-calls/verification.json",
-        "evidence/ram-prehalt/verification.json"
+        "evidence/ram-prehalt/verification.json",
+        "evidence/ram-worker-halt-pc/verification.json"
       ],
-      "progress": "Actual successful RAM runs now expose exact Steps prefix and final halt separately. This provides the trace to link workers without halting the whole query."
+      "progress": "Lean verifies the scalar worker halt PC and that patching only the halt slot preserves every nonhalting instruction."
     },
     {
       "id": "EX5.4",

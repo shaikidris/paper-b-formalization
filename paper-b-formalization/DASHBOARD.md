@@ -25,7 +25,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 - [EX4.4](TASKS.md#ex44) — The canonical third-forest geometry is constructed from the installed original tree and verified finite sibling quotients, including rootedness and rank.
 - [EX5.1](TASKS.md#ex51) — Lean checks a shared topological schedule emitter with at most two emitted records per source and stable increasing source positions within every owner.
 - [EX5.2](TASKS.md#ex52) — The canonical exit-map jump records now have an exact 18-word encoding and checked offset read. The same sealed arena and fixed code integration remain open.
-- [EX5.3](TASKS.md#ex53) — Actual successful RAM runs now expose exact Steps prefix and final halt separately. This provides the trace to link workers without halting the whole query.
+- [EX5.3](TASKS.md#ex53) — Lean verifies the scalar worker halt PC and that patching only the halt slot preserves every nonhalting instruction.
 - [EX5.5](TASKS.md#ex55) — The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 - [EX6.2](TASKS.md#ex62) — Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
 

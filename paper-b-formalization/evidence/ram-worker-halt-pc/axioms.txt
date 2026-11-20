@@ -1,0 +1,3 @@
+'PaperB.RamProgram.halted_fetch_and_state' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.worker_halt_pc' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.step_next_of_halt_slot_patch' depends on axioms: [propext, Quot.sound]

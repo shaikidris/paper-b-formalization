@@ -1,0 +1,11 @@
+{
+  "base_commit": "74042d8",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamWorkerHaltPC.lean",
+  "sha256": "1fbaedc41a5f4cbad720e760a603ab8b36264fb56170fe17ab62c6ce535ac741",
+  "scope": "The actual predecessor worker halts only at PC 11, returns its state unchanged, and preserves all original nonhalting steps when just that halt slot is patched.",
+  "remaining": "Instantiate a fixed relocated return site and link the predecessor worker calls for one pair-key lookup."
+}
