@@ -368,3 +368,4 @@
 {"at": "2026-11-20T03:33:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "PackedSectionSeal", "tasks": ["EX5.2"], "evidence": "evidence/packed-seal-linear-flatten/verification.json"}
 {"at": "2026-11-20T03:39:31+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestInitialCharges", "tasks": ["EX2.4"], "evidence": "evidence/forest-init-order-lean/verification.json"}
 {"at": "2026-11-20T03:39:34+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitLiveForestRoutes", "tasks": ["EX4.2"], "evidence": "evidence/exit-route-from-live-ancestry/verification.json"}
+{"at": "2026-11-20T03:42:15+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalLcaWordColumns", "tasks": ["EX5.2"], "evidence": "evidence/oracle-actual-lca-columns/verification.json"}

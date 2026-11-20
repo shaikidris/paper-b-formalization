@@ -1,0 +1,11 @@
+{
+  "base_commit": "a545103",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/OriginalLcaWordColumns.lean",
+  "sha256": "77360a080100df51111026c3e5978aa211fcc48ccd491c8e62e4c089e28f6aad",
+  "scope": "Serialize one original-tree head, parent, and depth payload with exact raw machine table agreement and linear per-cell work.",
+  "remaining": "Seal the actual original tree and prove global width and combined placement."
+}

@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3112,
-      "sha256": "f30161e99a02f36b258a8ae4fbb222e2943a48cc0ed15e93b47c1f2c0b6e4fc5"
+      "bytes": 3075,
+      "sha256": "0971bb77b1c099c92e4fc9b9bfff01b318965132ccaad32b9ff584928e54d413"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 62910,
-      "sha256": "c33218067eff7efc14eaf4e455a781966856e27908c18e0551dcf49a5aa054d6"
+      "bytes": 62983,
+      "sha256": "7e5ca7d8b01085ddfd22d6ba5a808f219fd32dc590d4e6cdd9244a4a48a85c1a"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 76731,
-      "sha256": "4e4f8a6042e6b1a7cce02b479900cc44143368527068adcbf37b14d98313f158"
+      "bytes": 76933,
+      "sha256": "d05aa0d9acd5cfc317813df08c5b8896e1396c5a55d0ad3400fc74f5e282a2bd"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -4242,6 +4242,21 @@
       "sha256": "90f6b984e2229d95ed95b3b2112d1b30daa77c44ee4e45086b00286cb5b661b7"
     },
     {
+      "path": "evidence/oracle-actual-lca-columns/Audit.lean",
+      "bytes": 143,
+      "sha256": "dc21d8caab5168039b3bc07f542cde573ee3d884c40566c11206bcf405985133"
+    },
+    {
+      "path": "evidence/oracle-actual-lca-columns/axioms.txt",
+      "bytes": 200,
+      "sha256": "41ae5bb21ca523ac4bb92348e3c23d9cf98dea23b6747d0acb8258efc28b4966"
+    },
+    {
+      "path": "evidence/oracle-actual-lca-columns/verification.json",
+      "bytes": 538,
+      "sha256": "17033fbeafd54bbd00070d5dd5abbeb53da751046be797d932f34201c8d1c65e"
+    },
+    {
       "path": "evidence/original-child-laws/Audit.lean",
       "bytes": 290,
       "sha256": "8c29a50acee92bb2276976df077f17362e239a7e1fb3312c4e182bf8a5770d00"
@@ -5528,8 +5543,8 @@
     },
     {
       "path": "module-graph.json",
-      "bytes": 86347,
-      "sha256": "219dd1cefa0c167a79799f70a84f3ec96f5aff65d9d961b2a62356c107c8ada1"
+      "bytes": 86636,
+      "sha256": "36fd680258ff91d1be5693cdf47fb6f3581f1c4bec7150e3e3fda5707d0641dc"
     },
     {
       "path": "obligations.json",
@@ -6472,6 +6487,11 @@
       "sha256": "762fdfda663a35d8e9ea8a0b3639b130fe32b9083679c686a6599a5ddf372bde"
     },
     {
+      "path": "release-core/PaperB/OriginalLcaWordColumns.lean",
+      "bytes": 11700,
+      "sha256": "77360a080100df51111026c3e5978aa211fcc48ccd491c8e62e4c089e28f6aad"
+    },
+    {
       "path": "release-core/PaperB/OriginalStaticConnector.lean",
       "bytes": 2886,
       "sha256": "6840407546e9c6df6ddaa82f4fe442fb7ff34273f33c3bff3f7f83cc03da4b0e"
@@ -6888,8 +6908,8 @@
     },
     {
       "path": "release-core/lakefile.toml",
-      "bytes": 7396,
-      "sha256": "bcb0b98a14824dbf03a8ca4989d19a581768f4870ad16e6d86fc72640875f71f"
+      "bytes": 7429,
+      "sha256": "b6db6e694cab91c98d0a02c46b72f5a7c6f9a7a0a3f04ef2c7bf38e26255a6d8"
     },
     {
       "path": "release-core/lean-toolchain",
@@ -6993,8 +7013,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 82472,
-      "sha256": "43cf97fe5514747230f399ec9129de59ed03ca94d314ced880116adf87ae8d47"
+      "bytes": 82571,
+      "sha256": "f9b59832a51231b4e59ea671823df81da5ac558d53a8549aece9c4f55fe746a5"
     },
     {
       "path": "test_plan.py",

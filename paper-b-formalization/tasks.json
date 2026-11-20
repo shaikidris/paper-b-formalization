@@ -299,7 +299,8 @@
     "release-core/PaperB/RamPairGuard.lean": "word machine",
     "release-core/PaperB/PackedSectionSeal.lean": "packed oracle",
     "release-core/PaperB/ForestInitialCharges.lean": "quotient forest",
-    "release-core/PaperB/ExitLiveForestRoutes.lean": "exit sweeps"
+    "release-core/PaperB/ExitLiveForestRoutes.lean": "exit sweeps",
+    "release-core/PaperB/OriginalLcaWordColumns.lean": "packed oracle"
   },
   "milestones": [
     {
@@ -1535,9 +1536,10 @@
         "evidence/sealed-physical-pair-columns/verification.json",
         "evidence/sealed-back-key-check/verification.json",
         "evidence/packed-carried-slice-rebase/verification.json",
-        "evidence/packed-seal-linear-flatten/verification.json"
+        "evidence/packed-seal-linear-flatten/verification.json",
+        "evidence/oracle-actual-lca-columns/verification.json"
       ],
-      "progress": "One global writer copies each packed section word exactly once and emits a direct offset header, preserving empty sections and retaining only header and payload."
+      "progress": "Serialize one original-tree head, parent, and depth payload with exact raw machine table agreement and linear per-cell work."
     },
     {
       "id": "EX5.3",
