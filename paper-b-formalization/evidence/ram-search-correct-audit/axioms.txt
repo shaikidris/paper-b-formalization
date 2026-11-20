@@ -1,0 +1,2 @@
+'PaperB.RamProgram.Predecessor.worker_correct' depends on axioms: [propext, Quot.sound]
+'PaperB.RamProgram.Predecessor.Answer.unique' does not depend on any axioms

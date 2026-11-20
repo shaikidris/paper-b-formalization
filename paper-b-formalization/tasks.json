@@ -179,7 +179,8 @@
     "release-core/PaperB/DenseArcRecode.lean": "quotient",
     "release-core/PaperB/ForestRealCounts.lean": "cuts",
     "release-core/PaperB/ExitGroupedFresh.lean": "exit",
-    "release-core/PaperB/RamPredecessorWorker.lean": "cost model"
+    "release-core/PaperB/RamPredecessorWorker.lean": "cost model",
+    "release-core/PaperB/RamSearchCorrect.lean": "cost model"
   },
   "milestones": [
     {
@@ -1323,9 +1324,10 @@
       "evidence": [
         "evidence/ram-static-lca-audit/verification.json",
         "evidence/ram-fixed-relocation-audit/verification.json",
-        "evidence/ram-predecessor-worker-audit/verification.json"
+        "evidence/ram-predecessor-worker-audit/verification.json",
+        "evidence/ram-search-correct-audit/verification.json"
       ],
-      "progress": "The fixed read-only RAM binary-search worker's two branches are exact in nine steps per iteration and two for the final halt. The logarithmic run and top-level query composition remain in progress."
+      "progress": "The fixed search worker now has a checked logarithmic budget and unique upper-bound result with no writable data arena. Connect the real key and range columns and link the full query."
     },
     {
       "id": "EX5.4",

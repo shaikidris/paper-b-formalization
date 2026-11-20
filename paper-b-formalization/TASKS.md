@@ -471,9 +471,9 @@ Acceptance:
 
 - Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
 
-The fixed read-only RAM binary-search worker's two branches are exact in nine steps per iteration and two for the final halt. The logarithmic run and top-level query composition remain in progress.
+The fixed search worker now has a checked logarithmic budget and unique upper-bound result with no writable data arena. Connect the real key and range columns and link the full query.
 
-Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json).
+Planning/evidence references: [evidence/ram-static-lca-audit/verification.json](evidence/ram-static-lca-audit/verification.json), [evidence/ram-fixed-relocation-audit/verification.json](evidence/ram-fixed-relocation-audit/verification.json), [evidence/ram-predecessor-worker-audit/verification.json](evidence/ram-predecessor-worker-audit/verification.json), [evidence/ram-search-correct-audit/verification.json](evidence/ram-search-correct-audit/verification.json).
 
 <a id="ex54"></a>
 

@@ -213,3 +213,4 @@
 {"at": "2026-11-19T23:55:39+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestRealCounts", "tasks": ["EX2.4"], "evidence": "evidence/forest-real-counts-audit/verification.json"}
 {"at": "2026-11-19T23:55:44+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitGroupedFresh", "tasks": ["EX4.2"], "evidence": "evidence/exit-grouped-fresh-audit/verification.json"}
 {"at": "2026-11-19T23:55:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPredecessorWorker", "tasks": ["EX5.3"], "evidence": "evidence/ram-predecessor-worker-audit/verification.json"}
+{"at": "2026-11-20T00:00:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamSearchCorrect", "tasks": ["EX5.3"], "evidence": "evidence/ram-search-correct-audit/verification.json"}
