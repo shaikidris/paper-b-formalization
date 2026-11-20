@@ -1,0 +1,11 @@
+{
+  "base_commit": "b5e9986",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestAllSizes.lean",
+  "sha256": "56dfd4539e9560e9d7bd997b6c2731b943e9487e5608ccf19e28effb55db202e",
+  "scope": "One executable API decides proper-loss membership on every flat ordered quotient. The small case needs no retained data. For larger cases the six-column reader is exact and has at most nine stored elements per quotient vertex.",
+  "remaining": "Close total preprocessing time and peak workspace for the same executable API and compose the oracle-level resource contract."
+}

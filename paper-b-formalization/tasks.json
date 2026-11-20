@@ -193,7 +193,8 @@
     "release-core/PaperB/DenseRuntimeGraph.lean": "quotient",
     "release-core/PaperB/DenseSiblingKeyIso.lean": "quotient",
     "release-core/PaperB/ExitPhysicalSchedule.lean": "exit",
-    "release-core/PaperB/ForestPackedSearch.lean": "cuts"
+    "release-core/PaperB/ForestPackedSearch.lean": "cuts",
+    "release-core/PaperB/ForestAllSizes.lean": "cuts"
   },
   "milestones": [
     {
@@ -944,9 +945,10 @@
         "evidence/forest-real-counts-audit/verification.json",
         "evidence/forest-slim-index-audit/verification.json",
         "evidence/forest-packed-probe-audit/verification.json",
-        "evidence/forest-packed-search-audit/verification.json"
+        "evidence/forest-packed-search-audit/verification.json",
+        "evidence/forest-all-sizes-audit/verification.json"
       ],
-      "progress": "The metered depth search agrees with the executable search and bounds actual packed reads, including the final unguarded nodeAt call. Summation across heads and remaining build/peak accounting are open.",
+      "progress": "All quotient sizes now use a single exact executable proper-loss reader, with at most nine retained array elements per vertex and verified per-head packed read cost. Full build operation and peak workspace bounds remain open.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

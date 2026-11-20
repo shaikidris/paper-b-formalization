@@ -1,0 +1,2 @@
+'PaperB.QuotientMembership.query_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.QuotientMembership.arraySize_le' depends on axioms: [propext, Classical.choice, Quot.sound]
