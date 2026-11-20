@@ -1,0 +1,11 @@
+{
+  "base_commit": "bfa4cde",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamMultiReturn.lean",
+  "sha256": "6488e31cc7c1b7eef9c7fbefcc1845cabb93b4463bf4acf164fff2538bd1a6f5",
+  "scope": "One verified fixed routine may return through any reached halt slot, preserving exact run count and registers.",
+  "remaining": "Install concrete callsites and common ABI in the whole query."
+}

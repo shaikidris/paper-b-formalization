@@ -304,7 +304,8 @@
     "release-core/PaperB/ExitDenseLookupTransport.lean": "original queries",
     "release-core/PaperB/PackedContiguousSeal.lean": "packed oracle",
     "release-core/PaperB/ExitDriverCoverage.lean": "exit sweeps",
-    "release-core/PaperB/ExitSealedBase.lean": "packed oracle"
+    "release-core/PaperB/ExitSealedBase.lean": "packed oracle",
+    "release-core/PaperB/RamMultiReturn.lean": "word machine"
   },
   "milestones": [
     {
@@ -1608,9 +1609,10 @@
         "evidence/ram-pair-hit-row-all-way/verification.json",
         "evidence/ram-translate-one-head/verification.json",
         "evidence/ram-generic-return-slot/verification.json",
-        "evidence/ram-early-failure-guard/verification.json"
+        "evidence/ram-early-failure-guard/verification.json",
+        "evidence/ram-link-multiple-halts/verification.json"
       ],
-      "progress": "A fixed four-step run checks equality of two IDs, preserving all other registers and workspace."
+      "progress": "One verified fixed routine may return through any reached halt slot, preserving exact run count and registers."
     },
     {
       "id": "EX5.4",
