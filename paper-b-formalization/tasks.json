@@ -1636,9 +1636,10 @@
         "evidence/ram-early-failure-guard/verification.json",
         "evidence/ram-link-multiple-halts/verification.json",
         "evidence/ram-interval-comparator/verification.json",
-        "evidence/ram-interval-preload/verification.json"
+        "evidence/ram-interval-preload/verification.json",
+        "evidence/ram-interval-positional-guard/verification.json"
       ],
-      "progress": "Load the three actual sealed interval words in six instructions, then halt, with exact read and register frame laws."
+      "progress": "Generalize the verified interval ROM to chosen operand registers and provide the exact contract for the three interval-loader destinations."
     },
     {
       "id": "EX5.4",

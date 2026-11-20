@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3062,
-      "sha256": "74480d0ad2faea0d62aec1bdeb3ea3ec7ff16410789e41c78358295fac295956"
+      "bytes": 3085,
+      "sha256": "65683081f40030e038a984dd00110c5ddb0d4ebb8ff6a5e03d55216569df341b"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 65148,
-      "sha256": "2cd7e85790896057719e4bc2dec33b5a5bf2914a0b937faa6cd4c5d54f75cd24"
+      "bytes": 65289,
+      "sha256": "8d21894848b0e8bb2192c820731ac3d7ce0fdb62005e2d4f6ac85bbec55a0fad"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 80762,
-      "sha256": "8ad0f6c738f61af41e0b3c2801c061a420dde39c961fb63305d74afefe0f3042"
+      "bytes": 80962,
+      "sha256": "c79f70ffac941f4413030b51d6fdfacde412f51c7eeae5541df0bc8d31118f1f"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -5167,6 +5167,21 @@
       "sha256": "8b05285a541854239763940e267e702c37bc6f7dfd3c7e334b8a9e17324dfec5"
     },
     {
+      "path": "evidence/ram-interval-positional-guard/Audit.lean",
+      "bytes": 145,
+      "sha256": "b6119b681d4eec2dadbb1b5a7c05bb7b5aaf1cbc22f6df195d515dada5ffae23"
+    },
+    {
+      "path": "evidence/ram-interval-positional-guard/axioms.txt",
+      "bytes": 172,
+      "sha256": "54f9259cb20600e3c2cac438c63a445fe201d4937b7897f555b76423aa3e2650"
+    },
+    {
+      "path": "evidence/ram-interval-positional-guard/verification.json",
+      "bytes": 534,
+      "sha256": "ca8b7ce84a68ffcf67f27756d6dc4ce557dfff67ed4529abd1baa359dfe057d5"
+    },
+    {
       "path": "evidence/ram-interval-preload/Audit.lean",
       "bytes": 91,
       "sha256": "6fb447527fde49341b77b9e9f17f85e2a8872ae456708a46ef7cdf075e9bf24b"
@@ -6968,8 +6983,8 @@
     },
     {
       "path": "release-core/PaperB/RamIntervalGuard.lean",
-      "bytes": 7046,
-      "sha256": "d0d0ab864c7c6366112b5b10cf37ae43a0b61fadc947820bb668df836a95b6e8"
+      "bytes": 8991,
+      "sha256": "51b49fb09128fbc32183fe8e761bc2d2dffdff13d473afa4942b8d610f7b1b81"
     },
     {
       "path": "release-core/PaperB/RamIntervalLoad.lean",
@@ -7383,8 +7398,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 84978,
-      "sha256": "4bee73a9b80ab8222e1b8ad1f07f50ae5763a9ad6140879505d7256a039fc242"
+      "bytes": 85069,
+      "sha256": "b47f4fc927a5dfe0b4796da3c4bf4af48a87cd6aa1007cfe7d9570c8b9c21139"
     },
     {
       "path": "test_plan.py",

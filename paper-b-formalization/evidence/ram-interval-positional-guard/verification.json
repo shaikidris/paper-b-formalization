@@ -1,0 +1,11 @@
+{
+  "base_commit": "1b058cb",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamIntervalGuard.lean",
+  "sha256": "51b49fb09128fbc32183fe8e761bc2d2dffdff13d473afa4942b8d610f7b1b81",
+  "scope": "Generalize the verified interval ROM to chosen operand registers and provide the exact contract for the three interval-loader destinations.",
+  "remaining": "Link the exact loader and comparator runs into one fixed block."
+}

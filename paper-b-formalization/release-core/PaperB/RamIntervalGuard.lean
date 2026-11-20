@@ -10,11 +10,15 @@ variable {bits : Nat} {L : Layout bits}
 def r (h16 : L.registerCount = 16) (i : Fin 16) : Fin L.registerCount :=
   ⟨i.val, by rw [h16]; exact i.isLt⟩
 
-def rom (h16 : L.registerCount = 16) (zero one : Word bits) : Program L :=
-  #[.branchLt (r h16 3) (r h16 1) 4 1,
-    .branchLt (r h16 3) (r h16 2) 2 4,
+def romFor (h16 : L.registerCount = 16) (loReg hiReg xReg : Fin 16)
+    (zero one : Word bits) : Program L :=
+  #[.branchLt (r h16 xReg) (r h16 loReg) 4 1,
+    .branchLt (r h16 xReg) (r h16 hiReg) 2 4,
     .imm (r h16 0) one, .halt,
     .imm (r h16 0) zero, .halt]
+
+def rom (h16 : L.registerCount = 16) (zero one : Word bits) : Program L :=
+  romFor h16 1 2 3 zero one
 
 private def jump (s : State L) (p : Nat) : State L :=
   { s with pc := p }
@@ -98,26 +102,27 @@ private theorem fourBudget {code : Program L} {input : Input L}
     simp [run, h0, h1, h2, h3]
 
 /-- Below `lo` takes three instructions; every other path takes four. -/
-theorem run_spec
-    (h16 : L.registerCount = 16) (zero one : Word bits)
+theorem run_spec_for
+    (h16 : L.registerCount = 16) (loReg hiReg xReg : Fin 16)
+    (zero one : Word bits)
     (hz : zero.val = 0) (ho : one.val = 1)
     (input : Input L) (s : State L) (entry : s.pc = 0) :
-    let lo := (reg s (r h16 1)).val
-    let hi := (reg s (r h16 2)).val
-    let x := (reg s (r h16 3)).val
+    let lo := (reg s (r h16 loReg)).val
+    let hi := (reg s (r h16 hiReg)).val
+    let x := (reg s (r h16 xReg)).val
     let ok := lo ≤ x ∧ x < hi
     let n : Nat := if x < lo then 3 else 4
     ∃ t : State L,
-      (∀ fuel : Nat, run (rom h16 zero one) input fuel s =
+      (∀ fuel : Nat, run (romFor h16 loReg hiReg xReg zero one) input fuel s =
         if n ≤ fuel then some ⟨t, n⟩ else none) ∧
       t.pc = (if ok then 3 else 5) ∧
       (reg t (r h16 0)).val = (if ok then 1 else 0) ∧
       (∀ j : Fin L.registerCount, j ≠ r h16 0 → reg t j = reg s j) ∧
       t.data = s.data := by
-  let code := rom h16 zero one
-  let lo := (reg s (r h16 1)).val
-  let hi := (reg s (r h16 2)).val
-  let x := (reg s (r h16 3)).val
+  let code := romFor h16 loReg hiReg xReg zero one
+  let lo := (reg s (r h16 loReg)).val
+  let hi := (reg s (r h16 hiReg)).val
+  let x := (reg s (r h16 xReg)).val
   let ok := lo ≤ x ∧ x < hi
   let n : Nat := if x < lo then 3 else 4
   let p : Nat := if ok then 2 else 4
@@ -125,13 +130,13 @@ theorem run_spec
   let v := jump s p
   let t := put v (r h16 0) w
 
-  have b0 : code[s.pc]? = some (.branchLt (r h16 3) (r h16 1) 4 1) := by
+  have b0 : code[s.pc]? = some (.branchLt (r h16 xReg) (r h16 loReg) 4 1) := by
     rw [entry] <;> rfl
   have b1 : code[(jump s 1).pc]? =
-      some (.branchLt (r h16 3) (r h16 2) 2 4) := rfl
-  have c0 : ltb (reg s (r h16 3)) (reg s (r h16 1)) =
+      some (.branchLt (r h16 xReg) (r h16 hiReg) 2 4) := rfl
+  have c0 : ltb (reg s (r h16 xReg)) (reg s (r h16 loReg)) =
       decide (x < lo) := rfl
-  have c1 : ltb (reg (jump s 1) (r h16 3)) (reg (jump s 1) (r h16 2)) =
+  have c1 : ltb (reg (jump s 1) (r h16 xReg)) (reg (jump s 1) (r h16 hiReg)) =
       decide (x < hi) := rfl
 
   have tail : p < code.size ∧ code[v.pc]? = some (.imm (r h16 0) w) ∧
@@ -173,5 +178,43 @@ theorem run_spec
     · simpa only [w, ite_eq_right h] using hz
   · intro j hj
     exact (regPut v (r h16 0) j w).trans (ite_eq_right hj)
+
+/-- Below `lo` takes three instructions; every other path takes four. -/
+theorem run_spec
+    (h16 : L.registerCount = 16) (zero one : Word bits)
+    (hz : zero.val = 0) (ho : one.val = 1)
+    (input : Input L) (s : State L) (entry : s.pc = 0) :
+    let lo := (reg s (r h16 1)).val
+    let hi := (reg s (r h16 2)).val
+    let x := (reg s (r h16 3)).val
+    let ok := lo ≤ x ∧ x < hi
+    let n : Nat := if x < lo then 3 else 4
+    ∃ t : State L,
+      (∀ fuel : Nat, run (rom h16 zero one) input fuel s =
+        if n ≤ fuel then some ⟨t, n⟩ else none) ∧
+      t.pc = (if ok then 3 else 5) ∧
+      (reg t (r h16 0)).val = (if ok then 1 else 0) ∧
+      (∀ j : Fin L.registerCount, j ≠ r h16 0 → reg t j = reg s j) ∧
+      t.data = s.data :=
+  run_spec_for h16 1 2 3 zero one hz ho input s entry
+
+/-- Exact guard run from the post-loader state `s`, with operands in r5/r6/r7. -/
+theorem run_spec_567
+    (h16 : L.registerCount = 16) (zero one : Word bits)
+    (hz : zero.val = 0) (ho : one.val = 1)
+    (input : Input L) (s : State L) (entry : s.pc = 0) :
+    let lo := (reg s (r h16 5)).val
+    let hi := (reg s (r h16 6)).val
+    let x := (reg s (r h16 7)).val
+    let ok := lo ≤ x ∧ x < hi
+    let n : Nat := if x < lo then 3 else 4
+    ∃ t : State L,
+      (∀ fuel : Nat, run (romFor h16 5 6 7 zero one) input fuel s =
+        if n ≤ fuel then some ⟨t, n⟩ else none) ∧
+      t.pc = (if ok then 3 else 5) ∧
+      (reg t (r h16 0)).val = (if ok then 1 else 0) ∧
+      (∀ j : Fin L.registerCount, j ≠ r h16 0 → reg t j = reg s j) ∧
+      t.data = s.data :=
+  run_spec_for h16 5 6 7 zero one hz ho input s entry
 
 end PaperB.RamProgram.IntervalGuard
