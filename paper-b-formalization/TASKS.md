@@ -386,8 +386,8 @@ Construct one upward jump map per real pair and recover both summary coordinates
 
 Acceptance:
 
-- Match the set semantics for any target and allowed ancestor in O(L²) moves and O(L³) word operations.
-- Prove all of Lemma 5.1 locally: per-quotient build O((n_H+m_H)L³), O(n_H+m_H) temporary words and O(n_H) retained records. Charge each arc and each installation.
+- Match the set semantics for any target and allowed ancestor in O(L) skew jumps and O(L) word operations.
+- Apply the v1.3 Lemma 5.1 budget to the actual interleaved packed implementation: O((n_H+m_H)L) exit-summary construction, O(n_H+m_H) temporary words and O(n_H) retained records. Charge every arc and installation.
 
 The real fused exit reader now refines a logical route from local stored edge agreements.
 
@@ -428,7 +428,7 @@ Sum all phases, including sorting, dominator construction, repeated predecessor 
 
 Acceptance:
 
-- Prove deterministic O((n+m)L³) build time for the compiled data layout.
+- Prove deterministic O((n+m)L²) build time for the same compiled data layout used by the query.
 
 Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound.
 
@@ -469,7 +469,7 @@ Run the fixed query program on only the stored index, failure set and one target
 
 Acceptance:
 
-- Give an O(L³) bound independent of graph density, target choice, batch size and previous queries.
+- Give an O(L) worst-case bound independent of graph density, target choice, batch size and previous queries.
 
 Second and third setup states now enter the actual scalar worker with a complete register and memory agreement.
 
@@ -506,8 +506,8 @@ Aggregate online memberships as disjunctions while charging list accesses and ex
 
 Acceptance:
 
-- Handle q empty lists, repetitions, arbitrary overlap, O(SL³) total time and O(S) workspace with S=n+m+q+M.
-- Produce one Boolean per original list in order, prove the later-single-list bound, and allow logarithmic words in S+2.
+- Handle q empty lists, repetitions and arbitrary overlap in O((n+m)L²+q+ML) total time and O(S) workspace with S=n+m+q+M.
+- Produce one Boolean per original list in order, prove O(1+|T_i|L) time for a later single list, and allow logarithmic words in S+2.
 
 The listed-target transfer verifies the v1.3 mixed quadratic-log build plus linear-log per-target time, ordered output, and explicit-space bounds under the exact oracle contract. The whole-oracle instantiation remains open.
 
@@ -547,7 +547,7 @@ Encode each candidate with at most two residual guard failures and its full term
 
 Acceptance:
 
-- Return an admissible detecting set for each positive case and prove O(G_dec log³(G_dec+2)) time and O(G_dec) words.
+- Return an admissible detecting set for each positive case and prove O(G_dec log²(G_dec+2)) time and O(G_dec) words.
 - Map each positive output index back to i, including multiple terminals of one label, and return Q union {i}. The number of failed vertices per candidate counts distinct guards after the shared deletion.
 
 Under the exact single-target oracle contract, Lean checks the whole guarded application from shared deletion and grouped rows to the first actual detecting witness and complete negative answer. Full sealed oracle instantiation remains open.
