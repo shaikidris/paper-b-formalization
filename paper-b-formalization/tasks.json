@@ -1435,9 +1435,10 @@
         "evidence/kahn-dense-binding/verification.json",
         "evidence/ranked-local-quotient/verification.json",
         "evidence/family-forest-index/verification.json",
-        "evidence/dense-aggregate-membership/verification.json"
+        "evidence/dense-aggregate-membership/verification.json",
+        "evidence/group-raw-mass/verification.json"
       ],
-      "progress": "Actual grouped quotient family now has the exact global local-vertex count and a linear retained membership array bound."
+      "progress": "Actual stable grouping now exposes exact total output multiplicity for quotient and global arc accounting."
     },
     {
       "id": "EX5.2",

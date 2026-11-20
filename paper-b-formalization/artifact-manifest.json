@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 2855,
-      "sha256": "b61d9cd37af90df1bc45681b8dc599e2f1b4f5ae75d3a1874544a5b7450fccbc"
+      "bytes": 2841,
+      "sha256": "b14fbe2a2edac23ef618a5484cd7a6757cacb7ecb48bb2cef01d45b08b16104c"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 57835,
-      "sha256": "9c484bd56fc18da91a96d6a3f3cb6d8524b739657946b50239984f54c9e3379b"
+      "bytes": 57909,
+      "sha256": "44f5d11b34a9e170553850ecde08ff8ab61c1b0137b48e9fb103a27bf2259196"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 67839,
-      "sha256": "2e74f6ae8b32465c1bf5cec78a37cb0c3a903b7fb4c10c6e78bc6186ee6510bf"
+      "bytes": 68018,
+      "sha256": "2adee507a532dc957db875eb0d46c67424820246b67d589a22f029ed9ec2549b"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -3612,6 +3612,21 @@
       "sha256": "ff69f98ac689c64cc4e07357f2daa4fbd7acb2b05f44950adbc7c4610b45896e"
     },
     {
+      "path": "evidence/group-raw-mass/Audit.lean",
+      "bytes": 164,
+      "sha256": "464da0aae2f541db4bfc158f8a9700ce5be5fea8a1d42e4c8907ee0d4bf22d90"
+    },
+    {
+      "path": "evidence/group-raw-mass/axioms.txt",
+      "bytes": 244,
+      "sha256": "cb2f34a84c9e4f3d1669a3a44965a97b927b2e385b92229db8e99a2af2de4cd8"
+    },
+    {
+      "path": "evidence/group-raw-mass/verification.json",
+      "bytes": 527,
+      "sha256": "d1890d083235a80bd91a1fa32e9c2a1a4171a77c4f326975ec8a50ea6e700ade"
+    },
+    {
       "path": "evidence/grouping-live-space/Audit.lean",
       "bytes": 191,
       "sha256": "7c41088644364ed3ffc4d5dceca19170165c906f0ee828ccc943a319a87d1a23"
@@ -4908,8 +4923,8 @@
     },
     {
       "path": "release-core/PaperB/ArcBuckets.lean",
-      "bytes": 19777,
-      "sha256": "4ace2dd9b4541acbf9de51fa5f8385775396a2ea39729a6342b5365ca41c7cc0"
+      "bytes": 22717,
+      "sha256": "8a6d294b10fa1244d19576125275334590250aa0e41ac5ee8b7c56797846b2b3"
     },
     {
       "path": "release-core/PaperB/ArcOwnerTotal.lean",
@@ -6163,8 +6178,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 77242,
-      "sha256": "101af93ca634fe42465eccb5c27c8313380c96d76c1d828e2dd92e7a4a2ede54"
+      "bytes": 77281,
+      "sha256": "bea55dfeff4b11182ea45cd0cd3d92fdbec6b4b9c0c58f7af8dd837bdd6884b3"
     },
     {
       "path": "test_plan.py",

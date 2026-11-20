@@ -1,0 +1,11 @@
+{
+  "base_commit": "b2ac865",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ArcBuckets.lean",
+  "sha256": "8a6d294b10fa1244d19576125275334590250aa0e41ac5ee8b7c56797846b2b3",
+  "scope": "Actual stable grouping preserves exact incidence count, and the counted per-row sum includes duplicates.",
+  "remaining": "Bind it to each actual dense quotient and sum the shared emission table without duplicating arcs."
+}

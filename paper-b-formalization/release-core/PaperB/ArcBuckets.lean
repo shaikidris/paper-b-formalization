@@ -483,6 +483,83 @@ theorem reversal_space {key : α → Fin B} {emit : α → β} {input : List α}
   obtain ⟨hs, hm, _⟩ := finish_space boundary
   exact ⟨hsplit, by omega⟩
 
+theorem groupMap_rowMass (key : α → Fin B) (emit : α → β)
+    (xs : List α) :
+    rowMass (groupMap key emit xs).1 = xs.length := by
+  change
+    rowMass (finish B (Nat.le_refl B) (scatterRows key emit xs) 0).1 =
+      xs.length
+  exact (finish_total _ _ _ _).trans (scatter_total key emit xs)
+
+private theorem prefixMass_eq_sum_ofFn (weight : Fin B → Nat)
+    (t : Nat) (h : t ≤ B) :
+    prefixMass weight t h =
+      (List.ofFn (fun i : Fin t =>
+        weight ⟨i.val, Nat.lt_of_lt_of_le i.isLt h⟩)).sum := by
+  induction t with
+  | zero => simp [prefixMass]
+  | succ t ih =>
+      have ht : t ≤ B := by omega
+      let f (i : Fin t) := weight ⟨i.val, Nat.lt_of_lt_of_le i.isLt ht⟩
+      let a := weight ⟨t, by omega⟩
+      have hs :
+          List.ofFn (fun i : Fin (t + 1) =>
+            weight ⟨i.val, Nat.lt_of_lt_of_le i.isLt h⟩) =
+            List.ofFn f ++ [a] := by
+        apply List.ext_getElem
+        · simp
+        · intro i hi hj
+          have hi' : i < t + 1 := by
+            simpa only [List.length_ofFn] using hi
+          by_cases hit : i < t
+          · have hleft : i < (List.ofFn f).length := by
+              simpa only [List.length_ofFn] using hit
+            rw [List.getElem_append_left hleft]
+            simp only [List.getElem_ofFn, f]
+          · have he : i = t := by omega
+            subst i
+            have hright : (List.ofFn f).length ≤ t := by simp
+            rw [List.getElem_ofFn, List.getElem_append_right hright]
+            simp [a]
+      rw [hs, List.sum_append]
+      change prefixMass weight t ht + a =
+        (List.ofFn f).sum + ([a] : List Nat).sum
+      rw [show prefixMass weight t ht = (List.ofFn f).sum from ih ht]
+      simp
+
+theorem rowMass_eq_ofFn_sum (s : Rows B β) :
+    rowMass s = (List.ofFn (fun i => (s.row i).length)).sum :=
+  prefixMass_eq_sum_ofFn (fun i => (s.row i).length) B (Nat.le_refl B)
+
+theorem rowMass_eq_cells_sum (s : Rows B β) :
+    rowMass s = (s.cells.toList.map List.length).sum := by
+  rw [rowMass_eq_ofFn_sum]
+  apply congrArg List.sum
+  apply List.ext_getElem
+  · simp [s.size_eq]
+  · intro i hi hj
+    simp [Rows.row]
+
+private theorem prefixMass_le_of_pointwise (f w : Fin B → Nat)
+    (hle : ∀ i, f i ≤ w i) (t : Nat) (h : t ≤ B) :
+    prefixMass f t h ≤ prefixMass w t h := by
+  induction t with
+  | zero => simp [prefixMass]
+  | succ t ih =>
+      have ht : t ≤ B := by omega
+      let j : Fin B := ⟨t, by omega⟩
+      change prefixMass f t ht + f j ≤ prefixMass w t ht + w j
+      exact Nat.add_le_add (ih ht) (hle j)
+
+theorem sum_ofFn_le_rowMass (s : Rows B β) (w : Fin B → Nat)
+    (hle : ∀ i, w i ≤ (s.row i).length) :
+    (List.ofFn w).sum ≤ rowMass s := by
+  have hw : prefixMass w B (Nat.le_refl B) = (List.ofFn w).sum :=
+    prefixMass_eq_sum_ofFn w B (Nat.le_refl B)
+  rw [← hw]
+  exact prefixMass_le_of_pointwise w (fun i => (s.row i).length)
+    hle B (Nat.le_refl B)
+
 end Storage
 
 end EX51

@@ -323,3 +323,4 @@
 {"at": "2026-11-20T02:40:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPlacedCalls", "tasks": ["EX5.3"], "evidence": "evidence/placed-two-scalar-calls/verification.json"}
 {"at": "2026-11-20T02:40:30+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPartialOccupancy", "tasks": ["EX4.3"], "evidence": "evidence/partial-exit-bank/verification.json"}
 {"at": "2026-11-20T02:40:38+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "OriginalEntryInverse", "tasks": ["EX4.4"], "evidence": "evidence/actual-held-spans/verification.json"}
+{"at": "2026-11-20T02:41:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ArcBuckets", "tasks": ["EX5.1"], "evidence": "evidence/group-raw-mass/verification.json"}
