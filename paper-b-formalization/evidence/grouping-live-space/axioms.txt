@@ -1,0 +1,4 @@
+'EX51.Storage.groupMap_phases' depends on axioms: [propext, Quot.sound]
+'EX51.Storage.scatter_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.Storage.finish_space' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EX51.Storage.reversal_space' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -329,6 +329,162 @@ theorem incoming_row (target : α → Fin B) (xs : List α) (v : Fin B) :
       xs.filter (fun a => decide (target a = v)) :=
   group_row target xs v
 
+namespace Storage
+
+/-
+Source-level cell accounting: one owned table of B slots, one cell per
+list entry, and fixed scalar state. During a reversal we count the whole
+input and the whole current table (including the old row), and count the
+unread suffix again even though it shares that row's cells. The visit
+relations are proofs, not runtime snapshots or a backend allocation model.
+-/
+
+abbrev rowMass (s : Rows B β) : Nat :=
+  mass B (Nat.le_refl B) s
+
+abbrev scatterRows (key : α → Fin B) (emit : α → β) (input : List α) :
+    Rows B β :=
+  (scatter key emit input Rows.empty 0 0).1
+
+theorem groupMap_phases (key : α → Fin B) (emit : α → β) (input : List α) :
+    let p := scatter key emit input Rows.empty 0 0
+    let q := finish B (Nat.le_refl B) (scatterRows key emit input) 0
+    groupMap key emit input = (q.1, ⟨B, p.2.1, p.2.2, q.2, B⟩) := rfl
+
+inductive ScatterAt (key : α → Fin B) (emit : α → β) (input : List α) :
+    List α → Rows B β → Nat → Nat → Prop where
+  | start : ScatterAt key emit input input Rows.empty 0 0
+  | step {a : α} {xs : List α} {s : Rows B β} {r w : Nat} :
+      ScatterAt key emit input (a :: xs) s r w →
+      ScatterAt key emit input xs (s.write (key a) (emit a :: s.row (key a)))
+        (r + 1) (w + 1)
+
+theorem scatter_resume {key : α → Fin B} {emit : α → β}
+    {input rest : List α} {s : Rows B β} {r w : Nat}
+    (visit : ScatterAt key emit input rest s r w) :
+    scatter key emit rest s r w = scatter key emit input Rows.empty 0 0 := by
+  induction visit with
+  | start => rfl
+  | step _ ih => simpa only [scatter] using ih
+
+private theorem scatter_total (key : α → Fin B) (emit : α → β) (input : List α) :
+    rowMass (scatterRows key emit input) = input.length := by
+  simpa only [rowMass, scatterRows, mass_empty, Nat.zero_add] using
+    (scatter_counts key emit input (Rows.empty : Rows B β) 0 0).2.2
+
+theorem scatter_space {key : α → Fin B} {emit : α → β}
+    {input rest : List α} {s : Rows B β} {r w : Nat}
+    (visit : ScatterAt key emit input rest s r w) :
+    s.cells.size = B ∧ rowMass s + rest.length = input.length ∧
+      rowMass s ≤ input.length ∧
+      s.cells.size + rowMass s + input.length ≤ B + 2 * input.length := by
+  have hm : rowMass s + rest.length = input.length := calc
+    _ = rowMass (scatter key emit rest s r w).1 :=
+      ((scatter_counts key emit rest s r w).2.2).symm
+    _ = rowMass (scatterRows key emit input) := by rw [scatter_resume visit]
+    _ = _ := scatter_total key emit input
+  have hs := s.size_eq
+  exact ⟨hs, hm, by omega, by omega⟩
+
+inductive FinishAt (initial : Rows B β) :
+    (t : Nat) → t ≤ B → Rows B β → Nat → Prop where
+  | start : FinishAt initial B (Nat.le_refl B) initial 0
+  | step {t : Nat} {h : t + 1 ≤ B} {s : Rows B β} {c : Nat}
+      (prev : FinishAt initial (t + 1) h s c) :
+      FinishAt initial t (by omega)
+        (s.write ⟨t, h⟩ (reverseCharged (s.row ⟨t, h⟩) [] c).1)
+        (reverseCharged (s.row ⟨t, h⟩) [] c).2
+
+theorem finish_resume {initial s : Rows B β} {t c : Nat} {h : t ≤ B}
+    (visit : FinishAt initial t h s c) :
+    finish t h s c = finish B (Nat.le_refl B) initial 0 := by
+  induction visit with
+  | start => rfl
+  | step _ ih => simpa only [finish] using ih
+
+private theorem finish_total (t : Nat) (h : t ≤ B) (s : Rows B β) (c : Nat) :
+    rowMass (finish t h s c).1 = rowMass s := by
+  have hw : (fun j : Fin B => ((finish t h s c).1.row j).length) =
+      (fun j => (s.row j).length) := by
+    funext j
+    rw [(finish_spec t h s c).1 j]
+    split <;> simp
+  unfold rowMass mass
+  rw [hw]
+
+theorem finish_space {key : α → Fin B} {emit : α → β} {input : List α}
+    {s : Rows B β} {t c : Nat} {h : t ≤ B}
+    (visit : FinishAt (scatterRows key emit input) t h s c) :
+    s.cells.size = B ∧ rowMass s = input.length ∧
+      s.cells.size + rowMass s + input.length = B + 2 * input.length := by
+  have hm : rowMass s = input.length := calc
+    _ = rowMass (finish t h s c).1 := (finish_total t h s c).symm
+    _ = rowMass (finish B (Nat.le_refl B) (scatterRows key emit input) 0).1 := by
+      rw [finish_resume visit]
+    _ = rowMass (scatterRows key emit input) := finish_total _ _ _ _
+    _ = _ := scatter_total key emit input
+  have hs := s.size_eq
+  exact ⟨hs, hm, by omega⟩
+
+inductive ReverseAt (old : List β) (startCharge : Nat) :
+    List β → List β → Nat → Prop where
+  | start : ReverseAt old startCharge old [] startCharge
+  | step {x : β} {xs acc : List β} {c : Nat} :
+      ReverseAt old startCharge (x :: xs) acc c →
+      ReverseAt old startCharge xs (x :: acc) (c + 1)
+
+/-- The returned pair is the one used by `FinishAt.step`, even from a mid-row call. -/
+theorem reverse_resume {old unread acc : List β} {startCharge c : Nat}
+    (visit : ReverseAt old startCharge unread acc c) :
+    reverseCharged unread acc c = reverseCharged old [] startCharge := by
+  induction visit with
+  | start => rfl
+  | step _ ih => simpa only [reverseCharged] using ih
+
+theorem reverse_split {old unread acc : List β} {startCharge c : Nat}
+    (visit : ReverseAt old startCharge unread acc c) :
+    acc.length + unread.length = old.length := by
+  induction visit with
+  | start => simp
+  | step _ ih =>
+      simp only [List.length_cons] at ih ⊢
+      omega
+
+private theorem row_le_prefix (s : Rows B β) (i : Fin B)
+    (t : Nat) (h : t ≤ B) (hi : i.val < t) :
+    (s.row i).length ≤ mass t h s := by
+  induction t with
+  | zero => omega
+  | succ t ih =>
+      have ht : t ≤ B := by omega
+      let j : Fin B := ⟨t, by omega⟩
+      change (s.row i).length ≤ mass t ht s + (s.row j).length
+      by_cases e : i.val = t
+      · have e' : i = j := Fin.ext e
+        rw [e']
+        omega
+      · have hil : i.val < t := by omega
+        have hb := ih ht hil
+        omega
+
+/-- With `M = input.length`, even counting both sides of the split costs at most `B + 3*M`. -/
+theorem reversal_space {key : α → Fin B} {emit : α → β} {input : List α}
+    {s : Rows B β} {t c charge : Nat} {h : t + 1 ≤ B} {unread acc : List β}
+    (boundary : FinishAt (scatterRows key emit input) (t + 1) h s c)
+    (active : ReverseAt (s.row ⟨t, by omega⟩) c unread acc charge) :
+    acc.length + unread.length = (s.row ⟨t, by omega⟩).length ∧
+      s.cells.size + rowMass s + input.length + (acc.length + unread.length) ≤
+        B + 3 * input.length := by
+  let i : Fin B := ⟨t, by omega⟩
+  have hsplit : acc.length + unread.length = (s.row i).length :=
+    reverse_split active
+  have hrow : (s.row i).length ≤ rowMass s :=
+    row_le_prefix s i B (Nat.le_refl B) i.isLt
+  obtain ⟨hs, hm, _⟩ := finish_space boundary
+  exact ⟨hsplit, by omega⟩
+
+end Storage
+
 end EX51
 
 /-

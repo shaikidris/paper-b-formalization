@@ -1,0 +1,11 @@
+{
+  "base_commit": "1ba92b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ArcBuckets.lean",
+  "sha256": "4ace2dd9b4541acbf9de51fa5f8385775396a2ea39729a6342b5365ca41c7cc0",
+  "scope": "Actual grouping scatter, overwrite finish and in-row reversal states have bounded live rows, input spine and scratch with at most B+3M constant-size cells for B buckets and M inputs.",
+  "remaining": "Instantiate in the exact forest raw and static grouping phases and close all other peak hand-offs."
+}
