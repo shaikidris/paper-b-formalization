@@ -1,0 +1,11 @@
+{
+  "base_commit": "823adea",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamCheckedPairLookup.lean",
+  "sha256": "d8a4ade93196f53ed0b84374ebfe880bfc2b89624104e976efeb7ec404c7a3d0",
+  "scope": "The actual fixed pair-check ROM runs from PC0 to halt and returns the correct dictionary membership bit within its logarithmic fuel bound.",
+  "remaining": "Preserve the hit row and connect the lookup to the full graph query dispatcher."
+}

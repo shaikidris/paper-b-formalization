@@ -272,7 +272,8 @@
     "release-core/PaperB/DensePhysicalArcCounts.lean": "shared quotient construction",
     "release-core/PaperB/RamFullPairPrefix.lean": "word machine",
     "release-core/PaperB/StaticDfsLiveSpace.lean": "quotient forest",
-    "release-core/PaperB/FlatPairDictionary.lean": "packed oracle"
+    "release-core/PaperB/FlatPairDictionary.lean": "packed oracle",
+    "release-core/PaperB/RamCheckedPairLookup.lean": "word machine"
   },
   "milestones": [
     {
@@ -1534,9 +1535,10 @@
         "evidence/first-worker-agreement/verification.json",
         "evidence/ram-prefix-transfer/verification.json",
         "evidence/placed-two-scalar-calls/verification.json",
-        "evidence/ram-full-pair-rom/verification.json"
+        "evidence/ram-full-pair-rom/verification.json",
+        "evidence/ram-complete-boolean-pair-check/verification.json"
       ],
-      "progress": "Fixed ROM reaches its equality validation entry from PC0 via the three actual worker traces and preserves packed columns and input words."
+      "progress": "The actual fixed pair-check ROM runs from PC0 to halt and returns the correct dictionary membership bit within its logarithmic fuel bound."
     },
     {
       "id": "EX5.4",

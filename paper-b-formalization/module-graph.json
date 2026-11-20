@@ -266,7 +266,8 @@
         "release-core/PaperB/DensePhysicalArcCounts.lean",
         "release-core/PaperB/RamFullPairPrefix.lean",
         "release-core/PaperB/StaticDfsLiveSpace.lean",
-        "release-core/PaperB/FlatPairDictionary.lean"
+        "release-core/PaperB/FlatPairDictionary.lean",
+        "release-core/PaperB/RamCheckedPairLookup.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2432,6 +2433,15 @@
         "release-core/PaperB/RamLexPairCuts.lean"
       ],
       "owner_role": "packed oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamCheckedPairLookup.lean",
+      "local_imports": [
+        "release-core/PaperB/RamFullPairPrefix.lean",
+        "release-core/PaperB/RamEqualityTailTransfer.lean"
+      ],
+      "owner_role": "word machine",
       "admission": "ORACLE_CORE"
     }
   ],
