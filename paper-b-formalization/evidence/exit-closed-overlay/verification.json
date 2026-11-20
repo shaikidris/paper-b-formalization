@@ -1,0 +1,11 @@
+{
+  "base_commit": "126d7be",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitClosedOverlay.lean",
+  "sha256": "1e9be74e79655e8d572a51685ba9b039af123b6085cdf2f9792c50c059a23d0c",
+  "scope": "A fresh packed slot preserves the exact old parent and jump maps and extends the decoded occupied bank with the certified new path.",
+  "remaining": "Show the hypotheses on the actual forest prefix and install every event without rescanning."
+}

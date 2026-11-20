@@ -278,7 +278,8 @@
     "release-core/PaperB/PhysicalArcRowMass.lean": "shared quotient construction",
     "release-core/PaperB/ExitPhysicalSeedPass.lean": "exit sweeps",
     "release-core/PaperB/ExitDirectDepthInv.lean": "exit sweeps",
-    "release-core/PaperB/ForestCheckpointCertificate.lean": "quotient forest"
+    "release-core/PaperB/ForestCheckpointCertificate.lean": "quotient forest",
+    "release-core/PaperB/ExitClosedOverlay.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1342,9 +1343,10 @@
         "evidence/exit-depth-init/verification.json",
         "evidence/exit-seed-closure/verification.json",
         "evidence/exit-depth-step-frame/verification.json",
-        "evidence/exit-direct-depth-inv/verification.json"
+        "evidence/exit-direct-depth-inv/verification.json",
+        "evidence/exit-closed-overlay/verification.json"
       ],
-      "progress": "Run the same direct stage-before-base path while preserving depth-column agreement through each actual packed stage and supplying it to both read callbacks."
+      "progress": "A fresh packed slot preserves the exact old parent and jump maps and extends the decoded occupied bank with the certified new path."
     },
     {
       "id": "EX4.4",
