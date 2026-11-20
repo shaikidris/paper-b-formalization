@@ -1,0 +1,9 @@
+{
+  "base_commit": "66a6f71",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedMembership.lean",
+  "sha256": "e108b27e6f46ced9454d39cde1969db0938cc0436d7915ae0318ebf33707edd9",
+  "scope": "Bind the retained word image to the existing dictionary worker representation and verify four actual word probes for a known node.",
+  "remaining": "Bind both finite-word stages to the keyed query and certify full build work and peak space.",
+  "source_provenance": "Local integration of already checked Generic probe and capacity lemmas."
+}

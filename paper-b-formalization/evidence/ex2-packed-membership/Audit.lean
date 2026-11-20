@@ -1,0 +1,4 @@
+import PaperB.ForestPackedMembership
+#print axioms PaperB.RetainedProperLoss.packWordColumns_knownProbed
+#print axioms PaperB.RetainedProperLoss.packWordColumns_dictionary_represents
+#print axioms PaperB.RetainedProperLoss.local_word_columns_fit

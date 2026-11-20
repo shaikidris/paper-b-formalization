@@ -1,0 +1,5 @@
+'PaperB.RetainedProperLoss.packWordColumns_knownProbed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.packWordColumns_dictionary_represents' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.RetainedProperLoss.local_word_columns_fit' depends on axioms: [propext, Quot.sound]

@@ -326,7 +326,8 @@
         "release-core/PaperB/ForestKnownProbe.lean",
         "release-core/PaperB/ForestBackWords.lean",
         "release-core/PaperB/ForestRetainedFieldBounds.lean",
-        "release-core/PaperB/ForestRetainedWords.lean"
+        "release-core/PaperB/ForestRetainedWords.lean",
+        "release-core/PaperB/ForestPackedMembership.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -3009,6 +3010,16 @@
         "release-core/PaperB/ForestRetainedFieldBounds.lean",
         "release-core/PaperB/ForestBackWords.lean",
         "release-core/PaperB/FlatPairDictionary.lean"
+      ],
+      "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestPackedMembership.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestRetainedWords.lean",
+        "release-core/PaperB/ForestKnownProbe.lean",
+        "release-core/PaperB/OraclePackedWidth.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
