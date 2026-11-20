@@ -320,3 +320,4 @@
 {"at": "2026-11-20T02:36:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPackedRuntime", "tasks": ["EX4.3"], "evidence": "evidence/packed-runtime-no-rescan/verification.json"}
 {"at": "2026-11-20T02:36:35+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestNumericSweepSpace", "tasks": ["EX2.4"], "evidence": "evidence/numeric-forest-prefix/verification.json"}
 {"at": "2026-11-20T02:36:39+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamEqualityTailTransfer", "tasks": ["EX5.3"], "evidence": "evidence/ram-prefix-transfer/verification.json"}
+{"at": "2026-11-20T02:40:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPlacedCalls", "tasks": ["EX5.3"], "evidence": "evidence/placed-two-scalar-calls/verification.json"}

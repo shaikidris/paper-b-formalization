@@ -1,0 +1,4 @@
+'PaperB.RamProgram.ThreeCalls.placed_worker_saved_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.second_scalar_placed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.third_scalar_placed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RamProgram.ThreeCalls.second_third_scalar_steps' depends on axioms: [propext, Classical.choice, Quot.sound]

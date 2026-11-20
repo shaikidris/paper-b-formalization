@@ -1,0 +1,11 @@
+{
+  "base_commit": "b2ac865",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPlacedCalls.lean",
+  "sha256": "cb782a6378da4bffa05883f1f513e3b2e122c250af3a64af7258946af43854e9",
+  "scope": "Actual PC20-to-PC60 traces execute both scalar calls in one ROM, preserving each saved descriptor and returning both numerical cut results with exact step sums.",
+  "remaining": "Use the first actual predecessor call and validation tail on the same entire trace."
+}

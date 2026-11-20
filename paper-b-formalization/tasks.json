@@ -265,7 +265,8 @@
     "release-core/PaperB/RamFirstSetupAgreement.lean": "ram",
     "release-core/PaperB/ExitPackedRuntime.lean": "exit",
     "release-core/PaperB/ForestNumericSweepSpace.lean": "forest",
-    "release-core/PaperB/RamEqualityTailTransfer.lean": "ram"
+    "release-core/PaperB/RamEqualityTailTransfer.lean": "ram",
+    "release-core/PaperB/RamPlacedCalls.lean": "ram"
   },
   "milestones": [
     {
@@ -1516,9 +1517,10 @@
         "evidence/ram-validation-trace/verification.json",
         "evidence/fixed-worker-entry/verification.json",
         "evidence/first-worker-agreement/verification.json",
-        "evidence/ram-prefix-transfer/verification.json"
+        "evidence/ram-prefix-transfer/verification.json",
+        "evidence/placed-two-scalar-calls/verification.json"
       ],
-      "progress": "Worker prefix traces now transfer exactly to the fixed equality-validation program."
+      "progress": "Second and third fixed worker calls now execute correctly as one composed prefix with exact elapsed steps."
     },
     {
       "id": "EX5.4",
