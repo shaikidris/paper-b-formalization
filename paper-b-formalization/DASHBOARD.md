@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Raw incoming preparation now has grounded logical storage bounds at actual gather, scatter, finish, reversal, and handoff boundaries.
+- [EX2.4](TASKS.md#ex24) — Actual source enumeration and row conversion sizes, stable raw grouping counters, and epoch visits satisfy the single linear preparation work estimate.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.
 - [EX4.4](TASKS.md#ex44) — The emitted dense quotient satisfies the exact physical-tail adjacency transport to the structural sibling quotient.

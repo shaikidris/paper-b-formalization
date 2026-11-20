@@ -1,0 +1,11 @@
+{
+  "base_commit": "85658a7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPreparationWork.lean",
+  "sha256": "a1d6959f971e36653e3b8dea82472c6e5b84128e7d694787e2576e439a03c8dc",
+  "scope": "Actual source enumeration and row conversion sizes, stable raw grouping counters, and epoch visits satisfy the single linear preparation work estimate.",
+  "remaining": "Integrate with all actual reader initialization and finish charges."
+}

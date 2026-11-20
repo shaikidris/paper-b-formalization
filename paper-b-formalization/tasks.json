@@ -291,7 +291,8 @@
     "release-core/PaperB/RamLinkedReturn.lean": "word machine",
     "release-core/PaperB/PackedSliceRebase.lean": "packed oracle",
     "release-core/PaperB/ExitConcreteDepthContract.lean": "exit sweeps",
-    "release-core/PaperB/ForestFinishAllocations.lean": "quotient forest"
+    "release-core/PaperB/ForestFinishAllocations.lean": "quotient forest",
+    "release-core/PaperB/ForestPreparationWork.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1082,9 +1083,10 @@
         "evidence/forest-actual-query-toll/verification.json",
         "evidence/forest-acceptance-compose/verification.json",
         "evidence/forest-extract-head-alloc/verification.json",
-        "evidence/forest-input-prep-peak/verification.json"
+        "evidence/forest-input-prep-peak/verification.json",
+        "evidence/forest-raw-actual-work/verification.json"
       ],
-      "progress": "Raw incoming preparation now has grounded logical storage bounds at actual gather, scatter, finish, reversal, and handoff boundaries.",
+      "progress": "Actual source enumeration and row conversion sizes, stable raw grouping counters, and epoch visits satisfy the single linear preparation work estimate.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
