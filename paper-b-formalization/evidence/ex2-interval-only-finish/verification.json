@@ -1,0 +1,9 @@
+{
+  "base_commit": "d7343a8",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestEndpointFinish.lean",
+  "sha256": "ebc17e83f347a91259fff85da6d0bd4f7765c40140cb6f8c8cfd8a17acb455df",
+  "scope": "Construct the exact packed output with a single ordered sweep and a direct preorder interval finish. Lean proves that the packed word arrays equal the previous full-reader output, and checks exact grouping counts, DFS commands and live prefix bounds.",
+  "remaining": "Wire the compact finish into the dense-order entry point, then join the phase bounds for the full construction.",
+  "source_provenance": "Local assembly of the checked grouped child buckets, interval traversal, and packed retained output."
+}

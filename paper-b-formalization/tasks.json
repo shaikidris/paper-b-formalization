@@ -341,7 +341,8 @@
     "release-core/PaperB/DenseLocalRankProbe.lean": "quotient forest",
     "release-core/PaperB/ForestBuildPackedQuerySpec.lean": "quotient forest",
     "release-core/PaperB/ForestPackingVisits.lean": "quotient forest",
-    "release-core/PaperB/ForestOrderRank.lean": "quotient forest"
+    "release-core/PaperB/ForestOrderRank.lean": "quotient forest",
+    "release-core/PaperB/ForestEndpointFinish.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1151,9 +1152,10 @@
         "evidence/ex2-share-built-dictionary/verification.json",
         "evidence/ex2-word-packing-visits/verification.json",
         "evidence/ex2-packed-query-integration/verification.json",
-        "evidence/ex2-dense-build-order/verification.json"
+        "evidence/ex2-dense-build-order/verification.json",
+        "evidence/ex2-interval-only-finish/verification.json"
       ],
-      "progress": "Bounded the actual sweep rank callback by constructing a dense inverse rank array once from the topological order. Exact scatter counts and one-probe rank reads are checked. Complete construction work and peak live storage still need a composed bound.",
+      "progress": "Construct the exact packed output with a single ordered sweep and a direct preorder interval finish. Lean proves that the packed word arrays equal the previous full-reader output, and checks exact grouping counts, DFS commands and live prefix bounds. Wire the compact finish into the dense-order entry point, then join the phase bounds for the full construction.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

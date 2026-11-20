@@ -1,0 +1,5 @@
+import PaperB.ForestEndpointFinish
+
+#print axioms PaperB.StaticGroupedTreeReader.endpointsOnly_eq
+#print axioms PaperB.StaticGroupedTreeReader.endpointsOnly_resources
+#print axioms PaperB.ForestPreparedBuild.buildWordsCompact_eq

@@ -1,0 +1,3 @@
+'PaperB.StaticGroupedTreeReader.endpointsOnly_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.StaticGroupedTreeReader.endpointsOnly_resources' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestPreparedBuild.buildWordsCompact_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
