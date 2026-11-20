@@ -1,0 +1,11 @@
+{
+  "base_commit": "12b9cf5",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestSweepStorage.lean",
+  "sha256": "1363987f54ebcd8ab082e8f0d26f791aa19df3d558b647fcf07ba894afc68415",
+  "scope": "Actual visited forest sweep states preserve arena capacities and exact log size. The accounting includes the full immutable order and tests throughout and bounds each sweep checkpoint.",
+  "remaining": "Specialize concrete capacities, then cover sorting banks, temporary per-step data and grouped DFS finishing in the total peak."
+}

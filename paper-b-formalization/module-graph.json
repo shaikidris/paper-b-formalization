@@ -246,7 +246,8 @@
         "release-core/PaperB/ForestIntegratedSiteToll.lean",
         "release-core/PaperB/FamilyForestIndex.lean",
         "release-core/PaperB/GenericRawExitModel.lean",
-        "release-core/PaperB/ForestInputPrepStorage.lean"
+        "release-core/PaperB/ForestInputPrepStorage.lean",
+        "release-core/PaperB/ForestSweepStorage.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2229,6 +2230,15 @@
       "path": "release-core/PaperB/ForestInputPrepStorage.lean",
       "local_imports": [
         "release-core/PaperB/ForestPreparedBuild.lean"
+      ],
+      "owner_role": "forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestSweepStorage.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestEventChronology.lean",
+        "release-core/PaperB/ForestActualFull.lean"
       ],
       "owner_role": "forest",
       "admission": "ORACLE_CORE"
