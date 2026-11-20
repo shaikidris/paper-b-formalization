@@ -1,0 +1,11 @@
+{
+  "base_commit": "1a288ef",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestFinishAllocations.lean",
+  "sha256": "3ccf9bfb4a46f635eafd32ff1f4ee4b0150de212c595d01b4ca4705cacdccb77",
+  "scope": "Certify actual packed-input extraction sizes, endpoint and head fills, size/row tabulations, inverse scatter/list and exact head writes on the deployed grouped reader.",
+  "remaining": "Integrate with the all-phase certificate and complete the raw preparation and word charges."
+}

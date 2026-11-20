@@ -284,7 +284,8 @@
         "release-core/PaperB/RamSealedTranslation.lean",
         "release-core/PaperB/RamLinkedReturn.lean",
         "release-core/PaperB/PackedSliceRebase.lean",
-        "release-core/PaperB/ExitConcreteDepthContract.lean"
+        "release-core/PaperB/ExitConcreteDepthContract.lean",
+        "release-core/PaperB/ForestFinishAllocations.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2612,6 +2613,15 @@
         "release-core/PaperB/ExitPhysicalDepthColumn.lean"
       ],
       "owner_role": "exit sweeps",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestFinishAllocations.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestPreparedBuild.lean",
+        "release-core/PaperB/ForestLayoutTreeCost.lean"
+      ],
+      "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
     }
   ],

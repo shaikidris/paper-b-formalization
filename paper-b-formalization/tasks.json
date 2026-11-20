@@ -290,7 +290,8 @@
     "release-core/PaperB/RamSealedTranslation.lean": "word machine",
     "release-core/PaperB/RamLinkedReturn.lean": "word machine",
     "release-core/PaperB/PackedSliceRebase.lean": "packed oracle",
-    "release-core/PaperB/ExitConcreteDepthContract.lean": "exit sweeps"
+    "release-core/PaperB/ExitConcreteDepthContract.lean": "exit sweeps",
+    "release-core/PaperB/ForestFinishAllocations.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1079,9 +1080,10 @@
         "evidence/forest-query-retained-count/verification.json",
         "evidence/forest-group-spaces/verification.json",
         "evidence/forest-actual-query-toll/verification.json",
-        "evidence/forest-acceptance-compose/verification.json"
+        "evidence/forest-acceptance-compose/verification.json",
+        "evidence/forest-extract-head-alloc/verification.json"
       ],
-      "progress": "One actual build and query certificate jointly establishes correctness, logarithmic exported query probes, constant known reads, bounded selected construction sites and bounded selected live roots including grouping and DFS.",
+      "progress": "Certify actual packed-input extraction sizes, endpoint and head fills, size/row tabulations, inverse scatter/list and exact head writes on the deployed grouped reader.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

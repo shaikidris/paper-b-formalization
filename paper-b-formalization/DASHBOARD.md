@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — One actual build and query certificate jointly establishes correctness, logarithmic exported query probes, constant known reads, bounded selected construction sites and bounded selected live roots including grouping and DFS.
+- [EX2.4](TASKS.md#ex24) — Certify actual packed-input extraction sizes, endpoint and head fills, size/row tabulations, inverse scatter/list and exact head writes on the deployed grouped reader.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — The actual installer and base callbacks read the current word bank and same prior base array. Given chronological graph prerequisites they satisfy the depth-aware direct sweep contract.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
