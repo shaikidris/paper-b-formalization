@@ -1,0 +1,11 @@
+{
+  "base_commit": "0dfc71e",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedOrderedSweep.lean",
+  "sha256": "b23f5036f13de9995f44717e3569a2b6258c1daa9917a7515ff5280d15532dd3",
+  "scope": "Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.",
+  "remaining": "Join this dictionary trace to the actual sweep and inverse intervals."
+}

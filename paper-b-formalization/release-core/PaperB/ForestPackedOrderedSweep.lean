@@ -129,6 +129,93 @@ theorem packedDictionary_spec {H : LabelledQuotient} (p : Rows H)
   rw [packedDictionary_eq]
   exact dictionary_spec p code
 
+-- Insert after `packedDictionary`, inside `PaperB.ForestDictionary`.
+
+private theorem packedConstruction_succ_le_pow (n : Nat) :
+    n + 1 ≤ (2 : Nat) ^ n := by
+  induction n with
+  | zero => decide
+  | succ n ih =>
+    rw [Nat.pow_succ]
+    omega
+
+open PaperB.PairDictionary in
+/-- Space accounting for the packed construction starting from the collected list.
+Here `k` is the number of collected keys before deduplication, and `H.vertexCount`
+is the input bound. `peak` counts simultaneously live sorting frames, not total calls.
+
+The sum charges the input list, both setup arrays, the common bank, and the
+returned slice, even if their lifetimes do not overlap. The initial and outgoing
+bank states describe one logical `2 * k`-cell region in this accounting.
+`frameCells` is a fixed charge per live frame; taking it to be one gives
+coefficient seven. This is a source-level logical-cell bound, not a bound on
+collection workspace, runtime heap or stack usage, or copying cost. -/
+theorem packedDictionary_construction_space {H : LabelledQuotient} (p : Rows H)
+    (code : CutPair H → Key) (frameCells : Nat) :
+    let xs := collect p code
+    let k := xs.length
+    let bank0 := xs.toArray
+    let zeros : Array Key := Array.replicate bank0.size (0, 0)
+    let bank := initialBanks xs
+    let out := runPacked k false bank (initialBanks_size xs)
+    xs.length ≤ H.vertexCount ∧
+      bank0.size = k ∧
+      zeros.size = k ∧
+      bank = bank0 ++ zeros ∧
+      bank.size = 2 * k ∧
+      out.bank.size = 2 * k ∧
+      packedDictionary p code = out.bank.extract 0 out.count ∧
+      (packedDictionary p code).size = out.count ∧
+      (packedDictionary p code).size ≤ k ∧
+      ∃ peak : Nat,
+        Calls (ceilBinaryLog k) (PaperB.PairLookup.KeyMerge.Workspace.Span.root k) peak ∧
+        peak ≤ ceilBinaryLog k + 1 ∧
+        xs.length + bank0.size + zeros.size + bank.size +
+          (packedDictionary p code).size + frameCells * peak ≤
+          (6 + frameCells) * (H.vertexCount + 1) := by
+  intro xs k bank0 zeros bank out
+  have hinput : xs.length ≤ H.vertexCount := collect_length_le p code
+  have hkN : k ≤ H.vertexCount := hinput
+  have hfirst : bank0.size = k := by
+    change xs.toArray.size = xs.length
+    simp
+  have hzeros : zeros.size = k := by
+    change (Array.replicate bank0.size ((0, 0) : Key)).size = k
+    simpa only [Array.size_replicate] using hfirst
+  have hsetup : bank = bank0 ++ zeros := rfl
+  have hbank : bank.size = 2 * k := initialBanks_size xs
+  have hout : out.bank.size = 2 * k := out.size_eq
+  have hcount : out.count ≤ k := out.count_le
+  have hresult : packedDictionary p code = out.bank.extract 0 out.count := rfl
+  have hslice : (packedDictionary p code).size = out.count := by
+    rw [hresult]
+    simp only [Array.size_extract, Nat.sub_zero]
+    omega
+  have hsliceLe : (packedDictionary p code).size ≤ k := by
+    rw [hslice]
+    exact hcount
+  obtain ⟨peak, hcalls, hpeak⟩ :=
+    runPacked_live_frames k false bank (initialBanks_size xs)
+  have hlog : ceilBinaryLog k ≤ k :=
+    (ceilBinaryLog_le_iff k k).mpr
+      (Nat.le_trans (Nat.le_succ k) (packedConstruction_succ_le_pow k))
+  have hpeakN : peak ≤ H.vertexCount + 1 := by
+    omega
+  have hdata :
+      xs.length + bank0.size + zeros.size + bank.size +
+        (packedDictionary p code).size ≤ 6 * (H.vertexCount + 1) := by
+    rw [hfirst, hzeros, hbank]
+    omega
+  have htotal :
+      xs.length + bank0.size + zeros.size + bank.size +
+        (packedDictionary p code).size + frameCells * peak ≤
+        (6 + frameCells) * (H.vertexCount + 1) := by
+    rw [Nat.add_mul]
+    exact Nat.add_le_add hdata (Nat.mul_le_mul_left frameCells hpeakN)
+  exact ⟨hinput, hfirst, hzeros, hsetup, hbank, hout, hresult, hslice,
+    hsliceLe, peak, hcalls, hpeak, htotal⟩
+
+
 end PaperB.ForestDictionary
 
 namespace EX24.PreparedSweep

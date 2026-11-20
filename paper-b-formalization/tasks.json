@@ -1053,9 +1053,10 @@
         "evidence/linear-finite-enumeration/verification.json",
         "evidence/grouping-live-space/verification.json",
         "evidence/numeric-forest-prefix/verification.json",
-        "evidence/forest-static-dfs-live-space/verification.json"
+        "evidence/forest-static-dfs-live-space/verification.json",
+        "evidence/forest-dictionary-peak/verification.json"
       ],
-      "progress": "The executed grouped DFS has a bounded pending-command stack at every prefix, for the actual strict rooted tree.",
+      "progress": "Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

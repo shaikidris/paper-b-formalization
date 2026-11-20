@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The executed grouped DFS has a bounded pending-command stack at every prefix, for the actual strict rooted tree.
+- [EX2.4](TASKS.md#ex24) — Explicit live-cell bound for packed dictionary preparation, including both merge banks, list conversions and stack.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
 - [EX4.3](TASKS.md#ex43) — Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
