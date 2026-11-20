@@ -215,3 +215,4 @@
 {"at": "2026-11-19T23:55:47+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamPredecessorWorker", "tasks": ["EX5.3"], "evidence": "evidence/ram-predecessor-worker-audit/verification.json"}
 {"at": "2026-11-20T00:00:25+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamSearchCorrect", "tasks": ["EX5.3"], "evidence": "evidence/ram-search-correct-audit/verification.json"}
 {"at": "2026-11-20T00:00:34+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseArcRow", "tasks": ["EX5.1"], "evidence": "evidence/dense-arc-row-audit/verification.json"}
+{"at": "2026-11-20T00:04:27+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitActualLog", "tasks": ["EX4.2"], "evidence": "evidence/exit-real-log-audit/verification.json"}

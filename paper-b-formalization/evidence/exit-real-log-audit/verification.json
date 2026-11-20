@@ -1,0 +1,11 @@
+{
+  "base_commit": "b6675c0",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitActualLog.lean",
+  "sha256": "0f4bdd11c3b96941b72cb0283169c6a3c0a0b484a389ec3d0f2f7713172588a6",
+  "scope": "The actual ordered packed run has distinct event heads, and its shared fresh-head index returns exactly allocated non-top-level records. Their stored parent and original key agree with the final packed forest, with exact first-creation chronology.",
+  "remaining": "Connect these real indexed placements to firstAt in the exit recurrence, then compose actual exit callbacks and resource bounds."
+}

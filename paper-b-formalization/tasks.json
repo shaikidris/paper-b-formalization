@@ -181,7 +181,8 @@
     "release-core/PaperB/ExitGroupedFresh.lean": "exit",
     "release-core/PaperB/RamPredecessorWorker.lean": "cost model",
     "release-core/PaperB/RamSearchCorrect.lean": "cost model",
-    "release-core/PaperB/DenseArcRow.lean": "quotient"
+    "release-core/PaperB/DenseArcRow.lean": "quotient",
+    "release-core/PaperB/ExitActualLog.lean": "exit"
   },
   "milestones": [
     {
@@ -1144,9 +1145,10 @@
         "evidence/exit-indexed-audit/verification.json",
         "evidence/physical-entry-audit/verification.json",
         "evidence/forest-event-chronology-audit/verification.json",
-        "evidence/exit-grouped-fresh-audit/verification.json"
+        "evidence/exit-grouped-fresh-audit/verification.json",
+        "evidence/exit-real-log-audit/verification.json"
       ],
-      "progress": "The one-pass fresh-event index has exact head lookup under the verified ordering shape. Attachment to the actual exit install schedule is in progress."
+      "progress": "The real packed sweep supplies exact fresh event lookup with distinct heads and genuine final parents and keys. The physical firstAt schedule and exit record installation remain in progress."
     },
     {
       "id": "EX4.3",
