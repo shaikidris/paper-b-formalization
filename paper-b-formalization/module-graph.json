@@ -2376,7 +2376,10 @@
     {
       "path": "release-core/PaperB/ExitPartialOccupancy.lean",
       "local_imports": [
-        "release-core/PaperB/ExitPriorBase.lean"
+        "release-core/PaperB/ExitPriorBase.lean",
+        "release-core/PaperB/ExitPhysicalOneSlot.lean",
+        "release-core/PaperB/ExitArraySweep.lean",
+        "release-core/PaperB/StaticHeadSweep.lean"
       ],
       "owner_role": "exit",
       "admission": "ORACLE_CORE"

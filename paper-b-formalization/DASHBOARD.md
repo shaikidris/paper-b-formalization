@@ -21,7 +21,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 - [EX2.4](TASKS.md#ex24) — The actual sweep-phase live bound is now numerical in quotient vertices and arcs.
 - [EX4.2](TASKS.md#ex42) — All real transfer drivers are available in one exact compact runtime array, with canonical key provenance.
-- [EX4.3](TASKS.md#ex43) — Real exit-slot writes preserve all off-record depth cells.
+- [EX4.3](TASKS.md#ex43) — Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array.
 - [EX4.4](TASKS.md#ex44) — The original reader now supplies actual physical inverse DFS entry lookups and exact reachable-tail witness spans.
 - [EX5.1](TASKS.md#ex51) — Actual stable grouping now exposes exact total output multiplicity for quotient and global arc accounting.
 - [EX5.2](TASKS.md#ex52) — First physical slice of the sealed local index now has an executable encoder and reader with exact correctness.

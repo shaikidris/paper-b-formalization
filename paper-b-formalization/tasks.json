@@ -1324,9 +1324,10 @@
         "evidence/bank-aware-exit-sweep/verification.json",
         "evidence/packed-runtime-no-rescan/verification.json",
         "evidence/partial-exit-bank/verification.json",
-        "evidence/exit-depth-column-frame/verification.json"
+        "evidence/exit-depth-column-frame/verification.json",
+        "evidence/exit-decoded-live-bridge/verification.json"
       ],
-      "progress": "Real exit-slot writes preserve all off-record depth cells."
+      "progress": "Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array."
     },
     {
       "id": "EX4.4",

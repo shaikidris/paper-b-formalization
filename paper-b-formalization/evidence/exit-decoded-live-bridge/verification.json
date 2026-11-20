@@ -1,0 +1,11 @@
+{
+  "base_commit": "8ab7686",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPartialOccupancy.lean",
+  "sha256": "11b47458b5d97d95f7e5ace288d5e300ccb1868dc99d68be36007fd6765caebb",
+  "scope": "Connect decoded occupancy of the live physical bank to the exact prior-base read used by the chronological sweep, without copying the array.",
+  "remaining": "Construct live-store closure at every actual sweep event."
+}
