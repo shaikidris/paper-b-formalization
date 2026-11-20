@@ -1,0 +1,2 @@
+import PaperB.DenseLocalRankProbe
+#print axioms PaperB.DenseQuotientLocalOrder.rankProbed_exact

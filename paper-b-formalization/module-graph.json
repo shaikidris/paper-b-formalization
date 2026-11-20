@@ -331,7 +331,8 @@
         "release-core/PaperB/ForestPackedBackRead.lean",
         "release-core/PaperB/ForestPackedAfterHit.lean",
         "release-core/PaperB/ForestPackedLookupRun.lean",
-        "release-core/PaperB/ForestBuildPackedWords.lean"
+        "release-core/PaperB/ForestBuildPackedWords.lean",
+        "release-core/PaperB/DenseLocalRankProbe.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -3059,6 +3060,15 @@
       "local_imports": [
         "release-core/PaperB/ForestPreparedBuild.lean",
         "release-core/PaperB/ForestPackedMembership.lean"
+      ],
+      "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/DenseLocalRankProbe.lean",
+      "local_imports": [
+        "release-core/PaperB/DenseLocalRankFit.lean",
+        "release-core/PaperB/ForestKnownProbe.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"

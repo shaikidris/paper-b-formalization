@@ -1,0 +1,9 @@
+{
+  "base_commit": "1da1edc",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/DenseLocalRankProbe.lean",
+  "sha256": "aa6f95dc93947d9997d1fc5ffe2fa4fee55d62ef399e3ab06a30c2cb5cac1492",
+  "scope": "Prove the actual quotient rank callback is four ordered indexed record probes with exact returned rank.",
+  "remaining": "Charge those fixed-size record probes on every occurrence of the actual constructor trace.",
+  "source_provenance": "Reused the four-probe helper from the already receipted Generic counted-index-reads response with local address integration."
+}

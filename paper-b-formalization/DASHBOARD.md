@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — Construct the finite-word index from the actual ordered forest reader and prove the same-source relation and 19 n_H retained word bound, including small quotients.
+- [EX2.4](TASKS.md#ex24) — Prove the actual quotient rank callback is four ordered indexed record probes with exact returned rank.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.
