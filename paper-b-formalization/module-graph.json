@@ -237,7 +237,8 @@
         "release-core/PaperB/RamWideWorker.lean",
         "release-core/PaperB/RamThreeCalls.lean",
         "release-core/PaperB/OriginalStaticFull.lean",
-        "release-core/PaperB/ExitPrefixOccupancy.lean"
+        "release-core/PaperB/ExitPrefixOccupancy.lean",
+        "release-core/PaperB/ExitPriorBase.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2143,6 +2144,15 @@
         "release-core/PaperB/ForestSlimIndex.lean"
       ],
       "owner_role": "cuts",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPriorBase.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitWordArrayQuery.lean",
+        "release-core/PaperB/ExitKernels.lean"
+      ],
+      "owner_role": "exit",
       "admission": "ORACLE_CORE"
     }
   ],

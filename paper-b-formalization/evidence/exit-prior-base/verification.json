@@ -1,0 +1,11 @@
+{
+  "base_commit": "5be29e3",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPriorBase.lean",
+  "sha256": "20060b1f1dcaefd0d2d3b2513ca824f983192ab4dd63809375ef547895588c35",
+  "scope": "A packed fused map walk and one prior-base cell compute the exact algebraic callback without constructing a route list. The proof states the occupied record and route-agreement conditions and charges the actual map word reads.",
+  "remaining": "Discharge those callback conditions from the real exit-map schedule, then bind actual contribution scans and fixed storage."
+}
