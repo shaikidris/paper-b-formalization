@@ -285,7 +285,8 @@
     "release-core/PaperB/RamPairHitRow.lean": "word machine",
     "release-core/PaperB/ExitPhysicalPrefixLive.lean": "exit sweeps",
     "release-core/PaperB/ForestBuiltQueryToll.lean": "quotient forest",
-    "release-core/PaperB/FlatBackKey.lean": "packed oracle"
+    "release-core/PaperB/FlatBackKey.lean": "packed oracle",
+    "release-core/PaperB/ExitCanonicalBank.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1355,9 +1356,10 @@
         "evidence/exit-depth-step-frame/verification.json",
         "evidence/exit-direct-depth-inv/verification.json",
         "evidence/exit-closed-overlay/verification.json",
-        "evidence/exit-prefix-seed-dense/verification.json"
+        "evidence/exit-prefix-seed-dense/verification.json",
+        "evidence/exit-canonical-shared-region/verification.json"
       ],
-      "progress": "The canonical forest prefix counts all original creation events; the next dynamic address is that forest size. Restrict physical preseeded occupancy to the preceding logical forest to exclude future seeds."
+      "progress": "The actual depth and map readers use one bounded word buffer with disjoint fixed-width regions and record slots."
     },
     {
       "id": "EX4.4",

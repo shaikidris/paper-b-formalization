@@ -1,0 +1,3 @@
+import PaperB.ExitCanonicalBank
+#print axioms PaperB.ExitPhysicalBankLayout.BankLayout.depth_records_disjoint
+#print axioms PaperB.ExitPhysicalBankLayout.BankLayout.record_slots_disjoint

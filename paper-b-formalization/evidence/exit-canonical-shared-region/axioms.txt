@@ -1,0 +1,2 @@
+'PaperB.ExitPhysicalBankLayout.BankLayout.depth_records_disjoint' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitPhysicalBankLayout.BankLayout.record_slots_disjoint' depends on axioms: [propext, Quot.sound]

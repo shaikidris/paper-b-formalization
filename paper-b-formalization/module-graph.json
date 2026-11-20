@@ -279,7 +279,8 @@
         "release-core/PaperB/RamPairHitRow.lean",
         "release-core/PaperB/ExitPhysicalPrefixLive.lean",
         "release-core/PaperB/ForestBuiltQueryToll.lean",
-        "release-core/PaperB/FlatBackKey.lean"
+        "release-core/PaperB/FlatBackKey.lean",
+        "release-core/PaperB/ExitCanonicalBank.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2563,6 +2564,14 @@
         "release-core/PaperB/FlatPairDictionary.lean"
       ],
       "owner_role": "packed oracle",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitCanonicalBank.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitPhysicalDepthColumn.lean"
+      ],
+      "owner_role": "exit sweeps",
       "admission": "ORACLE_CORE"
     }
   ],

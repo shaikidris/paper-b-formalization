@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea58eb6",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitCanonicalBank.lean",
+  "sha256": "4ef03a975a90a136d889a218c671b9db713de1f156e973cc65a5bb6053145b73",
+  "scope": "The actual depth and map readers use one bounded word buffer with disjoint fixed-width regions and record slots.",
+  "remaining": "Wire the layout to per-quotient chronological seed and transfer construction."
+}
