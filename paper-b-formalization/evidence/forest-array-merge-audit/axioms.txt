@@ -1,0 +1,3 @@
+'PaperB.PairDictionary.ArrayMerge.runPacked' depends on axioms: [propext, Quot.sound]
+'PaperB.PairDictionary.ArrayMerge.Trace.accounting' depends on axioms: [propext, Quot.sound]
+'PaperB.PairDictionary.ArrayMerge.Trace.sourceUnchanged' depends on axioms: [propext, Quot.sound]

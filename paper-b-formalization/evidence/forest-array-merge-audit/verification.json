@@ -1,0 +1,11 @@
+{
+  "base_commit": "7bd9cd7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestArrayMerge.lean",
+  "sha256": "a4712e7a093cfc00cebdbfd1ef26068b2c785bc094276c6ee63ddfa31f231460",
+  "scope": "The executable cursor merge runs over one fixed two-bank array and returns its exact output prefix length. Lean checks preservation of the input bank, bounded writes, and at most two reads and comparisons per output record.",
+  "remaining": "Prove sorted/deduplicated equivalence to dictionary merge, then implement and certify the complete ping-pong merge scheduler."
+}

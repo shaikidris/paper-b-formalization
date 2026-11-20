@@ -346,7 +346,8 @@
         "release-core/PaperB/ForestAllSizes.lean",
         "release-core/PaperB/ForestPackedReadSum.lean",
         "release-core/PaperB/ForestInstallCapacity.lean",
-        "release-core/PaperB/ForestOrderedReadBound.lean"
+        "release-core/PaperB/ForestOrderedReadBound.lean",
+        "release-core/PaperB/ForestArrayMerge.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1771,6 +1772,14 @@
         "release-core/PaperB/ExitMapRetention.lean"
       ],
       "owner_role": "cost model",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestArrayMerge.lean",
+      "local_imports": [
+        "release-core/PaperB/PairDictionary.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

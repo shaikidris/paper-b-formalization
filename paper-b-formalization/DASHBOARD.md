@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The full actual ordered forest sweep has a verified quadratic-log packed selector-read bound. One-step install access and all fixed array capacities are also verified. End-to-end build work and peak space remain open.
+- [EX2.4](TASKS.md#ex24) — The actual dictionary merge has a fixed-bank cursor loop with exact address and work accounting. Matching the sorted unique reference and the full workspace schedule remain open.
 - [EX4.2](TASKS.md#ex42) — The indexed array sweep now has an executable actual packed forest schedule with exact firstAt and no per-vertex rebuild of the head index. The map installer and exact contribution callbacks remain in progress.
 - [EX4.3](TASKS.md#ex43) — Lean verifies both map installation branches and the exact parent/jump summaries from already checked edge maps. The whole map array invariant and sealed query remain open.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.
