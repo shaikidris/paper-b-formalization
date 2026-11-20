@@ -1,0 +1,11 @@
+{
+  "base_commit": "3f572c7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitRouteStoredBridge.lean",
+  "sha256": "15e835a14802f3fd21515dae009f307173202ee1584f40c9b208435abc9b3e37",
+  "scope": "Stored parent, parent-map and depth agreement for each logical edge imply exact physical fused-route composition with no route traversal in the executable query.",
+  "remaining": "Establish the per-edge agreements for the actual interleaved exit construction, and build its fresh two-endpoint maps."
+}

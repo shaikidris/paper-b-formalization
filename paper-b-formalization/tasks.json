@@ -247,7 +247,8 @@
     "release-core/PaperB/ExitPriorBase.lean": "exit",
     "release-core/PaperB/RamConcreteSetup.lean": "ram",
     "release-core/PaperB/RankedDenseLocal.lean": "ram",
-    "release-core/PaperB/ForestResidualTolls.lean": "forest"
+    "release-core/PaperB/ForestResidualTolls.lean": "forest",
+    "release-core/PaperB/ExitRouteStoredBridge.lean": "exit"
   },
   "milestones": [
     {
@@ -1288,9 +1289,10 @@
         "evidence/exit-physical-install/verification.json",
         "evidence/exit-job-pass/verification.json",
         "evidence/exit-root-seed/verification.json",
-        "evidence/exit-prior-base/verification.json"
+        "evidence/exit-prior-base/verification.json",
+        "evidence/packed-route-exact/verification.json"
       ],
-      "progress": "The fused prior-base callback now executes without building a reference route, with exact evaluation and word-read bounds under its occupancy invariant."
+      "progress": "The real fused exit reader now refines a logical route from local stored edge agreements."
     },
     {
       "id": "EX4.4",
