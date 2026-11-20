@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3122,
-      "sha256": "61fc64da6704052e019b520b2671c18fc24e1e7796b7914f1e2926ea11ca8af6"
+      "bytes": 3027,
+      "sha256": "b75e360249850e2a89a0d31c2b539d274fbb4605e4c4087f25ff4b0c424a513a"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 70078,
-      "sha256": "2d002f7dfab1306278a7d66f3aaba7f4f46647811b91e540a6f9da69748e8415"
+      "bytes": 70093,
+      "sha256": "e64e9fff8aa5d5ce8ae7dbe55fc126d15b98af0de5871c625b1ea1f00bc57aba"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 89545,
-      "sha256": "81501b98307a01fc393fb6b81fead7944d34463f39ee099cf9e56b2a7a10e9d7"
+      "bytes": 89749,
+      "sha256": "f94f5d345f89b5deb6c9ffbc6a2420eb640a09464e12baf70b207c758f0b45b7"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -2065,6 +2065,36 @@
       "path": "evidence/ex2-native-copy-removal/verification.json",
       "bytes": 765,
       "sha256": "e16a49e43500264f107a23f745ccee63e2f0cc97137555522466b62ebba792ea"
+    },
+    {
+      "path": "evidence/ex2-native-sort-ownership/Audit.lean",
+      "bytes": 175,
+      "sha256": "b2abef788726cd3eef0b1c1186b3c060d8396c15a1c136f0a375a0ba841b0178"
+    },
+    {
+      "path": "evidence/ex2-native-sort-ownership/axioms.txt",
+      "bytes": 231,
+      "sha256": "87d240f5d4f27f351ea8e7e635e7c8843f455f9d27a7587838bd42cfa3ea344b"
+    },
+    {
+      "path": "evidence/ex2-native-sort-ownership/emitted-code.sha256",
+      "bytes": 339,
+      "sha256": "c0ea30d544ac72f51d8b74bdb51718b68bd64df24171660d0ac5c8ce71eb9337"
+    },
+    {
+      "path": "evidence/ex2-native-sort-ownership/native-results.txt",
+      "bytes": 882,
+      "sha256": "6683ea21c5871b40d5e341cc2cf4295fb4aa45e55f5a87e772cb0bbc9b7d327f"
+    },
+    {
+      "path": "evidence/ex2-native-sort-ownership/ownership.md",
+      "bytes": 2286,
+      "sha256": "e1f052722d73ea9c35c6a66af1261e9839a3de1545c73ec1e4ac4a2a5c6521f6"
+    },
+    {
+      "path": "evidence/ex2-native-sort-ownership/verification.json",
+      "bytes": 711,
+      "sha256": "003013c225d99e345a5c05e97c63134d58c3b91dd314b66ef75de0384833d9f1"
     },
     {
       "path": "evidence/ex2-packed-after-hit/Audit.lean",
@@ -7413,8 +7443,8 @@
     },
     {
       "path": "release-core/PaperB/ForestPackedOrderedSweep.lean",
-      "bytes": 24351,
-      "sha256": "b23f5036f13de9995f44717e3569a2b6258c1daa9917a7515ff5280d15532dd3"
+      "bytes": 25165,
+      "sha256": "57b5e157b2b73e0b2f8bf9b97b36818c65ba68d0ac6d75ece9e35a53574fbf38"
     },
     {
       "path": "release-core/PaperB/ForestPackedProbe.lean",
@@ -8238,8 +8268,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 90058,
-      "sha256": "2e029a27a12693193fd8ca8ae1548a3c900de352ef6b2699408019006ce39e8b"
+      "bytes": 90027,
+      "sha256": "fd251a2837a5bf3877302f5b8da0d8ac5539d3b8b2da25e5cd8f5f0a90bcd61f"
     },
     {
       "path": "test_plan.py",

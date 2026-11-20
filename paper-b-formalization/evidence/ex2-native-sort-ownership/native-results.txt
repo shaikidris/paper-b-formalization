@@ -1,0 +1,10 @@
+adjacent-hubs n=64 m=94 dict=94 writes=1137 pushes=95 shared_cells=0 growth_cells=0
+ladder n=65 m=378 dict=94 writes=1552 pushes=126 shared_cells=0 growth_cells=0
+adjacent-hubs n=256 m=382 dict=382 writes=4847 pushes=383 shared_cells=0 growth_cells=0
+ladder n=257 m=1530 dict=382 writes=6510 pushes=510 shared_cells=0 growth_cells=0
+adjacent-hubs n=1024 m=1534 dict=1534 writes=20461 pushes=1535 shared_cells=0 growth_cells=0
+ladder n=1025 m=6138 dict=1534 writes=27116 pushes=2046 shared_cells=0 growth_cells=0
+adjacent-hubs n=4096 m=6142 dict=6142 writes=85995 pushes=6143 shared_cells=0 growth_cells=0
+ladder n=4097 m=24570 dict=6142 writes=112618 pushes=8190 shared_cells=0 growth_cells=0
+adjacent-hubs n=16384 m=24574 dict=24574 writes=360425 pushes=24575 shared_cells=0 growth_cells=0
+ladder n=16385 m=98298 dict=24574 writes=466920 pushes=32766 shared_cells=0 growth_cells=0

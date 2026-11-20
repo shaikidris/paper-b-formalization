@@ -1,0 +1,4 @@
+import PaperB.ForestPackedOrderedSweep
+
+#print axioms PaperB.ForestDictionary.packedDictionary_spec
+#print axioms PaperB.ForestDictionary.packedDictionary_construction_budget

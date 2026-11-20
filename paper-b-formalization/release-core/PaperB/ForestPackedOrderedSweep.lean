@@ -15,6 +15,26 @@ private def initialBanks (xs : List Key) : Array Key :=
   let bank0 := xs.toArray
   bank0 ++ Array.replicate bank0.size (0, 0)
 
+/-- Allocate the two-bank destination once, without growing the source
+array by appending a separately allocated padding bank. -/
+private def initialBanksReserved (xs : List Key) : Array Key :=
+  let input := xs.toArray
+  Array.ofFn fun i : Fin (input.size + input.size) =>
+    if h : i.val < input.size then input[i.val]'h else (0, 0)
+
+@[csimp] private theorem initialBanks_csimp : @initialBanks = @initialBanksReserved := by
+  funext xs
+  unfold initialBanks initialBanksReserved
+  dsimp only
+  apply Array.ext
+  · simp
+  · intro i old new
+    by_cases h : i < xs.toArray.size
+    · rw [Array.getElem_append_left h, Array.getElem_ofFn]
+      simp only [dite_eq_left h]
+    · rw [Array.getElem_append_right (Nat.le_of_not_gt h), Array.getElem_ofFn]
+      simp only [Array.getElem_replicate, dite_eq_right h]
+
 private theorem initialBanks_size (xs : List Key) :
     (initialBanks xs).size = 2 * xs.length := by
   simp [initialBanks] <;> omega

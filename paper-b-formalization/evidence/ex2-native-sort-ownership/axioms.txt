@@ -1,0 +1,4 @@
+'PaperB.ForestDictionary.packedDictionary_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.ForestDictionary.packedDictionary_construction_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,9 @@
+{
+  "base_commit": "36d58fb",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedOrderedSweep.lean",
+  "sha256": "57b5e157b2b73e0b2f8bf9b97b36818c65ba68d0ac6d75ece9e35a53574fbf38",
+  "scope": "Give the sort a separately allocated, pre-sized pair bank, prove the compiled initializer equals the checked bank, and audit the actual generated ownership transfers through leaf, recursive and merge writes. Replay the ten native fixtures.",
+  "remaining": "Complete the primitive-cost and ownership audit for the remaining construction paths before certifying Lemma 3.2.",
+  "source_provenance": "Local compiled integration and ownership review. No new Generic generation."
+}
