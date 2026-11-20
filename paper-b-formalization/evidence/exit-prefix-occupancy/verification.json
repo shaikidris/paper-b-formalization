@@ -1,0 +1,11 @@
+{
+  "base_commit": "ea237b4",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPrefixOccupancy.lean",
+  "sha256": "04dca070275af6c683364f09e6e81a699928636be24a40e681be0541f9906abe",
+  "scope": "The prefix occupancy invariant covers real installation slots and separately seeded records. Actual first events imply precise availability before and after each map installation.",
+  "remaining": "Tie the sparse logical stores and real recurrence values to these occupancy sets."
+}

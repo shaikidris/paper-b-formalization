@@ -240,7 +240,8 @@
     "release-core/PaperB/ForestPreparedBuild.lean": "cuts",
     "release-core/PaperB/RamWideWorker.lean": "cost",
     "release-core/PaperB/RamThreeCalls.lean": "cost",
-    "release-core/PaperB/OriginalStaticFull.lean": "exit"
+    "release-core/PaperB/OriginalStaticFull.lean": "exit",
+    "release-core/PaperB/ExitPrefixOccupancy.lean": "exit"
   },
   "milestones": [
     {
@@ -1233,9 +1234,10 @@
         "evidence/exit-physical-schedule-audit/verification.json",
         "evidence/exit-array-schedule-audit/verification.json",
         "evidence/exit-parent-earlier/verification.json",
-        "evidence/interleaved-packed-pass/verification.json"
+        "evidence/interleaved-packed-pass/verification.json",
+        "evidence/exit-prefix-occupancy/verification.json"
       ],
-      "progress": "A single interleaved executable sweep now threads the physical map bank and base column and maintains exact prefix state under its schedule contract."
+      "progress": "The chronological sweep now has an exact prefix-occupancy model, with single fresh insertion and earlier/staged read bridges."
     },
     {
       "id": "EX4.3",

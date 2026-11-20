@@ -236,7 +236,8 @@
         "release-core/PaperB/ExitInterleavedPacked.lean",
         "release-core/PaperB/RamWideWorker.lean",
         "release-core/PaperB/RamThreeCalls.lean",
-        "release-core/PaperB/OriginalStaticFull.lean"
+        "release-core/PaperB/OriginalStaticFull.lean",
+        "release-core/PaperB/ExitPrefixOccupancy.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -2106,6 +2107,14 @@
         "release-core/PaperB/StaticOracleTree.lean",
         "release-core/PaperB/RetainedRouteProof.lean",
         "release-core/PaperB/BothReachableRoute.lean"
+      ],
+      "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ExitPrefixOccupancy.lean",
+      "local_imports": [
+        "release-core/PaperB/ExitInterleavedPacked.lean"
       ],
       "owner_role": "exit",
       "admission": "ORACLE_CORE"
