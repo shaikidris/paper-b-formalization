@@ -1,0 +1,9 @@
+{
+  "base_commit": "e61dbb7",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestRetainedFieldBounds.lean",
+  "sha256": "106f8b7d5ec5f014b05acb78a99668a40ae1999ae715c1ebb9155bcab45af20b",
+  "scope": "Verify concrete dictionary IDs, slots, labels, and DFS interval fields are bounded on the actual final reader.",
+  "remaining": "Materialize those fields and prove the total retained word bound.",
+  "source_provenance": "Local specialization of existing reader, dictionary, and interval lemmas to the retained fields."
+}

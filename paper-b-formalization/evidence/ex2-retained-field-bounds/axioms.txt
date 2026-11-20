@@ -1,0 +1,5 @@
+'PaperB.RetainedProperLoss.dict_field_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.slot_field_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.label_field_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.entry_field_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.RetainedProperLoss.stop_field_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -330,7 +330,8 @@
     "release-core/PaperB/ExitValidParentOrder.lean": "exit sweeps",
     "release-core/PaperB/ForestBackPairCodec.lean": "quotient forest",
     "release-core/PaperB/ForestKnownProbe.lean": "quotient forest",
-    "release-core/PaperB/ForestBackWords.lean": "quotient forest"
+    "release-core/PaperB/ForestBackWords.lean": "quotient forest",
+    "release-core/PaperB/ForestRetainedFieldBounds.lean": "quotient forest"
   },
   "milestones": [
     {
@@ -1127,9 +1128,10 @@
         "evidence/forest-actual-rank-fit-min/verification.json",
         "evidence/ex2-generic-back-codec/verification.json",
         "evidence/ex2-generic-known-probes/verification.json",
-        "evidence/ex2-generic-back-words/verification.json"
+        "evidence/ex2-generic-back-words/verification.json",
+        "evidence/ex2-retained-field-bounds/verification.json"
       ],
-      "progress": "Materialize the actual retained reverse-key column into two bounded-word arrays and verify exact back-key comparisons.",
+      "progress": "Verify concrete dictionary IDs, slots, labels, and DFS interval fields are bounded on the actual final reader.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",
