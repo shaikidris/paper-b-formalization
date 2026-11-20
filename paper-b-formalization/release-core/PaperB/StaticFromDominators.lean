@@ -67,8 +67,8 @@ decreasing_by omega
 
 private def columns {n : Nat} (row : Fin n → Fin n × Nat) : Columns row n :=
   collect row 0 (Nat.zero_le n)
-    { parents := #[]
-      depths := #[]
+    { parents := Array.emptyWithCapacity n
+      depths := Array.emptyWithCapacity n
       parents_size := rfl
       depths_size := rfl
       parent_at := by intro i hi; omega

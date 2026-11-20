@@ -1,0 +1,9 @@
+{
+  "base_commit": "7b2fb91",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/StaticFromDominators.lean",
+  "sha256": "1c933065ae48b9e1218e2bf6759ad60a303a35b3fb23ed23e688c298fd97b151",
+  "scope": "Reserve the parent and depth extraction banks once. Run the instrumented native compact builder on adjacent-hub and deep ladder quotients and check elimination of measured buffer-growth copies.",
+  "remaining": "A complete all-input primitive-work and backing-array ownership proof remains open.",
+  "source_provenance": "Local native audit and exact-capacity integration. No new Generic generation."
+}

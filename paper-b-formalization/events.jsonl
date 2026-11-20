@@ -429,3 +429,4 @@
 {"at": "2026-11-20T19:44:21+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestCompactBuildWork", "tasks": ["EX2.4"], "evidence": "evidence/ex2-reserved-collection-charge/verification.json"}
 {"at": "2026-11-20T19:47:16+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestCompactFinishSpace", "tasks": ["EX2.4"], "evidence": "evidence/ex2-compact-finish-space/verification.json"}
 {"at": "2026-11-20T19:51:26+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "ForestCompactPeak", "tasks": ["EX2.4"], "evidence": "evidence/ex2-compact-peak-receipts/verification.json"}
+{"at": "2026-11-20T19:57:13+00:00", "kind": "PAPER_B_GENERIC_API_CHECKPOINT", "module": "StaticFromDominators", "tasks": ["EX2.4"], "evidence": "evidence/ex2-native-array-audit/verification.json"}

@@ -1,0 +1,30 @@
+adjacent-hubs n=64 m=94 dict=94 writes=1267 pushes=95 shared_cells=97 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=32
+  ForestBackWords.c:60 shared events=1 cells=65
+ladder n=65 m=378 dict=94 writes=1684 pushes=126 shared_cells=98 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=32
+  ForestBackWords.c:60 shared events=1 cells=66
+adjacent-hubs n=256 m=382 dict=382 writes=5361 pushes=383 shared_cells=385 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=128
+  ForestBackWords.c:60 shared events=1 cells=257
+ladder n=257 m=1530 dict=382 writes=7026 pushes=510 shared_cells=386 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=128
+  ForestBackWords.c:60 shared events=1 cells=258
+adjacent-hubs n=1024 m=1534 dict=1534 writes=22511 pushes=1535 shared_cells=1537 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=512
+  ForestBackWords.c:60 shared events=1 cells=1025
+ladder n=1025 m=6138 dict=1534 writes=29168 pushes=2046 shared_cells=1538 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=512
+  ForestBackWords.c:60 shared events=1 cells=1026
+adjacent-hubs n=4096 m=6142 dict=6142 writes=94189 pushes=6143 shared_cells=6145 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=2048
+  ForestBackWords.c:60 shared events=1 cells=4097
+ladder n=4097 m=24570 dict=6142 writes=120814 pushes=8190 shared_cells=6146 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=2048
+  ForestBackWords.c:60 shared events=1 cells=4098
+adjacent-hubs n=16384 m=24574 dict=24574 writes=393195 pushes=24575 shared_cells=24577 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=8192
+  ForestBackWords.c:60 shared events=1 cells=16385
+ladder n=16385 m=98298 dict=24574 writes=499692 pushes=32766 shared_cells=24578 growth_cells=0
+  ForestLayout.c:549 shared events=1 cells=8192
+  ForestBackWords.c:60 shared events=1 cells=16386

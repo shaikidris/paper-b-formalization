@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3091,
-      "sha256": "1474c9360b96408e1ae8be4e5af0a40872ddafed1643fb80f66b95525dc8ef1e"
+      "bytes": 3143,
+      "sha256": "3c65e37acdfda2cdd0a8c3c4eadeb353239928ae5185578c2be4d9d12c819539"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 69721,
-      "sha256": "a2ca5d161e5e7fb5c1de3008e5d812535de2b40d22d694527678b434afb11a0c"
+      "bytes": 69877,
+      "sha256": "f5eacf9ef68a38ec2032076c3560f9ebd5843df8ee7cdc69219aa1f169ba248e"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 88953,
-      "sha256": "530c2751f9f6b96904488dfdadd7e3129afdaae4472feb9d1ea8c82f2a841f40"
+      "bytes": 89150,
+      "sha256": "d17168e88a3b0e8a1c2fb90b43d019aa5146ca7788d406a9e2fd8ddaa4517ace"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -1985,6 +1985,51 @@
       "path": "evidence/ex2-interval-only-finish/verification.json",
       "bytes": 741,
       "sha256": "f19a2fab7a6dcaaf778f953eadc479e4469e1571d1862e02cec568e0027620b0"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/Audit.lean",
+      "bytes": 95,
+      "sha256": "ab3beb85c7f2a62135ec94e69a01f24a03f018c631d500fef79ec622fdf08dae"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/README.md",
+      "bytes": 1599,
+      "sha256": "64efdc5059597d17061f6754277fcda29abedee8dbade4167b5285c7f2143f97"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/after.txt",
+      "bytes": 1876,
+      "sha256": "3b366ca7bb0807af86ea49c4666b890ae3bd609b791149f21f212692a5572f85"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/audit.c",
+      "bytes": 4596,
+      "sha256": "6165ca25e694d1faef2cbac63af623dfff64eeec1fc581c3b7ed878dd204c8eb"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/audit.h",
+      "bytes": 356,
+      "sha256": "2f4b318ff4d019283160ca22239b4486413cfa56fd8ee5006e36672db69887bd"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/axioms.txt",
+      "bytes": 106,
+      "sha256": "39916103bacb46fa4ea7df09922de0691556ea8e11ed197ea2c869e498073604"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/before.txt",
+      "bytes": 1904,
+      "sha256": "b275c3a908ec2df3dfc1b411476684d4752d05f1e4038c3617d2979d92f5e368"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/build.py",
+      "bytes": 1812,
+      "sha256": "675e82c8c6b04c1661597278523d571c9ea83483f09decdbe114c109eded5f6f"
+    },
+    {
+      "path": "evidence/ex2-native-array-audit/verification.json",
+      "bytes": 633,
+      "sha256": "7397ae1a5ccbf44f48fb8e6e5a33d7168c523d294821c90a59475af54d284c04"
     },
     {
       "path": "evidence/ex2-packed-after-hit/Audit.lean",
@@ -7973,8 +8018,8 @@
     },
     {
       "path": "release-core/PaperB/StaticFromDominators.lean",
-      "bytes": 21737,
-      "sha256": "4a6b39d2e278f68b149638432f730f3beb54a5726239973bd7f12c824da92302"
+      "bytes": 21781,
+      "sha256": "1c933065ae48b9e1218e2bf6759ad60a303a35b3fb23ed23e688c298fd97b151"
     },
     {
       "path": "release-core/PaperB/StaticGroupedTreeReader.lean",
@@ -8158,8 +8203,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 89837,
-      "sha256": "03dfc3f06be059e8ee71ba26384e3a2dd8324dccb3b105f984aae33b8e311f03"
+      "bytes": 89950,
+      "sha256": "089a41d75e6d148c5d749ab5884f2b35b11173d2d4a921f3cee545a8542e3f13"
     },
     {
       "path": "test_plan.py",
