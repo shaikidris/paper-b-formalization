@@ -1,0 +1,6 @@
+'PaperB.EX24.InputPrepCheckpoint.schedule_raw_row_sum_eq_arcCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.EX24.InputPrepCheckpoint.schedule_owner_raw_row_sum_le_arcCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

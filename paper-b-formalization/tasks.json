@@ -306,7 +306,8 @@
     "release-core/PaperB/ExitDriverCoverage.lean": "exit sweeps",
     "release-core/PaperB/ExitSealedBase.lean": "packed oracle",
     "release-core/PaperB/RamMultiReturn.lean": "word machine",
-    "release-core/PaperB/ExitRawCallCounts.lean": "exit sweeps"
+    "release-core/PaperB/ExitRawCallCounts.lean": "exit sweeps",
+    "release-core/PaperB/ExitScheduledRowMass.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1387,9 +1388,10 @@
         "evidence/exit-prefix-seed-dense/verification.json",
         "evidence/exit-canonical-shared-region/verification.json",
         "evidence/exit-concrete-depth-contract/verification.json",
-        "evidence/exit-raw-fused-tally/verification.json"
+        "evidence/exit-raw-fused-tally/verification.json",
+        "evidence/exit-scheduled-row-mass/verification.json"
       ],
-      "progress": "A value-preserving tally charges one visit per actual raw occurrence, one fused call per qualifying predecessor, and at most two missing endpoint lookups per install."
+      "progress": "Raw labelled occurrence mass sums to the supplied arc count in the actual topological schedule, or no more when filtered to active owners."
     },
     {
       "id": "EX4.4",

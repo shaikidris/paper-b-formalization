@@ -1,0 +1,3 @@
+import PaperB.ExitScheduledRowMass
+#print axioms PaperB.EX24.InputPrepCheckpoint.schedule_raw_row_sum_eq_arcCount
+#print axioms PaperB.EX24.InputPrepCheckpoint.schedule_owner_raw_row_sum_le_arcCount

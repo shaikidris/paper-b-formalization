@@ -375,3 +375,4 @@
 {"at": "2026-11-20T03:48:29+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitSealedBase", "tasks": ["EX5.2"], "evidence": "evidence/exit-sealed-base-values/verification.json"}
 {"at": "2026-11-20T03:48:32+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamMultiReturn", "tasks": ["EX5.3"], "evidence": "evidence/ram-link-multiple-halts/verification.json"}
 {"at": "2026-11-20T03:48:37+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitRawCallCounts", "tasks": ["EX4.3"], "evidence": "evidence/exit-raw-fused-tally/verification.json"}
+{"at": "2026-11-20T03:48:42+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitScheduledRowMass", "tasks": ["EX4.3"], "evidence": "evidence/exit-scheduled-row-mass/verification.json"}

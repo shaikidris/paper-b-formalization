@@ -1,0 +1,11 @@
+{
+  "base_commit": "bfa4cde",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitScheduledRowMass.lean",
+  "sha256": "9b318a9941de02c3ab3c3e709c84b837c0a6a034a66e02185a2f774b51c0b5d5",
+  "scope": "Raw labelled occurrence mass sums to the supplied arc count in the actual topological schedule, or no more when filtered to active owners.",
+  "remaining": "Connect the instantiated depth-aware schedule to its aggregate fused/write bounds."
+}
