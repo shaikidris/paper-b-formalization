@@ -1475,9 +1475,10 @@
         "evidence/wide-worker-link/verification.json",
         "evidence/three-calls/verification.json",
         "evidence/ram-setup-fetch/verification.json",
-        "evidence/ram-concrete-setup/verification.json"
+        "evidence/ram-concrete-setup/verification.json",
+        "evidence/ram-all-setup-traces/verification.json"
       ],
-      "progress": "Concrete setup instructions exist for all three calls. The exact first setup trace and no-wrap predecessor are Lean checked."
+      "progress": "All three setup traces and register contracts now hold on the same concrete instruction vector."
     },
     {
       "id": "EX5.4",

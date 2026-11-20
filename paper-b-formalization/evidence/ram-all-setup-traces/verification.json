@@ -1,0 +1,11 @@
+{
+  "base_commit": "3f572c7",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamConcreteSetup.lean",
+  "sha256": "6f741d0f35740b8ea4e4667674068a59f622cc50f4b085ccca84a11c1f226178",
+  "scope": "All three caller setup routines now have exact fixed-code traces, and the last worker receives the exact no-wrap base address and length.",
+  "remaining": "Link all scalar calls to one execution and validate pair equality with fixed final instructions."
+}
