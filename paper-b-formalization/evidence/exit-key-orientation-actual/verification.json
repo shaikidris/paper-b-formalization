@@ -1,0 +1,11 @@
+{
+  "base_commit": "383e5cc",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitOrientedLookup.lean",
+  "sha256": "5378249114524d089507b85bd6aa28d13d1b85a1f827c458a4e80f5ba571f075",
+  "scope": "The actual canonical pair lookup determines loss in the supplied endpoint order and restores the original order of the two exit coordinates.",
+  "remaining": "Link global slot IDs and packed extrema to the all-case router."
+}

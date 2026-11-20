@@ -1,0 +1,3 @@
+import PaperB.ExitOrientedLookup
+#print axioms PaperB.LabelledQuotient.LocalOrderedChecked.known_true_iff_properLoss_of_query_some
+#print axioms PaperB.LabelledQuotient.LocalOrderedChecked.query_orders_exitTailMem

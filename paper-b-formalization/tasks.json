@@ -294,7 +294,8 @@
     "release-core/PaperB/ForestFinishAllocations.lean": "quotient forest",
     "release-core/PaperB/ForestPreparationWork.lean": "quotient forest",
     "release-core/PaperB/DenseFamilyLogBudget.lean": "shared quotient construction",
-    "release-core/PaperB/ExitIncomingLaw.lean": "exit sweeps"
+    "release-core/PaperB/ExitIncomingLaw.lean": "exit sweeps",
+    "release-core/PaperB/ExitOrientedLookup.lean": "original queries"
   },
   "milestones": [
     {
@@ -1425,9 +1426,10 @@
         "evidence/actual-original-tables/verification.json",
         "evidence/actual-held-spans/verification.json",
         "evidence/exit-third-slot-miss-member/verification.json",
-        "evidence/exit-third-dense-exact-adj/verification.json"
+        "evidence/exit-third-dense-exact-adj/verification.json",
+        "evidence/exit-key-orientation-actual/verification.json"
       ],
-      "progress": "The emitted dense quotient satisfies the exact physical-tail adjacency transport to the structural sibling quotient."
+      "progress": "The actual canonical pair lookup determines loss in the supplied endpoint order and restores the original order of the two exit coordinates."
     },
     {
       "id": "EX5.1",

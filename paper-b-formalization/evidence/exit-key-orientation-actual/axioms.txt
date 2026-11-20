@@ -1,0 +1,6 @@
+'PaperB.LabelledQuotient.LocalOrderedChecked.known_true_iff_properLoss_of_query_some' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.LabelledQuotient.LocalOrderedChecked.query_orders_exitTailMem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
