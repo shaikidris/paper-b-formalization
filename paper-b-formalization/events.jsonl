@@ -220,3 +220,4 @@
 {"at": "2026-11-20T00:04:38+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "DenseRealOwnership", "tasks": ["EX5.1"], "evidence": "evidence/dense-real-ownership-audit/verification.json"}
 {"at": "2026-11-20T00:08:50+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamProgram", "tasks": ["EX5.3"], "evidence": "evidence/ram-register-frame-audit/verification.json"}
 {"at": "2026-11-20T00:08:57+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitEarliestLabel", "tasks": ["EX4.2"], "evidence": "evidence/exit-earliest-label-audit/verification.json"}
+{"at": "2026-11-20T00:12:16+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ForestPackedProbe", "tasks": ["EX2.4"], "evidence": "evidence/forest-packed-probe-audit/verification.json"}

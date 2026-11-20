@@ -326,7 +326,8 @@
         "release-core/PaperB/ForestSiteDepth.lean",
         "release-core/PaperB/ForestOrderedReader.lean",
         "release-core/PaperB/ForestRealCounts.lean",
-        "release-core/PaperB/ForestSlimIndex.lean"
+        "release-core/PaperB/ForestSlimIndex.lean",
+        "release-core/PaperB/ForestPackedProbe.lean"
       ],
       "owner_role": "cuts",
       "admission": "ORACLE_CORE"
@@ -1566,6 +1567,14 @@
         "release-core/PaperB/ExitLinearSchedule.lean"
       ],
       "owner_role": "exit",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/ForestPackedProbe.lean",
+      "local_imports": [
+        "release-core/PaperB/ForestRealCounts.lean"
+      ],
+      "owner_role": "cuts",
       "admission": "ORACLE_CORE"
     }
   ],

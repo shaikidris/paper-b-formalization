@@ -185,7 +185,8 @@
     "release-core/PaperB/ExitActualLog.lean": "exit",
     "release-core/PaperB/ForestSlimIndex.lean": "cuts",
     "release-core/PaperB/DenseRealOwnership.lean": "quotient",
-    "release-core/PaperB/ExitEarliestLabel.lean": "exit"
+    "release-core/PaperB/ExitEarliestLabel.lean": "exit",
+    "release-core/PaperB/ForestPackedProbe.lean": "cuts"
   },
   "milestones": [
     {
@@ -934,9 +935,10 @@
         "evidence/forest-real-prefix-audit/verification.json",
         "evidence/forest-ordered-reader-audit/verification.json",
         "evidence/forest-real-counts-audit/verification.json",
-        "evidence/forest-slim-index-audit/verification.json"
+        "evidence/forest-slim-index-audit/verification.json",
+        "evidence/forest-packed-probe-audit/verification.json"
       ],
-      "progress": "The actual retained proper-loss test uses only six explicit static columns. Lean checks array size and exact membership alongside the complete measured-count proof. Peak and word-time composition are still open.",
+      "progress": "The actual packed read costs per probe are now bounded using grounded labels and tested predecessors. Compose across the depth search and meter the remaining work and peak space.",
       "dispatch": {
         "native_swarm": {
           "conversation": "4b016d0f-c812-439d-ad52-ae24c973e7f3",

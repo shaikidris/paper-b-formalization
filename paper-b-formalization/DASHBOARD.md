@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The actual retained proper-loss test uses only six explicit static columns. Lean checks array size and exact membership alongside the complete measured-count proof. Peak and word-time composition are still open.
+- [EX2.4](TASKS.md#ex24) — The actual packed read costs per probe are now bounded using grounded labels and tested predecessors. Compose across the depth search and meter the remaining work and peak space.
 - [EX4.2](TASKS.md#ex42) — The chronology-to-rank minimum and fresh-event existence lemmas are checked. Binding real membership and read availability into the indexed schedule remains in progress.
 - [EX4.3](TASKS.md#ex43) — The actual exit-map traversal fuses jump selection and composition in a fixed-register tail loop, agrees with the ghost trace and uses one packed record probe and composition per step. Exact record installation remains in progress.
 - [EX4.4](TASKS.md#ex44) — The actual paired ID maps and static parent column now give the original graph's exact ParentSpec and parent queries, enabling concrete LCA and child-block adapters.

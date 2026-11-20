@@ -1,0 +1,11 @@
+{
+  "base_commit": "ee681eb",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedProbe.lean",
+  "sha256": "8e3c2463486845f2c6314211bf50a9ec502edd2c7c25051c0a23bc3d0c5ef733",
+  "scope": "An executable measured probe exactly refines the original packed selector and charges actual jump-region reads. A valid prefix bounds a single probe by 22L times one plus the number of predecessor tests, including the zero-depth branch.",
+  "remaining": "Sum these exact projected costs over the actual depth search and full sweep, and account for initialization, dictionaries, writes and peak space."
+}

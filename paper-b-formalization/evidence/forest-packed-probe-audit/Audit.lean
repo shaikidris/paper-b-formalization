@@ -1,0 +1,3 @@
+import PaperB.ForestPackedProbe
+#print axioms PaperB.LabelledQuotient.ForestWordCharges.packedProbe_result
+#print axioms PaperB.LabelledQuotient.ForestWordCharges.packedProbe_charge_of_prefix
