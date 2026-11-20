@@ -1,0 +1,9 @@
+{
+  "base_commit": "49c5284c7e9094db4589399715dd6d66be59c2b0",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamPushChildRow.lean",
+  "sha256": "4dee94db2d1fa9ff49410deb647607b2ca50ba74351883a3573093e72bba607a",
+  "scope": "The child-row block executes in eight instructions per child plus one exit guard, preserving the child row, all out-of-slice cells and all untouched registers. The encoded stack order agrees with the compact DFS.",
+  "remaining": "The DFS dispatcher and whole finish, payload staging and allocating caller, and the earlier construction trace must be linked for Lemma 3.2.",
+  "source_provenance": "Previously compiled local proof from the preceding turn, integrated during the API-first continuation."
+}

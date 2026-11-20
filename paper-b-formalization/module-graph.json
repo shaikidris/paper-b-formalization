@@ -346,7 +346,8 @@
         "release-core/PaperB/ForestScalarCost.lean",
         "release-core/PaperB/ForestConstructionEnvelope.lean",
         "release-core/PaperB/RamSliceCopy.lean",
-        "release-core/PaperB/RamForestStack.lean"
+        "release-core/PaperB/RamForestStack.lean",
+        "release-core/PaperB/RamPushChildRow.lean"
       ],
       "owner_role": "integration",
       "admission": "ORACLE_CORE"
@@ -3215,6 +3216,14 @@
       "local_imports": [
         "release-core/PaperB/RamProgram.lean",
         "release-core/PaperB/ForestCompactPeak.lean"
+      ],
+      "owner_role": "quotient forest",
+      "admission": "ORACLE_CORE"
+    },
+    {
+      "path": "release-core/PaperB/RamPushChildRow.lean",
+      "local_imports": [
+        "release-core/PaperB/RamForestStack.lean"
       ],
       "owner_role": "quotient forest",
       "admission": "ORACLE_CORE"
