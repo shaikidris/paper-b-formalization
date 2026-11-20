@@ -222,4 +222,33 @@ private theorem depthAgrees_of_frame (C : Column R depthBase)
   rw [depthAt_eq_readCell C out v, frame v, ← depthAt_eq_readCell C bank v]
   exact agree v
 
+theorem step_preserves_depthAgrees (C : Column R depthBase)
+    (tags : TagsFit bits) (layout : Layout R.base words R.slots)
+    (hBefore : depthBase.val + R.slots ≤ R.base.val)
+    (bank : WriteResult bits words) (j : Job) (hu : j.slot < R.slots)
+    (fit : (storedCodec tags).valid
+      (ExitPhysicalOneSlot.buildFromBank tags R.base layout bank j))
+    {depth : Fin R.slots → Nat} (agree : DepthAgrees bank R depth) :
+    DepthAgrees (ExitPhysicalOneSlot.step tags R.base layout bank j hu fit) R depth := by
+  refine depthAgrees_of_frame C bank _ agree ?_
+  intro v
+  exact ExitPhysicalOneSlot.step_cell_outside tags R.base layout bank j hu fit
+    (depthBase.val + v.val) (C.cell_lt v)
+    (Or.inl (Layout.depthCell_before_slot layout hBefore v.isLt j.slot).2)
+
+theorem seedWrite_preserves_depthAgrees (C : Column R depthBase)
+    (tags : TagsFit bits) (layout : Layout R.base words R.slots)
+    (hBefore : depthBase.val + R.slots ≤ R.base.val)
+    (bank : WriteResult bits words) (u : Nat) (hu : u < R.slots)
+    {F : JumpForest} (hs : SeedSlot F u)
+    (fit : (storedCodec tags).valid seedRecord)
+    {depth : Fin R.slots → Nat} (agree : DepthAgrees bank R depth) :
+    DepthAgrees (ExitPhysicalOneSlot.seedWrite tags R.base layout bank u hu hs fit)
+      R depth := by
+  refine depthAgrees_of_frame C bank _ agree ?_
+  intro v
+  exact ExitPhysicalOneSlot.seedWrite_cell_outside tags R.base layout bank u hu hs fit
+    (depthBase.val + v.val) (C.cell_lt v)
+    (Or.inl (Layout.depthCell_before_slot layout hBefore v.isLt u).2)
+
 end PaperB.ExitPhysicalDepthColumn

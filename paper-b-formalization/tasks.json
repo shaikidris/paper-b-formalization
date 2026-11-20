@@ -1337,9 +1337,10 @@
         "evidence/exit-depth-column-frame/verification.json",
         "evidence/exit-decoded-live-bridge/verification.json",
         "evidence/exit-depth-init/verification.json",
-        "evidence/exit-seed-closure/verification.json"
+        "evidence/exit-seed-closure/verification.json",
+        "evidence/exit-depth-step-frame/verification.json"
       ],
-      "progress": "Run seed installation once over the designated IDs, retain exact occupied records and exact 18-word-per-seed writes, and preserve the preceding depth column."
+      "progress": "The exact physical depth invariant is preserved across both runtime slot writers."
     },
     {
       "id": "EX4.4",

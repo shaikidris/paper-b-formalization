@@ -1,0 +1,3 @@
+import PaperB.ExitPhysicalDepthColumn
+#print axioms PaperB.ExitPhysicalDepthColumn.step_preserves_depthAgrees
+#print axioms PaperB.ExitPhysicalDepthColumn.seedWrite_preserves_depthAgrees

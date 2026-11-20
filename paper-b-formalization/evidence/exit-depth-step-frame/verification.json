@@ -1,0 +1,11 @@
+{
+  "base_commit": "a6e7da9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPhysicalDepthColumn.lean",
+  "sha256": "ceda1bf9ca8a4c5883c710caa8a3677df45cbcf3e88aa20d03298ba2b1e6bbc5",
+  "scope": "The exact physical depth invariant is preserved across both runtime slot writers.",
+  "remaining": "Instantiate the depth-aware sweep contract for the actual chronological packed forest."
+}
