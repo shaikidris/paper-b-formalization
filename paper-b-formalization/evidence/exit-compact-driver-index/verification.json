@@ -1,0 +1,11 @@
+{
+  "base_commit": "bfa4cde",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitCompactDriverIndex.lean",
+  "sha256": "85b51b23cb5c44858e7ffa76f4d8d01a324c9db6c0198a3f12fec10322f6ed95",
+  "scope": "Build a direct physical-to-compact driver index with one array write per supplied driver and exact round trips.",
+  "remaining": "Show the actual array has distinct bounded slots and use the table to construct the compact schedule."
+}

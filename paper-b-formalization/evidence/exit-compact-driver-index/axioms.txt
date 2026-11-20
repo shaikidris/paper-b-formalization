@@ -1,0 +1,2 @@
+'PaperB.ExitSlotIndex.roundTrip' depends on axioms: [propext, Quot.sound]
+'PaperB.ExitSlotIndex.noFalseHit' depends on axioms: [propext, Quot.sound]

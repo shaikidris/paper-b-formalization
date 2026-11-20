@@ -307,7 +307,8 @@
     "release-core/PaperB/ExitSealedBase.lean": "packed oracle",
     "release-core/PaperB/RamMultiReturn.lean": "word machine",
     "release-core/PaperB/ExitRawCallCounts.lean": "exit sweeps",
-    "release-core/PaperB/ExitScheduledRowMass.lean": "exit sweeps"
+    "release-core/PaperB/ExitScheduledRowMass.lean": "exit sweeps",
+    "release-core/PaperB/ExitCompactDriverIndex.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1330,9 +1331,10 @@
         "evidence/packed-transfer-drivers/verification.json",
         "evidence/exit-incoming-law-from-sites/verification.json",
         "evidence/exit-route-from-live-ancestry/verification.json",
-        "evidence/exit-drivers-complete-cover/verification.json"
+        "evidence/exit-drivers-complete-cover/verification.json",
+        "evidence/exit-compact-driver-index/verification.json"
       ],
-      "progress": "The computed compact driver array covers each actual proper-loss edge with real endpoints, using the actual retained checked dictionary."
+      "progress": "Build a direct physical-to-compact driver index with one array write per supplied driver and exact round trips."
     },
     {
       "id": "EX4.3",
