@@ -1,0 +1,11 @@
+{
+  "base_commit": "ef62039",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPublishedSlotChronology.lean",
+  "sha256": "3e4d47ceca4599a2234b6cc1c6bf311bc10f0152185f0854a800f25653405304",
+  "scope": "Prove physical ancestor creation is available through the publication of the source slot.",
+  "remaining": "Connect chronological availability to actual raw incidence and compact schedule."
+}

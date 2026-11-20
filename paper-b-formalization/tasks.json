@@ -309,7 +309,8 @@
     "release-core/PaperB/ExitRawCallCounts.lean": "exit sweeps",
     "release-core/PaperB/ExitScheduledRowMass.lean": "exit sweeps",
     "release-core/PaperB/ExitCompactDriverIndex.lean": "exit sweeps",
-    "release-core/PaperB/ExitCompactSchedule.lean": "exit sweeps"
+    "release-core/PaperB/ExitCompactSchedule.lean": "exit sweeps",
+    "release-core/PaperB/ExitPublishedSlotChronology.lean": "exit sweeps"
   },
   "milestones": [
     {
@@ -1394,9 +1395,10 @@
         "evidence/exit-canonical-shared-region/verification.json",
         "evidence/exit-concrete-depth-contract/verification.json",
         "evidence/exit-raw-fused-tally/verification.json",
-        "evidence/exit-scheduled-row-mass/verification.json"
+        "evidence/exit-scheduled-row-mass/verification.json",
+        "evidence/exit-prefix-dominated-available/verification.json"
       ],
-      "progress": "Raw labelled occurrence mass sums to the supplied arc count in the actual topological schedule, or no more when filtered to active owners."
+      "progress": "Prove physical ancestor creation is available through the publication of the source slot."
     },
     {
       "id": "EX4.4",
