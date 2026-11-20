@@ -1,0 +1,9 @@
+{
+  "base_commit": "3aea35ed510aaec3c4ee0b5bd127e64d6c97c680",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamForestStack.lean",
+  "sha256": "16c8fe0fefa534dc0a1e1d7345f99a727a08c1ed06abb85b103947fe9afed088",
+  "scope": "The DFS command tag, three-instruction push and pop, and three-instruction entry timestamp block refine actual EX0.3 machine transitions. The DFS stack fits in two words per occupied node at completed steps and partial child pushes. The known traversal schedules two pushes and two pops per node, including the root push.",
+  "remaining": "Link the child-row loop, timestamp stores and DFS dispatch to the actual interval result, then implement payload staging and the complete allocating construction trace. The full Lemma 3.2 refinement remains open.",
+  "source_provenance": "Local word-RAM implementation and proof using checked EX0.3 instruction semantics."
+}

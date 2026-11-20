@@ -19,7 +19,7 @@ Snapshot generated from the editable JSON ledgers. This dashboard tracks work an
 
 ## In progress
 
-- [EX2.4](TASKS.md#ex24) — The EX0.3 RAM runs a linkable copy loop for the compact output's six staged word banks. The exact standalone count is seven instructions per retained word plus the exit and halt. Every traced state uses the input and work arenas and seven registers. The proof reuses the 19-word-per-vertex bound for the actual builder result. The allocating caller, word encoders and interval finish must be implemented and linked to the construction trace. The copy starts from an already prepared arena and registers. The full Lemma 3.2 refinement remains open.
+- [EX2.4](TASKS.md#ex24) — The DFS command tag, three-instruction push and pop, and three-instruction entry timestamp block refine actual EX0.3 machine transitions. The DFS stack fits in two words per occupied node at completed steps and partial child pushes. The known traversal schedules two pushes and two pops per node, including the root push. Link the child-row loop, timestamp stores and DFS dispatch to the actual interval result, then implement payload staging and the complete allocating construction trace. The full Lemma 3.2 refinement remains open.
 - [EX4.2](TASKS.md#ex42) — Prove actual parent slots never point forward and discharge the physical ancestry order premise for a valid forest.
 - [EX4.3](TASKS.md#ex43) — Prove exact values and per-row visits and fused-call bounds for the executable base calculation.
 - [EX4.4](TASKS.md#ex44) — Transport the actual dense reader’s miss, membership and oriented exit-tail statements under exact labelled adjacency to the structural quotient.

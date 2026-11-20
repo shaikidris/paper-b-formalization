@@ -1,0 +1,8 @@
+'PaperB.RamProgram.step_sub_at' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestStack.push_steps' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestStack.pop_steps' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestStack.enter_steps' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestStack.commandWord_exit_node' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestStack.Finish.stack_word_fits' depends on axioms: [propext]
+'PaperB.RamForestStack.Finish.stackFits' depends on axioms: [propext, Quot.sound]
+'PaperB.RamForestStack.Finish.exact_stackOperations' depends on axioms: [propext, Classical.choice, Quot.sound]

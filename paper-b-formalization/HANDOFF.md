@@ -34,10 +34,13 @@ normalization already build on the pinned Lean toolchain.
   The [RAM copy stage](release-core/PaperB/RamSliceCopy.lean) now has an exact
   instruction trace and peak across every state. It copies the compact output's
   six staged banks, preserves other cells, and has linear cost on the actual
-  builder result. The caller still has to stage those encoded words, allocate the
-  arena and initialize the registers. The interval finish and the other builder
-  phases still need a linked fixed word-RAM program and refinement to the same
-  packed output before certifying Lemma 3.2.
+  builder result. The [DFS stack and timestamp blocks](release-core/PaperB/RamForestStack.lean)
+  have exact machine traces and preserve unrelated cells. For the compact
+  traversal, the stack fits in two words per occupied node and the push/pop
+  component has a budget of 12 instructions per occupied node. The next
+  refinement must link the child-row loop and DFS dispatch, encode the staged
+  columns, and compose these phases with the allocating caller and earlier
+  construction before certifying Lemma 3.2.
 - **EX4.2–EX4.4.** The [depth-aware sweep](release-core/PaperB/ExitDirectDepthInv.lean)
   preserves the initialized depth column through packed writes.
   [Fresh-slot correctness](release-core/PaperB/ExitClosedOverlay.lean)

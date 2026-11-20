@@ -1129,3 +1129,25 @@ theorem indexedDataRead_steps {code : Program L} {input : Input L}
       (reg_write_other s dst r w hr)
 
 end PaperB.RamProgram
+
+namespace PaperB.RamProgram
+
+variable {bits : Nat} {L : Layout bits}
+
+/-- Advance one instruction and expose all effects of subtraction. -/
+theorem step_sub_at {code : Program L} {input : Input L} {s : State L}
+    {dst lhs rhs : Fin L.registerCount}
+    (hf : code[s.pc]? = some (.sub dst lhs rhs))
+    (hnext : s.pc + 1 < code.size) :
+    ∃ t : State L, step code input s = some (.next t) ∧ t.pc = s.pc + 1 ∧
+      reg t dst = PaperB.WordOps.sub (reg s lhs) (reg s rhs) ∧
+      (∀ r : Fin L.registerCount, r ≠ dst → reg t r = reg s r) ∧
+      t.data = s.data := by
+  let w := PaperB.WordOps.sub (reg s lhs) (reg s rhs)
+  let t := { (writeReg s dst w) with pc := s.pc + 1 }
+  refine ⟨t, ?_, rfl, reg_write_same _ _ _, ?_, rfl⟩
+  · simp [step, hf, advance, hnext, t, w, reg]
+  · intro r h
+    exact reg_write_other _ _ _ _ h
+
+end PaperB.RamProgram
