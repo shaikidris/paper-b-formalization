@@ -1,0 +1,9 @@
+{
+  "base_commit": "2569bb6",
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ForestPackedBackRead.lean",
+  "sha256": "4b18a28d22ec2daa1f74978c8e8b2f5f6aa44a5c156e9f1abbd4f8f3efa357ac",
+  "scope": "Prove optional bounded-word back-key reads preserve both in-range equality and out-of-range misses.",
+  "remaining": "Compose with the actual dictionary row and constant-time known membership.",
+  "source_provenance": "Local composition of the already checked Generic word encoding and existing dictionary contracts."
+}
