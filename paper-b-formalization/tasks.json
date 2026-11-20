@@ -216,7 +216,8 @@
     "release-core/PaperB/ActualThirdForestGeometry.lean": "exit",
     "release-core/PaperB/ExitPhysicalOneSlot.lean": "exit",
     "release-core/PaperB/ForestFixedBankSortExact.lean": "cuts",
-    "release-core/PaperB/FastOriginalChildBuckets.lean": "cost"
+    "release-core/PaperB/FastOriginalChildBuckets.lean": "cost",
+    "release-core/PaperB/KahnInverse.lean": "cost"
   },
   "milestones": [
     {
@@ -1332,9 +1333,10 @@
         "evidence/dense-labelled-arc-audit/verification.json",
         "evidence/dense-structural-arc-transport-audit/verification.json",
         "evidence/dense-flatness/verification.json",
-        "evidence/fast-child-bucket/verification.json"
+        "evidence/fast-child-bucket/verification.json",
+        "evidence/physical-kahn/verification.json"
       ],
-      "progress": "Child lists and their dense layout can now be built from one physical pass and one grouping pass with exact linear counters, preserving old child order."
+      "progress": "The actual Kahn order now has a checked linear-space inverse-position array with exact scatter count and a rank-increase proof for every arc."
     },
     {
       "id": "EX5.2",

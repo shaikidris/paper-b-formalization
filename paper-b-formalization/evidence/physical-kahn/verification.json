@@ -1,0 +1,11 @@
+{
+  "base_commit": "1b345df",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/KahnInverse.lean",
+  "sha256": "8bcaa0390bcd2f83eb6f99aaa40b97f12b6d2edb87b29e026b1e8a8d27caf5ee",
+  "scope": "The inverse of the supplied topological order is materialized by a single scatter of one word per vertex. Its entries are proved injective and increase along every arc.",
+  "remaining": "Bind one shared inverse to the full builder and split the global order into physical local quotient scopes."
+}
