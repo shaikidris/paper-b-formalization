@@ -1,0 +1,7 @@
+'PaperB.BuiltExit.PackedRuntime.Input.fused_exact_of_occupied' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PaperB.BuiltExit.PackedRuntime.Input.install' depends on axioms: [propext, Quot.sound]
+'PaperB.BuiltExit.PackedRuntime.Input.installFreshCalls' depends on axioms: [propext]
+'PaperB.BuiltExit.PackedRuntime.Input.install_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PaperB.BuiltExit.PackedRuntime.Input.base_exact' depends on axioms: [propext, Classical.choice, Quot.sound]

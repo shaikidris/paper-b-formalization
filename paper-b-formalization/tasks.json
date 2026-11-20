@@ -262,7 +262,8 @@
     "release-core/PaperB/OriginalBothTables.lean": "exit",
     "release-core/PaperB/ExitCompactDrivers.lean": "exit",
     "release-core/PaperB/RamSetupAgreement.lean": "ram",
-    "release-core/PaperB/RamFirstSetupAgreement.lean": "ram"
+    "release-core/PaperB/RamFirstSetupAgreement.lean": "ram",
+    "release-core/PaperB/ExitPackedRuntime.lean": "exit"
   },
   "milestones": [
     {
@@ -1314,9 +1315,10 @@
         "evidence/exit-root-seed/verification.json",
         "evidence/exit-prior-base/verification.json",
         "evidence/packed-route-exact/verification.json",
-        "evidence/bank-aware-exit-sweep/verification.json"
+        "evidence/bank-aware-exit-sweep/verification.json",
+        "evidence/packed-runtime-no-rescan/verification.json"
       ],
-      "progress": "The actual packed interleaved induction now supports bank-aware fused callbacks without a reference map reader."
+      "progress": "Actual executable exit installer no longer rescans fresh endpoint rows. Local kernel equivalences and actual fused arena reads are verified."
     },
     {
       "id": "EX4.4",

@@ -1,0 +1,11 @@
+{
+  "base_commit": "9506d60",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/ExitPackedRuntime.lean",
+  "sha256": "90cac2790728d9f976461fe37c0418353db6bcd0502d49c055447a48c6e0bdfd",
+  "scope": "The executable packed adapter uses at most two fused prior-base reads per new map. Only base construction calls the incoming-row scan. Kernel agreement is proved from actual per-reader contracts.",
+  "remaining": "Build the physical reader columns once and discharge the per-call refinement from the chronological invariants."
+}
