@@ -251,7 +251,7 @@ private theorem finish
     (b : Bool) (hp : t.pc = if b then 73 else 75) :
     ∃ v, step (checkedProgram hcap hb setup) i t = some (.next v) ∧
       step (checkedProgram hcap hb setup) i v = some (.halted v) ∧
-      reg v 0 = flag hb b := by
+      reg v 0 = flag hb b ∧ reg v 3 = reg t 3 := by
   let v := put t 0 (flag hb b)
   have hf : (checkedProgram hcap hb setup)[t.pc]? = some (.imm 0 (flag hb b)) := by
     rw [hp]
@@ -269,7 +269,9 @@ private theorem finish
     cases b with
     | false => exact fetch_tail hcap hb setup (p := 76) (by decide) (by decide)
     | true => exact fetch_tail hcap hb setup (p := 74) (by decide) (by decide)
-  exact ⟨v, imm_at hf hn, step_halt_at hh, by simp [v, reg_put]⟩
+  refine ⟨v, imm_at hf hn, step_halt_at hh, ?_, ?_⟩
+  · simp [v, reg_put]
+  · simp (disch := decide) [v, reg_put]
 
 def TailTrace (i : Input (layout bits cap hcap))
     (s : State (layout bits cap hcap)) : Prop :=
@@ -281,12 +283,22 @@ def TailTrace (i : Input (layout bits cap hcap))
 
 /-- `hi` is exclusive. Each column must contain the prefix ending at `hi`,
 and the worker's one-based result must lie in the saved interval. -/
-theorem validation_trace (i : Input (layout bits cap hcap))
+def TailTraceWithIndex (i : Input (layout bits cap hcap))
+    (s : State (layout bits cap hcap)) : Prop :=
+  ∃ (n : Nat) (t : State (layout bits cap hcap)) (b : Bool),
+    n ≤ 14 ∧
+    Steps (checkedProgram hcap hb setup) i n s t ∧
+    step (checkedProgram hcap hb setup) i t = some (.halted t) ∧
+    reg t 0 = flag hb b ∧
+    (b = true ↔ selectedPairMatches i s) ∧
+    (b = true → (reg t 3).val = chosenIndex s)
+
+theorem validation_trace_with_index (i : Input (layout bits cap hcap))
     (s : State (layout bits cap hcap)) (hpc : s.pc = 60)
     (hk : (reg s 0).val ≤ (reg s 14).val - (reg s 13).val)
     (hcol₁ : (reg s 7).val + (reg s 14).val ≤ cap)
     (hcol₂ : (reg s 9).val + (reg s 14).val ≤ cap) :
-    TailTrace hcap hb setup i s := by
+    TailTraceWithIndex hcap hb setup i s := by
   let code := checkedProgram hcap hb setup
   have F (p : Nat) (hl : 60 ≤ p) (hh : p < 77) :
       code[p]? = some (tailCell hb (p - 60)) :=
@@ -297,10 +309,16 @@ theorem validation_trace (i : Input (layout bits cap hcap))
     exact hp
   have close (b : Bool) (m : Nat) (t : State (layout bits cap hcap))
       (hm : m ≤ 13) (ht : Steps code i m s t)
-      (hp : t.pc = if b then 73 else 75) (hc : b = true ↔ selectedPairMatches i s) :
-      TailTrace hcap hb setup i s := by
-    obtain ⟨v, en, eh, er⟩ := finish hcap hb setup (i := i) b hp
-    exact ⟨m + 1, v, b, by omega, ht.append (.cons en (.zero v)), eh, er, hc⟩
+      (hp : t.pc = if b then 73 else 75)
+      (hc : b = true ↔ selectedPairMatches i s)
+      (hindex : b = true → (reg t 3).val = chosenIndex s) :
+      TailTraceWithIndex hcap hb setup i s := by
+    obtain ⟨v, en, eh, er, er₃⟩ := finish hcap hb setup (i := i) b hp
+    refine ⟨m + 1, v, b, by omega, ht.append (.cons en (.zero v)), eh, er, hc, ?_⟩
+    intro htrue
+    rw [er₃]
+    exact hindex htrue
+
   let s61 := put s 1 (wzero hb)
   have f60 : code[s.pc]? = some (.imm 1 (wzero hb)) := by
     rw [hpc]
@@ -431,6 +449,11 @@ theorem validation_trace (i : Input (layout bits cap hcap))
     have rt₂ : reg s69 12 = reg s 12 := by
       simp (disch := decide)
         [s69, s68, s67, s66, s65, s64, s63, s62, s61, reg_put, reg_jump]
+    have r69ix : (reg s69 3).val = chosenIndex s := by
+      calc
+        (reg s69 3).val = ix.val := by
+          simp (disch := decide) [s69, s68, s67, s66, s65, reg_put]
+        _ = chosenIndex s := hix
     rcases compare_pair (input := i) (s := s69) (x := 5) (y := 11)
         (p := 69) (bad := 75)
         (F 69 (by decide) (by decide)) (F 70 (by decide) (by decide))
@@ -443,16 +466,20 @@ theorem validation_trace (i : Input (layout bits cap hcap))
           (B 72 (by decide)) (B 73 (by decide)) (B 75 (by decide)) with
         ⟨eq₂, path₂⟩ | ⟨ne₂, n, hn, path₂⟩
       · simp only [reg_jump, rv, rt₂] at eq₂
-        exact close true 13 _ (by decide) ((pre.append path₁).append path₂)
-          rfl (by simp [match_iff, eq₁, eq₂])
+        refine close true 13 _ (by decide) ((pre.append path₁).append path₂)
+          rfl (by simp [match_iff, eq₁, eq₂]) ?_
+        intro _
+        change (reg (jump (jump s69 71) 73) 3).val = chosenIndex s
+        simpa only [reg_jump] using r69ix
       · simp only [reg_jump, rv, rt₂] at ne₂
         have hno : ¬ selectedPairMatches i s := fun hm => ne₂ (match_iff.mp hm).2
         exact close false ((9 + 2) + n) _ (by omega)
           ((pre.append path₁).append path₂) rfl (by simp [hno])
+          (by intro h; cases h)
     · rw [ru, rt₁] at ne₁
       have hno : ¬ selectedPairMatches i s := fun hm => ne₁ (match_iff.mp hm).1
       exact close false (9 + n) _ (by omega) (pre.append path₁)
-        rfl (by simp [hno])
+        rfl (by simp [hno]) (by intro h; cases h)
   · have q61 : ltb (reg s61 1) (reg s61 0) = false := by
       apply ltb_false
       rw [r61z, r61k]
@@ -461,7 +488,56 @@ theorem validation_trace (i : Input (layout bits cap hcap))
       branch_to f61 (by simp [q61]) (B 75 (by decide))
     have hno : ¬ selectedPairMatches i s := fun hm => hpos hm.1
     exact close false 2 _ (by decide) (.cons e60 (.cons e61 (.zero _)))
-      rfl (by simp [hno])
+      rfl (by simp [hno]) (by intro h; cases h)
+
+theorem validation_trace (i : Input (layout bits cap hcap))
+    (s : State (layout bits cap hcap)) (hpc : s.pc = 60)
+    (hk : (reg s 0).val ≤ (reg s 14).val - (reg s 13).val)
+    (hcol₁ : (reg s 7).val + (reg s 14).val ≤ cap)
+    (hcol₂ : (reg s 9).val + (reg s 14).val ≤ cap) :
+    TailTrace hcap hb setup i s := by
+  obtain ⟨n, t, b, hn, hsteps, hhalt, hout, hmatch, _hindex⟩ :=
+    validation_trace_with_index hcap hb setup i s hpc hk hcol₁ hcol₂
+  exact ⟨n, t, b, hn, hsteps, hhalt, hout, hmatch⟩
+
+theorem validation_correct_with_index (i : Input (layout bits cap hcap))
+    (s : State (layout bits cap hcap)) (hpc : s.pc = 60)
+    (hk : (reg s 0).val ≤ (reg s 14).val - (reg s 13).val)
+    (hcol₁ : (reg s 7).val + (reg s 14).val ≤ cap)
+    (hcol₂ : (reg s 9).val + (reg s 14).val ≤ cap) :
+    ∃ r : Result (layout bits cap hcap),
+      run (checkedProgram hcap hb setup) i 15 s = some r ∧
+      (reg r.finalState 0 = wone hb ↔ selectedPairMatches i s) ∧
+      (reg r.finalState 0 = wone hb →
+        (reg r.finalState 3).val = chosenIndex s) := by
+  obtain ⟨n, t, b, hn, hsteps, hhalt, hout, hmatch, hindex⟩ :=
+    validation_trace_with_index hcap hb setup i s hpc hk hcol₁ hcol₂
+  have last : run (checkedProgram hcap hb setup) i (15 - n) t =
+      some (⟨t, 1⟩ : Result (layout bits cap hcap)) := by
+    cases he : 15 - n with
+    | zero => omega
+    | succ m => simp only [run, hhalt]
+  have hrun := hsteps.thenRun last
+  have hfuel : n + (15 - n) = 15 := by omega
+  rw [hfuel] at hrun
+  refine ⟨⟨t, n + 1⟩, hrun, ?_⟩
+  change (reg t 0 = wone hb ↔ selectedPairMatches i s) ∧
+    (reg t 0 = wone hb → (reg t 3).val = chosenIndex s)
+  rw [hout]
+  cases b with
+  | false =>
+    have hz : wzero hb ≠ wone hb := by
+      intro h
+      have hv := congrArg Fin.val h
+      change 0 = 1 at hv
+      omega
+    constructor
+    · simpa [flag, hz] using hmatch
+    · intro hone
+      change wzero hb = wone hb at hone
+      exact (hz hone).elim
+  | true =>
+    exact ⟨by simpa [flag] using hmatch, fun _ => hindex rfl⟩
 
 /-- Fifteen instructions of fuel suffice. The returned Boolean word is one
 exactly when the nonzero result selects both saved targets in the input. -/

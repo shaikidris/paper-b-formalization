@@ -8,8 +8,8 @@
     },
     {
       "path": "DASHBOARD.md",
-      "bytes": 3044,
-      "sha256": "c29fab0bef928db8332ebabfd44576ada119d2960b88c350febdd63b1b3f6072"
+      "bytes": 3034,
+      "sha256": "908882051c3bd9d86ac87be450227034f8dca5ebfaec858e820978b1d2828378"
     },
     {
       "path": "DISPATCH.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "TASKS.md",
-      "bytes": 59478,
-      "sha256": "4db1f3324cd18757cfbfa82885c6bf0b43c572d2ecfc809cccc4a60d420ff37a"
+      "bytes": 59568,
+      "sha256": "bcdc28a33d2e78a24d6af1632c66a8b453c90a36c46288a34b6cfd3f7178c2a2"
     },
     {
       "path": "archive/v1.1/README.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "events.jsonl",
-      "bytes": 70586,
-      "sha256": "4f82b2638437b2f7464605f2d29975b98edb64aed2b3a3ee5c2c48cf0824d747"
+      "bytes": 70776,
+      "sha256": "18debd85ea4cc777600ed482952043f2478bfdaa30d8eb52cee7dfc8534e472f"
     },
     {
       "path": "evidence/actual-child-audit/Audit.lean",
@@ -4432,6 +4432,21 @@
       "sha256": "5f083e481697faf3ed94220ce80e6b7c8b8b0fb3c97bdce3d60edde5bea739bd"
     },
     {
+      "path": "evidence/ram-checked-row-tail/Audit.lean",
+      "bytes": 116,
+      "sha256": "d7abffb7c66db7a33283e9048d1345c9b7789fceace9997da327558cfc8ea3be"
+    },
+    {
+      "path": "evidence/ram-checked-row-tail/axioms.txt",
+      "bytes": 135,
+      "sha256": "1ac482f521e7963ced717dbaa9fe234e88b2d972c1fa060c8a2af914be385877"
+    },
+    {
+      "path": "evidence/ram-checked-row-tail/verification.json",
+      "bytes": 518,
+      "sha256": "6607aec1396365bec4a7bb9847ca28b7d85fd792e00e6b803f20cf6d6726eef3"
+    },
+    {
       "path": "evidence/ram-complete-boolean-pair-check/Audit.lean",
       "bytes": 107,
       "sha256": "f1ad115e3d197d95c7634dafa42e1414f02024fdbf193cda1a8a8fc08fbff4f9"
@@ -6023,8 +6038,8 @@
     },
     {
       "path": "release-core/PaperB/RamEqualityTail.lean",
-      "bytes": 21362,
-      "sha256": "f2fcd96d5fc30eb2cc770ea3f3020859053ad5b1f0cc63faedbb4c0492dd14d9"
+      "bytes": 24534,
+      "sha256": "cbda1a958f080a5d54adce4225275ba815ec84d1273fe94d3f477d50f582918d"
     },
     {
       "path": "release-core/PaperB/RamEqualityTailTransfer.lean",
@@ -6418,8 +6433,8 @@
     },
     {
       "path": "tasks.json",
-      "bytes": 78932,
-      "sha256": "ead4d0e4cbf14a323874294511632a6c673ed9b1624297d312cbbdb6cd7f358f"
+      "bytes": 78981,
+      "sha256": "9bd1c2df58274d61120d5bb261927d684291721e61fb443624907cb78a990d3c"
     },
     {
       "path": "test_plan.py",

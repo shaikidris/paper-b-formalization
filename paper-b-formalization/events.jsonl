@@ -337,3 +337,4 @@
 {"at": "2026-11-20T02:59:02+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalSeedPass", "tasks": ["EX4.3"], "evidence": "evidence/exit-seed-closure/verification.json"}
 {"at": "2026-11-20T02:59:05+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitPhysicalDepthColumn", "tasks": ["EX4.3"], "evidence": "evidence/exit-depth-step-frame/verification.json"}
 {"at": "2026-11-20T02:59:13+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "ExitDirectDepthInv", "tasks": ["EX4.3"], "evidence": "evidence/exit-direct-depth-inv/verification.json"}
+{"at": "2026-11-20T02:59:20+00:00", "kind": "PAPER_B_PRIVATE_API_CHECKPOINT", "module": "RamEqualityTail", "tasks": ["EX5.3"], "evidence": "evidence/ram-checked-row-tail/verification.json"}

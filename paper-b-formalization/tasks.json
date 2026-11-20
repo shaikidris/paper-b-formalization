@@ -1545,9 +1545,10 @@
         "evidence/ram-prefix-transfer/verification.json",
         "evidence/placed-two-scalar-calls/verification.json",
         "evidence/ram-full-pair-rom/verification.json",
-        "evidence/ram-complete-boolean-pair-check/verification.json"
+        "evidence/ram-complete-boolean-pair-check/verification.json",
+        "evidence/ram-checked-row-tail/verification.json"
       ],
-      "progress": "The actual fixed pair-check ROM runs from PC0 to halt and returns the correct dictionary membership bit within its logarithmic fuel bound."
+      "progress": "On a successful actual validation run register 3 equals the selected physical dictionary row; the ROM and fuel remain identical."
     },
     {
       "id": "EX5.4",

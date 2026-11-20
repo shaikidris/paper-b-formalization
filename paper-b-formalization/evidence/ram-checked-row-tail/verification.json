@@ -1,0 +1,11 @@
+{
+  "base_commit": "a6e7da9",
+  "model": "gpt-6.2-sol",
+  "effort": "high",
+  "api_input_output_sharing": false,
+  "toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "source": "release-core/PaperB/RamEqualityTail.lean",
+  "sha256": "cbda1a958f080a5d54adce4225275ba815ec84d1273fe94d3f477d50f582918d",
+  "scope": "On a successful actual validation run register 3 equals the selected physical dictionary row; the ROM and fuel remain identical.",
+  "remaining": "Bind the exact row to the pair lookup and final dispatcher."
+}
